@@ -1,0 +1,96 @@
+﻿<loading-gif [show]="showLoadingGif"></loading-gif>
+<!-- Breadcrumb start -->
+<div class="breadcrumb">
+    <div class="center">
+        <a class="back" routerLink="/system/search">Return to body system search</a>
+    </div>
+</div>
+<!-- Breadcrumb end -->
+<!-- Main start -->
+<main class="clearfix">
+
+    <div class="center">
+
+        <!-- Existing Body systems start -->
+        <div class="table-wrap">
+            <h2 class="clearfix">
+                Existing Body Systems
+            </h2>
+            <div class="ctable">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Body Style Config ID</td>
+                            <td>Body Num Doors (ID)</td>
+                            <td>Body Type (ID)</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngIf="existingBodyStyleConfig">
+                            <td>{{existingBodyStyleConfig.id}}</td>
+                            <td>{{existingBodyStyleConfig.numDoors}} ({{existingBodyStyleConfig.bodyNumDoorsId}})</td>
+                            <td>{{existingBodyStyleConfig.bodyTypeName}} ({{existingBodyStyleConfig.bodyTypeId}})</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+        <!-- Modify Body system form start -->
+        <div class="add-form">
+            <h2>Modify Body System</h2>
+            <div class="clearfix">
+                <div class="input-blocks clearfix">
+                    <div>
+                        <strong>Body Num Doors(ID)</strong>
+
+                        <div class="select white-select" style="width: 220px;" *ngIf="modifiedBodyStyleConfig">
+                            <select [disabled]="!bodyNumDoors" [(ngModel)]="modifiedBodyStyleConfig.bodyNumDoorsId">
+                                <option value="-1" *ngIf="!bodyNumDoors">Loading...</option>
+                                <option value="-1" *ngIf="bodyNumDoors">--Select Body Length--</option>
+                                <option *ngFor="let item of bodyNumDoors" [value]="item.id">{{item.numDoors}} ({{item.id}})</option>
+                            </select>
+                            <div class="select__arrow white-select__arrow"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <strong>Body Type (ID)</strong>
+
+                        <div class="select white-select" style="width: 220px;" *ngIf="modifiedBodyStyleConfig">
+                            <select [disabled]="!bodyTypes" [(ngModel)]="modifiedBodyStyleConfig.bodyTypeId">
+                                <option value="-1" *ngIf="!bodyTypes">Loading...</option>
+                                <option value="-1" *ngIf="bodyTypes">--Select Body Type--</option>
+                                <option *ngFor="let item of bodyTypes" [value]="item.id">{{item.name}} ({{item.id}})</option>
+                            </select>
+                            <div class="select__arrow white-select__arrow"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="warning-wrap">
+                    <div *ngIf="existingBodyStyleConfig">
+                        <strong>Associated records will be impacted</strong>
+                        <span>{{existingBodyStyleConfig.vehicleToBodyStyleConfigCount}} vehicle to body style configurations</span>
+                    </div>
+                </div>
+
+                <div class="submit-wrap">
+                    <input type="submit" value="SUBMIT CHANGE REQUEST" class="btn larger" (click)="onSubmitChangeRequests()">
+                    <input type="reset" value="CANCEL" class="btn transparent larger" routerLink="/system/search">
+                </div>
+
+                <div class="attach-wrap" style="margin-top: 40px;" *ngIf="modifiedBodyStyleConfig">
+                    <strong>OPTIONAL</strong>
+
+                    <ac-fileuploader upload-api-path="file/savechunk"></ac-fileuploader>
+                    <small>Include comments</small>
+                    <textarea cols="50" rows="5" [(ngModel)]="modifiedBodyStyleConfig.comment"></textarea>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</main>
+<!-- Main end -->

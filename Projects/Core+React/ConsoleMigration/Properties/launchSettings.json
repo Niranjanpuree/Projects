@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ConsoleMigration": {
+      "commandName": "Project",
+      "commandLineArgs": "rootPath"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+@{
+    var resourceVersion = @Configuration["resourceVersion"];
+    var cdnUrl = @Configuration["CDNUrl"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Contract Brief";
+}
+
+@section breadcrumb
+    {
+    <li class="breadcrumb-item"><a href="/Contract">List Of Contracts</a></li>
+    @if (ViewBag.IsContract)
+    {
+        <li class="breadcrumb-item"><a href="/Contract/Details/@Model">@ViewBag.ProjectNumber : Contract Detail</a></li>
+    }
+    else
+    {
+        <li class="breadcrumb-item"><a href="/Project/Details/@Model">@ViewBag.ProjectNumber : Task Order Detail</a></li>
+    }
+    <li class="breadcrumb-item"><a href="#">Contract Brief</a></li>
+}
+
+<div id="contractBrief"></div>
+<script src="@cdnUrl/lib/jquery/dist/jquery.js?v=@resourceVersion"></script>
+
+<script>
+    $(document).ready(function () {
+        window.loadExportData.loadExportPdf('contractBrief', '@cdnUrl', '@Model', '@ViewBag.Currnecy', 'Test User',
+            '@DateTime.Now.ToString("MM/dd/yyyy")');
+    });
+</script>

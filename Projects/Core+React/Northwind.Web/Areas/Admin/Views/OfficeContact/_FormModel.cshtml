@@ -1,0 +1,69 @@
+﻿@model Northwind.Web.Models.ViewModels.OfficeContactViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<div class="row-fluid col-md-12">
+    <form asp-action="_FormModel">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="OfficeGuid" class="form-control" />
+        <input type="hidden" asp-for="ContactGuid" class="form-control" />
+        <input type="hidden" asp-for="OfficeName" class="form-control" />
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label asp-for="FirstName" class="fontbold requiredAstreicks control-label"></label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="MiddleName" class="fontbold control-label"></label>
+                <input asp-for="MiddleName" class="form-control" />
+                <span asp-validation-for="MiddleName" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="LastName" class="fontbold requiredAstreicks control-label"></label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+          
+             <div class="form-group col-md-4">
+                 <label asp-for="ContactType" class="fontbold requiredAstreicks control-label"></label>
+                 <select asp-for="ContactType" class="form-control">
+                     @* <option value="">--Select--</option> *@
+                     @foreach (var item in Model.ContactTypeSelectListItems)
+                     {
+                     <option value="@item.Key">@item.Value</option>
+                     }
+                 </select>
+             </div>
+           
+            <div class="form-group col-md-4">
+                <label asp-for="PhoneNumber" class="fontbold requiredAstreicks control-label"></label>
+                <input asp-for="PhoneNumber" class="form-control" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="AltPhoneNumber" class="fontbold  control-label"></label>
+                <input asp-for="AltPhoneNumber" class="form-control" />
+                <span asp-validation-for="AltPhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="EmailAddress" class="fontbold  control-label"></label>
+                <input asp-for="EmailAddress" class="form-control" type="email" />
+                <span asp-validation-for="EmailAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="AltEmailAddress" class="fontbold  control-label"></label>
+                <input asp-for="AltEmailAddress" class="form-control" type="email"/>
+                <span asp-validation-for="AltEmailAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-8">
+                <label asp-for="Address" class="fontbold control-label"></label>
+                <textarea class="form-control" asp-for="Address">@Model.Address</textarea>
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-8">
+                <label asp-for="Description" class="fontbold control-label"></label>
+                <textarea class="form-control" asp-for="Description">@Model.Description</textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,29 @@
+﻿@using System.Web;
+@model Northwind.Web.Models.ViewModels.Article.ArticleViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Article : Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section breadcrumb
+    {
+    <li class="breadcrumb-item"><a href="/Admin/Homesection">List of Articles</a></li>
+    <li class="breadcrumb-item"><a href="#">Add Article</a></li>
+}
+
+<div>
+    <partial name="_FormModelArticle.cshtml" />
+</div>
+
+@section Scripts {
+    <script>
+        $("#ArticleDate").kendoDatePicker();
+        var editor = null;
+        (function () {
+            editor = window.richEditor.loadRichEditor('richtexteditor', '@Html.Raw(Model.Body)');
+
+        })()
+
+    </script>
+}

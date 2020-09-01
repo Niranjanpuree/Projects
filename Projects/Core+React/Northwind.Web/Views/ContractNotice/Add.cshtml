@@ -1,0 +1,16 @@
+﻿@model Northwind.Web.Models.ViewModels.Contract.ContractNoticeViewModel
+<div>
+    @{Html.RenderPartial("ContractNoticeFormModel");}
+</div>
+<script>
+     //call submit method from contract index.tsx
+    window.uploaderMod = window.loadFileUpload.pageView.loadFileUpload('fileUploadMod', '@ViewBag.Resourcekey', true, '@ViewBag.ResourceId', '@ViewBag.UpdatedBy', '@ViewBag.UpdatedOn', 'No path', true, true, false, true, false ,submitCallBack);
+
+    
+    function submitCallBack() {
+         
+    }
+</script>
+
+
+

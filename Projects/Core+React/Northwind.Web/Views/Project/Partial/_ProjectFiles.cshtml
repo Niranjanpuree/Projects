@@ -1,0 +1,14 @@
+﻿@model Northwind.Web.Models.ViewModels.Contract.ContractViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<div class="p-4">
+    <p class="upload-contract-file">
+        Please choose file(s) to upload. Files you upload here will be saved under <i
+            class="k-icon k-i-folder text-warning"></i> Task Order <i
+            class="k-icon k-i-arrow-chevron-right text-secondary"></i>
+        <i class="k-icon k-i-folder text-warning"></i> Base folder for this Task order. If you want to add files to
+        other folders, you may skip the file upload here.
+        After you save this task order, in details screen, you will be able to choose folders to add files to.
+    </p>
+    <div id="fileUpload"></div>
+</div>

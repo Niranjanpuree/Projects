@@ -1,0 +1,44 @@
+E:\Autocare Association\POC\AutoCare.Product.Infrastructure\bin\Debug\AutoCare.Product.Infrastructure.dll.config
+E:\Autocare Association\POC\AutoCare.Product.Infrastructure\bin\Debug\AutoCare.Product.Infrastructure.dll
+E:\Autocare Association\POC\AutoCare.Product.Infrastructure\bin\Debug\AutoCare.Product.Infrastructure.pdb
+E:\Autocare Association\POC\AutoCare.Product.Infrastructure\bin\Debug\EntityFramework.dll
+E:\Autocare Association\POC\AutoCare.Product.Infrastructure\bin\Debug\EntityFramework.SqlServer.dll
+E:\Autocare Association\POC\AutoCare.Product.Infrastructure\bin\Debug\Newtonsoft.Json.dll
+E:\Autocare Association\POC\AutoCare.Product.Infrastructure\bin\Debug\NLog.dll
+E:\Autocare Association\POC\AutoCare.Product.Infrastructure\bin\Debug\EntityFramework.xml
+E:\Autocare Association\POC\AutoCare.Product.Infrastructure\bin\Debug\EntityFramework.SqlServer.xml
+E:\Autocare Association\POC\AutoCare.Product.Infrastructure\bin\Debug\Newtonsoft.Json.xml
+E:\Autocare Association\POC\AutoCare.Product.Infrastructure\bin\Debug\NLog.xml
+E:\Autocare Association\POC\AutoCare.Product.Infrastructure\obj\Debug\AutoCare.Product.Infrastructure.csprojResolveAssemblyReference.cache
+E:\Autocare Association\POC\AutoCare.Product.Infrastructure\obj\Debug\AutoCare.Product.Infrastructure.dll
+E:\Autocare Association\POC\AutoCare.Product.Infrastructure\obj\Debug\AutoCare.Product.Infrastructure.pdb
+D:\Autocare Association\POC\AutoCare.Product.Infrastructure\bin\Debug\AutoCare.Product.Infrastructure.dll.config
+D:\Autocare Association\POC\AutoCare.Product.Infrastructure\bin\Debug\AutoCare.Product.Infrastructure.dll
+D:\Autocare Association\POC\AutoCare.Product.Infrastructure\bin\Debug\AutoCare.Product.Infrastructure.pdb
+D:\Autocare Association\POC\AutoCare.Product.Infrastructure\bin\Debug\EntityFramework.dll
+D:\Autocare Association\POC\AutoCare.Product.Infrastructure\bin\Debug\EntityFramework.SqlServer.dll
+D:\Autocare Association\POC\AutoCare.Product.Infrastructure\bin\Debug\Newtonsoft.Json.dll
+D:\Autocare Association\POC\AutoCare.Product.Infrastructure\bin\Debug\NLog.dll
+D:\Autocare Association\POC\AutoCare.Product.Infrastructure\bin\Debug\EntityFramework.xml
+D:\Autocare Association\POC\AutoCare.Product.Infrastructure\bin\Debug\EntityFramework.SqlServer.xml
+D:\Autocare Association\POC\AutoCare.Product.Infrastructure\bin\Debug\Newtonsoft.Json.xml
+D:\Autocare Association\POC\AutoCare.Product.Infrastructure\bin\Debug\NLog.xml
+D:\Autocare Association\POC\AutoCare.Product.Infrastructure\obj\Debug\AutoCare.Product.Infrastructure.csprojResolveAssemblyReference.cache
+D:\Autocare Association\POC\AutoCare.Product.Infrastructure\obj\Debug\AutoCare.Product.Infrastructure.dll
+D:\Autocare Association\POC\AutoCare.Product.Infrastructure\obj\Debug\AutoCare.Product.Infrastructure.pdb
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.Infrastructure\bin\Debug\AutoCare.Product.Infrastructure.dll.config
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.Infrastructure\bin\Debug\AutoCare.Product.Infrastructure.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.Infrastructure\bin\Debug\AutoCare.Product.Infrastructure.pdb
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.Infrastructure\bin\Debug\EntityFramework.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.Infrastructure\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.Infrastructure\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.Infrastructure\bin\Debug\NLog.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.Infrastructure\bin\Debug\EntityFramework.xml
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.Infrastructure\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.Infrastructure\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.Infrastructure\bin\Debug\NLog.xml
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.Infrastructure\obj\Debug\AutoCare.Product.Infrastructure.csprojAssemblyReference.cache
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.Infrastructure\obj\Debug\AutoCare.Product.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.Infrastructure\obj\Debug\AutoCare.Product.Infrastructure.csproj.CopyComplete
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.Infrastructure\obj\Debug\AutoCare.Product.Infrastructure.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.Infrastructure\obj\Debug\AutoCare.Product.Infrastructure.pdb

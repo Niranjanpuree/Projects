@@ -1,0 +1,41 @@
+﻿@model Northwind.Web.Models.ViewModels.Contract.ContractNoticeViewModel
+<style>
+    /* .k-child-animation-container, .k-child-animation-container div, .k-animation-container.k-animation-container-relative{
+        width: 100%
+    } */
+
+
+    .GroupUser .k-widget.k-grid {
+        height: 410px !important;
+    }
+</style>
+<div class="row">
+    <div class="form-group col-md-6">
+        <label class="control-label control-label-read">Notice Type</label>
+        <div class="form-value">@Model.NoticeType</div>
+    </div>
+    <div class="form-group col-md-6">
+        <label class="control-label control-label-read">Current Status</label>
+        <div class="form-value">@Model.Resolution</div>
+    </div>
+    <div class="form-group col-md-6">
+        <label class="control-label control-label-read">Date Issued</label>
+        <div class="form-value">@Model.IssuedDate?.ToString("MM/dd/yyyy")</div>
+    </div>
+    <div class="form-group col-md-6">
+        <label class="control-label control-label-read">Date Last Updated</label>
+        <div class="form-value">@Model.LastUpdatedDate?.ToString("MM/dd/yyyy")</div>
+    </div>
+</div>
+
+<div class="row">
+    <div id="ContractNoticeDetail" class="col-md-12">
+
+    </div>
+</div>
+<script>
+    function init() {
+        window.contractNotice.loadContractNoticeDetails('@Model.ContractGuid', '@Model.NoticeType','Notice Details Lists', '@User.Claims.Where(c=>c.Type.ToString() == "fullName").ToList()[0].Value');
+    }
+    init();
+</script>

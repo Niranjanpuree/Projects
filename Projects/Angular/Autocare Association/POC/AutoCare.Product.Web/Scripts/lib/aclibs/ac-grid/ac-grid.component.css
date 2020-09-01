@@ -1,0 +1,13 @@
+﻿.table-text {
+  height: 16px;
+  font-family: OpenSans-Regular;
+  font-size: 14px;
+  line-height: 1.1;
+  color: #000000;
+  font-weight: 500;
+}
+
+.active {
+    background-color: #faf8f5;
+    color: #000000 !important;
+}

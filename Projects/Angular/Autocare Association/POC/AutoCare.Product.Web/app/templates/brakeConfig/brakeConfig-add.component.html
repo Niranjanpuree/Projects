@@ -1,0 +1,212 @@
+﻿<loading-gif [show]="showLoadingGif"></loading-gif>
+<!-- Breadcrumb start -->
+<div class="breadcrumb">
+    <div class="center">
+        <a routerLink="/system/search" class="back">Return to brake system search</a>
+    </div>
+</div>
+<!-- Breadcrumb end -->
+<!-- Main start -->
+<main class="with-sidemenu clearfix">
+
+    <div class="center">
+
+        <!-- Add brake system form start -->
+        <div class="add-form add-brake-system">
+            <h2>Add a Brake System</h2>
+            <div class="clearfix">
+                <div class="input-blocks clearfix">
+                    <div>
+                        <strong>Front Brake (ID)</strong>
+
+                        <div class="select white-select" style="width: 210px;">
+                            <select class="drop-download DropdownTypeOne" [disabled]="!brakeTypes" [(ngModel)]="newBrakeConfig.frontBrakeTypeId">
+                                <option value="-1" *ngIf="!brakeTypes">Loading...</option>
+                                <option value="-1" *ngIf="brakeTypes">--Select Front Brake--</option>
+                                <option *ngFor="let item of brakeTypes" [value]="item.id">{{item.name}} ({{item.id}})</option>
+                            </select>
+                            <div class="select__arrow white-select__arrow"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <strong>Rear Brake (ID)</strong>
+
+                        <div class="select white-select" style="width: 180px;">
+                            <select class="drop-download DropdownTypeTwo" [disabled]="!brakeTypes" [(ngModel)]="newBrakeConfig.rearBrakeTypeId">
+                                <option value="-1" *ngIf="!brakeTypes">Loading...</option>
+                                <option value="-1" *ngIf="brakeTypes">--Select Rear Brake--</option>
+                                <option *ngFor="let item of brakeTypes" [value]="item.id">{{item.name}} ({{item.id}})</option>
+                            </select>
+                            <div class="select__arrow white-select__arrow"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <strong>Brake ABS (ID)</strong>
+
+                        <div class="select white-select" style="width: 180px;">
+                            <select class="drop-download DropdownTypeTwo" [disabled]="!brakeABSes" [(ngModel)]="newBrakeConfig.brakeABSId">
+                                <option value="-1" *ngIf="!brakeABSes">Loading...</option>
+                                <option value="-1" *ngIf="brakeABSes">--Select Brake ABS--</option>
+                                <option *ngFor="let item of brakeABSes" [value]="item.id">{{item.name}} ({{item.id}})</option>
+                            </select>
+                            <div class="select__arrow white-select__arrow"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <strong>Brake System (ID)</strong>
+
+                        <div class="select white-select">
+                            <select class="drop-download-Year DropdownTypeTwo" [disabled]="!brakeSystems" [(ngModel)]="newBrakeConfig.brakeSystemId">
+                                <option value="-1" *ngIf="!brakeSystems">Loading...</option>
+                                <option value="-1" *ngIf="brakeSystems">--Select Brake System--</option>
+                                <option *ngFor="let item of brakeSystems" [value]="item.id">{{item.name}} ({{item.id}})</option>
+                            </select>
+                            <div class="select__arrow white-select__arrow"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="submit-wrap">
+                    <input type="submit" value="ADD TO PROPOSED CHANGES" class="btn blue larger" (click)="onAddToProposedChanges()">
+                </div>
+
+                <div class="attach-wrap">
+                    <strong>OPTIONAL</strong>
+                    <ac-fileuploader upload-api-path="file/savechunk"></ac-fileuploader>
+                    <small>Include comments</small>
+                    <textarea cols="50" rows="5" [(ngModel)]="newBrakeConfig.comment"></textarea>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Proposed Base systems start -->
+        <div class="table-wrap">
+            <h2 class="clearfix">
+                Proposed Brake Systems
+            </h2>
+            <div class="ctable">
+                <table>
+                    <thead>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>Front Brake (ID)</td>
+                        <td>Rear Brake (ID)</td>
+                        <td>Brake ABS (ID)</td>
+                        <td>Brake System (ID)</td>
+                        <td>Optional Info</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let brakeConfig of proposedBrakeConfigs">
+                            <td><a class="btn-row-remove" (click)="onRemoveBrakeConfig(brakeConfig)"></a></td>
+                            <td>{{ brakeConfig.frontBrakeTypeName }} ({{ brakeConfig.frontBrakeTypeId }})</td>
+                            <td>{{ brakeConfig.rearBrakeTypeName }} ({{ brakeConfig.rearBrakeTypeId }})</td>
+                            <td>{{ brakeConfig.brakeABSName }} ({{ brakeConfig.brakeABSId }})</td>
+                            <td>{{ brakeConfig.brakeSystemName }}({{brakeConfig.brakeSystemId}})</td>
+                            <td>
+                                <a class="box-icon attachment" title="Attachment" (click)=openAttachmentPopupModal(brakeConfig)></a>
+                                <a class="box-icon drive-document" title="Drive Documents" (click)="openCommentPopupModal(brakeConfig)"></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Submit and cancel button start -->
+            <div class="btns">
+                <input type="submit" value="SUBMIT CHANGE REQUESTS" class="btn  larger" (click)="onSubmitChangeRequests()" />
+                <input type="submit" value="CANCEL" class="btn larger transparent" routerLink="/system/search" />
+            </div>
+
+        </div>
+
+        <!-- Pending new brake system requests start -->
+        <div class="table-wrap">
+            <h2 class="clearfix">
+                Pending New Brake System Requests
+            </h2>
+            <div class="ctable">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Front Brake (ID)</td>
+                            <td>Rear Brake (ID)</td>
+                            <td>Brake ABS (ID)</td>
+                            <td>Brake System (ID)</td>
+                            <td>Optional Info</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let brakeConfig of pendingBrakeConfigChangeRequests">
+                            <td>{{ brakeConfig.frontBrakeTypeName }} ({{ brakeConfig.frontBrakeTypeId }})</td>
+                            <td>{{ brakeConfig.rearBrakeTypeName }} ({{ brakeConfig.rearBrakeTypeId }})</td>
+                            <td>{{ brakeConfig.brakeABSName }} ({{ brakeConfig.brakeABSId }})</td>
+                            <td>{{ brakeConfig.brakeSystemName }} ({{ brakeConfig.brakeSystemId }})</td>
+                            <td *ngIf="brakeConfig.changeRequestId">
+                                <a class="btn-r-arrow blue" (click)="onViewBrakeSystemCr(brakeConfig)" style="cursor: pointer;"> View</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</main>
+<!-- Main end -->
+<div class="popup">
+    <modal #commentPopupModel>
+        <div class="overlay dark show">
+            <div class="new-make modal-sm">
+                <a (click)="commentPopupModel.dismiss()" class="close"></a>
+                <div class="add-form">
+                    <h2>Edit Comment</h2>
+                    <div class="clearfix">
+                        <div class="attach-wrap">
+                            <small>comments</small>
+                            <textarea cols="50" rows="5" [(ngModel)]="brakeConfig.comment"></textarea>
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        <!-- Submit and cancel button start -->
+                        <div class="btns">
+                            <input type="button" value="CANCEL" class="btn transparent" (click)="commentPopupModel.dismiss()">
+                            <input type="submit" value="CONFIRM" class="btn" (click)="onCommentConfirm()">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </modal>
+</div>
+<div class="popup">
+    <modal #attachmentsPopupModel>
+        <div class="overlay dark show">
+            <div class="new-make modal-sm">
+                <a (click)="onAttachmentCancel()" class="close"></a>
+                <div class="add-form">
+                    <h2>Edit Attachments</h2>
+                    <div class="clearfix">
+                        <div class="attach-wrap">
+                            <p *ngIf="brakeConfig.attachments">
+                                <strong>Attachments</strong><br>
+                                <ac-fileuploader [existing-files]="brakeConfig.attachments"
+                                                 upload-api-path="file/savechunk" #attachmentsPopupAcFileUploader="acFileUploader" [can-attach]="true"></ac-fileuploader>
+                            </p>
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        <!-- Submit and cancel button start -->
+                        <div class="btns">
+                            <input type="button" value="CANCEL" class="btn transparent" (click)="onAttachmentCancel()">
+                            <input type="submit" value="CONFIRM" class="btn" (click)="onAttachmentConfirm()">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </modal>
+</div>

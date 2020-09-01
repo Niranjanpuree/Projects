@@ -1,0 +1,301 @@
+﻿<!--<loading-gif [show]="showLoadingGif"></loading-gif>-->
+
+<div class="drawer-left">
+    <span></span>
+    <div>
+        <main class="clearfix">
+            <div>
+                <!-- Modify brake system form start -->
+                <div class="add-form">
+                    <h2>
+                        Filters
+                        <!--<a class="btn larger" (click)="onClearFilters()">CLEAR</a>
+                        <a class="btn icon search larger" (click)="searchVehicle()">SEARCH VEHICLES</a>-->
+                    </h2>
+
+                    <div class="clearfix">
+                        <div class="input-blocks clearfix">
+
+                            <div>
+                                <!--<div class="filter-search green-submit">
+                                    <input type="text" class="cinput" placeholder="Search by Base Vehicle ID" title="Search by Base Vehicle ID" [(ngModel)]="vehicleSearchViewModel.filters.baseVehicleId" (keypress)="onBaseIdKeyPress($event)">
+                                    <input type="submit" value="" (click)="searchByBaseVehicleId()">
+                                </div>
+
+                                <div style="margin-top: 50px;">
+                                    <strong>Years</strong>
+
+                                    <div class="select white-select" style="width: 100px;">
+                                        <select [(ngModel)]="vehicleSearchViewModel.filters.startYear">
+                                            <option value="0">--From--</option>
+                                            <option *ngFor="let year of years" [value]="year.id">{{year.id}}</option>
+                                        </select>
+                                        <div class="select__arrow white-select__arrow"></div>
+                                    </div>
+                                    <span class="fa fa-caret-right"></span>
+                                    <div class="select white-select" style="width: 100px;">
+                                        <select [(ngModel)]="vehicleSearchViewModel.filters.endYear">
+                                            <option value="0">--To--</option>
+                                            <option *ngFor="let year of years" [value]="year.id">{{year.id}}</option>
+                                        </select>
+                                        <div class="select__arrow white-select__arrow"></div>
+                                    </div>
+                                </div>
+
+                                <div style="margin-top: 20px;">
+                                    <strong>Region</strong>
+                                    <div class="checkbox-wrap nobdr" style="overflow: auto; height: 100px;">
+                                        <ul style="margin-left: 15px;">
+                                            <li *ngFor="let region of vehicleSearchViewModel.filters.regions">
+                                                <label class="control control--checkbox green-checkbox">
+                                                    <input type="checkbox" [(ngModel)]="region.isSelected" [value]="region.id">
+                                                    <div class="control__indicator"></div>
+                                                    <span>{{region.name}}</span>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div style="margin-top: 20px;">
+                                    <strong>Vehicle type group</strong>
+                                    <div class="checkbox-wrap nobdr">
+                                        <ul style="margin-left: 15px;">
+                                            <li *ngFor="let vehicleType of vehicleSearchViewModel.filters.vehicleTypes">
+                                                <label class="control control--checkbox green-checkbox">
+                                                    <input type="checkbox" [(ngModel)]="vehicleType.isSelected" [value]="vehicleType.id">
+                                                    <div class="control__indicator"></div>
+                                                    <span>{{vehicleType.name}}</span>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div style="margin-top: 20px;">
+                                    <strong>Vehicle type</strong>
+
+                                    <div class="checkbox-wrap nobdr">
+                                        <ul style="margin-left: 15px;">
+                                            <li *ngFor="let vehicleTypeGroup of vehicleSearchViewModel.filters.vehicleTypeGroups">
+                                                <label class="control control--checkbox green-checkbox">
+                                                    <input type="checkbox" [(ngModel)]="vehicleTypeGroup.isSelected" [value]="vehicleTypeGroup.id">
+                                                    <div class="control__indicator"></div>
+                                                    <span>{{vehicleTypeGroup.name}}</span>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>-->
+                            </div>
+
+                            <div>
+                                <!--<div class="filter-search green-submit">
+                                    <input type="text" class="cinput" placeholder="Search by Vehicle ID" [(ngModel)]="vehicleSearchViewModel.filters.vehicleId" (keypress)="onVehicleIdKeyPress($event)"/>
+                                    <input type="submit" value="" (click)="searchByVehicleId()">
+                                </div>-->
+
+                                <div style="margin: 10px; float: left">
+                                    <strong>Years</strong>
+
+                                    <div class="select white-select" style="width: 100px;">
+                                        <select [(ngModel)]="selectedStartYear" (ngModelChange)="onYearSelected($event, vehicleSearchViewModel.facets.startYears)">
+                                            <option value="0">--From--</option>
+                                            <option *ngFor="let year of startYearFacet" [value]="year.name">{{year.name}}</option>
+                                        </select>
+                                        <div class="select__arrow white-select__arrow"></div>
+                                    </div>
+                                    <span class="fa fa-caret-right"></span><!--pushkar-->
+                                    <div class="select white-select" style="width: 100px;">
+                                        <select [(ngModel)]="selectedEndYear" (ngModelChange)="onYearSelected($event, vehicleSearchViewModel.facets.startYears)">
+                                            <option value="0">--To--</option>
+                                            <option *ngFor="let year of endYearFacet" [value]="year.name">{{year.name}}</option>
+                                        </select>
+                                        <div class="select__arrow white-select__arrow"></div>
+                                    </div>
+                                </div>
+
+
+                                <div style="margin: 10px; float: left">
+                                    <strong class="float-left">Makes</strong>
+                                    <!--<a class="float-right" (click)="clearMakeFilter()" style="text-decoration:underline; cursor:pointer;">clear</a>-->
+                                    <div class="clearfix"></div>
+                                    <div class="filter-search">
+                                        <input type="text" class="cinput" placeholder="Search makes" (input)="filterMakes($event)" />
+                                        <input type="submit" value="">
+                                    </div>
+
+                                    <div class="clearfix"></div>
+
+                                    <div class="checkbox-wrap after-search" style="overflow: auto; height: 160px;">
+                                        <ul>
+                                            <li *ngFor="let make of makeFacet">
+                                                <label class="control control--checkbox green-checkbox">
+                                                    <input type="checkbox" [value]="make.name" [(ngModel)]="make.isSelected" (change)="onItemSlected($event, vehicleSearchViewModel.facets.makes)">
+                                                    <div class="control__indicator"></div>
+                                                    <span>{{make.name}}</span>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div style="margin: 10px; float: left">
+                                    <strong class="float-left">Models</strong>
+                                    <!--<a class="float-right" (click)="clearMakeFilter()" style="text-decoration:underline; cursor:pointer;">clear</a>-->
+                                    <div class="clearfix"></div>
+                                    <div class="filter-search">
+                                        <input type="text" class="cinput" placeholder="Search models" (input)="filterModels($event)" />
+                                        <input type="submit" value="">
+                                    </div>
+
+                                    <div class="clearfix"></div>
+
+                                    <div class="checkbox-wrap after-search" style="overflow: auto; height: 160px;">
+                                        <ul>
+                                            <li *ngFor="let model of modelFacet">
+                                                <label class="control control--checkbox green-checkbox">
+                                                    <input type="checkbox" [value]="model.name" [(ngModel)]="model.isSelected" (change)="onItemSlected($event, vehicleSearchViewModel.facets.models)">
+                                                    <div class="control__indicator"></div>
+                                                    <span>{{model.name}}</span>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                                <div style="margin: 10px; float: left">
+                                    <strong class="float-left">SubModels</strong>
+                                    <!--<a class="float-right" (click)="clearMakeFilter()" style="text-decoration:underline; cursor:pointer;">clear</a>-->
+                                    <div class="clearfix"></div>
+                                    <div class="filter-search">
+                                        <input type="text" class="cinput" placeholder="Search SubModels" (input)="filterSubModels($event)" />
+                                        <input type="submit" value="">
+                                    </div>
+
+                                    <div class="clearfix"></div>
+
+                                    <div class="checkbox-wrap after-search" style="overflow: auto; height: 160px;">
+                                        <ul>
+                                            <li *ngFor="let subModel of subModelFacet">
+                                                <label class="control control--checkbox green-checkbox">
+                                                    <input type="checkbox" [value]="subModel.name" [(ngModel)]="subModel.isSelected" (change)="onItemSlected($event, vehicleSearchViewModel.facets.subModels)">
+                                                    <div class="control__indicator"></div>
+                                                    <span>{{subModel.name}}</span>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+
+                                <div style="margin: 10px; float: left">
+                                    <strong class="float-left">Regions</strong>
+                                    <!--<a class="float-right" (click)="clearMakeFilter()" style="text-decoration:underline; cursor:pointer;">clear</a>-->
+                                    <div class="clearfix"></div>
+                                    <div class="filter-search">
+                                        <input type="text" class="cinput" placeholder="Search regions" (input)="filterRegions($event)" />
+                                        <input type="submit" value="">
+                                    </div>
+
+                                    <div class="clearfix"></div>
+
+                                    <div class="checkbox-wrap after-search" style="overflow: auto; height: 160px;">
+                                        <ul>
+                                            <li *ngFor="let region of regionFacet">
+                                                <label class="control control--checkbox green-checkbox">
+                                                    <input type="checkbox" [value]="region.name" [(ngModel)]="region.isSelected" (change)="onItemSlected($event, vehicleSearchViewModel.facets.regions)">
+                                                    <div class="control__indicator"></div>
+                                                    <span>{{region.name}}</span>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div style="margin: 10px; float: left">
+                                    <strong class="float-left">Vehicle Type Groups</strong>
+                                    <!--<a class="float-right" (click)="clearMakeFilter()" style="text-decoration:underline; cursor:pointer;">clear</a>-->
+                                    <div class="clearfix"></div>
+                                    <div class="filter-search">
+                                        <input type="text" class="cinput" placeholder="Search Vehicle Type Group" (input)="filterVehicleTypeGroups($event)" />
+                                        <input type="submit" value="">
+                                    </div>
+
+                                    <div class="clearfix"></div>
+
+                                    <div class="checkbox-wrap after-search" style="overflow: auto; height: 160px;">
+                                        <ul>
+                                            <li *ngFor="let item of vehicleTypeGroupFacet">
+                                                <label class="control control--checkbox green-checkbox">
+                                                    <input type="checkbox" [value]="item.name" [(ngModel)]="item.isSelected" (change)="onItemSlected($event, vehicleSearchViewModel.facets.vehicleTypeGroups)">
+                                                    <div class="control__indicator"></div>
+                                                    <span>{{item.name}}</span>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div style="margin: 10px; float: left">
+                                    <strong class="float-left">Vehicle Types</strong>
+                                    <!--<a class="float-right" (click)="clearMakeFilter()" style="text-decoration:underline; cursor:pointer;">clear</a>-->
+                                    <div class="clearfix"></div>
+                                    <div class="filter-search">
+                                        <input type="text" class="cinput" placeholder="Search Vehicle Type" (input)="filterVehicleTypes($event)" />
+                                        <input type="submit" value="">
+                                    </div>
+
+                                    <div class="clearfix"></div>
+
+                                    <div class="checkbox-wrap after-search" style="overflow: auto; height: 160px;">
+                                        <ul>
+                                            <li *ngFor="let item of vehicleTypeFacet">
+                                                <label class="control control--checkbox green-checkbox">
+                                                    <input type="checkbox" [value]="item.name" [(ngModel)]="item.isSelected" (change)="onItemSlected($event, vehicleSearchViewModel.facets.vehicleTypes)">
+                                                    <div class="control__indicator"></div>
+                                                    <span>{{item.name}}</span>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <!--<div>
+                                    <strong class="float-left">Model name</strong><a class="float-right" (click)="clearModelFilter()" style="text-decoration:underline;cursor:pointer;">clear</a>
+                                    <div class="clearfix"></div>
+
+                                    <div class="filter-search">
+                                        <input type="text" class="cinput" placeholder="Search models" [(ngModel)]="modelQuery" (keyup)="onSearchModelChange()">
+                                        <input type="submit" value="">
+                                    </div>
+
+                                    <div class="clearfix"></div>
+
+                                    <div class="checkbox-wrap after-search" style="overflow: auto; height: 160px;">
+                                        <ul *ngIf="vehicleSearchViewModel.filters.models.length">
+                                            <li *ngFor="let model of vehicleSearchViewModel.filters.models">
+                                                <label class="control control--checkbox green-checkbox">
+                                                    <input type="checkbox" [(ngModel)]="model.isSelected" [value]="model.id" (change)="onSelectModel($event)">
+                                                    <div class="control__indicator"></div>
+                                                    <span>{{model.name}}</span>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>-->
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Left split screen end -->
+</div>
+<!-- Right split screen start -->

@@ -1,0 +1,233 @@
+﻿@model Northwind.Web.Models.ViewModels.Contract.ContractQuestionaireViewModel
+<div class="">
+    <div class="form-group">
+        <div class="control-label control-label-read">
+            Does the contract contain FAR clause 52.216-7 and or FAR clause 52.232-7
+        </div>
+        <h6>
+            @Model.IsFARclauseStatus
+        </h6>
+    </div>
+
+    <div class="row align-items-end">
+        <div class="col-md-6">
+            <div class="form-group">
+                <div class="control-label control-label-read">
+                    GSA Schedule Sales & Industrial Funding Fee (GSAR 552.238-74) :
+                </div>
+                <h6>
+                    @Model.IsGSAschedulesaleStatus
+                </h6>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <div class="control-label control-label-read">
+                    Date of Last Report
+                </div>
+                <h6>
+                    @(Model.GSA_LastReportDate == null ? "Not Provided" :
+                            Model.GSA_LastReportDate.Value.ToShortDateString())
+                </h6>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <div class="control-label control-label-read">
+                    Date of Next Report
+                </div>
+                <h6>
+                    @(Model.GSA_NextReportDate == null ? "Not Provided" :
+                            Model.GSA_NextReportDate.Value.ToShortDateString())
+                </h6>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="control-label control-label-read">
+            Government Furnished Property (52.219-9)
+        </div>
+        <h6>
+            @Model.IsGovtFurnishedPropertyStatus
+        </h6>
+    </div>
+
+    <div class="form-group">
+        <div class="control-label control-label-read">
+            Service Contract Reporting
+        </div>
+        <h6>
+            @Model.IsServiceContractReportStatus
+        </h6>
+    </div>
+    <div class="row align-items-end">
+        <div class="col-md-6 ">
+            <div class="form-group">
+                <div class="control-label control-label-read">
+                    CPARS (FAR Subpart 42.215)
+                </div>
+                <h6>
+                    @Model.IsCPARSStatus
+                </h6>
+            </div>
+        </div>
+
+        <div class="col-md-3 ">
+            <div class="form-group">
+                <div class="control-label control-label-read">
+                    Date of Last Report
+                </div>
+                <h6>
+                    @(Model.CPARS_LastReportDate == null ? "Not Provided" :
+                            Model.CPARS_LastReportDate.Value.ToShortDateString())
+                </h6>
+            </div>
+        </div>
+        <div class="col-md-3 ">
+            <div class="form-group">
+                <div class="control-label control-label-read">
+                    Date of Next Report
+                </div>
+                <h6>
+                    @(Model.CPARS_NextReportDate == null ? "Not Provided" :
+                            Model.CPARS_NextReportDate.Value.ToShortDateString())
+                </h6>
+            </div>
+        </div>
+    </div>
+
+    <div class="row align-items-end">
+        <div class="col-md-6">
+            <div class="form-group">
+                <div class="control-label control-label-read">
+                    Reporting Executive Compensation and First-Tier Subcontract Awards (52.204-10 )
+                </div>
+                <h6>
+                    @Model.IsReportExecCompensationStatus
+                </h6>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <div class="control-label control-label-read">
+                    Date of Last Report
+                </div>
+                <h6>
+                    @(Model.Report_LastReportDate == null ? "Not Provided" :
+                            Model.Report_LastReportDate.Value.ToShortDateString())
+                </h6>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <div class="control-label control-label-read">
+                    Date of Next Report
+                </div>
+                <h6>
+                    @(Model.Report_NextReportDate == null ? "Not Provided" :
+                            Model.Report_NextReportDate.Value.ToShortDateString())
+                </h6>
+            </div>
+        </div>
+    </div>
+    <div class="row align-items-end">
+        <div class="col-md-6">
+            <div class="form-group">
+                <div class="control-label control-label-read">
+                    Progress towards SB Subcontracting Plans (52.218-9)
+                </div>
+                <h6>
+                    @Model.IsSBsubcontractStatus
+                </h6>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <div class="control-label control-label-read">
+                    Date of Last Report
+                </div>
+                <h6>
+                    @(Model.SB_LastReportDate == null ? "Not Provided" :
+                            Model.SB_LastReportDate.Value.ToShortDateString())
+                </h6>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <div class="control-label control-label-read">
+                    Date of Next Report
+                </div>
+                <h6>
+                    @(Model.SB_NextReportDate == null ? "Not Provided" :
+                            Model.SB_NextReportDate.Value.ToShortDateString())
+                </h6>
+            </div>
+        </div>
+    </div>
+    <div class="row align-items-end">
+        <div class="col-md-6">
+            <div class="form-group">
+                <div class="control-label control-label-read">
+                    Government-Wide Acquisition Contracts (GQAC), examples : GSA - Alliant, STARS) or NIH CIO-SP3 )
+                </div>
+                <h6>
+                    @Model.IsGQACStatus
+                </h6>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <div class="control-label control-label-read">
+                    Date of Last Report
+                </div>
+                <h6>
+                    @(Model.GQAC_LastReportDate == null ? "Not Provided" :
+                            Model.GQAC_LastReportDate.Value.ToShortDateString())
+                </h6>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <div class="control-label control-label-read">
+                    Date of Next Report
+                </div>
+                <h6>
+                    @(Model.GQAC_NextReportDate == null ? "Not Provided" :
+                            Model.GQAC_NextReportDate.Value.ToShortDateString())
+                </h6>
+            </div>
+        </div>
+    </div>
+    <div class="row align-items-end">
+        <div class="col-md-3">
+            <div class="form-group">
+                <div class="control-label control-label-read">
+                    Warranties
+                </div>
+                <h6>
+                    @Model.IsWarrantiesStatus
+                </h6>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <div class="control-label control-label-read">
+                    Warranties : Consistent with Standard Industry Provision of 12 months
+                </div>
+                <h6>
+                    @Model.IsStandardIndustryProvisionStatus
+                </h6>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <div class="control-label control-label-read">
+                    Warranty Provision Description
+                </div>
+                <h6>
+                    @Model.WarrantyProvisionDescription
+                </h6>
+            </div>
+        </div>
+    </div>
+</div>

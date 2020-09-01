@@ -1,0 +1,234 @@
+﻿.modalWait {
+    /* display: none;*/
+    /* position: fixed;*/
+    /* z-index: 1000;*/
+    /* top: 0;*/
+    /* left: 0;*/
+    /* height: 100%;*/
+    /* width: 100%;*/
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: #666;
+    background-image: url('../img/ajax-loader.gif');
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 10000000;
+    opacity: 0.4;
+    filter: alpha(opacity=40); /* For IE8 and earlier */
+}
+
+.k-window-action {
+    visibility: hidden;
+}
+
+.listClass { 
+    margin-left: 15px;
+    font-size: 15px;
+}
+
+.ulClass {
+    background-color: #f8f9fa;
+}
+
+.k-loading-mask {
+    display: none;
+}
+
+
+fieldset {
+    display: block;
+    margin-left: 2px;
+    margin-right: 2px;
+    padding-top: 0.35em;
+    padding-bottom: 0.625em;
+    padding-left: 0.75em;
+    padding-right: 0.75em;
+    border: 200px groove (internal value);
+    border-color: #666666;
+}
+
+/* contract page */
+/* .linkAddUrl { */
+/*     margin-left: 355px; */
+/* } */
+
+#panelbar {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.teamMate h2 {
+    font-size: 1.4em;
+    font-weight: normal;
+    padding-top: 20px;
+}
+
+.teamMate p {
+    margin: 0;
+}
+
+.teamMate img {
+    display: inline-block;
+    margin: 5px 15px 5px 5px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+}
+
+.details {
+    display: inline-block;
+    vertical-align: top;
+}
+
+
+.k-item .k-state-focused {
+    border: 0 !important;
+    background: transparent;
+}
+
+.k-animation-container.k-animation-container-relative {
+    z-index: 10001;
+}
+
+.icon-font {
+    font-size: 20px !important;
+}
+
+.icon-font-explorer {
+    font-size: 35px !important;
+}
+
+
+
+.context-menu {
+    background: #eee;
+    border: 1px solid #ddd;
+    position: absolute;
+    min-width: 150px;
+}
+
+    .context-menu button {
+        background: transparent;
+        text-align: left;
+        width: 100%;
+        border: none;
+        outline: none;
+    }
+
+.k-window-titlebar {
+    text-transform: capitalize;
+}
+/* File upload progress bar*/
+/* .progressBarInactive {
+    width: 0px;
+    height: 5px;
+    background-color: #F44336;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    display: none;
+}
+
+.progressBarActive {
+    display: block;
+    background: red;
+    height: 10px;
+    width: 10px;
+} */
+
+
+.k-grouping-header.k-grouping-header-flex {
+    display: none;
+}
+
+.k-grouping-row td:nth-child(2) {
+    display: none;
+}
+
+.k-group-footer .k-dropdown-button {
+    display: none;
+}
+#myProgress {
+    width: 100%;
+    background-color: grey;
+}
+
+#myBar {
+    width: 1%;
+    height: 8px;
+    background-color: cornflowerblue;
+}
+
+.switchButton{
+    overflow: visible;
+    min-width: 125px;
+}
+
+#ContractGrid1 .k-grouping-row {
+    display: none;
+}
+
+#ContractGrid1 .k-group-footer {
+    display: none;
+}
+
+.kendo-grid-text-center {
+    text-align: center !important;
+}
+
+.kendo-grid-text-left {
+    text-align: left !important;
+}
+
+.kendo-grid-text-right {
+    text-align: right !important;
+}
+
+.distribution-list-user {
+    position: absolute;
+    width: auto;
+    height: auto;
+    z-index: 900001;
+}
+
+.k-grouping-row .kendo-grid-text-right{
+    display:none;
+}
+
+#ContractGrid1 table .k-group-cell {
+    width: 0;
+    overflow: hidden;
+}
+
+#ContractGrid1 table .k-header:first-child {
+    width: 0;
+    overflow: hidden;
+}
+
+
+.filterButton {
+    width: 135px;
+    text-align: left !important;
+    text-align-last: left;
+    display: block !important;
+    background: white !important;
+}
+
+.filterButtonContainer button {
+    background: white !important;
+}
+
+#fileUpload td a {
+    color: #00649b !important;
+    text-decoration: none;
+}
+
+#fileUpload #fileUploadMod td a:hover {
+    text-decoration: underline;
+}
+
+#ContractModificationListPanel .k-grid-container{
+    min-height: 170px;
+}

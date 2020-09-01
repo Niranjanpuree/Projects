@@ -1,0 +1,76 @@
+.k-grid-table {
+    td:nth-child(2){
+        text-overflow:initial;
+    }
+    .k-dropdown-button.k-i-more-vertical {
+        background:transparent;
+        &:before {
+            display: none;
+        }
+
+        .k-button {
+            width: 1em;
+            height: 1em;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-font-smoothing: antialiased;
+            font-size: 16px;
+            font-family: 'WebComponentsIcons';
+            font-style: normal;
+            font-variant: normal;
+            font-weight: normal;
+            line-height: 1;
+            speak: none;
+            text-transform: none;
+            text-decoration: none;
+            display: inline-block;
+            background: transparent;
+            padding:0;
+            &:before {
+                content: '\e031';
+
+                opacity: 1;
+                display: block;
+                background: transparent;
+            }
+        }
+    }
+}
+
+
+    .k-icon.dropdown-toggle1{
+        width:auto;
+        height: auto;
+    }
+
+
+    .auto-complete-container {
+        z-index: 1;
+    }
+
+    .auto-complete-container .dropdown-menu {
+        width: 100%;
+        background: #fff;
+        margin-left: -1.5rem;
+        padding: 0.5rem;
+        line-height: 2;
+        border: 1px solid #ddd;
+        margin-top: 4px;
+        max-height: 200px;
+        overflow: auto;
+    }
+
+    .auto-complete-container .dropdown-menu a {
+        color: #000;
+        display: block;
+
+    }
+
+    #usertabstrip{
+        .k-animation-container{
+            width:100%;
+        }
+    }
+
+    .groups-manage-tab{
+        max-width: calc(100vw - 91px);
+    }

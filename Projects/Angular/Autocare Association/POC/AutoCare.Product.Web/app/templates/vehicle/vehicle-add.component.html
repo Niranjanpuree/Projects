@@ -1,0 +1,273 @@
+﻿<loading-gif [show]="showLoadingGif"></loading-gif>
+<div class="breadcrumb">
+    <div class="center">
+        <a class="back" routerLink="/vehicle/search">Return to vehicle search</a>
+    </div>
+</div>
+
+<!-- Main start -->
+<main class="with-sidemenu clearfix">
+
+    <div class="center">
+
+        <!-- Proposed Base vehicles start -->
+        <div class="table-wrap">
+            <h2 class="clearfix">
+                Base Vehicle
+            </h2>
+            <div class="ctable unfolded">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Base ID</td>
+                            <td>Year</td>
+                            <td>Make (ID)</td>
+                            <td>Model (ID)</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngIf="isBaseVehicleLoading">
+                            <td colspan="5">Loading...</td>
+                        </tr>
+                        <tr *ngIf="!isBaseVehicleLoading && subModels.length>0">
+                            <td>{{baseVehicle.id}}</td>
+                            <td>{{baseVehicle.yearId}}</td>
+                            <td>{{baseVehicle.makeName}} ({{baseVehicle.makeId}})</td>
+                            <td>{{baseVehicle.modelName}} ({{baseVehicle.modelId}})</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="add-form add-vehicle">
+            <h2>Configure a Vehicle</h2>
+            <div class="clearfix">
+
+                <div class="submit-wrap">
+
+                    <div class="input-blocks clearfix">
+                        <div>
+                            <strong>Submodel Name (ID)</strong>
+
+                            <div class="select white-select">
+                                <select [disabled]="false" [(ngModel)]="selectedSubModelId">
+                                    <option value="-1" *ngIf="!subModels">Loading...</option>
+                                    <option value="-1" *ngIf="subModels">--Select Submodel--</option>
+                                    <option *ngFor="let s of subModels" [value]="s.id">{{s.name}} ({{s.id}})</option>
+                                </select>
+                                <div class="select__arrow white-select__arrow"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <strong>Region (ID)</strong>
+
+                            <div class="select white-select">
+                                <select [disabled]="!regions || regions.length==0" [(ngModel)]="selectedRegionId">
+                                    <option value="-1" *ngIf="!regions">Loading...</option>
+                                    <option value="-1" *ngIf="regions">--Select Region--</option>
+                                    <option *ngFor="let region of regions" [value]="region.id">{{region.name}} ({{region.id}})</option>
+                                </select>
+                                <div class="select__arrow white-select__arrow"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <input type="submit" value="ADD TO PROPOSED CHANGES" class="btn blue larger" (click)="addToProposedVehicles($event)">
+                </div>
+
+                <div class="attach-wrap">
+                    <strong>OPTIONAL</strong>
+                    <strong>Attachments</strong>
+                    <ac-fileuploader upload-api-path="file/savechunk"></ac-fileuploader>
+                    <small>Include comments</small>
+                    <textarea *ngIf="proposedVehicle" cols="50" rows="5" [(ngModel)]="comment"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- Proposed vehicle start -->
+        <div class="table-wrap">
+            <h2 class="clearfix">
+                Proposed Vehicles
+            </h2>
+            <div class="ctable">
+                <table>
+                    <thead>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>Base (ID)</td>
+                        <td>Year</td>
+                        <td>Make (ID)</td>
+                        <td>Model (ID)</td>
+                        <td>Submodel (ID)</td>
+                        <td>Region (ID)</td>
+                        <td>Optional Info</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <tr *ngIf="proposedVehicles.length==0">
+                        <td colspan="8">No Records Added</td>
+                    </tr>
+                    <tr *ngFor="let proposedVehicle of proposedVehicles">
+                        <td><a class="btn-row-remove" (click)="onRemoveVehicle(proposedVehicle)"></a></td>
+                        <td>{{baseVehicle.id}}</td>
+                        <td>{{baseVehicle.yearId}}</td>
+                        <td>{{baseVehicle.makeName}} ({{baseVehicle.makeId}})</td>
+                        <td>{{baseVehicle.modelName}} ({{baseVehicle.modelId}})</td>
+                        <td>{{proposedVehicle.subModelName}} ({{proposedVehicle.subModelId}})</td>
+                        <td>{{proposedVehicle.regionName}} ({{proposedVehicle.regionId}})</td>
+                        <td>
+                            <a class="box-icon attachment" title="Attach" (click)=openAttachmentPopupModal(proposedVehicle)></a>
+                            <a class="box-icon drive-document" title="Drive Document" (click)="openCommentPopupModal(proposedVehicle)"></a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Submit and cancel button start -->
+            <div class="btns">
+                <input type="submit" value="SUBMIT CHANGE REQUESTS" class="btn  larger" (click)="createVehicleChangeRequests()">
+                <input type="reset" value="CANCEL" class="btn larger transparent" routerLink="/vehicle/search">
+            </div>
+        </div>
+
+        <!-- Pending change request start -->
+        <div class="table-wrap">
+            <h2 class="clearfix">
+                Pending Change Requests
+            </h2>
+            <div class="ctable">
+                <table>
+                    <thead>
+                    <tr>
+                        <td>Base (ID)</td>
+                        <td>Year</td>
+                        <td>Make (ID)</td>
+                        <td>Model (ID)</td>
+                        <td>Submodel (ID)</td>
+                        <td>Region (ID)</td>
+                        <td>Optional <br />Info</td>
+                    </tr>
+                    </thead>
+                    <tbody *ngIf="changeRequestVehicles.length>0">
+                    <tr *ngFor="let crVehicles of changeRequestVehicles">
+                        
+                        <td>{{baseVehicle.id}}</td>
+                        <td>{{baseVehicle.yearId}}</td>
+                        <td>{{baseVehicle.makeName}} ({{baseVehicle.makeId}})</td>
+                        <td>{{baseVehicle.modelName}} ({{baseVehicle.modelId}})</td>
+                        <td>{{crVehicles.subModelName}} ({{crVehicles.subModelId}})</td>
+                        <td>{{crVehicles.regionName}} ({{crVehicles.regionId}})</td>
+                        <td>
+                            <a (click)="onViewPendingVehicleCR(crVehicles)"  style="cursor: pointer;" class="btn-r-arrow blue">View</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Existing vehicles for the selected base start -->
+        <div class="table-wrap">
+            <h2 class="clearfix">
+                Existing Vehicles for the Selected Base
+            </h2>
+            <div class="ctable">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Base (ID)</td>
+                            <td>Year</td>
+                            <td>Make (ID)</td>
+                            <td>Model (ID)</td>
+                            <td>Vehicle ID</td>
+                            <td>Submodel (ID)</td>
+                            <td>Region (ID)</td>
+                            <td>Change<br>Requests</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngIf="isExistingVehiclesLoading && existingVehicles.length==0"><td colspan="9">Loading...</td></tr>
+                        <tr *ngIf="!isExistingVehiclesLoading && existingVehicles.length==0"><td colspan="9">No Records Found</td></tr>
+
+                        <tr *ngFor="let existingvehicle of existingVehicles">
+                            <td>{{baseVehicle.id}}</td>
+                            <td>{{baseVehicle.yearId}}</td>
+                            <td>{{baseVehicle.makeName}} ({{baseVehicle.makeId}})</td>
+                            <td>{{baseVehicle.modelName}} ({{baseVehicle.modelId}})</td>
+                            <td>{{existingvehicle.id}}</td>
+                            <td>{{existingvehicle.subModelName}} ({{existingvehicle.subModelId}})</td>
+                            <td>{{existingvehicle.regionName}} ({{existingvehicle.regionId}})</td>
+                            <td *ngIf="existingvehicle.changeRequestId">
+                                <a (click)="onViewExistingVehicleForSelectedBaseVehicleCR(existingvehicle)" class="btn-r-arrow blue">Pending</a>
+                            </td>
+                            <td *ngIf="!existingvehicle.changeRequestId">
+                                
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</main>
+<!-- Main end -->
+<div class="popup">
+    <modal #commentPopupModel>
+        <div class="overlay dark show">
+            <div class="new-make modal-sm">
+                <a (click)="commentPopupModel.dismiss()" class="close"></a>
+                <div class="add-form">
+                    <h2>Edit Comment</h2>
+                    <div class="clearfix">
+                        <div class="attach-wrap">
+                            <small>comments</small>
+                            <textarea cols="50" rows="5" [(ngModel)]="vehicle.comment"></textarea>
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        <!-- Submit and cancel button start -->
+                        <div class="btns">
+                            <input type="button" value="CANCEL" class="btn transparent" (click)="commentPopupModel.dismiss()">
+                            <input type="submit" value="CONFIRM" class="btn" (click)="onCommentConfirm()">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </modal>
+</div>
+<div class="popup">
+    <modal #attachmentsPopupModel>
+        <div class="overlay dark show">
+            <div class="new-make modal-sm">
+                <a (click)="onAttachmentCancel()" class="close"></a>
+                <div class="add-form">
+                    <h2>Edit Attachments</h2>
+                    <div class="clearfix">
+                        <div class="attach-wrap">
+                            <p *ngIf="vehicle.attachments">
+                                <strong>Attachments</strong><br>
+                                <ac-fileuploader [existing-files]="vehicle.attachments"
+                                                 upload-api-path="file/savechunk" #attachmentsPopupAcFileUploader="acFileUploader" [can-attach]="true"></ac-fileuploader>
+                            </p>
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        <!-- Submit and cancel button start -->
+                        <div class="btns">
+                            <input type="button" value="CANCEL" class="btn transparent" (click)="onAttachmentCancel()">
+                            <input type="submit" value="CONFIRM" class="btn" (click)="onAttachmentConfirm()">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </modal>
+</div>

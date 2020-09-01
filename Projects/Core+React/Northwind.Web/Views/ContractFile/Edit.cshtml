@@ -1,0 +1,35 @@
+﻿@model Northwind.Web.Models.ViewModels.Contract.ContractFileViewModel
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+@{
+    var resourceVersion = @Configuration["resourceVersion"];
+    var cdnUrl = @Configuration["CDNUrl"];
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="_EditWorkBreakdownStructure">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div>
+                <input hidden asp-for="ContractResourceFileGuid" class="form-control" />
+                <input hidden asp-for="ResourceGuid" class="form-control" />
+            </div>
+
+            <div class="row form-group no-gutters">
+                <div class="col-12">
+                    <input type="button" id="DownloadWBSGrid" class="download btn btn-secondary"
+                           value="Export to CSV" />
+                    <input type="button" id="AddWBSRow" class="btn btn-secondary" value="Add Row" />
+                </div>
+            </div>
+
+            <div class="form-group" id="WorkBreakdownStructureGrid"></div>
+
+        </form>
+    </div>
+</div>
+
+<script src="@cdnUrl/js/proj/contractfileUploadGrid.js?v=@resourceVersion" class="UploadGrid" data-gridname="#WorkBreakdownStructureGrid"
+        data-controller="WorkBreakDownStructure" data-idvalue="#ContractGuid" data-guid="contractWBSGuid"
+        data-fields="wbsCode|description|value|contractType|invoiceAtThisLevel" data-titles="WBS Code|Description|Value|Contract Type|Invoice At This Level"
+        data-editable="1" data-downloadgrid="#DownloadWBSGrid" data-path=@Model.UploadFileName data-addrow="#AddWBSRow"></script>

@@ -1,0 +1,125 @@
+﻿<loading-gif [show]="showLoadingGif"></loading-gif>
+<!-- Breadcrumb start -->
+<div class="breadcrumb">
+    <div class="center">
+        <a class="back" routerLink="/system/search">Return to brake system search</a>
+    </div>
+</div>
+<!-- Breadcrumb end -->
+<!-- Main start -->
+<main class="clearfix">
+
+    <div class="center" *ngIf="existingBrakeConfig && replacementBrakeConfig">
+
+        <!-- Existing Brake systems start -->
+        <div class="table-wrap">
+            <h2 class="clearfix">
+                Existing Brake Systems
+            </h2>
+            <div class="ctable">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Brake Config ID</td>
+                            <td>Front Brake (ID)</td>
+                            <td>Rear Brake (ID)</td>
+                            <td>Brake ABS (ID)</td>
+                            <td>Brake Sytem (ID)</td>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="existingBrakeConfig">
+                        <tr>
+                            <td>{{existingBrakeConfig.id}}</td>
+                            <td>{{existingBrakeConfig.frontBrakeTypeName}} ({{existingBrakeConfig.frontBrakeTypeId}})</td>
+                            <td>{{existingBrakeConfig.rearBrakeTypeName}} ({{existingBrakeConfig.rearBrakeTypeId}})</td>
+                            <td>{{existingBrakeConfig.brakeABSName}} ({{existingBrakeConfig.brakeABSId}})</td>
+                            <td>{{existingBrakeConfig.brakeSystemName}} ({{existingBrakeConfig.brakeSystemId}})</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Replacement Brake systems start -->
+        <div class="table-wrap">
+            <h2 class="clearfix">
+                Replacement Brake Systems
+            </h2>
+            <div class="ctable">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Brake Config ID</td>
+                            <td>Front Brake (ID)</td>
+                            <td>Rear Brake (ID)</td>
+                            <td>Brake ABS (ID)</td>
+                            <td>Brake System (ID)</td>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="replacementBrakeConfig">
+                        <tr>
+                            <td>{{replacementBrakeConfig.id}}</td>
+                            <td>{{replacementBrakeConfig.frontBrakeTypeName}} ({{replacementBrakeConfig.frontBrakeTypeId}})</td>
+                            <td>{{replacementBrakeConfig.rearBrakeTypeName}} ({{replacementBrakeConfig.rearBrakeTypeId}})</td>
+                            <td>{{replacementBrakeConfig.brakeABSName}} ({{replacementBrakeConfig.brakeABSId}})</td>
+                            <td>{{replacementBrakeConfig.brakeSystemName}} ({{replacementBrakeConfig.brakeSystemId}})</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Associations to replace start -->
+        <div class="table-wrap">
+            <h2 class="clearfix">
+                Associations to Replace
+            </h2>
+            <div class="ctable" *ngIf="existingBrakeConfig && existingBrakeConfig.vehicleToBrakeConfigs">
+                <ac-grid [dataSource]="existingBrakeConfig.vehicleToBrakeConfigs" #gd="acGrid"
+                          columns='[
+                 { "header":"Vehicle to Brake Config ID","field":"id","sortable":true,"sortedByDesc":true},
+                 { "header":"Brake Config ID",              "field":"brakeConfigId",       "sortable":true}, 
+                    { "header":"Base Vehicle (Year, Make, Model)","field":"vehicle.yearId","sortable":true},
+                 { "header":"Vehicle (Submodel, Region)","field":"vehicle.subModelName","sortable":true},
+                 { "header":"Front Brake (ID)","field":"brakeConfig.frontBrakeTypeName","sortable":true},
+                 { "header":"Rear Brake (ID)", "field":"brakeConfig.rearBrakeTypeName", "sortable":true},
+                 { "header":"Brake ABS (ID)", "field":"brakeConfig.brakeABSName", "sortable":true},
+                 { "header":"Brake System (ID)", "field":"brakeConfig.brakeSystemName", "sortable":true}
+                 ]'
+                         initialSortBy='[{"field": "id", "orderByDesc": true}]'
+                         paging='{"pageSize": 10, "numberOfPagesOnPageList" : 10}'>
+                    <tr *ngFor="let vechicleToBrakeConfig of gd.items">
+	                    <td>{{vechicleToBrakeConfig.id}}</td>
+                        <td>{{vechicleToBrakeConfig.brakeConfigId}}</td>
+                        <td>{{vechicleToBrakeConfig.vehicle.yearId}}, {{vechicleToBrakeConfig.vehicle.makeName}}, {{vechicleToBrakeConfig.vehicle.modelName}}</td>
+                        <td>{{vechicleToBrakeConfig.vehicle.subModelName}}, {{vechicleToBrakeConfig.vehicle.regionName}}</td>
+                        <td>{{vechicleToBrakeConfig.brakeConfig.frontBrakeTypeName}} ({{vechicleToBrakeConfig.brakeConfig.frontBrakeTypeId}})</td>
+                        <td>{{vechicleToBrakeConfig.brakeConfig.rearBrakeTypeName}} ({{vechicleToBrakeConfig.brakeConfig.rearBrakeTypeId}})</td>
+                        <td>{{vechicleToBrakeConfig.brakeConfig.brakeABSName}} ({{vechicleToBrakeConfig.brakeConfig.brakeABSId}})</td>
+                        <td>{{vechicleToBrakeConfig.brakeConfig.brakeSystemName}} ({{vechicleToBrakeConfig.brakeConfig.brakeSystemId}})</td>
+                    </tr>
+                </ac-grid>
+            </div>
+        </div>
+
+        <div class="add-form">
+            <div class="clearfix">
+
+                <div class="submit-wrap">
+                    <input type="submit" value="SUBMIT CHANGE REQUEST" class="btn larger" (click)="onSubmitChangeRequest()">
+                    <input type="reset" value="CANCEL" class="btn transparent larger" routerLink="/system/search">
+                </div>
+
+                <div class="attach-wrap" style="margin-top: 40px;">
+                    <strong>OPTIONAL</strong>
+                    <ac-fileuploader upload-api-path="file/savechunk"></ac-fileuploader>
+                    <small>Include Comments</small>
+                    <textarea cols="50" rows="5" [(ngModel)]="existingBrakeConfig.comment"></textarea>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</main>
+<!-- Main end -->

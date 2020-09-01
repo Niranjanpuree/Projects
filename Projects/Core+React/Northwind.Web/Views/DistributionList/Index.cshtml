@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "User Distribution";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+@{
+    var resourceVersion = @Configuration["resourceVersion"];
+    var cdnUrl = @Configuration["CDNUrl"];
+}
+@section breadcrumb
+    {
+    <li class="breadcrumb-item"><a href="#">Distribution Lists</a></li>
+}
+
+<div id="distributionList" class="p-3"></div>
+
+@section Scripts {
+    <script type="text/javascript">
+        (function () {
+            window.distributionList.pageView.loadDistributionList('distributionList',
+                'key',
+                'resourceId',
+                false,
+                false,
+                false,
+                true,
+                false);
+        })()
+    </script>
+}

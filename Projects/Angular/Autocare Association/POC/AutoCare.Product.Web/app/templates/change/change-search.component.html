@@ -1,0 +1,450 @@
+﻿<loading-gif [show]="showLoadingGif"></loading-gif>
+<user-likes-comp #likeComponent></user-likes-comp>
+<div class="split-scr left-show">
+
+    <!-- Left split screen start -->
+    <div class="drawer-left">
+        <span></span>
+        <div>
+            <!-- Main start -->
+            <main class="clearfix">
+
+                <div>
+
+                    <div class="add-form">
+                        <div style="float: left">
+
+                            <h2>
+                                Change Request Filters
+                                <a class="btn larger" (click)="onClearFilters()">CLEAR</a>
+                                <a class="btn icon search larger" (click)="searchChanges()" style="margin-left: 10px;">SEARCH CHANGES</a>
+                            </h2>
+
+                            <div class="clearfix">
+                                <div class="input-blocks clearfix">
+                                    <div>
+
+                                        <div>
+                                            <strong>Change req ID quick search</strong>
+                                            <div class="filter-search green-submit">
+                                                <input type="text" class="cinput" placeholder="Change request #" [(ngModel)]="selectedChangeRequestIdForSearch" (keypress)="onCRIdKeyPress($event)">
+                                                <input type="submit" value="" (click)="searchByChangeRequestId()">
+                                            </div>
+
+                                            <div class="clearfix"></div>
+
+                                            <div style="margin-top: 20px;">
+                                                <strong class="float-left">Approved status</strong><a class="float-right" (click)="clearApprovedStatusFilter(changeRequestSearchViewModel.facets.statuses)" style="text-decoration: underline; cursor: pointer;">Clear</a>
+                                                <div class="clearfix"></div>
+                                                <div class="checkbox-wrap after-search" style="height: 130px;">
+                                                    <ul>
+                                                        <li *ngFor="let status of statusFacets">
+                                                            <label class="control control--checkbox green-checkbox">
+                                                                <input type="checkbox" [(ngModel)]="status.isSelected" [value]="status.name" (change)="onItemSelected($event, changeRequestSearchViewModel.facets.statuses)">
+                                                                <div class="control__indicator"></div>
+                                                                <span>{{status.name}}</span>
+                                                            </label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                            <div style="margin-top: 20px;">
+                                                <strong class="float-left">Change Type</strong>
+                                                <a class="float-right" (click)="clearChangeTypeFilter(changeRequestSearchViewModel.facets.changeTypes)" style="text-decoration:underline;cursor:pointer;">Clear</a>
+                                                <div class="clearfix"></div>
+                                                <div class="checkbox-wrap after-search" style="height: 105px;">
+                                                    <ul>
+                                                        <li *ngFor="let changeType of changeTypeFacets">
+                                                            <label class="control control--checkbox green-checkbox">
+                                                                <input type="checkbox" [(ngModel)]="changeType.isSelected" [value]="changeType.name" (change)="onItemSelected($event, changeRequestSearchViewModel.facets.changeTypes)">
+                                                                <div class="control__indicator"></div>
+                                                                <span>{{changeType.name}}</span>
+                                                            </label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div style="margin-top: 20px;">
+                                            <strong class="float-left">Change Entity</strong><a class="float-right" (click)="clearChangeEntityFilter(changeRequestSearchViewModel.facets.changeEntities)" style="text-decoration:underline;cursor:pointer;">Clear</a>
+                                            <div class="clearfix"></div>
+
+                                            <div class="filter-search">
+                                                <input type="text" class="cinput" placeholder="Filter by Entity" [(ngModel)]="entityQuery" (keyup)="onSearchEntityChange()">
+                                                <input type="submit" value="">
+                                            </div>
+
+                                            <div class="clearfix"></div>
+                                            <div class="checkbox-wrap after-search" style="overflow: auto; height: 170px;">
+                                                <ul>
+                                                    <li *ngFor="let changeEntity of changeEntityFacets">
+                                                        <label class="control control--checkbox green-checkbox">
+                                                            <input type="checkbox" [(ngModel)]="changeEntity.isSelected" [value]="changeEntity.name" (change)="onItemSelected($event, changeRequestSearchViewModel.facets.changeEntities)">
+                                                            <div class="control__indicator"></div>
+                                                            <span>{{changeEntity.name}}</span>
+                                                        </label>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+                                    <div>
+                                        <div>
+                                            <strong class="float-left">Assigned to</strong><a class="float-right" (click)="clearAssignedToFilter(changeRequestSearchViewModel.facets.assignees)" style="text-decoration:underline;cursor:pointer;">Clear</a>
+                                            <div class="clearfix"></div>
+                                            <div class="filter-search">
+                                                <input type="text" class="cinput" placeholder="Filter by name" size="30" [(ngModel)]="assigneeQuery" (keyup)="onSearchAssigneeChange()">
+                                                <input type="submit" value="">
+                                            </div>
+
+                                            <div class="clearfix"></div>
+
+                                            <div class="checkbox-wrap after-search" style="overflow: auto; height: 170px;">
+                                                <ul>
+                                                    <li *ngFor="let assignTo of assigneeFacets">
+                                                        <label class="control control--checkbox green-checkbox">
+                                                            <input type="checkbox" [(ngModel)]="assignTo.isSelected" [value]="assignTo.id" (change)="onUserItemSelected($event, changeRequestSearchViewModel.facets.assignees)">
+                                                            <div class="control__indicator"></div>
+                                                            <span>{{assignTo.id}}</span>
+                                                        </label>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div style="margin-top: 20px;">
+                                            <strong class="float-left">Submitted by</strong><a class="float-right" (click)="clearSubmittedByFilter(changeRequestSearchViewModel.facets.requestsBy)" style="text-decoration:underline;cursor:pointer;">Clear</a>
+                                            <div class="clearfix"></div>
+
+                                            <div class="filter-search">
+                                                <input type="text" class="cinput" placeholder="Filter by name or company" size="30" [(ngModel)]="submittedQuery" (keyup)="onSearchSubmittedChange()">
+                                                <input type="submit" value="">
+                                            </div>
+
+                                            <div class="clearfix"></div>
+
+                                            <div class="checkbox-wrap after-search" style="overflow: auto; height: 170px;">
+                                                <ul>
+                                                    <li *ngFor="let submittedBy of requestByFacets">
+                                                        <label class="control control--checkbox green-checkbox">
+                                                            <input type="checkbox" [(ngModel)]="submittedBy.isSelected" [value]="submittedBy.id" (change)="onUserItemSelected($event, changeRequestSearchViewModel.facets.requestsBy)">
+                                                            <div class="control__indicator"></div>
+                                                            <span>{{submittedBy.id}}</span>
+                                                        </label>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div style="margin-top: 20px;">
+                                            <strong class="float-left">Submitted Date From: (MM/DD/YYYY)</strong>
+                                            <!--<a class="float-right" style="text-decoration:underline;cursor:pointer;" (click)="clearAssignedToFilter()" >Clear</a>-->
+                                            <div class="clearfix"></div>
+                                            <div class="filter-search">
+                                               <!-- <input type="text" class="cinput" placeholder="Date From" size="30" [(ngModel)]="submittedDateFrom">-->
+                                                <datetime [timepicker]="false" [datepicker]="datepickerOpts" [(ngModel)]="submittedDateFrom"></datetime>
+                                            </div>
+                                            <div class="clearfix"></div>
+
+                                            <strong class="float-left" style="margin-top: 20px;">Submitted Date To: (MM/DD/YYYY)</strong>
+                                            <!--<a class="float-right" style="text-decoration:underline;cursor:pointer;" (click)="clearAssignedToFilter()" >Clear</a>-->
+                                            <div class="clearfix"></div>
+                                            <div class="filter-search">
+                                                <!--<input type="text" class="cinput" placeholder="Date To" size="30" [(ngModel)]="submittedDateTo">-->
+                                                <datetime [timepicker]="false" [datepicker]="datepickerOpts"  [(ngModel)]="submittedDateTo"></datetime>
+                                            </div>
+
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </main>
+            <!-- Main end -->
+        </div>
+    </div>
+    <!-- Left split screen end -->
+    <!-- Right split screen start -->
+    <div id="main">
+
+
+        <!-- Main start -->
+        <main class="clearfix">
+
+            <div class="center" *ngIf="changeRequestSearchViewModel.result.changeRequests.length">
+
+                <!-- Select associations for replacement start -->
+                <div class="table-wrap">
+                    <h2 class="clearfix">
+                        Change Requests
+                        <span class="multiple-btns" *ngIf="changeRequestSearchViewModel.canBulkSubmit">
+                            <button (click)="crStatusChange('assign')" class="btn blue icon user" [disabled]="disableAssign">ASSIGN</button>
+                            <button (click)="crStatusChange('approved')" class="btn blue icon check-circle" [disabled]="disableApprove" *ngIf="changeRequestSearchViewModel.isAdmin">FINAL</button>
+                            <button (click)="crStatusChange('preliminaryapproved')" class="btn blue icon check-circle" [disabled]="disablePreliminary">PRELIMINARY</button>
+                            <button (click)="crStatusChange('rejected')" class="btn blue icon cancel-circle" [disabled]="disableReject" *ngIf="changeRequestSearchViewModel.isAdmin">REJECT</button>
+                        </span>
+                    </h2>
+                    <div class="ctable padding-r5-l5 table-vertical-align-middle" *ngIf="changeRequestSearchViewModel.result">
+                        <ac-grid #changeRequestGrid [dataSource]="changeRequestSearchViewModel.result.changeRequests" #gd="acGrid"
+                                  columns='[
+                                 { "header":" " , "selectable": {"selected": false}},
+                                 { "header":"CR ID", "field":"id", "sortable":true },
+                                 { "header":"Assignee", "field":"assignee.user", "sortable":true},
+                                 { "header":"Submitted", "field":"createdDateTime", "sortable":true},
+                                 { "header":"Updated", "field": "updatedDateTime", "sortable":true },
+                                 { "header":"Status", "field":"status.status", "sortable":true },
+                                 { "header":"Submitter", "field":"requestedBy.user", "sortable":true },
+                                 { "header":"Change Type", "field":"changeType", "sortable":true},
+                                 { "header":"Change Content", "field":"changeContent", "sortable":false},
+                                 { "header":"Likes", "field":"likes", "sortable":false},
+                                 { "header":""}
+                                     ]'
+                                 paging='{"pageSize": 10, "numberOfPagesOnPageList" : 10}'
+                                 (selectAllChangedEvent)="onSelectAllChangeRequest($event)" [selectAllChecked]="isSelectAllChangeRequests">
+                            <tr *ngFor="let changeRequest of gd.items">
+                                <td>
+                                    <label class="control control--checkbox green-checkbox">
+                                        <input type="checkbox" [(ngModel)]="changeRequest.isSelected"
+                                               (change)="onCRSelected(changeRequest, $event)">
+                                        <div class="control__indicator"></div>
+                                    </label>
+                                </td>
+                                <td style="width: 60px;">{{changeRequest.id}}</td>
+                                <td class="word-wrap-150">{{changeRequest.assignee.id}}</td>
+                                <td style="min-width: 90px;">{{changeRequest.createdDateTime | date:"MM-dd-yyyy" }}</td>
+                                <td style="min-width: 90px;">{{changeRequest.updatedDateTime | date:"MM-dd-yyyy" }}</td>
+                                <td class="word-wrap-95">{{changeRequest.status.status}}</td>
+                                <td class="word-wrap-150">{{changeRequest.requestedBy.id}}</td>
+                                <td class="word-wrap-160">{{changeRequest.changeType}}</td>
+                                <td title="{{changeRequest.changeContent}}" class="change-content">{{changeRequest.changeContent}}</td>
+                                <td class="like-comment-control">
+                                    <a class="like" *ngIf="changeRequest.likes > 0 && !changeRequestSearchViewModel.isAdmin">{{changeRequest.likes}}</a>
+                                    <a class="like pointer" *ngIf="changeRequest.likes && changeRequest.likes > 0 && changeRequestSearchViewModel.isAdmin" (click)="onClickLikes(changeRequest.id)">{{changeRequest.likes}}</a>
+                                    <a class="comment-icon comment pointer" *ngIf="changeRequest.commentExists" (click)="showRequestorComment(changeRequest.id, changeRequest.status.status)"></a>
+                                </td>
+                                <!-- added inline coding for cursor: pointer;-->
+                                <td class="word-wrap-75-90" *ngIf="(changeRequest.status.status !='Approved' && changeRequest.status.status != 'Rejected' && changeRequest.status.status != 'Deleted') && !isUser">
+                                    <a class="btn-r-arrow blue change-search-action" (click)="changeRequestReview(changeRequest)">Review</a>
+                                </td>
+                                <td class="word-wrap-75-90" *ngIf="(changeRequest.status.status !='Approved' && changeRequest.status.status != 'Rejected' && changeRequest.status.status != 'Deleted') && isUser"></td>
+                                <td class="word-wrap-75-90" *ngIf="(changeRequest.status.status =='Approved' || changeRequest.status.status == 'Rejected' || changeRequest.status.status == 'Deleted')">
+                                    <a class="btn-r-arrow blue change-search-action" (click)="changeRequestReview(changeRequest)">View</a>
+                                </td>
+                            </tr>
+                        </ac-grid>
+                    </div>
+                </div>
+            </div>
+                
+        </main>
+        <!-- Main end -->
+    </div>
+    <!-- Right split screen end -->
+
+</div>
+<!-- Popup start -->
+<modal #AssignPopup>
+    <div class="overlay dark show">
+        <div class="new-make modal-dialog modal-assign-box">
+            <a data-dismiss="modal" class="close"></a>
+            <div class="add-form">
+                <h2>Approve Change Requests</h2>
+                <div class="clearfix">
+
+                    <p>
+                        <strong>Selected Change Requests:</strong><br>
+                    </p>
+                    <ul *ngIf="distinctCRChangeTypes">
+                        <li *ngFor="let changeType of distinctCRChangeTypes">
+                            <span>({{changeType.count}}) {{changeType.name}}</span>
+                        </li>
+                    </ul>
+
+                    <div class="input-blocks clearfix">
+                        <div>
+                            <strong>Assign to</strong>
+
+                            <div class="select white-select" style="width: 300px;">
+                                <select [(ngModel)]="assignedReviewer.assignedToUserId">
+                                    <option value="-1" *ngIf="usersForAssignment">Me</option>
+                                    <option *ngFor="let user of usersForAssignment" [value]="user.id">
+                                        {{user.user}}
+                                    </option>
+                                </select>
+                                <div class="select__arrow white-select__arrow"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Submit and cancel button start -->
+                    <div class="btns">
+                        <input type="reset" value="CANCEL" class="btn transparent" data-dismiss="modal">
+                        <input type="submit" value="ASSIGN" class="btn" (click)="onConfirm('assign')">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</modal>
+
+<modal #ApprovePopup>
+    <div class="overlay dark show">
+        <div class="new-make modal-approval-box">
+            <a data-dismiss="modal" class="close"></a>
+            <div class="add-form">
+                <h2>Approve Change Requests</h2>
+                <div class="clearfix">
+
+                    <p>
+                        <strong>Selected Change Requests:</strong><br>
+                    </p>
+                    <ul *ngIf="distinctCRChangeTypes">
+                        <li *ngFor="let changeType of distinctCRChangeTypes">
+                            <span>({{changeType.count}}) {{changeType.name}}</span>
+                        </li>
+                    </ul>
+
+                    <div class="warning-wrap" style="width: 400px;">
+                        <div>
+                            <strong *ngIf="affectedList.length===0">No Associated Records will be impacted</strong>
+                            <strong *ngIf="affectedList.length>0">Associated records will be impacted</strong>
+                            <span>
+                                <ul *ngIf="affectedList">
+                                    <li *ngFor="let affectedType of affectedList">
+                                        <span *ngIf="affectedType.count >0">{{affectedType.count}} {{affectedType.type}}</span>
+                                    </li>
+                                </ul>
+                            </span>
+                        </div>
+                        <div>
+
+                        </div>
+                    </div>
+                    <!-- Submit and cancel button start -->
+                    <div class="btns">
+                        <input type="reset" value="CANCEL" class="btn transparent" data-dismiss="modal">
+                        <input type="submit" value="APPROVE" class="btn" (click)="onConfirm('approved')">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</modal>
+
+<modal #RejectPopup>
+    <div class="overlay dark show">
+        <div class="new-make modal-approval-box">
+            <a data-dismiss="modal" class="close"></a>
+            <div class="add-form">
+                <h2>Reject Change Requests</h2>
+                <div class="clearfix">
+
+                    <p>
+                        <strong>Selected Change Requests:</strong><br>
+                    </p>
+                    <ul *ngIf="distinctCRChangeTypes">
+                        <li *ngFor="let changeType of distinctCRChangeTypes">
+                            <span>({{changeType.count}}) {{changeType.name}}</span>
+                        </li>
+                    </ul>
+
+                    <div class="warning-wrap" style="width: 400px;">
+                        <div>
+                            <strong *ngIf="affectedList.length===0">No Associated Records will be impacted</strong>
+                            <strong *ngIf="affectedList.length>0">Associated records will be impacted</strong>
+                            <span>
+                                <ul *ngIf="affectedList">
+                                    <li *ngFor="let affectedType of  affectedList">
+                                        <span *ngIf="affectedType.count >0">{{affectedType.count}} {{affectedType.type}}</span>
+                                    </li>
+                                </ul>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- Submit and cancel button start -->
+                    <div class="btns">
+                        <input type="reset" value="CANCEL" class="btn transparent" data-dismiss="modal">
+                        <input type="submit" value="REJECT" class="btn" (click)="onConfirm('rejected')">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</modal>
+
+<modal #PreliminaryPopup>
+    <div class="overlay dark show">
+        <div class="new-make modal-approval-box">
+            <a class="close" data-dismiss="modal"></a>
+            <div class="add-form">
+                <h2>Preliminary Approve Change Requests</h2>
+                <div class="clearfix">
+
+                    <p>
+                        <strong>Selected Change Requests:</strong><br>
+                    </p>
+                    <ul *ngIf="distinctCRChangeTypes">
+                        <li *ngFor="let changeType of distinctCRChangeTypes">
+                            <span>({{changeType.count}}) {{changeType.name}}</span>
+                        </li>
+                    </ul>
+
+                    <div class="warning-wrap" style="width: 400px;">
+                        <div>
+                            <strong *ngIf="affectedList.length===0">No Associated Records will be impacted</strong>
+                            <strong *ngIf="affectedList.length>0">Associated records will be impacted</strong>
+                            <span>
+                                <ul *ngIf="affectedList">
+                                    <li *ngFor="let affectedType of  affectedList">
+                                        <span *ngIf="affectedType.count >0">{{affectedType.count}} {{affectedType.type}}</span>
+                                    </li>
+                                </ul>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- Submit and cancel button start -->
+                    <div class="btns">
+                        <input type="reset" value="CANCEL" class="btn transparent" data-dismiss="modal">
+                        <input type="submit" value="PRELIMINARY APPROVE" class="btn" (click)="onConfirm('preliminaryapproved')">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</modal>
+
+<modal #commentPopupModel>
+    <div class="overlay dark show">
+        <div class="new-make modal-dialog modal-comment-box">
+            <a (click)="commentPopupModel.dismiss()" class="close"></a>
+            <div class="table-wrap comment-box">
+                <h2>Comments</h2>
+                <div class="clpopup" *ngIf="requestorComments && requestorComments.length > 0">
+                    <ul class="comment-box">
+                        <li *ngFor="let comment of requestorComments">
+                            <h5>{{comment.addedBy}} • {{comment.createdDatetime|date:'EEEE'}}</h5>
+                            <p>{{comment.comment}}</p>
+                        </li>
+                    </ul>
+                </div>
+                <div *ngIf="!requestorComments && requestorComments.length == 0">
+                    <p>No comments found.</p>
+                </div>
+                <!-- Submit and cancel button start -->
+                <div class="btns">
+                    <input type="button" value="Close" class="btn" (click)="commentPopupModel.dismiss()">
+                </div>
+            </div>
+        </div>
+    </div>
+</modal>
+<!-- Main end -->

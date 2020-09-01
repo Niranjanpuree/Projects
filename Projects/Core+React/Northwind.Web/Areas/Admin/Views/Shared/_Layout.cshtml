@@ -1,0 +1,25 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb d-none d-sm-flex">
+        @RenderSection("breadcrumb", required: false)
+    </ol>
+</nav>
+<div class="row mt-3">
+
+    <!--End Side Bar-->
+    <!--Main Content Area-->
+    <div class="col">
+        <div class="container-fluid">
+            @RenderBody()
+        </div>
+    </div>
+    <!--End Main Content Area-->
+</div>
+
+
+@section Scripts {
+    @RenderSection("Scripts", required: false)
+}
+

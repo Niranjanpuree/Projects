@@ -1,0 +1,34 @@
+﻿@model Northwind.Web.Models.ViewModels.EmployeeBillingRatesViewModel
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+@{
+    var resourceVersion = @Configuration["resourceVersion"];
+    var cdnUrl = @Configuration["CDNUrl"];
+}
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="_EditEmployeeBillingRates">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="">
+                <input hidden asp-for="BillingRateGuid" class="form-control" />
+                <input hidden asp-for="ContractGuid" class="form-control" />
+            </div>
+
+            <div class="row form-group">
+                <p class="col-12 alert alert-secondary rounded-0 mt-n3">Following file was uploaded by @Model.UpdatedByDisplayname on @Model.UpdatedOn. You can add/edit/delete rows below. If you want to edit offline, please click on Export to CSV, modify the file and upload modified file using Upload New File button. To Edit data in place, please click on data column. You can use [tab] key to move to next column. To Add New row click on “Add Row”. Do not forget to click on “Update” button if you are editing inline.</p>
+                <div class="col-12 text-right">
+                    <input type="button" id="DownloadEBRGrid" class="download btn btn-secondary" value="Export to CSV" />
+                    <input type="button" id="AddEBRRow" class="btn btn-secondary" value="Add Row" />
+                </div>
+            </div>
+
+            <div class="form-group" id="EmployeeBillingGrid"></div>
+
+        </form>
+    </div>
+</div>
+
+<script src="@cdnUrl/js/proj/contractfileUploadGrid.js?v=@resourceVersion" class="UploadGrid" data-gridname="#EmployeeBillingGrid"
+        data-controller="EmployeeBillingRates" data-idvalue="#ContractGuid" data-guid="billingRateGuid"
+        data-fields="laborCode|employeeName|rate|startDate|endDate" data-titles="Labor Code|Employee Name|Rate|Start Date|End Date" data-editable="1"
+        data-downloadgrid="#DownloadEBRGrid" data-path=@Model.FilePath data-addrow="#AddEBRRow"></script>

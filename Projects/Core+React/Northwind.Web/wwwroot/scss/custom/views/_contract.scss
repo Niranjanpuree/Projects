@@ -1,0 +1,291 @@
+.contractPanel .k-content.p-4 {
+    padding-bottom: 5px !important;
+}
+
+.contract {
+    &-details {
+
+        @at-root .project-details .breadcrumb,
+        & .breadcrumb {
+            background: $white;
+        }
+    }
+
+    &-header {
+        background: $white;
+        margin: 0 -15px 30px;
+        padding: 0 15px 5px;
+        box-shadow: 0 15px 15px -15px rgba(0, 0, 0, 0.1);
+    }
+
+    &-title {
+        color: $primary;
+        cursor: pointer;
+        line-height: 1.3;
+        display: inline;
+        text-transform: uppercase;
+        font-size: 20px;
+
+        i {
+            transition: 0.2s linear;
+            font-size: 14px;
+            padding-left: 5px;
+            display: inline;
+            color: $success;
+        }
+
+
+    }
+
+    &-info {
+        font-size: 14px;
+        .list-inline {
+            line-height: 1.6;
+        }
+    }
+
+    &Panel {
+        margin-bottom: 15px;
+    }
+}
+
+.top-header {
+    background: $white;
+    margin-bottom: 30px;
+    // padding-bottom: 15px;
+}
+
+.collapse-btn {
+    background: $gray-100;
+    margin: 10px -15px 0;
+    color: #aaa;
+    cursor: pointer;
+    border-top: 1px solid $gray-200;
+    i{
+        width:100%;
+    }
+}
+
+.k-i-arrow-chevron-up {
+    &:before {
+        transition: 0.2s linear;
+    }
+
+    &.collapsed {
+        &:before {
+            content: '\e015';
+        }
+    }
+}
+
+.k-panelbar .k-header {
+    cursor: pointer !important;
+}
+
+.k-tabstrip {
+    &-wrapper {
+        flex: 1;
+    }
+
+    &-prev,
+    &-next {
+        height: 50px;
+    }
+}
+
+:root {
+    --bg: red;
+}
+
+.jobrequest {
+    &-status {
+        display: flex;
+        background: $gray-300;
+        margin: 15px -15px;
+        padding: 20px;
+
+
+
+        li {
+            list-style: none;
+            display: inline-block;
+
+            font-weight: $fw-b;
+            flex-grow: 1;
+            position: relative;
+            padding-right: 5px;
+            height: 25px;
+            color: #777;
+
+            &:after {
+                content: '';
+                width: calc(100% - 10px);
+                height: 2px;
+                position: absolute;
+                left: 0;
+                top: calc(50% - 1px);
+                background: $gray-400;
+                // z-index: -1;
+            }
+
+            &:last-child {
+                flex: initial;
+                padding-right: 0;
+            }
+
+            &.active {
+                overflow: visible;
+                color: darken($primary, 15%);
+
+                >span {
+                    overflow: visible;
+                }
+
+                .jobrequest-count {
+                    background: darken($primary, 15%);
+                    color: $gray-300;
+                    // height: 30px;
+                    // width:30px;
+                    // line-height: 30px;
+
+                }
+            }
+
+            >span {
+                background: $gray-300;
+                display: inline-block;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                padding-right: 5px;
+                position: relative;
+                z-index: 1;
+
+            }
+        }
+
+    }
+
+    &-count {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background: $gray-400;
+        display: block;
+        text-align: center;
+        line-height: 25px;
+        font-weight: bold;
+        color: $gray-600;
+        font-size: 14px;
+        float: left;
+        margin-right: 8px;
+    }
+}
+
+.uploaded-file {
+    a {
+        padding: 10px 0;
+        display: block;
+        text-decoration: none;
+
+        &:hover {
+            color: darken($primary, 15%);
+        }
+    }
+
+    i {
+        font-size: 22px;
+        margin-bottom: 6px;
+    }
+
+    span {
+        font-size: 16px;
+    }
+}
+
+
+
+#sticky-header {
+    transition: 0.2s ease-in-out;
+
+    &.active {
+        position: fixed;
+        top: 62px;
+        width: 100%;
+        background: #fff;
+        padding: 15px 0 0 !important;
+        z-index: 999;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.16);
+    }
+}
+
+
+#ContractGrid1 #groupableGrid {
+    colgroup col:first-child{
+        width:0 !important;
+    }
+    table .k-header:first-child {
+        width:0 !important;
+        overflow: hidden;
+        padding:0;
+        a {
+            display: none;
+        }
+    }
+
+    .k-grid-content tr td:first-child {
+        width:0 !important;
+        overflow: hidden;
+        padding:0;
+
+    }
+}
+
+.upload-contract-file{
+    .material-icons{
+        font-size:18px;
+    }
+    .text-warning{
+        font-size:22px;
+    }
+}
+
+#projectAndModList{
+    .k-grid-container{
+        height: calc(100vh - 491px) !important;
+    }
+}
+
+.farclause_grid{
+    .k-widget.k-grid{
+        height: calc(100vh - 250px) !important;
+    }
+}
+
+#contractNoticeGrid{
+    .k-widget.k-grid{
+        height:auto !important;
+    }
+}
+
+.grid-description{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom:15px;
+}
+.icon-defination{
+    display: flex;
+    align-items: center;
+    img{
+        width:16px;
+        height:16px;
+        margin:0 5px 0 20px;
+        &:first-child{
+            margin-left:0;
+        }
+    }
+    b{
+        color:$gray-600;
+    }
+}

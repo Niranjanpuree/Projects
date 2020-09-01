@@ -1,0 +1,374 @@
+﻿@model Northwind.Web.Models.ViewModels.Contract.ContractViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    bool isRevenueModelNotNull = ((Model.RevenueRecognitionModel != null && !string.IsNullOrEmpty(Model.FinancialInformation.ContractTypeName)) ? true : false);
+    var isviewHistory = "display:none";
+    bool isRevenueCreated = false;
+    bool isCurrentFiscalYearOfNorthWind = false;
+    bool isCompleted = false;
+    bool isNotify = false;
+    var viewButtonCSS = "display:none";
+    var addButtonCSS = "display:none";
+    var EditButtonCSS = "display:none";
+    var messageCSS = isRevenueModelNotNull ? "display:none" : "display:inline-block";
+
+    if (isRevenueModelNotNull)
+    {
+        isviewHistory = Model.RevenueRecognitionModel.isViewHistory ? "display:inline-block" : "display:none";
+        isRevenueCreated = (Model.RevenueRecognitionModel.IsRevenueCreated == true ? true : false);
+        isCurrentFiscalYearOfNorthWind = (Model.RevenueRecognitionModel.IsCurrentFiscalYearOfNorthWind == true ? true : false);
+        isCompleted = (Model.RevenueRecognitionModel.IsCompleted == true ? true : false);
+        isNotify = (Model.RevenueRecognitionModel.IsNotify == true ? true : false);
+        viewButtonCSS = (isRevenueCreated == true && isNotify || isRevenueCreated == true && !isCurrentFiscalYearOfNorthWind) && Model.RevenueRecognitionModel.IsActive ? "display:inline-block" : "display:none";
+        addButtonCSS = isRevenueCreated == false ? "display:inline-block" : "display:none";
+        EditButtonCSS = isCompleted == true || !Model.RevenueRecognitionModel.IsAccountRepresentive && isNotify || Model.RevenueRecognitionModel.IsCurrentFiscalYearOfNorthWind == false || isRevenueCreated == false ? "display:none" : "display:inline-block";
+    }
+}
+<div class="p-4">
+    <div class="form-group row align-items-center">
+        <div class="col-sm-6">
+            @{
+                /*
+                *
+                * JobRequest
+                *
+                */
+            }
+
+            <label class="control-label control-label-read mb-0">
+                Job Request Form <i class="k-icon k-i-info info-tooltip" title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam nulla ipsam incidunt saepe voluptatum sint, unde doloribus qui, doloremque animi possimus culpa magni error aliquid nihil deleniti numquam non odio!
+                    "></i>
+            </label>
+
+            @if (Model.JobRequest != null)
+            {
+
+                <div>
+                    <small>
+                        <b>Status:</b> @(Model.JobRequest.Status < 5 ? "Pending " + Model.JobRequest._JobRequestStatus : Model.JobRequest._JobRequestStatus)
+                    </small>
+                    <small>
+                        <b>Updated by</b> @(Model.JobRequest.Displayname) <b>on</b>
+                        @(Model.JobRequest.UpdatedOn.ToString("MM/dd/yyyy"))
+                    </small>
+                </div>
+            }
+        </div>
+        <div class="col-sm-6">
+            @if ((bool)ViewBag.IsExistInCostPoint)
+            {
+                <p><b>This Taskorder is already exist in cost point.</b></p>
+            }
+            else
+            {
+                @if (Model.JobRequest != null)
+                {
+                    <button @(!(bool)ViewBag.JobRequestDetail ? "disabled" : "") class="btn btn-sm btn-secondary" id="idViewJobRequest">
+                        View
+                    </button>
+                    @if (Model.JobRequest.Status != 5)
+                    {
+                        <button @((bool)ViewBag.JobRequestEdit && Model.IsJobEditable ? "" : "disabled") class="btn btn-sm btn-secondary" id="idEditJobRequest">
+                            Edit
+                        </button>
+                    }
+                }
+                else
+                {
+                    <button @(!(bool)ViewBag.JobRequestAdd  || !Model.IsContractRepresentative ? "disabled" : "") class="btn btn-sm btn-secondary" id="idAddJobRequest">
+                        Add
+                    </button>
+                }
+            }
+        </div>
+    </div>
+
+    @{
+        /*
+         *
+         * Contract Clause
+         *
+         */
+    }
+    <div class="form-group row align-items-center">
+        <div class="col-sm-6">
+            <label class="control-label control-label-read mb-0 Get-ProjectNumber" id="@Model.BasicContractInfo.ProjectNumber">
+                Contract Clauses and Special Provisions <i class="k-icon k-i-info info-tooltip" title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam nulla ipsam incidunt saepe voluptatum sint, unde doloribus qui, doloremque animi possimus culpa magni error aliquid nihil deleniti numquam non odio!
+                "></i>
+            </label>
+            @if (Model.Questionaire != null || Model.IsFarContractAvailable)
+            {
+                <div>
+                    <small>
+                        <b>Updated by</b> @(Model.Questionaire?.DisplayName) <b>on</b>
+                        @(Model.Questionaire?.UpdatedOn.ToString("MM/dd/yyyy"))
+                    </small>
+                </div>
+            }
+        </div>
+        <div class="col-sm-6">
+            @if (Model.Questionaire != null || Model.IsFarContractAvailable)
+            {
+                <button @(!(bool)ViewBag.ContractClauseDetail ? "disabled" : "") class="btn btn-sm btn-secondary" id="idViewContractQuestionaire">
+                    View
+                </button>
+                <button @(!(bool)ViewBag.ContractClauseEdit ? "disabled" : "") class="btn btn-sm btn-secondary" id="idEditContractQuestionaire">
+                    Edit
+                </button>
+            }
+            else
+            {
+                <div>
+                    @if (Model.BasicContractInfo.FarContractTypeGuid == Guid.Empty)
+                    {
+                        <p class="mb-0" id="idnotice">
+                            <span class="text-danger font-weight-bold">Please fill out FAR Contract Type</span><br />
+                            <small>Edit this contract to fill out the FAR Contract Type.</small>
+                        </p>
+                    }
+                    else
+                    {
+                        <button @(!(bool)ViewBag.ContractClauseAdd ? "disabled" : "") class="btn btn-sm btn-secondary" id="idAddContractQuestionaire">Add</button>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+
+    @if (Model.BasicContractInfo.IsIDIQContract == false)
+    {
+        /*
+       *
+       * WBS
+       *
+       */
+
+        <div class="form-group row align-items-center">
+            <div class="col-sm-6">
+                <label class="control-label control-label-read">Work Breakdown Structure</label>
+                @if (Model.ContractWBS != null)
+                {
+                    <div>
+                        <small>
+                            <b>Updated by</b> @(Model.ContractWBS.Displayname) <b>on</b> @(Model.ContractWBS.UpdatedOn.ToString("MM/dd/yyyy"))
+                        </small>
+                    </div>
+                }
+            </div>
+            <div class="col-sm-6">
+                @if (Model.ContractWBS != null)
+                {
+                    <button @(!(bool)ViewBag.WbsDetail ? "disabled" : "") class="btn btn-sm btn-secondary" id="idViewWBSNonCSV">
+                        View
+                    </button>
+
+                    @if (Model.ContractWBS.IsCsv)
+                    {
+                        <button @(!(bool)ViewBag.WbsEdit ? "disabled" : "") class="btn btn-sm btn-secondary" id="idEditContractWBS">
+                            Edit
+                        </button>
+                    }
+                }
+                else
+                {
+                    <button @(!(bool)ViewBag.WbsAdd ? "disabled" : "") class="btn btn-sm btn-secondary" id="idAddContractWBS">
+                        Add
+                    </button>
+                }
+            </div>
+        </div>
+
+
+        /*
+        *
+        * EmployeeBillingRates
+        *
+        */
+
+        var showBillingRatesTitle = (Model.EmployeeBillingRatesViewModel == null && (bool)ViewBag.EmployeeBillingRatesAdd) ? true :  // show label when add permission is given to the user..
+     Model.EmployeeBillingRatesViewModel == null ? false :   //prevent null case..
+     Model.EmployeeBillingRatesViewModel != null && (bool)ViewBag.EmployeeBillingRatesDetail ? true : // show label when view permission is given to the user..
+     Model.EmployeeBillingRatesViewModel.IsCsv && (bool)ViewBag.EmployeeBillingRatesEdit ? true : false; // show label when edit permission is given to the user..
+
+        <div class="form-group row align-items-center">
+            <div class="col-sm-6">
+                <label @(!showBillingRatesTitle ? "style = display:none" : "") class="control-label control-label-read">Employee Billing Rates</label>
+                @if (Model.EmployeeBillingRatesViewModel != null)
+                {
+                    <div>
+                        <small>
+                            <b>Updated by</b> @(Model.EmployeeBillingRatesViewModel.Displayname) <b>on</b> @(Model.EmployeeBillingRatesViewModel.UpdatedOn.ToString("MM/dd/yyyy"))
+                        </small>
+                    </div>
+                }
+            </div>
+            <div class="col-sm-6">
+                @if (Model.EmployeeBillingRatesViewModel != null)
+                {
+                    <button class="btn btn-sm btn-secondary" id="idViewEmployeeBillingRates">
+                        View
+                    </button>
+                    @if (Model.EmployeeBillingRatesViewModel.IsCsv)
+                    {
+                        <button class="btn btn-sm btn-secondary" id="idEditEmployeeBillingRates">
+                            Edit
+                        </button>
+                    }
+                }
+                else
+                {
+                    <button class="btn btn-sm btn-secondary" id="idAddEmployeeBillingRates">
+                        Add
+                    </button>
+                }
+            </div>
+        </div>
+
+        /*
+         *
+         * LaborCategoryRates
+         *
+         */
+
+        <div class="form-group row align-items-center">
+            <div class="col-sm-6">
+                <label class="control-label control-label-read">Subcontractor Billing Rates</label>
+                @if (Model.LaborCategoryRates != null)
+                {
+                    <div>
+                        <small>
+                            <b>Updated by</b> @(Model.LaborCategoryRates.Displayname) <b>on</b> @(Model.LaborCategoryRates.UpdatedOn.ToString("MM/dd/yyyy"))
+                        </small>
+                    </div>
+                }
+            </div>
+            <div class="col-sm-6">
+                @if (Model.LaborCategoryRates != null)
+                {
+                    <button @(!(bool)ViewBag.LaborCategoryRatesDetail ? "style = display:none" : "") class="btn btn-sm btn-secondary" id="idViewLaborCategoryRates">
+                        View
+                    </button>
+                    @if (Model.LaborCategoryRates.IsCsv)
+                    {
+                        <button @(!(bool)ViewBag.LaborCategoryRatesEdit ? "style = display:none" : "") class="btn btn-sm btn-secondary" id="idEditLaborCategoryRates">
+                            Edit
+                        </button>
+                    }
+                }
+                else
+                {
+                    <button @(!(bool)ViewBag.LaborCategoryRatesAdd ? "style = display:none" : "") class="btn btn-sm btn-secondary" id="idAddLaborCategoryRates">
+                        Add
+                    </button>
+                }
+            </div>
+        </div>
+    }
+
+    @if (Model.IsAuthorizedForRevenue)
+    {
+        /*
+        *
+        * RevenueRecognition
+        *
+        */
+        <div class="form-group row align-items-center">
+            <div class="col-sm-6">
+                <label class="control-label control-label-read mb-0">Revenue Recognition Form</label>
+                @if (isRevenueModelNotNull && Model.RevenueRecognitionModel.IsRevenueCreated)
+                {
+                    <div id="idHideUpdatedBy">
+                        <small>
+                            <b>Updated by</b> @(Model.RevenueRecognitionModel.Displayname) <b>on</b> @(Model.RevenueRecognitionModel.UpdatedOn.ToString("dd/MM/yyyy"))
+                        </small>
+                    </div>
+                }
+                <div id="idViewUpdateBy">
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div>
+                    <button @(!(bool)ViewBag.RevenueRecognitionList ? "disabled" : "") class="btn btn-sm btn-secondary" id="idViewRevenueRecognition" style="@viewButtonCSS ">
+                        View
+                    </button>
+                    <button @(!(bool)ViewBag.RevenueRecognitionEdit ? "disabled" : "") class="btn btn-sm btn-secondary" id="idEditRevenueRecognition" style="@EditButtonCSS">
+                        Edit
+                    </button>
+                    <button @(!(bool)ViewBag.RevenueRecognitionAdd ? "disabled" : "") class="btn btn-sm btn-secondary" id="idAddRevenueRecognition" style="@addButtonCSS">
+                        Add
+                    </button>
+                    <button @(!(bool)ViewBag.RevenueRecognitionList ? "disabled" : "") class="btn btn-sm btn-secondary" id="idViewHistoryRevenueRecognition" style="@isviewHistory">
+                        View History
+                    </button>
+                    <p class="mb-0" id="idnotice" style="@messageCSS">
+                        <span class="text-primary font-weight-bold">Not Required</span><br />
+                        @if (string.IsNullOrEmpty(Model.FinancialInformation.ContractTypeName))
+                        {
+                            <small>The Contract Type is not defined</small>
+                        }
+                        else
+                        {
+                            <small>(As the total award amount for revenue form does not exceed the threshold)</small>
+                        }
+                    </p>
+                </div>
+            </div>
+        </div>
+    }
+
+    @{
+        /*
+        *
+        * ContractCloseOut
+        *
+        */
+
+    }
+
+    @if (Model.IsAuthorizedForContractClose)
+    {
+        <div class="form-group row align-items-center">
+            <div class="col-sm-6">
+                <label class="control-label control-label-read mb-0">Contract Close Out</label>
+                @if (Model.ContractCloseOutDetail != null)
+                {
+                    <div @(!(bool)ViewBag.ContractCloseList ? "disabled" : "")>
+                        <small>
+                            <b>Updated by</b> @(Model.ContractCloseOutDetail.UpdatedBy) <b>on</b> @(Model.ContractCloseOutDetail.UpdatedOn)
+                        </small>
+                    </div>
+                }
+            </div>
+            <div class="col-sm-6">
+                @if (Model.ContractCloseOutDetail != null)
+                {
+                    <button @(!(bool)ViewBag.ContractCloseDetail ? "disabled" : "") class="btn btn-sm btn-secondary" id="idViewContractCloseOut">
+                        View
+                    </button>
+                }
+                else
+                {
+                    <button @(!(bool)ViewBag.ContractCloseAdd || !Model.IsProjectManager ? "disabled" : "") class="btn btn-sm btn-secondary" id="idContractCloseOut">
+                        Begin Close Out
+                    </button>
+                }
+            </div>
+        </div>
+    }
+    @{
+        /*
+        *
+        * Contract Brief
+        *
+        */
+    }
+    <div class="form-group row align-items-center">
+        <div class="col-sm-6">
+            <label class="control-label control-label-read mb-0">DCAA Contract Brief</label>
+        </div>
+        <div class="col-sm-6">
+            @Html.ActionLink("View", "ContractBrief", "Contract", new { contractGuid = Model.ContractGuid }, new { @class = "btn btn-sm btn-secondary d-inline-block" })
+        </div>
+    </div>
+</div>

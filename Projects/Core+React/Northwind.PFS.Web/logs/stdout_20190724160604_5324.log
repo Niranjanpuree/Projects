@@ -1,0 +1,1269 @@
+Hosting environment: Development
+Content root path: C:\Users\Shishir\Source\Repos\ESS-Web\src\Northwind.CostPoint.Web
+Application started. Press Ctrl+C to shut down.
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/  
+warn: Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware[3]
+      Failed to determine the https port for redirect.
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.PFS.Web.Controllers.TaskOrderController.Index (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {action = "Index", controller = "TaskOrder", area = ""}. Executing action Northwind.PFS.Web.Controllers.TaskOrderController.Index (Northwind.PFS.Web)
+info: Microsoft.AspNetCore.Authorization.DefaultAuthorizationService[1]
+      Authorization was successful.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.PFS.Web.Controllers.TaskOrderController.Index (Northwind.PFS.Web) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.PFS.Web.Controllers.TaskOrderController.Index (Northwind.PFS.Web), returned result Microsoft.AspNetCore.Mvc.RedirectResult in 0.3198ms.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.RedirectResultExecutor[1]
+      Executing RedirectResult, redirecting to /PFS/project.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.PFS.Web.Controllers.TaskOrderController.Index (Northwind.PFS.Web) in 133.4174ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.PFS.Web.Controllers.TaskOrderController.Index (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 251.0172ms 302 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/PFS/project  
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Index (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {area = "PFS", action = "Index", controller = "Project"}. Executing action Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Index (Northwind.PFS.Web)
+info: Microsoft.AspNetCore.Authorization.DefaultAuthorizationService[1]
+      Authorization was successful.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Index (Northwind.PFS.Web) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Index (Northwind.PFS.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.4662ms.
+info: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[1]
+      Executing ViewResult, running view Index.
+info: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[4]
+      Executed ViewResult - view Index executed in 288.8142ms.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Index (Northwind.PFS.Web) in 306.2406ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Index (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 337.6336ms 200 text/html; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/pfs/project/Get?take=20&skip=0&searchValue=&dir=desc&sortField=&additionalFilter=MyContract&t=1563984370702&dt=1563984370702 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Get (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {area = "PFS", action = "Get", controller = "Project"}. Executing action Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Get (Northwind.PFS.Web)
+info: Microsoft.AspNetCore.Authorization.DefaultAuthorizationService[1]
+      Authorization was successful.
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/pfs/GridFields/PFS%2FProject?dt=1563984370740 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {area = "PFS", action = "GridFields", controller = "Export"}. Executing action Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web) with arguments (PFS%2FProject) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Get (Northwind.PFS.Web) with arguments (, 0, 0, 20, , desc) - Validation state: Valid
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/Notification/GetUnReadDesktopNotification?dt=1563984370777 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {action = "GetUnReadDesktopNotification", controller = "Notification", area = ""}. Executing action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 26.4193ms.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Northwind.Web.Infrastructure.Models.GridviewField, Northwind.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure), returned result Microsoft.AspNetCore.Mvc.JsonResult in 15.8487ms.
+info: Microsoft.AspNetCore.Mvc.Formatters.Json.Internal.JsonResultExecutor[1]
+      Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[Northwind.Web.Infrastructure.Models.ViewModels.NotificationMessageViewModel, Northwind.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) in 377.8606ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 442.2244ms 200 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web) in 500.9616ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 668.6912ms 200 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Get (Northwind.PFS.Web), returned result Microsoft.AspNetCore.Mvc.BadRequestObjectResult in 14330.4817ms.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Get (Northwind.PFS.Web) in 14408.5308ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Get (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 14439.5479ms 400 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/Notification/GetUnReadDesktopNotification?dt=1563984401267 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {action = "GetUnReadDesktopNotification", controller = "Notification", area = ""}. Executing action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure), returned result Microsoft.AspNetCore.Mvc.JsonResult in 5.4636ms.
+info: Microsoft.AspNetCore.Mvc.Formatters.Json.Internal.JsonResultExecutor[1]
+      Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[Northwind.Web.Infrastructure.Models.ViewModels.NotificationMessageViewModel, Northwind.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) in 10.0478ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 15.663ms 200 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/PFS/project  
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Index (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {area = "PFS", action = "Index", controller = "Project"}. Executing action Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Index (Northwind.PFS.Web)
+info: Microsoft.AspNetCore.Authorization.DefaultAuthorizationService[1]
+      Authorization was successful.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Index (Northwind.PFS.Web) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Index (Northwind.PFS.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.0546ms.
+info: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[1]
+      Executing ViewResult, running view Index.
+info: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[4]
+      Executed ViewResult - view Index executed in 3.8106ms.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Index (Northwind.PFS.Web) in 9.5427ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Index (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 19.2051ms 200 text/html; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/pfs/project/Get?take=20&skip=0&searchValue=&dir=desc&sortField=&additionalFilter=MyContract&t=1563984419269&dt=1563984419269 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Get (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {area = "PFS", action = "Get", controller = "Project"}. Executing action Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Get (Northwind.PFS.Web)
+info: Microsoft.AspNetCore.Authorization.DefaultAuthorizationService[1]
+      Authorization was successful.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Get (Northwind.PFS.Web) with arguments (, 0, 0, 20, , desc) - Validation state: Valid
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/pfs/GridFields/PFS%2FProject?dt=1563984419287 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {area = "PFS", action = "GridFields", controller = "Export"}. Executing action Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web) with arguments (PFS%2FProject) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 1.6118ms.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Northwind.Web.Infrastructure.Models.GridviewField, Northwind.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web) in 6.2702ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 12.3299ms 200 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/Notification/GetUnReadDesktopNotification?dt=1563984419344 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {action = "GetUnReadDesktopNotification", controller = "Notification", area = ""}. Executing action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure), returned result Microsoft.AspNetCore.Mvc.JsonResult in 7.2561ms.
+info: Microsoft.AspNetCore.Mvc.Formatters.Json.Internal.JsonResultExecutor[1]
+      Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[Northwind.Web.Infrastructure.Models.ViewModels.NotificationMessageViewModel, Northwind.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) in 12.5197ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 22.947ms 200 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/favicon.ico  
+info: Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware[2]
+      Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\Shishir\Source\Repos\ESS-Web\src\Northwind.CostPoint.Web\wwwroot\favicon.ico'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 25.15ms 200 image/x-icon
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Get (Northwind.PFS.Web), returned result Microsoft.AspNetCore.Mvc.BadRequestObjectResult in 14967.1259ms.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Get (Northwind.PFS.Web) in 14973.217ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Get (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 14981.6247ms 400 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/Notification/GetUnReadDesktopNotification?dt=1563984449566 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {action = "GetUnReadDesktopNotification", controller = "Notification", area = ""}. Executing action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure), returned result Microsoft.AspNetCore.Mvc.JsonResult in 1.5022ms.
+info: Microsoft.AspNetCore.Mvc.Formatters.Json.Internal.JsonResultExecutor[1]
+      Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[Northwind.Web.Infrastructure.Models.ViewModels.NotificationMessageViewModel, Northwind.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) in 11.8094ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 29.7752ms 200 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/Notification/GetUnReadDesktopNotification?dt=1563984479618 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {action = "GetUnReadDesktopNotification", controller = "Notification", area = ""}. Executing action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure), returned result Microsoft.AspNetCore.Mvc.JsonResult in 4.4828ms.
+info: Microsoft.AspNetCore.Mvc.Formatters.Json.Internal.JsonResultExecutor[1]
+      Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[Northwind.Web.Infrastructure.Models.ViewModels.NotificationMessageViewModel, Northwind.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) in 11.8431ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 26.9494ms 200 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/Notification/GetUnReadDesktopNotification?dt=1563984509655 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {action = "GetUnReadDesktopNotification", controller = "Notification", area = ""}. Executing action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure), returned result Microsoft.AspNetCore.Mvc.JsonResult in 0.4874ms.
+info: Microsoft.AspNetCore.Mvc.Formatters.Json.Internal.JsonResultExecutor[1]
+      Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[Northwind.Web.Infrastructure.Models.ViewModels.NotificationMessageViewModel, Northwind.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) in 4.1371ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 13.4471ms 200 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/Notification/GetUnReadDesktopNotification?dt=1563984539683 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {action = "GetUnReadDesktopNotification", controller = "Notification", area = ""}. Executing action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure), returned result Microsoft.AspNetCore.Mvc.JsonResult in 8.5834ms.
+info: Microsoft.AspNetCore.Mvc.Formatters.Json.Internal.JsonResultExecutor[1]
+      Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[Northwind.Web.Infrastructure.Models.ViewModels.NotificationMessageViewModel, Northwind.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) in 13.6076ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 23.1263ms 200 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/Notification/GetUnReadDesktopNotification?dt=1563984569718 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {action = "GetUnReadDesktopNotification", controller = "Notification", area = ""}. Executing action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure), returned result Microsoft.AspNetCore.Mvc.JsonResult in 0.6622ms.
+info: Microsoft.AspNetCore.Mvc.Formatters.Json.Internal.JsonResultExecutor[1]
+      Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[Northwind.Web.Infrastructure.Models.ViewModels.NotificationMessageViewModel, Northwind.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) in 5.1854ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 12.8996ms 200 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/Notification/GetUnReadDesktopNotification?dt=1563984655748 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {action = "GetUnReadDesktopNotification", controller = "Notification", area = ""}. Executing action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure), returned result Microsoft.AspNetCore.Mvc.JsonResult in 1.0365ms.
+info: Microsoft.AspNetCore.Mvc.Formatters.Json.Internal.JsonResultExecutor[1]
+      Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[Northwind.Web.Infrastructure.Models.ViewModels.NotificationMessageViewModel, Northwind.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) in 7.4825ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 28.2563ms 200 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/Notification/GetUnReadDesktopNotification?dt=1563984685804 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {action = "GetUnReadDesktopNotification", controller = "Notification", area = ""}. Executing action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure), returned result Microsoft.AspNetCore.Mvc.JsonResult in 18.2316ms.
+info: Microsoft.AspNetCore.Mvc.Formatters.Json.Internal.JsonResultExecutor[1]
+      Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[Northwind.Web.Infrastructure.Models.ViewModels.NotificationMessageViewModel, Northwind.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) in 29.5406ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 52.1333ms 200 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/Notification/GetUnReadDesktopNotification?dt=1563984715875 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {action = "GetUnReadDesktopNotification", controller = "Notification", area = ""}. Executing action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure), returned result Microsoft.AspNetCore.Mvc.JsonResult in 1.2076ms.
+info: Microsoft.AspNetCore.Mvc.Formatters.Json.Internal.JsonResultExecutor[1]
+      Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[Northwind.Web.Infrastructure.Models.ViewModels.NotificationMessageViewModel, Northwind.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) in 8.9592ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 38.3964ms 200 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/Notification/GetUnReadDesktopNotification?dt=1563984745936 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {action = "GetUnReadDesktopNotification", controller = "Notification", area = ""}. Executing action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure), returned result Microsoft.AspNetCore.Mvc.JsonResult in 10.2566ms.
+info: Microsoft.AspNetCore.Mvc.Formatters.Json.Internal.JsonResultExecutor[1]
+      Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[Northwind.Web.Infrastructure.Models.ViewModels.NotificationMessageViewModel, Northwind.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) in 21.4651ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 43.885ms 200 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/Notification/GetUnReadDesktopNotification?dt=1563984775997 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {action = "GetUnReadDesktopNotification", controller = "Notification", area = ""}. Executing action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure), returned result Microsoft.AspNetCore.Mvc.JsonResult in 7.7865ms.
+info: Microsoft.AspNetCore.Mvc.Formatters.Json.Internal.JsonResultExecutor[1]
+      Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[Northwind.Web.Infrastructure.Models.ViewModels.NotificationMessageViewModel, Northwind.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) in 20.527ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 46.7532ms 200 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/Notification/GetUnReadDesktopNotification?dt=1563984806059 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {action = "GetUnReadDesktopNotification", controller = "Notification", area = ""}. Executing action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure), returned result Microsoft.AspNetCore.Mvc.JsonResult in 8.7229ms.
+info: Microsoft.AspNetCore.Mvc.Formatters.Json.Internal.JsonResultExecutor[1]
+      Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[Northwind.Web.Infrastructure.Models.ViewModels.NotificationMessageViewModel, Northwind.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) in 16.1446ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 40.9137ms 200 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/Notification/GetUnReadDesktopNotification?dt=1563984836115 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {action = "GetUnReadDesktopNotification", controller = "Notification", area = ""}. Executing action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure), returned result Microsoft.AspNetCore.Mvc.JsonResult in 0.9082ms.
+info: Microsoft.AspNetCore.Mvc.Formatters.Json.Internal.JsonResultExecutor[1]
+      Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[Northwind.Web.Infrastructure.Models.ViewModels.NotificationMessageViewModel, Northwind.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) in 8.3498ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 28.5445ms 200 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/Notification/GetUnReadDesktopNotification?dt=1563984866158 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {action = "GetUnReadDesktopNotification", controller = "Notification", area = ""}. Executing action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure), returned result Microsoft.AspNetCore.Mvc.JsonResult in 8.4924ms.
+info: Microsoft.AspNetCore.Mvc.Formatters.Json.Internal.JsonResultExecutor[1]
+      Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[Northwind.Web.Infrastructure.Models.ViewModels.NotificationMessageViewModel, Northwind.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) in 18.7153ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 61.572ms 200 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/Notification/GetUnReadDesktopNotification?dt=1563984896241 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {action = "GetUnReadDesktopNotification", controller = "Notification", area = ""}. Executing action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure), returned result Microsoft.AspNetCore.Mvc.JsonResult in 0.9353ms.
+info: Microsoft.AspNetCore.Mvc.Formatters.Json.Internal.JsonResultExecutor[1]
+      Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[Northwind.Web.Infrastructure.Models.ViewModels.NotificationMessageViewModel, Northwind.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) in 18.0063ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 47.2036ms 200 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/Notification/GetUnReadDesktopNotification?dt=1563984926311 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {action = "GetUnReadDesktopNotification", controller = "Notification", area = ""}. Executing action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure), returned result Microsoft.AspNetCore.Mvc.JsonResult in 14.3477ms.
+info: Microsoft.AspNetCore.Mvc.Formatters.Json.Internal.JsonResultExecutor[1]
+      Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[Northwind.Web.Infrastructure.Models.ViewModels.NotificationMessageViewModel, Northwind.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) in 28.6367ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 69.5934ms 200 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/Notification/GetUnReadDesktopNotification?dt=1563984956403 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {action = "GetUnReadDesktopNotification", controller = "Notification", area = ""}. Executing action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure), returned result Microsoft.AspNetCore.Mvc.JsonResult in 22.216ms.
+info: Microsoft.AspNetCore.Mvc.Formatters.Json.Internal.JsonResultExecutor[1]
+      Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[Northwind.Web.Infrastructure.Models.ViewModels.NotificationMessageViewModel, Northwind.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) in 30.6847ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 49.1024ms 200 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/Notification/GetUnReadDesktopNotification?dt=1563984986470 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {action = "GetUnReadDesktopNotification", controller = "Notification", area = ""}. Executing action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure), returned result Microsoft.AspNetCore.Mvc.JsonResult in 0.6956ms.
+info: Microsoft.AspNetCore.Mvc.Formatters.Json.Internal.JsonResultExecutor[1]
+      Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[Northwind.Web.Infrastructure.Models.ViewModels.NotificationMessageViewModel, Northwind.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) in 6.7346ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 23.3289ms 200 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/Notification/GetUnReadDesktopNotification?dt=1563985016506 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {action = "GetUnReadDesktopNotification", controller = "Notification", area = ""}. Executing action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure), returned result Microsoft.AspNetCore.Mvc.JsonResult in 10.1807ms.
+info: Microsoft.AspNetCore.Mvc.Formatters.Json.Internal.JsonResultExecutor[1]
+      Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[Northwind.Web.Infrastructure.Models.ViewModels.NotificationMessageViewModel, Northwind.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) in 16.9772ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 37.7267ms 200 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/Notification/GetUnReadDesktopNotification?dt=1563985046560 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {action = "GetUnReadDesktopNotification", controller = "Notification", area = ""}. Executing action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure), returned result Microsoft.AspNetCore.Mvc.JsonResult in 2.2971ms.
+info: Microsoft.AspNetCore.Mvc.Formatters.Json.Internal.JsonResultExecutor[1]
+      Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[Northwind.Web.Infrastructure.Models.ViewModels.NotificationMessageViewModel, Northwind.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) in 14.2182ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 35.5811ms 200 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/Notification/GetUnReadDesktopNotification?dt=1563985076616 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {action = "GetUnReadDesktopNotification", controller = "Notification", area = ""}. Executing action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure), returned result Microsoft.AspNetCore.Mvc.JsonResult in 0.9238ms.
+info: Microsoft.AspNetCore.Mvc.Formatters.Json.Internal.JsonResultExecutor[1]
+      Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[Northwind.Web.Infrastructure.Models.ViewModels.NotificationMessageViewModel, Northwind.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) in 7.1278ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 47.4282ms 200 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/Notification/GetUnReadDesktopNotification?dt=1563985106678 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {action = "GetUnReadDesktopNotification", controller = "Notification", area = ""}. Executing action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure), returned result Microsoft.AspNetCore.Mvc.JsonResult in 0.7227ms.
+info: Microsoft.AspNetCore.Mvc.Formatters.Json.Internal.JsonResultExecutor[1]
+      Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[Northwind.Web.Infrastructure.Models.ViewModels.NotificationMessageViewModel, Northwind.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) in 6.3144ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 21.7081ms 200 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/Notification/GetUnReadDesktopNotification?dt=1563985136715 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {action = "GetUnReadDesktopNotification", controller = "Notification", area = ""}. Executing action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure), returned result Microsoft.AspNetCore.Mvc.JsonResult in 6.2387ms.
+info: Microsoft.AspNetCore.Mvc.Formatters.Json.Internal.JsonResultExecutor[1]
+      Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[Northwind.Web.Infrastructure.Models.ViewModels.NotificationMessageViewModel, Northwind.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) in 13.4011ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 27.4752ms 200 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/PFS/project  
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Index (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {area = "PFS", action = "Index", controller = "Project"}. Executing action Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Index (Northwind.PFS.Web)
+info: Microsoft.AspNetCore.Authorization.DefaultAuthorizationService[1]
+      Authorization was successful.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Index (Northwind.PFS.Web) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Index (Northwind.PFS.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.0163ms.
+info: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[1]
+      Executing ViewResult, running view Index.
+info: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[4]
+      Executed ViewResult - view Index executed in 9.4019ms.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Index (Northwind.PFS.Web) in 14.9747ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Index (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 27.9198ms 200 text/html; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/pfs/project/Get?take=20&skip=0&searchValue=&dir=desc&sortField=&additionalFilter=MyContract&t=1563985167340&dt=1563985167340 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Get (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {area = "PFS", action = "Get", controller = "Project"}. Executing action Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Get (Northwind.PFS.Web)
+info: Microsoft.AspNetCore.Authorization.DefaultAuthorizationService[1]
+      Authorization was successful.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Get (Northwind.PFS.Web) with arguments (, 0, 0, 20, , desc) - Validation state: Valid
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/pfs/GridFields/PFS%2FProject?dt=1563985167369 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {area = "PFS", action = "GridFields", controller = "Export"}. Executing action Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web) with arguments (PFS%2FProject) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 2.4404ms.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Northwind.Web.Infrastructure.Models.GridviewField, Northwind.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web) in 6.5124ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 15.782ms 200 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/Notification/GetUnReadDesktopNotification?dt=1563985167434 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {action = "GetUnReadDesktopNotification", controller = "Notification", area = ""}. Executing action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure), returned result Microsoft.AspNetCore.Mvc.JsonResult in 0.7746ms.
+info: Microsoft.AspNetCore.Mvc.Formatters.Json.Internal.JsonResultExecutor[1]
+      Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[Northwind.Web.Infrastructure.Models.ViewModels.NotificationMessageViewModel, Northwind.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) in 11.7103ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 104.5808ms 200 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/favicon.ico  
+info: Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware[2]
+      Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\Shishir\Source\Repos\ESS-Web\src\Northwind.CostPoint.Web\wwwroot\favicon.ico'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 4.2929ms 200 image/x-icon
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Get (Northwind.PFS.Web), returned result Microsoft.AspNetCore.Mvc.JsonResult in 2412.2985ms.
+info: Microsoft.AspNetCore.Mvc.Formatters.Json.Internal.JsonResultExecutor[1]
+      Executing JsonResult, writing value of type '<>f__AnonymousType0`2[[System.Collections.Generic.IList`1[[Northwind.PFS.Web.Models.ViewModels.ProjectViewModel, Northwind.PFS.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Get (Northwind.PFS.Web) in 2449.7486ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Get (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 2463.474ms 200 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/pfs/project/details/3  
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Details (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {area = "PFS", action = "Details", controller = "Project"}. Executing action Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Details (Northwind.PFS.Web)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Details (Northwind.PFS.Web) with arguments (3) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Details (Northwind.PFS.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 410.9735ms.
+info: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[1]
+      Executing ViewResult, running view Details.
+info: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[4]
+      Executed ViewResult - view Details executed in 15.3252ms.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Details (Northwind.PFS.Web) in 434.4519ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Details (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 443.8851ms 200 text/html; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/pfs/GridFields/PFS%2FProjectMod?dt=1563985181239 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {area = "PFS", action = "GridFields", controller = "Export"}. Executing action Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web) with arguments (PFS%2FProjectMod) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 0.467ms.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Northwind.Web.Infrastructure.Models.GridviewField, Northwind.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web) in 3.9434ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 10.9137ms 200 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/Notification/GetUnReadDesktopNotification?dt=1563985181269 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {action = "GetUnReadDesktopNotification", controller = "Notification", area = ""}. Executing action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure), returned result Microsoft.AspNetCore.Mvc.JsonResult in 1.0096ms.
+info: Microsoft.AspNetCore.Mvc.Formatters.Json.Internal.JsonResultExecutor[1]
+      Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[Northwind.Web.Infrastructure.Models.ViewModels.NotificationMessageViewModel, Northwind.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) in 6.2186ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 14.8513ms 200 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/pfs/projectmod/Get?projectId=3&searchValue=&take=10&skip=0&sortField=&dir=desc&dt=1563985181653 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.PFS.Web.Areas.PFS.Controllers.ProjectModController.Get (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {area = "PFS", action = "Get", controller = "ProjectMod"}. Executing action Northwind.PFS.Web.Areas.PFS.Controllers.ProjectModController.Get (Northwind.PFS.Web)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.PFS.Web.Areas.PFS.Controllers.ProjectModController.Get (Northwind.PFS.Web) with arguments (3, , 0, 10, , desc) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.PFS.Web.Areas.PFS.Controllers.ProjectModController.Get (Northwind.PFS.Web), returned result Microsoft.AspNetCore.Mvc.JsonResult in 881.3907ms.
+info: Microsoft.AspNetCore.Mvc.Formatters.Json.Internal.JsonResultExecutor[1]
+      Executing JsonResult, writing value of type '<>f__AnonymousType0`2[[System.Collections.Generic.List`1[[Northwind.PFS.Web.Models.ViewModels.ProjectModViewModel, Northwind.PFS.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.PFS.Web.Areas.PFS.Controllers.ProjectModController.Get (Northwind.PFS.Web) in 897.6541ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.PFS.Web.Areas.PFS.Controllers.ProjectModController.Get (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 910.0443ms 200 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/pfs/project/details/3  
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Details (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {area = "PFS", action = "Details", controller = "Project"}. Executing action Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Details (Northwind.PFS.Web)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Details (Northwind.PFS.Web) with arguments (3) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Details (Northwind.PFS.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 291.7342ms.
+info: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[1]
+      Executing ViewResult, running view Details.
+info: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[4]
+      Executed ViewResult - view Details executed in 3.2227ms.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Details (Northwind.PFS.Web) in 299.5315ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Details (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 310.0076ms 200 text/html; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/pfs/GridFields/PFS%2FProjectMod?dt=1563985188071 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {area = "PFS", action = "GridFields", controller = "Export"}. Executing action Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web) with arguments (PFS%2FProjectMod) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 1.7ms.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Northwind.Web.Infrastructure.Models.GridviewField, Northwind.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web) in 6.275ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 13.8492ms 200 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/Notification/GetUnReadDesktopNotification?dt=1563985188091 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {action = "GetUnReadDesktopNotification", controller = "Notification", area = ""}. Executing action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure), returned result Microsoft.AspNetCore.Mvc.JsonResult in 4.854ms.
+info: Microsoft.AspNetCore.Mvc.Formatters.Json.Internal.JsonResultExecutor[1]
+      Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[Northwind.Web.Infrastructure.Models.ViewModels.NotificationMessageViewModel, Northwind.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) in 9.7254ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 19.237ms 200 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/pfs/projectmod/Get?projectId=3&searchValue=&take=10&skip=0&sortField=&dir=desc&dt=1563985188393 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.PFS.Web.Areas.PFS.Controllers.ProjectModController.Get (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {area = "PFS", action = "Get", controller = "ProjectMod"}. Executing action Northwind.PFS.Web.Areas.PFS.Controllers.ProjectModController.Get (Northwind.PFS.Web)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.PFS.Web.Areas.PFS.Controllers.ProjectModController.Get (Northwind.PFS.Web) with arguments (3, , 0, 10, , desc) - Validation state: Valid
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/favicon.ico  
+info: Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware[2]
+      Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\Shishir\Source\Repos\ESS-Web\src\Northwind.CostPoint.Web\wwwroot\favicon.ico'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 7.8514ms 200 image/x-icon
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.PFS.Web.Areas.PFS.Controllers.ProjectModController.Get (Northwind.PFS.Web), returned result Microsoft.AspNetCore.Mvc.JsonResult in 873.2196ms.
+info: Microsoft.AspNetCore.Mvc.Formatters.Json.Internal.JsonResultExecutor[1]
+      Executing JsonResult, writing value of type '<>f__AnonymousType0`2[[System.Collections.Generic.List`1[[Northwind.PFS.Web.Models.ViewModels.ProjectModViewModel, Northwind.PFS.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.PFS.Web.Areas.PFS.Controllers.ProjectModController.Get (Northwind.PFS.Web) in 882.6275ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.PFS.Web.Areas.PFS.Controllers.ProjectModController.Get (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 914.6947ms 200 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/pfs/wbs/get?projectId=3&take=10&skip=0&searchValue=&dir=desc&sortField=&additionalFilter=&t=1563985192919&dt=1563985192919 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.PFS.Web.Areas.PFS.Controllers.WbsController.Get (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {area = "PFS", action = "Get", controller = "Wbs"}. Executing action Northwind.PFS.Web.Areas.PFS.Controllers.WbsController.Get (Northwind.PFS.Web)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.PFS.Web.Areas.PFS.Controllers.WbsController.Get (Northwind.PFS.Web) with arguments (3, , 0, 10, , desc) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.PFS.Web.Areas.PFS.Controllers.WbsController.Get (Northwind.PFS.Web), returned result Microsoft.AspNetCore.Mvc.JsonResult in 2116.4324ms.
+info: Microsoft.AspNetCore.Mvc.Formatters.Json.Internal.JsonResultExecutor[1]
+      Executing JsonResult, writing value of type '<>f__AnonymousType0`2[[System.Collections.Generic.List`1[[Northwind.PFS.Web.Models.ViewModels.WbsViewModel, Northwind.PFS.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.PFS.Web.Areas.PFS.Controllers.WbsController.Get (Northwind.PFS.Web) in 2125.2389ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.PFS.Web.Areas.PFS.Controllers.WbsController.Get (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 2138.7676ms 200 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/pfs/GridFields/PFS%2FWbs?dt=1563985196195 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {area = "PFS", action = "GridFields", controller = "Export"}. Executing action Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web) with arguments (PFS%2FWbs) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 2.1514ms.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Northwind.Web.Infrastructure.Models.GridviewField, Northwind.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web) in 7.6447ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 19.0939ms 200 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/pfs/GridFields/PFS%2FLabor?dt=1563985197939 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {area = "PFS", action = "GridFields", controller = "Export"}. Executing action Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web) with arguments (PFS%2FLabor) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 0.6021ms.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Northwind.Web.Infrastructure.Models.GridviewField, Northwind.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web) in 4.6059ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 11.8996ms 200 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/pfs/labor/Get?projectId=3&searchValue=&take=10&skip=0&sortField=&dir=desc&dt=1563985198028 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.PFS.Web.Areas.PFS.Controllers.LaborController.Get (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {area = "PFS", action = "Get", controller = "Labor"}. Executing action Northwind.PFS.Web.Areas.PFS.Controllers.LaborController.Get (Northwind.PFS.Web)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.PFS.Web.Areas.PFS.Controllers.LaborController.Get (Northwind.PFS.Web) with arguments (3, , 0, 10, , desc) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.PFS.Web.Areas.PFS.Controllers.LaborController.Get (Northwind.PFS.Web), returned result Microsoft.AspNetCore.Mvc.JsonResult in 588.2632ms.
+info: Microsoft.AspNetCore.Mvc.Formatters.Json.Internal.JsonResultExecutor[1]
+      Executing JsonResult, writing value of type '<>f__AnonymousType0`2[[System.Collections.Generic.List`1[[Northwind.PFS.Web.Models.ViewModels.LaborPayrollViewModel, Northwind.PFS.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.PFS.Web.Areas.PFS.Controllers.LaborController.Get (Northwind.PFS.Web) in 598.529ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.PFS.Web.Areas.PFS.Controllers.LaborController.Get (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 608.2849ms 200 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/pfs/GridFields/PFS%2FLabor?dt=1563985203304 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {area = "PFS", action = "GridFields", controller = "Export"}. Executing action Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web) with arguments (PFS%2FLabor) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 0.4706ms.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Northwind.Web.Infrastructure.Models.GridviewField, Northwind.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web) in 5.2781ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 12.5179ms 200 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/pfs/labor/Get?projectId=3&searchValue=&take=10&skip=0&sortField=&dir=desc&dt=1563985203387 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.PFS.Web.Areas.PFS.Controllers.LaborController.Get (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {area = "PFS", action = "Get", controller = "Labor"}. Executing action Northwind.PFS.Web.Areas.PFS.Controllers.LaborController.Get (Northwind.PFS.Web)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.PFS.Web.Areas.PFS.Controllers.LaborController.Get (Northwind.PFS.Web) with arguments (3, , 0, 10, , desc) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.PFS.Web.Areas.PFS.Controllers.LaborController.Get (Northwind.PFS.Web), returned result Microsoft.AspNetCore.Mvc.JsonResult in 963.2599ms.
+info: Microsoft.AspNetCore.Mvc.Formatters.Json.Internal.JsonResultExecutor[1]
+      Executing JsonResult, writing value of type '<>f__AnonymousType0`2[[System.Collections.Generic.List`1[[Northwind.PFS.Web.Models.ViewModels.LaborPayrollViewModel, Northwind.PFS.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.PFS.Web.Areas.PFS.Controllers.LaborController.Get (Northwind.PFS.Web) in 970.4756ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.PFS.Web.Areas.PFS.Controllers.LaborController.Get (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 979.7685ms 200 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/pfs/GridFields/PFS%2FProjectMod?dt=1563985206325 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {area = "PFS", action = "GridFields", controller = "Export"}. Executing action Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web) with arguments (PFS%2FProjectMod) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 0.4583ms.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Northwind.Web.Infrastructure.Models.GridviewField, Northwind.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web) in 4.4378ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 11.2203ms 200 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/pfs/projectmod/Get?projectId=3&searchValue=&take=10&skip=0&sortField=&dir=desc&dt=1563985206386 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.PFS.Web.Areas.PFS.Controllers.ProjectModController.Get (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {area = "PFS", action = "Get", controller = "ProjectMod"}. Executing action Northwind.PFS.Web.Areas.PFS.Controllers.ProjectModController.Get (Northwind.PFS.Web)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.PFS.Web.Areas.PFS.Controllers.ProjectModController.Get (Northwind.PFS.Web) with arguments (3, , 0, 10, , desc) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.PFS.Web.Areas.PFS.Controllers.ProjectModController.Get (Northwind.PFS.Web), returned result Microsoft.AspNetCore.Mvc.JsonResult in 872.9378ms.
+info: Microsoft.AspNetCore.Mvc.Formatters.Json.Internal.JsonResultExecutor[1]
+      Executing JsonResult, writing value of type '<>f__AnonymousType0`2[[System.Collections.Generic.List`1[[Northwind.PFS.Web.Models.ViewModels.ProjectModViewModel, Northwind.PFS.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.PFS.Web.Areas.PFS.Controllers.ProjectModController.Get (Northwind.PFS.Web) in 882.2936ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.PFS.Web.Areas.PFS.Controllers.ProjectModController.Get (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 893.9922ms 200 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/Notification/GetUnReadDesktopNotification?dt=1563985218414 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {action = "GetUnReadDesktopNotification", controller = "Notification", area = ""}. Executing action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure), returned result Microsoft.AspNetCore.Mvc.JsonResult in 0.4718ms.
+info: Microsoft.AspNetCore.Mvc.Formatters.Json.Internal.JsonResultExecutor[1]
+      Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[Northwind.Web.Infrastructure.Models.ViewModels.NotificationMessageViewModel, Northwind.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) in 4.5791ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 11.7031ms 200 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/Notification/GetUnReadDesktopNotification?dt=1563985248435 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {action = "GetUnReadDesktopNotification", controller = "Notification", area = ""}. Executing action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure), returned result Microsoft.AspNetCore.Mvc.JsonResult in 0.4989ms.
+info: Microsoft.AspNetCore.Mvc.Formatters.Json.Internal.JsonResultExecutor[1]
+      Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[Northwind.Web.Infrastructure.Models.ViewModels.NotificationMessageViewModel, Northwind.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) in 3.3783ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 12.1633ms 200 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/pfs/project/details/3  
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Details (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {area = "PFS", action = "Details", controller = "Project"}. Executing action Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Details (Northwind.PFS.Web)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Details (Northwind.PFS.Web) with arguments (3) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Details (Northwind.PFS.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 292.2209ms.
+info: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[1]
+      Executing ViewResult, running view Details.
+info: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[4]
+      Executed ViewResult - view Details executed in 7.3654ms.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Details (Northwind.PFS.Web) in 308.2996ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Details (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 324.4802ms 200 text/html; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/pfs/GridFields/PFS%2FProjectMod?dt=1563985251780 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {area = "PFS", action = "GridFields", controller = "Export"}. Executing action Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web) with arguments (PFS%2FProjectMod) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 0.6711ms.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Northwind.Web.Infrastructure.Models.GridviewField, Northwind.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web) in 5.4598ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 16.0311ms 200 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/Notification/GetUnReadDesktopNotification?dt=1563985251836 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {action = "GetUnReadDesktopNotification", controller = "Notification", area = ""}. Executing action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure), returned result Microsoft.AspNetCore.Mvc.JsonResult in 0.9608ms.
+info: Microsoft.AspNetCore.Mvc.Formatters.Json.Internal.JsonResultExecutor[1]
+      Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[Northwind.Web.Infrastructure.Models.ViewModels.NotificationMessageViewModel, Northwind.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) in 36.8292ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 81.2516ms 200 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/pfs/projectmod/Get?projectId=3&searchValue=&take=10&skip=0&sortField=&dir=desc&dt=1563985251958 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.PFS.Web.Areas.PFS.Controllers.ProjectModController.Get (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {area = "PFS", action = "Get", controller = "ProjectMod"}. Executing action Northwind.PFS.Web.Areas.PFS.Controllers.ProjectModController.Get (Northwind.PFS.Web)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.PFS.Web.Areas.PFS.Controllers.ProjectModController.Get (Northwind.PFS.Web) with arguments (3, , 0, 10, , desc) - Validation state: Valid
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/favicon.ico  
+info: Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware[2]
+      Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\Shishir\Source\Repos\ESS-Web\src\Northwind.CostPoint.Web\wwwroot\favicon.ico'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 12.9044ms 200 image/x-icon
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.PFS.Web.Areas.PFS.Controllers.ProjectModController.Get (Northwind.PFS.Web), returned result Microsoft.AspNetCore.Mvc.JsonResult in 874.7694ms.
+info: Microsoft.AspNetCore.Mvc.Formatters.Json.Internal.JsonResultExecutor[1]
+      Executing JsonResult, writing value of type '<>f__AnonymousType0`2[[System.Collections.Generic.List`1[[Northwind.PFS.Web.Models.ViewModels.ProjectModViewModel, Northwind.PFS.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.PFS.Web.Areas.PFS.Controllers.ProjectModController.Get (Northwind.PFS.Web) in 880.3118ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.PFS.Web.Areas.PFS.Controllers.ProjectModController.Get (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 924.1757ms 200 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/Notification/GetUnReadDesktopNotification?dt=1563985282336 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {action = "GetUnReadDesktopNotification", controller = "Notification", area = ""}. Executing action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure), returned result Microsoft.AspNetCore.Mvc.JsonResult in 5.1664ms.
+info: Microsoft.AspNetCore.Mvc.Formatters.Json.Internal.JsonResultExecutor[1]
+      Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[Northwind.Web.Infrastructure.Models.ViewModels.NotificationMessageViewModel, Northwind.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) in 8.9068ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 17.4879ms 200 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/pfs/project/details/3  
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Details (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {area = "PFS", action = "Details", controller = "Project"}. Executing action Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Details (Northwind.PFS.Web)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Details (Northwind.PFS.Web) with arguments (3) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Details (Northwind.PFS.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 291.0858ms.
+info: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[1]
+      Executing ViewResult, running view Details.
+info: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[4]
+      Executed ViewResult - view Details executed in 4.9347ms.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Details (Northwind.PFS.Web) in 301.9571ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Details (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 317.6153ms 200 text/html; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/pfs/GridFields/PFS%2FProjectMod?dt=1563985310412 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {area = "PFS", action = "GridFields", controller = "Export"}. Executing action Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web) with arguments (PFS%2FProjectMod) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 2.1019ms.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Northwind.Web.Infrastructure.Models.GridviewField, Northwind.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web) in 9.104ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 27.7093ms 200 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/Notification/GetUnReadDesktopNotification?dt=1563985310449 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {action = "GetUnReadDesktopNotification", controller = "Notification", area = ""}. Executing action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure), returned result Microsoft.AspNetCore.Mvc.JsonResult in 2.4102ms.
+info: Microsoft.AspNetCore.Mvc.Formatters.Json.Internal.JsonResultExecutor[1]
+      Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[Northwind.Web.Infrastructure.Models.ViewModels.NotificationMessageViewModel, Northwind.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) in 15.7325ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 48.9925ms 200 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/pfs/projectmod/Get?projectId=3&searchValue=&take=10&skip=0&sortField=&dir=desc&dt=1563985310595 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.PFS.Web.Areas.PFS.Controllers.ProjectModController.Get (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {area = "PFS", action = "Get", controller = "ProjectMod"}. Executing action Northwind.PFS.Web.Areas.PFS.Controllers.ProjectModController.Get (Northwind.PFS.Web)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.PFS.Web.Areas.PFS.Controllers.ProjectModController.Get (Northwind.PFS.Web) with arguments (3, , 0, 10, , desc) - Validation state: Valid
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/favicon.ico  
+info: Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware[2]
+      Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\Shishir\Source\Repos\ESS-Web\src\Northwind.CostPoint.Web\wwwroot\favicon.ico'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 39.0256ms 200 image/x-icon
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.PFS.Web.Areas.PFS.Controllers.ProjectModController.Get (Northwind.PFS.Web), returned result Microsoft.AspNetCore.Mvc.JsonResult in 881.5126ms.
+info: Microsoft.AspNetCore.Mvc.Formatters.Json.Internal.JsonResultExecutor[1]
+      Executing JsonResult, writing value of type '<>f__AnonymousType0`2[[System.Collections.Generic.List`1[[Northwind.PFS.Web.Models.ViewModels.ProjectModViewModel, Northwind.PFS.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.PFS.Web.Areas.PFS.Controllers.ProjectModController.Get (Northwind.PFS.Web) in 886.3546ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.PFS.Web.Areas.PFS.Controllers.ProjectModController.Get (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 922.6953ms 200 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/pfs/wbs/get?projectId=3&take=10&skip=0&searchValue=&dir=desc&sortField=&additionalFilter=&t=1563985312418&dt=1563985312418 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.PFS.Web.Areas.PFS.Controllers.WbsController.Get (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {area = "PFS", action = "Get", controller = "Wbs"}. Executing action Northwind.PFS.Web.Areas.PFS.Controllers.WbsController.Get (Northwind.PFS.Web)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.PFS.Web.Areas.PFS.Controllers.WbsController.Get (Northwind.PFS.Web) with arguments (3, , 0, 10, , desc) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.PFS.Web.Areas.PFS.Controllers.WbsController.Get (Northwind.PFS.Web), returned result Microsoft.AspNetCore.Mvc.JsonResult in 875.448ms.
+info: Microsoft.AspNetCore.Mvc.Formatters.Json.Internal.JsonResultExecutor[1]
+      Executing JsonResult, writing value of type '<>f__AnonymousType0`2[[System.Collections.Generic.List`1[[Northwind.PFS.Web.Models.ViewModels.WbsViewModel, Northwind.PFS.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.PFS.Web.Areas.PFS.Controllers.WbsController.Get (Northwind.PFS.Web) in 879.275ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.PFS.Web.Areas.PFS.Controllers.WbsController.Get (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 886.945ms 200 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/pfs/GridFields/PFS%2FWbs?dt=1563985316812 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {area = "PFS", action = "GridFields", controller = "Export"}. Executing action Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web) with arguments (PFS%2FWbs) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 0.4948ms.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Northwind.Web.Infrastructure.Models.GridviewField, Northwind.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web) in 4.33ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 12.7299ms 200 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/pfs/wbsdictionary/get?wbsGuid=bc949e62-7c72-443a-9127-0215f88444d5&take=10&skip=0&searchValue=&dir=desc&sortField=&additionalFilter=&t=1563985329151&dt=1563985329151 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.PFS.Web.Areas.PFS.Controllers.WbsDictionaryController.Get (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {area = "PFS", action = "Get", controller = "WbsDictionary"}. Executing action Northwind.PFS.Web.Areas.PFS.Controllers.WbsDictionaryController.Get (Northwind.PFS.Web)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.PFS.Web.Areas.PFS.Controllers.WbsDictionaryController.Get (Northwind.PFS.Web) with arguments (bc949e62-7c72-443a-9127-0215f88444d5, , 0, 10, , desc) - Validation state: Valid
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/pfs/GridFields/PFS%2FWbsDictionary?dt=1563985329163 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {area = "PFS", action = "GridFields", controller = "Export"}. Executing action Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web) with arguments (PFS%2FWbsDictionary) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 2.3788ms.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Northwind.Web.Infrastructure.Models.GridviewField, Northwind.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web) in 5.939ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.PFS.Web.Areas.CostPoint.Controllers.ExportController.GridFields (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 12.0294ms 200 application/json; charset=utf-8
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.PFS.Web.Areas.PFS.Controllers.WbsDictionaryController.Get (Northwind.PFS.Web), returned result Microsoft.AspNetCore.Mvc.JsonResult in 593.4997ms.
+info: Microsoft.AspNetCore.Mvc.Formatters.Json.Internal.JsonResultExecutor[1]
+      Executing JsonResult, writing value of type '<>f__AnonymousType0`2[[System.Collections.Generic.List`1[[Northwind.PFS.Web.Models.ViewModels.WbsDictionaryViewModel, Northwind.PFS.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.PFS.Web.Areas.PFS.Controllers.WbsDictionaryController.Get (Northwind.PFS.Web) in 604.7165ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.PFS.Web.Areas.PFS.Controllers.WbsDictionaryController.Get (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 613.3878ms 200 application/json; charset=utf-8

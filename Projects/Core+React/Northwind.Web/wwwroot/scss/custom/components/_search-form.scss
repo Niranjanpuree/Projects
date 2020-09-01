@@ -1,0 +1,189 @@
+.search-form {
+    // position: relative;
+    // width: calc(100% - 160px);
+    // float: left;
+
+    // input {
+    //     padding-right: 35px;
+
+    //     &:focus {
+
+    //         // border-color:$gray-400;
+    //         +i {
+    //             background: rgba($color-primary, 0.7);
+    //             color: $white;
+    //         }
+    //     }
+    // }
+
+    // >.k-icon {
+    //     position: absolute;
+    //     right: 1px;
+    //     top: 0;
+    //     bottom: 0;
+    //     font-size: 13px;
+    //     color: $gray-900;
+    //     border-left: 1px solid $gray-300;
+    //     padding: 5px;
+    //     width: 38px;
+    //     height: 100%;
+    //     cursor: pointer;
+    //     transition: 0.2s ease-in-out;
+    //     line-height: 24px;
+    //     font-size: 18px;
+    //     border-radius: 0 .25rem .25rem 0;
+    //     text-align: center;
+
+    //     &:hover {
+    //         background: $color-primary;
+    //         color: $white;
+    //     }
+
+    //     &:before {
+    //         position: absolute;
+    //         top: 50%;
+    //         left: 50%;
+    //         transform: translate(-50%, -50%);
+    //     }
+    // }
+
+    // &-list {
+    //     .search-group.k-textbox {
+    //         border-top-right-radius: 0px;
+    //         border-bottom-right-radius: 0px;
+    //         width: calc(100% - 80px);
+
+    //         @include media-breakpoint-up(md) {
+    //             width: 250px;
+    //         }
+
+    //         +button {
+    //             border-top-left-radius: 0px;
+    //             border-bottom-left-radius: 0px;
+    //         }
+    //     }
+
+    //     .btn-link {
+    //         width: 100%;
+    //         text-align: center;
+
+    //         @include media-breakpoint-up(md) {
+    //             width: auto;
+    //         }
+    //     }
+    // }
+}
+
+
+// .search-form-r {
+
+//     .k-textbox>.k-textbox {
+//         height: auto;
+//         font-weight: $fw-b;
+//         color: $gray-600;
+//     }
+
+//     .k-textbox.k-space-right {
+//         padding-right: 39px;
+//         padding-left: 8px;
+//         max-width: 400px;
+//         width: 100%;
+//         background: $gray-100;
+
+//         .k-i-search {
+//             right: 7px;
+//             line-height: 34px;
+//             width: 34px;
+//             height: 34px;
+//             top: 0;
+//             margin: 0;
+//             text-align: center;
+//             // background: $gray-400;
+//             margin-right: -7px;
+//             border-radius: 0 3px 3px 0;
+//             color: $gray-600;
+//             border-left: 1px solid $gray-400;
+
+//             &:before {
+//                 margin-left: 2px;
+//                 display: block;
+//             }
+
+//             &:hover {
+//                 background: $primary;
+//                 color: $light;
+//             }
+
+
+//         }
+
+//         input:focus {
+//             +.k-i-search {
+//                 background: rgba($color-primary, 0.7);
+//                 color: $light;
+
+//                 &:hover {
+//                     background: $primary;
+//                     color: $light;
+//                 }
+//             }
+//         }
+//     }
+// }
+.search-form-r {
+    .input-group {
+        max-width: 400px;
+        float: left;
+    }
+
+    .k-i-search {
+        color: $gray-500;
+    }
+
+    input:focus+.input-group-append .input-group-text {
+        background: $primary;
+        border-color:$primary;
+
+        a {
+            color: #fff;
+        }
+    }
+}
+
+
+.search-pills-container {
+    // margin-top: 10px;
+    .badge{
+        font-weight: 500;
+        margin-top:5px;
+    }
+    .pill-close {
+        float: right;
+        padding: 4px;
+        border-left: 1px solid #adb5bd;
+        margin: -0.25em 0 -0.25em 8px;
+        height: 17px;
+        color: $gray-600;
+        cursor: pointer;
+
+        &:hover {
+            background: $gray-500;
+
+            i {
+                color: #fff;
+            }
+        }
+
+        i {
+            font-size: 10px;
+        }
+    }
+
+    .badge {
+        overflow: hidden;
+        margin-top: 8px;
+        padding-right: 2px;
+        margin-right: 5px;
+        float: left;
+    }
+}

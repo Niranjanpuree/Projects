@@ -1,0 +1,381 @@
+.document {
+    &-management {
+        .k-upload {
+            background: transparent;
+            border: 0;
+        }
+
+        .k-upload-button {
+            margin: 0;
+        }
+
+
+        .pane-content {
+            padding: 0;
+
+            &.file-explore {
+                padding: 15px;
+                background: #ffffff;
+            }
+        }
+
+        &-menu {
+            position: relative;
+            z-index: 99;
+            background: #eee;
+            padding: 5px 0;
+            border: 1px solid #ddd;
+
+            .btn-link,
+            .k-button {
+                height: 44px;
+                margin-top: -5px;
+                margin-bottom: -5px;
+                border-radius: 0;
+                border-left: 1px solid #ddd;
+                color: $gray-700;
+                padding: 0 10px;
+
+                &:hover {
+                    background: $gray-100;
+                    text-decoration: none;
+                }
+            }
+        }
+
+        &-action {
+            .k-button {
+                background: transparent;
+            }
+
+            .dropdown.show .btn {
+                background: #fff;
+            }
+
+            // .k-button,
+            // .dropdown {
+            //     float: right;
+            // }
+        }
+    }
+
+    &-manager {
+        &-top-header {
+            >.col-sm-4 {
+
+                .k-button,
+                .k-upload {
+                    float: right;
+                    margin-left: 10px;
+                }
+
+                .k-dropzone-hint,
+                .k-upload-status-total {
+                    display: none;
+                }
+            }
+        }
+    }
+
+}
+
+.k-treeview-lines {
+    padding-left: 0;
+
+    .material-icons {
+        float: left;
+        margin-right: 6px;
+    }
+
+    .k-item.k-treeview-item {
+        padding-top: 4px;
+        padding-bottom: 4px;
+    }
+
+    .k-item.k-treeview-item:hover,
+    .k-in:hover,
+    .k-in.k-state-hover {
+        background: transparent;
+    }
+
+    .k-in {
+        padding-top: 0;
+        padding-bottom: 0;
+        width: 100%;
+
+        &.k-state-selected {
+            width: 100%;
+            background: transparent;
+        }
+    }
+}
+
+.explorer {
+    &-list {
+        padding: 5px;
+        width: 130px;
+
+        &.selected {
+            .explorer-button {
+                background: #eee;
+                box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+                border-radius: 2px;
+
+            }
+        }
+
+        &,
+        &:focus {
+            background: transparent;
+            border: none;
+            outline: none;
+        }
+
+        &:hover {
+            background: rgba($white, 0.4);
+            border-radius: 4px;
+        }
+
+        .k-icon {
+            font-size: 40px;
+            color: $gray-600;
+
+        }
+
+        small {
+            margin-top: 8px;
+            display: block;
+            word-break: break-all;
+        }
+    }
+
+    &-button {
+        padding: 20px;
+        align-items: center;
+        justify-content: flex-start;
+        display: flex;
+        flex-flow: column wrap;
+        // background: #fff;
+
+        .k-icon {
+            position: relative;
+
+            &:after {
+                content: '';
+                position: absolute;
+                width: 35px;
+                height: 35px;
+                border-radius: 50%;
+                left: -8px;
+                top: -8px;
+            }
+        }
+
+
+    }
+}
+
+.file-path {
+    // background: #ddd;
+    // padding: 7px 15px;
+    padding: 7px;
+    border-radius: 25px;
+    display: inline-block;
+
+    // box-shadow: inset 0 0px 3px #c7c6c6;
+    .dir-separator+.dir-separator {
+        padding-left: 20px;
+        position: relative;
+
+        &:before {
+            content: '\e315';
+            position: absolute;
+            left: 0px;
+            top: -1px;
+            font-family: 'Material Icons';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 20px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+            opacity: 0.5;
+        }
+    }
+}
+
+.dir-separator {
+    display: inline-block;
+    color: #777;
+    font-weight: $fw-b;
+
+    a {
+        color: #777;
+
+        &:hover {
+            text-decoration: none;
+            color: #333;
+        }
+    }
+}
+
+.k-treeview-item {
+    font-weight: $fw-b;
+
+    .k-animation-container,
+    .k-animation-container.k-animation-container-relative {
+        z-index: 9;
+    }
+
+    .folder-selected {
+        &:after {
+            content: '\e118';
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
+            width: 1em;
+            height: 1em;
+            text-align: center;
+            vertical-align: middle;
+            background-image: none;
+            font: 16px/1 WebComponentsIcons;
+            speak: none;
+            font-variant: normal;
+            text-transform: none;
+            text-indent: 0;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            margin-left: 8px;
+        }
+    }
+}
+
+.k-widget.k-splitter {
+    height: calc(100vh - 495px) !important;
+
+    table {
+        width: 100% !important;
+    }
+}
+
+
+.k-icon.k-i {
+    &-folder {
+        color: $warning;
+
+        &:after {
+            background: rgba($warning, 0.1);
+        }
+    }
+
+    &-image {
+        color: $primary;
+
+        &:after {
+            background: rgba($primary, 0.1);
+        }
+    }
+
+    &-file {
+        &-xls {
+            color: $success;
+
+            &:after {
+                background: rgba($success, 0.1);
+            }
+        }
+
+        &-txt {
+            color: #343e53;
+
+            &:after {
+                background: rgba(#343e53, 0.1);
+            }
+        }
+
+        &-csv {
+            color: #be5ad4;
+
+            &:after {
+                background: rgba(#be5ad4, 0.1);
+            }
+        }
+
+        &-excel {
+            color: #84bd5a;
+
+            &:after {
+                background: rgba(#84bd5a, 0.1);
+            }
+        }
+
+        &-word {
+            color: #29317e;
+
+            &:after {
+                background: rgba(#29317e, 0.1);
+            }
+        }
+
+        &-ppt {
+            color: #f15642;
+
+            &:after {
+                background: rgba(#f15642, 0.1);
+            }
+        }
+
+        &-pdf {
+            color: #f15642;
+
+            &:after {
+                background: rgba(#f15642, 0.1);
+            }
+        }
+
+        &-zip {
+            color: #84bd5a;
+
+            &:after {
+                background: rgba(#84bd5a, 0.1);
+            }
+        }
+    }
+}
+
+#context_menu_container {
+    max-width: 100px;
+}
+
+.empty-directory {
+    padding-top: 50px;
+    font-size: 18px;
+    color: #aaa;
+    position: relative;
+    margin-top:30px;
+
+    &:before {
+        position: absolute;
+        top: 0;
+        content: '\e403';
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        font-size: 45px;
+        font-family: 'WebComponentsIcons';
+        font-style: normal;
+        font-variant: normal;
+        font-weight: normal;
+        line-height: 1;
+        speak: none;
+        text-transform: none;
+        text-decoration: none;
+        display: block;
+        width:100%;
+    }
+}

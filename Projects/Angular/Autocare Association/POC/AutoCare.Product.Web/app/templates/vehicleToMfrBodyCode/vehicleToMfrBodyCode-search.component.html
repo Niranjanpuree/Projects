@@ -1,0 +1,244 @@
+﻿<loading-gif [show]="showLoadingGif"></loading-gif>
+<div class="clearfix">
+    <!--<span class="icon-text" style="float:right;" *ngIf="vehicleToMfrBodyCodeSearchViewModel && vehicleToMfrBodyCodeSearchViewModel.totalCount">Reading <strong>1000</strong> of <strong>{{vehicleToMfrBodyCodeSearchViewModel.totalCount}}</strong> matching records</span>-->
+</div>
+
+<!-- Mfr Body Code unfolded start -->
+<div class="table-wrap">
+    <h2 class="foldable clearfix">
+        <a [ngClass]="{fold:isMfrBodyCodeExpanded, unfold:!isMfrBodyCodeExpanded}" (click)="isMfrBodyCodeExpanded=!isMfrBodyCodeExpanded"></a>
+        MFR Body Code
+        <a class="btn blue icon add" (click)="openAddMfrBodyCodeModal()">NEW</a>
+    </h2>
+    <div class="ctable" [ngClass]="{unfolded:isMfrBodyCodeExpanded, folded:!isMfrBodyCodeExpanded}">
+        <ac-grid #vehicleToMfrBodyCodeGrid [dataSource]="vehicleToMfrBodyCodeSearchViewModel.result.mfrBodyCodes" #gd="acGrid"
+                 columns='[
+                        { "header":" ", "selectable": {"selected": true}},
+                 { "header":"MFR Body Code ID",        "field":"id",                   "sortable":true,"sortedByDesc":true },
+                 { "header":"MFR Body Code Name",   "field":"name",   "sortable":true},
+                 { "header":"Change Requests"}
+                 ]'
+                 initialSortBy='[{"field": "id", "orderByDesc": true}]'
+                 paging='{"pageSize": 10, "numberOfPagesOnPageList" : 10}'
+                 (selectAllChangedEvent)="onSelectAllMfrBodyCode($event)" [selectAllChecked]="isSelectAllMfrBodyCodes"
+                 [thresholdRecordCount]="thresholdRecordCount">
+            <tr *ngFor="let mfrBodyCode of gd.items">
+                <td>
+                    <label class="control control--checkbox green-checkbox">
+                        <input type="checkbox" [(ngModel)]="mfrBodyCode.isSelected" (change)="onMfrBodyCodeSelected(mfrBodyCode)">
+                        <div class="control__indicator"></div>
+                    </label>
+                </td>
+                <td>{{mfrBodyCode.id}}</td>
+                <td>{{mfrBodyCode.name}}</td>
+                <td *ngIf="mfrBodyCode.changeRequestId && mfrBodyCode.changeRequestId != -1">
+                    <a (click)="onViewMfrBodyCodeCr(mfrBodyCode)" class="btn-r-arrow blue" style="cursor: pointer;">Pending</a>
+                    
+                </td>
+                <td *ngIf="!mfrBodyCode.changeRequestId || mfrBodyCode.changeRequestId == -1">                
+                    <a class="box-icon pencil" title="Edit" (click)="openModifyMfrBodyCodeModal(mfrBodyCode)"></a>
+                    <a class="box-icon delete" title="Delete" (click)="openDeleteMfrBodyCodeModal(mfrBodyCode)"></a>
+                    <a class="box-icon shuffle" title="Replace" (click)="routerLinkRedirect('/mfrbodycode/replace/',mfrBodyCode.id)"></a>
+                </td>
+            </tr>
+        </ac-grid>
+    </div>
+</div>
+
+<!-- Associated vehicles folded start -->
+<div class="table-wrap">
+    <h2 class="foldable clearfix">
+        <a [ngClass]="{fold:isAssociatedVehiclesExpanded, unfold:!isAssociatedVehiclesExpanded}" (click)="isAssociatedVehiclesExpanded=!isAssociatedVehiclesExpanded"></a>
+        Associated vehicles
+        <a class="btn blue icon add" (click)="onSelectedNewMfrBodyCodeAssociation()">NEW</a>
+    </h2>
+    <div class="ctable" [ngClass]="{unfolded:isAssociatedVehiclesExpanded, folded:!isAssociatedVehiclesExpanded}">
+        <ac-grid #vehicleToMfrBodyCodeGrid [dataSource]="vehicleToMfrBodyCodesForSelectedMfrBodyCode" #gd1="acGrid"
+                 columns='[
+                { "header":"Vehicle to Mfr Body Code ID",   "field":"id",                   "sortable":true},
+                 { "header":"BV ID",                   "field":"vehicle.baseVehicleId",           "sortable":true},
+                 { "header":"Vehicle ID",                   "field":"vehicle.id",           "sortable":true},
+                 { "header":"Mfr Body Code (ID)",             "field":"mfrBodyCodeName",       "sortable":true},
+                 { "header":"Year",                         "field":"vehicle.yearId",       "sortable":true},
+                 { "header":"Make (ID)",                    "field":"vehicle.makeName",     "sortable":true},
+                 { "header":"Model (ID)",                   "field":"vehicle.modelName",    "sortable":true},
+                 { "header":"Submodel (ID)",                "field":"vehicle.subModelName", "sortable":true},
+                 { "header":"Region (ID)",                  "field":"regionName",           "sortable":true},
+                 { "header":"Change Requests"}
+                 ]'
+                 initialSortBy='[{"field": "id", "orderByDesc": true}]'
+                 paging='{"pageSize": 10, "numberOfPagesOnPageList" : 10}'>
+            <tr *ngFor="let selection of gd1.items">
+                <td>{{selection.id}}</td>
+                <td>{{selection.vehicle.baseVehicleId}}</td>
+                <td>{{selection.vehicle.id}}</td>
+                <td>{{selection.name}} ({{selection.mfrBodyCodeId}})</td>
+                <td>{{selection.vehicle.yearId}}</td>
+                <td>{{selection.vehicle.makeName}} ({{selection.vehicle.makeId}})</td>
+                <td>{{selection.vehicle.modelName}} ({{selection.vehicle.modelId}})</td>
+                <td>{{selection.vehicle.subModelName}} ({{selection.vehicle.subModelId}})</td>
+                <td>{{selection.vehicle.regionName}} ({{selection.vehicle.regionId}})</td>
+                <td *ngIf="selection.changeRequestId && selection.changeRequestId != -1">
+                    <a (click)="onViewAssociatedVehiclesCr(selection)" style="cursor: pointer;" class="btn-r-arrow blue">Pending</a>
+                </td>
+                <td *ngIf="!selection.changeRequestId || selection.changeRequestId == -1">
+                    <a class="box-icon delete" title="Delete" (click)="onDeleteVehicleToMfrBodyCode(selection)"></a>
+                </td>
+            </tr>
+        </ac-grid>
+    </div>
+</div>
+
+<modal #addMfrBodyCodeModal>
+    <div class="overlay dark show">
+        <div class="new-make">
+            <a (click)="onAddMfrBodyCodeCancel()" class="close"></a>
+            <div class="add-form">
+                <h2>New Mfr Body Code</h2>
+                <div class="clearfix">
+                    <div class="input-blocks clearfix">
+                        <strong>Submit a new Mfr Body Code for review:</strong>
+                        <input type="text" [(ngModel)]="mfrBodyCode.name" class="cinput" placeholder="New Mfr Body Code">
+                    </div>
+                    <div class="attach-wrap">
+                        <strong>OPTIONAL</strong>
+                        <ac-fileuploader upload-api-path="file/savechunk" delete-api-path="file/deleteblob" #newPopupAcFileUploader></ac-fileuploader>
+                        <small>Include comments</small>
+                        <textarea cols="50" rows="5" [(ngModel)]="mfrBodyCode.comment"></textarea>
+                    </div>
+                    <div class="clearfix"></div>
+                    <!-- Submit and cancel button start -->
+                    <div class="btns">
+                        <input type="submit" value="CANCEL" class="btn transparent" (click)="onAddMfrBodyCodeCancel()">
+                        <input type="submit" value="SUBMIT" class="btn" (click)="addMfrBodyCode()">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</modal>
+<modal #modifyMfrBodyCodeModal>
+    <div class="overlay dark show">
+        <div class="new-make">
+            <a (click)="onModifyMfrBodyCodeCancel()" class="close"></a>
+            <div class="add-form">
+                <h2>Edit Mfr Body Code</h2>
+                <div class="clearfix">
+                    <div class="input-blocks clearfix">
+                        <strong>Submit a revised Mfr Body Code for review:</strong>
+                        <input type="text" [(ngModel)]="modifyMfrBodyCode.name" required class="cinput">
+                    </div>
+                    <div class="warning-wrap">
+                        <div>
+                            <strong>Associated records will be impacted</strong>
+                            <span>
+                                {{selectedMfrBodyCode.vehicleToMfrBodyCodeCount}} Vehicle to Mfr Body Code
+                            </span>
+                        </div>
+                    </div>
+                    <div class="attach-wrap">
+                        <strong>OPTIONAL</strong>
+                        <ac-fileuploader upload-api-path="file/savechunk" #modifyPopupAcFileUploader="acFileUploader"></ac-fileuploader>
+                        <small>Include comments</small>
+                        <textarea cols="50" rows="5" [(ngModel)]="modifyMfrBodyCode.comment"></textarea>
+                    </div>
+                    <div class="clearfix"></div>
+                    <!-- Submit and cancel button start -->
+                    <div class="btns">
+                        <input type="submit" value="CANCEL" class="btn transparent" (click)="onModifyMfrBodyCodeCancel()">
+                        <input type="submit" value="SUBMIT" class="btn" (click)="modifySubmit()">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</modal>
+<modal #deleteMfrBodyCodeModal>
+    <div class="overlay dark show">
+        <div class="new-make">
+            <a (click)="onDeleteMfrBodyCodeCancel()" class="close"></a>
+            <div class="add-form">
+                <h2>Remove Mfr Body Code</h2>
+                <div class="clearfix">
+
+                    <div class="warning-wrap confirmation">
+                        <div>
+                            <strong>Remove "{{selectedMfrBodyCode.name}}" Mfr Body Code.</strong>
+                        </div>
+                    </div>
+                    <div class="warning-wrap delete-error-wrap">
+                        <div>
+                            <strong>Associated records will be impacted</strong>
+                            <span>
+                                {{selectedMfrBodyCode.vehicleToMfrBodyCodeCount}} Vehicle to Mfr Body Code
+                            </span>
+                        </div>
+                    </div>
+                    <div class="attach-wrap">
+                        <strong>OPTIONAL</strong>
+
+                        <ac-fileuploader upload-api-path="file/savechunk" #deletePopupAcFileUploader="acFileUploader"></ac-fileuploader>
+                        <small>Include comments</small>
+                        <textarea cols="50" rows="5" [(ngModel)]="selectedMfrBodyCode.comment"></textarea>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    <!-- Submit and cancel button start -->
+                    <div class="btns">
+                        <input type="reset" value="CANCEL" class="btn transparent" (click)="onDeleteMfrBodyCodeCancel()">
+                        <input type="submit" value="CONFIRM" class="btn" (click)="deleteSubmit()">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</modal>
+
+<modal #deleteMfrBodyCodeAssociationPopup>
+    <div class="overlay dark show" *ngIf="deleteVehicleToMfrBodyCode">
+        <div class="new-make">
+            <a class="close" (click)="deleteMfrBodyCodeAssociationPopup.dismiss()"></a>
+            <div class="add-form">
+                <h2>Delete Mfr Body Code Association</h2>
+                <div class="clearfix">
+
+                    <div class="input-blocks clearfix">
+                        <div>
+                            <strong>Base ID</strong>
+                            {{deleteVehicleToMfrBodyCode.vehicle.baseVehicleId}}
+                        </div>
+
+                        <div>
+                            <strong>Vehicle ID</strong>
+                            {{deleteVehicleToMfrBodyCode.vehicle.id}}
+                        </div>
+
+                        <div>
+                            <strong>Mfr Body Code ID</strong>
+                            {{deleteVehicleToMfrBodyCode.mfrBodyCodeId}}
+                        </div>
+                    </div>
+
+                    <div class="attach-wrap">
+                        <strong>OPTIONAL</strong>
+                        <ac-fileuploader upload-api-path="file/savechunk"></ac-fileuploader>
+                        <small>Include comments</small>
+                        <textarea cols="50" rows="5" [(ngModel)]="deleteVehicleToMfrBodyCode.comment"></textarea>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    <!-- Submit and cancel button start -->
+                    <div class="btns">
+                        <input type="reset" value="CANCEL" class="btn transparent" (click)="deleteMfrBodyCodeAssociationPopup.dismiss()">
+                        <input type="submit" value="SUBMIT" class="btn" (click)="onDeleteVehicleToMfrBodyCodeSubmit()">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</modal>
+
+

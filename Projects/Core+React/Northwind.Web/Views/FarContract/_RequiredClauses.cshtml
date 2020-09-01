@@ -1,0 +1,13 @@
+﻿@model Northwind.Web.Models.ViewModels.FarClause.FarContractViewModel
+    <div class="col-12">
+        <div class="row border-top pt-2">
+            @for (int i = 0; i < Model.RequiredFarClauses.Count; i++)
+            {
+            <div class="col-md-6">
+                    <label asp-for="RequiredFarClauses[i].FarClauseTitle" class="control-label mb-2 border-bottom py-2 d-block">
+                        @Model.RequiredFarClauses[i].FarClauseNumber (@Model.RequiredFarClauses[i].FarClauseParagraph) - @Model.RequiredFarClauses[i].FarClauseTitle
+                    </label>
+            </div>
+            }
+        </div>
+    </div>

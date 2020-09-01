@@ -1,0 +1,145 @@
+﻿@model Northwind.Web.Models.ViewModels.Contract.ContractViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<div class="p-4">
+    <div class="row">
+        <div class="col-md-6 form-group" id="CompanyPresidentBlock">
+            <label asp-for="KeyPersonnel.CompanyPresident" class="control-label fontbold"></label>
+
+            <p id="companyPresident">@Model.KeyPersonnel.CompanyPresidentName</p>
+            <input type="hidden" asp-for="KeyPersonnel.CompanyPresidentName" id="hiddenCompanyPresidentName"
+                   autocomplete="off" value="@Model.KeyPersonnel.CompanyPresidentName" />
+            <input type="hidden" asp-for="KeyPersonnel.CompanyPresident" id="hiddenCompanyPresidentGuid" autocomplete="off"
+                   value="@Model.KeyPersonnel.CompanyPresident" />
+        </div>
+
+        <div class="col-md-6 form-group" id="RegionalManagerBlock">
+            <label asp-for="KeyPersonnel.RegionalManager" class="control-label fontbold"></label>
+
+            <p id="regionalManager">@(Model.KeyPersonnel.RegionalManagerName==null?"Not Entered":Model.KeyPersonnel.RegionalManagerName)</p>
+            <input type="hidden" asp-for="KeyPersonnel.RegionalManagerName" id="hiddenRegionalManagerName"
+                   value="@Model.KeyPersonnel.RegionalManagerName" autocomplete="off" />
+            <input type="hidden" asp-for="KeyPersonnel.RegionalManager" id="hiddenRegionalManagerGuid" autocomplete="off"
+                   value="@Model.KeyPersonnel.RegionalManager" />
+        </div>
+
+        <div class="col-md-6 form-group" id="DeputyRegionalManagerBlock">
+            <label asp-for="KeyPersonnel.DeputyRegionalManager" class="control-label"></label>
+
+            <h6 class="mb-0" id="deputyRegionalManager">@(Model.KeyPersonnel.DeputyRegionalManagerName == null ? "Not Entered" : Model.KeyPersonnel.DeputyRegionalManagerName)</h6>
+            <input type="hidden" asp-for="KeyPersonnel.DeputyRegionalManagerName" id="hiddenDeputyRegionalManagerName"
+                   value="@Model.KeyPersonnel.DeputyRegionalManagerName" autocomplete="off" />
+            <input type="hidden" asp-for="KeyPersonnel.DeputyRegionalManager" id="hiddenDeputyRegionalManagerGuid"
+                   value="@Model.KeyPersonnel.DeputyRegionalManager" autocomplete="off" />
+        </div>
+
+        <div class="col-md-6 form-group" id="HealthAndSafetyRegionalManagerBlock">
+            <label asp-for="KeyPersonnel.HealthAndSafetyRegionalManager" class="control-label"></label>
+
+            <h6 class="mb-0" id="hsRegionalManager">@(Model.KeyPersonnel.HealthAndSafetyRegionalManagerName == null ? "Not Entered" : Model.KeyPersonnel.HealthAndSafetyRegionalManagerName)</h6>
+            <input type="hidden" asp-for="KeyPersonnel.HealthAndSafetyRegionalManagerName" id="hiddenHSRegionalManagerName"
+                   value="@Model.KeyPersonnel.HealthAndSafetyRegionalManagerName" autocomplete="off" />
+            <input type="hidden" asp-for="KeyPersonnel.HealthAndSafetyRegionalManagerName" id="hiddenHSRegionalManagerGuid"
+                   value="@Model.KeyPersonnel.HealthAndSafetyRegionalManager" autocomplete="off" />
+        </div>
+
+        <div class="col-md-6 form-group" id="BusinessDevelopmentRegionalManagerBlock">
+            <label asp-for="KeyPersonnel.BusinessDevelopmentRegionalManager" class="control-label"></label>
+
+            <h6 class="mb-0" id="bdRegionalManager">@(Model.KeyPersonnel.BusinessDevelopmentRegionalManagerName == null ? "Not Entered" : Model.KeyPersonnel.BusinessDevelopmentRegionalManagerName)</h6>
+            <input type="hidden" asp-for="KeyPersonnel.BusinessDevelopmentRegionalManagerName" id="hiddenBDRegionalManagerName"
+                   value="@Model.KeyPersonnel.BusinessDevelopmentRegionalManagerName" autocomplete="off" />
+            <input type="hidden" asp-for="KeyPersonnel.BusinessDevelopmentRegionalManagerName" id="hiddenBDRegionalManagerGuid"
+                   value="@Model.KeyPersonnel.BusinessDevelopmentRegionalManager" autocomplete="off" />
+        </div>
+
+        <div class="col-md-6 form-group" id="OperationManagerBlock">
+            <label asp-for="KeyPersonnel.OperationManagerName" class="control-label"></label>
+
+            <h6 class="mb-0" id="OperationManagerName">@Model.KeyPersonnel.OperationManagerName</h6>
+            <input type="hidden" asp-for="KeyPersonnel.OperationManagerName" id="hiddenOperationManagerName"
+                   value="@Model.KeyPersonnel.OperationManagerName" autocomplete="off" />
+            <input type="hidden" asp-for="KeyPersonnel.OperationManager" id="hiddenOperationManagerGuid"
+                   value="@Model.KeyPersonnel.OperationManager" autocomplete="off" />
+        </div>
+
+        <div class="col-md-6 form-group form-required">
+            <label class="control-label requiredAstreicks fontbold">Task Order Contract Representative</label>
+
+            <input asp-for="KeyPersonnel.ContractRepresentativeName" id="ProjectRepresentative"
+                   autocomplete="off" placeholder="Start typing first name" class="form-control keyUpAction" />
+            <input type="hidden" asp-for="KeyPersonnel.ContractRepresentative" id="hiddenProjectRepresentative" class="hiddenValue" autocomplete="off" />
+            <span asp-validation-for="KeyPersonnel.ContractRepresentative" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-6 form-group">
+            <label asp-for="KeyPersonnel.ProjectManager" class="control-label fontbold"></label>
+
+            <input asp-for="KeyPersonnel.ProjectManagerName" id="ProjectManager" placeholder="Start typing first name"
+                   autocomplete="off" class="form-control keyUpAction" />
+            <input type="hidden" asp-for="KeyPersonnel.ProjectManager" id="hiddenProjectManager" class="hiddenValue" autocomplete="off" />
+            <span asp-validation-for="KeyPersonnel.ProjectManager" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-6 form-group">
+            <label asp-for="KeyPersonnel.ProjectControls"
+                   class="control-label fontbold"></label>
+
+            <input asp-for="KeyPersonnel.ProjectControlName" id="ProjectControl" placeholder="Start typing first name"
+                   autocomplete="off" class="form-control keyUpAction" />
+            <input type="hidden" asp-for="KeyPersonnel.ProjectControls" id="hiddenProjectControl" class="hiddenValue" autocomplete="off" />
+            <span asp-validation-for="KeyPersonnel.ProjectControls" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-6 form-group">
+            <label asp-for="KeyPersonnel.AccountingRepresentative"
+                   class="control-label fontbold"></label>
+
+            <input asp-for="KeyPersonnel.AccountingRepresentativeName" id="AccountingRepresentative"
+                   autocomplete="off" placeholder="Start typing first name" class="form-control keyUpAction" />
+            <input type="hidden" asp-for="KeyPersonnel.AccountingRepresentative" id="hiddenAccountingRepresentative" class="hiddenValue" autocomplete="off" />
+            <span asp-validation-for="KeyPersonnel.AccountingRepresentative" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-6 form-group">
+            <label asp-for="KeyPersonnel.SubContractAdministrator"
+                   class="control-label "></label>
+            <input asp-for="KeyPersonnel.SubContractAdministratorName" id="SubContractAdministrative"
+                   placeholder="Start typing first name" class="form-control keyUpAction" autocomplete="off" />
+            <input type="hidden" asp-for="KeyPersonnel.SubContractAdministrator" id="hiddenSubContractAdministrative" class="hiddenValue" autocomplete="off" />
+        </div>
+
+        <div class="col-md-6 form-group">
+            <label asp-for="KeyPersonnel.PurchasingRepresentative"
+                   class="control-label "></label>
+            <input asp-for="KeyPersonnel.PurchasingRepresentativeName" id="PurchasingRepresentative"
+                   placeholder="Start typing first name" class="form-control keyUpAction" autocomplete="off" />
+            <input type="hidden" asp-for="KeyPersonnel.PurchasingRepresentative" id="hiddenPurchasingRepresentative" class="hiddenValue" autocomplete="off" />
+        </div>
+
+        <div class="col-md-6 form-group">
+            <label asp-for="KeyPersonnel.HumanResourceRepresentative"
+                   class="control-label "></label>
+            <input asp-for="KeyPersonnel.HumanResourceRepresentativeName" id="HumanResourceRepresentative"
+                   placeholder="Start typing first name" class="form-control keyUpAction" autocomplete="off" />
+            <input type="hidden" asp-for="KeyPersonnel.HumanResourceRepresentative" id="hiddenHumanResourceRepresentative" class="hiddenValue" autocomplete="off" />
+        </div>
+
+        <div class="col-md-6 form-group">
+            <label asp-for="KeyPersonnel.QualityRepresentative"
+                   class="control-label "></label>
+            <input asp-for="KeyPersonnel.QualityRepresentativeName" id="QualityRepresentative"
+                   placeholder="Start typing first name" class="form-control keyUpAction" autocomplete="off" />
+            <input type="hidden" asp-for="KeyPersonnel.QualityRepresentative" id="hiddenQualityRepresentative" class="hiddenValue" autocomplete="off" />
+        </div>
+
+        <div class="col-md-6 form-group">
+            <label asp-for="KeyPersonnel.SafetyOfficer"
+                   class="control-label "></label>
+            <input asp-for="KeyPersonnel.SafetyOfficerName" id="SafetyOfficer"
+                   placeholder="Start typing first name" class="form-control keyUpAction" autocomplete="off" />
+            <input type="hidden" asp-for="KeyPersonnel.SafetyOfficer" id="hiddenSafetyOfficer" class="hiddenValue" autocomplete="off" />
+        </div>
+
+    </div>
+</div>

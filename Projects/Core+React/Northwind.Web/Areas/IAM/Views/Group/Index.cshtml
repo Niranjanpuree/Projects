@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Northwind.Web.Areas.IAM.Models.IAM.ViewModels.GroupViewModel>
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+@{
+    ViewData["Title"] = "List Of Groups";
+    Layout = "~/Areas/IAM/Views/Shared/_Layout.cshtml";
+}
+@{
+    var resourceVersion = @Configuration["resourceVersion"];
+    var cdnUrl = @Configuration["CDNUrl"];
+
+    }
+        @section breadcrumb
+        {
+        <li class="breadcrumb-item"><a href="/admin/settings">Settings</a></li>
+        <li class="breadcrumb-item"><a href="/iam/user">User Management</a></li>
+        }
+    <style>
+        .k-loading-mask {
+            display: block !important;
+        }
+    </style>
+        <ul class="nav nav-tabs small" id="iam_tabs">
+            <li class="nav-item">
+                <a href="~/iam/User" class="nav-link" id="userTab">Users</a>
+            </li>
+            <li class="nav-item">
+                <a href="~/iam/Group" class="nav-link active" id="groupTab">Groups</a>
+            </li>
+            <!--<li class="nav-item">
+            <a href="~/iam/Policy" class="nav-link" id="policyTab">Policies</a>
+        </li>-->
+    </ul>
+
+    <!--Main Content Area-->
+            <div class="tab-container container-fluid">
+                <!-- <h5>List Of Groups</h5> -->
+                <div id="groupGrid" class="table-iam"></div>
+                <!--End Main Content Area-->
+            </div>

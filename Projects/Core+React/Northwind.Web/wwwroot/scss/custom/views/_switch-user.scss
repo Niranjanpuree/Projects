@@ -1,0 +1,10 @@
+﻿#gridUserSwich{
+    .k-grid-content{
+                       td:first-child{
+                                         cursor:pointer;
+                                         &:hover{
+                                                    color:$primary;
+                                                }
+                                     }
+                   }
+}

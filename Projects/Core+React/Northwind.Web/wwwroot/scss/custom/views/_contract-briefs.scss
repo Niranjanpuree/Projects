@@ -1,0 +1,65 @@
+ /*
+            Use the DejaVu Sans font for display and embedding in the PDF file.
+            The standard PDF fonts have no support for Unicode characters.
+        */
+        body{
+            counter-reset: count;
+        }
+
+ .pdf-page {
+     font-family: "DejaVu Sans", "Arial", sans-serif;
+     font-size: 14px !important;
+ }
+
+ .pdf-label {
+     font-weight: bold;
+ }
+
+ .pdf-value {
+     border-bottom: 1px solid #000;
+     padding-bottom: 3px;
+     padding-left: 0;
+ }
+
+ .pdf {
+     &-checkbox {
+         padding-right: 20px;
+         min-width: 120px;
+         float: left;
+         margin-bottom:10px;
+        label{
+            margin-bottom:0;
+        }
+         input {
+             margin-right: 5px;
+         }
+     }
+     &-check-input, &-uncheck-input{
+         width:15px;
+         margin-right:5px;
+     }
+ }
+
+ .contract-briefings {
+     margin: 0 auto;
+     padding: 30px 50px;
+     background: #fff;
+ }
+
+ .contract-briefings .form-group a {
+     font-size: 16px;
+     color: #212529;
+     font-weight: normal;
+     text-decoration: none;
+ }
+
+ .k-edge, .k-ie {.contract-briefings ol{
+     li{
+         .row{
+            display:inline-flex;
+            min-width:calc(30px + 100%);
+         }
+     }
+    
+ }
+ }

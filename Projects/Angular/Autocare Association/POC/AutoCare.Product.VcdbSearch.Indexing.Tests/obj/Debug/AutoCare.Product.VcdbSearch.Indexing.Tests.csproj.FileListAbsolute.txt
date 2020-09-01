@@ -1,0 +1,226 @@
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\xunit.abstractions.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\xunit.runner.visualstudio.testadapter.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\xunit.runner.utility.desktop.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\xunit.execution.desktop.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\AutoCare.Product.VcdbSearch.Indexing.Tests.dll.config
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\AutoCare.Product.VcdbSearch.Indexing.Tests.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\AutoCare.Product.VcdbSearch.Indexing.Tests.pdb
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\AutoCare.Product.Application.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\AutoCare.Product.Search.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\AutoCare.Product.Vcdb.Model.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\AutoCare.Product.VcdbSearch.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\AutoCare.Product.VcdbSearch.Indexing.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\AutoCare.Product.VcdbSearchIndex.Model.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\EntityFramework.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\EntityFramework.SqlServer.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\Microsoft.Azure.Search.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\Microsoft.Rest.ClientRuntime.Azure.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\Microsoft.Rest.ClientRuntime.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\Microsoft.Spatial.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\Newtonsoft.Json.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\xunit.assert.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\xunit.core.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\Microsoft.WindowsAzure.Storage.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\AutoCare.Product.Infrastructure.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\Microsoft.Practices.Unity.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\AutoMapper.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\Microsoft.Data.Services.Client.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\Microsoft.Data.OData.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\Microsoft.Data.Edm.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\Microsoft.Azure.KeyVault.Core.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\NLog.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\System.Spatial.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\AutoCare.Product.Application.pdb
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\AutoCare.Product.Search.pdb
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\AutoCare.Product.Vcdb.Model.pdb
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\AutoCare.Product.VcdbSearch.Indexing.pdb
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\AutoCare.Product.VcdbSearchIndex.Model.pdb
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\AutoCare.Product.VcdbSearch.pdb
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\EntityFramework.xml
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\EntityFramework.SqlServer.xml
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\Microsoft.Azure.Search.xml
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\Microsoft.Rest.ClientRuntime.xml
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\Microsoft.Rest.ClientRuntime.Azure.xml
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\Microsoft.Spatial.xml
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\Newtonsoft.Json.xml
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\xunit.assert.pdb
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\xunit.assert.xml
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\xunit.core.pdb
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\xunit.core.xml
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\Microsoft.WindowsAzure.Storage.pdb
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\Microsoft.WindowsAzure.Storage.xml
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\AutoCare.Product.Infrastructure.pdb
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\Microsoft.Practices.Unity.xml
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\AutoMapper.xml
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\Microsoft.Data.Services.Client.xml
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\Microsoft.Data.OData.xml
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\Microsoft.Data.Edm.xml
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\Microsoft.Azure.KeyVault.Core.xml
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\NLog.xml
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\System.Spatial.xml
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\de\Microsoft.Spatial.resources.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\es\Microsoft.Spatial.resources.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\fr\Microsoft.Spatial.resources.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\it\Microsoft.Spatial.resources.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\ja\Microsoft.Spatial.resources.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\ko\Microsoft.Spatial.resources.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\ru\Microsoft.Spatial.resources.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\zh-Hans\Microsoft.Spatial.resources.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\zh-Hant\Microsoft.Spatial.resources.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\de\Microsoft.Data.Services.Client.resources.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\es\Microsoft.Data.Services.Client.resources.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\fr\Microsoft.Data.Services.Client.resources.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\it\Microsoft.Data.Services.Client.resources.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\ja\Microsoft.Data.Services.Client.resources.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\ko\Microsoft.Data.Services.Client.resources.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\ru\Microsoft.Data.Services.Client.resources.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\zh-Hans\Microsoft.Data.Services.Client.resources.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\zh-Hant\Microsoft.Data.Services.Client.resources.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\de\Microsoft.Data.OData.resources.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\es\Microsoft.Data.OData.resources.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\fr\Microsoft.Data.OData.resources.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\it\Microsoft.Data.OData.resources.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\ja\Microsoft.Data.OData.resources.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\ko\Microsoft.Data.OData.resources.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\ru\Microsoft.Data.OData.resources.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\zh-Hans\Microsoft.Data.OData.resources.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\zh-Hant\Microsoft.Data.OData.resources.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\de\Microsoft.Data.Edm.resources.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\es\Microsoft.Data.Edm.resources.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\fr\Microsoft.Data.Edm.resources.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\it\Microsoft.Data.Edm.resources.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\ja\Microsoft.Data.Edm.resources.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\ko\Microsoft.Data.Edm.resources.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\ru\Microsoft.Data.Edm.resources.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\zh-Hans\Microsoft.Data.Edm.resources.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\zh-Hant\Microsoft.Data.Edm.resources.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\de\System.Spatial.resources.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\es\System.Spatial.resources.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\fr\System.Spatial.resources.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\it\System.Spatial.resources.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\ja\System.Spatial.resources.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\ko\System.Spatial.resources.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\ru\System.Spatial.resources.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\zh-Hans\System.Spatial.resources.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\zh-Hant\System.Spatial.resources.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\obj\Debug\AutoCare.Product.VcdbSearch.Indexing.Tests.csprojResolveAssemblyReference.cache
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\obj\Debug\AutoCare.Product.VcdbSearch.Indexing.Tests.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\obj\Debug\AutoCare.Product.VcdbSearch.Indexing.Tests.pdb
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\xunit.runner.visualstudio.testadapter.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\xunit.runner.utility.desktop.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\xunit.abstractions.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\xunit.execution.desktop.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\AutoCare.Product.VcdbSearch.Indexing.Tests.dll.config
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\AutoCare.Product.VcdbSearch.Indexing.Tests.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\AutoCare.Product.VcdbSearch.Indexing.Tests.pdb
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\AutoCare.Product.Application.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\AutoCare.Product.Search.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\AutoCare.Product.Vcdb.Model.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\AutoCare.Product.VcdbSearch.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\AutoCare.Product.VcdbSearch.Indexing.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\AutoCare.Product.VcdbSearchIndex.Model.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\EntityFramework.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\Microsoft.Azure.Search.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\Microsoft.Rest.ClientRuntime.Azure.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\Microsoft.Rest.ClientRuntime.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\Microsoft.Spatial.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\xunit.assert.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\xunit.core.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\Microsoft.WindowsAzure.Storage.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\AutoCare.Product.Infrastructure.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\Microsoft.Practices.Unity.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\AutoMapper.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\Microsoft.Data.Services.Client.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\Microsoft.Data.OData.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\Microsoft.Data.Edm.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\Microsoft.Azure.KeyVault.Core.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\NLog.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\System.Spatial.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\AutoCare.Product.Application.pdb
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\AutoCare.Product.Application.dll.config
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\AutoCare.Product.Search.pdb
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\AutoCare.Product.Vcdb.Model.pdb
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\AutoCare.Product.VcdbSearch.Indexing.pdb
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\AutoCare.Product.VcdbSearchIndex.Model.pdb
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\AutoCare.Product.VcdbSearch.pdb
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\EntityFramework.xml
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\Microsoft.Azure.Search.xml
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\Microsoft.Rest.ClientRuntime.xml
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\Microsoft.Rest.ClientRuntime.Azure.xml
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\Microsoft.Spatial.xml
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\xunit.assert.pdb
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\xunit.assert.xml
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\xunit.core.pdb
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\xunit.core.xml
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\Microsoft.WindowsAzure.Storage.pdb
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\Microsoft.WindowsAzure.Storage.xml
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\AutoCare.Product.Infrastructure.pdb
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\AutoCare.Product.Infrastructure.dll.config
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\Microsoft.Practices.Unity.xml
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\AutoMapper.xml
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\Microsoft.Data.Services.Client.xml
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\Microsoft.Data.OData.xml
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\Microsoft.Data.Edm.xml
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\Microsoft.Azure.KeyVault.Core.xml
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\NLog.xml
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\System.Spatial.xml
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\de\Microsoft.Spatial.resources.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\es\Microsoft.Spatial.resources.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\fr\Microsoft.Spatial.resources.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\it\Microsoft.Spatial.resources.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\ja\Microsoft.Spatial.resources.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\ko\Microsoft.Spatial.resources.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\ru\Microsoft.Spatial.resources.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\zh-Hans\Microsoft.Spatial.resources.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\zh-Hant\Microsoft.Spatial.resources.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\de\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\es\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\fr\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\it\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\ja\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\ko\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\ru\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\zh-Hans\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\zh-Hant\Microsoft.Data.Services.Client.resources.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\de\Microsoft.Data.OData.resources.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\es\Microsoft.Data.OData.resources.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\fr\Microsoft.Data.OData.resources.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\it\Microsoft.Data.OData.resources.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\ja\Microsoft.Data.OData.resources.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\ko\Microsoft.Data.OData.resources.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\ru\Microsoft.Data.OData.resources.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\zh-Hans\Microsoft.Data.OData.resources.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\zh-Hant\Microsoft.Data.OData.resources.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\de\Microsoft.Data.Edm.resources.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\es\Microsoft.Data.Edm.resources.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\fr\Microsoft.Data.Edm.resources.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\it\Microsoft.Data.Edm.resources.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\ja\Microsoft.Data.Edm.resources.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\ko\Microsoft.Data.Edm.resources.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\ru\Microsoft.Data.Edm.resources.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\zh-Hans\Microsoft.Data.Edm.resources.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\zh-Hant\Microsoft.Data.Edm.resources.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\de\System.Spatial.resources.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\es\System.Spatial.resources.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\fr\System.Spatial.resources.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\it\System.Spatial.resources.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\ja\System.Spatial.resources.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\ko\System.Spatial.resources.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\ru\System.Spatial.resources.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\zh-Hans\System.Spatial.resources.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\bin\Debug\zh-Hant\System.Spatial.resources.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\obj\Debug\AutoCare.Product.VcdbSearch.Indexing.Tests.csprojAssemblyReference.cache
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\obj\Debug\AutoCare.Product.VcdbSearch.Indexing.Tests.csproj.CoreCompileInputs.cache
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\obj\Debug\AutoCare.Product.VcdbSearch.Indexing.Tests.csproj.CopyComplete
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\obj\Debug\AutoCare.Product.VcdbSearch.Indexing.Tests.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearch.Indexing.Tests\obj\Debug\AutoCare.Product.VcdbSearch.Indexing.Tests.pdb

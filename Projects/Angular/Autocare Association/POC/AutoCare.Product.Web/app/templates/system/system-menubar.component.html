@@ -1,0 +1,49 @@
+﻿<div [ngClass]="style">
+    <ul>
+        <li class="pointer" [ngClass]="{'active' :activeSubMenuGroup=='Vehicles'}" (click)="toggleSubMenuGroupActive('Vehicles')">
+            <a>Vehicles</a>
+            <ul id="Vehicles"></ul>
+        </li>
+        <li class="pointer" [ngClass]="{'active' : activeSubMenuGroup=='Brake'}" (click)="toggleSubMenuGroupActive('Brake')">
+            <a>Brake</a>
+            <ul id="Brake"></ul>
+        </li>
+        <li class="pointer" [ngClass]="{'active' : activeSubMenuGroup=='Bed'}" (click)="toggleSubMenuGroupActive('Bed')">
+            <a>Bed</a>
+            <ul id="Bed"></ul>
+        </li>
+        <li class="pointer" [ngClass]="{'active' : activeSubMenuGroup=='Body'}" (click)="toggleSubMenuGroupActive('Body')">
+            <a>Body</a>
+            <ul id="Body"></ul>
+        </li>
+        <li class="pointer" [ngClass]="{'active' : activeSubMenuGroup=='Engine'}" (click)="toggleSubMenuGroupActive('Engine')">
+            <a>Engine</a>
+            <ul id="Engine"></ul>
+        </li>
+        <li class="pointer" [ngClass]="{'active' : activeSubMenuGroup=='DriveType'}" (click)="toggleSubMenuGroupActive('DriveType')">
+            <a>Drive Type</a>
+            <ul id="DriveType "></ul>
+        </li>
+        <li class="pointer" [ngClass]="{'active' : activeSubMenuGroup=='MFRBodyCode'}" (click)="toggleSubMenuGroupActive('MFRBodyCode')">
+            <a>MFR Body Code</a>
+            <ul id="MFRBodyCode"></ul>
+        </li>
+        <li class="pointer" [ngClass]="{'active' : activeSubMenuGroup=='Spring'}" (click)="toggleSubMenuGroupActive('Spring')">
+            <a>Spring</a>
+            <ul id="Spring"></ul>
+        </li>
+        <li class="pointer" [ngClass]="{'active' : activeSubMenuGroup=='Steering'}" (click)="toggleSubMenuGroupActive('Steering')">
+            <a>Steering</a>
+            <ul id="Steering"></ul>
+        </li>
+        <li class="pointer" [ngClass]="{'active' : activeSubMenuGroup=='Transmission '}" (click)="toggleSubMenuGroupActive('Transmission ')">
+            <a>Transmission </a>
+            <ul id="Transmission "></ul>
+        </li>
+        <li class="pointer" [ngClass]="{'active' : activeSubMenuGroup=='WheelBase'}" (click)="toggleSubMenuGroupActive('WheelBase')">
+            <a>Wheel Base</a>
+            <ul id="WheelBase"></ul>
+        </li>
+    </ul>
+    <a (click)="ontoggleMenuBar()"></a>
+</div>

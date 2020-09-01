@@ -1,0 +1,108 @@
+﻿@model Northwind.Web.Models.ViewModels.Questionaire.ContractCloseOutViewModel
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+@{
+    var resourceVersion = @Configuration["resourceVersion"];
+    var cdnUrl = @Configuration["CDNUrl"];
+}
+
+@{
+    bool isAuthorizedRole = ((Model.RepresentativeType == Model.ProjectManagerQuestions[0].RepresentativeType ||
+        Model.RepresentativeType == Model.ContractRepresentativeQuestions[0].RepresentativeType ||
+        Model.RepresentativeType == Model.AccountingRepresentativeQuestions[0].RepresentativeType) ? true : false);
+
+    ViewData["Title"] = "Contract : Close Out";
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+@section breadcrumb
+    {
+    <li class="breadcrumb-item"><a href="/Contract">List Of Contracts</a></li>
+    @if (Model.ParentContractGuid != Guid.Empty)
+    {
+        <li class="breadcrumb-item">
+            <a href="/Contract/Details/@Model.ParentContractGuid">@ViewBag.ParentProjectNumber : Contract Detail</a>
+        </li>
+
+        <li class="breadcrumb-item">
+            <a href="/Project/Details/@Model.ContractGuid">@ViewBag.ProjectNumber  : Task Order Detail</a>
+        </li>
+
+        <li class="breadcrumb-item"><a href="#">Task Order Close Out </a></li>
+    }
+    else
+    {
+        <li class="breadcrumb-item">
+            <a href="/Contract/Details/@Model.ContractGuid">@ViewBag.ProjectNumber  : Contract Detail</a>
+        </li>
+
+        <li class="breadcrumb-item"><a href="#">Contract Close Out </a></li>
+    }
+}
+<div>
+    @{
+        var redirectUrl = Model.ParentContractGuid == Guid.Empty ? "/contract/Details/" + Model.ContractGuid : "/project/Details/" + Model.ContractGuid;
+        bool accessable = (Model.RepresentativeType.ToUpper() == "NOTACCESSABLE" || string.IsNullOrEmpty(Model.RepresentativeType)) ? false : true;
+    }
+    <div class="row">
+        <div class="col-md-12 text-right">
+            <button type="reset" class="btn btn-secondary" onclick="location.href='@redirectUrl'">
+                Cancel
+            </button>
+        </div>
+    </div>
+    <br />
+    @if (isAuthorizedRole)
+    {
+        <fieldset disabled>
+            <div class="row">
+                <div class="@(Model.ContractRepresentativeQuestions.Where(x => !string.IsNullOrEmpty(x.Answer)).Any() ? "col-md-6" : "col-md-12")">
+                    <ul class="contractClosePanel">
+                        <li class="k-state-active">
+                            <span class="k-link k-state-selected">Step (1) Project Manager : Operations </span>
+
+                            <partial name="PartialDetail/_ProjectManagerDetail.cshtml" />
+                        </li>
+                    </ul>
+                </div>
+                @if (Model.ContractRepresentativeQuestions.Where(x => !string.IsNullOrEmpty(x.Answer)).Any())
+                {
+                    <div class="col-md-6">
+                        <ul class="contractClosePanel mb-3">
+                            <li class="k-state-active">
+                                <span class="k-link k-state-selected">Step (2) Contract Representative : Operations </span>
+                                <partial name="PartialDetail/_ContractRepresentativeDetail.cshtml" />
+                            </li>
+                        </ul>
+                    </div>
+                }
+            </div>
+            <br />
+            @if (Model.AccountingRepresentativeQuestions.Where(x => !string.IsNullOrEmpty(x.Answer)).Any())
+            {
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul class="contractClosePanel">
+                            <li class="k-state-active">
+                                <span class="k-link k-state-selected">Step (3) Accounting Representative : Operations </span>
+                                <partial name="PartialDetail/_AccountingRepresentativeDetail.cshtml" />
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            }
+        </fieldset>
+    }
+    else
+    {
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Your role has no rights for the Close Out process on the current stage for this contract. </h3>
+            </div>
+        </div>
+    }
+</div>
+
+@section Scripts
+    {
+    <script src="@cdnUrl/js/proj/contractClose.js?v=@resourceVersion"></script>
+}

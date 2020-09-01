@@ -1,0 +1,145 @@
+﻿@model Northwind.Web.Models.ViewModels.Article.ArticleViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<style>
+    .k-editor-textarea {
+        margin-top: 0px!important;
+        margin-bottom: 0px!important;
+        height: 309px!important;
+    }
+  
+</style>
+
+<div class="">
+    <div class="row">
+        <div class="col">
+            <h3 class="text-primary mb-0">What You Need to Know / Values Corner / More to Know</h3>
+        </div>
+        <div class="col-12">
+            <p>News Posts</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <form asp-action="AddUpdate" asp-controller="HomeSection"  enctype="multipart/form-data" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="row">
+                    <div class="col-md-4 form-group">
+                        <label asp-for="Date">Date</label>
+                        @Html.TextBoxFor(x => x.Date, new { id = "ArticleDate", placeholder ="MM/dd/yyyy",
+                        @class="form-control"})
+                        @Html.ValidationMessageFor(x => x.Date)
+                    </div>
+                    <div class="col-md-4 form-group">
+                        <label for="">Front Page Section</label>
+
+                        <Select asp-for="ArticletypeId" asp-items="ViewBag.ArticleTypes" class="form-control">
+                            <option value="">Please Select Article Type</option>
+
+                        </Select>
+                        <span asp-validation-for="ArticletypeId" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-md-4 form-group">
+                        <label for="">Front Page Image</label>
+                        <input type="file" name="file" class="form-control">
+                    </div>
+                    <div class="col-md-6 form-group form-inline">
+                        <div class="form-check mr-4 mt-1 mb-1">
+                            <input class="k-checkbox" asp-for="ShowInArchive" type="checkbox" id="inlineFormCheck">
+                            <label class="k-checkbox-label" for="inlineFormCheck">
+                                Show in See Archive View
+                            </label>
+                            <span asp-validation-for="ShowInArchive" class="text-danger"></span>
+                        </div>
+                        <div class="form-check mt-1 mb-1">
+                            <input class="k-checkbox" type="checkbox" asp-for="IsFeatured" id="inlineFormCheck1" >
+                            <label class="k-checkbox-label" for="inlineFormCheck1">
+                                Is Featured
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 form-group">
+                        <label asp-for="Title" class="control-label"></label>
+                        <input asp-for="Title" type="text" class="form-control">
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+                    <div class="col-12 form-group">
+                        <label for="">Front Page Excerpt</label>
+                        <textarea asp-for="Excerpt" class="form-control"></textarea>
+                        <span asp-validation-for="Excerpt" class="text-danger"></span>
+                    </div>
+                    @*<div class="col-md-4 form-group">
+            <label for="">1st Image/Video</label>
+            <input type="file" class="form-control">
+        </div>
+        <div class="col-12 form-group">
+            <label for="Image/Video Caption"></label>
+            <input type="text" class="form-control">
+        </div>*@
+                    @*<div class="col-12 form-group">
+            <a href="" class="btn btn-primary">Add Image</a>
+        </div>*@
+                    <div class="col-12 form-group">
+                        <label for="">Body of Article</label>
+                        <div id="richtexteditor" class="default-upload"></div>
+                    </div>
+                    <input type="hidden" asp-for="ArticleId" />
+                    <input type="hidden" asp-for="Action" />
+                    @if (Model.Action == "Edit")
+                    {
+                        <div class="col-12 text-right">
+                            <input type="submit" class="btn btn-dark mx-2" name="Submit" value="Update and Save as Draft" />
+                            <input type="submit" class="btn btn-primary" name="Submit" value="Update and Publish" />
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="col-12 text-right">
+                            <input type="submit" class="btn btn-dark mx-2" name="Submit" value="Save as Draft" />
+                            <input type="submit" class="btn btn-primary" name="Submit" value="Publish" />
+                        </div>
+                    }
+                </div>
+            </form>
+        </div>
+        @*<div class="col-md-6">
+            <div class="post">
+                <div class="post-title">
+                    PREVIEW POST - Preview template (3 views - slider / news article page / archive
+                </div>
+                <div class="post-preview">
+                    <div class="post-preview-img">
+                        <img src="/img/HooverDam.png" class="img-fluid" alt="">
+                        <div class="post-preview-img-caption">helo</div>
+                    </div>
+                    <div class="post-preview-title">
+                        Webmail Access for Office 365
+                    </div>
+                    <div class="post-preview-date">
+                        11/11/2019
+                    </div>
+                    <div class="post-preview-detail">
+                        North Wind Webmail access for Office 365 users is accessible at the
+                        URL https://outlook.office.com. We have experienced problems with users accessing the old
+                        Webmail link, so please access. We have experienced problems with users accessing the old
+                        Webmail link.<br><br>
+
+                        North Wind Webmail access for Office 365 users is accessible at the URL
+                        https://outlook.office.com. We have experienced problems with users accessing the old Webmail
+                        link, so please access your webmail directly at this.<br><br>
+
+                        North Wind Webmail access for Office 365 users is accessible at the URL
+                        https://outlook.office.com. We have experienced problems with users accessing the old Webmail
+                        link, so please access your webmail directly at this URL.<br><br>
+                    </div>
+                    <div class="post-category">Category: <i>News</i></div>
+                </div>
+            </div>
+        </div>*@
+    </div>
+
+</div>
+

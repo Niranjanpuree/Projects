@@ -1,0 +1,55 @@
+﻿@model Northwind.Web.Models.ViewModels.Region.RegionViewModel
+
+    <div class="col-md-12">
+        <div class="form-group col-md-4">
+            <label class="control-label control-label-read">
+                Region Code
+            </label>
+            <h6>
+                @Model.RegionCode
+            </h6>
+        </div>
+        <div class="form-group col-md-4">
+            <label class="control-label control-label-read">
+                Region Name
+            </label>
+            <h6>
+                @Model.RegionName
+            </h6>
+        </div>
+        <div class="form-group col-md-4">
+            <label class="control-label control-label-read">
+                Regional Manager
+            </label>
+            <h6>
+                @(Model.ManagerName !=null ? @Model.ManagerName :"N/A")
+            </h6>
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="form-group col-md-4">
+            <label class="control-label control-label-read">
+                Deputy  Regional Manager
+            </label>
+            <h6>
+                 @(Model.DeputyManagerName != null  ? @Model.DeputyManagerName : "N/A")
+            </h6>
+        </div>
+        <div class="form-group col-md-4">
+            <label class="control-label control-label-read">
+                Health and Safety Regional Manager
+            </label>
+            <h6>
+                @(Model.HSManagerName !=null ? @Model.HSManagerName :"N/A")
+            </h6>
+        </div>
+        <div class="form-group col-md-4">
+            <label class="control-label control-label-read">
+                Business Development Manager
+            </label>
+            <h6>
+                @(Model.BDManagerName !=null ? @Model.BDManagerName :"N/A")
+            </h6>
+        </div>
+    </div>
+

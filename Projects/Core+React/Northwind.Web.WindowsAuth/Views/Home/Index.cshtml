@@ -1,0 +1,5 @@
+﻿@model dynamic
+
+<script>
+    window.parent.postMessage("@Newtonsoft.Json.JsonConvert.SerializeObject(Model)", "@ViewBag.WebsiteUrl")
+</script>

@@ -1,0 +1,29 @@
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearchService.Model\bin\Debug\AutoCare.Product.VcdbSearchIndex.Model.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearchService.Model\bin\Debug\AutoCare.Product.VcdbSearchIndex.Model.pdb
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearchService.Model\bin\Debug\AutoCare.Product.Vcdb.Model.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearchService.Model\bin\Debug\Microsoft.Azure.Search.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearchService.Model\bin\Debug\AutoCare.Product.Vcdb.Model.pdb
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearchService.Model\bin\Debug\Microsoft.Azure.Search.xml
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearchService.Model\obj\Debug\AutoCare.Product.VcdbSearchIndex.Model.csprojResolveAssemblyReference.cache
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearchService.Model\obj\Debug\AutoCare.Product.VcdbSearchIndex.Model.dll
+E:\Autocare Association\POC\AutoCare.Product.VcdbSearchService.Model\obj\Debug\AutoCare.Product.VcdbSearchIndex.Model.pdb
+D:\Autocare Association\POC\AutoCare.Product.VcdbSearchService.Model\bin\Debug\AutoCare.Product.VcdbSearchIndex.Model.dll
+D:\Autocare Association\POC\AutoCare.Product.VcdbSearchService.Model\bin\Debug\AutoCare.Product.VcdbSearchIndex.Model.pdb
+D:\Autocare Association\POC\AutoCare.Product.VcdbSearchService.Model\bin\Debug\AutoCare.Product.Vcdb.Model.dll
+D:\Autocare Association\POC\AutoCare.Product.VcdbSearchService.Model\bin\Debug\Microsoft.Azure.Search.dll
+D:\Autocare Association\POC\AutoCare.Product.VcdbSearchService.Model\bin\Debug\AutoCare.Product.Vcdb.Model.pdb
+D:\Autocare Association\POC\AutoCare.Product.VcdbSearchService.Model\bin\Debug\Microsoft.Azure.Search.xml
+D:\Autocare Association\POC\AutoCare.Product.VcdbSearchService.Model\obj\Debug\AutoCare.Product.VcdbSearchIndex.Model.csprojResolveAssemblyReference.cache
+D:\Autocare Association\POC\AutoCare.Product.VcdbSearchService.Model\obj\Debug\AutoCare.Product.VcdbSearchIndex.Model.dll
+D:\Autocare Association\POC\AutoCare.Product.VcdbSearchService.Model\obj\Debug\AutoCare.Product.VcdbSearchIndex.Model.pdb
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearchService.Model\bin\Debug\AutoCare.Product.VcdbSearchIndex.Model.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearchService.Model\bin\Debug\AutoCare.Product.VcdbSearchIndex.Model.pdb
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearchService.Model\bin\Debug\AutoCare.Product.Vcdb.Model.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearchService.Model\bin\Debug\Microsoft.Azure.Search.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearchService.Model\bin\Debug\AutoCare.Product.Vcdb.Model.pdb
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearchService.Model\bin\Debug\Microsoft.Azure.Search.xml
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearchService.Model\obj\Debug\AutoCare.Product.VcdbSearchIndex.Model.csprojAssemblyReference.cache
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearchService.Model\obj\Debug\AutoCare.Product.VcdbSearchIndex.Model.csproj.CoreCompileInputs.cache
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearchService.Model\obj\Debug\AutoCare.Product.VcdbSearchIndex.Model.csproj.CopyComplete
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearchService.Model\obj\Debug\AutoCare.Product.VcdbSearchIndex.Model.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.VcdbSearchService.Model\obj\Debug\AutoCare.Product.VcdbSearchIndex.Model.pdb

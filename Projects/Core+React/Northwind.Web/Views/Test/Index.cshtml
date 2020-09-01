@@ -1,0 +1,26 @@
+﻿
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+
+@{
+    var resourceVersion = @Configuration["resourceVersion"];
+    var cdnUrl = @Configuration["CDNUrl"];
+}
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="distributionList"></div>
+
+@section Scripts {
+    <script src="@cdnUrl/js/dist/dialog.js?v=@resourceVersion"></script>
+    <script src="@cdnUrl/js/dist/kendogrid.js?v=@resourceVersion"></script>
+    <script src="@cdnUrl/js/dist/distributionlist.js?v=@resourceVersion"></script>
+    <script type="text/javascript">
+        (function () {
+            window.distributionList.pageView.loadDistributionList()
+        })()
+    </script>
+}

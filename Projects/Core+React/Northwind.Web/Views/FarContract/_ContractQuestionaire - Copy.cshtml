@@ -1,0 +1,246 @@
+﻿@model Northwind.Web.Models.ViewModels.FarClause.FarContractViewModel
+
+<div class="col-12">
+    <div class="col-12">
+        <div class="row border-top pt-3 form-group">
+
+            <label asp-for="ContractQuestionaires.IsReportExecCompensation" class="control-label mb-0 col requiredAstreicks ">
+                Reporting Executive Compensation and First-Tier Subcontract Awards (52.204-10):
+            </label>
+            <div class="col-auto form-check pl-0">
+                @foreach (var item in Model.ContractQuestionaires.DictionaryBoolString)
+                {
+                    var DictionaryBoolString = Guid.NewGuid();
+                    <div class="form-check form-check-inline">
+                        <input type="radio" @((item.Key) == Model.ContractQuestionaires.IsReportExecCompensation ? "checked='checked'" : string.Empty) class="k-radio custom-checkbox IsReportExecCompensation "
+                               name="ContractQuestionaires.IsReportExecCompensation" value="@item.Key"
+                               id="@DictionaryBoolString.ToString()">
+                        <label class="k-radio-label " for="@DictionaryBoolString.ToString()">
+                            @item.Value
+                        </label>
+                    </div>
+                }
+
+            </div>
+            <span asp-validation-for="ContractQuestionaires.IsReportExecCompensation" class="text-danger"></span>
+        </div>
+        <div id="HideReportDate" class="row">
+            <div class="col-md-6 form-group">
+                <label asp-for="ContractQuestionaires.ReportLastReportDate" class="control-label ">
+                    Date of Last Report:
+                </label>
+                <input asp-for="ContractQuestionaires.ReportLastReportDate" placeholder="MM/dd/yyyy"
+                       class="form-control  customdatepicker ReportLastReportDate" />
+                <span asp-validation-for="ContractQuestionaires.ReportLastReportDate" class="text-danger"></span>
+            </div>
+            <div class="col-md-6 form-group">
+                <label asp-for="ContractQuestionaires.ReportNextReportDate" class="control-label requiredAstreicks">
+                    Date of Next Report:
+                </label>
+                <input asp-for="ContractQuestionaires.ReportNextReportDate" placeholder="MM/dd/yyyy" class="form-control customdatepicker ReportNextReportDate" />
+                <span asp-validation-for="ContractQuestionaires.ReportNextReportDate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row border-top pt-3 form-group">
+            <label asp-for="ContractQuestionaires.IsGSAschedulesale" class="control-label col mb-0 requiredAstreicks ">
+                GSA Schedule Sales & Industrial Funding Fee (GSAR 552.238-74):
+            </label>
+            <div class="col-auto form-check pl-0">
+                @foreach (var item in Model.ContractQuestionaires.DictionaryBoolString)
+                {
+                    var DictionaryBoolString = Guid.NewGuid();
+                    <div class="form-check form-check-inline">
+                        <input type="radio" @((item.Key) == Model.ContractQuestionaires.IsGSAschedulesale ? "checked='checked'" : string.Empty)
+                               class="k-radio custom-checkbox IsGSAschedulesale"
+                               name="ContractQuestionaires.IsGSAschedulesale" value="@item.Key"
+                               id="@DictionaryBoolString.ToString()">
+                        <label class="k-radio-label" for="@DictionaryBoolString.ToString()">
+                            @item.Value
+                        </label>
+                    </div>
+                }
+
+            </div>
+            <span asp-validation-for="ContractQuestionaires.IsGSAschedulesale" class="text-danger"></span>
+        </div>
+        <div id="HideIsGSAschedulesale" class="row">
+            <div class="col-md-6 form-group">
+                <label asp-for="ContractQuestionaires.GSALastReportDate" class="control-label ">
+                    Date of Last Report:
+                </label>
+                <input asp-for="ContractQuestionaires.GSALastReportDate" placeholder="MM/dd/yyyy" class="form-control customdatepicker GSALastReportDate" />
+                <span asp-validation-for="ContractQuestionaires.GSALastReportDate" class="text-danger"></span>
+            </div>
+            <div class="col-md-6 form-group">
+                <label asp-for="ContractQuestionaires.GSANextReportDate" class="control-label requiredAstreicks">
+                    Date of Next Report:
+                </label>
+                <input asp-for="ContractQuestionaires.GSANextReportDate" placeholder="MM/dd/yyyy" class="form-control customdatepicker GSANextReportDate" />
+                <span asp-validation-for="ContractQuestionaires.GSANextReportDate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row border-top pt-3 form-group">
+            <label asp-for="ContractQuestionaires.IsSBsubcontract" class="col mb-0 control-label requiredAstreicks ">
+                Progress towards SB Subcontracting Plans (52.218-9):
+            </label>
+            <div class="col-auto form-check pl-0">
+                @foreach (var item in Model.ContractQuestionaires.DictionaryBoolString)
+                {
+                    var DictionaryBoolString = Guid.NewGuid();
+                    <div class="form-check form-check-inline">
+                        <input type="radio" @((item.Key) == Model.ContractQuestionaires.IsSBsubcontract ? "checked='checked'" : string.Empty)
+                               class="k-radio custom-checkbox IsSBsubcontract" name="ContractQuestionaires.IsSBsubcontract" value="@item.Key"
+                               id="@DictionaryBoolString.ToString()">
+                        <label class="k-radio-label" for="@DictionaryBoolString.ToString()">
+                            @item.Value
+                        </label>
+                    </div>
+                }
+
+            </div>
+            <span asp-validation-for="ContractQuestionaires.IsSBsubcontract" class="text-danger"></span>
+        </div>
+        <div id="HideIsSBsubcontract" class="row">
+            <div class="col-md-6 form-group">
+                <label asp-for="ContractQuestionaires.SBLastReportDate" class="control-label ">
+                    Date of Last Report:
+                </label>
+                <input asp-for="ContractQuestionaires.SBLastReportDate" placeholder="MM/dd/yyyy" class="form-control customdatepicker SBLastReportDate" />
+                <span asp-validation-for="ContractQuestionaires.SBLastReportDate" class="text-danger"></span>
+            </div>
+            <div class="col-md-6 form-group">
+                <label asp-for="ContractQuestionaires.SBNextReportDate" class="control-label requiredAstreicks">
+                    Date of Next Report:
+                </label>
+                <input asp-for="ContractQuestionaires.SBNextReportDate" placeholder="MM/dd/yyyy" class="form-control customdatepicker SBNextReportDate" />
+                <span asp-validation-for="ContractQuestionaires.SBNextReportDate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row border-top pt-3 form-group">
+            <label asp-for="ContractQuestionaires.IsGQAC" class="control-label mb-0 col requiredAstreicks ">
+                Government-Wide Acquisition Contracts (GQAC), examples: GSA - Alliant, STARS) or NIH CIO-SP3):
+            </label>
+            <div class="col-auto form-check pl-0">
+                @foreach (var item in Model.ContractQuestionaires.DictionaryBoolString)
+                {
+                    var DictionaryBoolString = Guid.NewGuid();
+                    <div class="form-check form-check-inline">
+                        <input type="radio" @((item.Key) == Model.ContractQuestionaires.IsGQAC ? "checked='checked'" : string.Empty)
+                               class="k-radio custom-checkbox IsGQAC" name="ContractQuestionaires.IsGQAC" value="@item.Key"
+                               id="@DictionaryBoolString.ToString()">
+                        <label class="k-radio-label" for="@DictionaryBoolString.ToString()">
+                            @item.Value
+                        </label>
+                    </div>
+                }
+
+            </div>
+            <span asp-validation-for="ContractQuestionaires.IsGQAC" class="text-danger"></span>
+        </div>
+        <div id="HideIsGQAC" class="row">
+            <div class="form-group col-md-6">
+                <label asp-for="ContractQuestionaires.GQACLastReportDate" class="control-label ">
+                    Date of Last Report:
+                </label>
+                <input asp-for="ContractQuestionaires.GQACLastReportDate" placeholder="MM/dd/yyyy" class="form-control customdatepicker GQACLastReportDate" />
+                <span asp-validation-for="ContractQuestionaires.GQACLastReportDate" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="ContractQuestionaires.GQACNextReportDate" class="control-label requiredAstreicks">
+                    Date of Next Report:
+                </label>
+                <input asp-for="ContractQuestionaires.GQACNextReportDate" placeholder="MM/dd/yyyy" class="form-control customdatepicker GQACNextReportDate" />
+                <span asp-validation-for="ContractQuestionaires.GQACNextReportDate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row border-top pt-3 form-group">
+            <label asp-for="ContractQuestionaires.IsCPARS" class="mb-0 control-label col requiredAstreicks ">
+                CPARS (FAR Subpart 42.215):
+            </label>
+            <div class="form-check col-auto pl-0">
+                @foreach (var item in Model.ContractQuestionaires.DictionaryBoolString)
+                {
+                    var DictionaryBoolString = Guid.NewGuid();
+                    <div class="form-check form-check-inline">
+                        <input type="radio" @((item.Key) == Model.ContractQuestionaires.IsCPARS ? "checked='checked'" : string.Empty)
+                               class="k-radio custom-checkbox IsCPARS" name="ContractQuestionaires.IsCPARS" value="@item.Key"
+                               id="@DictionaryBoolString.ToString()">
+                        <label class="k-radio-label" for="@DictionaryBoolString.ToString()">
+                            @item.Value
+                        </label>
+                    </div>
+                }
+
+            </div>
+            <span asp-validation-for="ContractQuestionaires.IsCPARS" class="text-danger"></span>
+        </div>
+        <div id="HideIsCPARS" class="row">
+            <div class="form-group col-md-6">
+                <label asp-for="ContractQuestionaires.CPARSLastReportDate" class="control-label ">
+                    Date of Last Report:
+                </label>
+                <input asp-for="ContractQuestionaires.CPARSLastReportDate" placeholder="MM/dd/yyyy" class="form-control customdatepicker CPARSLastReportDate" />
+                <span asp-validation-for="ContractQuestionaires.CPARSLastReportDate" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="ContractQuestionaires.CPARSNextReportDate" class="control-label requiredAstreicks">
+                    Date of Next Report:
+                </label>
+                <input asp-for="ContractQuestionaires.CPARSNextReportDate" placeholder="MM/dd/yyyy" class="form-control customdatepicker CPARSNextReportDate" />
+                <span asp-validation-for="ContractQuestionaires.CPARSNextReportDate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row border-top pt-3 form-group">
+            <label asp-for="ContractQuestionaires.IsWarranties" class="mb-0 control-label col requiredAstreicks ">
+                Warranties:
+            </label>
+            <div class="col-auto form-check pl-0">
+                @foreach (var item in Model.ContractQuestionaires.DictionaryBoolString)
+                {
+                    var DictionaryBoolString = Guid.NewGuid();
+                    <div class="form-check form-check-inline">
+                        <input type="radio" @((item.Key) == Model.ContractQuestionaires.IsWarranties ? "checked='checked'" : string.Empty)
+                               class="k-radio custom-checkbox IsWarranties" name="ContractQuestionaires.IsWarranties" value="@item.Key"
+                               id="@DictionaryBoolString.ToString()">
+                        <label class="k-radio-label" for="@DictionaryBoolString.ToString()">
+                            @item.Value
+                        </label>
+                    </div>
+                }
+
+            </div>
+            <span asp-validation-for="ContractQuestionaires.IsWarranties" class="text-danger"></span>
+        </div>
+        <div id="HideIsWarranties">
+            <div class="form-group">
+                <label asp-for="ContractQuestionaires.IsStandardIndustryProvision" class="mb-0 control-label requiredAstreicks ">
+                    Warranties: Consistent with Standard Industry Provision of 12 months
+                </label>
+                <div class="form-check pl-0">
+                    @foreach (var item in Model.ContractQuestionaires.DictionaryBoolString)
+                    {
+                        var DictionaryBoolString = Guid.NewGuid();
+                        <div class="form-check form-check-inline">
+                            <input type="radio" @((item.Key) == Model.ContractQuestionaires.IsStandardIndustryProvision ? "checked='checked'" : string.Empty) class="k-radio custom-checkbox IsStandardIndustryProvision"
+                                   name="ContractQuestionaires.IsStandardIndustryProvision" value="@item.Key"
+                                   id="@DictionaryBoolString.ToString()">
+                            <label class="k-radio-label" for="@DictionaryBoolString.ToString()">
+                                @item.Value
+                            </label>
+                        </div>
+                    }
+
+                </div>
+                <span asp-validation-for="ContractQuestionaires.IsStandardIndustryProvision" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ContractQuestionaires.WarrantyProvisionDescription" class="control-label requiredAstreicks">
+                    Warranty Provision Description:
+                </label>
+                <textarea class="form-control WarrantyProvisionDescription"
+                          asp-for="ContractQuestionaires.WarrantyProvisionDescription">@Model.ContractQuestionaires.WarrantyProvisionDescription</textarea>
+                <span asp-validation-for="ContractQuestionaires.WarrantyProvisionDescription" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,232 @@
+@import "nw-variables";
+@import "node_modules/bootstrap/scss/mixins";
+@import "_typography";
+// @import 'layout/*.scss';
+// @import 'components/*.scss';
+// @import 'views/*.scss';
+
+@import 'layout/all';
+@import 'components/all';
+@import 'views/all';
+
+
+.k-panelbar>.k-item>.k-link {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.k-animation-container {
+    min-width: 180px !important;
+}
+
+.bold {
+    font-weight: $fw-b;
+}
+
+.ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.k-content.k-state-active {
+    height: auto !important;
+}
+
+.form-control {
+    padding-left: 0.5rem;
+}
+
+.k-dialog-content {
+    .k-tabstrip-wrapper {
+        width: 100%;
+    }
+}
+
+.k-animation-container.k-animation-container-relative.k-list-container.k-reset.k-animation-container-shown {
+    z-index: 10001;
+}
+
+.autoComplete {
+    width: 70%;
+    max-width: 500px;
+
+    .popup-item.row {
+        .label {
+            width: 70%;
+        }
+
+        .button {
+            width: 30%;
+            min-width: 50px;
+            border: 1px solid #c4c4c4;
+        }
+    }
+}
+
+.icon-font {
+    font-size: 20px !important;
+}
+
+.icon-font-explorer {
+    font-size: 35px !important;
+}
+
+
+.k-dropdown-wrap {
+    border: 0;
+}
+
+
+.k-item {
+    .k-state-focused {
+        border: 0 !important;
+        background: transparent;
+    }
+}
+
+.k-animation-container.k-animation-container-relative {
+    z-index: 10001;
+}
+
+.context-menu {
+    background: #eee;
+    border: 1px solid #ddd;
+    position: absolute;
+    min-width: 150px;
+
+    button {
+        background: transparent;
+        text-align: left;
+        width: 100%;
+        border: none;
+        outline: none;
+    }
+}
+
+.progressBar {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 6px;
+    width: 100%;
+
+    &Inactive {
+        width: 0px;
+        height: 100%;
+    }
+
+    &Active {
+        display: block;
+        background: $primary;
+        height: 100%;
+        width: 10px;
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: #fff;
+            z-index: -1;
+        }
+    }
+}
+
+td {
+
+    &.project-icon,
+    &.contract-icon,
+    &.idiq-icon,
+    &.mod-icon {
+        padding-left: 35px;
+        position: relative;
+
+        &:before {
+            content: '';
+            width: 18px;
+            height: 18px;
+            position: absolute;
+            left: 7px;
+            top: 8px;
+
+        }
+    }
+
+    &.favorite_icon,
+    &.favorite-icon {
+        padding-right: 25px;
+        position: relative;
+
+        &:after {
+            font-family: 'Material Icons';
+            content: '\e838';
+            position: absolute;
+            right: 7px;
+            top: 8px;
+            color: $warning;
+        }
+    }
+
+    &.project-icon:before {
+        content: '';
+        background: url('/img/project.png') center no-repeat;
+        background-size: 16px;
+    }
+
+    
+    &.contract-icon:before {
+        content: '';
+        background: url('/img/contract.png') center no-repeat;
+        background-size: 16px;
+    }
+
+    &.idiq-icon:before {
+        content: '';
+        background: url('/img/idiq.png') center no-repeat;
+        background-size: 16px;
+    }
+    &.mod-icon:before {
+        content: '';
+        background: url('/img/mod.png') center no-repeat;
+        background-size: 16px;
+    }
+}
+
+.position-r {
+    position: relative;
+}
+
+.badge {
+    a {
+        text-decoration: none;
+    }
+
+    &.badge-secondary {
+        a:hover {
+            color: $gray-700;
+        }
+    }
+}
+
+.k-i-star,
+.k-i-bookmark {
+    color: $warning;
+}
+
+.revenuePanel *{
+    font-family: "Roboto", sans-serif, -apple-system, BlinkMacSystemFont, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;
+}
+
+.k-dialog-content > .container{
+ max-width: 100% !important; 
+ padding:0;  
+}
+
+#distributionList{
+    // padding: 15px;
+    background: #fff;
+    border-radius: 4px;
+}

@@ -1,0 +1,34 @@
+.project {
+    &-details {
+
+    }
+    
+}
+
+.navigateButton{
+    float:right;
+    .k-icon{
+        font-size: 20px;
+    }
+}
+
+.k-link.k-state-selected.k-state-focused{
+    box-shadow: none !important;
+}
+
+.table-project{
+   table[role="treegrid"] td:nth-child(3){
+        padding-left:0;
+        padding-right:0;
+    }
+}
+
+.k-widget.k-grid{
+    max-height: 100% !important;
+}
+
+.document-management-project{
+    .k-widget.k-splitter{
+        height:350px !important;
+    }
+}

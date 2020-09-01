@@ -1,0 +1,67 @@
+﻿@model Northwind.Web.Models.ViewModels.Contact.ContactViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+@{
+    var resourceVersion = @Configuration["resourceVersion"];
+    var cdnUrl = @Configuration["CDNUrl"];
+}
+@Html.HiddenFor(x => x.CustomerGuid)
+@Html.HiddenFor(x => x.CustomerName)
+<div class="row">
+    <div class="col-lg-7 col-md-8">
+        <form id="customerSearchForm" class="search-form-r">
+            <div class="input-group mb-3 mb-sm-0">
+
+                @Html.TextBoxFor(model => model.SearchValue, new { @class = "form-control searchCustomerContact", placeholder = " Search By Name" })
+                <div class="input-group-append">
+                    <div class="input-group-text" id="btnContactSearch">
+                        <i class="k-icon k-i-search"></i>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+    <div class="col-lg-5 col-md-4 text-right">
+        <button type="button" class="btn btn-primary" id="addNewCustomerContact">Add Contact</button>
+        <div class="dropdown float-right ml-1">
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">More</button>
+            <div class="dropdown-menu  dropdown-menu-right">
+                <a id="DeleteCustomerContact" class="dropdown-item" href="#">
+                    <i class="k-icon k-i-delete"></i>
+                    Delete
+                </a>
+                <a id="DisableCustomerContact" class="dropdown-item" href="#">
+                    <i class="k-icon k-i-cancel"></i>
+                    Disable
+                </a>
+                <a id="EnableCustomerContact" class="dropdown-item" href="#">
+                    <i class="k-icon k-i-check"></i>
+                    Enable
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <div class="search-pills-container" id="searchPills">
+            @if (!string.IsNullOrEmpty(Model.SearchValue))
+            {
+                <div class="badge badge-pill badge-secondary">
+                    @Model.SearchValue
+                    <a href="#" id="clearContactSearch" class="pill-close"><i class="material-icons">close</i></a>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+@*<div class="content"></div>*@
+<div class="row mt-3">
+    <div class="col">
+        <div id="CustomerContactGrid" class="table-more-btn">
+        </div>
+    </div>
+</div>
+<!-- </div> -->
+<script src="@cdnUrl/js/proj/customerContact.js?v=@resourceVersion"></script>

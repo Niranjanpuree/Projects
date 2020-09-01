@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Audit Log";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+@{
+    var resourceVersion = @Configuration["resourceVersion"];
+    var cdnUrl = @Configuration["CDNUrl"];
+}
+@section breadcrumb
+    {
+    <li class="breadcrumb-item"><a href="/Admin/Settings">Settings</a></li>
+    <li class="breadcrumb-item"><a href="#">Audit Logs</a></li>
+}
+
+<div id="auditLogGrid"></div>
+
+@section Scripts {
+    <script src="@cdnUrl/js/dist/dialog.js?v=@resourceVersion"></script>
+    <script src="@cdnUrl/js/dist/kendogrid.js?v=@resourceVersion"></script>
+
+    <script type="text/javascript">
+        (function ()
+        {
+            window.auditLog.auditLogList('Audit Log List', '@User.Claims.Where(c=>c.Type.ToString() == "fullName").ToList()[0].Value');
+        })()
+    </script>
+}

@@ -1,0 +1,195 @@
+﻿@model Northwind.Web.Models.ViewModels.RevenueRecognition.RevenueRecognitionViewModel
+@{
+    IDictionary<string, bool> listItems = new Dictionary<string, bool>();
+    listItems.Add(new KeyValuePair<string, bool>("Yes", true));
+    listItems.Add(new KeyValuePair<string, bool>("No", false));
+}
+<!-- <div class="col-12"> -->
+<h4><span>Identity Performance Obligations</span></h4>
+<div class="row">
+    <div class="col-12 form-group">
+        <label asp-for="IdentityPerformanceObligation" class="control-label requiredAstreicks">Contract Deliverables/Description:</label>
+        <textarea class="form-control" asp-for="IdentityPerformanceObligation" required>@Model.IdentityPerformanceObligation</textarea>
+        <span asp-validation-for="IdentityPerformanceObligation" class="text-danger"></span>
+        <div class="text-muted">
+            <small>
+                Provide a brief description of the stated and implied goods and/or services included in the contract.
+                If multiple performance obligations, list and describe each obligation. (example of multiple performance obligations: construct multiple buildings or performance of service at separate locations or sites)
+            </small>
+        </div>
+    </div>
+    <div class="col-md-12 form-group">
+        <label asp-for="IsMultiRevenueStream" class="control-label  fontbold">Multi Revenue Stream:</label>
+        <div class="form-check pl-0">
+            @foreach (var item in listItems)
+            {
+                <div class="form-check form-check-inline">
+                    <input asp-for="IsMultiRevenueStream" type="radio" value="@item.Value"
+                           class="k-radio custom-checkbox IsMultiRevenueStream"
+                           id="IsMultiRevenueStream-@item.Value" />
+                    <label class="k-radio-label" for="IsMultiRevenueStream-@item.Value">
+                        @item.Key
+                    </label>
+                </div>
+            }
+            <div class="text-muted">
+                <small>
+                    Does the contract contain multiple revenue streams/sources? (i.e. CLIN/line items/billing levels/multi type contract).
+                </small>
+            </div>
+        </div>
+        <span asp-validation-for="IsMultiRevenueStream" class="text-danger"></span>
+    </div>
+    <div class="col-md-12 form-group" id="idHideWBSGrid">
+        @if (!Model.IsIDIQContract && !string.IsNullOrWhiteSpace(Model.WbsFilePath))
+        {
+            <div class="form-group" id="WorkBreakdownStructureGrid">
+                <partial name="_WorkBreakdownStructureView" />
+            </div>
+        }
+    </div>
+    <div class="col-md-12 form-group">
+        <label asp-for="IsRepetativeService" class="control-label  fontbold">Is this a repetitive service contract with standard monthly/annual billing amount?</label>
+        <div class="form-check pl-0">
+            @foreach (var item in listItems)
+            {
+                <div class="form-check form-check-inline">
+                    <input asp-for="IsRepetativeService" type="radio" value="@item.Value"
+                           class="k-radio custom-checkbox IsRepetativeService"
+                           id="IsRepetativeService-@item.Value" />
+                    <label class="k-radio-label" for="IsRepetativeService-@item.Value">
+                        @item.Key
+                    </label>
+                </div>
+            }
+        </div>
+        <span asp-validation-for="IsRepetativeService" class="text-danger"></span>
+    </div>
+    <div class="col-md-12 form-group">
+        <label asp-for="HasOptionToPurchageAdditionalGoods" class="control-label  fontbold">
+            Does the contract contain an option to purchase additional goods or services or is there a contract renewal option?
+        </label>
+        <div class="form-check pl-0">
+            @foreach (var item in listItems)
+            {
+                <div class="form-check form-check-inline">
+                    <input asp-for="HasOptionToPurchageAdditionalGoods" type="radio" value="@item.Value"
+                           class="k-radio custom-checkbox HasOptionToPurchageAdditionalGoods"
+                           id="HasOptionToPurchageAdditionalGoods-@item.Value" />
+                    <label class="k-radio-label" for="HasOptionToPurchageAdditionalGoods-@item.Value">
+                        @item.Key
+                    </label>
+                </div>
+            }
+        </div>
+        <span asp-validation-for="HasOptionToPurchageAdditionalGoods" class="text-danger"></span>
+    </div>
+    <div class="col-md-12 form-group" id="idHideIsDiscountPurchase">
+        <label asp-for="IsDiscountPurchase" class="control-label  fontbold">
+            If yes, is it offered at a discounted/lower rate as an incentive for our client to exercise?
+        </label>
+        <div class="form-check pl-0">
+            @foreach (var item in listItems)
+            {
+                <div class="form-check form-check-inline">
+                    <input asp-for="IsDiscountPurchase" type="radio" value="@item.Value"
+                           class="k-radio custom-checkbox IsDiscountPurchase"
+                           id="IsDiscountPurchase-@item.Value" />
+                    <label class="k-radio-label" for="IsDiscountPurchase-@item.Value">
+                        @item.Key
+                    </label>
+                </div>
+            }
+        </div>
+        <span asp-validation-for="IsDiscountPurchase" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-12 form-group">
+        <label asp-for="IsNonRefundableAdvancePayment" class="control-label  fontbold">
+            Does the contract contain nonrefundable advanced payment?
+        </label>
+        <div class="form-check pl-0">
+            @foreach (var item in listItems)
+            {
+                <div class="form-check form-check-inline">
+                    <input asp-for="IsNonRefundableAdvancePayment" type="radio" value="@item.Value"
+                           class="k-radio custom-checkbox IsNonRefundableAdvancePayment"
+                           id="IsNonRefundableAdvancePayment-@item.Value" />
+                    <label class="k-radio-label" for="IsNonRefundableAdvancePayment-@item.Value">
+                        @item.Key
+                    </label>
+                </div>
+            }
+        </div>
+        <span asp-validation-for="HasDiscountProvision" class="text-danger"></span>
+    </div>
+    <div class="col-md-12 form-group">
+        <label asp-for="HasDiscountProvision" class="control-label  fontbold">
+            Does contract contain a discount provision in the event certain criteria are met?
+        </label>
+        <div class="form-check pl-0">
+            @foreach (var item in listItems)
+            {
+                <div class="form-check form-check-inline">
+                    <input asp-for="HasDiscountProvision" type="radio" value="@item.Value"
+                           class="k-radio custom-checkbox HasDiscountProvision"
+                           id="HasDiscountProvision-@item.Value" />
+                    <label class="k-radio-label" for="HasDiscountProvision-@item.Value">
+                        @item.Key
+                    </label>
+                </div>
+            }
+        </div>
+        <span asp-validation-for="IsNonRefundableAdvancePayment" class="text-danger"></span>
+    </div>
+    <div class="col-md-12 form-group">
+        <label asp-for="HasWarrenty" class="control-label  fontbold">
+            Does the contract contain a warranty other than an assurance warranty?
+        </label>
+        <div class="form-check pl-0">
+            @foreach (var item in listItems)
+            {
+                <div class="form-check form-check-inline">
+                    <input asp-for="HasWarrenty" type="radio" value="@item.Value"
+                           class="k-radio custom-checkbox HasWarrenty" id="HasWarrenty-@item.Value" />
+                    <label class="k-radio-label" for="HasWarrenty-@item.Value">
+                        @item.Key
+                    </label>
+                </div>
+            }
+            <div class="text-muted">
+                <small>
+                    Assurance warranties provide a customer with the assurance that the related product will function as the
+                    parties have intended because it complies with agreed-upon specifications. Other warranties provide the customer with a service in addition to the assurance that the product complies with agreed-upon specifications.
+                </small>
+            </div>
+        </div>
+        <span asp-validation-for="HasWarrenty" class="text-danger"></span>
+    </div>
+    <div id="idHIdeWarrantyTerms" class="col-12">
+        <div class="row">
+            <div class="col-md-12 form-group">
+                <label asp-for="WarrantyTerms" class="control-label">
+                    <b>Describe the warranty terms:</b>
+                </label>
+                <textarea class="form-control" asp-for="WarrantyTerms">@Model.WarrantyTerms</textarea>
+                <span asp-validation-for="WarrantyTerms" class="text-danger"></span>
+            </div>
+            <div class="col-md-12 form-group">
+                <label asp-for="EstimateWarrantyExposure" class="control-label">
+                    <b>Estimate of probable warranty exposure other than those related to assurance type warranties:</b>
+                </label>
+                <textarea class="form-control" asp-for="EstimateWarrantyExposure">@Model.EstimateWarrantyExposure</textarea>
+                <span asp-validation-for="EstimateWarrantyExposure" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 form-group">
+        <label asp-for="Step2Note" class="control-label">
+            Step 2 Notes:
+        </label>
+        <textarea class="form-control" asp-for="Step2Note">@Model.Step1Note</textarea>
+        <span asp-validation-for="Step2Note" class="text-danger"></span>
+    </div>
+</div>
+<!-- </div> -->

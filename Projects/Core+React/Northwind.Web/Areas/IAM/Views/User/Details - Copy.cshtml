@@ -1,0 +1,126 @@
+﻿@model Northwind.Web.Areas.IAM.Models.IAM.ViewModels.UserEditViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, Northwind.Web
+@addTagHelper *, Northwind.Web.Helpers
+<div class="col-12">
+    <div class="row">
+        <div class="form-group col-sm-4 ">
+            <label asp-for="Username" class="control-label"></label>
+            <div>@Model.Username</div>
+        </div>
+        <div class="form-group col-sm-4">
+            <label asp-for="Firstname" class="control-label"></label>
+            <div> @Model.Firstname</div>
+        </div>
+        <div class="form-group col-sm-4">
+            <label asp-for="UserStatus" class="control-label"></label>
+            <div> @Model.UserStatus</div>
+        </div>
+    </div>
+
+
+    <div class="row">
+
+        <div id="tabstrip" class="">
+            <ul>
+                <li class="k-state-active">
+                    User Profile
+                </li>
+                <li>
+                    Permissions
+                </li>
+                <li>
+                    Groups
+                </li>
+            </ul>
+            <div>
+
+                <div class="panels">
+                    <fieldset>
+                        <legend>Personal Information</legend>
+
+                        <div class="form-group row">
+                            <label asp-for="Lastname" class="control-label col-sm-4"></label>
+                            <div class="col-sm-8">@Model.Lastname</div>
+                        </div>
+                        <div class="form-group row">
+                            <label asp-for="PersonalEmail" class="control-label col-sm-4">Email</label>
+                            <div class="col-sm-8">@Model.PersonalEmail</div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label asp-for="HomePhone" class="control-label col-sm-4">Phone</label>
+                            <div class="col-sm-8">@Model.HomePhone</div>
+                        </div>
+                        <div class="form-group row">
+                            <label asp-for="MobilePhone" class="control-label col-sm-4">Mobile</label>
+                            <div class="col-sm-8">@Model.MobilePhone</div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="panels">
+                    <fieldset>
+                        <legend>Work Information</legend>
+                        <div class="form-group row">
+                            <label asp-for="Company" class="control-label col-sm-4"></label>
+                            <div class="col-sm-8">@Model.Company</div>
+                        </div>
+                        <div class="form-group row">
+                            <label asp-for="Department" class="control-label col-sm-4"></label>
+                            <div class="col-sm-8">@Model.Department</div>
+                        </div>
+                        <div class="form-group row">
+                            <label asp-for="JobTitle" class="control-label col-sm-4"></label>
+                            <div class="col-sm-8">@Model.JobTitle</div>
+                        </div>
+                        <div class="form-group row">
+                            <label asp-for="JobStatus" class="control-label col-sm-4"></label>
+                            <div class="col-sm-8">@Model.JobStatus</div>
+                        </div>
+                        <div class="form-group row">
+                            <label asp-for="Manager" class="control-label col-sm-4"></label>
+                            <div class="col-sm-8">@Model.Manager</div>
+                        </div>
+                        <div class="form-group row">
+                            <label asp-for="Group" class="control-label col-sm-4"></label>
+                            <div class="col-sm-8">@Model.Group</div>
+                        </div>
+                        <div class="form-group row">
+                            <label asp-for="WorkEmail" class="control-label col-sm-4"></label>
+                            <div class="col-sm-8">@Model.WorkEmail</div>
+                        </div>
+                        <div class="form-group row">
+                            <label asp-for="WorkPhone" class="control-label col-sm-4"></label>
+                            <div class="col-sm-8">@Model.WorkPhone</div>
+                        </div>
+                        <div class="form-group row">
+                            <label asp-for="Extension" class="control-label col-sm-4"></label>
+                            <div class="col-sm-8">@Model.Extension</div>
+                            <input asp-for="UserGuid" type="hidden" />
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+            <div>
+                <div id="userPermission"></div>
+            </div>
+            <div>
+                <div id="userGroupSelection"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function init() {
+        $("#tabstrip").kendoTabStrip({
+            animation: {
+                open: {
+                    effects: "fadeIn"
+                }
+            }
+        });
+        window.iam.usergroup.loadUserPermision('userPermission', '@Model.UserGuid');
+        window.iam.usergroup.loadUserGroup('@Model.UserGuid');
+    }
+    init();
+</script>

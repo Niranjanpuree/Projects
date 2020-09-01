@@ -1,0 +1,21 @@
+﻿<modal #likedByPopupModel>
+    <div class="overlay dark show">
+        <div class="new-make modal-sm modal-like-box">
+            <a (click)="likedByPopupModel.dismiss()" class="close"></a>
+            <div class="table-wrap">
+                <h2>Likes</h2>
+                <div class="clpopup" *ngIf="likes && likes.length > 0">
+                    <ul class="">
+                        <li *ngFor="let like of likes">
+                            <h5>{{like.likedBy}}</h5>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Submit and cancel button start -->
+                <div class="btns">
+                    <input type="button" class="btn" value="Close" (click)="likedByPopupModel.dismiss()">
+                </div>
+            </div>
+        </div>
+    </div>
+</modal>

@@ -1,0 +1,14 @@
+D:\ESS\ESS-Web\src\Northwind.Web.CDN\bin\Debug\netcoreapp2.2\Northwind.Web.CDN.deps.json
+D:\ESS\ESS-Web\src\Northwind.Web.CDN\bin\Debug\netcoreapp2.2\Northwind.Web.CDN.runtimeconfig.json
+D:\ESS\ESS-Web\src\Northwind.Web.CDN\bin\Debug\netcoreapp2.2\Northwind.Web.CDN.runtimeconfig.dev.json
+D:\ESS\ESS-Web\src\Northwind.Web.CDN\bin\Debug\netcoreapp2.2\Northwind.Web.CDN.dll
+D:\ESS\ESS-Web\src\Northwind.Web.CDN\bin\Debug\netcoreapp2.2\Northwind.Web.CDN.pdb
+D:\ESS\ESS-Web\src\Northwind.Web.CDN\obj\Debug\netcoreapp2.2\Northwind.Web.CDN.csprojAssemblyReference.cache
+D:\ESS\ESS-Web\src\Northwind.Web.CDN\obj\Debug\netcoreapp2.2\Northwind.Web.CDN.csproj.CoreCompileInputs.cache
+D:\ESS\ESS-Web\src\Northwind.Web.CDN\obj\Debug\netcoreapp2.2\Northwind.Web.CDN.RazorAssemblyInfo.cache
+D:\ESS\ESS-Web\src\Northwind.Web.CDN\obj\Debug\netcoreapp2.2\Northwind.Web.CDN.RazorAssemblyInfo.cs
+D:\ESS\ESS-Web\src\Northwind.Web.CDN\obj\Debug\netcoreapp2.2\Northwind.Web.CDN.AssemblyInfoInputs.cache
+D:\ESS\ESS-Web\src\Northwind.Web.CDN\obj\Debug\netcoreapp2.2\Northwind.Web.CDN.AssemblyInfo.cs
+D:\ESS\ESS-Web\src\Northwind.Web.CDN\obj\Debug\netcoreapp2.2\Northwind.Web.CDN.RazorTargetAssemblyInfo.cache
+D:\ESS\ESS-Web\src\Northwind.Web.CDN\obj\Debug\netcoreapp2.2\Northwind.Web.CDN.dll
+D:\ESS\ESS-Web\src\Northwind.Web.CDN\obj\Debug\netcoreapp2.2\Northwind.Web.CDN.pdb

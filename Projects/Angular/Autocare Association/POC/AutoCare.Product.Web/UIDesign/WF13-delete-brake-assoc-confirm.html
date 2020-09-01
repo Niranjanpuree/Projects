@@ -1,0 +1,111 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WF13-Delete-Brake-Association-Confirm</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Fontawesome CSS -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <!-- Custom external CSS -->
+    <link rel="stylesheet" href="css/custom.css">
+    <link href="css/opensans-font.css" rel="stylesheet" />
+    <!-- jQuery library -->
+    <script src="js/jquery-1.12.3.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            //Attach click event handler to your menu
+            $('.nav li').click(function () {
+                // Remove the active class from previously selected item
+                $(this).siblings().removeClass('active');
+                //Set the active class to currently selected item
+                $(this).addClass('active');
+
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(window).load(function () {
+            $('#DeleteModal').modal('show');
+        });
+    </script>
+
+</head>
+
+<body class="background">
+
+    <div class="modal modal-transparent fade" id="DeleteModal" tabindex="-Z" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header headermodel">
+                    <button type="button" class="close closebutton" data-dismiss="modal"><span>&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="Delete-Break" id="myModalLabel">Delete brake association</h4>
+                </div>
+                <div class="modal-body bodymodal">
+                    <div class="input-group">
+                        <div class="table_borderless table-responsive">
+                            <table class="table_borderless table-responsive tablebottom table-borderless WF13-Modal-Delete-Table">
+                                <tbody>
+                                    <tr class="WF13-Modal-Header">
+                                        <td style="width:25%;"><label>Base ID</label></td>
+                                        <td style="width:25%;"><label>Vehicle ID</label></td>
+                                        <td style="width:50%;"><label>Brake system (ID)</label></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label class="WF13-Base-Label">375</label>
+                                        </td>
+                                        <td>
+                                            <label class="WF13-Base-Label">375</label>
+                                        </td>
+                                        <td>
+                                            <label class="WF13-Base-Label">Corvette CS std (512)</label>
+                                        </td>
+                                    </tr>
+                                    <tr></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <div class="table_borderless table-responsive">
+                            <table class="table_borderless table-responsive tablebottom table-borderless WF13-Modal-Delete-Table">
+                                <tbody>
+                                    <tr>
+                                        <td class="AttachmentTableTD3Style">
+                                            <label class="OPTIONAL">OPTIONAL</label> <br />
+                                            <img src="images/attachment.png" class="AttachmentIcon" />
+                                            <label class="Attach-a-file-10mb">Attach a file (<10mb)</label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="AttachmentTableTD3Style">
+                                            <label class="IncludeComments">Include comments</label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="AttachmentTableTD3Style">
+                                            <textarea class="AttachmentCommentTextbox"></textarea>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer footermodel">
+                    <button type="button" class="btn modelcancelBTN" data-dismiss="modal" style="border:none;">CANCEL</button>
+                    <button type="button" class="btn modelsubmitBTN " data-dismiss="modal">SUBMIT</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

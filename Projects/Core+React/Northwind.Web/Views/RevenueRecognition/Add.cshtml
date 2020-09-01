@@ -1,0 +1,104 @@
+﻿@model Northwind.Web.Models.ViewModels.RevenueRecognition.RevenueRecognitionViewModel
+
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+
+@{
+    var resourceVersion = @Configuration["resourceVersion"];
+    var cdnUrl = @Configuration["CDNUrl"];
+}
+<form asp-action="_AddRevenueRecognition" id="ajaxForm" class="wizard-parent">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div>
+        <input type="hidden" asp-for="IsAccountRepresentive" class="form-control" />
+        <input type="hidden" asp-for="CurrentStage" class="form-control" />
+        <input type="hidden" asp-for="RevenueRecognizationGuid" class="form-control" />
+        <input type="hidden" asp-for="ContractGuid" class="form-control" />
+        <input type="hidden" asp-for="isTaskOrder" class="form-control" />
+        <input type="hidden" asp-for="CrudType" class="form-control" />
+    </div>
+    <div id="tabStrip" class="wizard-container">
+        <ul class="wizard">
+            <li id="tab_0">OverView</li>
+            <li id="tab_1">
+                1
+                <span class="popover-detail bottom middle">
+                    <span class="popover-detail-container">
+                        Identity
+                        Contract
+                    </span>
+                </span>
+            </li>
+            <li id="tab_2">
+                2
+                <span class="popover-detail bottom middle">
+                    <span class="popover-detail-container">
+                        Identity Performance
+                        Obligations
+                    </span>
+                </span>
+            </li>
+            <li id="tab_3">
+                3
+                <span class="popover-detail bottom middle">
+                    <span class="popover-detail-container">
+                        Determine Transaction
+                        Price
+                    </span>
+                </span>
+            </li>
+            <li id="tab_4">
+                4
+                <span class="popover-detail bottom middle">
+                    <span class="popover-detail-container">
+                        Allocate Transaction
+                        Price To Performance Obligations
+                    </span>
+                </span>
+            </li>
+            <li id="tab_5">
+                5
+                <span class="popover-detail bottom right">
+                    <span class="popover-detail-container">
+                        Revenue Recognition
+                        (For each performance obligation)
+                    </span>
+                </span>
+            </li>
+        </ul>
+        <div>
+            <partial name="_MainPage" />
+        </div>
+        <div>
+            <partial name="_Step1" />
+        </div>
+        <div>
+            <partial name="_Step2" />
+        </div>
+        <div>
+            <partial name="_Step3" />
+        </div>
+        <div>
+            <partial name="_Step4" />
+        </div>
+        <div>
+            <partial name="_Step5" />
+        </div>
+    </div>
+</form>
+<div class="wizard-footer">
+    <button type="button" class="btn btn-secondary" id="prevBtn">Previous</button>
+    <button type="button" class="btn btn-primary" id="nextBtn">Save And Next</button>
+    <button type="button" class="btn btn-primary" id="idsaveBtn">Save</button>
+    <button type="button" class="btn btn-primary" id="idnotifyBtn">Notify</button>
+    <button type="button" class="btn btn-secondary" id="idCanceBtn">Close</button>
+</div>
+
+<script src="@cdnUrl/js/amountFormat.js?v=@resourceVersion"></script>
+<script src="@cdnUrl/js/AddNewRowDynamically.js?v=@resourceVersion"></script>
+<script src="@cdnUrl/js/proj/revenuerecognition.js?v=@resourceVersion"></script>
+
+<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+
+

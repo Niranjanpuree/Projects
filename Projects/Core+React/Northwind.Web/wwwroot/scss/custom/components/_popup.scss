@@ -1,0 +1,91 @@
+.k-window-titlebar {
+    font-weight: $fw-b;
+    color: darken($color-primary, 10%);
+    background: rgba($color-primary, 0.1);
+}
+
+.k-window-content,
+.k-prompt-container {
+    padding: 15px;
+}
+
+.k-dialog {
+    .k-dialog-button-layout-stretched {
+        align-items: flex-end;
+        padding: 10px;
+
+        .k-button {
+            width: auto !important;
+            flex: auto 0 0;
+            border-radius: 0.25rem;
+            margin-left: 10px;
+            font-weight: $fw-b;
+            padding: 8px 30px;
+        }
+    }
+}
+
+#confirm_1, .delete-popup {
+    font-size: 16px;
+    font-weight: $fw-b;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding: 70px 20px 20px;
+    text-align: center;
+    &:before {
+        content: '\e403';
+        font-family: WebComponentsIcons;
+        font-size: 45px;
+        line-height: 1.2;
+        color: $primary;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 15px;
+        position: absolute;
+    }
+}
+
+
+
+.popup-subtitle {
+    position: relative;
+    margin-top: 5px;
+
+    >span {
+        background: $white;
+        padding-right: 5px;
+        position: relative;
+        z-index: 1;
+    }
+
+    &:before {
+        content: '';
+        width: 100%;
+        height: 1px;
+        background: $gray-400;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+    }
+}
+
+.k-widget.k-window.k-dialog.k-dialog-custom{
+    display: flex;
+    max-height: 95vh;
+    height: auto !important;
+    display: inline-block;
+    width: auto !important;
+    max-width: 70%;
+    -webkit-font-smoothing: antialiased;
+    backface-visibility: hidden;
+    top:50% !important;
+    left:50% !important;
+    transform: translate(-50%, -50%);
+    will-change: transform;
+    .k-content.k-window-content.k-dialog-content {
+        height: auto !important;
+
+    }
+}

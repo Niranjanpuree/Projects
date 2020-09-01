@@ -1,0 +1,34 @@
+﻿@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+@{
+    var resourceVersion = @Configuration["resourceVersion"];
+    var cdnUrl = @Configuration["CDNUrl"];
+    Guid parentGuid = ViewBag.ParentGuid;
+}
+
+<div id="detailGrid"></div>
+
+<script src="@cdnUrl/lib/jspdf.min.js"></script>
+<script src="@cdnUrl/js/dist/revenueRecognition.js?v=@resourceVersion"></script>
+<script type="text/javascript">
+    var cssUrl = "@cdnUrl/css/pdf.css?v=@resourceVersion";
+    (function () {
+        window.detailGrid.pageView.loadDetailGrid('detailGrid', '@parentGuid', cssUrl);
+    })()
+</script>
+<script>
+    function exportdataToPDF(e) {
+        var i = 0;
+        var doc = new jsPDF();
+        for (i; i < e.length; i++) {
+            if (i != 0) {
+                doc.addPage()
+            };
+            var id = "."+e[i];
+            doc.fromHTML($(id).html(), 20, 20, {
+                'width': 170
+            });
+        }
+        doc.save('revenueRecognition.pdf');
+    }
+</script>

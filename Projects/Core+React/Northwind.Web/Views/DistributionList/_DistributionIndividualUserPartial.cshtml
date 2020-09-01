@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = "User Distribution";
+}
+
+@section breadcrumb
+    {
+    <li class="breadcrumb-item"><a href="#">User Distribution</a></li>
+}
+<div id="individualDistributionList"></div>
+
+<script type="text/javascript">
+        (function () {
+            window.distributionList.pageView.loadDistributionList('distributionList', 'JobRequest.Create',false,false,false,true);
+        })()
+</script>

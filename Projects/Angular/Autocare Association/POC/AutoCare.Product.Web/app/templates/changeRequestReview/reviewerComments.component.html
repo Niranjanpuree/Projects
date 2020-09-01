@@ -1,0 +1,10 @@
+﻿
+<strong>Comments</strong>
+<div *ngIf="comments && comments.length > 0">
+    <ul class="comment-box">
+        <li *ngFor="let comment of comments">
+            <h5>{{comment.addedBy}} • {{comment.createdDatetime|date: "MM-dd-yyyy, EEEE"}}</h5>
+            <p>{{comment.comment}}</p>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,36 @@
+﻿@model Northwind.Web.Models.ViewModels.JobRequestViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<div class="p-4">
+    <div class="row">
+        <div class="col-md-6 form-group">
+            <label asp-for="IsIntercompanyWorkOrder" class="control-label requiredAstreicks"></label>
+            <input type="hidden" id="IsIntercompanyWorkOrderHidden" value="@Model.IsIntercompanyWorkOrder" />
+            <div class="form-check pl-0">
+                @foreach (var item in Model.radioIsIntercompanyWorkOrder)
+                {
+                    <div class="form-check form-check-inline">
+                        <input asp-for="IsIntercompanyWorkOrder" type="radio" value="@item.Key"
+                               class="k-radio custom-checkbox IsIntercompanyWorkOrder" name="IsIntercompanyWorkOrder" id="IsIntercompanyWorkOrder-@item.Key" />
+                        <label class="k-radio-label" for="IsIntercompanyWorkOrder-@item.Key">
+                            @item.Value
+                        </label>
+                    </div>
+                }
+            </div>
+            <span asp-validation-for="IsIntercompanyWorkOrder" class="text-danger"></span>
+        </div>
+        <div class="col-md-6 form-group interCompanyDependent">
+            <label asp-for="Companies" class="control-label requiredAstreicks"></label>
+            <div class="clearfix"></div>
+            <select id="CompanySelected" class="form-control" asp-for="CompanySelected" multiple="multiple">
+                @foreach (var item in Model.companyList)
+                {
+                    <option value="@item.Keys">@item.Values</option>
+                }
+            </select>
+            <span asp-validation-for="Companies" class="text-danger"></span>
+        </div>
+
+    </div>
+</div>

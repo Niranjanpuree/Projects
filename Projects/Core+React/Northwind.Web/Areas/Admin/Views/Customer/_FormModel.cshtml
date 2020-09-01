@@ -1,0 +1,139 @@
+﻿@model Northwind.Web.Models.ViewModels.Customer.CustomerViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+@{
+    var resourceVersion = @Configuration["resourceVersion"];
+    var cdnUrl = @Configuration["CDNUrl"];
+}
+<div>
+    <form asp-action="_FormModel">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="CustomerGuid" class="form-control" />
+        <input type="hidden" asp-for="CustomerTypeName" />
+        <div class="row">
+            <div class="col-md-4 form-group">
+                <label asp-for="CustomerTypeGuid" class="fontbold requiredAstreicks control-label"></label>
+                <select asp-for="CustomerTypeGuid" class="form-control">
+                    <option value="">--Select--</option>
+                    @foreach (var item in Model.CustomerTypeSelectListItems)
+                    {
+                        <option value="@item.Key">@item.Value</option>
+                    }
+                </select>
+            </div>
+            <div class="col-md-2 form-group" id="idHideCustomerCode">
+                <label asp-for="CustomerCode" class="fontbold requiredAstreicks control-label"></label>
+                <input asp-for="CustomerCode" class="CustomerCode form-control" placeholder="6 CHARACTER CODE" maxlength="6" required pattern="[a-zA-Z0-9]+" />
+                <span asp-validation-for="CustomerCode" class="text-danger"></span>
+            </div>
+            <div class="col form-group">
+                <label asp-for="CustomerName" class=" fontbold requiredAstreicks control-label"></label>
+                <input asp-for="CustomerName" class="CustomerName form-control" />
+                <span asp-validation-for="CustomerName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row" id="HideDepartment">
+            <div class="col-md-4 form-group">
+                <label asp-for="Department" class="fontbold requiredAstreicks control-label"></label>
+                <select asp-for="Department" class="Department form-control">
+                    <option value=" ">--Select--</option>
+                    @foreach (var item in Model.DepartmentSelectListItems)
+                    {
+                        <option value="@item.Key">@item.Value</option>
+                    }
+                </select>
+            </div>
+            <div class="col-md-4 form-group">
+                <label asp-for="Agency" class="fontbold requiredAstreicks control-label"></label>
+                <select asp-for="Agency" class="Agency form-control">
+                    <option value=" ">--Select--</option>
+                    @foreach (var item in Model.AgencySelectListItems)
+                    {
+                        <option value="@item.Key">@item.Value</option>
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 form-group">
+                <label asp-for="CustomerDescription" class=" fontbold control-label"></label>
+                <textarea class="form-control" asp-for="CustomerDescription">@Model.CustomerDescription</textarea>
+                <span asp-validation-for="CustomerDescription" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 form-group">
+                <label asp-for="Address" class=" fontbold requiredAstreicks control-label"></label>
+                <input asp-for="Address" class="Address form-control k-required" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="col-md-4 form-group">
+                <label asp-for="AddressLine1" class=" fontbold control-label"></label>
+                <input asp-for="AddressLine1" class="AddressLine1 form-control" />
+                <span asp-validation-for="AddressLine1" class="text-danger"></span>
+            </div>
+            <div class="col-md-4 form-group">
+                <label asp-for="CountryId" class="fontbold requiredAstreicks control-label"></label>
+                <select asp-for="CountryId" class="idcountry form-control">
+                    <option value="">--Select--</option>
+                    @foreach (var item in Model.CountrySelectListItems)
+                    {
+                        <option value="@item.Key">@item.Value</option>
+                    }
+                </select>
+            </div>
+            <div class="col-md-4 form-group" id="idHIdeState">
+                <label asp-for="StateId" class="fontbold control-label"></label>
+                <select asp-for="StateId" class="idstate form-control">
+                    <option value="">--Select--</option>
+                    @foreach (var item in Model.StateSelectListItems)
+                    {
+                        <option value="@item.Key">@item.Value</option>
+                    }
+                </select>
+            </div>
+            <div class="col-md-4 form-group">
+                <label asp-for="City" class=" fontbold requiredAstreicks control-label"></label>
+                <input asp-for="City" class="City form-control" />
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+
+
+            <div class="col-md-4 form-group">
+                <label asp-for="ZipCode" class=" fontbold requiredAstreicks control-label"></label>
+                <input asp-for="ZipCode" class="ZipCode form-control" />
+                <span asp-validation-for="ZipCode" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 form-group">
+                <label asp-for="PrimaryEmail" class=" fontbold  control-label"></label>
+                <input asp-for="PrimaryEmail" class="form-control" type="email" />
+                <span asp-validation-for="PrimaryEmail" class="text-danger"></span>
+            </div>
+            <div class="col-md-4 form-group">
+                <label asp-for="PrimaryPhone" class=" fontbold  control-label"></label>
+                <input asp-for="PrimaryPhone" class="form-control" />
+                <span asp-validation-for="PrimaryPhone" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-4 form-group">
+                <label asp-for="Url" class=" fontbold  control-label"></label>
+                <input asp-for="Url" class="form-control" />
+                <span asp-validation-for="Url" class="text-danger"></span>
+            </div>
+            <div class="col-md-4 form-group">
+                <label asp-for="Tags" class=" fontbold  control-label"></label>
+                <input asp-for="Tags" class="form-control" />
+                <span asp-validation-for="Tags" class="text-danger"></span>
+            </div>
+            <div class="col-md-4 form-group">
+                <label asp-for="Abbreviations" class=" fontbold  control-label"></label>
+                <input asp-for="Abbreviations" class="form-control" />
+                <span asp-validation-for="Abbreviations" class="text-danger"></span>
+            </div>
+        </div>
+    </form>
+</div>
+<script src="@cdnUrl/js/proj/customerformload.js?v=@resourceVersion"></script>

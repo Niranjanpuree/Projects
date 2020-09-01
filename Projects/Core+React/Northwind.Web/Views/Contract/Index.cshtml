@@ -1,0 +1,47 @@
+﻿@model Northwind.Web.Models.ViewModels.Contract.ContractViewModel
+@using Microsoft.EntityFrameworkCore.Metadata.Internal
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+@{
+    var resourceVersion = @Configuration["resourceVersion"];
+    var cdnUrl = @Configuration["CDNUrl"];
+}
+
+@{
+    ViewData["Title"] = "List Of Contracts";
+    ViewData["class"] = "contract";
+    Layout = "_Layout";
+}
+@section breadcrumb
+    {
+    <li class="breadcrumb-item"><a href="#">List Of Contracts</a></li>
+    <!-- <li class="breadcrumb-item"><a href="#">Contract List</a></li> -->
+}
+@{
+    IDictionary<string, int> FilterList = new Dictionary<string, int>();
+    FilterList.Add(new KeyValuePair<string, int>("Non IDIQ Contract", 1));
+}
+
+<div class="row">
+    <div class="col">
+        <div id="ContractGrid1" class="table-grid table-grid-r">
+        </div>
+    </div>
+</div>
+<div id="PartialDetails">
+</div>
+<div id="distributionList"></div>
+<div id="dialog">
+    <div class="content"></div>
+</div>
+<!-- </div> -->
+<span class="contract-icon"></span>
+<span class="project-icon"></span>
+
+@section Scripts {
+    <script type="text/javascript">
+        (function () {
+            window.contract.contractList.loadContractList('Contract List', '@User.Claims.Where(c=>c.Type.ToString() == "fullName").ToList()[0].Value');
+        })()
+    </script>
+}

@@ -1,0 +1,20 @@
+﻿@model Northwind.Web.Models.ViewModels.Contract.ContractViewModel
+
+<span class='popover-detail-container'>
+    <span>
+        <label>Name</label> : @Model.KeyPersonnel.UserDetailModel.Firstname @Model.KeyPersonnel.UserDetailModel.Lastname
+    </span>
+    <span><label>Company :</label>@Model.KeyPersonnel.UserDetailModel.Company</span>
+    <span><label>Title :</label>@Model.KeyPersonnel.UserDetailModel.JobTitle</span>
+    @if (!string.IsNullOrWhiteSpace(Model.KeyPersonnel.UserDetailModel.WorkEmail))
+    {
+        <span>
+            <label>Email :</label><a href='mailto:"@Model.KeyPersonnel.UserDetailModel.WorkEmail"' target='_blank'>@Model.KeyPersonnel.UserDetailModel.WorkEmail</a>
+        </span>
+    }
+    @if (!string.IsNullOrWhiteSpace(Model.KeyPersonnel.UserDetailModel.WorkPhone))
+    {
+        <span><label>Phone :</label>@Model.KeyPersonnel.UserDetailModel.WorkPhone</span>
+    }
+
+</span>

@@ -1,0 +1,36 @@
+{
+	"id": "1",
+	"name": "This is my test policy",
+	"description": "Hello World Policy",
+	"rules": [{
+			"resource": ["contract"],
+			"action": ["contract:list", "contract:view"],
+			"effect": "allow",
+			"condition": {
+				"bool": {
+					"user:isEmployee": "true"
+				}
+			}
+		},
+		{
+			"resource": ["contract"],
+			"action": ["contract:list", "contract:view"],
+			"effect": "allow",
+			"condition": {
+				"stringEquals": {
+					"user:email": "saryal@xylontech.com"
+				}
+			}
+		},
+		{
+			"resource": ["contract:awardamount"],
+			"action": ["contract:list", "contract:view", "contract:update"],
+			"effect": "deny",
+			"condition": {
+				"stringNotEquals": {
+					"user:department": ["accounting", "finance", "contracts"]
+				}
+			}
+		}
+	]
+}

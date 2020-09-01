@@ -1,0 +1,178 @@
+.wizard {
+    margin-bottom: 15px;
+    overflow: visible !important;
+    border: 0;
+
+    &-container {
+        .k-content {
+            border: 0;
+            padding: 15px;
+        }
+        .text-muted {
+            margin-top: 10px;
+            line-height: 1.2;
+
+            small {
+
+                font-weight: $fw-r;
+            }
+        }
+
+        .alert {
+            font-size: 80%;
+        }
+    }
+
+    &-parent {
+        max-height: calc(100% - 60px);
+        width:calc(100% - 15px);
+        position: absolute;
+        overflow: auto;
+        margin-top: -15px;
+        padding-top:15px;
+    }
+
+    .k-state-disabled {
+        opacity: 1;
+    }
+
+    .k-link {
+        justify-content: center;
+        z-index: 1;
+        flex: 0 0 auto;
+        position: relative;
+        background: $primary;
+        padding: 5px;
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+        color: $white;
+    }
+
+    li.k-item {
+        border: 0;
+        flex: 1;
+        background: $white;
+        position: relative;
+        margin-right: 0;
+        justify-content: center;
+        align-items: center;
+        pointer-events: initial;
+
+        &.k-state-active {
+            ~li {
+
+                &:after,
+                .k-link {
+                    background: $gray-400;
+                }
+            }
+        }
+
+        .popover-detail {
+            max-width: 100%;
+
+            &.right {
+                right: -20px;
+            }
+
+            &-container {
+                color: #666;
+                white-space: initial;
+                text-align: center;
+                margin-top: 15px;
+
+            }
+        }
+
+        &:hover {
+            .popover-detail {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+
+        &:after {
+            content: '';
+            height: 2px;
+            width: 100%;
+            background: $primary;
+            position: absolute;
+            top: calc(50% - 1px);
+            left: 0;
+        }
+
+
+
+        &:first-child .k-link {
+            width: auto;
+            border-radius: 15px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+
+        &.k-state-active {
+            border: 0;
+            color: #fff;
+
+            &:after {
+                background: $primary;
+            }
+
+            &.k-state-disabled {
+                opacity: 1;
+            }
+
+            .k-link {
+                background: $primary;
+
+            }
+        }
+
+    }
+
+    .k-content {
+        padding: 0;
+    }
+
+    &-footer {
+        position: absolute;
+        bottom: 0;
+        padding: 15px;
+        left: 0;
+        right: 0;
+        text-align: right;
+    }
+    div[data-role='grid']{
+        max-height:350px !important;
+    }
+
+}
+
+.dialog-contract-detail {
+    .k-content.k-state-active {
+        height: 100% !important;
+    }
+}
+
+.table-custom {
+    tr {
+        border-bottom: 1px solid $gray-200;
+        margin-bottom: 15px;
+
+        .rpo-list-checkbox {
+            position: absolute;
+            left: -10px;
+            top: 5px;
+        }
+    }
+}
+
+.extensiondate, .rpo-container{
+    tr:nth-child(1){
+        .k-checkbox-label, .child_Checkbox{
+            opacity: 0;
+        }
+    }
+}

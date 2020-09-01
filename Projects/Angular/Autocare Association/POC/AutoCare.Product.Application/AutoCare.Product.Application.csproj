@@ -1,0 +1,888 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A1F8F23C-2181-455B-8E26-80D2E09C8412}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AutoCare.Product.Application</RootNamespace>
+    <AssemblyName>AutoCare.Product.Application</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.4.2.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Azure.KeyVault.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.KeyVault.Core.1.0.0\lib\net40\Microsoft.Azure.KeyVault.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Azure.Search, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.Search.1.1.2\lib\net45\Microsoft.Azure.Search.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.Edm, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Edm.5.6.4\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.OData.5.6.4\lib\net40\Microsoft.Data.OData.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.Services.Client, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Services.Client.5.6.4\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Rest.ClientRuntime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Rest.ClientRuntime.1.8.1\lib\net45\Microsoft.Rest.ClientRuntime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Rest.ClientRuntime.Azure, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Rest.ClientRuntime.Azure.2.5.2\lib\net45\Microsoft.Rest.ClientRuntime.Azure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Spatial, Version=6.13.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Spatial.6.13.0\lib\portable-net40+sl5+wp8+win8+wpa\Microsoft.Spatial.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=7.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAzure.Storage.7.1.2\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.3.3\lib\net45\NLog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Spatial, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Spatial.5.6.4\lib\net40\System.Spatial.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationServices\ApplicationService.cs" />
+    <Compile Include="ApplicationServices\AzureFileStorageApplicationService.cs" />
+    <Compile Include="ApplicationServices\EngineVinApplicationService.cs" />
+    <Compile Include="ApplicationServices\EngineVersionApplicationService.cs" />
+    <Compile Include="ApplicationServices\EngineDesignationApplicationService.cs" />
+    <Compile Include="ApplicationServices\FuelTypeApplicationService.cs" />
+    <Compile Include="ApplicationServices\IEngineVINApplicationService.cs" />
+    <Compile Include="ApplicationServices\IEngineVersionApplicationService.cs" />
+    <Compile Include="ApplicationServices\IEngineDesignationApplicationService.cs" />
+    <Compile Include="ApplicationServices\IDriveTypeApplicationService.cs" />
+    <Compile Include="ApplicationServices\IFuelDeliverySubTypeApplicationService.cs" />
+    <Compile Include="ApplicationServices\IFuelTypeApplicationService.cs" />
+    <Compile Include="ApplicationServices\IFuelDeliveryTypeApplicationService.cs" />
+    <Compile Include="ApplicationServices\IFuelSystemControlTypeApplicationService.cs" />
+    <Compile Include="ApplicationServices\IFuelSystemDesignApplicationService.cs" />
+    <Compile Include="ApplicationServices\IVehicleToDriveTypeApplicationService.cs" />
+    <Compile Include="ApplicationServices\IVehicleToMfrBodyCodeApplicationService.cs" />
+    <Compile Include="ApplicationServices\IVehicleToWheelBaseApplicationService.cs" />
+    <Compile Include="ApplicationServices\IWheelBaseApplicationService .cs" />
+    <Compile Include="ApplicationServices\DriveTypeApplicationSerivce.cs" />
+    <Compile Include="ApplicationServices\FuelDeliverySubTypeApplicationService.cs" />
+    <Compile Include="ApplicationServices\FuelDeliveryTypeApplicationService.cs" />
+    <Compile Include="ApplicationServices\FuelSystemControlTypeApplicationService.cs" />
+    <Compile Include="ApplicationServices\FuelSystemDesignApplicationService.cs" />
+    <Compile Include="ApplicationServices\VehicleToDriveTypeApplicationService .cs" />
+    <Compile Include="ApplicationServices\VehicleToMfrBodyCodeApplicationService.cs" />
+    <Compile Include="ApplicationServices\VehicleToWheelBaseApplicationService.cs" />
+    <Compile Include="ApplicationServices\WheelBaseApplicationService .cs" />
+    <Compile Include="ApplicationServices\BodyNumDoorsApplicationService.cs" />
+    <Compile Include="ApplicationServices\BodyStyleConfigApplicationService.cs" />
+    <Compile Include="ApplicationServices\BedLengthApplicationService.cs" />
+    <Compile Include="ApplicationServices\BedConfigApplicationService.cs" />
+    <Compile Include="ApplicationServices\BedTypeApplicationService.cs" />
+    <Compile Include="ApplicationServices\BodyTypeApplicationService.cs" />
+    <Compile Include="ApplicationServices\IAzureFileStorageApplicationService.cs" />
+    <Compile Include="ApplicationServices\IBodyNumDoorsApplicationService.cs" />
+    <Compile Include="ApplicationServices\IBodyStyleConfigApplicationService.cs" />
+    <Compile Include="ApplicationServices\IBedLengthApplicationService.cs" />
+    <Compile Include="ApplicationServices\IBedConfigApplicationService.cs" />
+    <Compile Include="ApplicationServices\IBedTypeApplicationService.cs" />
+    <Compile Include="ApplicationServices\IBodyTypeApplicationService.cs" />
+    <Compile Include="ApplicationServices\ILikeStagingApplicationService.cs" />
+    <Compile Include="ApplicationServices\IMfrBodyCodeApplicationService.cs" />
+    <Compile Include="ApplicationServices\IVcdbApplicationService.cs" />
+    <Compile Include="ApplicationServices\IVechileToBodyStyleConfigApplicationService.cs" />
+    <Compile Include="ApplicationServices\IVehicleToBedConfigApplicationService.cs" />
+    <Compile Include="ApplicationServices\IVehicleTypeGroupApplicationService.cs" />
+    <Compile Include="ApplicationServices\LikeStagingApplicationService.cs" />
+    <Compile Include="ApplicationServices\MfrBodyCodeApplicationSerivce.cs" />
+    <Compile Include="ApplicationServices\VcdbApplicationService.cs" />
+    <Compile Include="ApplicationServices\VechileToBodyStyleConfigApplicationService.cs" />
+    <Compile Include="ApplicationServices\VehicleToBedConfigApplicationService.cs" />
+    <Compile Include="ApplicationServices\VehicleToBrakeConfigApplicationService.cs" />
+    <Compile Include="ApplicationServices\BrakeSystemApplicationService.cs" />
+    <Compile Include="ApplicationServices\BrakeABSApplicationService.cs" />
+    <Compile Include="ApplicationServices\BrakeConfigApplicationService.cs" />
+    <Compile Include="ApplicationServices\ChangeRequestService.cs" />
+    <Compile Include="ApplicationServices\IApplicationService.cs" />
+    <Compile Include="ApplicationServices\IVehicleToBrakeConfigApplicationService.cs" />
+    <Compile Include="ApplicationServices\IBrakeSystemApplicationService.cs" />
+    <Compile Include="ApplicationServices\IBrakeABSApplicationService.cs" />
+    <Compile Include="ApplicationServices\IBrakeConfigApplicationService.cs" />
+    <Compile Include="ApplicationServices\IChangeRequestService.cs" />
+    <Compile Include="ApplicationServices\IMakeApplicationService.cs" />
+    <Compile Include="ApplicationServices\IBaseVehicleApplicationService.cs" />
+    <Compile Include="ApplicationServices\IBrakeTypeApplicationService.cs" />
+    <Compile Include="ApplicationServices\IRegionApplicationService.cs" />
+    <Compile Include="ApplicationServices\ISourceApplicationService.cs" />
+    <Compile Include="ApplicationServices\ISubModelApplicationService.cs" />
+    <Compile Include="ApplicationServices\IVehicleApplicationService.cs" />
+    <Compile Include="ApplicationServices\IVehicleTypeApplicationService.cs" />
+    <Compile Include="ApplicationServices\IModelApplicationService.cs" />
+    <Compile Include="ApplicationServices\IPadbChangeRequestService.cs" />
+    <Compile Include="ApplicationServices\IVcdbChangeRequestService.cs" />
+    <Compile Include="ApplicationServices\IYearApplicationService.cs" />
+    <Compile Include="ApplicationServices\MakeApplicationService.cs" />
+    <Compile Include="ApplicationServices\BaseVehicleApplicationService.cs" />
+    <Compile Include="ApplicationServices\BrakeTypeApplicationService.cs" />
+    <Compile Include="ApplicationServices\PublicationStageApplicationService.cs" />
+    <Compile Include="ApplicationServices\RegionApplicationService.cs" />
+    <Compile Include="ApplicationServices\SourceApplicationService.cs" />
+    <Compile Include="ApplicationServices\SubModelApplicationService.cs" />
+    <Compile Include="ApplicationServices\VehicleApplicationService.cs" />
+    <Compile Include="ApplicationServices\VehicleTypeGroupApplicationService.cs" />
+    <Compile Include="ApplicationServices\VehicleTypeApplicationService.cs" />
+    <Compile Include="ApplicationServices\ModelApplicationService.cs" />
+    <Compile Include="ApplicationServices\PadbChangeRequestService.cs" />
+    <Compile Include="ApplicationServices\VcdbChangeRequestService.cs" />
+    <Compile Include="ApplicationServices\YearApplicationService.cs" />
+    <Compile Include="BusinessServices\ChangeRequestReviewProcessors\PreliminaryApproveChangeRequestProcessor.cs" />
+    <Compile Include="BusinessServices\ChangeRequestReviewProcessors\ApproveChangeRequestProcessor.cs" />
+    <Compile Include="BusinessServices\AzureFileStorageBusinessService.cs" />
+    <Compile Include="BusinessServices\ChangeRequestReviewProcessors\IDeleteChangeRequestProcessor.cs" />
+    <Compile Include="BusinessServices\ChangeRequestReviewProcessors\IRejectChangeRequestProcessor.cs" />
+    <Compile Include="BusinessServices\ChangeRequestReviewProcessors\DeleteChangeRequestProcessor.cs" />
+    <Compile Include="BusinessServices\ChangeRequestReviewProcessors\RejectChangeRequestProcessor.cs" />
+    <Compile Include="BusinessServices\ChangeRequestReviewProcessors\IPreliminaryApproveChangeRequestProcessor.cs" />
+    <Compile Include="BusinessServices\DocumentIndexer\BaseVehicleDataIndexer.cs" />
+    <Compile Include="BusinessServices\BusinessServiceBase.cs" />
+    <Compile Include="BusinessServices\BusinessServiceRuntimeResolver.cs" />
+    <Compile Include="BusinessServices\DocumentIndexer\IDriveTypeDataIndexer.cs" />
+    <Compile Include="BusinessServices\DocumentIndexer\IVehicleToDriveTypeDataIndexer.cs" />
+    <Compile Include="BusinessServices\DocumentIndexer\IVehicleToMfrBodyCodeDataIndexer.cs" />
+    <Compile Include="BusinessServices\DocumentIndexer\DriveTypeDataIndexer.cs" />
+    <Compile Include="BusinessServices\DocumentIndexer\MfrBodyCodeDataIndexer.cs" />
+    <Compile Include="BusinessServices\DocumentIndexer\IMfrBodyCodeDataIndexer.cs" />
+    <Compile Include="BusinessServices\DocumentIndexer\IVehicleToWheelBaseDataIndexer.cs" />
+    <Compile Include="BusinessServices\DocumentIndexer\IWheelBaseDataIndexer.cs" />
+    <Compile Include="BusinessServices\DocumentIndexer\VehicleToWheelBaseDataIndexer.cs" />
+    <Compile Include="BusinessServices\DocumentIndexer\VehicleToDriveTypeDataIndexer.cs" />
+    <Compile Include="BusinessServices\DocumentIndexer\VehicleToMfrBodyCodeDataIndexer.cs" />
+    <Compile Include="BusinessServices\DocumentIndexer\WheelBaseDataIndexer.cs" />
+    <Compile Include="BusinessServices\DocumentIndexer\BodyNumDoorsDataIndexer.cs" />
+    <Compile Include="BusinessServices\DocumentIndexer\BodyTypeDataIndexer.cs" />
+    <Compile Include="BusinessServices\DocumentIndexer\BodyStyleConfigDataIndexer.cs" />
+    <Compile Include="BusinessServices\DocumentIndexer\BedConfigDataIndexer.cs" />
+    <Compile Include="BusinessServices\DocumentIndexer\BedLengthDataIndexer.cs" />
+    <Compile Include="BusinessServices\DocumentIndexer\BedTypeDataIndexer.cs" />
+    <Compile Include="BusinessServices\DocumentIndexer\BrakeABSDataIndexer.cs" />
+    <Compile Include="BusinessServices\DocumentIndexer\BrakeConfigDataIndexer.cs" />
+    <Compile Include="BusinessServices\DocumentIndexer\BrakeTypeDataIndexer.cs" />
+    <Compile Include="BusinessServices\DocumentIndexer\IBodyNumDoorsDataIndexer.cs" />
+    <Compile Include="BusinessServices\DocumentIndexer\IBodyTypeDataIndexer.cs" />
+    <Compile Include="BusinessServices\DocumentIndexer\IBodyStyleConfigDataIndexer.cs" />
+    <Compile Include="BusinessServices\DocumentIndexer\IBedConfigDataIndexer.cs" />
+    <Compile Include="BusinessServices\DocumentIndexer\IBedLengthDataIndexer.cs" />
+    <Compile Include="BusinessServices\DocumentIndexer\IBedTypeDataIndexer.cs" />
+    <Compile Include="BusinessServices\DocumentIndexer\IBrakeABSDataIndexer.cs" />
+    <Compile Include="BusinessServices\DocumentIndexer\IBrakeConfigDataIndexer.cs" />
+    <Compile Include="BusinessServices\DocumentIndexer\IBrakeSystemDataIndexer.cs" />
+    <Compile Include="BusinessServices\DocumentIndexer\IBrakeTypeDataIndexer.cs" />
+    <Compile Include="BusinessServices\DocumentIndexer\IVehicleToBedConfigDataIndexer.cs" />
+    <Compile Include="BusinessServices\DocumentIndexer\IVehicleToBodyStyleConfigDataIndexer.cs" />
+    <Compile Include="BusinessServices\DocumentIndexer\IVehicleTypeDataIndexer.cs" />
+    <Compile Include="BusinessServices\DocumentIndexer\IVehicleTypeGroupDataIndexer.cs" />
+    <Compile Include="BusinessServices\DocumentIndexer\BrakeSystemDataIndexer.cs" />
+    <Compile Include="BusinessServices\DocumentIndexer\VehicleToBedConfigDataIndexer.cs" />
+    <Compile Include="BusinessServices\DocumentIndexer\VehicleToBodyStyleConfigDataIndexer.cs" />
+    <Compile Include="BusinessServices\DocumentIndexer\VehicleTypeDataIndexer.cs" />
+    <Compile Include="BusinessServices\DocumentIndexer\VehicleTypeGroupDataIndexer.cs" />
+    <Compile Include="BusinessServices\DocumentIndexer\ISubModelDataIndexer.cs" />
+    <Compile Include="BusinessServices\DocumentIndexer\IModelDataIndexer.cs" />
+    <Compile Include="BusinessServices\DocumentIndexer\IMakeDataIndexer.cs" />
+    <Compile Include="BusinessServices\DocumentIndexer\ModelDataIndexer.cs" />
+    <Compile Include="BusinessServices\DocumentIndexer\MakeDataIndexer.cs" />
+    <Compile Include="BusinessServices\DocumentIndexer\SubModelDataIndexer.cs" />
+    <Compile Include="BusinessServices\DocumentIndexer\IRegionDataIndexer.cs" />
+    <Compile Include="BusinessServices\DocumentIndexer\IYearDataIndexer.cs" />
+    <Compile Include="BusinessServices\DocumentIndexer\RegionDataIndexer.cs" />
+    <Compile Include="BusinessServices\DocumentIndexer\YearDataIndexer.cs" />
+    <Compile Include="BusinessServices\EventHandler\DriveTypeChangeRequestReviewEventHandler.cs" />
+    <Compile Include="BusinessServices\EventHandler\VehicleToMfrBodyCodeChangeRequestReviewEventHandler.cs" />
+    <Compile Include="BusinessServices\EventHandler\VehicleToDriveTypeChangeRequestReviewEventHandler.cs" />
+    <Compile Include="BusinessServices\EventHandler\VehicleToWheelBaseChangeRequestReviewEventHandler.cs" />
+    <Compile Include="BusinessServices\EventHandler\WheelBaseChangeRequestReviewEventHandler.cs" />
+    <Compile Include="BusinessServices\EventHandler\MfrBodyCodeChangeRequestReviewEventHandler.cs" />
+    <Compile Include="BusinessServices\EventHandler\BodyNumDoorsChangeRequestReviewEventHandler.cs" />
+    <Compile Include="BusinessServices\EventHandler\BodyStyleConfigChangeRequestReviewEventHandler.cs" />
+    <Compile Include="BusinessServices\EventHandler\BedConfigChangeRequestReviewEventHandler.cs" />
+    <Compile Include="BusinessServices\EventHandler\BedLengthChangeRequestReviewEventHandler.cs" />
+    <Compile Include="BusinessServices\EventHandler\BedTypeChangeRequestReviewEventHandler.cs" />
+    <Compile Include="BusinessServices\EventHandler\BodyTypeChangeRequestReviewEventHandler.cs" />
+    <Compile Include="BusinessServices\EventHandler\MakeChangeRequestReviewEventHandler.cs" />
+    <Compile Include="BusinessServices\EventHandler\ModelChangeRequestReviewEventHandler.cs" />
+    <Compile Include="BusinessServices\EventHandler\RegionChangeRequestReviewEventHandler.cs" />
+    <Compile Include="BusinessServices\EventHandler\SubModelChangeRequestReviewEventHandler.cs" />
+    <Compile Include="BusinessServices\EventHandler\VehicleToBodyStyleConfigChangeRequestReviewEventHandler.cs" />
+    <Compile Include="BusinessServices\EventHandler\VehicleToBedConfigChangeRequestReviewEventHandler.cs" />
+    <Compile Include="BusinessServices\EventHandler\VehicleToBrakeConfigChangeRequestReviewEventHandler.cs" />
+    <Compile Include="BusinessServices\EventHandler\VehicleChangeRequestReviewEventHandler.cs" />
+    <Compile Include="BusinessServices\EventHandler\BaseVehicleChangeRequestReviewEventHandler.cs" />
+    <Compile Include="BusinessServices\EventHandler\BrakeABSChangeRequestReviewEventHandler.cs" />
+    <Compile Include="BusinessServices\EventHandler\BrakeConfigChangeRequestReviewEventHandler.cs" />
+    <Compile Include="BusinessServices\EventHandler\BrakeSystemChangeRequestReviewEventHandler.cs" />
+    <Compile Include="BusinessServices\EventHandler\BrakeTypeChangeRequestReviewEventHandler.cs" />
+    <Compile Include="BusinessServices\EventHandler\ChangeRequestReviewEventHandler.cs" />
+    <Compile Include="BusinessServices\EventHandler\VehicleTypeChangeRequestReviewEventHandler.cs" />
+    <Compile Include="BusinessServices\EventHandler\VehicleTypeGroupChangeRequestReviewEventHandler.cs" />
+    <Compile Include="BusinessServices\EventHandler\YearChangeRequestReviewEventHandler.cs" />
+    <Compile Include="BusinessServices\Event\ApprovedEvent.cs" />
+    <Compile Include="BusinessServices\Event\BaseVehicle\BaseVehicleChangeRequestRejectedEvent.cs" />
+    <Compile Include="BusinessServices\Event\BedConfig\BedConfigChangeRequestApprovedEvent.cs" />
+    <Compile Include="BusinessServices\Event\BedLength\BedLengthChangeRequestApproved.cs" />
+    <Compile Include="BusinessServices\Event\BedType\BedTypeChangeRequestApprovedEvent.cs" />
+    <Compile Include="BusinessServices\Event\BodyNumDoors\BodyNumDoorsChangeRequestApprovedEvent.cs" />
+    <Compile Include="BusinessServices\Event\BodyStyleConfig\BodyStyleConfigChangeRequestApprovedEvent.cs" />
+    <Compile Include="BusinessServices\Event\BodyType\BodyTypeChangeRequestApprovedEvent.cs" />
+    <Compile Include="BusinessServices\Event\DriveType\DriveTypeChangeRequestApprovedEvent.cs" />
+    <Compile Include="BusinessServices\Event\FuelDeliverySubType\FuelDeliverySubTypeChangeRequestApprovedEvent.cs" />
+    <Compile Include="BusinessServices\Event\FuelDeliveryType\FuelDeliveryTypeChangeRequestApprovedEvent.cs" />
+    <Compile Include="BusinessServices\Event\FuelSystemControlType\FuelSystemControlTypeChangeRequestApprovedEvent.cs" />
+    <Compile Include="BusinessServices\Event\FuelSystemDesign\FuelSystemDesignChangeRequestApprovedEvent.cs" />
+    <Compile Include="BusinessServices\Event\Make\MakeChangeRequestApprovedEvent.cs" />
+    <Compile Include="BusinessServices\Event\MfrBodyCode\MfrBodyCodeChangeRequestApprovedEvent.cs" />
+    <Compile Include="BusinessServices\Event\Model\ModelChangeRequestApprovedEvent.cs" />
+    <Compile Include="BusinessServices\Event\Region\RegionChangeRequestApprovedEvent.cs" />
+    <Compile Include="BusinessServices\Event\DeletedEvent.cs" />
+    <Compile Include="BusinessServices\Event\SubModel\SubModelChangeRequestApprovedEvent.cs" />
+    <Compile Include="BusinessServices\Event\VehicleToBedConfig\VehicleToBedConfigChangeRequestApprovedEvent.cs" />
+    <Compile Include="BusinessServices\Event\VehicletoBodyStyleConfig\VehicleToBodyStyleConfigChangeRequestApprovedEvent.cs" />
+    <Compile Include="BusinessServices\Event\VehicleToBrakeConfig\VehicleToBrakeConfigChangeRequestApprovedEvent.cs" />
+    <Compile Include="BusinessServices\Event\VehicleToDriveType\VehicleToDriveTypeChangeRequestApprovedEvent.cs" />
+    <Compile Include="BusinessServices\Event\VehicleToMfrBodyCode\VehicleToMfrBodyCodeChangeRequestApprovedEvent.cs" />
+    <Compile Include="BusinessServices\Event\VehicleToWheelBase\VehicleToWheelBaseChangeRequestApprovedEvent.cs" />
+    <Compile Include="BusinessServices\Event\VehicleTypeGroup\VehicleTypeGroupChangeRequestApprovedEvent.cs" />
+    <Compile Include="BusinessServices\Event\VehicleType\VehicleTypeChangeRequestApprovedEvent.cs" />
+    <Compile Include="BusinessServices\Event\Vehicle\VehicleChangeRequestApprovedEvent.cs" />
+    <Compile Include="BusinessServices\Event\BaseVehicle\BaseVehicleChangeRequestApprovedEvent.cs" />
+    <Compile Include="BusinessServices\Event\BrakeABS\BrakeABSChangeRequestApprovedEvent.cs" />
+    <Compile Include="BusinessServices\Event\BrakeConfig\BrakeConfigChangeRequestApprovedEvent.cs" />
+    <Compile Include="BusinessServices\Event\BrakeSystem\BrakeSystemChangeRequestApprovedEvent.cs" />
+    <Compile Include="BusinessServices\Event\BrakeType\BrakeTypeChangeRequestApprovedEvent.cs" />
+    <Compile Include="BusinessServices\Event\ChangeRequestApprovedEvent.cs" />
+    <Compile Include="BusinessServices\ChangeRequestAttachmentBusinessService.cs" />
+    <Compile Include="BusinessServices\ChangeRequestCommentsBusinessService.cs" />
+    <Compile Include="BusinessServices\ChangeRequestItemBusinessService.cs" />
+    <Compile Include="BusinessServices\ChangeRequestBusinessService.cs" />
+    <Compile Include="BusinessServices\ChangeRequestReviewProcessors\ChangeRequestReviewProcessor.cs" />
+    <Compile Include="BusinessServices\ChangeRequestStagingBase.cs" />
+    <Compile Include="BusinessServices\DocumentIndexer\IVehicleDataIndexer.cs" />
+    <Compile Include="BusinessServices\DocumentIndexer\IVehicleToBrakeConfigDataIndexer.cs" />
+    <Compile Include="BusinessServices\DocumentIndexer\VehicleDataIndexer.cs" />
+    <Compile Include="BusinessServices\DocumentIndexer\IBaseVehicleDataIndexer.cs" />
+    <Compile Include="BusinessServices\DocumentIndexer\VehicleToBrakeConfigDataIndexer.cs" />
+    <Compile Include="BusinessServices\Event\ChangeRequestPrelimApprovedEvent.cs" />
+    <Compile Include="BusinessServices\Event\ChangeRequestRejectedEvent.cs" />
+    <Compile Include="BusinessServices\Event\ChangeRequestReviewEvent.cs" />
+    <Compile Include="BusinessServices\Event\RejectedEvent.cs" />
+    <Compile Include="BusinessServices\Event\WheelBase\WheelBaseChangeRequestApprovedEvent.cs" />
+    <Compile Include="BusinessServices\Event\Year\YearChangeRequestApprovedEvent.cs" />
+    <Compile Include="BusinessServices\IDocumentIndexer.cs" />
+    <Compile Include="BusinessServices\ChangeRequestReviewProcessors\IApproveChangeRequestProcessor.cs" />
+    <Compile Include="BusinessServices\IAzureFileStorageBusinessService.cs" />
+    <Compile Include="BusinessServices\IBusinessService.cs" />
+    <Compile Include="BusinessServices\IBusinessServiceRuntimeResolver.cs" />
+    <Compile Include="BusinessServices\IChangeRequestAttachmentBusinessService.cs" />
+    <Compile Include="BusinessServices\IChangeRequestCommentsBusinessService.cs" />
+    <Compile Include="BusinessServices\IChangeRequestItemBusinessService.cs" />
+    <Compile Include="BusinessServices\IChangeRequestBusinessService.cs" />
+    <Compile Include="BusinessServices\IChangeRequestDecisionHandler.cs" />
+    <Compile Include="BusinessServices\IChangeRequestStagingBase.cs" />
+    <Compile Include="BusinessServices\Padb\IPadbChangeRequestBusinessService.cs" />
+    <Compile Include="BusinessServices\ValidationExtension.cs" />
+    <Compile Include="BusinessServices\Vcdb\EngineVinBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\EngineVersionBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\EngineDesignationBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\BodyNumDoorsBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\BodyStyleConfigBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\BedConfigBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\BedTypeBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\BodyTypeBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\FuelTypeBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\IEngineVinBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\IEngineVersionBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\IEngineDesignationBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\IBodyNumDoorsBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\IBodyStyleConfigBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\IBedConfigBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\BedLengthBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\IBedLengthBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\IBedTypeBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\IBodyTypeBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\IFuelTypeBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\ILikeStagingBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\IDriveTypeBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\IFuelDeliverySubTypeBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\IFuelDeliveryTypeBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\IFuelSystemControlTypeBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\IFuelSystemDesignBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\IMfrBodyCodeBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\IVcdbPreliminaryApproveChangeRequestProcessor.cs" />
+    <Compile Include="BusinessServices\Vcdb\IVcdbApproveChangeRequestProcessor.cs" />
+    <Compile Include="BusinessServices\Vcdb\IVcdbChangeRequestAttachmentBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\IVcdbChangeRequestCommentsBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\IVcdbChangeRequestItemBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\IVcdbDeleteChangeRequestProcessor.cs" />
+    <Compile Include="BusinessServices\Vcdb\IVcdbRejectChangeRequestProcessor.cs" />
+    <Compile Include="BusinessServices\Vcdb\IVehicleBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\IVehicleToBedConfigBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\IVehicleToBodyStyleConfigBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\IVehicleToDriveTypeBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\IVehicleToMfrBodyCodeBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\IVehicleToWheelBaseBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\IVehicleTypeGroupBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\IWheelBaseBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\LikeStagingBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\DriveTypeBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\FuelDeliverySubTypeBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\FuelDeliveryTypeBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\FuelSystemControlTypeBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\FuelSystemDesignBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\MfrBodyCodeBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\VcdbPreliminaryApproveChangeRequestProcessor.cs" />
+    <Compile Include="BusinessServices\Vcdb\VcdbApproveChangeRequestProcessor.cs" />
+    <Compile Include="BusinessServices\Vcdb\VcdbChangeRequestAttachmentBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\VcdbChangeRequestCommentsBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\VcdbChangeRequestItemBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\VcdbDeleteChangeRequestProcessor.cs" />
+    <Compile Include="BusinessServices\Vcdb\VcdbRejectChangeRequestProcessor.cs" />
+    <Compile Include="BusinessServices\Vcdb\VehicleToBodyStyleConfigBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\VehicleBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\VehicleToBedConfigBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\VehicleToBrakeConfigBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\BrakeSystemBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\BrakeABSBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\BrakeConfigBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\IVehicleToBrakeConfigBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\IBrakeSystemBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\IBrakeABSBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\IBrakeConfigBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\IBrakeTypeBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\IBaseVehicleBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\IModelBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\IMakeBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\IRegionBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\ISubModelBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\IVcdbBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\IVcdbChangeRequestBusinessService.cs" />
+    <Compile Include="BusinessServices\Padb\PadbChangeRequestBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\IYearBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\IVehicleTypeBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\BrakeTypeBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\BaseVehicleBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\ModelBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\MakeBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\RegionBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\SubModelBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\VcdbBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\VcdbChangeRequestBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\VehicleToDriveTypeBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\VehicleToMfrBodyCodeBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\VehicleToWheelBaseBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\VehicleTypeGroupBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\WheelBaseBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\YearBusinessService.cs" />
+    <Compile Include="BusinessServices\Vcdb\VehicleTypeBusinessService.cs" />
+    <Compile Include="Infrastructure\AppSettingConfiguration.cs" />
+    <Compile Include="Infrastructure\EnumWarehouse.cs" />
+    <Compile Include="Infrastructure\ExceptionHelpers\ChangeRequestExistException.cs" />
+    <Compile Include="Infrastructure\Extensions.cs" />
+    <Compile Include="ApplicationServices\IPublicationStageApplicationService.cs" />
+    <Compile Include="Migrations\201604290545454_all.cs" />
+    <Compile Include="Migrations\201604290545454_all.Designer.cs">
+      <DependentUpon>201604290545454_all.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605021111554_add-base-vehicle.cs" />
+    <Compile Include="Migrations\201605021111554_add-base-vehicle.Designer.cs">
+      <DependentUpon>201605021111554_add-base-vehicle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605031203392_add-region.cs" />
+    <Compile Include="Migrations\201605031203392_add-region.Designer.cs">
+      <DependentUpon>201605031203392_add-region.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605041008464_add-vehicle.cs" />
+    <Compile Include="Migrations\201605041008464_add-vehicle.Designer.cs">
+      <DependentUpon>201605041008464_add-vehicle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605121010088_changerequest.cs" />
+    <Compile Include="Migrations\201605121010088_changerequest.Designer.cs">
+      <DependentUpon>201605121010088_changerequest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605240756530_altercolumn.cs" />
+    <Compile Include="Migrations\201605240756530_altercolumn.Designer.cs">
+      <DependentUpon>201605240756530_altercolumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201607141118392_ChangeRequestItemStagingAndComments.cs" />
+    <Compile Include="Migrations\201607141118392_ChangeRequestItemStagingAndComments.Designer.cs">
+      <DependentUpon>201607141118392_ChangeRequestItemStagingAndComments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201607201201354_ChangeRequestStore.cs" />
+    <Compile Include="Migrations\201607201201354_ChangeRequestStore.Designer.cs">
+      <DependentUpon>201607201201354_ChangeRequestStore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201607221104341_ChangeRequestonTransactionalTable.cs" />
+    <Compile Include="Migrations\201607221104341_ChangeRequestonTransactionalTable.Designer.cs">
+      <DependentUpon>201607221104341_ChangeRequestonTransactionalTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201607221132097_ChangeRequestonTransactionalTable2.cs" />
+    <Compile Include="Migrations\201607221132097_ChangeRequestonTransactionalTable2.Designer.cs">
+      <DependentUpon>201607221132097_ChangeRequestonTransactionalTable2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608031122158_LikesTables.cs" />
+    <Compile Include="Migrations\201608031122158_LikesTables.Designer.cs">
+      <DependentUpon>201608031122158_LikesTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608100821473_remove-Likes.cs" />
+    <Compile Include="Migrations\201608100821473_remove-Likes.Designer.cs">
+      <DependentUpon>201608100821473_remove-Likes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608100827302_re-add-Likes.cs" />
+    <Compile Include="Migrations\201608100827302_re-add-Likes.Designer.cs">
+      <DependentUpon>201608100827302_re-add-Likes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608111536413_AttachmentsStagingModified.cs" />
+    <Compile Include="Migrations\201608111536413_AttachmentsStagingModified.Designer.cs">
+      <DependentUpon>201608111536413_AttachmentsStagingModified.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608111710245_ContentTypeColumnAddedToAttachments.cs" />
+    <Compile Include="Migrations\201608111710245_ContentTypeColumnAddedToAttachments.Designer.cs">
+      <DependentUpon>201608111710245_ContentTypeColumnAddedToAttachments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608120929493_ChangeRequestAssignment.cs" />
+    <Compile Include="Migrations\201608120929493_ChangeRequestAssignment.Designer.cs">
+      <DependentUpon>201608120929493_ChangeRequestAssignment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608121629235_ColumnrenamedToDirectoryPath.cs" />
+    <Compile Include="Migrations\201608121629235_ColumnrenamedToDirectoryPath.Designer.cs">
+      <DependentUpon>201608121629235_ColumnrenamedToDirectoryPath.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608121637441_FileSizeAddedToAttachments.cs" />
+    <Compile Include="Migrations\201608121637441_FileSizeAddedToAttachments.Designer.cs">
+      <DependentUpon>201608121637441_FileSizeAddedToAttachments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608150733551_UserRoleAssignment-Add.cs" />
+    <Compile Include="Migrations\201608150733551_UserRoleAssignment-Add.Designer.cs">
+      <DependentUpon>201608150733551_UserRoleAssignment-Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608231008155_remove-series.cs" />
+    <Compile Include="Migrations\201608231008155_remove-series.Designer.cs">
+      <DependentUpon>201608231008155_remove-series.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608240645457_remove-yearFrom.cs" />
+    <Compile Include="Migrations\201608240645457_remove-yearFrom.Designer.cs">
+      <DependentUpon>201608240645457_remove-yearFrom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608260619389_ContentType-length.cs" />
+    <Compile Include="Migrations\201608260619389_ContentType-length.Designer.cs">
+      <DependentUpon>201608260619389_ContentType-length.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608292012359_EntityFullNameColumnAddedToChangeRequest.cs" />
+    <Compile Include="Migrations\201608292012359_EntityFullNameColumnAddedToChangeRequest.Designer.cs">
+      <DependentUpon>201608292012359_EntityFullNameColumnAddedToChangeRequest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609010622313_AddedExistingPayload.cs" />
+    <Compile Include="Migrations\201609010622313_AddedExistingPayload.Designer.cs">
+      <DependentUpon>201609010622313_AddedExistingPayload.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609010657173_AddedExistingPayloadforStaging.cs" />
+    <Compile Include="Migrations\201609010657173_AddedExistingPayloadforStaging.Designer.cs">
+      <DependentUpon>201609010657173_AddedExistingPayloadforStaging.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609040620032_MoveEntityFullNameToItemStaging.cs" />
+    <Compile Include="Migrations\201609040620032_MoveEntityFullNameToItemStaging.Designer.cs">
+      <DependentUpon>201609040620032_MoveEntityFullNameToItemStaging.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609080943029_added-bed.cs" />
+    <Compile Include="Migrations\201609080943029_added-bed.Designer.cs">
+      <DependentUpon>201609080943029_added-bed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609121125590_add-body.cs" />
+    <Compile Include="Migrations\201609121125590_add-body.Designer.cs">
+      <DependentUpon>201609121125590_add-body.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609150804375_update-BodyStyleConfig.cs" />
+    <Compile Include="Migrations\201609150804375_update-BodyStyleConfig.Designer.cs">
+      <DependentUpon>201609150804375_update-BodyStyleConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609290857126_DriveType_MfrBodyCode_WheelBase.cs" />
+    <Compile Include="Migrations\201609290857126_DriveType_MfrBodyCode_WheelBase.designer.cs">
+      <DependentUpon>201609290857126_DriveType_MfrBodyCode_WheelBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610031023268_AddedSourcetoAssociationTables.cs" />
+    <Compile Include="Migrations\201610031023268_AddedSourcetoAssociationTables.designer.cs">
+      <DependentUpon>201610031023268_AddedSourcetoAssociationTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610062043528_addSteeringDbModel.cs" />
+    <Compile Include="Migrations\201610062043528_addSteeringDbModel.designer.cs">
+      <DependentUpon>201610062043528_addSteeringDbModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610102225377_addSpringDbModel.cs" />
+    <Compile Include="Migrations\201610102225377_addSpringDbModel.Designer.cs">
+      <DependentUpon>201610102225377_addSpringDbModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610181004483_engine_transmission.cs" />
+    <Compile Include="Migrations\201610181004483_engine_transmission.Designer.cs">
+      <DependentUpon>201610181004483_engine_transmission.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610181210156_remove_PowerOutput.cs" />
+    <Compile Include="Migrations\201610181210156_remove_PowerOutput.Designer.cs">
+      <DependentUpon>201610181210156_remove_PowerOutput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610181214516_PowerOutputID_Correction.cs" />
+    <Compile Include="Migrations\201610181214516_PowerOutputID_Correction.Designer.cs">
+      <DependentUpon>201610181214516_PowerOutputID_Correction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610190545190_remove_FuelDeliveryConfigCount.cs" />
+    <Compile Include="Migrations\201610190545190_remove_FuelDeliveryConfigCount.Designer.cs">
+      <DependentUpon>201610190545190_remove_FuelDeliveryConfigCount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\BusinessModels\AssignReviewerBusinessModel.cs" />
+    <Compile Include="Models\BusinessModels\AttachmentsModel.cs" />
+    <Compile Include="Models\BusinessModels\AzureFileModel.cs" />
+    <Compile Include="Models\BusinessModels\DriveTypeChangeRequestStagingModel.cs" />
+    <Compile Include="Models\BusinessModels\WheelBaseChangeRequestStagingModel.cs" />
+    <Compile Include="Models\BusinessModels\MfrBodyCodeChangeRequestStagingModel.cs" />
+    <Compile Include="Models\BusinessModels\BodyStyleConfigChangeRequestStagingModel.cs" />
+    <Compile Include="Models\BusinessModels\BedConfigChangeRequestStagingModel.cs" />
+    <Compile Include="Models\BusinessModels\BrakeAbsModel.cs" />
+    <Compile Include="Models\BusinessModels\BrakeConfigChangeRequestStagingModel.cs" />
+    <Compile Include="Models\BusinessModels\BrakeConfigModel.cs" />
+    <Compile Include="Models\BusinessModels\BrakeSystemsModel.cs" />
+    <Compile Include="Models\BusinessModels\BrakeTypeModel.cs" />
+    <Compile Include="Models\BusinessModels\BaseVehicleChangeRequestStagingModel.cs" />
+    <Compile Include="Models\BusinessModels\ChangeRequestStagingModel.cs" />
+    <Compile Include="Models\BusinessModels\CommentsStagingModel.cs" />
+    <Compile Include="Models\BusinessModels\AzureFileChunkModel.cs" />
+    <Compile Include="Models\BusinessModels\LikesModel.cs" />
+    <Compile Include="Models\BusinessModels\VehicleToBrakeConfigModel.cs" />
+    <Compile Include="Models\ChangeRequest.cs" />
+    <Compile Include="Models\EntityModels\Configurations\AspirationConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\AttachmentsConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\AttachmentsStagingConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\BodyStyleConfigConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\BedConfigConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\BodyNumDoorsConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\BedLengthConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\BodyTypeConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\BedTypeConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\BrakeABSConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\BrakeConfigConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\BrakeSystemConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\BrakeTypeConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\ChangeRequestAssignmentConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\ChangeRequestAssignmentStagingConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\ChangeRequestItemConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\ChangeRequestItemStagingConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\ChangeRequestRolesAssignmentConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\ChangeRequestStagingConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\ChangeRequestStoreConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\ChangeRequestTypeConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\CommentsConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\CommentsStagingConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\CylinderHeadTypeConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\DatabaseConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\DriveTypeConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\ElecControlledConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\EngineBaseConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\EngineConfigConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\EngineDesignationConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\EngineVersionConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\EngineVinConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\FuelDeliveryConfigConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\FuelDeliverySubTypeConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\FuelDeliveryTypeConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\FuelSystemControlTypeConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\FuelSystemDesignConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\FuelTypeConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\IgnitionSystemTypeConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\LikesConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\LikesStagingConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\MakeConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\BaseVehicleConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\MfrBodyCodeConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\MfrConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\ModelConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\PowerOutputConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\PublicationStageConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\RegionConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\RoleConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\SourceConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\SpringConfigConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\SpringTypeConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\SteeringConfigConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\SteeringSystemConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\SteeringTypeConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\SubModelConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\TaskControllerConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\TransmissionBaseConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\TransmissionConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\TransmissionControlTypeConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\TransmissionMfrCodeConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\TransmissionNumSpeedsConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\TransmissionTypeConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\UserConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\UserRoleAssignmentConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\ValveConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\VehicleConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\VehicleToBodyStyleConfigConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\VehicleToBedConfigConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\VehicleToBrakeConfigConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\VehicleToDriveTypeConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\VehicleToEngineConfigConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\VehicleToMfrBodyCodeConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\VehicleToSpringConfigConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\VehicleToSteeringConfigConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\VehicleToTransmissionConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\VehicleToWheelBaseConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\VehicleTypeConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\VehicleTypeGroupConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\WheelBaseConfiguration.cs" />
+    <Compile Include="Models\EntityModels\Configurations\YearConfiguration.cs" />
+    <Compile Include="Models\EntityModels\PadbContext.cs" />
+    <Compile Include="Models\EntityModels\VehicleConfigurationContext.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RepositoryServices\AzureFileStorageRepositoryService.cs" />
+    <Compile Include="RepositoryServices\IAzureFileStorageRepositoryService.cs" />
+    <Compile Include="RepositoryServices\IModelSqlServerEfRepositoryService.cs" />
+    <Compile Include="RepositoryServices\IPadbSqlServerEfRepositoryService.cs" />
+    <Compile Include="RepositoryServices\IVcdbSqlServerEfRepositoryService.cs" />
+    <Compile Include="RepositoryServices\IVcdbUnitOfWork.cs" />
+    <Compile Include="RepositoryServices\IVehicleToBrakeConfigRepositoryService.cs" />
+    <Compile Include="RepositoryServices\ModelSqlServerEfRepositoryService.cs" />
+    <Compile Include="RepositoryServices\PadbSqlServerEfRepositoryService.cs" />
+    <Compile Include="RepositoryServices\VcdbUnitOfWork.cs" />
+    <Compile Include="RepositoryServices\VcdbSqlServerEfRepositoryService.cs" />
+    <Compile Include="RepositoryServices\VehicleToBrakeConfigRepositoryService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201604290545454_all.resx">
+      <DependentUpon>201604290545454_all.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605021111554_add-base-vehicle.resx">
+      <DependentUpon>201605021111554_add-base-vehicle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605031203392_add-region.resx">
+      <DependentUpon>201605031203392_add-region.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605041008464_add-vehicle.resx">
+      <DependentUpon>201605041008464_add-vehicle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605121010088_changerequest.resx">
+      <DependentUpon>201605121010088_changerequest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605240756530_altercolumn.resx">
+      <DependentUpon>201605240756530_altercolumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607141118392_ChangeRequestItemStagingAndComments.resx">
+      <DependentUpon>201607141118392_ChangeRequestItemStagingAndComments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607201201354_ChangeRequestStore.resx">
+      <DependentUpon>201607201201354_ChangeRequestStore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607221104341_ChangeRequestonTransactionalTable.resx">
+      <DependentUpon>201607221104341_ChangeRequestonTransactionalTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607221132097_ChangeRequestonTransactionalTable2.resx">
+      <DependentUpon>201607221132097_ChangeRequestonTransactionalTable2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608031122158_LikesTables.resx">
+      <DependentUpon>201608031122158_LikesTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608100821473_remove-Likes.resx">
+      <DependentUpon>201608100821473_remove-Likes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608100827302_re-add-Likes.resx">
+      <DependentUpon>201608100827302_re-add-Likes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608111536413_AttachmentsStagingModified.resx">
+      <DependentUpon>201608111536413_AttachmentsStagingModified.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608111710245_ContentTypeColumnAddedToAttachments.resx">
+      <DependentUpon>201608111710245_ContentTypeColumnAddedToAttachments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608120929493_ChangeRequestAssignment.resx">
+      <DependentUpon>201608120929493_ChangeRequestAssignment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608121629235_ColumnrenamedToDirectoryPath.resx">
+      <DependentUpon>201608121629235_ColumnrenamedToDirectoryPath.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608121637441_FileSizeAddedToAttachments.resx">
+      <DependentUpon>201608121637441_FileSizeAddedToAttachments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608150733551_UserRoleAssignment-Add.resx">
+      <DependentUpon>201608150733551_UserRoleAssignment-Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608231008155_remove-series.resx">
+      <DependentUpon>201608231008155_remove-series.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608240645457_remove-yearFrom.resx">
+      <DependentUpon>201608240645457_remove-yearFrom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608260619389_ContentType-length.resx">
+      <DependentUpon>201608260619389_ContentType-length.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608292012359_EntityFullNameColumnAddedToChangeRequest.resx">
+      <DependentUpon>201608292012359_EntityFullNameColumnAddedToChangeRequest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609010622313_AddedExistingPayload.resx">
+      <DependentUpon>201609010622313_AddedExistingPayload.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609010657173_AddedExistingPayloadforStaging.resx">
+      <DependentUpon>201609010657173_AddedExistingPayloadforStaging.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609040620032_MoveEntityFullNameToItemStaging.resx">
+      <DependentUpon>201609040620032_MoveEntityFullNameToItemStaging.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609080943029_added-bed.resx">
+      <DependentUpon>201609080943029_added-bed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609121125590_add-body.resx">
+      <DependentUpon>201609121125590_add-body.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609150804375_update-BodyStyleConfig.resx">
+      <DependentUpon>201609150804375_update-BodyStyleConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609290857126_DriveType_MfrBodyCode_WheelBase.resx">
+      <DependentUpon>201609290857126_DriveType_MfrBodyCode_WheelBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610031023268_AddedSourcetoAssociationTables.resx">
+      <DependentUpon>201610031023268_AddedSourcetoAssociationTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610062043528_addSteeringDbModel.resx">
+      <DependentUpon>201610062043528_addSteeringDbModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610102225377_addSpringDbModel.resx">
+      <DependentUpon>201610102225377_addSpringDbModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610181004483_engine_transmission.resx">
+      <DependentUpon>201610181004483_engine_transmission.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610181210156_remove_PowerOutput.resx">
+      <DependentUpon>201610181210156_remove_PowerOutput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610181214516_PowerOutputID_Correction.resx">
+      <DependentUpon>201610181214516_PowerOutputID_Correction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610190545190_remove_FuelDeliveryConfigCount.resx">
+      <DependentUpon>201610190545190_remove_FuelDeliveryConfigCount.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AutoCare.Product.Infrastructure\AutoCare.Product.Infrastructure.csproj">
+      <Project>{135AA79F-D2E5-4218-9D8D-A72243D11C8C}</Project>
+      <Name>AutoCare.Product.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AutoCare.Product.Search\AutoCare.Product.Search.csproj">
+      <Project>{B794488C-DC01-42D6-B60D-044DDE64204D}</Project>
+      <Name>AutoCare.Product.Search</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AutoCare.Product.Vcdb.Model\AutoCare.Product.Vcdb.Model.csproj">
+      <Project>{bd97c5df-ac79-42bf-be44-66584dc00f65}</Project>
+      <Name>AutoCare.Product.Vcdb.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AutoCare.Product.VcdbSearch.Indexing\AutoCare.Product.VcdbSearch.Indexing.csproj">
+      <Project>{c7d4cf10-9673-429d-af6b-c490b9430fda}</Project>
+      <Name>AutoCare.Product.VcdbSearch.Indexing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AutoCare.Product.VcdbSearchService.Model\AutoCare.Product.VcdbSearchIndex.Model.csproj">
+      <Project>{26C39F99-B631-40DB-8DF8-32D51CE79919}</Project>
+      <Name>AutoCare.Product.VcdbSearchIndex.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AutoCare.Product.VcdbSearch\AutoCare.Product.VcdbSearch.csproj">
+      <Project>{9E34E181-6BD0-44D6-8142-8D2E61AE7E54}</Project>
+      <Name>AutoCare.Product.VcdbSearch</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

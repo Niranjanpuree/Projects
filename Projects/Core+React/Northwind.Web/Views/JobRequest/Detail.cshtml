@@ -1,0 +1,241 @@
+﻿@model Northwind.Web.Models.ViewModels.JobRequestViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+@{
+    var resourceVersion = @Configuration["resourceVersion"];
+    var cdnUrl = @Configuration["CDNUrl"];
+}
+
+@{
+    ViewData["Title"] = "Contract : Job Request Form";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    string className = "";
+    IDictionary<string, int> StatusStage = new Dictionary<string, int>();
+    StatusStage.Add(new KeyValuePair<string, int>("Contract Representative Review", 1));
+    StatusStage.Add(new KeyValuePair<string, int>("Project Controls Review", 2));
+    StatusStage.Add(new KeyValuePair<string, int>("Project Manager Review", 3));
+    StatusStage.Add(new KeyValuePair<string, int>("Accounting Review", 4));
+    StatusStage.Add(new KeyValuePair<string, int>("Completed", 5));
+
+}
+@section breadcrumb
+    {
+    <li class="breadcrumb-item"><a href="/Contract">List Of Contracts</a></li>
+    @if (Model.Parent_ContractGuid != null)
+    {
+        <li class="breadcrumb-item"><a href="/Contract/Details/@Model.Parent_ContractGuid">@Model.BasicContractInfo.ParentProjectNumber : Contract Detail</a></li>
+        <li class="breadcrumb-item"><a href="/Project/Details/@Model.ContractGuid">@Model.BasicContractInfo.ProjectNumber : Task Order Detail</a></li>
+    }
+    else
+    {
+        <li class="breadcrumb-item"><a href="/Contract/Details/@Model.ContractGuid">@Model.BasicContractInfo.ProjectNumber : Contract Detail</a></li>
+
+    }
+    <li class="breadcrumb-item"><a href="#">Job Request Detail</a></li>
+}
+
+<div id="dialog">
+    <div class="content"></div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="FormModel">
+            <input hidden asp-for="ContractGuid" class="form-control" />
+            <input hidden asp-for="Status" class="form-control" />
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 class="mb-0">Job Request Form</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="jobrequest-status">
+                        @foreach (var item in StatusStage)
+                        {
+                            <li class="@(item.Value == Model.Status ? className = "active" : "")"><span><span class="jobrequest-count">@item.Value</span> @item.Key</span></li>
+                        }
+                    </ul>
+                </div>
+            </div>
+
+            <div>
+                <div class="row">
+                    <div class="col-md-6">
+
+                        <ul id="basicContractInformationPanel" class="contractPanel">
+                            <li class="k-state-active">
+                                <span class="k-link k-state-selected">@(Model.Parent_ContractGuid == null ? "Basic Contract Information" : "Basic Task Order Information")</span>
+                                <partial name="_BasicInformationDetails.cshtml" />
+                            </li>
+                        </ul>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <ul id="customerInformationPanel" class="contractPanel mb-3">
+                            <li class="k-state-active">
+                                <span class="k-link k-state-selected">Customer Information</span>
+                                <partial name="_CustomerInformationDetails.cshtml" />
+                            </li>
+                        </ul>
+
+                        <ul id="keyPersonnelPanel" class="contractPanel mb-3">
+                            <li class="k-state-active">
+                                <span class="k-link k-state-selected">Key Personnel</span>
+                                <partial name="_KeyPersonnelDetails.cshtml" />
+                            </li>
+                        </ul>
+                        <ul id="interCompanyWorkOrder" class="contractPanel">
+                            <li class="k-state-active">
+                                <span class="k-link k-state-selected">Intercompany Work Order</span>
+                                <partial name="_InterCompanyWorkOrderDetails.cshtml" />
+                            </li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+                @if (!Model.BasicContractInfo.IsIDIQContract)
+                {
+                    <div class="row">
+                        <div class="col-md-12">
+                            <ul id="workBreakdownStructure" class="contractPanel">
+                                <li class="k-state-active">
+                                    <span class="k-link k-state-selected">Work Breakdown Structure</span>
+                                    @if (Model.ContractWBS != null)
+                                    {
+                                        <partial name="_WorkBreakdownStructure.cshtml" />
+                                    }
+                                    else
+                                    {
+                                        <div class="col col-sm-auto">
+                                            <p class="mb-0 p-3 text-center small bold text-muted">
+                                                Looks like the work breakdown structure file has not been uploaded yet. <br />If you want to add a new
+                                                work breakdown structure file, please go back to the contract page to add a new one.
+                                            </p>
+                                        </div>
+                                    }
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <ul id="employeeBillingRates" class="contractPanel">
+                                <li class="k-state-active">
+                                    <span class="k-link k-state-selected">Employee Billing Rates</span>
+                                    @if (Model.EmployeeBillingRates != null)
+                                    {
+                                        <partial name="_EmployeeBillingRates.cshtml" />
+                                    }
+                                    else
+                                    {
+                                        <div class="col col-sm-auto">
+                                            <p class="mb-0 p-3 text-center small bold text-muted">
+                                                Looks like the employee billing rates file has not been uploaded yet.<br /> If you want to add a new
+                                                employee billing rates file, please go back to the contract page to add a new one.
+                                            </p>
+                                        </div>
+                                    }
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <ul id="subcontractBillingRates" class="contractPanel">
+                                <li class="k-state-active">
+                                    <span class="k-link k-state-selected">Subcontractor Billing Rates</span>
+                                    @if (Model.LaborCategoryRates != null)
+                                    {
+                                        <partial name="_SubcontractorBillingRates.cshtml" />
+                                    }
+                                    else
+                                    {
+                                        <div class="col col-sm-auto">
+                                            <p class="mb-0 p-3 text-center small bold text-muted">
+                                                Looks like the subcontractor billing rates file has not been uploaded yet. <br />If you want to add a new
+                                                subcontractor billing rates file, please go back to the contract page to add a new one.
+                                            </p>
+                                        </div>
+                                    }
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                }
+
+                @if (Model.ContractQuestionaire != null)
+                {
+                    <div class="row">
+                        <div class="col-md-12">
+                            <ul id="contractQuestionaire" class="contractPanel">
+                                <li class="k-state-active">
+                                    <span class="k-link k-state-selected">Applicable FAR Clauses</span>
+                                    <partial name="_CustomerQuestionaireView.cshtml" />
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                }
+
+                <div class="row">
+                    <div class="col-md-12 form-group">
+                        <label asp-for="Notes" class="control-label control-label-read"></label>
+                        <div class="form-value">
+                            @Model.Notes
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 text-right mb-3">
+                        <button type="reset" class="btn btn-secondary" onclick="location.href='/@Model.BaseUrl/details/@Model.ContractGuid'">
+                            Cancel
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts
+    {
+
+    @if (Model.ContractWBS != null)
+    {
+        <script src="@cdnUrl/js/proj/workBreakdownUploadGrid.js?v=@resourceVersion" class="WBSUploadGrid" data-gridname="#JobWorkBreakdownStructureGrid"
+                data-controller="WorkBreakdownStructure" data-idvalue="#ContractGuid" data-guid="contractWBSGuid"
+                data-fields="wbsCode|description|value|contractType|invoiceAtThisLevel"
+                data-titles="WBS Code|Description|Value|Contract Type|Invoice At This Level" data-downloadgrid="#DownloadWBSGrid"
+                data-path=@Model.ContractWBS.UploadFileName></script>
+    }
+    @if (Model.LaborCategoryRates != null)
+    {
+        <script src="@cdnUrl/js/proj/subLaborGridList.js?v=@resourceVersion" class="SubLaborGridList" data-gridname="#JobLaborCategoryGrid"
+                data-controller="SubcontractorBillingRates" data-idvalue="#ContractGuid" data-guid="categoryRateGuid"
+                data-fields="subContractor|laborCode|employeeName|rate|startDate|endDate"
+                data-titles="Sub Contractor|Labor Code|Employee Name|Rate|Start Date|End Date" data-downloadgrid="#DownloadLCRGrid"
+                data-path=@Model.LaborCategoryRates.UploadFileName></script>
+    }
+    @if (Model.EmployeeBillingRates != null)
+    {
+        <script src="@cdnUrl/js/proj/masterFileUploadGridList.js?v=@resourceVersion" class="MasterFileUploadGridList"
+                data-gridname="#JobEmployeeBillingGrid" data-controller="EmployeeBillingRates" data-idvalue="#ContractGuid"
+                data-guid="billingRateGuid" data-fields="laborCode|employeeName|rate|startDate|endDate"
+                data-titles="Labor Code|Employee Name|Rate|Start Date|End Date" data-downloadgrid="#DownloadEBRGrid"
+                data-path="@Model.EmployeeBillingRates.UploadFileName"></script>
+    }
+    <script src="@cdnUrl/js/proj/JobRequest.js?v=@resourceVersion" class="clause" data-farClauseID="@(Model.farContractViewModel.Questionniare != null ? true:false)" data-isEditable="@Model.IsEditable"></script>
+}

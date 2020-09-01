@@ -1,0 +1,221 @@
+﻿<loading-gif [show]="showLoadingGif"></loading-gif>
+<article>
+    <div class="center">
+        <!-- Models start -->
+        <div class="table-wrap">
+            <h2 class="clearfix">
+                <div class="filter-search">
+                    <input type="text" class="cinput" ac-autocomplete [(ngModel)]="modelNameFilter" [dataSourceMethod]="getSuggestions" min-chars="1" source="nothing"
+                           value-property-name="id"
+                           display-property-name="name"
+                           (keywordChanged)="applyFilter($event)"
+                           placeholder="Filter Models"
+                           title="Press ENTER to apply filter">
+                    <input type="submit" value="" (click)="applyFilter()" title="Apply filter">
+                </div>
+                <a (click)="onNew()" class="btn blue icon add">NEW</a>
+            </h2>
+
+
+            <div class="ctable">
+                <ac-grid [dataSource]="models" #gd="acGrid"
+                         columns='[
+                 { "header":"Model ID" , "field":"id", "sortable": "true" },
+                 { "header":"Model Name" , "field":"name", "sortable": true },
+                 { "header":"Vehicle Type" , "field":"vehicleTypeName", "sortable": true },
+                 { "header":"Last Revision" , "field":"lastUpdateDate", "sortable": false },
+                 { "header":"Change Requests"}
+                 ]'
+                         initialSortBy='[{"field": "id", "orderByDesc": false},
+                 {"field": "name", "orderByDesc": false}]'
+                         paging='{"pageSize": 10, "numberOfPagesOnPageList" : 10}'>
+                    <tr *ngFor="let model of gd.items">
+                        <td>{{model.id}}</td>
+                        <td>{{model.name}}</td>
+                        <td>{{model.vehicleTypeName}}</td>
+                        <td>{{model.lastUpdateDate| date: "MM-dd-yyyy"}}</td>
+                        <td class="Pending" *ngIf="model.changeRequestId">
+                            <a (click)="view(model)" style="cursor: pointer;" class="btn-r-arrow blue">Pending</a>
+                        </td>
+                        <td *ngIf="!model.changeRequestId">
+                            <a (click)="onModify(model)" class="box-icon pencil" title="Edit"></a>
+                            <a (click)="onDelete(model)" class="box-icon delete" title="Delete"></a>
+                            <!--<a href="#" class="box-icon shuffle" title="Shuffle"></a>-->
+                        </td>
+                    </tr>
+                </ac-grid>
+            </div>
+        </div>
+    </div>
+</article>
+
+<div class="popup">
+    <modal #newPopup>
+        <div class="overlay dark show">
+            <div class="new-make">
+                <a (click)="onCancel()" class="close"></a>
+                <div class="add-form">
+                    <h2>New Model</h2>
+                    <div class="clearfix">
+                        <div class="input-blocks clearfix">
+                            <strong>Submit a new Model name for review:</strong>
+                            <input type="text" [(ngModel)]="model.name" class="cinput" placeholder="New Model Name">
+                        </div>
+                        <div class="input-blocks clearfix">
+                            <strong>Select vehicle type:</strong>
+                            <div class="checkbox-wrap">
+                                <ul *ngFor="let vehicleType of vehicleTypes">
+                                    <li>
+                                        <label class="control control--checkbox green-checkbox">
+                                            <input type="checkbox" name="vehicleTypeId" (click)="model.vehicleTypeId=vehicleType.id" [checked]="model.vehicleTypeId == vehicleType.id">
+                                            <div class="control__indicator"></div>
+                                            <span> {{vehicleType.name}}</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="attach-wrap">
+                            <strong>OPTIONAL</strong>
+                            <ac-fileuploader upload-api-path="file/savechunk" #newPopupAcFileUploader></ac-fileuploader>
+                            <small>Include comments</small>
+                            <textarea cols="50" rows="5" [(ngModel)]="model.comment"></textarea>
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        <!-- Submit and cancel button start -->
+                        <div class="btns">
+                            <input type="reset" value="CANCEL" class="btn transparent" (click)="onCancel()">
+                            <input type="submit" value="SUBMIT" class="btn" (click)="onNewSubmit()">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </modal>
+</div>
+
+<div class="popup">
+    <modal #modifyPopup>
+        <div class="overlay dark show">
+            <div class="new-make">
+                <a (click)="onCancel()" class="close"></a>
+                <div class="add-form">
+                    <h2>Edit Model</h2>
+                    <div class="clearfix">
+
+                        <div class="input-blocks clearfix">
+                            <strong>Submit a revised Model name for review:</strong>
+                            <input type="text" [(ngModel)]="modifiedModel.name" required class="cinput">
+                        </div>
+                        <div class="input-blocks clearfix">
+                            <strong>Select vehicle type:</strong>
+                            <div class="checkbox-wrap">
+                                <ul *ngFor="let vehicleType of vehicleTypes">
+                                    <li>
+                                        <label class="control control--checkbox green-checkbox">
+                                            <input type="checkbox" name="vehicleTypeId" (click)="modifiedModel.vehicleTypeId=vehicleType.id" [checked]="modifiedModel.vehicleTypeId == vehicleType.id">
+                                            <div class="control__indicator"></div>
+                                            <span> {{vehicleType.name}}</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="warning-wrap">
+                            <div>
+                                <strong>Associated records will be impacted</strong>
+                                <span>
+                                    {{modifiedModel.baseVehicleCount}} Base vehicles<br>
+                                    {{modifiedModel.vehicleCount}} Vehicles
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="attach-wrap">
+                            <strong>OPTIONAL</strong>
+                            <ac-fileuploader upload-api-path="file/savechunk" #modifyPopupAcFileUploader="acFileUploader"></ac-fileuploader>
+                            <small>Include comments</small>
+                            <textarea cols="50" rows="5" [(ngModel)]="modifiedModel.comment"></textarea>
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        <!-- Submit and cancel button start -->
+                        <div class="btns">
+                            <input type="submit" value="CANCEL" class="btn transparent" (click)="onCancel()">
+                            <input type="submit" value="SUBMIT" class="btn" (click)="onModifySubmit()">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </modal>
+</div>
+
+<div class="popup">
+    <modal #deleteErrorPopup>
+        <div class="overlay dark show">
+            <div class="new-make modal-dialog">
+                <a (click)="deleteErrorPopup.dismiss()" class="close"></a>
+                <div class="add-form">
+                    <h2>Remove Model</h2>
+                    <div class="clearfix">
+                        <div class="warning-wrap delete-error-wrap">
+                            <div>
+                                <strong>All associated records must be removed before the "{{model.name}}" Model can be removed<br> </strong>
+                                <br />
+                                {{model.baseVehicleCount}} base vehicles
+                                <br />
+                                {{model.vehicleCount}} vehicles
+                            </div>
+                        </div>
+
+                        <!-- Submit and cancel button start -->
+                        <div class="btns">
+                            <input type="submit" (click)="deleteErrorPopup.dismiss()" value="CANCEL" class="btn blue">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </modal>
+</div>
+
+
+<div class="popup">
+    <modal #deleteConfirmPopup>
+        <div class="overlay dark show">
+            <div class="new-make">
+                <a (click)="onCancel()" class="close"></a>
+                <div class="add-form">
+                    <h2>Remove Model</h2>
+                    <div class="clearfix">
+
+                        <div class="warning-wrap confirmation">
+                            <div>
+                                <strong>Please confirm that you wish to remove the "{{model.name}}" model.</strong>
+                            </div>
+                        </div>
+                        <div class="attach-wrap">
+                            <strong>OPTIONAL</strong>
+                            <ac-fileuploader upload-api-path="file/savechunk" #deletePopupAcFileUploader="acFileUploader"></ac-fileuploader>
+                            <small>Include comments</small>
+                            <textarea cols="50" rows="5" [(ngModel)]="deleteModel.comment"></textarea>
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        <!-- Submit and cancel button start -->
+                        <div class="btns">
+                            <input type="reset" value="CANCEL" class="btn transparent" (click)="onCancel()">
+                            <input type="submit" value="CONFIRM" class="btn" (click)="onDeleteConfirm()">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </modal>
+</div>

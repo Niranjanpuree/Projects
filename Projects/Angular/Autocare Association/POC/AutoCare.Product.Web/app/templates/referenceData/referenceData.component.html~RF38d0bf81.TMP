@@ -1,0 +1,45 @@
+﻿<main class="with-sidemenu clearfix">
+    <aside>
+        <div class="sidemenu withdrop">
+            <ul>
+                <li [ngClass]="{collapsed : activeSubMenuGroup=='Vehicles'}" (click)="toggleSubMenuGroupActive('Vehicles')">
+                    <a href="javascript:void(0);">Vehicles</a>
+                    <ul id="Vehicles">
+                        <li [ngClass]="{active: activeSubMenu=='Make'}" (click)="activeSubMenu='Make'"><a [routerLink]="['make']">Make</a></li>
+                        <li [ngClass]="{active: activeSubMenu=='Model'}" (click)="activeSubMenu='Model'"><a [routerLink]="['model']">Model</a></li>
+                        <li [ngClass]="{active: activeSubMenu=='SubModel'}" (click)="activeSubMenu='SubModel'"><a [routerLink]="['submodel']">Submodel</a></li>
+                        <li [ngClass]="{active: activeSubMenu=='Series'}" (click)="activeSubMenu='Series'"><a [routerLink]="['series']">Series</a></li>
+                        <li [ngClass]="{active: activeSubMenu=='Region'}" (click)="activeSubMenu='Region'"><a [routerLink]="['region']">Region</a></li>
+                        <li [ngClass]="{active: activeSubMenu=='Year'}" (click)="activeSubMenu='Year'"><a [routerLink]="['year']">Year</a></li>
+                        <li [ngClass]="{active: activeSubMenu=='VehicleTypeGroup'}" (click)="activeSubMenu='VehicleTypeGroup'"><a [routerLink]="['vehicletypegroup']">Type group</a></li>
+                        <li [ngClass]="{active: activeSubMenu=='VehicleType'}" (click)="activeSubMenu='VehicleType'"><a [routerLink]="['vehicletype']">Type</a></li>
+                    </ul>
+                </li>
+                <li [ngClass]="{collapsed : activeSubMenuGroup=='Brake'}" (click)="toggleSubMenuGroupActive('Brake')">
+                    <a href="javascript:void(0);">Brake</a>
+                    <ul id="Brake">
+                        <li [ngClass]="{active: activeSubMenu=='BrakeType'}" (click)="activeSubMenu='BrakeType'"><a [routerLink]="['braketype']">Type</a></li>
+                        <li [ngClass]="{active: activeSubMenu=='BrakeABS'}" (click)="activeSubMenu='BrakeABS'"><a [routerLink]="['brakeabs']">ABS</a></li>
+                        <li [ngClass]="{active: activeSubMenu=='BrakeSystem'}" (click)="activeSubMenu='BrakeSystem'"><a [routerLink]="['brakesystem']">System</a></li>
+                    </ul>
+                </li>
+                <li><a href="javascript:void(0);">Cooling</a></li>
+                <li><a href="javascript:void(0);">Drivetrain</a></li>
+                <li><a href="javascript:void(0);">Electrical</a></li>
+                <li><a href="javascript:void(0);">Emission</a></li>
+                <li><a href="javascript:void(0);">Engine</a></li>
+                <li><a href="javascript:void(0);">Exhaust</a></li>
+                <li><a href="javascript:void(0);">Fuel</a></li>
+                <li><a href="javascript:void(0);">Head & Air</a></li>
+                <li><a href="javascript:void(0);">Ignition</a></li>
+                <li><a href="javascript:void(0);">Interior</a></li>
+                <li><a href="javascript:void(0);">Steering</a></li>
+                <li><a href="javascript:void(0);">Suspension</a></li>
+                <li><a href="javascript:void(0);">Transmission</a></li>
+                <li><a href="javascript:void(0);">Wheel & Tire</a></li>
+            </ul>
+            <a href="javascript:void(0);"></a>
+        </div>
+    </aside>
+    <router-outlet></router-outlet>
+</main>

@@ -1,0 +1,138 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+/* a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+} */
+
+/* Sticky footer styles
+-------------------------------------------------- */
+
+
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+
+
+
+
+
+/*Bootstrap-Customized Classes*/
+
+.k-panelbar > .k-item > .k-link.k-state-selected {
+    background-color: #F5F5F5;
+    color: #000000;
+    
+    
+}
+
+/* .k-panelbar > .k-item > .k-link {
+    background-color: #F5F5F5;
+    color: #000000;
+   
+} */
+
+.nav-pills .nav-link.active {
+    background-color:#F8F9FA;
+    color:#000000;
+    font-weight:bold;
+}
+
+
+.profile-menu {
+    min-width:400px;
+}
+
+
+/*TODO: Need to work on this and check for responsiveness*/
+    
+/*Navbar dropdown Menu styling*/
+.menu-large {
+    position: static !important;
+}
+
+
+/*Bootstrap-Customized Classes*/
+
+
+/*kendo popup*/
+  .popup-content {
+     padding: 30px;
+     color: #787878;
+     background-color: #fcf7f8;
+     border: 1px solid rgba(0,0,0,.05);
+ }
+
+
+  /* .k-animation-container{
+      z-index: 900000 !important;
+  } */
+
+#projectDetails .k-content.k-state-active .k-animation-container.k-animation-container-relative{
+    width: 100%;
+}
+
+
+/**List box*/
+
+.xylontech-list-box .header{
+    font-weight: bold;
+}
+
+.xylontech-list-box .description {
+
+}
+
+.xylontech-list-box .list {
+    border: 1px inset rgba(0,0,0,.1);
+    background: rgba(0,0,0,0.02);
+    width: 100%;
+    height: 78%;
+    min-height: 50px;
+    min-width: 50px;
+    margin-left: 15px;
+}
+
+.xylontech-list-box .list .list-scroller {
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin-right: -15px;
+}
+
+.xylontech-list-box .list .list-scroller .options {
+    display: block;
+    padding: 2px 5px;
+    border: 1px dotted #c4c4c4;
+    margin: 2px;
+    color: black;
+    background: rgba(0,0,0,0);
+}
+
+.xylontech-list-box .list .list-scroller .options.selected {
+    background: blue;
+    color: white;
+}
+
+.multiselect-listbox .action-button {
+    text-align: center;
+    height: 28px;
+    border: 1px solid #d4d1d1;
+    background: #d4d1d1;
+    border-radius: 5px;
+    margin: 2px auto;
+    max-width: 50px;
+    display: inherit;
+    padding-top: 3px;
+    text-decoration: none;
+    color: white;
+}
+
+/**End Listbox*/

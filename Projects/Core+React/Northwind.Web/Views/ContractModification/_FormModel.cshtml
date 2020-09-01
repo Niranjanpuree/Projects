@@ -1,0 +1,135 @@
+﻿@model Northwind.Web.Models.ViewModels.Contract.ContractModificationViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+@{
+    var resourceVersion = @Configuration["resourceVersion"];
+    var cdnUrl = @Configuration["CDNUrl"];
+}
+
+@{
+    IDictionary<bool, string> listItems = new Dictionary<bool, string>();
+    listItems.Add(new KeyValuePair<bool, string>(true, "Yes"));
+}
+<form id="ContractModificationForm" asp-action="_FormModel">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="ContractGuid" class="form-control" />
+    <input type="hidden" asp-for="ContractModificationGuid" class="form-control" />
+    <input type="hidden" asp-for="UploadedFileName" class="form-control" />
+    <input type="hidden" asp-for="ContractTitle" class="form-control" />
+    <input type="hidden" asp-for="IsActive" class="form-control" />
+    <input type="hidden" asp-for="ContractNumber" class="form-control" />
+    <input type="hidden" asp-for="ProjectNumber" class="form-control" /> @*contract project number..*@
+
+    <div class="row">
+
+        <div class="col-md-4 form-group">
+            <label asp-for="ModificationType"
+                   class="control-label  "></label>
+            <select asp-for="ModificationType" id="setAside" class="form-control">
+                <option value="">--Select--</option>
+                @foreach (var item in Model.keyValuePairs)
+                {
+                    <option value="@item.Key"><b>@item.Value</b></option>
+                }
+            </select>
+            <span asp-validation-for="ModificationType" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-4 form-group form-required">
+            <label asp-for="ModificationNumber" class="control-label requiredAstreicks fontbold"></label>
+            <input asp-for="ModificationNumber" placeholder="Enter the modification number" required
+                   class="form-control" />
+            <span asp-validation-for="ModificationNumber" class="text-danger"></span>
+        </div>
+        <div class="col-md-4 form-group form-required">
+            <label asp-for="ModificationTitle" class="control-label requiredAstreicks fontbold"></label>
+            <input asp-for="ModificationTitle" placeholder="Enter the modification title" required
+                   class="form-control" />
+            <span asp-validation-for="ModificationTitle" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row align-items-top">
+        <div class="col-md-4 form-group">
+            <div class="row align-items-center">
+                @foreach (var item in listItems)
+                {
+                    <div class="form-check col-auto">
+                        <input type="checkbox" @((item.Key) == Model.IsAwardAmount ? "checked='checked'" : string.Empty) class="k-checkbox custom-checkbox" id="IsAwardAmount"
+                               name="IsAwardAmount" value="@item.Key">
+                        <label class="k-checkbox-label" for="IsAwardAmount">Change in Award Amount</label>
+                    </div>
+                }
+                <div class="hideOnload col" id="idhideAwardAmount">
+                    <input asp-for="AwardAmount" placeholder="0.00" type="text" class="form-control amountStyle" />
+                    <span asp-validation-for="AwardAmount" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 form-group">
+            <div class="row align-items-center">
+                @foreach (var item in listItems)
+                {
+                    <div class="form-check col-auto">
+                        <input type="checkbox" @((item.Key) == Model.IsFundingAmount ? "checked='checked'" : string.Empty) class="k-checkbox custom-checkbox" id="IsFundingAmount"
+                               name="IsFundingAmount" value="@item.Key">
+                        <label class="k-checkbox-label" for="IsFundingAmount">Change in Funded Amount</label>
+                    </div>
+                }
+                <div class="hideOnload col" id="idhideFundingAmount">
+                    <input asp-for="FundingAmount" placeholder="0.00" type="text" class="form-control amountStyle" />
+                    <span asp-validation-for="FundingAmount" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="row form-group">
+                <div class="col-md-12">
+                    @foreach (var item in listItems)
+                    {
+                        <div class="form-check pl-0 pb-3">
+                            <input type="checkbox" @((item.Key) == Model.IsPOP ? "checked='checked'" : string.Empty)
+                                   class="k-checkbox custom-checkbox" id="IsPOP" name="IsPOP" value="@item.Key">
+                            <label class="k-checkbox-label" for="IsPOP">Change in Period of Performance</label>
+                        </div>
+                    }
+                </div>
+                <div class="col-12">
+                    <div class="row hideOnload" id="idHidePop">
+                        <div class="col-md-6 form-group">
+                            <label asp-for="POPStart" class="control-label"></label>
+                            <input asp-for="POPStart" placeholder="MM/dd/yyyy" type="date" class="form-control" />
+                            <span asp-validation-for="POPStart" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label asp-for="POPEnd" class="control-label"></label>
+                            <input asp-for="POPEnd" placeholder="MM/dd/yyyy" type="date" class="form-control" />
+                            <span asp-validation-for="POPEnd" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-12 form-group">
+            <label asp-for="Description" class="control-label"></label>
+            <textarea asp-for="Description" rows="4" placeholder="Any Description" class="form-control"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <label class="mb-0"><b>Upload Mod File</b></label>
+            <div id="fileUploadMod"></div>
+        </div>
+    </div>
+    <div class="progressBar">
+        <div id="progressBar" class="progressBarInactive">
+        </div>
+    </div>
+</form>
+<script src="@cdnUrl/js/amountFormat.js?v=@resourceVersion"></script>
+<script src="@cdnUrl/js/proj/modificationformload.js?v=@resourceVersion"></script>
+<script src="@cdnUrl/js/dist/compiledScript.js?v=@resourceVersion"></script>

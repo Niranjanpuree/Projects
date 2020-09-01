@@ -1,0 +1,252 @@
+﻿@model Northwind.Web.Models.ViewModels.JobRequestViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    string className = "";
+    IDictionary<string, int> StatusStage = new Dictionary<string, int>();
+    StatusStage.Add(new KeyValuePair<string, int>("Contract Representative Review", 1));
+    StatusStage.Add(new KeyValuePair<string, int>("Project Controls Review", 2));
+    StatusStage.Add(new KeyValuePair<string, int>("Project Manager Review", 3));
+    StatusStage.Add(new KeyValuePair<string, int>("Accounting Review", 4));
+    StatusStage.Add(new KeyValuePair<string, int>("Completed", 5));
+
+}
+
+<div id="dialog">
+    <div class="content"></div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="FormModel">
+            <input hidden asp-for="ContractGuid" class="form-control" />
+            <input hidden asp-for="Status" class="form-control" />
+            <input hidden asp-for="BaseUrl" class="form-control" />
+            <input hidden asp-for="JobRequestGuid" class="form-control" />
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>@(Model.IsNew == true ? "New Job Request Form" : "Job Request Form")</h3>
+                </div>
+                @if (!Model.IsEditable ||
+                    (Model.farContractViewModel.Questionniare?.Any() != true &&
+                    Model.farContractViewModel.ApplicableFarClauses?.Any() != true))
+                {
+                <div class="col-md-12 alert alert-warning">
+                    The Job Request Form is incomplete. Before submitting proposed changes, please ensure that the required fields are complete and the FAR clause is included.  If required, close this form, go back to the Contract / Task Order and complete the required information before re-initiating the Job Request Form.
+                </div>
+                }
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="jobrequest-status">
+                        @foreach (var item in StatusStage)
+                        {
+                            <li class="@(item.Value == Model.Status ? className = " active" : "" )"><span><span class="jobrequest-count">@item.Value</span> @item.Key</span></li>
+                        }
+                    </ul>
+                </div>
+            </div>
+
+            <div>
+                <div class="row">
+                    <div class="col-md-6">
+
+                        <ul id="basicContractInformationPanel" class="contractPanel">
+                            <li class="k-state-active">
+                                <span class="k-link k-state-selected">
+                                    @(Model.Parent_ContractGuid
+!= null ? "Basic Contract Information" : "Basic Task Order Information")
+                                </span>
+                                <partial name="_BasicInformation.cshtml" />
+                            </li>
+                        </ul>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <ul id="customerInformationPanel" class="contractPanel mb-3">
+                            <li class="k-state-active">
+                                <span class="k-link k-state-selected">Customer Information</span>
+                                <partial name="_CustomerInformationDetails.cshtml" />
+                            </li>
+                        </ul>
+
+                        <ul id="keyPersonnelPanel" class="contractPanel mb-3">
+                            <li class="k-state-active">
+                                <span class="k-link k-state-selected">Key Personnel</span>
+                                <partial name="_KeyPersonnel.cshtml" />
+                            </li>
+                        </ul>
+                        <ul id="interCompanyWorkOrder" class="contractPanel">
+                            <li class="k-state-active">
+                                <span class="k-link k-state-selected">Intercompany Work Order</span>
+                                <partial name="_InterCompanyWorkOrder.cshtml" />
+                            </li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+                @if (!Model.BasicContractInfo.IsIDIQContract)
+                {
+                    <div class="row">
+                        <div class="col-md-12">
+                            <ul id="workBreakdownStructure" class="contractPanel">
+                                <li class="k-state-active">
+                                    <span class="k-link k-state-selected">Work Breakdown Structure</span>
+                                    @if (Model.ContractWBS != null)
+                                    {
+                                        <partial name="_WorkBreakdownStructure.cshtml" />
+                                    }
+                                    else
+                                    {
+                                        <div class="col-12 py-3">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <p class="mb-0">
+                                                        Please upload the Work Breakdown Structure file.  If you want to add a new file, click the Add Work Breakdown Structure button.
+                                                    </p>
+
+                                                </div>
+                                                <div class="col col-sm-auto">
+                                                    <input id="idAddContractWBS"
+                                                           class="btn btn-sm btn-secondary"
+                                                           type="button"
+                                                           value="Add Work Breakdown Structure" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <ul id="employeeBillingRates" class="contractPanel">
+                                <li class="k-state-active">
+                                    <span class="k-link k-state-selected">Employee Billing Rates</span>
+                                    @if (Model.EmployeeBillingRates != null)
+                                    {
+                                        <partial name="_EmployeeBillingRates.cshtml" />
+                                    }
+                                    else
+                                    {
+                                        <div class="col-12 py-3">
+                                            <div class="row">
+                                                <div class="col">
+
+
+                                                    <p class="mb-0">
+                                                        Please upload the Employee Billing Rates file.  If you want to add a new file, click the Add Employee Billing Rates button.
+                                                    </p>
+                                                </div>
+
+                                                <div class="col col-sm-auto">
+                                                    <input id="idAddEmployeeBillingRates"
+                                                           class="btn btn-sm btn-secondary"
+                                                           type="button"
+                                                           value="Add Employee Billing Rates" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <ul id="subcontractBillingRates" class="contractPanel">
+                                <li class="k-state-active">
+                                    <span class="k-link k-state-selected">Subcontractor Billing Rates</span>
+                                    @if (Model.LaborCategoryRates != null)
+                                    {
+                                        <partial name="_SubcontractorBillingRates.cshtml" />
+                                    }
+                                    else
+                                    {
+                                        <div class="col-12 py-3">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <p class="mb-0">
+                                                        Please upload the Subcontractor Billing Rates file.  If you want to add a new file, click the Add Subcontractor Billing Rates button.
+                                                    </p>
+                                                </div>
+                                                <div class="col col-sm-auto">
+                                                    <input id="idAddLaborCategoryRates"
+                                                           class="btn btn-sm btn-secondary"
+                                                           type="button"
+                                                           value="Add Subcontractor Billing Rates" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                }
+
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul id="contractQuestionaire" class="contractPanel">
+                            <li class="k-state-active">
+                                <span class="k-link k-state-selected">Applicable FAR Clauses</span>
+                                @if (Model.farContractViewModel.Questionniare?.Any() == true)
+                                {
+                                    <div>
+                                        <partial name="~/Views/FarContract/Detail.cshtml" for="farContractViewModel" />
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="col-12 py-3">
+                                        <div class="row">
+                                            <div class="col">
+                                                <p class="mb-0">
+                                                    Please review the FAR Clauses details below.  Completing the applicable FAR Clauses are required before adding a new job request.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 form-group">
+                        <label asp-for="Notes" class="control-label"></label>
+                        <textarea asp-for="Notes" class="form-control"></textarea>
+                        <span asp-validation-for="Notes" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="checkbox" name="ReviewCheckBox" class="k-checkbox"
+                           id="job-request-agreement" required>
+                    <label for="job-request-agreement" class="k-checkbox-label">
+                        I certify that I
+                        have reviewed all the contracts document and the information presented
+                        here is correct and fit to be used by the company.
+                    </label>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 text-right mb-3">
+                        <button type="submit" class="btn btn-primary"> Save </button>
+                        <button type="reset" class="btn btn-secondary"
+                                onclick="location.href='/@Model.BaseUrl/details/@Model.ContractGuid'">
+                            Cancel
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    ViewData["Title"] = "North Wind Group | Inbox";
+    ViewData["class"] = "inbox";
+}
+@{
+    var resourceVersion = @Configuration["resourceVersion"];
+    var cdnUrl = @Configuration["CDNUrl"];
+}
+@section breadcrumb
+    {
+    <li class="breadcrumb-item"><a href="Settings">Settings</a></li>
+    <li class="breadcrumb-item"><a href="#">Message Inbox</a></li>
+}
+@* <div class="inbox-container"> *@
+@*     <div class="row"> *@
+@*         <div id="messageInbox" class="inbox-list-container col-md-4 col-lg-3"></div> *@
+@*         <div id="singleMessageEntity" class="col-sm-8 col-lg-9"></div> *@
+@*     </div> *@
+@* </div> *@
+<div id="messageInbox"></div>
+@section Scripts
+    {
+    <script type="text/javascript">
+    (function() {
+        window.messageInbox.pageView.loadMessageInbox("@ViewBag.notificationMessageGuid");
+    })();
+    </script>
+}

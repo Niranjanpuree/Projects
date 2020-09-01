@@ -1,0 +1,137 @@
+.popover-detail {
+    position: absolute;
+
+    z-index: 9;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.15s linear;
+    min-width: 200px;
+    display: block;
+    font-size: 13px;
+    text-align: left;
+
+    label {
+        font-weight: $fw-b;
+        margin: 0;
+        min-width: 65px;
+    }
+
+    &.active,
+    &:hover {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &-container {
+        border: 2px solid #cccccc;
+        padding: 10px;
+        border-radius: 4px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        background: $white;
+        display: block;
+        position: relative;
+        margin-top: 7px;
+
+        >span {
+            display: flex;
+            margin-bottom: 2px;
+        }
+
+        a {
+            display: inline-block;
+            color: $primary;
+            margin: 0;
+        }
+
+        &:before {
+            @extend %k-icon;
+            content: "\e004";
+            position: absolute;
+            font-size: 35px;
+            color: #ccc;
+        }
+    }
+
+    &.top {
+        bottom: calc(100% - 15px);
+        top: initial;
+
+        &:before {
+            content: "\e006";
+            bottom: -24px;
+            top: initial;
+        }
+    }
+
+    &.bottom {
+
+        &.middle,
+        &.middle .popover-detail-container:before {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .popover-detail-container:before {
+            content: "\e004";
+            top: -24px;
+            bottom: initial;
+        }
+
+        &.right {
+            right: 0;
+            top: 100%;
+
+            .popover-detail-container:before {
+                right: 15px;
+                left: initial;
+            }
+        }
+    }
+
+    .form-group {
+        margin-bottom: 2px;
+    }
+
+    .control-label {
+        font-size: 10px;
+        margin-bottom: 0;
+        line-height: 1;
+    }
+
+    h5 {
+        font-size: 12px;
+        font-weight: $fw-h;
+        margin-bottom: 3px;
+        line-height: 1;
+    }
+
+}
+
+.tooltipdetail {
+    cursor: pointer;
+    color:rgba($primary, 0.8);
+    &:hover {
+        color: $primary;
+    }
+
+    // padding-right:15px;
+    // position: relative;
+    // display: inline-block;
+
+    // &:after {
+    //     color: $primary;
+    //     position: absolute;
+    //     right: 0;
+    //     top: 2px;
+    //     content: '\e401';
+    //     font-family: 'WebComponentsIcons';
+    //     font-style: normal;
+    //     font-variant: normal;
+    //     font-weight: normal;
+    //     line-height: 1;
+    //     speak: none;
+    //     text-transform: none;
+    //     text-decoration: none;
+    //     display: inline-block;
+    // }
+}

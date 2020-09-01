@@ -1,0 +1,173 @@
+.form {
+    &-group {
+
+        .control-label {
+            color: $gray-600;
+
+            &-read {
+                color: $gray-600;
+                font-weight: $fw-r;
+
+                +h6 {
+                    margin-bottom: 5px;
+
+                    +h6 {
+                        margin-top: 5px;
+                    }
+                }
+            }
+
+        }
+
+        a:not(.btn) {
+            font-size: 12px;
+            font-weight: $fw-b;
+            margin-top: 5px;
+            color: $gray-600;
+            display: block;
+        }
+
+        h6 {
+            margin-top: -4px;
+            margin-bottom: 10px;
+            text-transform: capitalize;
+        }
+
+
+
+    }
+
+    &-value {
+        font-weight: $fw-b;
+        font-size: 15px;
+        color: $gray-900;
+    }
+
+    &-control {
+        outline: 0;
+
+        @at-root .input-validation-error,
+        &.error {
+            border-color: $danger;
+
+            &::placeholder {
+                color: rgba($danger, 0.4);
+            }
+        }
+    }
+}
+
+.contractPanel a:not(.btn):hover {
+    color: $primary;
+}
+
+.control-label {
+    font-weight: $fw-b;
+    font-size: 13px;
+    margin-bottom: 4px;
+}
+
+.requiredAstreicks::after,
+.form-required .control-label:after {
+    content: "*";
+    color: $danger;
+    margin-left: 3px;
+}
+
+.form-required {
+    &.form-error {
+
+        input,
+        .form-control {
+            border-color: $danger;
+
+        }
+
+        .field-validation-valid {
+            display: block;
+        }
+    }
+
+    .field-validation-valid {
+        display: none;
+    }
+}
+
+.form-error {
+    .k-list-scroller {
+        border-color: $danger;
+    }
+
+}
+
+.list-box-error {
+    text-align: right;
+}
+
+.error,
+.field-validation-valid,
+.field-validation-error {
+    color: $danger;
+    font-size: 12px;
+    font-weight: $fw-b;
+    text-transform: capitalize;
+    margin-bottom: 0;
+    margin-top: 3px;
+}
+
+legend {
+    // padding-left: 15px;
+    font-size: 18px;
+    margin-top: 15px;
+    color: $gray-500;
+}
+
+.form-control,
+.k-widget.form-control .k-input {
+    padding-left: 0.5rem;
+}
+
+fieldset {
+    border-top: 1px solid $gray-200;
+    margin: 5px 0 15px 0;
+
+    legend {
+        width: 1%;
+        white-space: nowrap;
+        display: table;
+        font-size: 16px;
+        padding: 0 5px 0 0;
+        font-weight: 500;
+        position: relative;
+    }
+}
+
+input[type="file"] {
+    height: 45px;
+}
+
+.table-iam {
+    .k-textbox {
+        &.k-space-right {
+            padding-left: 5px;
+            width: 350px;
+        }
+
+        >.k-textbox {
+            height: auto;
+
+        }
+    }
+}
+
+.filterButtonContainer {
+    button {
+        float: left;
+    }
+}
+
+.input-validation-error {
+    .k-list-scroller {
+        border-color: $danger;
+    }
+}

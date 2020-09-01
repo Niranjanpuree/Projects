@@ -1,0 +1,52 @@
+﻿@model Northwind.Web.Models.ViewModels.EmployeeBillingRatesViewModel
+
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="_EmployeeBillingRatesAdd" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div>
+                <input hidden asp-for="BillingRateGuid" class="form-control" />
+                <input hidden asp-for="ContractGuid" class="form-control" />
+            </div>
+
+            <div class="row file-upload-container">
+                <div class="col-md-12 text-center">
+                    <h5>Upload file for employee billing rates</h5>
+                    <input type="file" name="FileToUpload" id="FileToUpload" class="file-upload-input form-control"
+                           accept=".csv" />
+                    <label for="FileToUpload" class="btn btn-primary file-upload">
+                        <i class="material-icons">
+                            cloud_upload
+                        </i>
+                        <span class="file-upload-text">Upload File</span>
+                    </label>
+                    <span class="file-name"></span>
+                </div>
+                <div class="divider-or"><span>OR</span></div>
+
+                <div class="col-md-12 text-center">
+                    <p><small>Download sample file of employee billing rates to upload</small></p>
+                    <a href="/contract/DownloadDocument?filePath=Templates/EmployeeBillingRatesTemplate.csv&fileName=EmployeeBillingRatesTemplate.csv"
+                       class="file-download" download>
+                        <span>
+                            <i class="k-icon k-i-file-csv"></i>
+                            <p class="mb-0">Download the sample file</p>
+                        </span>
+                        <span>
+                            <i class="material-icons">
+                                cloud_download
+                            </i>
+                        </span>
+                    </a>
+                </div>
+
+                <div class="progressbar">
+                    <div id="progressBar" class="progressBarInactive"></div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<script src="~/js/proj/contractfileUpload.js"></script>

@@ -1,0 +1,119 @@
+﻿@model Northwind.Web.Models.ViewModels.Contract.ContractModificationViewModel
+
+<div class="row">
+    <div class="col-md-6" id="@Model.ContractNumber">
+        <div class="form-group">
+            <label class="control-label">
+                Contract Number
+            </label>
+            <h5>
+                @Model.ContractNumber
+            </h5>
+        </div>
+    </div>
+    <div class="col-md-6" id="@Model.ContractTitle">
+        <div class="form-group">
+            <label class="control-label">
+                Contract Title
+            </label>
+            <h5>
+                @Model.ContractTitle
+            </h5>
+        </div>
+    </div>
+    <div class="col-md-6" id="@Model.ModificationNumber">
+        <div class="form-group">
+            <label class="control-label">
+                Modification Number
+            </label>
+            <h5>
+                @Model.ModificationNumber
+            </h5>
+        </div>
+    </div>
+    <div class="col-md-6" id="@Model.ModificationType">
+        <div class="form-group">
+            <label class="control-label">
+                Modification Type
+            </label>
+            <h5>
+                @(string.IsNullOrEmpty(Model.ModificationType) ? "Not Entered" : Model.ModificationType)
+            </h5>
+        </div>
+    </div>
+    <div class="col-md-6" id="@Model.ModificationTitle">
+        <div class="form-group">
+            <label class="control-label">
+                Modification Title
+            </label>
+            <h5>
+                @Model.ModificationTitle
+            </h5>
+        </div>
+    </div>
+    <div class="col-md-6" id="@Model.AwardAmount">
+        <div class="form-group">
+            <label class="control-label">
+                Award Amount
+            </label>
+            <h5>
+                 @Model.FormattedAwardAmount
+            </h5>
+        </div>
+    </div>
+    <div class="col-md-6" id="@Model.FundingAmount">
+        <div class="form-group">
+            <label class="control-label">
+                Funded Amount
+            </label>
+            <h5>
+                @Model.FormattedFundingAmount
+            </h5>
+        </div>
+    </div>
+    <div class="col-md-6" id="@Model.POPStart">
+        <div class="form-group">
+            <label class="control-label">
+                Period of performance Start Date
+            </label>
+            <h5>
+                @(string.IsNullOrWhiteSpace(Model.POPStart?.ToString()) ? "No change" : Model.POPStart?.ToString("MM/dd/yyyy"))
+            </h5>
+        </div>
+    </div>
+    <div class="col-md-6" id="@Model.POPEnd">
+        <div class="form-group">
+            <label class="control-label">
+                Period of performance End Date
+            </label>
+            <h5>
+                @(string.IsNullOrWhiteSpace(Model.POPEnd?.ToString()) ? "No change" : Model.POPEnd?.ToString("MM/dd/yyyy"))
+            </h5>
+        </div>
+    </div>
+    <div class="col-md-12" id="@Model.Description">
+        <div class="form-group">
+            <label class="control-label">
+                Description
+            </label>
+            <h5>
+                @(string.IsNullOrEmpty(Model.Description) ? "Not Entered" : Model.Description)
+            </h5>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="d-flex mb-3 justify-content-between">
+            <h5 class="mb-0">
+                Mod Files
+            </h5>
+            @*<a class="btn btn-primary" id="idEditContractMod" data-val="@Model.ContractModificationGuid" data-val-mod="@Model.ModificationNumber" data-val-mod-title="@Model.ModificationNumber" href="javascript:void(0)">Edit</a>*@
+        </div>
+        <div class="border bg-light text-center">
+            <div id="fileUploadDescription"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    window.loadFileUpload.pageView.loadFileUpload('fileUploadDescription', '@ViewBag.Resourcekey',false, '@ViewBag.ResourceId', '@ViewBag.UpdatedBy', '@ViewBag.UpdatedOn', "@ViewBag.FilePath.Replace("\\","\\\\")", true, false,false,true,true);
+</script>

@@ -1,0 +1,119 @@
+﻿@model Northwind.Web.Models.ViewModels.Questionaire.ContractCloseOutViewModel
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+@{
+    var resourceVersion = @Configuration["resourceVersion"];
+    var cdnUrl = @Configuration["CDNUrl"];
+}
+
+@{
+    Dictionary<string, string> options = new Dictionary<string, string>();
+    options.Add("Yes", "Yes");
+    options.Add("No", "No");
+
+    var crfieldSet = Model.RepresentativeType == Model.ContractRepresentativeQuestions[0].RepresentativeType ? "Enabled" : "Disabled";
+    bool isEnable = Model.RepresentativeType == Model.ContractRepresentativeQuestions[0].RepresentativeType ? true : false;
+}
+<div class="col-12">
+        
+    <input type="hidden" asp-for="ContractGuid" class="form-control" />
+    <ul class="list-unstyled">
+        @for (int i = 0; i < Model.ContractRepresentativeQuestions.Count; i++)
+        {
+            <li>
+                <input type="hidden" asp-for="ContractRepresentativeQuestions[i].QuestionaireMasterGuid" class="form-control" />
+                <input type="hidden" asp-for="ContractRepresentativeQuestions[i].Questions" class="form-control" />
+                <input type="hidden" asp-for="ContractRepresentativeQuestions[i].QuestionaireManagerTypeGuid" class="form-control" />
+                <input type="hidden" asp-for="ContractRepresentativeQuestions[i].RepresentativeType" class="form-control" />
+                <input type="hidden" asp-for="ContractRepresentativeQuestions[i].OrderNumber" class="form-control" />
+
+                <div class="row border-bottom  pt-3 pb-2 validateMsg">
+                    <label asp-for="ContractRepresentativeQuestions[i].Questions" class="col-md-7 col-sm-6 control-label mb-0 requiredAstreicks">
+                        @Model.ContractRepresentativeQuestions[i].Questions
+                    </label>
+                    <span asp-validation-for="ContractRepresentativeQuestions[i].Answer" class="text-danger"></span>
+                    <div class="col text-right form-required">
+                        @foreach (var item in options)
+                        {
+                            var dictionaryBoolString = Guid.NewGuid();
+                            <div class="form-check form-check-inline">
+                                <input type="radio" @((item.Key) == Model.ContractRepresentativeQuestions[i].Answer ? "checked='checked'" : string.Empty)
+                                       class="k-radio custom-checkbox enable-hideCR"
+                                       name="ContractRepresentativeQuestions[@i].Answer" value="@item.Key"
+                                       id="@dictionaryBoolString.ToString()" @crfieldSet>
+                                <label class="k-radio-label" for="@dictionaryBoolString.ToString()">
+                                    @item.Value
+                                </label>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </li>
+        }
+    </ul>
+    <div class="hide-ContractRepresentNotes">
+        @if (isEnable)
+        {
+            var id = isEnable ? "fileUpload" : "";
+            <div class="row">
+                <div class="col-md-12 pt-3">
+                    <div class="alert alert-primary small">You answered No to some questions, please upload supporting documentation and add supporting notes before selecting Contract Closeout. </div>
+                    <label class="requiredAstreicks mb-0"><b>Upload File</b></label>
+                    <div id="fileUpload"></div>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-md-12 form-group">
+                    <label asp-for="ContractRepresentativeQuestions[0].Notes" class="control-label"></label>
+                    <textarea asp-for="ContractRepresentativeQuestions[0].Notes" placeholder="Any Notes" class="form-control requied-notes disabled"></textarea>
+                    <span asp-validation-for="ContractRepresentativeQuestions[0].Notes" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="progressBar">
+                <div id="progressBar" class="progressBarInactive">
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="row">
+                <div class="col-md-12 px-0">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="w-25">File Name</th>
+                                <th scope="col" class="w-75">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model.ContractRepresentativeFiles != null)
+                            {
+                                @foreach (var item in Model.ContractRepresentativeFiles)
+                                {
+                                    <tr>
+                                        <td class="w-25">
+                                            <a href="/ContractResourceFile/DownloadDocument/@item.UploadedFileGuid"
+                                               id="@item.UploadFileName" class="control-label">
+                                                @item.UploadFileName
+                                            </a>
+                                        </td>
+                                        <td class="w-75">@item.Description</td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <div class="col-md-12 form-group">
+                    <label asp-for="ContractRepresentativeQuestions[0].Notes" class="control-label bold"></label>
+                    <div class="">
+                        @Model.ContractRepresentativeQuestions[0].Notes
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    
+</div>

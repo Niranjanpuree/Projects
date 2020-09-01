@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BD97C5DF-AC79-42BF-BE44-66584DC00F65}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AutoCare.Product.Vcdb.Model</RootNamespace>
+    <AssemblyName>AutoCare.Product.Vcdb.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Aspiration.cs" />
+    <Compile Include="AssociationCount.cs" />
+    <Compile Include="Attachments.cs" />
+    <Compile Include="AttachmentsStaging.cs" />
+    <Compile Include="BaseVehicle.cs" />
+    <Compile Include="BedConfig.cs" />
+    <Compile Include="BedLength.cs" />
+    <Compile Include="BedType.cs" />
+    <Compile Include="BodyNumDoors.cs" />
+    <Compile Include="BodyStyleConfig.cs" />
+    <Compile Include="BodyType.cs" />
+    <Compile Include="BrakeConfig.cs" />
+    <Compile Include="BrakeSystem.cs" />
+    <Compile Include="BrakeType.cs" />
+    <Compile Include="ChangeRequestAssignment.cs" />
+    <Compile Include="ChangeRequestAssignmentStaging.cs" />
+    <Compile Include="ChangeRequestItem.cs" />
+    <Compile Include="ChangeRequestItemStaging.cs" />
+    <Compile Include="ChangeRequestRolesAssignment.cs" />
+    <Compile Include="ChangeRequestStaging.cs" />
+    <Compile Include="ChangeRequestStore.cs" />
+    <Compile Include="ChangeRequestType.cs" />
+    <Compile Include="ChangeStatusFacet.cs" />
+    <Compile Include="ChangeFacet.cs" />
+    <Compile Include="ChangeEntityFacet.cs" />
+    <Compile Include="ChangeTypeFacet.cs" />
+    <Compile Include="Comments.cs" />
+    <Compile Include="CommentsStaging.cs" />
+    <Compile Include="CylinderHeadType.cs" />
+    <Compile Include="DriveType.cs" />
+    <Compile Include="ElecControlled.cs" />
+    <Compile Include="EngineConfig.cs" />
+    <Compile Include="EngineBase.cs" />
+    <Compile Include="EngineDesignation.cs" />
+    <Compile Include="EngineVersion.cs" />
+    <Compile Include="EngineVin.cs" />
+    <Compile Include="EntityBase.cs" />
+    <Compile Include="Enumerations.cs" />
+    <Compile Include="FuelDeliveryConfig.cs" />
+    <Compile Include="FuelDeliverySubType.cs" />
+    <Compile Include="FuelDeliveryType.cs" />
+    <Compile Include="FuelSystemControlType.cs" />
+    <Compile Include="FuelSystemDesign.cs" />
+    <Compile Include="FuelType.cs" />
+    <Compile Include="IDomainEntity.cs" />
+    <Compile Include="IgnitionSystemType.cs" />
+    <Compile Include="LikesStaging.cs" />
+    <Compile Include="Likes.cs" />
+    <Compile Include="Make.cs" />
+    <Compile Include="Mfr.cs" />
+    <Compile Include="MfrBodyCode.cs" />
+    <Compile Include="Model.cs" />
+    <Compile Include="PowerOutput.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PropertyAttribute.cs" />
+    <Compile Include="PublicationStage.cs" />
+    <Compile Include="Region.cs" />
+    <Compile Include="Role.cs" />
+    <Compile Include="Source.cs" />
+    <Compile Include="SpringConfig.cs" />
+    <Compile Include="SpringType.cs" />
+    <Compile Include="SteeringConfig.cs" />
+    <Compile Include="SteeringSystem.cs" />
+    <Compile Include="SteeringType.cs" />
+    <Compile Include="SubModel.cs" />
+    <Compile Include="TaskController.cs" />
+    <Compile Include="Transmission.cs" />
+    <Compile Include="TransmissionBase.cs" />
+    <Compile Include="TransmissionControlType.cs" />
+    <Compile Include="TransmissionMfrCode.cs" />
+    <Compile Include="TransmissionNumSpeeds.cs" />
+    <Compile Include="TransmissionType.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="UserRoleAssignment.cs" />
+    <Compile Include="Valve.cs" />
+    <Compile Include="Vehicle.cs" />
+    <Compile Include="BrakeABS.cs" />
+    <Compile Include="VehicleToBodyStyleConfig.cs" />
+    <Compile Include="VehicleToBedConfig.cs" />
+    <Compile Include="VehicleToBrakeConfig.cs" />
+    <Compile Include="VehicleToDriveType.cs" />
+    <Compile Include="VehicleToEngineConfig.cs" />
+    <Compile Include="VehicleToMfrBodyCode.cs" />
+    <Compile Include="VehicleToSpringConfig.cs" />
+    <Compile Include="VehicleToSteeringConfig.cs" />
+    <Compile Include="VehicleToTransmission.cs" />
+    <Compile Include="VehicleToWheelBase.cs" />
+    <Compile Include="VehicleType.cs" />
+    <Compile Include="VehicleTypeGroup.cs" />
+    <Compile Include="WheelBase.cs" />
+    <Compile Include="Year.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

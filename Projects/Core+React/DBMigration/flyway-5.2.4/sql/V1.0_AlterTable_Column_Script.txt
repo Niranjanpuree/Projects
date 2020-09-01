@@ -1,0 +1,55 @@
+ALTER TABLE [CustomerContact]
+ALTER COLUMN Gender NVARCHAR(50) NULL
+
+ALTER TABLE [CustomerContact]
+ALTER COLUMN JobTitle NVARCHAR(255) NULL
+
+
+alter table revenueRecognization
+drop column AccountRepresentive 
+
+alter table revenueRecognization
+add IsCompleted bit, ResourceGuid  uniqueidentifier, IsRevenueCreated bit
+
+
+alter table Contract
+add RevenueRecognitionGuid uniqueidentifier
+
+alter table ContractModification
+add RevenueRecognitionGuid uniqueidentifier
+
+alter table ContractModification
+alter Column Description nvarchar(Max);
+
+Alter table Contract
+
+add 
+
+AddressLine1 nvarchar(255),
+
+AddressLine2 nvarchar(255),
+
+AddressLine3 nvarchar(255),
+
+City nvarchar(255),
+
+Province nvarchar(255),
+
+County nvarchar(255),
+
+PostalCode nvarchar(255)
+
+ALTER TABLE ContractQuestionaire
+DROP COLUMN IsFARclause,IsGovtFurnishedProperty,IsServiceContractReport
+
+update ResourceAttribute set Title='IsActive' where Name='IsActive' and ResourceType='Contract'
+update ResourceAttribute set Title='IsActiveStatus', VisibleToGrid=0 where Name='IsActiveStatus' and ResourceType='Contract'
+insert into ResourceAttribute (ResourceAttributeGuid,Name,Title,ResourceType,AttributeType,VisibleToGrid,Exportable,GridFieldOrder,GridColumnCss,Searchable)
+values
+('6372F0F8-4115-4A1B-9F82-62822BEA11D6','Status','Status','Contract','Radio',1,0,101,'kendo-grid-text-center',1)
+
+insert into ResourceAttributeValue(ResourceAttributeGuid,Name,Value)
+values
+('6372F0F8-4115-4A1B-9F82-62822BEA11D6','Active','Active'),
+('6372F0F8-4115-4A1B-9F82-62822BEA11D6','InActive','InActive'),
+('6372F0F8-4115-4A1B-9F82-62822BEA11D6','Closed','Closed')

@@ -1,0 +1,197 @@
+﻿<loading-gif [show]="showLoadingGif"></loading-gif>
+<article>
+    <div class="center">
+        <div class="table-wrap">
+            <h2 class="clearfix">
+                <div class="filter-search">
+                    <input ac-autocomplete class="cinput"
+                           [(ngModel)]="vehicleTypeGroupNameFilter" [dataSourceMethod]="getSuggestions" min-chars="1" source="nothing"
+                           value-property-name="id"
+                           display-property-name="name"
+                           (keywordChanged)="applyFilter($event)"
+                           placeholder="Filter Vehicle Type Groups"
+                           title="Press ENTER to apply filter" />
+                    <input type="submit" value="">
+                </div>
+                <a (click)="onNew()" class="btn blue icon add">NEW</a>
+            </h2>
+            <div class="ctable">
+                <ac-grid [dataSource]="vehicleTypeGroups" #gd="acGrid" columns='[
+                 { "header":"Vehicle Type Group ID" , "field":"id", "sortable": "true" },
+                 { "header":"Vehicle Type Group Name" , "field":"name", "sortable": true },
+                 { "header":"Last Revision" , "field":"lastUpdateDate", "sortable": false },
+                 { "header":"Change Requests"}]'
+                         initialSortBy='[
+                 {"field": "id", "orderByDesc": false},
+                 {"field": "name", "orderByDesc": false}]'
+                         paging='{"pageSize": 10, "numberOfPagesOnPageList": 10}'>
+
+                    <tr *ngFor="let vehicleTypeGroup of gd.items; let whenOdd=odd; let whenEven=even;" [ngClass]="{'table-even-row':whenOdd, 'table-odd-row':whenEven}">
+                        <td>{{vehicleTypeGroup.id}}</td>
+                        <td>{{vehicleTypeGroup.name}}</td>
+                        <td>{{vehicleTypeGroup.lastUpdateDate| date: "MM-dd-yyyy"}}</td>
+
+                        <td *ngIf="vehicleTypeGroup.changeRequestId">
+                            <a (click)="view(vehicleTypeGroup)" style="cursor: pointer;" class="btn-r-arrow blue">Pending</a>
+                        </td>
+                        <td *ngIf="!vehicleTypeGroup.changeRequestId">
+                            <a class="box-icon pencil" title="Edit" (click)="onModify(vehicleTypeGroup)"></a>
+                            <a class="box-icon delete" title="Delete" (click)="onDelete(vehicleTypeGroup)"></a>                          
+                        </td>
+                    </tr>
+                </ac-grid>
+            </div>
+        </div>
+    </div>
+</article>
+
+
+<modal #newPopup>
+    <!-- Popup start -->
+    <div class="overlay dark show">
+        <div class="new-make">
+            <a (click)="onCancel()" class="close"></a>
+            <div class="add-form">
+                <h2>New Vehicle Type Group</h2>
+                <div class="clearfix">
+
+                    <div class="input-blocks clearfix">
+                        <strong>Submit a new Vehicle Type Group name for review:</strong>
+                        <input type="text" class="cinput" [(ngModel)]="vehicleTypeGroup.name" placeholder="New Vehicle Type Group Name"/>
+                    </div>
+
+                    <div class="attach-wrap">
+                        <strong>OPTIONAL</strong>
+                        <ac-fileuploader upload-api-path="file/savechunk" #newPopupAcFileUploader></ac-fileuploader>
+                        <!--<span class="icon-text attachment">
+                            Attach a file (&#60; 10mb)
+                            <input type="file">
+                        </span>-->
+                        <small>Include comments</small>
+
+                        <textarea cols="50" rows="5" [(ngModel)]="vehicleTypeGroup.comment"></textarea>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    <!-- Submit and cancel button start -->
+                    <div class="btns">
+                        <input type="reset" value="CANCEL" class="btn transparent" (click)="onCancel()">
+                        <input type="submit" value="SUBMIT" class="btn" (click)="onNewSubmit()">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</modal>
+
+<modal #modifyPopup>
+    <div class="overlay dark show">
+        <div class="new-region">
+            <a (click)="onCancel()" class="close"></a>
+            <div class="add-form">
+                <h2>Edit Vehicle Type Group </h2>
+                <div class="clearfix">
+
+                    <div class="input-blocks clearfix">
+                        <strong>Submit a revised Vehicle Type Group name for review:</strong>
+                        <input type="text" class="cinput" [(ngModel)]="modifiedVehicleTypeGroup.name" required />
+                    </div>
+
+                    <div class="warning-wrap">
+                        <div>
+                            <strong>Associated records will be impacted</strong>
+                            <span>
+                                {{modifiedVehicleTypeGroup.vehicleTypeCount}} vehicle types
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="attach-wrap">
+                        <strong>OPTIONAL</strong>
+                        <ac-fileuploader upload-api-path="file/savechunk" #modifyPopupAcFileUploader="acFileUploader"></ac-fileuploader>
+                        <small>Include comments</small>
+                        <textarea cols="50" rows="5" [(ngModel)]="modifiedVehicleTypeGroup.comment"></textarea>
+                    </div>
+
+
+                    <div class="clearfix"></div>
+                    <br />
+                    <br />
+                    <!-- Submit and cancel button start -->
+                    <div class="btns">
+
+                        <input type="submit" value="CANCEL" class="btn transparent" data-dismiss="modal" (click)="onCancel()" />
+                        <input type="submit" value="SUBMIT" class="btn" (click)="onModifySubmit()" />
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</modal>
+
+<modal #deleteErrorPopup>
+    <div class="overlay dark show">
+        <div class="new-make">
+            <a data-dismiss="modal" class="close"></a>
+            <div class="add-form">
+                <h2>Remove Vehicle Type Group</h2>
+                <div class="clearfix">
+
+                    <div class="warning-wrap delete-error-wrap">
+                        <div>
+                            <strong>All associated records must be removed before the{{vehicleTypeGroup.name}} Vehicle Type Group can be removed.</strong>
+                            <span>
+                                {{vehicleTypeGroup.vehicleTypeCount}} vehicle types
+                            </span>
+                        </div>
+                    </div>
+                    <br />
+                    <!-- Submit and cancel button start -->
+                    <div class="btns">
+                        <input type="submit" value="CANCEL" class="btn blue" (click)="deleteErrorPopup.dismiss()" />
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</modal>
+
+<modal #deleteConfirmPopup>
+    <div class="overlay dark show">
+        <div class="new-make">
+            <a (click)="onCancel()" class="close"></a>
+            <div class="add-form">
+                <h2>Remove Vehicle Type Group</h2>
+                <div class="clearfix">
+
+                    <div class="warning-wrap confirmation">
+                        <div>
+                            <strong>Please confirm that you wish to remove the "{{vehicleTypeGroup.name}}" Vehicle Type Group.</strong>
+                        </div>
+                    </div>
+                    <div class="attach-wrap">
+                        <strong>OPTIONAL</strong>
+
+                        <ac-fileuploader upload-api-path="file/savechunk" #deletePopupAcFileUploader="acFileUploader"></ac-fileuploader>
+                        <small>Include comments</small>
+                        <textarea cols="50" rows="5" [(ngModel)]="vehicleTypeGroup.comment"></textarea>
+                    </div>
+
+                        <div class="clearfix"></div>
+
+                    <!-- Submit and cancel button start -->
+                    <div class="btns">
+                        <input type="reset" value="CANCEL" class="btn transparent" data-dismiss="modal" (click)="onCancel()" />
+                        <input type="submit" value="CONFIRM" class="btn" (click)="onDeleteConfirm()" />
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</modal>

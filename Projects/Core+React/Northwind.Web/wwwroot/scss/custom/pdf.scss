@@ -1,0 +1,99 @@
+@import "nw-variables";
+.pdf {
+    &-list {
+        list-style: none;
+        margin-top: 30px;
+        border-top: 1px solid rgba($primary, 0.2);
+        padding: 0 15px !important;
+
+        h5:not(.pdfTitle) {
+            border-bottom: 1px solid #eee;
+        }
+
+        small {
+            background-color:rgba($primary, 0.2);
+            border-radius: 0 0 6px 6px;
+            display: inline-block !important;
+            padding: 3px 8px 2px;
+            font-size: 14px !important;
+            color: $primary;
+
+            .k-icon {
+                float: left;
+                margin-right: 4px;
+                font-size: 13px;
+                margin-top: 2px;
+            }
+        }
+    }
+}
+
+
+.pdfFontFamily {
+    font-family: "Roboto", sans-serif, -apple-system, BlinkMacSystemFont, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
+}
+
+.text_primary {
+    color: #00649B !important;
+}
+
+.pdfH5 {
+    color: #444;
+    font-size: 20px;
+    margin-bottom: 15px;
+    margin-top: 40px;
+    line-height: 1.7;
+}
+
+.pdfH6 {
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #444;
+    margin-top:10px;
+}
+
+.mb_3 {
+    margin-bottom: 15px
+}
+
+.pdfDate {
+    font-size: 18px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.marginy {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    display: block
+}
+
+.pdfLabel {
+    margin-top: 15px;
+    color: #999;
+    line-height: 1.5;
+    margin-bottom:0;
+}
+
+.psfDates {
+    font-size: 16px;
+    color: #888;
+    display: inline;
+    margin-right: 15px
+}
+
+.pdfTitle {
+    color: #00649B;
+    font-size: 36px;
+    margin-bottom: 30px;
+    margin-top: 0px;
+    line-height: 1;
+    font-weight: 100
+}
+
+.pdfUl {
+    padding: 0;
+    list-style: none;
+    font-family: "Roboto", sans-serif, -apple-system, BlinkMacSystemFont, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
+
+}

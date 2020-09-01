@@ -1,0 +1,49 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AssemblyName>Northwind.Costpoint</AssemblyName>
+    <RootNamespace>Northwind.Costpoint</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="bin\Debug\netcoreapp2.2\Microsoft.AspNetCore.Hosting.Abstractions.xml" />
+    <Content Include="bin\Debug\netcoreapp2.2\Microsoft.AspNetCore.Http.Abstractions.xml" />
+    <Content Include="bin\Debug\netcoreapp2.2\Microsoft.AspNetCore.Http.Features.xml" />
+    <Content Include="bin\Debug\netcoreapp2.2\Microsoft.AspNetCore.Mvc.Core.xml" />
+    <Content Include="bin\Debug\netcoreapp2.2\Microsoft.AspNetCore.StaticFiles.xml" />
+    <Content Include="bin\Debug\netcoreapp2.2\Microsoft.Extensions.Configuration.Abstractions.xml" />
+    <Content Include="bin\Debug\netcoreapp2.2\Northwind.Costpoint.deps.json" />
+    <Content Include="bin\Debug\netcoreapp2.2\Northwind.CostPoint.Infrastucture.deps.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="bin\Debug\netcoreapp2.2\Microsoft.AspNetCore.Hosting.Abstractions.dll" />
+    <None Include="bin\Debug\netcoreapp2.2\Microsoft.AspNetCore.Http.Abstractions.dll" />
+    <None Include="bin\Debug\netcoreapp2.2\Microsoft.AspNetCore.Http.Features.dll" />
+    <None Include="bin\Debug\netcoreapp2.2\Microsoft.AspNetCore.Mvc.Core.dll" />
+    <None Include="bin\Debug\netcoreapp2.2\Microsoft.AspNetCore.StaticFiles.dll" />
+    <None Include="bin\Debug\netcoreapp2.2\Microsoft.Extensions.Configuration.Abstractions.dll" />
+    <None Include="bin\Debug\netcoreapp2.2\Northwind.Core.dll" />
+    <None Include="bin\Debug\netcoreapp2.2\Northwind.Core.pdb" />
+    <None Include="bin\Debug\netcoreapp2.2\Northwind.Costpoint.dll" />
+    <None Include="bin\Debug\netcoreapp2.2\Northwind.CostPoint.Infrastucture.dll" />
+    <None Include="bin\Debug\netcoreapp2.2\Northwind.CostPoint.Infrastucture.pdb" />
+    <None Include="bin\Debug\netcoreapp2.2\Northwind.Costpoint.pdb" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CsvHelper" Version="12.1.2" />
+    <PackageReference Include="Dapper" Version="1.60.6" />
+    <PackageReference Include="Dapper.SqlBuilder" Version="1.60.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Northwind.Core\Northwind.Core.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,164 @@
+﻿@model Northwind.Web.Models.ViewModels.OfficeViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+
+
+@{
+    var resourceVersion = @Configuration["resourceVersion"];
+    var cdnUrl = @Configuration["CDNUrl"];
+}
+<form id="OfficeForm" asp-action="FormModel ">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="OfficeGuid" class="form-control" />
+    <div class="row">
+        <div class="col-md-4 form-group">
+            <label asp-for="OfficeCode" class="control-label requiredAstreicks fontbold"></label>
+            <input asp-for="OfficeCode" class="form-control" placeholder="2 CHARACTER CODE" maxlength="2" />
+            <span asp-validation-for="OfficeCode" class="text-danger"></span>
+
+        </div>
+        <div class="col-md-4 form-group">
+            <label asp-for="OfficeName" class="control-label requiredAstreicks fontbold"></label>
+            <input asp-for="OfficeName" class="form-control" />
+            <span asp-validation-for="OfficeName" class="text-danger"></span>
+        </div>
+        <div class="col-md-4 form-group">
+            <label asp-for="OperationManagerGuid" class="fontbold  requiredAstreicks control-label"></label>
+            <select asp-for="OperationManagerGuid" class="form-control">
+                <option value="">--Select--</option>
+                @foreach (var item in Model.UserSelectListItems)
+                {
+                    <option value="@item.Key">@item.Value</option>
+                }
+            </select>
+        </div>
+    </div>
+    <fieldset>
+        <legend>Physical Address</legend>
+        <div class="row">
+            <div class="col-md-4 form-group">
+                <label asp-for="PhysicalAddress" class="control-label requiredAstreicks fontbold"></label>
+                <input asp-for="PhysicalAddress" class="PhysicalAddress form-control" />
+                <span asp-validation-for="PhysicalAddress" class="text-danger"></span>
+            </div>
+            <div class="col-md-4 form-group">
+                <label asp-for="PhysicalAddressLine1" class="control-label fontbold"></label>
+                <input asp-for="PhysicalAddressLine1" class="PhysicalAddressLine1 form-control" />
+                <span asp-validation-for="PhysicalAddressLine1" class="text-danger"></span>
+            </div>
+            <div class="col-md-4 form-group">
+                <label asp-for="PhysicalCountryId" class="control-label  requiredAstreicks  fontbold"></label>
+                <select asp-for="PhysicalCountryId" class="PhysicalCountryId form-control drpCountry" id="drpCountryPhysical">
+                    <option value="">--Select--</option>
+                    @foreach (var item in Model.CountrySelectListItems)
+                    {
+                        <option value="@item.Key.ToString()">@item.Value</option>
+                    }
+                </select>
+            </div>
+            <div class="col-md-4 form-group">
+                <label asp-for="PhysicalStateId" class="control-label fontbold"></label>
+                <select asp-for="PhysicalStateId" class=" PhysicalStateId form-control">
+                    @if (Model.StatePrimarySelectListItems != null)
+                    {
+                        <option value="">--Select--</option>
+                        foreach (var item in Model.StatePrimarySelectListItems)
+                        {
+                            <option value="@item.Key.ToString()">@item.Value</option>
+                        }
+                    }
+                    else
+                    {
+                        <select asp-for="PhysicalStateId" class="form-control"></select>
+                    }
+                </select>
+            </div>
+            <div class="col-md-4 form-group">
+                <label asp-for="PhysicalCity" class="control-label requiredAstreicks fontbold"></label>
+                <input asp-for="PhysicalCity" class="PhysicalCity form-control" />
+                <span asp-validation-for="PhysicalCity" class="text-danger"></span>
+            </div>
+            <div class="col-md-4 form-group">
+                <label asp-for="PhysicalZipCode" class="control-label requiredAstreicks fontbold"></label>
+                <input asp-for="PhysicalZipCode" class="PhysicalZipCode form-control" />
+                <span asp-validation-for="PhysicalZipCode" class="text-danger"></span>
+            </div>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>Mailing Address</legend>
+        <div class="text-right mt-n2">
+            <small>
+                <input type="checkbox" class="k-checkbox" name="MailinAddress" id="idisphyscialAdd">
+                <label for="idisphyscialAdd" class="k-checkbox-label">Same As Physical Address</label>
+            </small>
+        </div>
+        <div class="row">
+            <div class="col-md-4 form-group">
+                <label asp-for="MailingAddress" class="control-label fontbold"></label>
+                <input asp-for="MailingAddress" class="MailingAddress form-control" />
+                <span asp-validation-for="MailingAddress" class="text-danger"></span>
+            </div>
+            <div class="col-md-4 form-group">
+                <label asp-for="MailingAddressLine1" class="control-label fontbold"></label>
+                <input asp-for="MailingAddressLine1" class="MailingAddressLine1 form-control" />
+                <span asp-validation-for="MailingAddressLine1" class="text-danger"></span>
+            </div>
+            <div class="col-md-4 form-group">
+                <label asp-for="MailingCountryId" class="control-label   fontbold"></label>
+                <select asp-for="MailingCountryId" class="MailingCountryId form-control drpCountry" id="drpCountryMailing">
+                    <option value="">--Select--</option>
+                    @foreach (var item in Model.CountrySelectListItems)
+                    {
+                        <option value="@item.Key.ToString()">@item.Value</option>
+                    }
+                </select>
+            </div>
+            <div class="col-md-4 form-group">
+                <label asp-for="MailingStateId" class="control-label fontbold"></label>
+                <select asp-for="MailingStateId" class="MailingStateId form-control">
+                    @if (Model.StateMailingSelectListItems != null)
+                    {
+                        <option value="">--Select--</option>
+                        foreach (var item in Model.StateMailingSelectListItems)
+                        {
+                            <option value="@item.Key.ToString()">@item.Value</option>
+                        }
+                    }
+                    else
+                    {
+                        <select asp-for="MailingStateId" class="form-control"></select>
+                    }
+                </select>
+            </div>
+            <div class="col-md-4 form-group">
+                <label asp-for="MailingCity" class="control-label fontbold"></label>
+                <input asp-for="MailingCity" class="MailingCity form-control" />
+                <span asp-validation-for="MailingCity" class="text-danger"></span>
+            </div>
+            <div class="col-md-4 form-group">
+                <label asp-for="MailingZipCode" class="control-label  fontbold"></label>
+
+                <input asp-for="MailingZipCode" class="MailingZipCode form-control" />
+                <span asp-validation-for="MailingZipCode" class="text-danger"></span>
+            </div>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>Contact</legend>
+        <div class="row">
+            <div class="col-md-4 form-group">
+                <label asp-for="Phone" class="control-label fontbold requiredAstreicks"></label>
+                <input asp-for="Phone" class="form-control" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+            <div class="col-md-4 form-group">
+                <label asp-for="Fax" class="control-label fontbold"></label>
+                <input asp-for="Fax" class="form-control" />
+                <span asp-validation-for="Fax" class="text-danger"></span>
+            </div>
+        </div>
+    </fieldset>
+</form>
+<script src="@cdnUrl/js/proj/officeformload.js?v=@resourceVersion"></script>

@@ -1,0 +1,57 @@
+﻿<div class="table-wrap">
+    <h2 class="clearfix">
+        My Change Requests
+        <time datetime="2016-01-01" class="date-stamp">
+            <span class="icon-text date">01-01-2016 ▸ Today</span>
+        </time>
+    </h2>
+    <div class="ctable">
+        <table>
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>Date</td>
+                    <td>Table</td>
+                    <td>Row ID</td>
+                    <td>Status</td>
+                    <td>Reviewed</td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let myChangeRequest of myChangeRequests; let whenOdd=odd; let whenEven=even;" [ngClass]="{'table-even-row':whenOdd, 'table-odd-row':whenEven}">
+                    <td>{{myChangeRequest.id}}</td>
+                    <td>{{myChangeRequest.date}}</td>
+                    <td *ngIf="myChangeRequest.changeType == 'Add'"><span class="icon-text add-circle">{{myChangeRequest.table}}</span></td>
+                    <td *ngIf="myChangeRequest.changeType == 'Update'"><span class="icon-text create">{{myChangeRequest.table}}</span></td>
+                    <td *ngIf="myChangeRequest.changeType == 'Delete'"><span class="icon-text delete">{{myChangeRequest.table}}</span></td>
+                    <td>1321345589</td>
+                    <td><span class="icon-text timer">{{myChangeRequest.status}}</span></td>
+                    <td>{{myChangeRequest.date}}</td>
+                    <td><a href="javascript:void(0)" class="btn-r-arrow">VIEW</a></td>
+                </tr>
+                <!--<tr>
+                    <td>1470</td>
+                    <td>01-26-2016</td>
+                    <td><span class="icon-text create">BrakeType</span></td>
+                    <td>1235813213</td>
+                    <td><span class="icon-text check-circle">Approved</span></td>
+                    <td>01-26-2016</td>
+                    <td><a href="#" class="btn-r-arrow">VIEW</a></td>
+                </tr>
+                <tr>
+                    <td>1467</td>
+                    <td>05-28-2016</td>
+                    <td><span class="icon-text delete">BrakeConfig</span></td>
+                    <td>8914423337</td>
+                    <td><span class="icon-text cancel-circle">Declined</span></td>
+                    <td>05-28-2016</td>
+                    <td><a href="#" class="btn-r-arrow">VIEW</a></td>
+                </tr>-->
+            </tbody>
+        </table>
+    </div>
+    <div class="ctable-footer">
+        <a href="javascript:void(0)" class="btn-r-arrow">VIEW ALL MY REQUESTS</a>
+    </div>
+</div>

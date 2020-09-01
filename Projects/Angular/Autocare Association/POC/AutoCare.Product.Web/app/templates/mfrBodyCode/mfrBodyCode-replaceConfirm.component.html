@@ -1,0 +1,108 @@
+﻿<loading-gif [show]="showLoadingGif"></loading-gif>
+<!-- Breadcrumb start -->
+<div class="breadcrumb">
+    <div class="center">
+        <a class="back" routerLink="/system/search">Return to Mfr Body Code search</a>
+    </div>
+</div>
+<!-- Breadcrumb end -->
+<!-- Main start -->
+<main class="clearfix">
+
+    <div class="center" *ngIf="existingMfrBodyCode && replacementMfrBodyCode">
+
+        <!-- Existing Mfr Body Code systems start -->
+        <div class="table-wrap">
+            <h2 class="clearfix">
+                Existing Mfr Body Codes
+            </h2>
+            <div class="ctable">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Mfr Body Code ID</td>
+                            <td>Mfr Body Code</td>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="existingMfrBodyCode">
+                        <tr>
+                            <td>{{existingMfrBodyCode.id}}</td>
+                            <td>{{existingMfrBodyCode.name}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Replacement MfrBodyCode systems start -->
+        <div class="table-wrap">
+            <h2 class="clearfix">
+                Replacement Mfr Body Code
+            </h2>
+            <div class="ctable">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Mfr Body Code ID</td>
+                            <td>Mfr Body Code</td>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="replacementMfrBodyCode">
+                        <tr>
+                            <td>{{replacementMfrBodyCode.id}}</td>
+                            <td>{{replacementMfrBodyCode.name}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Associations to replace start -->
+        <div class="table-wrap">
+            <h2 class="clearfix">
+                Associations to Replace
+            </h2>
+            <div class="ctable" *ngIf="existingMfrBodyCode && existingMfrBodyCode.vehicleToMfrBodyCodes">
+                <ac-grid [dataSource]="existingMfrBodyCode.vehicleToMfrBodyCodes" #gd="acGrid"
+                          columns='[
+                 { "header":"Vehicle to Mfr Body Code ID","field":"id","sortable":true,"sortedByDesc":true},
+                 { "header":"Mfr Body Code Id",                "field":"mfrBodyCode",    "sortable":true},
+                 { "header":"Base Vehicle (Year, Make, Model)","field":"vehicle.yearId","sortable":true},
+                 { "header":"Vehicle (Submodel, Region)","field":"vehicle.subModelName","sortable":true},
+                 { "header":"Mfr Body Code","field":"mfrBodyCode.name","sortable":true}
+                 ]'
+                         initialSortBy='[{"field": "id", "orderByDesc": true}]'
+                         paging='{"pageSize": 10, "numberOfPagesOnPageList" : 10}'>
+                    <tr *ngFor="let vechicleToMfrBodyCode of gd.items">
+                        <td>{{vechicleToMfrBodyCode.id}}</td>
+                        <td>{{vechicleToMfrBodyCode.mfrBodyCodeId}}</td>
+                        <td>{{vechicleToMfrBodyCode.vehicle.yearId}}, {{vechicleToMfrBodyCode.vehicle.makeName}}, {{vechicleToMfrBodyCode.vehicle.modelName}}</td>
+                        <td>{{vechicleToMfrBodyCode.vehicle.subModelName}}, {{vechicleToMfrBodyCode.vehicle.regionName}}</td>
+                        <td>{{vechicleToMfrBodyCode.mfrBodyCode.name}}</td>
+                    </tr>
+                </ac-grid>
+            </div>
+
+        </div>
+
+        <div class="add-form">
+            <div class="clearfix">
+
+                <div class="submit-wrap">
+                    <input type="submit" value="SUBMIT CHANGE REQUEST" class="btn larger" (click)="onSubmitChangeRequest()">
+                    <input type="reset" value="CANCEL" class="btn transparent larger" routerLink="/system/search">
+                </div>
+
+                <div class="attach-wrap" style="margin-top: 40px;">
+                    <strong>OPTIONAL</strong>
+                    <ac-fileuploader upload-api-path="file/savechunk"></ac-fileuploader>
+                    <small>Include Comments</small>
+                    <textarea cols="50" rows="5" [(ngModel)]="existingMfrBodyCode.comment"></textarea>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</main>
+<!-- Main end -->

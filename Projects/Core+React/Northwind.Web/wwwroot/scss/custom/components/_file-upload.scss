@@ -1,0 +1,304 @@
+.file {
+    &-upload-container {
+        /*background: #fff;
+        padding: 7px 15px;
+        border-radius: 25px;
+        display: inline-block;
+        box-shadow: inset 0 0 5px #e4e4e4;
+        border: 1px solid #d9d9d9;*/
+    }
+
+    &-download {
+        border: 1px solid $gray-300;
+        border-radius: 4px;
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+        width: 260px;
+        margin: 0 auto 20px;
+        background: $white;
+
+
+        &:hover {
+            text-decoration: none;
+            background: $gray-200;
+        }
+
+        i {
+            font-size: 24px;
+
+            &.material-icons {
+                justify-self: flex-end;
+                font-size: 18px;
+                color: $success;
+            }
+        }
+
+        p {
+            margin-left: 5px;
+            color: $primary;
+            font-weight: $fw-b;
+            font-size: 13px;
+        }
+
+        > span {
+            display: flex;
+            align-items: center;
+
+            &:first-child {
+                width: 100%;
+            }
+        }
+    }
+
+    &-upload {
+        i {
+            font-size: 22px;
+            margin-right: 10px;
+            float: left;
+        }
+
+        &-text {
+            font-size: 14px;
+        }
+
+
+        &-input {
+            display: none;
+        }
+
+        &-name {
+            font-size: 18px;
+        }
+    }
+
+    &-name {
+        display: block;
+        color: $primary;
+        font-weight: 500;
+        margin-top: 5px;
+
+        .badge {
+            padding: 5px 12px;
+            font-size: 12px;
+        }
+    }
+}
+
+.divider-or {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    margin: 20px 0;
+
+    &:after {
+        content: '';
+        height: 2px;
+        width: 50%;
+        position: absolute;
+        left: 25%;
+        top: 50%;
+        background: $gray-300;
+    }
+
+    span {
+        background: #fff;
+        padding: 0 10px;
+        font-weight: $fw-b;
+        position: relative;
+        z-index: 1;
+    }
+}
+
+.upload-help-text {
+    color: #777;
+    line-height: 1.5;
+}
+
+.k-dropzone {
+
+    @at-root &-active &, &-hint {
+        display: none !important;
+    }
+
+    &:not(.document-manager) {
+
+        &:hover,
+        &-active {
+            background: #e8f7ff !important;
+
+            &:before {
+                color: darken($primary, 15%);
+            }
+        }
+
+        position: relative;
+        text-align: center;
+        height: 120px;
+        transition: 0.2s linear;
+
+        &:after {
+            content: "Drag & Drop or browse your file to upload";
+            position: absolute;
+            top: 75px;
+            font-size: 14px;
+            width: 100%;
+            font-weight: $fw-b;
+            pointer-events: none;
+        }
+
+        &:before {
+            position: absolute;
+            top: 15px;
+            width: 100%;
+            text-align: center;
+            font-family: 'Material Icons';
+            content: '\e864';
+            font-size: 56px;
+            line-height: 56px;
+        }
+    }
+}
+
+.fileUploader {
+    display: inline;
+
+    .k-dropzone {
+        display: inline;
+
+        &:before,
+        &:after {
+            display: none;
+        }
+    }
+}
+
+.k-button.List {
+    .k-i-grid-layout:before {
+        content: '\e025';
+    }
+}
+
+.k-upload {
+    border: 1px dashed #ccc;
+    transition: 0.2s linear;
+    border-radius: 3px;
+    margin-bottom: 20px;
+
+    &-button {
+        margin: 0 !important;
+        width: 100%;
+        height: 120px;
+        position: absolute;
+        top: 0;
+        opacity: 0;
+
+        input {
+            height: 100% !important;
+            top: 0;
+        }
+
+        > span {
+            display: none;
+        }
+    }
+
+    &-status {
+        display: none !important;
+    }
+
+    + .k-grid {
+        margin-bottom: 20px;
+    }
+}
+
+.uploaded-grid {
+    a {
+        font-weight: $fw-b;
+        color: $primary;
+    }
+
+    td:last-child {
+        text-align: right;
+    }
+}
+
+
+.k-treeview {
+    padding: 10px;
+
+    .k-in .k-icon {
+        color: $warning;
+    }
+
+    .k-i-collapse + .k-in {
+        .k-i-folder:before {
+            content: '\e901';
+        }
+    }
+
+    .k-state-selected small {
+        font-weight: $fw-b;
+    }
+}
+
+.explore-list-view.explorer-list {
+    width: 100%;
+    padding: 0 0 0 30px;
+    position: relative;
+    text-align: left;
+
+    &:hover {
+        background: transparent;
+    }
+
+    .k-icon {
+        font-size: 24px;
+        position: absolute;
+        left: 0;
+    }
+
+    small {
+        float: left;
+        margin-top: 4px;
+    }
+}
+
+
+.k-filebrowser-toolbar {
+    .k-upload-button > span {
+        display: block;
+    }
+
+    .k-dropzone {
+        height: auto !important;
+        width: auto;
+
+        &:before, &:after {
+            display: none;
+        }
+
+        .k-upload-button {
+            margin: inherit;
+            width: auto !important;
+            height: auto;
+            position: initial;
+            opacity: 1;
+        }
+    }
+}
+
+.k-imagebrowser .k-filebrowser-toolbar .k-widget.k-upload, .k-imagebrowser .k-toolbar-wrap {
+    width: auto !important;
+}
+
+.k-filebrowser {
+    .k-toolbar-wrap > * + * {
+        margin-left: 5px;
+    }
+
+    .k-tiles{
+        max-height: 390px;
+    }
+}
+

@@ -1,0 +1,155 @@
+﻿@model Northwind.Web.Models.ViewModels.RevenueRecognition.RevenueRecognitionViewModel
+@{
+    IDictionary<string, bool> listItems = new Dictionary<string, bool>();
+    listItems.Add(new KeyValuePair<string, bool>("Yes", true));
+    listItems.Add(new KeyValuePair<string, bool>("No", false));
+
+    IDictionary<string, string> SatisfiedObligationList = new Dictionary<string, string>();
+    SatisfiedObligationList.Add(new KeyValuePair<string, string>("Output Method: Milestones reached or units delivered", "OutputMethod"));
+    SatisfiedObligationList.Add(new KeyValuePair<string, string>("Input Method", "InputMethod"));
+    SatisfiedObligationList.Add(new KeyValuePair<string, string>("N/A", "N/A"));
+
+    IDictionary<string, string> OvertimeList = new Dictionary<string, string>();
+    OvertimeList.Add(new KeyValuePair<string, string>("Recognise Revenue Over Time", "RecogniseRevenueOverTime"));
+    OvertimeList.Add(new KeyValuePair<string, string>("Recognise Revenue In Time", "RecogniseRevenueInTime"));
+
+}
+<div class="col-12">
+    <input type="hidden" asp-for="CrudType" class="form-control" />
+    <input hidden asp-for="ContractGuid" class="form-control" />
+    <input hidden asp-for="RevenueRecognizationGuid" class="form-control" />
+    <h4><span>Revenue Recognition (For each performance obligation)</span></h4>
+    <div class="row">
+        <div>
+            <table class="table-custom">
+                <tbody id="tbodySyllabuss" class="rpo-container">
+                    @for (int i = 0; i < Model.ListRevenuePerformanceObligation.Count; i++)
+                    {
+                        <tr data-i="@i" class="row pl-3 rpo-list">
+
+                            <td class="col-md-12 form-group">
+                                <div class="idhideCheckboxs  rpo-list-checkbox">
+                                    <input type="hidden" asp-for="ListRevenuePerformanceObligation[i].PerformanceObligationGuid" class="form-control hiddenclass" />
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" name="record" class="child_Checkbox" />
+                                        @*<input type="checkbox" name="record" class="child_Checkbox k-checkbox" id="@('PerformanceObligationGuid'+i)" />
+                                            <label class="k-checkbox-label" for="revenueRecognition.@('PerformanceObligationGuid'+i)"></label>*@
+                                    </div>
+                                </div>
+                                <label asp-for="ListRevenuePerformanceObligation[i].RevenueStreamIdentifier" class="control-label requiredAstreicks">
+                                    Revenue Stream Identifier:
+                                </label>
+                                <input asp-for="ListRevenuePerformanceObligation[i].RevenueStreamIdentifier" class="form-control" required />
+                                <span asp-validation-for="ListRevenuePerformanceObligation[i].RevenueStreamIdentifier" class="text-danger"></span>
+                            </td>
+                            <td class="col-md-12 form-group">
+                                <label asp-for="ListRevenuePerformanceObligation[i].RightToPayment" class="control-label  fontbold">
+                                    Performance Obligation represents right-to-payment:
+                                </label>
+                                <div class="form-check pl-0">
+                                    @foreach (var item in listItems)
+                                    {
+                                        <div class="form-check form-check-inline">
+                                            <input asp-for="ListRevenuePerformanceObligation[i].RightToPayment" type="radio" value="@item.Value"
+                                                   class="k-radio custom-checkbox PerformnObligationRepresents"
+                                                   id="@(item.Value+"PerformnObligationRepresents"+i)" />
+                                            <label class="k-radio-label" for="@(item.Value+"PerformnObligationRepresents"+i)">
+                                                @item.Key
+                                            </label>
+                                        </div>
+                                    }
+                                </div>
+                                <span asp-validation-for="ListRevenuePerformanceObligation[i].RightToPayment" class="text-danger"></span>
+                            </td>
+                            <td class="col-md-12 form-group">
+                                <label asp-for="ListRevenuePerformanceObligation[i].RoutineService" class="control-label  fontbold">
+                                    Performance Obligation Routine Service:
+                                </label>
+                                <div class="form-check pl-0">
+                                    @foreach (var item in listItems)
+                                    {
+                                        <div class="form-check form-check-inline">
+                                            <input asp-for="ListRevenuePerformanceObligation[i].RoutineService" type="radio" value="@item.Value"
+                                                   class="k-radio custom-checkbox PerformnRoutineService"
+                                                   id="@(item.Value+"PerformnRoutineService"+i)" />
+                                            <label class="k-radio-label" for="@(item.Value+"PerformnRoutineService"+i)">
+                                                @item.Key
+                                            </label>
+                                        </div>
+                                    }
+                                </div>
+                                <span asp-validation-for="ListRevenuePerformanceObligation[i].RoutineService" class="text-danger"></span>
+                            </td>
+                            <td class="col-md-12 form-group">
+                                <label asp-for="ListRevenuePerformanceObligation[i].RevenueOverTimePointInTime" class="control-label  fontbold">
+                                    Recognize revenue over time or point in time?
+                                </label>
+                                <div class="form-check pl-0">
+                                    @foreach (var item in OvertimeList)
+                                    {
+                                        <div class="form-check form-check-inline">
+                                            <input asp-for="ListRevenuePerformanceObligation[i].RevenueOverTimePointInTime" type="radio" value="@item.Key"
+                                                   class="k-radio custom-checkbox RecognizeRevenue"
+                                                   id="@(item.Value+"RecognizeRevenue"+i)" />
+                                            <label class="k-radio-label" for="@(item.Value+"RecognizeRevenue"+i)">
+                                                @item.Key
+                                            </label>
+                                        </div>
+                                    }
+                                </div>
+                                <span asp-validation-for="ListRevenuePerformanceObligation[i].RevenueOverTimePointInTime" class="text-danger"></span>
+                            </td>
+                            <td class="col-md-12 form-group">
+                                <label asp-for="ListRevenuePerformanceObligation[i].SatisfiedOverTime" class="control-label  fontbold">
+                                    Method to recognize revenue for obligation satisfied over time?
+                                </label>
+                                <div class="form-check pl-0">
+                                    @foreach (var item in SatisfiedObligationList)
+                                    {
+                                        <div class="form-check form-check-inline">
+                                            <input asp-for="ListRevenuePerformanceObligation[i].SatisfiedOverTime" type="radio" value="@item.Key"
+                                                   class="k-radio custom-checkbox MethodobligationSatisifed"
+                                                   id="@(item.Value+"MethodobligationSatisifed"+i)" />
+                                            <label class="k-radio-label" for="@(item.Value+"MethodobligationSatisifed"+i)">
+                                                @item.Key
+                                            </label>
+                                        </div>
+                                    }
+                                </div>
+                                <span asp-validation-for="ListRevenuePerformanceObligation[i].SatisfiedOverTime" class="text-danger"></span>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="mt-3 mb-4 text-center w-100">
+            <button type="button" class="btn btn-icon btn-outline-primary" id="idAddPerfoemanceObli"><i class="k-icon k-i-plus-circle"></i> Performance Obligation</button>
+            <button type="button" class="btn btn-icon btn-outline-danger idhideCheckboxs" id="idDeletePerfoemanceObli"><i class="k-icon k-i-delete"></i> Performance Obligation</button>
+        </div>
+        <div class="col-md-12 form-group">
+            <label asp-for="HasLicensingOrIntellectualProperty" class="control-label  fontbold">
+                Are there any licensing or intellectual property considerations for this contract?
+            </label>
+            <div class="form-check pl-0">
+                @foreach (var item in listItems)
+                {
+                    <div class="form-check form-check-inline">
+                        <input asp-for="HasLicensingOrIntellectualProperty" type="radio" value="@item.Value"
+                               class="k-radio custom-checkbox HasLicensingOrIntellectualProperty"
+                               id="HasLicensingOrIntellectualProperty-@item.Value" />
+                        <label class="k-radio-label" for="HasLicensingOrIntellectualProperty-@item.Value">
+                            @item.Key
+                        </label>
+                    </div>
+                }
+            </div>
+            <span asp-validation-for="HasLicensingOrIntellectualProperty" class="text-danger"></span>
+        </div>
+        <div class="col-12 form-group">
+            <label asp-for="Step5Note" class="control-label"> Step 5 Notes:</label>
+            <textarea class="form-control" asp-for="Step5Note">@Model.Step5Note</textarea>
+            <span asp-validation-for="Step5Note" class="text-danger"></span>
+        </div>
+    </div>
+</div>

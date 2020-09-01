@@ -1,0 +1,103 @@
+.ac-attachment > span {
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+}
+
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+    cursor: pointer;
+}
+
+.attachment {
+    cursor: pointer;
+}
+
+    .attachment + .inputfile {
+        display: inline-block;
+    }
+
+
+.cancel {
+    width: 14px;
+    height: 14px;
+    object-fit: contain;
+    cursor: pointer;
+}
+
+.delete {
+    width: 14px;
+    height: 18px;
+    object-fit: contain;
+    cursor: pointer;
+}
+
+.attachment-rect {
+    width: 100%;
+    height: 25px;
+    vertical-align: middle;
+    display: table;
+    margin: 3px;
+    clear: both;
+    position: relative;
+}
+
+    .attachment-rect p {
+        display: table-cell;
+        padding: 2px 5px;
+        height: 25px;
+        vertical-align: middle;
+    }
+
+        .attachment-rect p.uploaded {
+            border-bottom: 1px solid #d8d8d8 !important;
+            padding: 2px 0px;
+        }
+
+        .attachment-rect p.pending {
+            background-color: #e9e3dc;
+            padding: 2px 5px;
+        }
+
+        .attachment-rect p.failed {
+            background-color: #ff5500;
+        }
+
+            .attachment-rect p.failed span {
+                color: wheat !important;
+            }
+
+        .attachment-rect p.deleted {
+            border-bottom: 1px solid #d8d8d8 !important;
+            padding: 2px 0px;
+        }
+
+            .attachment-rect p.deleted span {
+                text-decoration: line-through;
+            }
+
+    .attachment-rect span {
+        display: inline-block !important;
+        vertical-align: middle;
+        margin: 0px !important;
+    }
+
+.uploadBtn {
+    margin-top: 10px;
+}
+
+.progressBar {
+    width: 0%;
+    background: #a3d656;
+    height: 25px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+/*.attachment-rect p + .progressBar {
+display: inline-block;
+}*/

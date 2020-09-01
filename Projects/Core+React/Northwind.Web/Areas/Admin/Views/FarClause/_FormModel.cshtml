@@ -1,0 +1,33 @@
+﻿@model Northwind.Web.Models.ViewModels.FarClause.FarClauseViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+@{
+    var resourceVersion = @Configuration["resourceVersion"];
+    var cdnUrl = @Configuration["CDNUrl"];
+}
+
+<form id="ContractModificationForm" asp-action="_FormModel">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="FarClauseGuid" class="form-control" />
+
+    <div class="row">
+        <div class="col-md-6 form-group form-required">
+            <label asp-for="Number" class="control-label requiredAstreicks fontbold"></label>
+            <input asp-for="Number" placeholder="Enter the far clause number" required
+                   class="form-control" />
+            <span asp-validation-for="Number" class="text-danger"></span>
+        </div>
+        <div class="col-md-6 form-group form-required">
+            <label asp-for="Title" class="control-label requiredAstreicks fontbold"></label>
+            <textarea asp-for="Title" placeholder="Enter the far clause title" required class="form-control"></textarea>
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+        <div class="col-md-6 form-group">
+            <label asp-for="Paragraph" class="control-label"></label>
+            <textarea asp-for="Paragraph" placeholder="Enter the far clause paragraph" class="form-control"></textarea>
+            <span asp-validation-for="Paragraph" class="text-danger"></span>
+        </div>
+    </div>
+    <div id="farContractTypeList"></div>
+</form>

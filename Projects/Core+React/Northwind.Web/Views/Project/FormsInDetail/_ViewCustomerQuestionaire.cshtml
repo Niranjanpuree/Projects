@@ -1,0 +1,208 @@
+﻿@model Northwind.Web.Models.ViewModels.Contract.ContractQuestionaireViewModel
+<div class="">
+
+    <div class="row align-items-end">
+        <div class="col-md-6">
+            <div class="form-group">
+                <div class="control-label control-label-read">
+                    GSA Schedule Sales & Industrial Funding Fee (GSAR 552.238-74) :
+                </div>
+                <h6>
+                    @Model.IsGSAschedulesaleStatus
+                </h6>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <div class="control-label control-label-read">
+                    Date of Last Report
+                </div>
+                <h6>
+                    @(Model.GSALastReportDate == null ? "Not Provided" :
+                                    Model.GSALastReportDate.Value.ToShortDateString())
+                </h6>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <div class="control-label control-label-read">
+                    Date of Next Report
+                </div>
+                <h6>
+                    @(Model.GSANextReportDate == null ? "Not Provided" :
+                                    Model.GSANextReportDate.Value.ToShortDateString())
+                </h6>
+            </div>
+        </div>
+    </div>
+    <div class="row align-items-end">
+        <div class="col-md-6 ">
+            <div class="form-group">
+                <div class="control-label control-label-read">
+                    CPARS (FAR Subpart 42.215)
+                </div>
+                <h6>
+                    @Model.IsCPARSStatus
+                </h6>
+            </div>
+        </div>
+
+        <div class="col-md-3 ">
+            <div class="form-group">
+                <div class="control-label control-label-read">
+                    Date of Last Report
+                </div>
+                <h6>
+                    @(Model.CPARSLastReportDate == null ? "Not Provided" :
+                                    Model.CPARSLastReportDate.Value.ToShortDateString())
+                </h6>
+            </div>
+        </div>
+        <div class="col-md-3 ">
+            <div class="form-group">
+                <div class="control-label control-label-read">
+                    Date of Next Report
+                </div>
+                <h6>
+                    @(Model.CPARSNextReportDate == null ? "Not Provided" :
+                                    Model.CPARSNextReportDate.Value.ToShortDateString())
+                </h6>
+            </div>
+        </div>
+    </div>
+
+    <div class="row align-items-end">
+        <div class="col-md-6">
+            <div class="form-group">
+                <div class="control-label control-label-read">
+                    Reporting Executive Compensation and First-Tier Subcontract Awards (52.204-10 )
+                </div>
+                <h6>
+                    @Model.IsReportExecCompensationStatus
+                </h6>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <div class="control-label control-label-read">
+                    Date of Last Report
+                </div>
+                <h6>
+                    @(Model.ReportLastReportDate == null ? "Not Provided" :
+                                    Model.ReportLastReportDate.Value.ToShortDateString())
+                </h6>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <div class="control-label control-label-read">
+                    Date of Next Report
+                </div>
+                <h6>
+                    @(Model.ReportNextReportDate == null ? "Not Provided" :
+                                    Model.ReportNextReportDate.Value.ToShortDateString())
+                </h6>
+            </div>
+        </div>
+    </div>
+    <div class="row align-items-end">
+        <div class="col-md-6">
+            <div class="form-group">
+                <div class="control-label control-label-read">
+                    Progress towards SB Subcontracting Plans (52.218-9)
+                </div>
+                <h6>
+                    @Model.IsSBsubcontractStatus
+                </h6>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <div class="control-label control-label-read">
+                    Date of Last Report
+                </div>
+                <h6>
+                    @(Model.SBLastReportDate == null ? "Not Provided" :
+                                    Model.SBLastReportDate.Value.ToShortDateString())
+                </h6>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <div class="control-label control-label-read">
+                    Date of Next Report
+                </div>
+                <h6>
+                    @(Model.SBNextReportDate == null ? "Not Provided" :
+                                    Model.SBNextReportDate.Value.ToShortDateString())
+                </h6>
+            </div>
+        </div>
+    </div>
+    <div class="row align-items-end">
+        <div class="col-md-6">
+            <div class="form-group">
+                <div class="control-label control-label-read">
+                    Government-Wide Acquisition Contracts (GQAC), examples : GSA - Alliant, STARS) or NIH CIO-SP3 )
+                </div>
+                <h6>
+                    @Model.IsGQACStatus
+                </h6>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <div class="control-label control-label-read">
+                    Date of Last Report
+                </div>
+                <h6>
+                    @(Model.GQACLastReportDate == null ? "Not Provided" :
+                                    Model.GQACLastReportDate.Value.ToShortDateString())
+                </h6>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <div class="control-label control-label-read">
+                    Date of Next Report
+                </div>
+                <h6>
+                    @(Model.GQACNextReportDate == null ? "Not Provided" :
+                                    Model.GQACNextReportDate.Value.ToShortDateString())
+                </h6>
+            </div>
+        </div>
+    </div>
+    <div class="row align-items-end">
+        <div class="col-md-3">
+            <div class="form-group">
+                <div class="control-label control-label-read">
+                    Warranties
+                </div>
+                <h6>
+                    @Model.IsWarrantiesStatus
+                </h6>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <div class="control-label control-label-read">
+                    Warranties : Consistent with Standard Industry Provision of 12 months
+                </div>
+                <h6>
+                    @Model.IsStandardIndustryProvisionStatus
+                </h6>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <div class="control-label control-label-read">
+                    Warranty Provision Description
+                </div>
+                <h6>
+                    @Model.WarrantyProvisionDescription
+                </h6>
+            </div>
+        </div>
+    </div>
+</div>

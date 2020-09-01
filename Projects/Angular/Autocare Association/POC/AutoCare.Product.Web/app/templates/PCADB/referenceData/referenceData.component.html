@@ -1,0 +1,27 @@
+﻿<main class="with-sidemenu clearfix" [ngClass]="{'hidden-menu' : isMenuExpanded==false}">
+    <aside>
+        <div class="sidemenu withdrop">
+            <ul>
+                <li [ngClass]="{collapsed:activeSubMenuGroup=='Parts'}" (click)="toggleSubMenuGroupActive('Parts')">
+                    <a href="javascript:void(0);">Parts</a>
+                    <ul id="Parts">
+                        <li [ngClass]="{active: activeSubMenu=='Use'}"><a href="javascript:void(0);">Use</a></li>
+                        <li [ngClass]="{active: activeSubMenu=='Position'}"><a href="javascript:void(0);">Position</a></li>
+                        <li [ngClass]="{active: activeSubMenu=='Category'}"><a href="javascript:void(0);">Category</a></li>
+                        <li [ngClass]="{active: activeSubMenu=='SubCategory'}"><a href="javascript:void(0);">Sub Category</a></li>
+                    </ul>
+                </li>
+                <li [ngClass]="{collapsed : activeSubMenuGroup=='Attributes'}" (click)="toggleSubMenuGroupActive('Attributes')">
+                    <a href="javascript:void(0);">Attributes</a>
+                    <ul id="Attributes">
+                        <li [ngClass]="{active: activeSubMenu=='ValidValue'}"><a href="javascript:void(0);">Valid Values</a></li>
+                        <li [ngClass]="{active: activeSubMenu=='Uom'}"><a href="javascript:void(0);">UOM</a></li>
+                        <li [ngClass]="{active: activeSubMenu=='Metadata'}"><a href="javascript:void(0);">Meta Data</a></li> 
+                    </ul>
+                </li>                
+            </ul>
+            <a href="javascript:void(0);" (click)="toggleLeftMenu()"></a>
+        </div>
+    </aside>
+    <router-outlet></router-outlet>
+</main>

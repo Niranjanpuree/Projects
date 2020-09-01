@@ -1,0 +1,212 @@
+﻿<loading-gif [show]="showLoadingGif"></loading-gif>
+<user-likes-comp #likeComponent></user-likes-comp>
+<main class="clearfix">
+
+    <div class="center" *ngIf="fuelTypeChangeRequest">
+
+        <!-- Breadcrumb start -->
+        <div class="breadcrumb">
+            <a class="back" routerLink={{backNavigation}}>{{backNavigationText}}</a>
+        </div>
+        <!-- Breadcrumb end -->
+        <h2 class="foldable clearfix">
+            <span *ngIf="fuelTypeChangeRequest.stagingItem.changeType == 'Add'">New</span>
+            <span *ngIf="fuelTypeChangeRequest.stagingItem.changeType == 'Modify'">Modify</span>
+            <span *ngIf="fuelTypeChangeRequest.stagingItem.changeType == 'Delete'">Remove</span>
+            Fuel Type Request
+            <span class="float-right" *ngIf="fuelTypeChangeRequest.canDelete">
+                <input type="submit" value="DELETE" class="btn orange" (click)="onSubmitReview('delete')">
+            </span>
+        </h2>
+        <br />
+
+        <strong>Change Request ID: {{fuelTypeChangeRequest.stagingItem.changeRequestId}}</strong>
+
+        <div class="twocol-equal clearfix">
+            <div>
+                <!-- New -->
+                <div *ngIf="fuelTypeChangeRequest.stagingItem.changeType == 'Add'">
+                    <div class="title-name">
+                        <h4>New Fuel Type Name</h4>
+                        {{fuelTypeChangeRequest.entityStaging.name}}
+                    </div>
+                </div>
+                <!-- Modify -->
+                <div *ngIf="fuelTypeChangeRequest.stagingItem.changeType == 'Modify'">
+                    <div class="clearfix">
+                        <div class="title-name float-left margin-r-40px">
+                            <h4>Original Name</h4>
+                            {{fuelTypeChangeRequest.entityCurrent.name}}
+                        </div>
+                        <div class="title-name float-left">
+                            <h4>New Name</h4>
+                            {{fuelTypeChangeRequest.entityStaging.name}}
+                        </div>
+                    </div>
+                    <!-- association information -->
+                    <div *ngIf="fuelTypeChangeRequest.stagingItem.changeType == 'Modify'">
+                        <div class="add-form">
+                            <div class="warning-wrap">
+                                <div>
+                                    <strong>Associated records will be impacted</strong>
+                                    <span>
+                                        {{fuelTypeChangeRequest.entityStaging.engineConfigCount}} engine configs<br />
+                                        {{fuelTypeChangeRequest.entityStaging.vehicleToEngineConfigCount}} vehicle to engine configs
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Remove -->
+                <div *ngIf="fuelTypeChangeRequest.stagingItem.changeType == 'Delete'">
+                    <div class="title-name">
+                        <h4>Fuel Type Name</h4>
+                        {{fuelTypeChangeRequest.entityStaging.name}}
+                    </div>
+                </div>
+                <!--<p *ngIf="(!_identityInfo.isResearcher && !_identityInfo.isAdmin && !_identityInfo.isRequestor)">
+                    <span *ngIf="!reviewCompleted"><input type="button" (click)="onLikeClick('Like')" [disabled]="isLiked" class="btn icon thumb-up" value="Like"> &nbsp;&nbsp;&nbsp; {{likeStagingGet.likeCount}} likes</span>
+                </p>
+                <p *ngIf="(_identityInfo.isResearcher || _identityInfo.isAdmin || _identityInfo.isRequestor)">
+                    <span class="icon-text thumb-up">{{likeStagingGet.likeCount}} likes</span>
+                </p>-->
+
+                <p *ngIf="fuelTypeChangeRequest.canLike">
+                    <span *ngIf="!fuelTypeChangeRequest.isCompleted">
+                        <input type="button" (click)="onLikeClick('Like')" [disabled]="isLiked" class="btn icon thumb-up" value="Like"> &nbsp;&nbsp;&nbsp; {{likeStagingGet.likeCount}} likes
+                    </span>
+                </p>
+
+                <p *ngIf="!fuelTypeChangeRequest.canLike  &&(!fuelTypeChangeRequest.canFinal|| likeStagingGet.likeCount == 0)">
+                    <span class="icon-text thumb-up">{{likeStagingGet.likeCount}} likes</span>
+                </p>
+                <p *ngIf="fuelTypeChangeRequest.canFinal && likeStagingGet.likeCount > 0">
+                    <span class="icon-text thumb-up"> <a class="pointer" (click)="onClickLikes(fuelTypeChangeRequest.stagingItem.changeRequestId)"> {{likeStagingGet.likeCount}} likes </a></span>
+                </p>
+
+
+                <p>
+                    <strong>Submitted by</strong><br>
+                    {{fuelTypeChangeRequest.stagingItem.submittedBy}}, {{fuelTypeChangeRequest.stagingItem.createdDateTime | date: "MMMM dd,yyyy"}}
+                </p>
+
+                <p>
+                    <strong>Attachments</strong><br>
+                    <ac-fileuploader [existing-files]="fuelTypeChangeRequest.attachments"
+                                     upload-api-path="file/savechunk" [can-attach]="false" #existingAcFileUploader></ac-fileuploader>
+
+                </p>
+
+                <!--<p>
+                    <strong>Request comments</strong><br>
+                    <span *ngIf="fuelTypeChangeRequest.requestorComments && fuelTypeChangeRequest.requestorComments.length > 0">
+                        <ul>
+                            <li *ngFor="let comment of fuelTypeChangeRequest.requestorComments">
+                                {{comment.comment}}
+                            </li>
+                        </ul>
+                    </span>
+                </p>-->
+
+                <div class="add-form">
+                    <div class="input-blocks">
+                        <div>
+                            <strong>Assigned Reviewer</strong>
+                            <div class="select white-select">
+                                <select [(ngModel)]="assignedReviewer.assignedToUserId" [disabled]="reviewCompleted || !fuelTypeChangeRequest.canAssign" (ngModelChange)="onReviewerChange()">
+                                    <option value="-1" *ngIf="usersForAssignment">Me</option>
+                                    <option *ngFor="let user of usersForAssignment" [value]="user.id">
+                                        {{user.user}}
+                                    </option>
+                                </select>
+                                <div class="select__arrow white-select__arrow"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <strong>Current Status</strong>
+                            {{fuelTypeChangeRequest.stagingItem.status}}
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        <div *ngIf="fuelTypeChangeRequest.canReview">
+
+                            <strong>Your Review</strong>
+
+                            <div *ngIf="!fuelTypeChangeRequest.canFinal">
+                                <!-- note: for reviewer, approve .equals preliminary approve. -->
+                                <div class="custom-radio yes-no">
+
+                                    <label class="yes left">
+                                        <input type="radio" name="radio" (change)="onChange('PreliminaryApprove')" [checked]="isPreliminaryApproveChecked">
+                                        <small></small>
+                                        <span class="bg"></span>
+                                        <ins>APPROVE</ins>
+                                    </label>
+
+                                    <label class="no right">
+                                        <input type="radio" name="radio" (change)="onChange('Reject')" [checked]="isRejectChecked">
+                                        <small></small>
+                                        <span class="bg"></span>
+                                        <ins>REJECT</ins>
+                                    </label>
+
+                                </div>
+                            </div>
+
+                            <!-- todo: admin final/ prelim/ reject -->
+                            <div *ngIf="fuelTypeChangeRequest.canFinal">
+                                <div class="custom-radio">
+                                    <label class="left">
+                                        <input type="radio" name="radio" (change)="onChange('Approve')" [checked]="isApproveChecked">
+                                        <small></small>
+                                        <span class="bg"></span>
+                                        <ins>FINAL</ins>
+                                    </label>
+                                    <label *ngIf="showPrelimRadio">
+                                        <input type="radio" name="radio" (change)="onChange('PreliminaryApprove')" [checked]="isPreliminaryApproveChecked">
+                                        <small></small>
+                                        <span class="bg"></span>
+                                        <ins>PRELIM</ins>
+                                    </label>
+                                    <label class="no right">
+                                        <input type="radio" name="radio" (change)="onChange('Reject')" [checked]="isRejectChecked">
+                                        <small></small>
+                                        <span class="bg"></span>
+                                        <ins>REJECT</ins>
+                                    </label>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="submit-wrap" *ngIf="fuelTypeChangeRequest.canSubmit">
+                        <input type="submit" value="SUBMIT" class="btn" (click)="onSubmitReview()">
+                        <input type="reset" value="CANCEL" class="btn transparent" (click)="onCancel()">
+                    </div>
+                </div>
+
+            </div>
+
+            <div>
+                <div class="comment-box">
+                    <reviewer-comments-comp [comments]="fuelTypeChangeRequest.comments"></reviewer-comments-comp>
+                </div>
+
+                <div class="attach-wrap" *ngIf="fuelTypeChangeRequest.canSubmit">
+                    <strong>OPTIONAL</strong>
+                    <ac-fileuploader upload-api-path="file/savechunk" #newAcFileUploader can-attach="fuelTypeChangeRequest.canAttach"></ac-fileuploader>
+                    <small>Include comments</small>
+                    <textarea cols="50" rows="5" [(ngModel)]="reviewComment.comment"></textarea>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>

@@ -1,0 +1,54 @@
+.empty-container {
+    i {
+        font-size: 40px;
+        background: #e5eff5;
+        border-radius: 50%;
+        padding: 20px;
+        font-size: 40px;
+        width: 80px;
+        height: 80px;
+        color: $primary;
+    }
+}
+
+.k-grid-norecords {
+    // tr{
+        display: table-row !important;
+    // }
+    td {
+        padding: 30px 0;
+        text-align: center;
+        font-weight: 500;
+        font-size: 24px;
+        color: #ccc;
+    }
+
+}
+
+.not-found-message {
+    text-align: center;
+    padding: 20px 0;
+    font-weight: bold;
+    color: #004266;
+    line-height:1;
+    &.text-center{
+        i{
+            display: inline;
+            position: relative;
+            font-size: 65px;
+        }
+    }
+    h6{
+        margin-bottom:5px;
+    }
+    small{
+        color:#777;
+    }
+    i {
+        display: block;
+        font-size: 45px;
+        color: #a9c1ce;
+        margin-bottom: 10px;
+    }
+
+}

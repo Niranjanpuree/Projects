@@ -1,0 +1,62 @@
+﻿@model Northwind.Web.Models.ViewModels.JobRequestViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+@{
+    var resourceVersion = @Configuration["resourceVersion"];
+    var cdnUrl = @Configuration["CDNUrl"];
+    bool isSavable = ((Model.farContractViewModel.Questionniare?.Any() != true && Model.farContractViewModel.ApplicableFarClauses?.Any() != true) ? false : true);
+}
+
+@{
+    ViewData["Title"] = "Contract : Job Request Form";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section breadcrumb
+    {
+    <li class="breadcrumb-item"><a href="/Contract">List Of Contracts</a></li>
+    @if (Model.Parent_ContractGuid != null)
+    {
+        <li class="breadcrumb-item"><a href="/Contract/Details/@Model.Parent_ContractGuid">@Model.BasicContractInfo.ParentProjectNumber : Contract Detail</a></li>
+        <li class="breadcrumb-item"><a href="/Project/Details/@Model.ContractGuid">@Model.BasicContractInfo.ProjectNumber : Task Order Detail</a></li>
+    }
+    else
+    {
+        <li class="breadcrumb-item"><a href="/Contract/Details/@Model.ContractGuid">@Model.BasicContractInfo.ProjectNumber : Contract Detail</a></li>
+    }
+    <li class="breadcrumb-item"><a href="#">Job Request Form</a></li>
+}
+
+<div>
+    <partial name="_FormModel.cshtml" />
+</div>
+
+@section Scripts
+    {
+    <script src="@cdnUrl/js/proj/JobRequest.js?v=@resourceVersion" class="clause" data-farClauseID="@(isSavable)" data-isEditable="true"></script>
+    @if (Model.ContractWBS != null)
+    {
+        <script src="@cdnUrl/js/proj/workBreakdownUploadGrid.js?v=@resourceVersion" class="WBSUploadGrid" data-gridname="#JobWorkBreakdownStructureGrid"
+                data-controller="WorkBreakdownStructure" data-idvalue="#ContractGuid" data-guid="contractWBSGuid"
+                data-fields="wbsCode|description|value|contractType|invoiceAtThisLevel"
+                data-titles="WBS Code|Description|Value|Contract Type|Invoice At This Level" data-downloadgrid="#DownloadWBSGrid"
+                data-path=@Model.ContractWBS.UploadFileName></script>
+    }
+    @if (Model.LaborCategoryRates != null)
+    {
+        <script src="@cdnUrl/js/proj/subLaborGridList.js?v=@resourceVersion" class="SubLaborGridList" data-gridname="#JobLaborCategoryGrid"
+                data-controller="SubcontractorBillingRates" data-idvalue="#ContractGuid" data-guid="categoryRateGuid"
+                data-fields="subContractor|laborCode|employeeName|rate|startDate|endDate"
+                data-titles="Sub Contractor|Labor Code|Employee Name|Rate|Start Date|End Date" data-downloadgrid="#DownloadLCRGrid"
+                data-path=@Model.LaborCategoryRates.UploadFileName></script>
+    }
+    @if (Model.EmployeeBillingRates != null)
+    {
+        <script src="@cdnUrl/js/proj/masterFileUploadGridList.js?v=@resourceVersion" class="MasterFileUploadGridList"
+                data-gridname="#JobEmployeeBillingGrid" data-controller="EmployeeBillingRates" data-idvalue="#ContractGuid"
+                data-guid="billingRateGuid" data-fields="laborCode|employeeName|rate|startDate|endDate"
+                data-titles="Labor Code|Employee Name|Rate|Start Date|End Date" data-downloadgrid="#DownloadEBRGrid"
+                data-path="@Model.EmployeeBillingRates.UploadFileName"></script>
+    }
+}

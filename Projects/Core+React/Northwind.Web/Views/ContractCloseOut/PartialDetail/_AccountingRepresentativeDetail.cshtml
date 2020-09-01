@@ -1,0 +1,79 @@
+﻿@model Northwind.Web.Models.ViewModels.Questionaire.ContractCloseOutViewModel
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+@{
+    var resourceVersion = @Configuration["resourceVersion"];
+    var cdnUrl = @Configuration["CDNUrl"];
+}
+
+<div class="col-12">
+    <div >
+        <div class="row">
+            <div class="col-md-12 px-0">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="w-25">File Name</th>
+                            <th scope="col" class="w-75">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.AccountingRepresentativeFiles?.Any() == true)
+                        {
+                            @foreach (var item in Model.AccountingRepresentativeFiles)
+                            {
+                                <tr>
+                                    <td class="w-25">
+                                        <a href="/ContractResourceFile/DownloadDocument/@item.UploadedFileGuid"
+                                           id="@item.UploadFileName" class="control-label">
+                                            @item.UploadFileName
+                                        </a>
+                                    </td>
+                                    <td class="w-75">@item.Description</td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td class="w-10"></td>
+                                <td class="w-100">
+                                    No files are uploaded.
+                                </td>
+                                <td class="w-10"></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+            </div>
+
+            <div class="col-md-12 form-group">
+                <label asp-for="AccountingRepresentativeQuestions[0].Notes" class="control-label bold"></label>
+                <div class="">
+                    @(string.IsNullOrEmpty(Model.AccountingRepresentativeQuestions[0].Notes) ? "N/A" : Model.AccountingRepresentativeQuestions[0].Notes)
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" asp-for="ContractGuid" class="form-control" />
+    <ul class="list-unstyled">
+        @for (int i = 0; i < Model.AccountingRepresentativeQuestions.Count; i++)
+        {
+            <li>
+                <div class="row border-bottom  pt-3 pb-2 validateMsg">
+                    <label asp-for="AccountingRepresentativeQuestions[i].Questions" class="col-md-7 col-sm-6 control-label mb-0 requiredAstreicks">
+                        @Model.AccountingRepresentativeQuestions[i].Questions
+                    </label>
+                    <div class="col text-right form-required">
+                        <div class="form-check form-check-inline">
+                            @Model.AccountingRepresentativeQuestions[i].Answer
+                        </div>
+                    </div>
+                </div>
+            </li>
+        }
+    </ul>
+    <br />
+
+</div>

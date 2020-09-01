@@ -1,0 +1,170 @@
+﻿@{
+Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+ViewData["Title"] = "North Wind Group | Admin | Settings";
+ViewData["class"] = "admin-settings";
+}
+<div class="container-fluid link-setting-container">
+    <div class="row">
+        <div @(!(bool)ViewBag.AdminList ? "style = display:none" : "") class="col-lg-3 col-md-4 col-sm-6">
+            <a href="~/admin/customer" class="link-setting">
+                <div class="d-flex">
+                    <div class="link-setting-detail">
+                        <!-- <p class="mb-0 link-setting-count">2343</p> -->
+                        <h6 class="mb-0">Customer</h6>
+                        <p class="mb-0 link-setting-text">View/add and edit customer.</p>
+                    </div>
+                    <i class="material-icons link-setting-icon">
+                        people_outline
+                    </i>
+                </div>
+            </a>
+        </div>
+        <div @(!(bool)ViewBag.ManageCompany ? "style = display:none" : "") class="col-lg-3 col-md-4 col-sm-6">
+            <a href="~/admin/company" class="link-setting">
+                <div class="d-flex">
+                    <div class="link-setting-detail">
+                        <!-- <p class="mb-0 link-setting-count">2343</p> -->
+                        <h6 class="mb-0">Company</h6>
+                        <p class="mb-0 link-setting-text">View/add/edit user, group and policy.</p>
+                    </div>
+                    <i class="material-icons link-setting-icon">
+                        business
+                    </i>
+                </div>
+            </a>
+        </div>
+        <div @(!(bool)ViewBag.ManageOffice ? "style = display:none" : "") class="col-lg-3 col-md-4 col-sm-6">
+            <a href="~/admin/office" class="link-setting">
+                <div class="d-flex">
+                    <div class="link-setting-detail">
+                        <!-- <p class="mb-0 link-setting-count">2343</p> -->
+                        <h6 class="mb-0">Office</h6>
+                        <p class="mb-0 link-setting-text">View/add and edit office.</p>
+                    </div>
+                    <i class="material-icons link-setting-icon">
+                        work_outline
+                    </i>
+                </div>
+            </a>
+        </div>
+        <div @(!(bool)ViewBag.ManageRegion ? "style = display:none" : "") class="col-lg-3 col-md-4 col-sm-6">
+            <a href="~/admin/region" class="link-setting">
+                <div class="d-flex">
+                    <div class="link-setting-detail">
+                        <!-- <p class="mb-0 link-setting-count">2343</p> -->
+                        <h6 class="mb-0">Region</h6>
+                        <p class="mb-0 link-setting-text">View/add and edit region.</p>
+                    </div>
+                    <i class="material-icons link-setting-icon">
+                        pin_drop
+                    </i>
+                </div>
+            </a>
+        </div>
+        <div @(!(bool)ViewBag.AdminList ? "style = display:none" : "") class="col-lg-3 col-md-4 col-sm-6">
+            <a href="~/hangfire" class="link-setting">
+                <div class="d-flex">
+                    <div class="link-setting-detail">
+                        <!-- <p class="mb-0 link-setting-count">2343</p> -->
+                        <h6 class="mb-0">Job Scheduler Dashboard</h6>
+                        <p class="mb-0 link-setting-text">View job scheduler dashboard.</p>
+                    </div>
+
+                    <i class="material-icons link-setting-icon">
+                        access_alarm
+                    </i>
+                </div>
+            </a>
+        </div>
+        <div @(!(bool)ViewBag.AdminList ? "style = display:none" : "") class="col-lg-3 col-md-4 col-sm-6">
+            <a href="~/auditLog" class="link-setting">
+                <div class="d-flex">
+                    <div class="link-setting-detail">
+                        <!-- <p class="mb-0 link-setting-count">2343</p> -->
+                        <h6 class="mb-0">Audit Log</h6>
+                        <p class="mb-0 link-setting-text">View audit logs</p>
+                    </div>
+                    <i class="material-icons link-setting-icon">
+                        timeline
+                    </i>
+                </div>
+            </a>
+        </div>
+
+        <div @(!(bool)ViewBag.AdminList ? "style = display:none" : "") class="col-lg-3 col-md-4 col-sm-6">
+            <a href="~/eventLog" class="link-setting">
+                <div class="d-flex">
+                    <div class="link-setting-detail">
+                        <!-- <p class="mb-0 link-setting-count">2343</p> -->
+                        <h6 class="mb-0">Event Log</h6>
+                        <p class="mb-0 link-setting-text">View Event logs</p>
+                    </div>
+                    <i class="material-icons link-setting-icon">
+                        timeline
+                    </i>
+                </div>
+            </a>
+        </div>
+        <div @(!(bool)ViewBag.ManageFarClause ? "style = display:none" : "") class="col-lg-3 col-md-4 col-sm-6">
+            <a href="~/admin/farClause" class="link-setting">
+                <div class="d-flex">
+                    <div class="link-setting-detail">
+                        <!-- <p class="mb-0 link-setting-count">2343</p> -->
+                        <h6 class="mb-0">Far Clause</h6>
+                        <p class="mb-0 link-setting-text">View far clauses</p>
+                    </div>
+                    <i class="material-icons link-setting-icon">
+                        help_outline
+                    </i>
+                </div>
+            </a>
+        </div>
+        <div @(!(bool)ViewBag.ManageFarClause ? "style = display:none" : "") class="col-lg-3 col-md-4 col-sm-6">
+            <a href="~/admin/farContractType" class="link-setting">
+                <div class="d-flex">
+                    <div class="link-setting-detail">
+                        <!-- <p class="mb-0 link-setting-count">2343</p> -->
+                        <h6 class="mb-0">Far Contract Type</h6>
+                        <p class="mb-0 link-setting-text">View far contract types</p>
+                    </div>
+                    <i class="material-icons link-setting-icon">
+                        zoom_in
+                    </i>
+                </div>
+            </a>
+        </div>
+
+        <div @(!(bool)ViewBag.AdminList ? "style = display:none" : "") class="col-lg-3 col-md-4 col-sm-6">
+            <a href="~/iam/user" class="link-setting">
+                <div class="d-flex">
+                    <div class="link-setting-detail">
+                        <!-- <p class="mb-0 link-setting-count">2343</p> -->
+                        <h6 class="mb-0">User Management</h6>
+                        <p class="mb-0 link-setting-text">View user management</p>
+                    </div>
+                    <i class="material-icons link-setting-icon">
+                        person_outline
+                    </i>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <a href="~/admin/homesection" class="link-setting">
+                <div class="d-flex">
+                    <div class="link-setting-detail">
+                        <!-- <p class="mb-0 link-setting-count">2343</p> -->
+                        <h6 class="mb-0">Home Section Management</h6>
+                        <p class="mb-0 link-setting-text">View Home Section</p>
+                    </div>
+                    <i class="material-icons link-setting-icon">
+                        person_outline
+                    </i>
+                </div>
+            </a>
+        </div>
+
+    </div>
+</div>

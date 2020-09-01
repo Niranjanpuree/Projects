@@ -1,0 +1,27 @@
+ResourceGuid,Name,Title,Description
+{5A1DA87D-96BC-4EC2-9022-07DF70202FEA},LaborCategoryRates,Labor Category Rates,Labor Category Rates
+{2E7A8F08-4C4D-44F4-9E36-0E0FC043D1E9},ContractNotice,Contract Notice,Contract Notice
+{F055A0C5-84D1-4EF2-A31D-1E9B0D52B013},EmployeeBillingRates,Employee Billing Rates,Employee Billing Rates
+{0C5D70EA-1FC3-439B-A95E-395F33BF77A3},WorkBreakDownStructure,Work Break Down Structure,Work Break Down Structure
+{1A42A89E-AFEF-447A-8D27-3B49CD7DF53E},FarContract,Far Contract,Far Contract
+{B3DB3D96-9048-4C72-A9FA-3D9501A01694},ContractClauses,Contract Clauses,Contract Clauses
+{4CD4D69F-6788-4C6A-8484-5345FA0A0C00},User,User,NULL
+{7A281ADF-B140-4800-BC0B-561689B84C60},Admin,Admin,Admin
+{F2DB9414-5B5D-40E2-8014-5A75EC80B929},Region,Region,Region
+{774B921B-2883-4202-A984-62E0467515DB},JobRequest,Job Request,Job Request
+{76E3A20B-5E2A-463F-A81D-641652E01E83},FarContractType,Far Contract Type,Far Contract Type
+{30638743-9812-4849-AF99-6AC015E845FC},Contract,Contracts,
+{44476545-35A7-40BF-8604-6E02A0D3E7DD},TaskOrder,Task Order,Task Order
+{41CD53B5-2A7C-4485-AD9A-7688751B05CE},RevenueRecognition,Revenue Recognition,Revenue Recognition
+{488D95E4-E1C5-4AC0-A679-8E27FAACDDAC},TaskOrderModification,Task Order Modification,Task Order Modification
+{3D5BE5AB-84E0-4914-B729-9C55A7DF51AB},Office,Office,Office
+{93B48E07-24B5-47C6-AB7F-9CE8180905A0},FarClause,Far Clause,Far Clause
+{4B0091F9-3B99-40A9-9269-B9D360C95BD9},DocumentManager,Document Manager,Document Manager
+{D08CFAFA-7ECE-48D9-9BE3-BAD24A03F231},ContractCloseOut,Contract CloseOut,Contract CloseOut
+{34B2523C-834B-48E3-B2B1-C2D9A9A44E1D},Export,Export,Export
+{5A0143DB-3385-4308-9092-CB87B6752B46},Customer,Customer,Customer Resources
+{E00E26F7-0009-4E40-8492-CC5C4C4E46DE},AuditLog,Audit Log,Audit Log
+{399A44EC-310D-4575-BD16-CD4346635865},PFS-Cost,Costs,Cost on PFS Module
+{344DABA7-718F-4AD6-93FA-D75AE0AE0165},ContractModification,Contract Modification,Contract Modification
+{D057E5AE-BFEF-4CC6-AE2C-F6CBD582BEEB},All,All Resources,All Resources
+{2176872D-9626-4ECD-ADA3-F7C67E2177A9},Policy,Policy,NULL

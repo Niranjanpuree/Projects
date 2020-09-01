@@ -1,0 +1,288 @@
+﻿<!-- Main start -->
+<loading-gif [show]="showLoadingGif"></loading-gif>
+<user-likes-comp #likeComponent></user-likes-comp>
+<main class="clearfix">
+
+    <div class="center" *ngIf="vehicleChangeRequest">
+
+        <!-- Breadcrumb start -->
+        <div class="breadcrumb">
+            <a class="back" routerLink={{backNavigation}}>{{backNavigationText}}</a>
+        </div>
+        <!-- Breadcrumb end -->
+
+        <div class="table-wrap" *ngIf="vehicleChangeRequest && vehicleChangeRequest.stagingItem && vehicleChangeRequest.stagingItem.changeType == 'Add'">
+            <h2 class="foldable clearfix">
+                Add Vehicle Request
+                <span class="float-right" *ngIf="vehicleChangeRequest.canDelete">
+                    <input type="submit" value="DELETE" class="btn orange" (click)="submitReview('delete')">
+                </span>
+            </h2>
+
+            <br />
+
+            <strong>Change Request ID: {{vehicleChangeRequest.stagingItem.changeRequestId}}</strong>
+
+            <div class="ctable">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Base ID</td>
+                            <td>Year</td>
+                            <td>Submodel (ID)</td>
+                            <td>Region (ID)</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{vehicleChangeRequest.entityStaging.baseVehicleId}}</td>
+                            <td>{{vehicleChangeRequest.entityStaging.yearId}}</td>
+                            <td>{{vehicleChangeRequest.entityStaging.subModelName}} ({{vehicleChangeRequest.entityStaging.subModelId}})</td>
+                            <td>{{vehicleChangeRequest.entityStaging.regionName}} ({{vehicleChangeRequest.entityStaging.regionId}})</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <h1 class="foldable clearfix" *ngIf="vehicleChangeRequest && vehicleChangeRequest.stagingItem && vehicleChangeRequest.stagingItem.changeType == 'Modify'">
+            Modify Vehicle Request
+            <span class="float-right" *ngIf="vehicleChangeRequest.canDelete">
+                <input type="submit" value="DELETE" class="btn red" (click)="submitReview('delete')">
+            </span>
+        </h1>
+    <h1 class="foldable clearfix" *ngIf="vehicleChangeRequest && vehicleChangeRequest.stagingItem && vehicleChangeRequest.stagingItem.changeType == 'Delete'">
+        Delete Vehicle Request
+        <span class="float-right" *ngIf="vehicleChangeRequest.canDelete">
+                <input type="submit" value="DELETE" class="btn red" (click)="submitReview('delete')">
+            </span>
+    </h1>
+    <div *ngIf="vehicleChangeRequest.stagingItem.changeType != 'Add'">
+        <br />
+        <strong>Change Request Id: {{vehicleChangeRequest.stagingItem.changeRequestId}}</strong>
+    </div>
+       
+        <div class="table-wrap" *ngIf="vehicleChangeRequest && vehicleChangeRequest.stagingItem
+          && (vehicleChangeRequest.stagingItem.changeType == 'Modify') ">
+            <h2 class="sfont" *ngIf="vehicleChangeRequest.stagingItem.changeType == 'Modify'">
+                Existing Vehicle
+            </h2>
+            <div class="ctable">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Vehicle ID</td>
+                            <td>Year</td>
+                            <td>Submodel (ID)</td>
+                            <td>Region (ID)</td>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="vehicleChangeRequest.entityCurrent">
+                        <tr>
+                            <td>{{vehicleChangeRequest.entityCurrent.id}}</td>
+                            <td>{{vehicleChangeRequest.entityCurrent.yearId}}</td>
+                            <td>{{vehicleChangeRequest.entityCurrent.subModelName}} ({{vehicleChangeRequest.entityCurrent.subModelId}})</td>
+                            <td>{{vehicleChangeRequest.entityCurrent.regionName}} ({{vehicleChangeRequest.entityCurrent.regionId}})</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="table-wrap" *ngIf="vehicleChangeRequest && vehicleChangeRequest.stagingItem
+          && (vehicleChangeRequest.stagingItem.changeType == 'Delete')">
+            <h2 class="sfont" *ngIf="vehicleChangeRequest.stagingItem.changeType == 'Modify'">
+                Existing Vehicle
+            </h2>
+            <div class="ctable">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Vehicle ID</td>
+                            <td>Year</td>
+                            <td>Submodel (ID)</td>
+                            <td>Region (ID)</td>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="vehicleChangeRequest.entityStaging">
+                        <tr>
+                            <td>{{vehicleChangeRequest.entityStaging.id}}</td>
+                            <td>{{vehicleChangeRequest.entityStaging.yearId}}</td>
+                            <td>{{vehicleChangeRequest.entityStaging.subModelName}} ({{vehicleChangeRequest.entityStaging.subModelId}})</td>
+                            <td>{{vehicleChangeRequest.entityStaging.regionName}} ({{vehicleChangeRequest.entityStaging.regionId}})</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="table-wrap" *ngIf="vehicleChangeRequest && vehicleChangeRequest.stagingItem && vehicleChangeRequest.stagingItem.changeType == 'Modify'">
+            <h2 class="sfont" *ngIf="vehicleChangeRequest && vehicleChangeRequest.stagingItem && vehicleChangeRequest.stagingItem.changeType == 'Modify'">
+                Proposed Vehicle
+            </h2>
+            <div class="ctable">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Vehicle ID</td>
+                            <td>Year</td>
+                            <td>Submodel (ID)</td>
+                            <td>Region (ID)</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{vehicleChangeRequest.entityStaging.id}}</td>
+                            <td>{{vehicleChangeRequest.entityStaging.yearId}}</td>
+                            <td>{{vehicleChangeRequest.entityStaging.subModelName}} ({{vehicleChangeRequest.entityStaging.subModelId}})</td>
+                            <td>{{vehicleChangeRequest.entityStaging.regionName}} ({{vehicleChangeRequest.entityStaging.regionId}})</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!--  -->
+        <div class="twocol-equal clearfix">
+            <div class="margin-t-20px">
+
+                <div class="warning-wrap" *ngIf="vehicleChangeRequest && vehicleChangeRequest.stagingItem
+                      && (vehicleChangeRequest.stagingItem.changeType == 'Modify' || vehicleChangeRequest.stagingItem.changeType == 'Delete')">
+                    <div>
+                        <strong>Associated records will be impacted</strong>as
+                        <span>
+                            {{vehicleChangeRequest.entityStaging.vehicleToBrakeConfigCount}} Brake configurations<br>
+                            {{vehicleChangeRequest.entityStaging.vehicleToBedConfigCount}} Bed configurations<br>
+                            {{vehicleChangeRequest.entityStaging.vehicleToBodyStyleConfigCount}} Body Style configurations<br>
+                        </span>
+                    </div>
+                </div>
+                <p *ngIf="vehicleChangeRequest">
+                    <strong>Submitted by</strong><br>
+                    {{vehicleChangeRequest.stagingItem.submittedBy}}, {{vehicleChangeRequest.stagingItem.createdDateTime | date: "MMMM dd,yyyy"}}
+                </p>
+                <p *ngIf="vehicleChangeRequest.canLike">
+                    <span *ngIf="!vehicleChangeRequest.isCompleted">
+                        <input type="button" (click)="onLikeClick('Like')" [disabled]="isLiked" class="btn icon thumb-up" value="Like"> &nbsp;&nbsp;&nbsp; {{likeStagingGet.likeCount}} likes
+                    </span>
+                </p>
+                <p *ngIf="!vehicleChangeRequest.canLike  &&(!vehicleChangeRequest.canFinal|| likeStagingGet.likeCount == 0)">
+                    <span class="icon-text thumb-up">{{likeStagingGet.likeCount}} likes</span>
+                </p>
+                <p *ngIf="vehicleChangeRequest.canFinal && likeStagingGet.likeCount > 0">
+                    <span class="icon-text thumb-up"> <a class="pointer" (click)="onClickLikes(vehicleChangeRequest.stagingItem.changeRequestId)"> {{likeStagingGet.likeCount}} likes </a></span>
+                </p>
+                <p>
+                    <strong>Attachments</strong><br>
+                    <ac-fileuploader [existing-files]="vehicleChangeRequest.attachments"
+                                     upload-api-path="file/savechunk" [can-attach]="false" #existingAcFileUploader></ac-fileuploader>
+                </p>
+
+                <!--<p *ngIf="vehicleChangeRequest">
+                    <strong>Request comments</strong><br>
+                    <span *ngIf="vehicleChangeRequest.requestorComments && vehicleChangeRequest.requestorComments.length > 0">
+                        <ul>
+                            <li *ngFor="let comment of vehicleChangeRequest.requestorComments">
+                                {{comment.comment}}
+                            </li>
+                        </ul>
+                    </span>
+                </p>-->
+
+                <div class="add-form">
+                    <div class="input-blocks">
+                        <div>
+                            <strong>Assigned Reviewer</strong>
+                            <div class="select white-select" >
+                                <select [(ngModel)]="assignedReviewer.assignedToUserId" [disabled]="vehicleChangeRequest.isCompleted || !vehicleChangeRequest.canAssign" (ngModelChange)="onReviewerChange()">
+                                    <option value="-1" *ngIf="usersForAssignment">Me</option>
+                                    <option *ngFor="let user of usersForAssignment" [value]="user.id">
+                                        {{user.user}}
+                                    </option>
+                                </select>
+                                <div class="select__arrow white-select__arrow"></div>
+                            </div>
+                        </div>
+
+                        <div *ngIf="vehicleChangeRequest">
+                            <strong>Current Status</strong>
+                            {{vehicleChangeRequest.stagingItem.status}}
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        <div *ngIf="vehicleChangeRequest.canReview">
+                            <strong>Your Review</strong>
+
+                            <div *ngIf="!vehicleChangeRequest.canFinal">
+
+                                <div class="custom-radio yes-no">
+
+                                    <label class="yes left">
+                                        <input type="radio" name="radio" (change)="onChange('PreliminaryApprove')" [checked]="isPreliminaryApproveChecked">
+                                        <small></small>
+                                        <span class="bg"></span>
+                                        <ins>APPROVE</ins>
+                                    </label>
+
+                                    <label class="no right">
+                                        <input type="radio" name="radio" (change)="onChange('Reject')" [checked]="isRejectChecked">
+                                        <small></small>
+                                        <span class="bg"></span>
+                                        <ins>REJECT</ins>
+                                    </label>
+
+                                </div>
+                            </div>
+                            <div *ngIf="vehicleChangeRequest.canFinal">
+                                <div class="custom-radio">
+                                    <label class="left">
+                                        <input type="radio" name="radio" (change)="onChange('Approve')" [checked]="isApproveChecked">
+                                        <small></small>
+                                        <span class="bg"></span>
+                                        <ins>FINAL</ins>
+                                    </label>
+                                    <label *ngIf="showPrelimRadio">
+                                        <input type="radio" name="radio" (change)="onChange('PreliminaryApprove')" [checked]="isPreliminaryApproveChecked">
+                                        <small></small>
+                                        <span class="bg"></span>
+                                        <ins>PRELIM</ins>
+                                    </label>
+                                    <label class="no right">
+                                        <input type="radio" name="radio" (change)="onChange('Reject')" [checked]="isRejectChecked">
+                                        <small></small>
+                                        <span class="bg"></span>
+                                        <ins>REJECT</ins>
+                                    </label>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="submit-wrap" *ngIf="vehicleChangeRequest.canSubmit">
+                        <input type="submit" value="SUBMIT" (click)="submitReview()" class="btn">
+                        <input type="reset" value="CANCEL" class="btn transparent" routerLink="/change/search">
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="comment-box" *ngIf="vehicleChangeRequest">
+                    <reviewer-comments-comp [comments]="vehicleChangeRequest.comments"></reviewer-comments-comp>
+                </div>
+
+                <div class="attach-wrap" *ngIf="vehicleChangeRequest.canSubmit">
+                    <strong>OPTIONAL</strong>
+                    <ac-fileuploader upload-api-path="file/savechunk" #newAcFileUploader can-attach="vehicleChangeRequest.canAttach"></ac-fileuploader>
+                    <small>Include comments</small>
+                    <textarea cols="50" rows="5" [(ngModel)]="reviewComment.comment"></textarea>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+<!-- Main end -->

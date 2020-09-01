@@ -1,0 +1,55 @@
+﻿@model Northwind.Web.Models.ViewModels.Questionaire.ContractCloseOutViewModel
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+@{
+    var resourceVersion = @Configuration["resourceVersion"];
+    var cdnUrl = @Configuration["CDNUrl"];
+}
+
+@{
+    ViewData["Title"] = "Contract : Close Out";
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+@section breadcrumb
+    {
+    <li class="breadcrumb-item"><a href="/Contract">List Of Contracts</a></li>
+    @if (Model.ParentContractGuid != Guid.Empty)
+    {
+        <li class="breadcrumb-item">
+            <a href="/Contract/Details/@Model.ParentContractGuid">@ViewBag.ParentProjectNumber : Contract Detail</a>
+        </li>
+
+        <li class="breadcrumb-item">
+            <a href="/Project/Details/@Model.ContractGuid">@ViewBag.ProjectNumber  : Task Order Detail</a>
+        </li>
+
+        <li class="breadcrumb-item"><a href="#">Task Order Close Out </a></li>
+    }
+    else
+    {
+        <li class="breadcrumb-item">
+            <a href="/Contract/Details/@Model.ContractGuid">@ViewBag.ProjectNumber  : Contract Detail</a>
+        </li>
+
+        <li class="breadcrumb-item"><a href="#">Contract Close Out</a></li>
+    }
+}
+<partial name="_FormModel.cshtml" />
+@section Scripts
+    {
+
+    <script src="@cdnUrl/js/dist/folderTree.js?v=@resourceVersion"></script>
+
+    <script src="@cdnUrl/js/proj/contractClose.js?v=@resourceVersion"></script>
+
+
+    <script>
+    //assign in uploader variable the component because we need onSubmitFiles method from component after the contract close page submit succesfully from ajax ..
+        window.uploader = window.loadFileUpload.pageView.loadFileUpload('fileUpload', '@ViewBag.Resourcekey', true,
+            '@ViewBag.ResourceId', '@ViewBag.UpdatedBy', '@ViewBag.UpdatedOn', 'No path', true, true, false, true, false, submitCallBack);
+
+        function submitCallBack() {
+            // finally redirect to  notification page..
+        }
+    </script>
+}

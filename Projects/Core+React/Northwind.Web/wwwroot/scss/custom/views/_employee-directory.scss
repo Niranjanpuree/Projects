@@ -1,0 +1,117 @@
+.alphabetical-sort {
+    margin: 0 -2px;
+
+    li {
+        background: #ced4da;
+        float: left;
+        height: 30px;
+        width: 30px;
+        font-size: 14px;
+        text-align: center;
+        line-height: 30px;
+        font-weight: $fw-b;
+        margin: 2px !important;
+        cursor: pointer;
+
+        &:hover, &.active {
+            background: $primary;
+            color: $light;
+        }
+
+    }
+}
+
+.item-block {
+    padding: 15px;
+    background: #fff;
+    border-radius: 5px;
+    margin-top: 60px;
+    transition:0.2s linear;
+    h4{
+        margin-bottom:-10px;
+    }
+}
+
+.employee {
+    &-directory{
+        margin-top:30px;
+        .item-block:hover{
+            box-shadow:0 0 20px rgba(0,0,0,0.16);
+            cursor: pointer;
+            transform:translateY(-2px);
+            .employee-name {
+                color:$primary;
+            }
+        }
+        .k-dialog-wrapper{
+            overflow: auto;
+            height:100vh;
+        }
+        // .k-dialog{
+        //     max-width: 1000px;
+        //     width: 100%;
+        //     height: 80%;
+        // }
+    }
+    &-img {
+        width: 110px;
+        height: 110px;
+        background: #ddd;
+        border-radius: 50%;
+        margin-left:5px;
+
+        padding: 5px;
+        @at-root .item-block &{
+            margin: -60px auto 10px;
+        }
+        img {
+            max-width: 110px;
+            max-height: 110px;
+            object-fit: contain;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+
+
+    &-status {
+        padding-left: 10px;
+        padding-right: 10px;
+        background: $gray-400;
+
+        &.active {
+            background: $primary;
+            color: #fff;
+        }
+    }
+
+    &-name {
+        line-height: 1;
+        margin-top: 5px;
+        color:$primary;
+    }
+
+    &-contact {
+        margin: 10px -15px 0;
+        padding: 15px 15px 0;
+
+        i {
+            font-size: 16px;
+            margin-right: 8px;
+            color: $gray-600;
+        }
+
+        >div {
+            overflow: hidden;
+        }
+    }
+    &-profile{
+        // border-bottom:1px solid $gray-300;
+        // padding-bottom:15px;
+        margin-bottom:15px;
+        + .k-button{
+            float:right;
+        }
+    }
+}

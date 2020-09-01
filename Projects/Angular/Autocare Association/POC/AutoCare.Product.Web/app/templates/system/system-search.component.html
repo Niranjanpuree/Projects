@@ -1,0 +1,115 @@
+﻿
+<div class="split-scr">
+    <!-- Left split screen start -->
+    <div class="drawer-left with-leftmenu">
+        <span></span>
+        <div>
+            <main class="with-sidemenu clearfix" [ngClass]="{'hidden-menu':!isSystemsMenuExpanded}">
+                <aside>
+                    <!-- system menu bar -->
+                    <system-menubar #systemMenubarPanel [style]="['sidemenu']" [isSystemsMenuExpanded]="isSystemsMenuExpanded"
+                                    (onToggleMenuBarEvent)="onToggleMenuBarEvent($event)" 
+                                    (onSelectedSubMenuGroupEvent)="onSelectedSubMenuGroupEvent($event)"></system-menubar>
+                </aside>
+                <article>
+                    <div>
+                        <!-- vehicle to brake config search panel -->
+                        <div *ngIf="activeSubMenuGroup==='Brake'">
+                            <vehicletobrakeconfig-searchpanel [(vehicleToBrakeConfigSearchViewModel)]="vehicleToBrakeConfigSearchViewModel"
+                                                                (onSearchEvent)="onSearchEvent($event)" 
+                                                              [thresholdRecordCount]="thresholdRecordCount">
+                            </vehicletobrakeconfig-searchpanel>
+                        </div>
+                        <div *ngIf="activeSubMenuGroup==='Bed'">
+                            <vehicletobedconfig-searchpanel [(vehicleToBedConfigSearchViewModel)]="vehicleToBedConfigSearchViewModel"
+                                                              (onSearchEvent)="onBedSearchEvent($event)" 
+                                                            [thresholdRecordCount]="thresholdRecordCount">
+                            </vehicletobedconfig-searchpanel>
+                        </div>
+                        <!-- vehicle to body style config search panel -->
+	                    <div *ngIf="activeSubMenuGroup === 'Body'">
+		                    <vehicletobodystyleconfig-searchpanel [(vehicleToBodyStyleConfigSearchViewModel)]="vehicleToBodyStyleConfigSearchViewModel"
+		                                                            (onSearchEvent)="onBodyStyleConfigSearchEvent($event)"
+		                                                            [thresholdRecordCount]="thresholdRecordCount">
+		                    </vehicletobodystyleconfig-searchpanel>
+	                    </div>
+                        <div *ngIf="activeSubMenuGroup === 'WheelBase'">
+                            <vehicletowheelbase-searchpanel [(vehicleToWheelBaseSearchViewModel)]="vehicleToWheelBaseSearchViewModel"
+                                                              (onSearchEvent)="onWheelBaseSearchEvent($event)"
+                                                              [thresholdRecordCount]="thresholdRecordCount">
+                            </vehicletowheelbase-searchpanel>
+                        </div>
+                        <div *ngIf="activeSubMenuGroup === 'MFRBodyCode'">
+                            <vehicletomfrbodycode-searchpanel [(vehicleToMfrBodyCodesSearchViewModel)]="vehicleToMfrBodyCodeSearchViewModel"
+                                                                (onSearchEvent)="onMfrBodyCodeSearchEvent($event)"
+                                                                [thresholdRecordCount]="thresholdRecordCount">
+                            </vehicletomfrbodycode-searchpanel>
+                        </div>
+                        <div *ngIf="activeSubMenuGroup === 'DriveType'">
+                            <vehicletodrivetype-searchpanel [(vehicleToDriveTypesSearchViewModel)]="vehicleToDriveTypeSearchViewModel"
+                                                              (onSearchEvent)="onDriveTypeSearchEvent($event)"
+                                                              [thresholdRecordCount]="thresholdRecordCount">
+                            </vehicletodrivetype-searchpanel>
+                        </div>
+                    </div>
+                </article>
+            </main>
+        </div>
+    </div>
+    <!-- Left split screen end -->
+    <!-- Right split screen start -->
+    <div id="main">
+        <!-- Main start -->
+        <main class="with-sidemenu" [ngClass]="{'hidden-menu':!isSystemsMenuExpanded}">
+            <aside>
+                <!-- system menu bar -->
+                <system-menubar #systemMenubarGrid [style]="['sidemenu', 'withdrop']" [isSystemsMenuExpanded]="isSystemsMenuExpanded"
+                                 (onToggleMenuBarEvent)="onToggleMenuBarEvent($event)" (onSelectedSubMenuGroupEvent)="onSelectedSubMenuGroupEvent($event)">
+                </system-menubar>
+            </aside>
+            <article>
+                <div class="center">
+                    <!-- vehicle to brake config search component -->
+                    <div *ngIf="activeSubMenuGroup==='Brake'">
+                        <vehicletobrakeconfig-search #vehicletobrakeconfigsearch [(vehicleToBrakeConfigSearchViewModel)]="vehicleToBrakeConfigSearchViewModel"
+                                                        [vehicleToBrakeConfigsForSelectedBrake]="vehicleToBrakeConfigsForSelectedBrake"
+                                                        [thresholdRecordCount]="thresholdRecordCount">
+                        </vehicletobrakeconfig-search>
+                    </div>
+                    <div *ngIf="activeSubMenuGroup==='Bed'">
+                        <vehicletobedconfig-search #vehicletobedconfigsearch [(vehicleToBedConfigSearchViewModel)]="vehicleToBedConfigSearchViewModel"
+                                                    [vehicleToBedConfigsForSelectedBed]="vehicleToBedConfigsForSelectedBed"
+                                                    [thresholdRecordCount]="thresholdRecordCount">
+                        </vehicletobedconfig-search>
+                    </div>
+                    <!-- vehicle to body style config search component -->
+	                <div *ngIf="activeSubMenuGroup === 'Body'">
+		                <vehicletobodystyleconfig-search #vehicletobodystyleconfigsearch [(vehicleToBodyStyleConfigSearchViewModel)]="vehicleToBodyStyleConfigSearchViewModel"
+		                                                  [vehicleToBodyStyleConfigsForSelectedBodyStyle]="vehicleToBodyStyleConfigsForSelectedBodyStyle"
+		                                                  [thresholdRecordCount]="thresholdRecordCount">
+		                </vehicletobodystyleconfig-search>
+	                </div>
+                    <div *ngIf="activeSubMenuGroup === 'WheelBase'">
+                        <vehicletowheelbase-search   #vehicletowheelbasesearch [(vehicleToWheelBaseSearchViewModel)]="vehicleToWheelBaseSearchViewModel"
+                                                        [vehicleToWheelBaseForSelectedWheelBase]="vehicleToWheelBaseForSelectedWheelBase"
+                                                        [thresholdRecordCount]="thresholdRecordCount">
+                        </vehicletowheelbase-search>
+                    </div>
+                    <div *ngIf="activeSubMenuGroup === 'MFRBodyCode'">
+                        <vehicletomfrbodycode-search #vehicletomfrbodycodesearch [(vehicleToMfrBodyCodeSearchViewModel)]="vehicleToMfrBodyCodeSearchViewModel"
+                                                      [vehicleToMfrBodyCodesForSelectedMfrBodyCode]="vehicleToMfrBodyCodesForSelectedMfrBodyCode"
+                                                      [thresholdRecordCount]="thresholdRecordCount">
+                        </vehicletomfrbodycode-search>
+                    </div>
+                    <div *ngIf="activeSubMenuGroup === 'DriveType'">
+                        <vehicletodrivetype-search #vehicletodrivetypesearch [(vehicleToDriveTypeSearchViewModel)]="vehicleToDriveTypeSearchViewModel"
+                                                     [vehicleToDriveTypesForSelectedDriveType]="vehicleToDriveTypesForSelectedDriveType"
+                                                     [thresholdRecordCount]="thresholdRecordCount">
+                        </vehicletodrivetype-search>
+                    </div>
+                </div>
+            </article>
+        </main>
+        <!-- Main end -->
+    </div>
+</div>

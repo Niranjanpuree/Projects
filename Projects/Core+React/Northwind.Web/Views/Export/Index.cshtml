@@ -1,0 +1,39 @@
+﻿@model List<Northwind.Core.Entities.ResourceAttributeValue>
+@{
+    ViewData["Title"] = "Export";
+}
+<div class="row">
+    <div class="col-md-12">
+        <form method="post" onsubmit="return false">
+            <select id="options">
+                @foreach (var item in Model)
+                {
+                    <option value="@item.Value">@item.Name</option>
+                }
+            </select>
+            <select id="selectedOptions" name="selectedOptions" multiple></select>
+            <select id="fieldNames" name="fieldNames" multiple style="display:none">
+                @foreach (var item in Model)
+                {
+                    <option value="@item.Value" selected="selected">@item.Name</option>
+                }
+            </select>
+            <select id="fieldLabels" name="fieldLabels" multiple style="display:none">
+                @foreach (var item in Model)
+                {
+                    <option value="@item.Value" selected="selected">@item.Name</option>
+                }
+            </select>
+        </form>
+    </div>
+</div>
+<script>
+    $("#options").kendoListBox({
+        connectWith: "selectedOptions",
+        toolbar: {
+            tools: ["moveUp", "moveDown", "transferTo", "transferFrom", "transferAllTo", "transferAllFrom"]
+        }
+    });
+
+    $("#selectedOptions").kendoListBox();
+</script>

@@ -1,0 +1,111 @@
+﻿@model Northwind.Web.Models.ViewModels.Questionaire.ContractCloseOutViewModel
+
+@{
+    int totalQuestions = Model.ProjectManagerQuestions.Count;
+    bool showSubQuestion = false;
+    if (totalQuestions > 0)
+    {
+        var question = Model.ProjectManagerQuestions.FirstOrDefault(x => x.OrderNumber == 1);
+        if (question != null)
+        {
+            string answer = string.IsNullOrEmpty(question.Answer) ? "No" : question.Answer;
+            showSubQuestion = (answer.ToUpper() == "YES") ? true : false;
+        }
+    }
+}
+<div class="col-12">
+    <div>
+        <div class="row">
+            <div class="col-md-12 px-0">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="w-25">File Name</th>
+                            <th scope="col" class="w-75">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.ProjetcManagerFiles?.Any() == true)
+                        {
+                            @foreach (var item in Model.ProjetcManagerFiles)
+                            {
+                                <tr>
+                                    <td class="w-25">
+                                        <a href="/ContractResourceFile/DownloadDocument/@item.UploadedFileGuid"
+                                           id="@item.UploadFileName" class="control-label">
+                                            @item.UploadFileName
+                                        </a>
+                                    </td>
+                                    <td class="w-75">@item.Description</td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td class="w-10"></td>
+                                <td class="w-100">
+                                    No files are uploaded.
+                                </td>
+                                <td class="w-10"></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+            </div>
+
+            <div class="col-md-12 form-group">
+                <label asp-for="ProjectManagerQuestions[0].Notes" class="control-label bold"></label>
+                <div class="">
+                    @(string.IsNullOrEmpty(Model.ProjectManagerQuestions[0].Notes) ? "N/A" : Model.ProjectManagerQuestions[0].Notes)
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <ul class="list-unstyled">
+        @for (int i = 0; i < totalQuestions; i++)
+        {
+
+            <li>
+                <div class="row border-bottom  pt-3 pb-2 validateMsg">
+                    <label asp-for="ProjectManagerQuestions[i].Questions" class="col-md-7 col-sm-6 control-label mb-0 requiredAstreicks">
+                        @Model.ProjectManagerQuestions[i].Questions
+                    </label>
+                    <div class="col text-right ">
+                        <div class="form-check form-check-inline ">
+                            @Model.ProjectManagerQuestions[i].Answer
+                        </div>
+                    </div>
+                </div>
+                @if (showSubQuestion)
+                {
+                <div class="row">
+                    <ul class="w-100 list-group list-group-flush pl-4 border-bottom">
+                        @for (int j = 0; j < Model.SubQuestions.Count; j++)
+                        {
+                            if (Model.SubQuestions[j].ParentMasterGuid == Model.ProjectManagerQuestions[i].QuestionaireMasterGuid)
+                            {
+                                <li class="list-group-item px-3">
+                                    <div class="row validateMsg">
+                                        <label asp-for="SubQuestions[j].Questions" class="col-md-7 col-sm-6 control-label mb-0 requiredAstreicks">
+                                            @Model.SubQuestions[j].Questions
+                                        </label>
+                                        <div class="col text-right">
+                                            <div class="form-check form-check-inline">
+                                                @Model.SubQuestions[j].Answer
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            }
+                        }
+                    </ul>
+                </div>
+                }
+            </li>
+        }
+    </ul>
+
+</div>

@@ -1,0 +1,120 @@
+﻿<loading-gif [show]="showLoadingGif"></loading-gif>
+<!-- Breadcrumb start -->
+<div class="breadcrumb">
+    <div class="center">
+        <a class="back" routerLink="/vehicle/search">Return to vehicle search</a>
+    </div>
+</div>
+<!-- Breadcrumb end -->
+<!-- Main start -->
+<main class="clearfix">
+
+    <div class="center">
+
+        <!-- Existing Base vehicle start -->
+        <div class="table-wrap">
+            <h2 class="clearfix">
+                Delete Base Vehicle
+            </h2>
+            <div class="ctable">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Base ID</td>
+                            <td>Year</td>
+                            <td>Make (ID)</td>
+                            <td>Model (ID)</td>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="deleteBaseVehicle">
+                        <tr>
+                            <td>{{deleteBaseVehicle.id}}</td>
+                            <td>{{deleteBaseVehicle.yearId}}</td>
+                            <td>{{deleteBaseVehicle.makeName}} ({{deleteBaseVehicle.makeId}})</td>
+                            <td>{{deleteBaseVehicle.modelName}} ({{deleteBaseVehicle.modelId}})</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+        <div class="add-form">
+            <div class="clearfix">
+
+                <div class="warning-wrap" *ngIf="deleteBaseVehicle">
+                    <div>
+                        <strong>Associated records will be impacted</strong>
+                        <span *ngIf="deleteBaseVehicle">{{ deleteBaseVehicle.vehicleCount }} Vehicles</span>
+                        <a class="icon-text blue right" *ngIf="deleteBaseVehicle.vehicleCount> 0" (click)="onViewAffectedVehicles()" style="cursor: pointer">View affected vehicles</a>
+                    </div>
+                </div>
+
+                <div class="submit-wrap">
+                    <input type="submit" value="SUBMIT CHANGE REQUESTS" class="btn larger" (click)="onDeleteBaseVehicle()">
+                    <input type="reset" value="CANCEL" class="btn transparent larger" routerLink="/vehicle/search">
+                </div>
+
+                <div class="attach-wrap">
+                    <strong>OPTIONAL</strong>
+                    <!--<span class="icon-text attachment">
+                        Attach a file (&#60; 10mb)
+                        <input type="file">
+                    </span>-->
+                    <ac-fileuploader upload-api-path="file/savechunk"></ac-fileuploader>
+                    <small>Include comments</small>
+                    <textarea cols="50" rows="5" *ngIf="deleteBaseVehicle" [(ngModel)]="deleteBaseVehicle.comment"></textarea>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</main>
+<!-- Main end -->
+<!--Modal Affected Vehicles-->
+<modal #viewAffectedVehiclesModal>
+
+    <div class="overlay dark show">
+        <div>
+            <a href="#" class="close" data-dismiss="modal"></a>
+            <!-- Affected vehicles start -->
+            <div class="table-wrap">
+                <h2 class="clearfix">
+                    Affected Vehicles
+                </h2>
+                <div class="ctable">
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>Year</td>
+                                <td>Make (ID)</td>
+                                <td>Model (ID)</td>
+                                <td>Vehicle ID</td>
+                                <td>Submodel (ID)</td>
+                                <td>Region (ID)</td>
+                            </tr>
+                        </thead>
+                        <tbody *ngIf="deleteBaseVehicle">
+                            <tr *ngIf="!deleteBaseVehicle.vehicles">
+                                <td colspan="6">Loading...</td>
+                            </tr>
+                            <tr class="tableicons" *ngFor="let vehicle of deleteBaseVehicle.vehicles">
+                                <td>{{vehicle.yearId}}</td>
+                                <td>{{vehicle.makeName}} ({{vehicle.makeId}})</td>
+                                <td>{{vehicle.modelName}} ({{vehicle.modelId}})</td>
+                                <td>{{vehicle.id}}</td>
+                                <td>{{vehicle.subModelName}} ({{vehicle.subModelId}})</td>
+                                <td>{{vehicle.regionName}} ({{vehicle.regionId}})</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Submit and cancel button start -->
+                <div class="btns">
+                    <button type="button" class="btn" data-dismiss="modal">CLOSE</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</modal>

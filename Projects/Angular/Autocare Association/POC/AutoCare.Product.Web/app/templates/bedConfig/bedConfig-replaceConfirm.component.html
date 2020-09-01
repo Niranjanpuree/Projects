@@ -1,0 +1,114 @@
+﻿<loading-gif [show]="showLoadingGif"></loading-gif>
+<!-- Breadcrumb start -->
+<div class="breadcrumb">
+    <div class="center">
+        <a class="back" routerLink="/system/search">Return to Bed System search</a>
+    </div>
+</div>
+<!-- Breadcrumb end -->
+<!-- Main start -->
+<main class="clearfix">
+
+    <div class="center" *ngIf="existingBedConfig && replacementBedConfig">
+
+        <!-- Existing Bed systems start -->
+        <div class="table-wrap">
+            <h2 class="clearfix">
+                Existing Bed Systems
+            </h2>
+            <div class="ctable">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Bed Config ID</td>
+                            <td>Bed Length (ID)</td>
+                            <td>Bed Type (ID)</td>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="existingBedConfig">
+                        <tr>
+                            <td>{{existingBedConfig.id}}</td>
+                            <td>{{existingBedConfig.length}} ({{existingBedConfig.bedLengthId}})</td>
+                            <td>{{existingBedConfig.bedTypeName}} ({{existingBedConfig.bedTypeId}})</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Replacement Bed systems start -->
+        <div class="table-wrap">
+            <h2 class="clearfix">
+                Replacement Bed Systems
+            </h2>
+            <div class="ctable">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Bed Config ID</td>
+                            <td>Bed Length (ID)</td>
+                            <td>Bed Type (ID)</td>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="replacementBedConfig">
+                        <tr>
+                            <td>{{replacementBedConfig.id}}</td>
+                            <td>{{replacementBedConfig.length}} ({{replacementBedConfig.bedLengthId}})</td>
+                            <td>{{replacementBedConfig.bedTypeName}} ({{replacementBedConfig.bedTypeId}})</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Associations to replace start -->
+        <div class="table-wrap">
+            <h2 class="clearfix">
+                Associations to Replace
+            </h2>
+            <div class="ctable" *ngIf="existingBedConfig && existingBedConfig.vehicleToBedConfigs">
+                <ac-grid [dataSource]="existingBedConfig.vehicleToBedConfigs" #gd="acGrid"
+                          columns='[
+                 { "header":"Vehicle to Bed Config ID","field":"id","sortable":true,"sortedByDesc":true},
+                 { "header":"Bed Config ID",                "field":"bedConfigId",    "sortable":true},
+                 { "header":"Base Vehicle (Year, Make, Model)","field":"vehicle.yearId","sortable":true},
+                 { "header":"Vehicle (Submodel, Region)","field":"vehicle.subModelName","sortable":true},
+                 { "header":"Bed Length (ID)","field":"bedConfig.length","sortable":true},
+                 { "header":"Bed Type (ID)", "field":"bedConfig.bedTypeName", "sortable":true}
+                 ]'
+                         initialSortBy='[{"field": "id", "orderByDesc": true}]'
+                         paging='{"pageSize": 10, "numberOfPagesOnPageList" : 10}'>
+                    <tr *ngFor="let vechicleToBedConfig of gd.items">
+	                    <td>{{vechicleToBedConfig.id}}</td>
+                        <td>{{vechicleToBedConfig.bedConfigId}}</td>
+                        <td>{{vechicleToBedConfig.vehicle.yearId}}, {{vechicleToBedConfig.vehicle.makeName}}, {{vechicleToBedConfig.vehicle.modelName}}</td>
+                        <td>{{vechicleToBedConfig.vehicle.subModelName}}, {{vechicleToBedConfig.vehicle.regionName}}</td>
+                        <td>{{vechicleToBedConfig.bedConfig.length}} ({{vechicleToBedConfig.bedConfig.bedLengthId}})</td>
+                        <td>{{vechicleToBedConfig.bedConfig.bedTypeName}} ({{vechicleToBedConfig.bedConfig.bedTypeId}})</td>
+                    </tr>
+                </ac-grid>
+            </div>
+
+        </div>
+
+        <div class="add-form">
+            <div class="clearfix">
+
+                <div class="submit-wrap">
+                    <input type="submit" value="SUBMIT CHANGE REQUEST" class="btn larger" (click)="onSubmitChangeRequest()">
+                    <input type="reset" value="CANCEL" class="btn transparent larger" routerLink="/system/search">
+                </div>
+
+                <div class="attach-wrap" style="margin-top: 40px;">
+                    <strong>OPTIONAL</strong>
+                    <ac-fileuploader upload-api-path="file/savechunk"></ac-fileuploader>
+                    <small>Include Comments</small>
+                    <textarea cols="50" rows="5" [(ngModel)]="existingBedConfig.comment"></textarea>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</main>
+<!-- Main end -->

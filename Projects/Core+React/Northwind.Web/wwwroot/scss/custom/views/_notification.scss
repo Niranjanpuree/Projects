@@ -1,0 +1,134 @@
+.navbar-notification {
+    position: relative;
+}
+
+.notification {
+    &-list {
+        width: 300px;
+        font-size: 12px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.16);
+
+        &:before {
+            content: '';
+            width: 10px;
+            height: 10px;
+            display: block;
+            transform: rotate(45deg);
+            position: absolute;
+            top: -5px;
+            right: 20px;
+            background: #fff;
+        }
+
+        ul {
+            overflow: auto;
+            max-height: calc(100vh - 200px);
+            border-radius: 4px;
+        }
+
+        li {
+            padding: 10px;
+            cursor: pointer;
+
+            &:hover {
+                background: $gray-100;
+
+            }
+
+            &+li {
+                border-top: 1px solid $gray-200;
+
+            }
+        }
+
+    }
+
+    &-item {
+        &-date {
+            flex: 0 0 auto;
+            width: auto;
+            max-width: 100%;
+            display: flex;
+            align-items: center;
+
+
+        }
+
+        &-footer {
+            margin: 3px 0;
+            display: flex;
+            justify-content: space-between;
+            color: $gray-600;
+
+            .k-icon {
+                margin-right: 5px;
+            }
+
+            @at-root .notification-list & {
+                font-size: 10px;
+
+                .k-icon {
+                    font-size: 8px;
+                }
+            }
+
+            @at-root .inbox-list-container & {
+                font-size: 13px;
+
+                .k-icon {
+                    font-size: 10px;
+                }
+            }
+        }
+
+        &-created {
+            font-weight: $fw-b;
+            @extend %ellipsis;
+            padding-right: 15px;
+        }
+
+        p {
+            margin-bottom: 0;
+            line-height: 1.5;
+        }
+    }
+
+
+
+
+    &-count {
+        border-radius: 50%;
+        background: $danger;
+        border:1px solid $white;
+        width: 22px;
+        height: 22px;
+        display: block;
+        font-size: 11px;
+        font-weight: $fw-h;
+        color: $white;
+        position: absolute;
+        bottom: 12px;
+        right: 5px;
+        line-height: 22px;
+        text-align: center;
+    }
+
+    &-subject,
+    &-message,
+    &-message-additional {
+        @extend %ellipsis;
+    }
+
+    &-subject {
+        font-weight: $fw-b;
+        color: $primary;
+    }
+
+    &-empty {
+        i {
+            font-size: 36px;
+            opacity: 0.4;
+        }
+    }
+
+}

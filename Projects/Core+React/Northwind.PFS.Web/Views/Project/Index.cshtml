@@ -1,0 +1,48 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, Northwind.Web
+@addTagHelper *, Northwind.Web.Helpers
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+@{
+    var resourceVersion = @Configuration["resourceVersion"];
+    var cdnUrl = @Configuration["CDNUrl"];
+}
+
+@{
+    ViewData["Title"] = "Projects";
+}
+
+@{
+    Layout = "_Layout";
+}
+
+@section breadcrumb
+    {
+    <li class="breadcrumb-item"><a href="#">Operations</a></li>
+    <li class="breadcrumb-item"><a href="~/project">Project Financial Tool</a></li>
+}
+
+<div class="row">
+    <div class="col">
+        <div id="taskOrderList" class="table-grid table-grid-r">
+        </div>
+    </div>
+</div>
+<div id="PartialDetails">
+</div>
+<div id="distributionList"></div>
+<div id="dialog">
+    <div class="content"></div>
+</div>
+<!-- </div> -->
+<span class="contract-icon"></span>
+<span class="project-icon"></span>
+
+
+@section Scripts {
+    <script type="text/javascript">
+        (function () {
+            window.pfs.showProjectFinancialSystem();
+        })()
+    </script>
+}

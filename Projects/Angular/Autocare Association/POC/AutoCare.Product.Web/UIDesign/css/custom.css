@@ -1,0 +1,2356 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+header nav {
+    margin:0px !important;
+    padding:0px;
+    border-bottom: 0px;
+}
+
+header nav nav{
+    margin:0px !important;
+    padding:0px;
+    border-bottom: 0px;
+}
+
+.background {
+	background-color:#faf8f5;
+}
+
+.navbar-height { 
+    height:66px;
+
+}
+
+.navbar-bottom-height { 
+    height:48px;
+    padding-bottom:0px;
+    
+}
+
+.top-nav-text {
+    border-radius:0px;
+	color:#e9e3dc !important;
+	font-family:OpenSans-Regular;
+	font-size:22px !important;
+}
+
+.bottom-nav-text {
+    border-radius:0px;
+	color:#e9e3dc !important;
+	font-family:OpenSans-Regular;
+	font-size:16px !important;
+}
+
+.siteTools {
+  min-height:60px;
+  margin-bottom: 0px;
+  padding-bottom:0px;
+  background-color:#cdcdcd;
+  border:none;
+}
+
+.siteTools .nav > li > a {
+  padding: 20px 30px;
+  font-size: 18px;
+  vertical-align: middle;  
+}
+
+.headerbackground {
+  background: #1290b7; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left, #1290b7 , #00486c); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, #1290b7 , #00486c); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, #1290b7 , #00486c); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, headerbackground); /* Standard syntax */
+  min-height:63px !important;
+}
+
+.headerbackground-bottom{
+  background: #1290b7; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(right, #1290b7 , #00486c); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, #1290b7 , #00486c); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, #1290b7 , #00486c); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, headerbackground); /* Standard syntax */
+}
+
+.logo-align{
+	float: left;
+    margin: -4px 15px;
+	}
+
+.user-logo-align{
+	float: left;
+    /*margin: -4px 15px;*/
+    margin-top: 20px;
+    width: 16px; 
+    height: 16px;
+    align-items:flex-start; 
+    vertical-align: middle;
+	}
+	
+.Menu_Text {
+  width: 61px;
+  height: 22px;
+  font-family: OpenSans-Regular;
+  font-size: 16px;
+  color: #e9e3dc;
+}
+
+.searchVCDB{
+	color:#FFFFFF;
+	background-color:#69992b;
+	border-color:#69992b;
+	}
+	
+.search-ht{
+	height:40px;
+    /*border-left: 0px;*/
+	}
+
+.BtnSearch{
+	height:36px;
+    width: 36px;
+    background-color:transparent; 
+	}
+
+.BtnSearch.input-group-btn:last-child > .btn, .BtnSearch.input-group-btn:last-child > .btn-group {
+    z-index: 2;
+    margin-left: -37px;
+}
+
+.search-dropdown {
+  width: 123px;
+  height: 16px;
+  font-family: OpenSans-Bold;
+  font-size: 14px;
+  line-height: 1.1;
+  color: #ffffff;
+}
+
+.Year-Make-Model-S {
+  width: 194px;
+  height:40px;
+  font-family: OpenSans-Regular;
+  font-size: 14px;
+  color: #999085;
+}
+
+.search {
+  width: 18px;
+  height: 18px;
+  background-color: #000000;
+}
+
+.Menu-Item {
+  width: 61px;
+  height: 22px;
+  font-family: OpenSans-Regular;
+  font-size: 16px;
+  /*color: #e9e3dc;*/
+}
+
+.date-range-copy-3 {
+  width: 24px;
+  height: 24px;
+  background-color: #000000;
+}
+
+.Form-Elements {
+  width: 550px;
+  height: 41px;
+  font-family: OpenSans-Regular;
+  /*font-size: 30px;*/
+  color: #000000;
+  font-size: 30px;
+  font-weight: 400;
+  
+}
+
+.Form-Elements-Small {
+  width: 750px;
+  height: 41px;
+  font-family: OpenSans-Regular;
+  font-size: 30px;
+  color: #000000;
+  font-size: 30px;
+  font-weight: 400;
+}
+
+.Recent-searches {
+  width: 450px;
+  height: 41px;
+  font-family: OpenSans-Regular;
+  font-size: 30px;
+  color: #000000;
+}
+
+.TableHeaderLong {
+  width: 500px;
+  height: 41px;
+  font-family: OpenSans-Regular;
+  font-size: 30px;
+  color: #000000;
+}
+
+.GMC-Yukon {
+  width: 168px;
+  height: 16px;
+  font-family: OpenSans-Regular;
+  font-size: 14px;
+  line-height: 1.1;
+  color: #005581;
+  /*color: var(--deep-sea-blue);*/
+}
+
+.active{
+            border-bottom: 5px solid #f5c400;
+            /*bottom: 12px;*/
+            content: "";
+            left: 0;
+            position: absolute;
+            width: auto;
+            text-decoration-color: #f5c400  !important;
+            /*color: #FFC107;*/
+            /*color: #FBC02D !important;*/
+            color: #f5c400 !important;
+            /*background-color: Background;*/
+            text-align: center;
+        }
+
+.active-button{
+            border-bottom: none;
+            bottom: 0;
+            content: "";
+            left: 0;
+            position: absolute;
+            width: auto;
+            text-decoration-color: #f5c400  !important;
+            /*color: #FFC107;*/
+            /*color: #FBC02D !important;*/
+            color: #f5c400 !important;
+            /*background-color: Background;*/
+            font-family: OpenSans-Regular;
+            font-size: 18px;
+            /*color: #ffffff;*/
+        }
+
+/*.WF10C-active{
+            width: 229px;
+            height: 48px;
+            content: "";
+            left: 0;
+            position: absolute;
+            width: auto;
+            border-radius: 3px;
+            background-color: #005581!important;
+            color: #f5c400 !important;
+        }
+
+.WF10C-active-button{
+            border-bottom: none;
+            bottom: 0;
+            content: "";
+            left: 0;
+            position: absolute;
+            width: auto;
+            content: "";
+            left: 0;
+            position: absolute;
+            width: auto;
+            border-radius: 3px;
+            background-color: #005581!important;
+            color: #f5c400 !important;
+            font-family: OpenSans-Bold;
+        }*/
+
+.NewUpdateDelete {
+            border-bottom: 5px solid #005581;
+            bottom: 12px;
+            content: "";
+            left: 0;
+            position: absolute;
+            width: 230px;
+            /*text-decoration-color: #005581  !important;*/
+            /*color: #FFC107;*/
+            /*color: #FBC02D !important;*/
+            background-color: #005581 !important;
+            /*background-color: Background;*/
+        }
+
+.NewUpdateDelete a:hover, .NewUpdateDelete a:focus, .NewUpdateDelete :after{
+            background-color: #005581 !important;
+}
+
+.nav-pills>li.NewUpdateDelete>a, .nav-pills>li.NewUpdateDelete>a:focus, .nav-pills>li.NewUpdateDelete>a:hover {
+	/*color: #fff;*/
+	background-color: #005581 !important;
+}
+
+.NewUpdateDelete-button{
+            border-bottom: none;
+            bottom: 0;
+            content: "";
+            left: 0;
+            position: absolute;
+            width: auto;
+            /*text-decoration-color: #005581  !important;*/
+            /*color: #FFC107;*/
+            /*color: #FBC02D !important;*/
+            color: #005581 !important;
+            /*background-color: Background;*/
+            font-family: OpenSans-Regular;
+            font-size: 18px;
+            /*color: #ffffff;*/
+        }
+
+.active-header-dropdown{
+            /*border-bottom: 4px solid yellow;*/
+            /*bottom: 12px;*/
+            border-bottom: none;
+            content: "";
+            left: 0;
+            position: absolute;
+            width: auto;
+            /*text-decoration-color: yellow;*/
+            /*color: #FFC107;*/
+            color: #FBC02D !important;
+            /*background-color: Background;*/
+        }
+
+.View-button {
+    height: 16px;
+    font-family: OpenSans-Bold;
+    font-size: 14px;
+    line-height: 1.1;
+    text-align: center;
+    /*color: #6b655d;*/
+    color: #005581;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.View-button:hover {
+    height: 16px;
+    font-family: OpenSans-Bold;
+    font-size: 14px;
+    line-height: 1.1;
+    text-align: center;
+    /*color: #6b655d;*/
+    color: #005581;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    cursor: pointer;
+    /*text-decoration: underline;*/
+    /*border: 1px;*/
+}
+
+
+.View-Affected {
+    width: 229px;
+    height: 48px;
+    font-family: OpenSans-Bold;
+    font-size: 14px;
+    line-height: 1.1;
+    text-align: center;
+    border-radius: 3px;
+    background-color: #005581; 
+    color: #6b655d;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.View-Affected:hover {
+    width: 229px;
+    height: 48px;
+    font-family: OpenSans-Bold;
+    font-size: 14px;
+    line-height: 1.1;
+    text-align: center;
+    border-radius: 3px;
+    background-color: #005581;
+    color: #6b655d;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    cursor: pointer;
+    /*text-decoration: underline;*/
+    /*border: 1px;*/
+}
+.navbar-bottom {
+	margin-bottom:0px !important;
+    height: 60px;
+	}
+	
+.tablebottom{
+	margin-bottom:0px !important;
+	}
+	
+.tablecontentsize{
+	font-size:17px;
+	}
+	
+
+.glowing-border {	
+	border: 1px solid #B9B9B9; /* some kind of blue border */
+
+   /* make it glow! */
+    -webkit-box-shadow: 0px 0px 3px #5c5c5c;
+       -moz-box-shadow: 0px 0px 3px #5c5c5c;
+            box-shadow: 0px 0px 3px #5c5c5c; /* some variation of blue for the shadow */
+	}
+
+.tableheadercolor{
+	background:#59636b; 
+	color:#FFFFFF;
+	}	
+
+.table-link tr td{
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.table-link tr td:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.Requested {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.Requested:hover {
+    cursor: pointer;
+    /*text-decoration: underline;*/
+    /*border: 1px;*/
+}
+
+.DOWNLOAD {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.DOWNLOAD:hover {
+    cursor: pointer;
+    /*text-decoration: underline;*/
+    /*border: 1px;*/
+}
+
+.header-text {
+  width: 15px;
+  height: 16px;
+  font-family: OpenSans-Bold;
+  font-size: 14px;
+  line-height: 1.1;
+  color: #ffffff;
+  font-weight: 800;
+}
+
+.table-body-text {
+  width: 15px;
+  height: 16px;
+  font-family: OpenSans-Regular;
+  font-size: 14px;
+  line-height: 1.1;
+  color: #000000;
+  font-weight: 500;
+}
+
+.View-All-Requests {
+  font-family: OpenSans-Bold;
+  font-size: 14px;
+  line-height: 1.1;
+  text-align: center;
+  color: #6b655d;
+  font-weight: 600;
+}
+
+.DB-buttons {
+    font-family: OpenSans-Regular;
+    font-size: 18px;
+    color: #ffffff;
+}
+	
+.table-titles p{
+	text-align:right;
+	line-height:80px;
+	}
+.table-titles{
+	height:80px;
+	line-height:80px;
+	}
+.downloadicon{
+	font-size:25px;
+	color:#005581;
+    font-weight: 700;
+	}
+.tableicons td i{
+	font-size:22px;
+	color:#999085;
+	}
+.tableicons td span{
+	font-size:14px;
+	color:#000;
+	}
+
+.textalighcenter{
+	text-align:center;
+	}
+	
+.3secdropdown p {
+	color:#A2A2A2;
+	font-size:10px;
+	}
+
+.3secdropdown select option {
+	padding:3px;
+	color:#A2A2A2;
+	font-size:12px;
+	}
+	
+.margins{
+	margin:10px 0;
+    margin-left: 0px;
+	}
+
+.margins4p{
+	margin:0 10px 0 0;
+	}
+.paddings{
+	padding:0px 20px 0px 0px;
+	}
+	
+.secheight{
+	/*height:40px;
+	line-height:40px;*/
+	}
+
+.footersec{
+	font-size:15px;
+	color:#767676;
+    font-family: OpenSans-Regular;
+	}
+
+.table-borderless {
+    border-spacing: 0;
+    border: 0;
+    border-collapse: collapse;
+}
+
+.table-borderless > .table tbody tr{
+            border: none;
+            border-bottom: none;
+            border-top: none;
+        }
+
+
+/*table tbody tr td {
+    border-top: 0px !important; 
+}*/
+
+.table-borderless > .table tbody tr td{
+            border-top-width: 0px; 
+            border-right-width: 0px;
+            border-bottom-width: 0px; 
+            border-left-width: 0px;
+        }
+	
+	
+/* pagination */
+
+ul.pagination {
+    display: inline-block;
+    padding: 0;
+    margin: 15px;
+	background-color:#BD5E5F;
+}
+
+ul.pagination li {display: inline;}
+
+ul.pagination li a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+	transition: background-color .3s;
+    border: 1px solid #ddd;
+}
+
+ul.pagination li a.active {
+    background-color: #4CAF50;
+    color: white;
+    border: 1px solid #4CAF50;
+}
+
+ul.pagination li a:hover:not(.active) {background-color: #ddd;}
+
+div.center {
+	text-align: center;
+	background-color:#d1dfe6;
+	}
+	
+.btn-color {
+    color: black;    
+    font-family: OpenSans-Regular;
+    }	
+
+.navigation-btn-color {
+    color: black;    
+    font-family: OpenSans-Bold;
+    font-weight: 600;
+    }
+
+.selected-menu-color {
+    color: #FFEB3B;
+}
+
+.btn-back-search {
+    margin-top: 20px;
+    /*margin-left: 20px;*/
+    background-color: transparent;
+    color: #005581;
+    text-align: left;
+    font-family: OpenSans-Regular;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.arrow-left {
+    margin-left: 10px;
+    color: #005581;
+    width: 2px;
+}
+	
+.collapsible-arrows {
+    border: none;
+    height: 4px;
+}
+
+
+.table_borderless {
+	width: 100%;
+	max-width: 100%;
+	margin-bottom: 20px
+}
+
+.table_borderless>tbody>tr>td,
+ .table_borderless>tbody>tr>th,
+ .table_borderless>tfoot>tr>td,
+ .table_borderless>tfoot>tr>th,
+ .table_borderless>thead>tr>td,
+ .table_borderless>thead>tr>th {
+	padding: 8px;
+	line-height: 1.42857143;
+	vertical-align: top;
+	border-top: 0px solid #ddd
+}
+
+.unfold-less {
+  width: 10px;
+  height: 16px;
+  /*background-color: #000000;*/
+}
+
+.engine {
+  width: 75.9px;
+  height: 56.6px;
+  border-radius: 12px;
+  background-color: #a3d656;
+  /*border: solid 0.5px #333333;*/
+}
+
+.brakes {
+  width: 75.9px;
+  height: 75.9px;
+  border-radius: 12px;
+  background-color: #a3d656;
+  /*border: solid 0.5px #333333;*/
+}
+
+.Rectangle-49 {
+  width: 144px;
+  height: 144px;
+  border-radius: 12px;
+  background-color: #a3d656;
+  /*border: solid 0.5px #333333;*/
+}
+
+.wheel {
+  width: 75.5px;
+  height: 75.6px;
+  border-radius: 12px;
+  background-color: #a3d656;
+  /*border: solid 0.5px #333333;*/
+}
+
+.chasis {
+  width: 56.6px;
+  height: 75.9px;
+  border-radius: 12px;
+  background-color: #a3d656;
+  /*border: solid 0.5px #333333;*/
+}
+
+.image-style-engine {
+     padding-left: 50px; 
+     padding-top: 15px;
+}
+
+.image-style-brake {
+     padding-left: 50px; 
+     padding-top: 15px;
+}
+
+.image-style-electrical {
+     padding-left: 70px; 
+     padding-top: 15px;
+}
+
+.image-style-suspension {
+     padding-left: 70px; 
+     padding-top: 15px;
+}
+
+.image-style-chasis {
+     padding-left: 50px; 
+     padding-top: 15px;
+}
+
+.margins-top{
+	margin:35px 0;
+    margin-bottom: 10px;
+	}
+
+.btn-background {
+    background-color: #005581;
+    color: #EEEEEE !important;    
+    }
+
+.btn-collapsible {
+    background-color: transparent;
+    border: none;  
+    outline: none;
+}
+
+.btn-AddUpdateDelete {
+    margin-left: 110px;
+}
+
+.btn-NewUpdateDelete-color {
+    background-color: #005581 !important;
+    height: 38px;
+}
+
+.btn-Attachment-color {
+    background-color: #005581 !important;
+    height: 18px;
+}
+
+.btn-New {
+  width: 33px;
+  height: 16px;
+  font-family: OpenSans-Bold;
+  font-size: 14px;
+  line-height: 1.1;
+  /*color: #ffffff;*/
+  background-color: #005581;
+  color: #EEEEEE !important; 
+}
+
+.addmodifydelete-color {
+    color:brown;
+    }
+
+.pencil-margin{
+    margin-right: 50px;
+}
+
+.VehicleSearchPencilMargin{
+    margin-right: 0px;
+}
+
+.btn-Add {
+    width: 125px;
+}
+
+.table-margins1 {
+	margin: 15px 0;
+    margin-bottom: 5px;
+	}
+
+.table-margins {
+	margin: 25px 0;
+    margin-bottom: 5px;
+	}
+
+.brake-logo {
+     height:25px;
+     width:25px;
+}
+
+.header-text-margin {
+    margin-bottom: 5px;
+}
+
+.warning {
+  width: 29px;
+  height: 26px;
+  background-color: #000000;
+}
+
+.table-row-color-green{
+    background-color: #b5e075;
+}
+
+.table-row-color-yellow{
+    background-color: #f5c400;
+}
+
+.margins-addBaseVehicleConflicts{
+	margin: 20px 0;
+    margin-left: 25%;
+	}
+
+.table-addBaseVehicle > .table tbody tr{
+            /*border: none;
+            border-bottom: none;*/
+        }
+
+
+.table-addBaseVehicle > .table tbody tr td{
+            border-top-width: 0px; 
+            border-right-width: 0px;
+            border-bottom-width: 0px; 
+            border-left-width: 0px;
+        }
+
+.disabled{
+    pointer-events:none;
+    opacity:0.4;
+}
+.header-text-margin {
+    margin-left: 20px;
+}
+
+.ReferenceDataSearch {
+    display:inline-block; 
+    width:228px; 
+    height: 36px;
+}
+
+.VehicleIDSearch {
+    display:inline-block; 
+    width:159px; 
+    height: 36px;
+    margin-left: 89%;
+}
+
+.ReplaceVehicleSearch {
+    display:inline-block; 
+    width:159px;
+    height: 36px;
+    /*margin-left: 29%;*/
+}
+
+/*.WF101-btn-background {
+    background-color: #69992b;
+    color: #EEEEEE !important; 
+    width: 150px;   
+    text-align:center;
+    height: 25px;
+    vertical-align: middle;
+    }*/
+
+/*.WF101-btn-margin {
+    margin-left: 385px;
+    
+}*/
+
+/*.WF101-btn-font {
+    font-weight: 600;    
+    vertical-align: central;
+    font-family: OpenSans-Bold;
+}*/
+
+.link-button {
+    height: 16px;
+    font-family: OpenSans-Regular;
+    font-size: 14px;
+    line-height: 1.1;
+    text-align: center;
+    color: blue;
+    font-weight: 400;
+}
+
+.PreviewHeader {
+    margin-left: 0px;
+    padding-left: 0px;
+    font-family: OpenSans-Regular;
+}
+
+/*.WF9-Prview-Submit {
+    padding-left: 72%;
+}*/
+
+.AddBaseVehicle {
+    margin-left: 25px;
+}
+
+.AddBaseVehicleTable {
+    width: 70%;
+}
+
+.WF10C-Table {
+    width: 100%;
+}
+
+.TableTD10 {
+    width: 10%;
+}
+
+.TableTD16 {
+    width: 16%;
+}
+
+.TableTD4 {
+    width: 4%;
+}
+
+.TableTD22 {
+    width: 22%;
+}
+.AddBaseVehicleTableHeader{
+    font-family: OpenSans-Bold;
+    font-size: 14px;
+    color: #382f3d;
+    height: 18px;
+}
+
+.WF9-Attach-Space{
+    font-family: OpenSans-Bold;
+    font-size: 14px;
+    color: #382f3d;
+    height: 10px;
+    margin-top: 0px;
+    padding-top: 0px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
+.ProposedTableTD {
+    width: 20%;
+}
+
+.Table-CellOne {
+    width: 12%;
+}
+
+.Table-CellOther {
+    width: 22%;
+}
+
+.TableTD25 {
+    width: 25%;
+}
+
+.TableTD30 {
+    width: 30%;
+}
+
+.TableTD35 {
+    width: 35%;
+}
+
+
+.DropdownTypeOne{
+    font-family: OpenSans-Regular;
+    font-size: 14px;
+    color: #000000;
+    width: 192px;
+    height: 30px;
+    border-radius: 4px;
+    background-color: #ffffff;
+    border: solid 1px #77776d;
+}
+
+.DropdownTypeTwo{
+    font-family: OpenSans-Regular;
+    font-size: 14px;
+    color: #000000;
+    width: 162px;
+    height: 30px;
+    border-radius: 4px;
+    background-color: #ffffff;
+    border: solid 1px #77776d;
+}
+
+.WF11-Add-Base-Vehicle-Table {
+    width: 90%;
+}
+
+.ReferenceDataSearch-box {
+    margin-top: 60px;
+}
+
+.WF101-Nav-button {
+    margin-top: 30px;
+}
+
+.WF6-nav-button {
+    font-family: OpenSans-Bold;
+}
+
+.Engine-config-system {
+  font-family: OpenSans-Semibold;
+  font-size: 14px;
+  text-align: center;
+  color: #444444;
+}
+
+.WF9-body-text {
+  font-family: OpenSans-Regular;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.WF9-button-margins {
+	margin: 0px 0;
+    margin-left: 25%;
+	}
+
+.WF9-Nav-button-remove {
+    margin-top: 10px;
+    padding-left: 64%;
+}
+
+.WF9-Nav-button-goback {
+    margin-top: 0px;
+    margin-left: 66%;
+}
+
+.calendar-text {
+  font-family: OpenSans-Regular;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.W6-Brake-Engine {
+    width: 100px;
+    border: none;
+}
+
+.base {
+  width: 24px;
+  height: 24px;
+  border-radius: 2px;
+  background-color: #005581;
+  cursor: pointer;
+}
+
+
+.create-delete {
+    padding-right: 20px;
+}
+
+.Pending-class {
+  font-family: OpenSans-Regular;
+  font-size: 14px;
+  line-height: 1.1;
+  color: #005581;  
+  /*visibility: hidden;*/
+}
+
+.Pending-class:hover {
+  font-family: OpenSans-Regular;
+  font-size: 14px;
+  line-height: 1.1;
+  color: #005581;  
+  visibility: visible;
+}
+
+.WF101-Nav-button-align {
+    margin-left: 200px;
+}
+
+.reference-data-container {
+	padding-right: 15px;
+	padding-left: 215px;
+	margin-right: auto;
+	margin-left: auto
+}
+
+.TableMargins {
+	margin: 5px 0;
+    margin-bottom: 5px;
+}
+
+/* Modals Section : Start  */
+.modal-transparent {
+  background: transparent;
+}
+.modal-transparent .modal-content {
+  background: #fff;
+}
+.modal-backdrop.modal-backdrop-transparent {
+  background: #fff;
+}
+.modal-backdrop.modal-backdrop-transparent.in {
+  opacity: .9;
+  filter: alpha(opacity=90);
+}
+
+.headermodel{
+	font-family:OpenSans-Semibold;
+	border-bottom:none !important;
+	font-size:24px;
+	}
+	
+.bodymodel{
+	font-family:OpenSans-Bold;
+	border-bottom:none !important;
+	font-size:14px;
+    width: 350px;
+	}
+
+.bodymodal{
+	font-family:OpenSans-Bold;
+	border-bottom:none !important;
+	font-size:14px;
+    width: 396px;
+	}
+	
+.footermodel{
+	border-top:none !important;
+	font-size:12px;
+	}
+	
+.footermodel button{
+	padding:6px 40px 6px 40px;
+	border-radius: 2px !important;
+	}
+
+ .modelsubmitBTN{
+	font-family:OpenSans-Bold;
+	background-color:#69992b;
+	color:#fff;
+	}
+
+ .WF10-modelsubmitBTN{
+	font-family:OpenSans-Bold;
+	background-color:#69992b;
+	color:#fff;
+    margin-right: 15px;
+	}
+	
+.modelcancelBTN{
+	font-family:OpenSans-Regular;
+	color:#6b655d;
+	border:none;
+	background-color:transparent;
+	}
+.modal-backdrop{
+	z-index: auto !important;
+	}
+	
+
+	
+@media (min-width:768px) {
+.modal-dialog {
+	width: 400px !important;
+}
+
+
+@media (min-width:768px) {
+.modal-dialog {
+	width: 400px !important;
+}
+
+.input-group input{
+	/*width:140% !important;*/
+	}
+}
+
+.input-group-body{
+	width:350px;
+	}
+}
+
+.closebutton{
+	opacity:1.0 ! important;
+	font-size:30px;
+	line-height:0.5 !important;
+	}
+
+.modal-fullscreen .modal-dialog {
+  margin: 0;
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .modal-fullscreen .modal-dialog {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .modal-fullscreen .modal-dialog {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .modal-fullscreen .modal-dialog {
+     width: 1170px;
+  }
+}
+
+.ModifyBasevehicleModal-fullscreen {
+  margin: 0;
+  margin-top: 130px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 85%;
+  height: 377px;
+}
+.New-Make {
+  width: 150px;
+  height: 33px;
+  font-family: OpenSans-Regular;
+  font-size: 24px;
+  color: #000000;
+}
+
+.Remove-Make {
+  width: 158px;
+  height: 33px;
+  font-family: OpenSans-Regular;
+  font-size: 24px;
+  color: #000000;
+}
+
+
+.Submit-a-new-Make-name {
+  /*width: 300px;
+  height: 18px;*/
+  font-family: OpenSans-Bold;
+  font-size: 14px;
+  line-height: 1.3;
+  color: #382f3d;
+  font-weight: 600;
+}
+
+.Submit-Make-Confirmation {
+  width: 350px;
+  height: 18px;
+  font-family: OpenSans-Bold;
+  font-size: 14px;
+  line-height: 1.3;
+  color: #382f3d;
+  font-weight: 600;
+}
+
+.Submit-Make-Checkbox-Group {
+  width: 150px;
+  height: 18px;
+  font-family: OpenSans-Bold;
+  font-size: 14px;
+  line-height: 1.3;
+  color: #382f3d;
+  font-weight: 600;
+}
+
+.Checkbox-Group {
+  /*width: 150px;*/
+  font-family: OpenSans-Regular;
+  font-size: 14px;
+  line-height: 1.3;
+  color: #382f3d;
+  font-weight: 400;
+  /*align-content: flex-start;*/
+}
+
+.Cancel-Button-Background {
+  width: 114px;
+  height: 32px;
+  border-radius: 2px;
+  background-color: #005581;
+  border: solid 1px #005581;
+}
+
+.Delete-Break {
+  width: 300px;
+  height: 33px;
+  font-family: OpenSans-Regular;
+  font-size: 24px;
+  color: #000000;
+}
+
+.WF13-Modal-Delete-Table {
+    width: 100%;
+}
+
+.WF13-Base-Label{
+    font-family: OpenSans-Regular;
+    font-size: 14px;
+    color: #000000;
+    /*width: 66px;*/
+    height: 30px;
+    font-weight: 400;
+}
+
+.WF13-Modal-Header{
+    font-family: OpenSans-Bold;
+    font-size: 14px;
+    color: #382f3d;
+    width: 100%;
+    /*height: 18px;*/
+}
+/* Modals Section : End  */
+
+.engine-image-text {
+    font-family: OpenSans-Regular;
+    font-size: 14px;
+    line-height: 1.3;
+    color: #382f3d;
+    font-weight: 400;
+}
+
+.Filters {
+  font-family: OpenSans-Bold;
+  font-size: 14px;
+  line-height: 1.1;
+  color: #ffffff;  
+  width: 205px;
+}
+
+.Filters-Cancel {
+  font-family: OpenSans-Regular;
+  font-size: 14px;
+  line-height: 1.1;
+  color: #6b655d;
+}
+
+.VIEW-AFFECTED-VEHICLE {
+  /*width: 176px;
+  height: 16px;*/
+  font-family: OpenSans-Bold;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1.14;
+  text-align: center;
+  color: #ffffff !important;
+  /*margin-left: 12%;
+  margin-top: 15px;*/
+  position: absolute;
+  /*content: "";*/
+}
+
+.VIEW-AFFECTED-VEHICLE:hover, .VIEW-AFFECTED-VEHICLE:focus {
+  /*width: 176px;
+  height: 16px;*/
+  font-family: OpenSans-Bold;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1.14;
+  text-align: center;
+  color: #ffffff !important;
+  /*margin-left: 12%;
+  margin-top: 15px;*/
+  position: absolute;
+  /*content: "";*/
+}
+
+.table-odd-row {
+  background-color: #ffffff;
+  box-shadow: inset 0 -1px 0 0 #bbb0a3;
+}
+
+.table-even-row {
+  width: 816px;
+  height: 37px;
+  background-color: #faf8f5;
+  box-shadow: inset 0 -1px 0 0 #bbb0a3;
+}
+
+.search-copy {
+  width: 18px;
+  height: 18px;
+  background-color: #000000;
+}
+
+.Rectangle-33 {
+  width: 36px;
+  height: 36px;
+}
+.base-copy {
+  width: 228px;
+  height: 36px;
+  border-radius: 4px;
+  background-color: #ffffff;
+  border: solid 1px #999085;
+}
+
+.drop-download-Year {
+    width: 72px;
+}
+
+.Attach-a-file-10mb {
+  width: 135px;
+  height: 16px;
+  font-family: OpenSans-Regular;
+  font-size: 14px;
+  line-height: 1.1;
+  color: #005581;
+  text-align:left;
+  cursor: pointer;
+}
+
+.attachment {
+  width: 20px;
+  height: 11px;
+  cursor: pointer;
+}
+
+.AttachmentIcon {
+    margin-top: 0px;
+    padding-top: 0px;
+    width: 20px;
+  /*height: 11px;*/
+}
+
+.IncludeComments {
+  width: 121px;
+  /*height: 10px;*/
+  font-family: OpenSans-Regular;
+  font-size: 14px;
+  color: #382f3d;
+}
+
+.AttachmentCommentTextbox {
+  width: 360px;
+  height: 60px;
+  border-radius: 4px;
+  background-color: #ffffff;
+  border: solid 1px #9c968a;
+}
+
+.My-pending-change-request {
+  width: 404px;
+  /*height: 41px;*/
+  font-family: OpenSans-Regular;
+  font-size: 30px;
+  color: #000000;
+}
+
+.ConfigureVehicle {
+  width: 650px;
+  font-family: OpenSans-Regular;
+  font-size: 30px;
+  color: #000000;
+}
+
+.add-base-vehicle-View {
+  width: 42px;
+  height: 16px;
+  font-family: OpenSans-Regular;
+  font-size: 14px;
+  line-height: 1.1;
+  color: #005581;
+  font-weight:500;
+  cursor: pointer;
+}
+
+.add-base-vehicle-View-link {
+  font-family: OpenSans-Bold;
+  font-size: 14px;
+  line-height: 1.1;
+  color: #005581;
+}
+
+.base-button {
+  width: 77px;
+  height: 30px;
+  border-radius: 2px;
+  background-color: #005581;
+}
+
+.WF10C-base-button {
+  width: 229px;
+  height: 48px;
+  border-radius: 2px;
+  background-color: #005581 !important;
+  /*content: "";*/
+}
+
+.WF10C-base-button:hover, .WF10C-base-button:focus{
+  width: 229px;
+  height: 48px;
+  border-radius: 2px;
+  background-color: #005581 !important;
+  content: "";
+}
+
+.base-button-image {
+  margin-left: 10px;
+  margin-right: 2px;
+}
+
+.base-button-alignment {
+    margin-left: 85%;
+}
+
+.WF102NewButtonAlignment {
+    margin-left: 67%;
+}
+
+.Table50 {
+    width: 50%;
+}
+
+.Table60 {
+    width: 60%;
+}
+
+.Table70 {
+    width: 70%;
+}
+
+.BaseVehicleTable {
+    width: 80%;
+}
+
+.AddBaseTable100 {
+    width: 100%;
+}
+
+.Table70Margins {
+    margin-top: 0px;
+    padding-top: 0px;
+    margin: 0px;
+    padding-top: 0px;
+}
+
+.AddBasedVehicleProposed {
+    margin-top: 15px;
+    width: 270px; 
+    /*height: 48px;*/ 
+    margin-left: 0px; 
+    padding-left: 0px;
+}
+
+.AddProposedBtn {
+    /*margin-top: 45px;*/
+    width: 270px; 
+    /*height: 48px;*/ 
+    /*margin-left: 0px; 
+    padding-left: 0px;*/
+}
+
+.BrakeSystemBtn {
+    margin-top: 45px;
+}
+
+.ProposedCancel {
+    margin-top: 5px;
+    width: 100px; 
+    height: 48px; 
+    margin-left: 0px; 
+    padding-left: 0px;
+}
+
+.ProposedCancelOther {
+    /*margin-top: 5px;*/
+    width: 100px; 
+    /*height: 48px;*/ 
+    margin-left: 0px; 
+    padding-left: 0px;
+}
+
+.WF9-Pending-Table-TD{
+    width: 17%;
+}
+
+.ViewAffectedBtn {
+    margin-top: 45px;
+    width: 240px; 
+    height: 48px; 
+    margin-left: 0px; 
+    padding-left: 0px;
+}
+
+.ReturnElements {
+  width: 158px;
+  height: 16px;
+  font-family: OpenSans-Regular;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.14;
+  color: #005581;
+}
+
+.driveDocument {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  /*background-color: #000000;*/
+}
+
+.SUBMIT-CHANGE-REQUEST {
+  width: 190px;
+  height: 16px;
+  font-family: OpenSans-Bold;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1.14;
+  text-align: center;
+  color: #ffffff;
+}
+
+.searchMargin {
+    margin-top: 20px;
+}
+
+.searchButtonStyle {
+    width: 10px; 
+    height: 10px;
+}
+
+.AttachmentTableTD1Style {
+    width: 27%;
+    /*height: 48px;*/
+}
+
+.AttachmentTableTD2Style {
+    width: 17%;
+    /*height: 48px;*/
+}
+
+.AttachmentTableTD3Style {
+    width: 56%;
+    /*height: 48px;*/
+}
+
+.SubmitChangeRequestTable {
+    width: 50%;
+}
+
+.SubmitChangeRequestOK
+{
+    width: 25%;
+}
+
+.SubmitChangeRequestCancel
+{
+    width: 15%;
+}
+
+.AddVehicleTableTD1 {
+    width: 25%;
+}
+
+.AddVehicleTableTD2 {
+    width: 20%;
+}
+
+.AddVehicleTableTD3 {
+    width: 55%;
+}
+
+/*.WF10C-Table-TD1-Style {
+    width: 33%;
+}
+
+.WF10C-Table-TD2-Style {
+    width: 33%;
+}
+
+.WF10C-Table-TD3-Style {
+    width: 36%;
+}*/
+
+/*.WF10C-Base-Dropdown{
+    font-family: OpenSans-Regular;
+    font-size: 14px;
+    color: #000000;
+    width: 66px;
+    height: 30px;
+    border-radius: 4px;
+    background-color: #ffffff;
+    border: solid 1px #77776d;
+    width: 162px;
+}*/
+
+.BaseLabel{
+    font-family: OpenSans-Regular;
+    font-size: 14px;
+    color: #000000;
+    width: 66px;
+    height: 30px;
+    font-weight: 400;
+    /*border-radius: 4px;*/
+    /*background-color: #ffffff;*/
+    /*border: solid 1px #77776d;*/
+    /*width: 162px;*/
+}
+
+.MakeDropdown{
+    font-family: OpenSans-Regular;
+    font-size: 14px;
+    color: #000000;
+    width: 184px;
+    height: 30px;
+    border-radius: 4px;
+    background-color: #ffffff;
+    border: solid 1px #77776d;
+    /*width: 162px;*/
+}
+
+.YearDropdown{
+    font-family: OpenSans-Regular;
+    font-size: 14px;
+    color: #000000;
+    width: 100px;
+    height: 30px;
+    border-radius: 4px;
+    background-color: #ffffff;
+    border: solid 1px #77776d;
+    /*width: 162px;*/
+}
+
+.BrakeSystemDropdown230 {
+    font-family: OpenSans-Regular;
+    font-size: 14px;
+    color: #000000;
+    width: 230px;
+    height: 30px;
+    border-radius: 4px;
+    background-color: #ffffff;
+    border: solid 1px #77776d;
+}
+
+.SubmodelDropdown222 {
+    font-family: OpenSans-Regular;
+    font-size: 14px;
+    color: #000000;
+    width: 222px;
+    height: 30px;
+    border-radius: 4px;
+    background-color: #ffffff;
+    border: solid 1px #77776d;
+}
+
+.RegionDropdown214 {
+    font-family: OpenSans-Regular;
+    font-size: 14px;
+    color: #000000;
+    width: 214px;
+    height: 30px;
+    border-radius: 4px;
+    background-color: #ffffff;
+    border: solid 1px #77776d;
+}
+
+.VIEW-Arrow-Style {
+    cursor: pointer; 
+    color: #005581;
+}
+
+.btn-AddUpdateDelete {
+    margin-left: 110px;
+}
+
+/*.WF10C-Button-Submit {
+  width: 250px;
+  height: 48px;
+  border-radius: 3px;
+  background-color: #69992b;
+  border: solid 1px #69992b;
+}*/
+
+.OPTIONAL {
+  width: 63px;
+  height: 17px;
+  font-family: OpenSans-Bold;
+  font-size: 12px;
+  font-weight: bold;
+  color: #000000;
+}
+
+.CheckboxSelected {
+    background-color: green;
+}
+
+.MakeNew {
+    margin-top: 20px;
+    margin-left: 77%;
+    width: 120px;
+    height: 30px;
+}
+
+.MakeNewOther {
+    margin-top: 20px;
+    margin-left: 80%;
+    width: 120px;
+    height: 30px;
+}
+
+.ModelNew {
+    margin-left: 48%;
+    width: 120px;
+    height: 30px;
+}
+
+.WF6-vehicle-Brake-New{
+    padding-left: 81%;
+}
+
+/* Checkbox */
+
+input[type="checkbox"] {
+    display:none;
+}
+input[type="checkbox"] + label  {
+    display:inline-block;
+    width:19px;
+    height:19px;
+    margin:-1px 4px 0 0;
+    vertical-align:middle;
+    background:url(../images/check-box.png) left top no-repeat;
+    cursor:pointer;
+}
+input[type="checkbox"]:checked + label  {
+    background:url(../images/check-box-checked.png) left top no-repeat;
+}
+
+.label-text {
+	color:#333;
+	font-family: OpenSans-Regular;
+	font-size:14px;
+	}
+	
+/* Checkbox ends here */
+
+/*WF6-Search-Vehicles*/
+.sectiontopmargin{
+	margin-top:24px;
+	}
+
+.searchbutton {
+	background-color:#69992b;
+  	height: 48px;
+  	border-radius: 4px;
+	color:#fff;
+	font-family:open sans;
+	font-size:16px
+}
+
+.searchbutton i {
+	color:#b4cc95;
+	padding-right:5px;
+}
+
+.years {
+	font-family: OpenSans-Bold;
+	font-size: 14px;
+	color: #382f3d;
+	padding-top:10px;
+	}
+.sl-text { 
+	height: 30px;
+	font-family: OpenSans-Regular;
+	font-size: 14px;
+	line-height: 1.3;
+	color: #000000;
+	padding: 0px 20px 0 10px;
+	}
+
+/* Search field with icon */
+
+.search-box {
+	position: relative;
+	font-family: OpenSans-Regular;
+	font-size: 14px;
+	line-height: 1.3;
+	color: #000000;  
+	}
+
+.search-box input {
+	width: 100%;
+	height: 30px;
+	background: #fcfcfc;
+	border: 1px solid #999085;
+	border-radius: 5px;
+	}
+
+.search-box input { text-indent: 5px;}
+.search-box .fa-search { 
+	position: absolute;
+	top: 8px;
+	left: 95%;
+	}
+	
+	
+/* Search field ends here */
+
+/*WF6-Search-Vehicles End*/
+
+.Button-Continue {
+  width: 229px;
+  height: 48px;
+  border-radius: 3px;
+  background-color: #69992b;
+  border: solid 1px #69992b;
+}
+
+.Button-Cancel {
+    width: 137px;
+    height: 48px;
+    border-radius: 3px;
+}
+
+.CONTINUE {
+  width: 74px;
+  height: 16px;
+  font-family: OpenSans-Bold;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1.14;
+  text-align: center;
+  color: #ffffff;
+}
+
+.Button-Submit-Change-Requests {
+  width: 279px;
+  height: 48px;
+  border-radius: 3px;
+  background-color: #69992b;
+  border: solid 1px #69992b;
+
+}
+
+.ButtonContinue {
+  width: 229px;
+  height: 48px;
+  border-radius: 3px;
+  background-color: #69992b;
+  border: solid 1px #69992b;
+
+}
+
+.Table-Attachement {
+    width: 90%;
+}
+
+.Rectangle-94 {
+  width: 396px;
+  height: 107px;
+  background-color: #fae591;
+  padding-left: 15px; 
+  padding-top: 15px;
+}
+
+.AttachmentTopMargin{
+    margin-top: 20px;
+}
+
+.Associated-records {
+  width: 351px;
+  height: 19px;
+  font-family: OpenSans-Bold;
+  font-size: 14px;
+  font-weight: bold;
+  color: #000000;
+}
+
+.Associated-records-vehicles {
+  width: 300px;
+  height: 18px;
+  font-family: OpenSans-Regular;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.29;
+  color: #000000;
+  padding-left: 25px; 
+}
+
+.View-affected-vehicles {
+  width: 243px;
+  height: 16px;
+  font-family: OpenSans-Regular;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.14;
+  color: #005581;
+  padding-left: 25px;
+  cursor: pointer;
+}
+
+.Affected Vehicles {
+  width: 250px;
+  height: 33px;
+  font-family: OpenSans-Regular;
+  font-size: 24px;
+  color: #000000;
+}
+
+.modal-backdrop {
+  /*width: 1024px;
+  height: 816px;*/
+  background-color: rgba(255, 255, 255, 0.72);
+}
+
+.ModalBody {
+	font-family:OpenSans-Bold;
+	border-bottom:none !important;
+	font-size:14px;
+    width: 100%;
+    height: 20px;
+}
+
+.Rectangle-43 {
+  width: 100%;
+  height: 66px;
+  background-color: #e68517;
+}
+
+.Your-requested-change {
+  /*width: 319px;*/
+  /*height: 19px;*/
+  font-family: OpenSans-Bold;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  color: #ffffff;
+}
+
+.That-base-vehicle-already {
+  /*width: 486px;*/
+  /*height: 19px;*/
+  font-family: OpenSans-Regular;
+  font-size: 14px;
+  font-weight: normal;
+  text-align: center;
+  color: #ffffff;
+}
+
+.error {
+  width: 20px;
+  height: 20px;
+  background-color: white;
+}
+
+.ReplaceConfigSearch {
+    margin-top: 20px;
+    display:inline-block; 
+    width:144px; 
+    height: 36px;
+    margin-left: 47%;
+}
+
+.ReplaceBreakSystemSearch {
+    margin-top: 20px;
+    display:inline-block; 
+    width:144px; 
+    height: 36px;
+    margin-left: 17%;
+}
+
+.WF10C-brake-search {
+    margin-top: 20px;
+    display:inline-block; 
+    width:144px; 
+    height: 36px;
+    margin-left: 40%;
+}
+
+.BrakeSearch {
+    margin-top: 20px;
+    display:inline-block; 
+    width:144px; 
+    height: 36px;
+    margin-left: 45%;
+}
+.ConfigSearch {
+    margin-top: 20px;
+    display:inline-block; 
+    width:185px; 
+    height: 36px;
+    /*margin-left: 30%;*/
+}
+
+.Rectangle-94-Big {
+  width: 396px;
+  height: 280px;
+  background-color: #fae591;
+  padding-left: 15px; 
+  padding-top: 15px;
+}
+
+/*.WF6-Base-New{
+    margin-left: 79%;
+    margin-top: 20px;
+}*/
+
+
+
+.ModifyBasevehicleModal {
+    height: 377px;
+}
+
+.ModifyBasevehicleModal-Header {
+    height: 57px;
+    margin-left: 12px;
+}
+
+.ModifyBasevehicleModal-Body {
+    height: 220px;
+}
+
+.ModifyBasevehicleModal-Footer {
+    height: 100px;
+}
+
+.Brake {
+  width: 121px;
+  height: 41px;
+  font-family: OpenSans-Regular;
+  font-size: 30px;
+  font-weight: normal;
+  color: #000000;
+}
+
+.BrakeSystemsDropdown {
+  width: 250px;
+  height: 41px;
+  font-family: OpenSans-Regular;
+  font-size: 30px;
+  font-weight: normal;
+  color: #000000;
+}
+
+.BrakeConfigurationSystemsDropdown {
+  width: 450px;
+  height: 41px;
+  font-family: OpenSans-Regular;
+  font-size: 30px;
+  font-weight: normal;
+  color: #000000;
+}
+
+.btnCollapsed{
+    cursor:pointer;
+    background:url(../images/unfold-more.png) left top no-repeat;
+}
+.btnCollapsed:hover{
+    /*src:images/unfold-less.png;*/ 
+    background:url(../images/unfold-less.png) left top no-repeat;
+}
+
+.change {
+    background:url(../images/unfold-less.png) left top no-repeat;
+}
+
+.ExpandedImg {
+    cursor:pointer;
+    
+    background:url(../images/unfold-more.png);
+}
+.CollapsedImg {
+    background:url(../images/unfold-less.png);
+}
+
+.AddBrakeSystemTable {
+    width: 70%;
+}
+
+.Table-CellOne8 {
+    width: 8%;
+}
+
+.VehiclesAssociateTable-Celltype11 {
+    width: 11%;
+}
+
+.VehiclesAssociateTable-CellType15 {
+    width:15%;
+}
+
+.Table-Cancel{
+    /*cursor: pointer;*/
+    height: 20px;
+    width: 20px;
+}
+
+.Table-CancelHover{
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+}
+
+.BrakeSystemTable {
+    width: 100%;
+}
+.BrakeSystemsNew {
+    margin-left: 77%;
+    margin-top: 20px;
+    width: 120px;
+    height: 30px;
+}
+.SystemSearchAssociatedTable1616 {
+    width: 16.66%;
+}
+
+.KeepSpace {
+    margin-top: 20px;
+    margin-bottom: 25px;    
+}
+
+.ReturnSearch{
+    margin-top: 20px; 
+    margin-left: -25px;
+}
+
+.ReturnSearchOther {
+    margin-top: 20px; 
+    margin-left: 25px;
+    /*margin-left: -25px;*/
+}
+
+.ReturnSearchAssociation {
+    margin-top: 20px; 
+    margin-left: 0px;
+    /*margin-left: -25px;*/
+}
+
+.back-search {
+    margin-top: 20px;
+    margin-left: 10px;
+    height: 16px;
+    background-color: transparent;
+    color: #005581;
+    text-align: left;
+    font-family: OpenSans-Regular;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.arrow-back {
+  width: 14px;
+  height: 14px;
+  background-color: #000000;
+  background: url(../images/arrow-back.png);
+  background-repeat: no-repeat;
+  
+}
+
+.img {
+  width: 14px;
+  height: 14px;
+  background-color: #000000;
+  background: url(../images/arrow-back.png);
+  background-repeat: no-repeat;
+}
+
+.CreateBrakeSystem {
+  width: 361px;
+  height: 33px;
+  font-family: OpenSans-Regular;
+  font-size: 24px;
+  font-weight: normal;
+  color: #69992b;
+}
+
+.CreateBrakeSystemUnderLine {
+  width: 980px;
+  height: 1px;
+  background-color: #69992b;
+  /*margin-left: 5px;*/
+}
+
+.Table90 {
+    width: 90%
+}
+
+.RightAlign {
+    margin-left: 20%;
+}
+
+.ResultSelectedNew {
+    margin-left: 135px;
+    width: 120px;
+}
+
+.ResultSelectedChange {
+    /*margin-left: 50%;*/
+    width: 140px;
+}
+
+.ResultSelectedDelete {
+    /*margin-left: 60%;*/
+    width: 130px;
+}
+
+.ViewArrowColor {
+    color: #005581;
+}
+
+/*Show-Hide Buttons On Mouse Over :: Start*/
+/*table span {
+    display: none;
+}
+
+table tr:hover span{
+    display: block;
+}*/
+
+/*div#DivTable span {
+            display: none;
+}
+
+div#DivTable:hover span {
+            display: inline;
+}
+
+div#DivTable a {
+            display: none;
+}
+
+div#DivTable:hover a {
+            display: inline;
+}*/
+
+
+ .VisibleWhenHovered {
+        visibility: hidden;
+    }
+
+    .table-responsive tbody tr:hover .VisibleWhenHovered {
+        visibility: visible;
+    }
+
+/*div#DivTable input span {
+            display: inline;
+}*/
+
+/*div#DivTable:hover checkbox {
+            display: inline;
+}*/
+
+/*div#ProposedVehicles span {
+            display: none;
+}
+
+div#ProposedVehicles:hover span {
+            display: inline;
+}*/
+
+
+
+/*Show-Hide Buttons On Mouse Over :: End*/
+
+

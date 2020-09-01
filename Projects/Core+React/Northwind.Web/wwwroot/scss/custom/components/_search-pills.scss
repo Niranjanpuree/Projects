@@ -1,0 +1,47 @@
+.multi-selectbox {
+    .dropdown-menu {
+        width: 100%;
+        top: 100% !important;
+        transform: translate(0) !important;
+        max-height:200px;
+        overflow:auto;
+    }
+}
+
+.multiselect-pills {
+    position: relative;
+    background: #ddd;
+    padding: 2px 5px;
+    border: #ccc;
+    border-radius: 5px;
+    display: inline-block;
+    margin: 2px;
+    font-size: 10px;
+
+    a {
+        display: inline-block !important;
+        margin-top: 0;
+        line-height: 1;
+
+        i {
+            font-size: 10px;
+        }
+    }
+    + input{
+        margin-left:4px;
+    }
+
+}
+
+.form-control.multi-selectbox {
+    overflow: visible;
+    height: auto !important;
+    position: relative;
+
+}
+
+.multi-selectbox .entryField {
+    width: auto;
+    display: inline-block;
+    max-width: 75px;
+}

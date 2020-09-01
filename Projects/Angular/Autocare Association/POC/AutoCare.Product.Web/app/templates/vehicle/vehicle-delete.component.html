@@ -1,0 +1,98 @@
+﻿<loading-gif [show]="showLoadingGif"></loading-gif>
+<div class="breadcrumb">
+    <div class="center">
+        <a class="back" routerLink="/vehicle/search">Return to vehicle search</a>
+    </div>
+</div>
+
+  <!-- Main start -->
+<main class="with-sidemenu clearfix">
+
+    <div class="center">
+
+        <!-- Base vehicles start -->
+        <div class="table-wrap">
+            <h2 class="clearfix">
+                Base Vehicle
+            </h2>
+            <div class="ctable unfolded">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Base (ID)</td>
+                            <td>Year</td>
+                            <td>Make (ID)</td>
+                            <td>Model (ID)</td>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="vehicle">
+                        <tr>
+                            <td>{{vehicle.baseVehicleId}}</td>
+                            <td>{{vehicle.yearId}}</td>
+                            <td>{{vehicle.makeName}} ({{vehicle.makeId}})</td>
+                            <td>{{vehicle.modelName}} ({{vehicle.modelId}})</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Existing vehicles start -->
+        <div class="table-wrap" *ngIf="vehicle">
+            <h2 class="clearfix">
+                Vehicle to Delete
+            </h2>
+            <div class="ctable unfolded">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Vehicle ID</td>
+                            <td>Submodel (ID)</td>
+                            <td>Region (ID)</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{vehicle.id}}</td>
+                            <td>{{vehicle.subModelName}} ({{vehicle.subModelId}})</td>
+                            <td>{{vehicle.regionName}} ({{vehicle.regionId}})</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Modify vehicle start -->
+        <div class="add-form" *ngIf="vehicle">
+            <div class="clearfix">
+
+                <div class="warning-wrap">
+                    <div>
+                        <strong>Associated records will be impacted</strong>
+                        <span style="margin-bottom: 0;">
+                            {{vehicle.vehicleToBrakeConfigCount}} Brake configurations<br>
+                            {{vehicle.vehicleToBedConfigCount}} Bed configurations<br>
+                            {{vehicle.vehicleToBodyStyleConfigCount}} Body Style configurations<br>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="submit-wrap">
+                    <input type="submit" value="SUBMIT DELETION REQUEST" class="btn larger"  (click)="onDeleteSubmit()">
+                    <input type="submit" value="CANCEL" class="btn transparent larger" routerLink="/vehicle/search">
+                </div>
+
+                <div class="attach-wrap">
+                    <strong>OPTIONAL</strong>
+                    <ac-fileuploader upload-api-path="file/savechunk" ></ac-fileuploader>
+                    <small>Include comments</small>
+                    <textarea cols="50" rows="5" [(ngModel)]="vehicle.comment"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+<!-- Main end -->
+
+

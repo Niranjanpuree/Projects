@@ -1,0 +1,156 @@
+.k {
+    &-header .k-link {
+        font-weight: $fw-b;
+    }
+
+    &-grid {
+        height: 100%;
+    }
+}
+
+table[role="grid"] {
+    width: 100% !important;
+}
+
+.k-toolbar {
+    border: 0;
+    background: transparent;
+
+    &:hover {
+        background: transparent;
+    }
+
+    .k-overflow-anchor.k-button {
+
+        &:hover,
+        &:hover:before {
+            background: transparent !important;
+        }
+    }
+}
+
+.table-grid {
+    // height: calc(100vh - 260px) !important;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+
+    &.table-grid-r {
+        min-height: calc(100vh - 190px);
+        height: 100%;
+        border: 0;
+    }
+}
+
+.table-grid-r {
+    .k-widget.k-grid {
+        height: calc(100vh - 243px) !important;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    td:not(:first-child) {
+        vertical-align: top;
+    }
+}
+
+.kendo-grid-text-right {
+    padding-right: 25px !important;
+}
+
+.k-detail-cell {
+    padding: 0 !important;
+}
+
+.table-iam {
+    .k-widget.k-grid {
+        height: calc(100vh - 330px) !important;
+    }
+
+    .k-widget.k-icon {
+        background: transparent;
+    }
+
+    #GroupUserGrid .k-widget.k-grid {
+        height: auto !important;
+    }
+}
+
+
+
+.table-more-btn {
+    table[role="grid"] {
+        td[role="gridcell"]:first-child {
+            padding: 0;
+
+            .k-toolbar {
+                padding: 0;
+            }
+
+            .k-button {
+                width: 100%;
+                background: transparent;
+            }
+        }
+    }
+
+    .table-more-btn .gridToolBar {
+        padding: 0;
+        text-align: center;
+    }
+
+    .k-overflow-anchor {
+        position: static;
+        padding: 0;
+        border: 0;
+    }
+
+}
+
+td .k-dropdown-button.k-i-more-vertical {
+    text-align: center;
+
+    &,
+    .k-button {
+        width: 100%;
+    }
+}
+
+.k-table-custom {
+    .gridToolBar.k-toolbar {
+        padding: 0;
+        background: transparent !important;
+
+        .k-overflow-anchor.k-button {
+            width: 100%;
+            border: 0;
+            background: transparent !important;
+            padding: 0;
+        }
+    }
+}
+
+table.k-grid-table td:nth-child(2) {
+    overflow: visible;
+}
+
+.k-grid-table {
+    a:not(.k-i-more-vertical):not(.dropdown-item) {
+        color: $color-primary;
+        text-decoration: underline;
+        font-size: 12px;
+        font-weight: 500;
+
+        
+    }
+}
+
+#taskOrderList .k-grid-table a {
+    color: #333;
+    text-decoration: none;
+    font-weight: normal;
+
+}
+
+.k-dialog .k-dialog-content {
+    .k-widget.k-grid {
+        min-height: 350px !important;
+    }
+}

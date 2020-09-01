@@ -1,0 +1,427 @@
+﻿.modalWait {
+    /* display: none;*/
+    /* position: fixed;*/
+    /* z-index: 1000;*/
+    /* top: 0;*/
+    /* left: 0;*/
+    /* height: 100%;*/
+    /* width: 100%;*/
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: #666;
+    background-image: url('../img/ajax-loader.gif');
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 10000000;
+    opacity: 0.4;
+    filter: alpha(opacity=40); /* For IE8 and earlier */
+}
+
+.k-item.k-treeview-item, .k-treeview-item .k-animation-container {
+overflow: visible !important;
+}
+
+.k-window-action {
+    visibility: hidden;
+}
+
+.listClass { 
+    margin-left: 15px;
+    font-size: 15px;
+}
+
+.ulClass {
+    background-color: #f8f9fa;
+}
+
+.k-loading-mask {
+    display: none;
+}
+
+
+fieldset {
+    display: block;
+    margin-left: 2px;
+    margin-right: 2px;
+    padding-top: 0.35em;
+    padding-bottom: 0.625em;
+    padding-left: 0.75em;
+    padding-right: 0.75em;
+    border: 200px groove (internal value);
+    border-color: #666666;
+}
+
+/* contract page */
+/* .linkAddUrl { */
+/*     margin-left: 355px; */
+/* } */
+
+#panelbar {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.teamMate h2 {
+    font-size: 1.4em;
+    font-weight: normal;
+    padding-top: 20px;
+}
+
+.teamMate p {
+    margin: 0;
+}
+
+.teamMate img {
+    display: inline-block;
+    margin: 5px 15px 5px 5px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+}
+
+.details {
+    display: inline-block;
+    vertical-align: top;
+}
+
+
+.k-item .k-state-focused {
+    border: 0 !important;
+    background: transparent;
+}
+
+.k-animation-container.k-animation-container-relative {
+    z-index: 10001;
+}
+
+.icon-font {
+    font-size: 20px !important;
+}
+
+.icon-font-explorer {
+    font-size: 35px !important;
+}
+
+
+
+.context-menu {
+    background: #eee;
+    border: 1px solid #ddd;
+    position: absolute;
+    min-width: 150px;
+}
+
+    .context-menu button {
+        background: transparent;
+        text-align: left;
+        width: 100%;
+        border: none;
+        outline: none;
+    }
+
+.k-window-titlebar {
+    text-transform: capitalize;
+}
+/* File upload progress bar*/
+/* .progressBarInactive {
+    width: 0px;
+    height: 5px;
+    background-color: #F44336;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    display: none;
+}
+
+.progressBarActive {
+    display: block;
+    background: red;
+    height: 10px;
+    width: 10px;
+} */
+
+
+.k-grouping-header.k-grouping-header-flex {
+    display: none;
+}
+
+.k-grouping-row td:nth-child(2) {
+    display: none;
+}
+
+.k-group-footer .k-dropdown-button {
+    display: none;
+}
+#myProgress {
+    width: 100%;
+    background-color: grey;
+}
+
+#myBar {
+    width: 1%;
+    height: 8px;
+    background-color: cornflowerblue;
+}
+
+.switchButton{
+    overflow: visible;
+    min-width: 125px;
+}
+
+#ContractGrid1 .k-grouping-row {
+    display: none;
+}
+
+#ContractGrid1 .k-group-footer {
+    display: none;
+}
+
+.kendo-grid-text-center {
+    text-align: center !important;
+}
+
+.kendo-grid-text-left {
+    text-align: left !important;
+}
+
+.kendo-grid-text-right {
+    text-align: right !important;
+}
+
+.distribution-list-user {
+    position: absolute;
+    width: auto;
+    height: auto;
+    z-index: 900001;
+}
+
+.k-grouping-row .kendo-grid-text-right{
+    display:none;
+}
+
+#ContractGrid1 table .k-group-cell {
+    width: 0;
+    overflow: hidden;
+}
+
+#ContractGrid1 table .k-header:first-child {
+    width: 0;
+    overflow: hidden;
+}
+
+
+.filterButton {
+    width: 135px;
+    text-align: left !important;
+    text-align-last: left;
+    display: block !important;
+    background: white !important;
+}
+
+.filterButtonContainer button {
+    background: white !important;
+}
+
+#fileUpload td a {
+    color: #00649b !important;
+    text-decoration: none;
+}
+
+#fileUpload #fileUploadMod td a:hover {
+    text-decoration: underline;
+}
+
+#ContractModificationListPanel .k-grid-container{
+    min-height: 170px;
+}
+
+.simulated {
+    background: #006422 !important;
+}
+
+.simulatedUser{
+    display: none;
+}
+
+.simulated.simulatedUser {
+    display: block;
+}
+
+.simulatedUser {
+    background: #ffffff !important;
+    border-radius: 15px;
+    font-size: small;
+    font-weight: 500;
+    padding: 8px 15px;
+    color: #006422;
+    margin-right: 10px;
+    line-height: 1;
+}
+
+.auto-complete-popup {
+    background: white;
+    width: 116% !important;
+    padding: 10px;
+    margin-left: -5%;
+    border: 1px solid #dddddd;
+    margin-top: 6px;
+}
+
+.auto-complete-popup a:hover{
+    text-decoration: none;
+}
+
+
+
+
+#groupGrid .k-content.k-state-active{
+    overflow: visible;
+}
+
+#groupGrid .k-animation-container.k-animation-container-relative {
+    overflow: visible;
+}
+
+.xylon-tooltip {
+    position: absolute;
+    background: #eee;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    z-index: 999;
+}
+
+    .xylon-tooltip.top {
+        bottom: 40px;
+    }
+
+    .xylon-tooltip.bottom{
+        top: 40px;
+    }
+
+
+.multi-selectbox .selected{
+    background: #ddd;
+}
+
+
+.rowMenu .k-i-more-vertical {
+    /* margin: 15px; */
+}
+
+.draggingUpload .k-dropzone{
+    height: 100% !important;
+}
+
+.draggingUpload .k-dropzone * {
+    height: 100% !important;
+}
+
+.draggingUpload .k-widget.k-upload.k-header {
+    display: none;
+    height: 100% !important;
+    width: 100%;
+    position: absolute;
+    z-index: 999991;
+    background: white;
+    left: 0;
+}
+
+#groupGrid li{
+    list-style: none;
+}
+
+#groupGrid .k-animation-container.k-animation-container-relative{
+    width: 100%;
+}
+
+.page-template {
+    font-family: "DejaVu Sans", "Arial", sans-serif;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.page-template .header {
+    position: absolute;
+    top: 15px;
+    left: 30px;
+    right: 30px;        
+    height: 60px;
+}
+
+.page-template .header .printed-by-field {
+    margin-top: 10px;
+}
+
+.page-template .footer {
+    position: absolute;
+    bottom: 5px;
+    left: 30px;
+    right: 30px;
+    padding-right: 75px;
+    background: white;
+    text-align: right;
+}
+
+.document-management .k-state-selected .expanded {
+    background: #ddd;
+    padding: 2px 10px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+}
+
+.pane-content .expand_collapse {
+    position: absolute;
+    top: 17px;
+    right: 5px;
+    font-size: xx-small;
+    z-index: 2;
+}
+
+.link-switch-back {
+    color: #000;
+    background: #ccc;
+    padding: 5px 10px;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+a:hover.link-switch-back {
+    text-decoration: none;
+}
+
+.htmlClass {
+    overflow: hidden;
+}
+
+.k-imagebrowser .k-upload-button {
+    width: 100% !important;
+}
+
+.k-imagebrowser .k-widget.k-upload, .k-imagebrowser .k-toolbar-wrap {
+    width: 100%;
+    height: 100%;
+}
+
+a.file-link {
+    font-size: 10px;
+}
+
+a:hover.file-link {
+    text-decoration: none
+}
+
+.editor_box{
+    width: 100%;
+    height: 500px;
+}
+
+table.k-editor {
+    width: 100%;
+    height: 100%;
+}

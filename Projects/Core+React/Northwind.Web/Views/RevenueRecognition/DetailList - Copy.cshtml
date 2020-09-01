@@ -1,0 +1,400 @@
+﻿@model List<Northwind.Web.Models.ViewModels.RevenueRecognition.RevenueRecognitionViewModel>
+
+<button type="button" class="btn btn-secondary right" id="exportToPDF">Export To PDF</button>
+
+<div id="content">
+    @foreach (var Model in Model)
+    {
+        <div class="row" style="border-style: ridge">
+            <div class="col-md-12">
+                <ul id="OverViewPanel" class="list-unstyled revenuePanel">
+                    <li class="k-state-active">
+                        <h5 class="text-primary">Contract Overview</h5>
+                        <div>
+                            <div class="form-group">
+                                <div class="control-label control-label-read">
+                                    Is the modification an administrative only change?
+                                </div>
+                                <h6>
+                                    @(Model.IsModAdministrative)
+                                </h6>
+                            </div>
+                            @if (!string.IsNullOrEmpty(Model.IsModAdministrative))
+                            {
+                                if (Model.IsModAdministrative.ToLower() == "no")
+                                {
+                                    <div class="form-group">
+                                        <div class="control-label control-label-read">
+                                            Does the modification change the scope of the contract?
+                                        </div>
+                                        <h6>
+                                            @Model.DoesScopeContractChangeStatus
+                                        </h6>
+                                    </div>
+                                }
+                            }
+                            <div class="form-group">
+                                <div class="control-label control-label-read">
+                                    Contract within scope of ASC 606
+                                </div>
+                                <h6>
+                                    @Model.IsASC606Status
+                                </h6>
+                            </div>
+                            <div class="form-group">
+                                <div class="control-label control-label-read">
+                                    Contract extends beyond current fiscal year of North Wind
+                                </div>
+                                <h6>
+                                    @Model.IsCurrentFiscalYearOfNorthWindStatus
+                                </h6>
+                            </div>
+                            <div class="form-group">
+                                <div class="control-label control-label-read">
+                                    Overview Notes
+                                </div>
+                                <h6>
+                                    @Model.OverviewNotes
+                                </h6>
+                            </div>
+                        </div>
+                    </li>
+
+
+                    @if (Model.IsCurrentFiscalYearOfNorthWind)
+                    {
+                        <li>
+                            <h5 class="border-top pt-2 text-primary">Step 1 - Identity Contract</h5>
+                            <div>
+                                <div class="form-group">
+                                    <div class="control-label control-label-read">
+                                        Enforceable agreement executed and evidenced by
+                                    </div>
+                                    <h6>
+                                        @Model.IdentityContract
+                                    </h6>
+                                </div>
+                                <div class="form-group">
+                                    <div class="control-label control-label-read">
+                                        Termination Clause's
+                                    </div>
+                                    <h6>
+                                        @(Model.IsTerminationClauseGovernmentStandard)
+                                    </h6>
+                                </div>
+                                <div class="form-group">
+                                    <div class="control-label control-label-read">
+                                        Identify Termination Clause
+                                    </div>
+                                    <h6>
+                                        @(Model.IdentifyTerminationClause = true ? "Yes" : "No")
+                                    </h6>
+                                </div>
+                                <div class="form-group">
+                                    <div class="control-label control-label-read">
+                                        Contract term extension/option
+                                    </div>
+                                    <h6>
+                                        @Model.IsContractTermExpansionStatus
+                                    </h6>
+                                </div>
+                                <div class="form-group">
+                                    <div class="control-label control-label-read">
+                                        Contract term extension/renewal period dates
+                                    </div>
+                                    @if (Model.ListContractExtension != null)
+                                    {
+                                        @foreach (var item in Model.ListContractExtension.Where(x => x.ExtensionDate != null))
+                                        {
+                                            <h6 class="d-inline-block mr-3">@item.ExtensionDate.Value.ToShortDateString()</h6>
+                                        }
+                                    }
+                                </div>
+                                <div class="form-group">
+                                    <div class="control-label control-label-read">
+                                        Approach
+                                    </div>
+                                    <h6>
+                                        @Model.Approach
+                                    </h6>
+                                </div>
+                                <div class="form-group">
+                                    <div class="control-label control-label-read">
+                                        Step 1 Notes
+                                    </div>
+                                    <h6>
+                                        @Model.Step1Note
+                                    </h6>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <h5 class="border-top pt-2 text-primary">Step 2 - Identity Performance Obligations</h5>
+                            <div>
+                                <div class="form-group">
+                                    <div class="control-label control-label-read">
+                                        Contract Deliverables
+                                    </div>
+                                    <h6>
+                                        @Model.IdentityPerformanceObligation
+                                    </h6>
+                                </div>
+                                <div class="form-group">
+                                    <div class="control-label control-label-read">
+                                        Multi Revenue Stream
+                                    </div>
+                                    <h6>
+                                        @Model.IsMultiRevenueStreamStatus
+                                    </h6>
+                                </div>
+                                <div class="form-group">
+                                    <div class="control-label control-label-read">
+                                        Is this a repetitive service contract with standard monthly/annual billing amount?
+                                    </div>
+                                    <h6>
+                                        @Model.IsRepetativeServiceStatus
+                                    </h6>
+                                </div>
+                                <div class="form-group">
+                                    <div class="control-label control-label-read">
+                                        Does the contract contain an option to purchase additional goods or services or is there a
+                                        contract renewal option?
+                                    </div>
+                                    <h6>
+                                        @Model.HasOptionToPurchageAdditionalGoodsStatus
+                                    </h6>
+                                </div>
+                                <div class="form-group">
+                                    <div class="control-label control-label-read">
+                                        If yes, is it offered at a discounted/lower rate as an incentive for our client to exercise?
+                                    </div>
+                                    <h6>
+                                        @Model.IsDiscountPurchaseStatus
+                                    </h6>
+                                </div>
+                                <div class="form-group">
+                                    <div class="control-label control-label-read">
+                                        Does the contract contain nonrefundable advanced payment?
+                                    </div>
+                                    <h6>
+                                        @Model.IsNonRefundableAdvancePaymentStatus
+                                    </h6>
+                                </div>
+                                <div class="form-group">
+                                    <div class="control-label control-label-read">
+                                        Does the contract contain a discount provision in the event certain criteria are met?
+                                    </div>
+                                    <h6>
+                                        @Model.HasDiscountProvisionStatus
+                                    </h6>
+                                </div>
+                                <div class="form-group">
+                                    <div class="control-label control-label-read">
+                                        Does the contract contain a warranty other than an assurance warranty?
+                                    </div>
+                                    <h6>
+                                        @Model.HasWarrentyStatus
+                                    </h6>
+                                </div>
+                                <div class="form-group">
+                                    <div class="control-label control-label-read">
+                                        Describe the warranty terms
+                                    </div>
+                                    <h6>
+                                        @Model.WarrantyTerms
+                                    </h6>
+                                </div>
+                                <div class="form-group">
+                                    <div class="control-label control-label-read">
+                                        Estimate of probable warranty exposure other than those related to assurance type
+                                        warranties:
+                                    </div>
+                                    <h6>
+                                        @Model.EstimateWarrantyExposure
+                                    </h6>
+                                </div>
+                                <div class="form-group">
+                                    <div class="control-label control-label-read">
+                                        Step 2 Notes
+                                    </div>
+                                    <h6>
+                                        @Model.Step2Note
+                                    </h6>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <h5 class="border-top pt-2 text-primary">Step 3 - Determine Transaction Price</h5>
+                            <div>
+                                <div class="form-group">
+                                    <div class="control-label control-label-read">
+                                        Nature of pricing arrangement (Contract Type)
+                                    </div>
+                                    <h6>
+                                        @Model.ContractType
+                                    </h6>
+                                </div>
+                                <div class="form-group">
+                                    <div class="control-label control-label-read">
+                                        Pricing Variation
+                                    </div>
+                                    <h6>
+                                        @Model.IsPricingVariationStatus
+                                    </h6>
+                                </div>
+                                <div class="form-group">
+                                    <div class="control-label control-label-read">
+                                        Explanation
+                                    </div>
+                                    <h6>
+                                        @Model.PricingExplanation
+                                    </h6>
+                                </div>
+                                <div class="form-group">
+                                    <div class="control-label control-label-read">
+                                        Base Contract Price the company believes it will be entitled to receive:
+                                    </div>
+                                    <h6>
+                                        @Model.BaseContractPrice
+                                    </h6>
+                                </div>
+                                <div class="form-group">
+                                    <div class="control-label control-label-read">
+                                        List each additional option period with corresponding consideration the company expects to
+                                        receive
+                                    </div>
+                                    <h6>
+                                        @Model.AdditionalPeriodOption
+                                    </h6>
+                                </div>
+                                <div class="form-group">
+                                    <div class="control-label control-label-read">
+                                        Step 3 Note
+                                    </div>
+                                    <h6>
+                                        @Model.Step3Note
+                                    </h6>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <h5 class="border-top pt-2 text-primary">Step 4 - Allocate Transaction Price To Performance Obligations</h5>
+                            <div>
+                                <div class="form-group">
+                                    <div class="control-label control-label-read">
+                                        Does the contract contain one or multiple contract obligations?
+                                    </div>
+                                    <h6>
+                                        @(Model.HasMultipleContractObligations)
+                                    </h6>
+                                </div>
+                                <div class="form-group">
+                                    <div class="control-label control-label-read">
+                                        List each obligation with the associated allocation of transaction price/CV:
+                                    </div>
+                                    <h6>
+                                        @Model.EachMultipleObligation
+                                    </h6>
+                                </div>
+                                <div class="form-group">
+                                    <div class="control-label control-label-read">
+                                        Step 4 Notes
+                                    </div>
+                                    <h6>
+                                        @Model.Step4Note
+                                    </h6>
+                                </div>
+                            </div>
+                        </li>
+
+                        @if (Model.IsCompleted)
+                        {
+                            <li>
+                                <h5 class="border-top pt-2 text-primary">Step 5 - Revenue Recognition (For each performance obligation)</h5>
+                                <div>
+                                    <div class="form-group">
+                                        @if (Model.ListRevenuePerformanceObligation != null)
+                                        {
+                                            @foreach (var item in Model.ListRevenuePerformanceObligation)
+                                            {
+                                                <div class="form-group">
+                                                    <div class="control-label control-label-read">
+                                                        Performance Obligation represents Revenue Stream Identifier:
+                                                    </div>
+                                                    <h6>
+                                                        @item.RevenueStreamIdentifier
+                                                    </h6>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="control-label control-label-read">
+                                                        Performance Obligation represents right-to-payment:
+                                                    </div>
+                                                    <h6>
+                                                        @item.RightToPayment
+                                                    </h6>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div class="control-label control-label-read">
+                                                        Performance Obligation Routine Service:
+                                                    </div>
+                                                    <h6>
+                                                        @item.RoutineService
+                                                    </h6>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="control-label control-label-read">
+                                                        Recognize revenue over time or point in time?
+                                                    </div>
+                                                    <h6>
+                                                        @item.RevenueOverTimePointInTime
+                                                    </h6>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="control-label control-label-read">
+                                                        Method to recognize revenue for obligation satisfied over time?
+                                                    </div>
+                                                    <h6>
+                                                        @item.SatisfiedOverTime
+                                                    </h6>
+                                                </div>
+                                            }
+                                        }
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="control-label control-label-read">
+                                            Are there any licensing or intellectual property considerations for this contract?
+                                        </div>
+                                        <h6>
+                                            @Model.HasLicensingOrIntellectualPropertyStatus
+                                        </h6>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="control-label control-label-read">
+                                            Step 5 Notes
+                                        </div>
+                                        <h6>
+                                            @Model.Step5Note
+                                        </h6>
+                                    </div>
+                                </div>
+                            </li>
+                        }
+                    }
+                </ul>
+            </div>
+        </div>
+    }
+</div>
+<script src="~/lib/jspdf.min.js"></script>
+<script>
+    $(document).ready(function () {
+        var doc = new jsPDF();
+        $('#exportToPDF').click(function () {
+            doc.fromHTML($('#content').html(), 20, 20, {
+                'width': 170
+            });
+            doc.save('revenueRecognition.pdf');
+        });
+    })
+</script>

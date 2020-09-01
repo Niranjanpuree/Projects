@@ -1,0 +1,1960 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files (x86)\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\Program Files (x86)\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install' ]
+2 info using npm@2.7.4
+3 info using node@v0.12.2
+4 verbose node symlink C:\Program Files (x86)\nodejs\\node.exe
+5 warn package.json OptimusPrime@1.0.0 No description
+6 warn package.json OptimusPrime@1.0.0 No repository field.
+7 warn package.json OptimusPrime@1.0.0 No README data
+8 verbose install where, deps [ 'E:\\Autocare Association\\POC\\AutoCare.Product.Web',
+8 verbose install   [ '@angular/common',
+8 verbose install     '@angular/compiler',
+8 verbose install     '@angular/core',
+8 verbose install     '@angular/forms',
+8 verbose install     '@angular/http',
+8 verbose install     '@angular/platform-browser',
+8 verbose install     '@angular/platform-browser-dynamic',
+8 verbose install     '@angular/router',
+8 verbose install     '@angular/router-deprecated',
+8 verbose install     '@angular/upgrade',
+8 verbose install     'angular2-in-memory-web-api',
+8 verbose install     'bootstrap',
+8 verbose install     'es6-promise',
+8 verbose install     'es6-shim',
+8 verbose install     'ng2-bs3-modal',
+8 verbose install     'reflect-metadata',
+8 verbose install     'rxjs',
+8 verbose install     'systemjs',
+8 verbose install     'zone.js',
+8 verbose install     'lodash',
+8 verbose install     'moment',
+8 verbose install     'gulp',
+8 verbose install     'gulp-concat',
+8 verbose install     'gulp-cssmin',
+8 verbose install     'gulp-uglify',
+8 verbose install     'rimraf',
+8 verbose install     'typescript',
+8 verbose install     'typings',
+8 verbose install     'gulp-util' ] ]
+9 verbose install where, peers [ 'E:\\Autocare Association\\POC\\AutoCare.Product.Web', [] ]
+10 info preinstall OptimusPrime@1.0.0
+11 silly cache add args [ '@angular/core@2.0.0-rc.4', null ]
+12 verbose cache add spec @angular/core@2.0.0-rc.4
+13 silly cache add parsed spec { raw: '@angular/core@2.0.0-rc.4',
+13 silly cache add   scope: '@angular',
+13 silly cache add   name: '@angular/core',
+13 silly cache add   rawSpec: '2.0.0-rc.4',
+13 silly cache add   spec: '2.0.0-rc.4',
+13 silly cache add   type: 'version' }
+14 verbose addNamed @angular/core@2.0.0-rc.4
+15 silly addNamed semver.valid 2.0.0-rc.4
+16 silly addNamed semver.validRange 2.0.0-rc.4
+17 silly mapToRegistry name @angular/core
+18 silly mapToRegistry scope (from package name) @angular
+19 verbose mapToRegistry no registry URL found in name for scope @angular
+20 silly mapToRegistry using default registry
+21 silly mapToRegistry registry https://registry.npmjs.org/
+22 silly mapToRegistry uri https://registry.npmjs.org/@angular%2fcore
+23 verbose addNameVersion registry:https://registry.npmjs.org/@angular%2fcore not in flight; fetching
+24 silly cache add args [ '@angular/forms@0.2.0', null ]
+25 verbose cache add spec @angular/forms@0.2.0
+26 silly cache add parsed spec { raw: '@angular/forms@0.2.0',
+26 silly cache add   scope: '@angular',
+26 silly cache add   name: '@angular/forms',
+26 silly cache add   rawSpec: '0.2.0',
+26 silly cache add   spec: '0.2.0',
+26 silly cache add   type: 'version' }
+27 verbose addNamed @angular/forms@0.2.0
+28 silly addNamed semver.valid 0.2.0
+29 silly addNamed semver.validRange 0.2.0
+30 silly mapToRegistry name @angular/forms
+31 silly mapToRegistry scope (from package name) @angular
+32 verbose mapToRegistry no registry URL found in name for scope @angular
+33 silly mapToRegistry using default registry
+34 silly mapToRegistry registry https://registry.npmjs.org/
+35 silly mapToRegistry uri https://registry.npmjs.org/@angular%2fforms
+36 verbose addNameVersion registry:https://registry.npmjs.org/@angular%2fforms not in flight; fetching
+37 silly cache add args [ '@angular/http@2.0.0-rc.4', null ]
+38 verbose cache add spec @angular/http@2.0.0-rc.4
+39 silly cache add parsed spec { raw: '@angular/http@2.0.0-rc.4',
+39 silly cache add   scope: '@angular',
+39 silly cache add   name: '@angular/http',
+39 silly cache add   rawSpec: '2.0.0-rc.4',
+39 silly cache add   spec: '2.0.0-rc.4',
+39 silly cache add   type: 'version' }
+40 verbose addNamed @angular/http@2.0.0-rc.4
+41 silly addNamed semver.valid 2.0.0-rc.4
+42 silly addNamed semver.validRange 2.0.0-rc.4
+43 silly mapToRegistry name @angular/http
+44 silly mapToRegistry scope (from package name) @angular
+45 verbose mapToRegistry no registry URL found in name for scope @angular
+46 silly mapToRegistry using default registry
+47 silly mapToRegistry registry https://registry.npmjs.org/
+48 silly mapToRegistry uri https://registry.npmjs.org/@angular%2fhttp
+49 verbose addNameVersion registry:https://registry.npmjs.org/@angular%2fhttp not in flight; fetching
+50 silly cache add args [ '@angular/platform-browser@2.0.0-rc.4', null ]
+51 verbose cache add spec @angular/platform-browser@2.0.0-rc.4
+52 silly cache add parsed spec { raw: '@angular/platform-browser@2.0.0-rc.4',
+52 silly cache add   scope: '@angular',
+52 silly cache add   name: '@angular/platform-browser',
+52 silly cache add   rawSpec: '2.0.0-rc.4',
+52 silly cache add   spec: '2.0.0-rc.4',
+52 silly cache add   type: 'version' }
+53 verbose addNamed @angular/platform-browser@2.0.0-rc.4
+54 silly addNamed semver.valid 2.0.0-rc.4
+55 silly addNamed semver.validRange 2.0.0-rc.4
+56 silly mapToRegistry name @angular/platform-browser
+57 silly mapToRegistry scope (from package name) @angular
+58 verbose mapToRegistry no registry URL found in name for scope @angular
+59 silly mapToRegistry using default registry
+60 silly mapToRegistry registry https://registry.npmjs.org/
+61 silly mapToRegistry uri https://registry.npmjs.org/@angular%2fplatform-browser
+62 verbose addNameVersion registry:https://registry.npmjs.org/@angular%2fplatform-browser not in flight; fetching
+63 silly cache add args [ '@angular/platform-browser-dynamic@2.0.0-rc.4', null ]
+64 verbose cache add spec @angular/platform-browser-dynamic@2.0.0-rc.4
+65 silly cache add parsed spec { raw: '@angular/platform-browser-dynamic@2.0.0-rc.4',
+65 silly cache add   scope: '@angular',
+65 silly cache add   name: '@angular/platform-browser-dynamic',
+65 silly cache add   rawSpec: '2.0.0-rc.4',
+65 silly cache add   spec: '2.0.0-rc.4',
+65 silly cache add   type: 'version' }
+66 verbose addNamed @angular/platform-browser-dynamic@2.0.0-rc.4
+67 silly addNamed semver.valid 2.0.0-rc.4
+68 silly addNamed semver.validRange 2.0.0-rc.4
+69 silly mapToRegistry name @angular/platform-browser-dynamic
+70 silly mapToRegistry scope (from package name) @angular
+71 verbose mapToRegistry no registry URL found in name for scope @angular
+72 silly mapToRegistry using default registry
+73 silly mapToRegistry registry https://registry.npmjs.org/
+74 silly mapToRegistry uri https://registry.npmjs.org/@angular%2fplatform-browser-dynamic
+75 verbose addNameVersion registry:https://registry.npmjs.org/@angular%2fplatform-browser-dynamic not in flight; fetching
+76 silly cache add args [ '@angular/router@3.0.0-beta.1', null ]
+77 verbose cache add spec @angular/router@3.0.0-beta.1
+78 silly cache add parsed spec { raw: '@angular/router@3.0.0-beta.1',
+78 silly cache add   scope: '@angular',
+78 silly cache add   name: '@angular/router',
+78 silly cache add   rawSpec: '3.0.0-beta.1',
+78 silly cache add   spec: '3.0.0-beta.1',
+78 silly cache add   type: 'version' }
+79 verbose addNamed @angular/router@3.0.0-beta.1
+80 silly addNamed semver.valid 3.0.0-beta.1
+81 silly addNamed semver.validRange 3.0.0-beta.1
+82 silly mapToRegistry name @angular/router
+83 silly mapToRegistry scope (from package name) @angular
+84 verbose mapToRegistry no registry URL found in name for scope @angular
+85 silly mapToRegistry using default registry
+86 silly mapToRegistry registry https://registry.npmjs.org/
+87 silly mapToRegistry uri https://registry.npmjs.org/@angular%2frouter
+88 verbose addNameVersion registry:https://registry.npmjs.org/@angular%2frouter not in flight; fetching
+89 silly cache add args [ '@angular/router-deprecated@2.0.0-rc.2', null ]
+90 verbose cache add spec @angular/router-deprecated@2.0.0-rc.2
+91 silly cache add parsed spec { raw: '@angular/router-deprecated@2.0.0-rc.2',
+91 silly cache add   scope: '@angular',
+91 silly cache add   name: '@angular/router-deprecated',
+91 silly cache add   rawSpec: '2.0.0-rc.2',
+91 silly cache add   spec: '2.0.0-rc.2',
+91 silly cache add   type: 'version' }
+92 verbose addNamed @angular/router-deprecated@2.0.0-rc.2
+93 silly addNamed semver.valid 2.0.0-rc.2
+94 silly addNamed semver.validRange 2.0.0-rc.2
+95 silly mapToRegistry name @angular/router-deprecated
+96 silly mapToRegistry scope (from package name) @angular
+97 verbose mapToRegistry no registry URL found in name for scope @angular
+98 silly mapToRegistry using default registry
+99 silly mapToRegistry registry https://registry.npmjs.org/
+100 silly mapToRegistry uri https://registry.npmjs.org/@angular%2frouter-deprecated
+101 verbose addNameVersion registry:https://registry.npmjs.org/@angular%2frouter-deprecated not in flight; fetching
+102 silly cache add args [ '@angular/upgrade@2.0.0-rc.4', null ]
+103 verbose cache add spec @angular/upgrade@2.0.0-rc.4
+104 silly cache add parsed spec { raw: '@angular/upgrade@2.0.0-rc.4',
+104 silly cache add   scope: '@angular',
+104 silly cache add   name: '@angular/upgrade',
+104 silly cache add   rawSpec: '2.0.0-rc.4',
+104 silly cache add   spec: '2.0.0-rc.4',
+104 silly cache add   type: 'version' }
+105 verbose addNamed @angular/upgrade@2.0.0-rc.4
+106 silly addNamed semver.valid 2.0.0-rc.4
+107 silly addNamed semver.validRange 2.0.0-rc.4
+108 silly mapToRegistry name @angular/upgrade
+109 silly mapToRegistry scope (from package name) @angular
+110 verbose mapToRegistry no registry URL found in name for scope @angular
+111 silly mapToRegistry using default registry
+112 silly mapToRegistry registry https://registry.npmjs.org/
+113 silly mapToRegistry uri https://registry.npmjs.org/@angular%2fupgrade
+114 verbose addNameVersion registry:https://registry.npmjs.org/@angular%2fupgrade not in flight; fetching
+115 silly cache add args [ 'angular2-in-memory-web-api@0.0.7', null ]
+116 verbose cache add spec angular2-in-memory-web-api@0.0.7
+117 silly cache add parsed spec { raw: 'angular2-in-memory-web-api@0.0.7',
+117 silly cache add   scope: null,
+117 silly cache add   name: 'angular2-in-memory-web-api',
+117 silly cache add   rawSpec: '0.0.7',
+117 silly cache add   spec: '0.0.7',
+117 silly cache add   type: 'version' }
+118 verbose addNamed angular2-in-memory-web-api@0.0.7
+119 silly addNamed semver.valid 0.0.7
+120 silly addNamed semver.validRange 0.0.7
+121 silly mapToRegistry name angular2-in-memory-web-api
+122 silly mapToRegistry using default registry
+123 silly mapToRegistry registry https://registry.npmjs.org/
+124 silly mapToRegistry uri https://registry.npmjs.org/angular2-in-memory-web-api
+125 verbose addNameVersion registry:https://registry.npmjs.org/angular2-in-memory-web-api not in flight; fetching
+126 silly cache add args [ 'bootstrap@^3.3.6', null ]
+127 verbose cache add spec bootstrap@^3.3.6
+128 silly cache add parsed spec { raw: 'bootstrap@^3.3.6',
+128 silly cache add   scope: null,
+128 silly cache add   name: 'bootstrap',
+128 silly cache add   rawSpec: '^3.3.6',
+128 silly cache add   spec: '>=3.3.6 <4.0.0',
+128 silly cache add   type: 'range' }
+129 verbose addNamed bootstrap@>=3.3.6 <4.0.0
+130 silly addNamed semver.valid null
+131 silly addNamed semver.validRange >=3.3.6 <4.0.0
+132 silly addNameRange { name: 'bootstrap', range: '>=3.3.6 <4.0.0', hasData: false }
+133 silly mapToRegistry name bootstrap
+134 silly mapToRegistry using default registry
+135 silly mapToRegistry registry https://registry.npmjs.org/
+136 silly mapToRegistry uri https://registry.npmjs.org/bootstrap
+137 verbose addNameRange registry:https://registry.npmjs.org/bootstrap not in flight; fetching
+138 silly cache add args [ 'es6-promise@~3.1.2', null ]
+139 verbose cache add spec es6-promise@~3.1.2
+140 silly cache add parsed spec { raw: 'es6-promise@~3.1.2',
+140 silly cache add   scope: null,
+140 silly cache add   name: 'es6-promise',
+140 silly cache add   rawSpec: '~3.1.2',
+140 silly cache add   spec: '>=3.1.2 <3.2.0',
+140 silly cache add   type: 'range' }
+141 verbose addNamed es6-promise@>=3.1.2 <3.2.0
+142 silly addNamed semver.valid null
+143 silly addNamed semver.validRange >=3.1.2 <3.2.0
+144 silly addNameRange { name: 'es6-promise', range: '>=3.1.2 <3.2.0', hasData: false }
+145 silly mapToRegistry name es6-promise
+146 silly mapToRegistry using default registry
+147 silly mapToRegistry registry https://registry.npmjs.org/
+148 silly mapToRegistry uri https://registry.npmjs.org/es6-promise
+149 verbose addNameRange registry:https://registry.npmjs.org/es6-promise not in flight; fetching
+150 silly cache add args [ 'es6-shim@^0.35.1', null ]
+151 verbose cache add spec es6-shim@^0.35.1
+152 silly cache add parsed spec { raw: 'es6-shim@^0.35.1',
+152 silly cache add   scope: null,
+152 silly cache add   name: 'es6-shim',
+152 silly cache add   rawSpec: '^0.35.1',
+152 silly cache add   spec: '>=0.35.1 <0.36.0',
+152 silly cache add   type: 'range' }
+153 verbose addNamed es6-shim@>=0.35.1 <0.36.0
+154 silly addNamed semver.valid null
+155 silly addNamed semver.validRange >=0.35.1 <0.36.0
+156 silly addNameRange { name: 'es6-shim', range: '>=0.35.1 <0.36.0', hasData: false }
+157 silly mapToRegistry name es6-shim
+158 silly mapToRegistry using default registry
+159 silly mapToRegistry registry https://registry.npmjs.org/
+160 silly mapToRegistry uri https://registry.npmjs.org/es6-shim
+161 verbose addNameRange registry:https://registry.npmjs.org/es6-shim not in flight; fetching
+162 silly cache add args [ 'ng2-bs3-modal@^0.6.1', null ]
+163 verbose cache add spec ng2-bs3-modal@^0.6.1
+164 silly cache add parsed spec { raw: 'ng2-bs3-modal@^0.6.1',
+164 silly cache add   scope: null,
+164 silly cache add   name: 'ng2-bs3-modal',
+164 silly cache add   rawSpec: '^0.6.1',
+164 silly cache add   spec: '>=0.6.1 <0.7.0',
+164 silly cache add   type: 'range' }
+165 verbose addNamed ng2-bs3-modal@>=0.6.1 <0.7.0
+166 silly addNamed semver.valid null
+167 silly addNamed semver.validRange >=0.6.1 <0.7.0
+168 silly addNameRange { name: 'ng2-bs3-modal',
+168 silly addNameRange   range: '>=0.6.1 <0.7.0',
+168 silly addNameRange   hasData: false }
+169 silly mapToRegistry name ng2-bs3-modal
+170 silly mapToRegistry using default registry
+171 silly mapToRegistry registry https://registry.npmjs.org/
+172 silly mapToRegistry uri https://registry.npmjs.org/ng2-bs3-modal
+173 verbose addNameRange registry:https://registry.npmjs.org/ng2-bs3-modal not in flight; fetching
+174 silly cache add args [ 'reflect-metadata@^0.1.3', null ]
+175 verbose cache add spec reflect-metadata@^0.1.3
+176 silly cache add parsed spec { raw: 'reflect-metadata@^0.1.3',
+176 silly cache add   scope: null,
+176 silly cache add   name: 'reflect-metadata',
+176 silly cache add   rawSpec: '^0.1.3',
+176 silly cache add   spec: '>=0.1.3 <0.2.0',
+176 silly cache add   type: 'range' }
+177 verbose addNamed reflect-metadata@>=0.1.3 <0.2.0
+178 silly addNamed semver.valid null
+179 silly addNamed semver.validRange >=0.1.3 <0.2.0
+180 silly addNameRange { name: 'reflect-metadata',
+180 silly addNameRange   range: '>=0.1.3 <0.2.0',
+180 silly addNameRange   hasData: false }
+181 silly mapToRegistry name reflect-metadata
+182 silly mapToRegistry using default registry
+183 silly mapToRegistry registry https://registry.npmjs.org/
+184 silly mapToRegistry uri https://registry.npmjs.org/reflect-metadata
+185 verbose addNameRange registry:https://registry.npmjs.org/reflect-metadata not in flight; fetching
+186 silly cache add args [ 'rxjs@5.0.0-beta.6', null ]
+187 verbose cache add spec rxjs@5.0.0-beta.6
+188 silly cache add parsed spec { raw: 'rxjs@5.0.0-beta.6',
+188 silly cache add   scope: null,
+188 silly cache add   name: 'rxjs',
+188 silly cache add   rawSpec: '5.0.0-beta.6',
+188 silly cache add   spec: '5.0.0-beta.6',
+188 silly cache add   type: 'version' }
+189 verbose addNamed rxjs@5.0.0-beta.6
+190 silly addNamed semver.valid 5.0.0-beta.6
+191 silly addNamed semver.validRange 5.0.0-beta.6
+192 silly mapToRegistry name rxjs
+193 silly mapToRegistry using default registry
+194 silly mapToRegistry registry https://registry.npmjs.org/
+195 silly mapToRegistry uri https://registry.npmjs.org/rxjs
+196 verbose addNameVersion registry:https://registry.npmjs.org/rxjs not in flight; fetching
+197 silly cache add args [ 'systemjs@0.19.27', null ]
+198 verbose cache add spec systemjs@0.19.27
+199 silly cache add parsed spec { raw: 'systemjs@0.19.27',
+199 silly cache add   scope: null,
+199 silly cache add   name: 'systemjs',
+199 silly cache add   rawSpec: '0.19.27',
+199 silly cache add   spec: '0.19.27',
+199 silly cache add   type: 'version' }
+200 verbose addNamed systemjs@0.19.27
+201 silly addNamed semver.valid 0.19.27
+202 silly addNamed semver.validRange 0.19.27
+203 silly mapToRegistry name systemjs
+204 silly mapToRegistry using default registry
+205 silly mapToRegistry registry https://registry.npmjs.org/
+206 silly mapToRegistry uri https://registry.npmjs.org/systemjs
+207 verbose addNameVersion registry:https://registry.npmjs.org/systemjs not in flight; fetching
+208 silly cache add args [ 'zone.js@^0.6.12', null ]
+209 verbose cache add spec zone.js@^0.6.12
+210 silly cache add parsed spec { raw: 'zone.js@^0.6.12',
+210 silly cache add   scope: null,
+210 silly cache add   name: 'zone.js',
+210 silly cache add   rawSpec: '^0.6.12',
+210 silly cache add   spec: '>=0.6.12 <0.7.0',
+210 silly cache add   type: 'range' }
+211 verbose addNamed zone.js@>=0.6.12 <0.7.0
+212 silly addNamed semver.valid null
+213 silly addNamed semver.validRange >=0.6.12 <0.7.0
+214 silly addNameRange { name: 'zone.js', range: '>=0.6.12 <0.7.0', hasData: false }
+215 silly mapToRegistry name zone.js
+216 silly mapToRegistry using default registry
+217 silly mapToRegistry registry https://registry.npmjs.org/
+218 silly mapToRegistry uri https://registry.npmjs.org/zone.js
+219 verbose addNameRange registry:https://registry.npmjs.org/zone.js not in flight; fetching
+220 silly cache add args [ 'lodash@^4.13.1', null ]
+221 verbose cache add spec lodash@^4.13.1
+222 silly cache add parsed spec { raw: 'lodash@^4.13.1',
+222 silly cache add   scope: null,
+222 silly cache add   name: 'lodash',
+222 silly cache add   rawSpec: '^4.13.1',
+222 silly cache add   spec: '>=4.13.1 <5.0.0',
+222 silly cache add   type: 'range' }
+223 verbose addNamed lodash@>=4.13.1 <5.0.0
+224 silly addNamed semver.valid null
+225 silly addNamed semver.validRange >=4.13.1 <5.0.0
+226 silly addNameRange { name: 'lodash', range: '>=4.13.1 <5.0.0', hasData: false }
+227 silly mapToRegistry name lodash
+228 silly mapToRegistry using default registry
+229 silly mapToRegistry registry https://registry.npmjs.org/
+230 silly mapToRegistry uri https://registry.npmjs.org/lodash
+231 verbose addNameRange registry:https://registry.npmjs.org/lodash not in flight; fetching
+232 silly cache add args [ 'moment@^2.14.1', null ]
+233 verbose cache add spec moment@^2.14.1
+234 silly cache add parsed spec { raw: 'moment@^2.14.1',
+234 silly cache add   scope: null,
+234 silly cache add   name: 'moment',
+234 silly cache add   rawSpec: '^2.14.1',
+234 silly cache add   spec: '>=2.14.1 <3.0.0',
+234 silly cache add   type: 'range' }
+235 verbose addNamed moment@>=2.14.1 <3.0.0
+236 silly addNamed semver.valid null
+237 silly addNamed semver.validRange >=2.14.1 <3.0.0
+238 silly addNameRange { name: 'moment', range: '>=2.14.1 <3.0.0', hasData: false }
+239 silly mapToRegistry name moment
+240 silly mapToRegistry using default registry
+241 silly mapToRegistry registry https://registry.npmjs.org/
+242 silly mapToRegistry uri https://registry.npmjs.org/moment
+243 verbose addNameRange registry:https://registry.npmjs.org/moment not in flight; fetching
+244 silly cache add args [ 'gulp@3.8.11', null ]
+245 verbose cache add spec gulp@3.8.11
+246 silly cache add parsed spec { raw: 'gulp@3.8.11',
+246 silly cache add   scope: null,
+246 silly cache add   name: 'gulp',
+246 silly cache add   rawSpec: '3.8.11',
+246 silly cache add   spec: '3.8.11',
+246 silly cache add   type: 'version' }
+247 verbose addNamed gulp@3.8.11
+248 silly addNamed semver.valid 3.8.11
+249 silly addNamed semver.validRange 3.8.11
+250 silly mapToRegistry name gulp
+251 silly mapToRegistry using default registry
+252 silly mapToRegistry registry https://registry.npmjs.org/
+253 silly mapToRegistry uri https://registry.npmjs.org/gulp
+254 verbose addNameVersion registry:https://registry.npmjs.org/gulp not in flight; fetching
+255 silly cache add args [ 'gulp-concat@2.5.2', null ]
+256 verbose cache add spec gulp-concat@2.5.2
+257 silly cache add parsed spec { raw: 'gulp-concat@2.5.2',
+257 silly cache add   scope: null,
+257 silly cache add   name: 'gulp-concat',
+257 silly cache add   rawSpec: '2.5.2',
+257 silly cache add   spec: '2.5.2',
+257 silly cache add   type: 'version' }
+258 verbose addNamed gulp-concat@2.5.2
+259 silly addNamed semver.valid 2.5.2
+260 silly addNamed semver.validRange 2.5.2
+261 silly mapToRegistry name gulp-concat
+262 silly mapToRegistry using default registry
+263 silly mapToRegistry registry https://registry.npmjs.org/
+264 silly mapToRegistry uri https://registry.npmjs.org/gulp-concat
+265 verbose addNameVersion registry:https://registry.npmjs.org/gulp-concat not in flight; fetching
+266 silly cache add args [ 'gulp-cssmin@0.1.7', null ]
+267 verbose cache add spec gulp-cssmin@0.1.7
+268 silly cache add parsed spec { raw: 'gulp-cssmin@0.1.7',
+268 silly cache add   scope: null,
+268 silly cache add   name: 'gulp-cssmin',
+268 silly cache add   rawSpec: '0.1.7',
+268 silly cache add   spec: '0.1.7',
+268 silly cache add   type: 'version' }
+269 verbose addNamed gulp-cssmin@0.1.7
+270 silly addNamed semver.valid 0.1.7
+271 silly addNamed semver.validRange 0.1.7
+272 silly mapToRegistry name gulp-cssmin
+273 silly mapToRegistry using default registry
+274 silly mapToRegistry registry https://registry.npmjs.org/
+275 silly mapToRegistry uri https://registry.npmjs.org/gulp-cssmin
+276 verbose addNameVersion registry:https://registry.npmjs.org/gulp-cssmin not in flight; fetching
+277 silly cache add args [ 'gulp-uglify@1.2.0', null ]
+278 verbose cache add spec gulp-uglify@1.2.0
+279 silly cache add parsed spec { raw: 'gulp-uglify@1.2.0',
+279 silly cache add   scope: null,
+279 silly cache add   name: 'gulp-uglify',
+279 silly cache add   rawSpec: '1.2.0',
+279 silly cache add   spec: '1.2.0',
+279 silly cache add   type: 'version' }
+280 verbose addNamed gulp-uglify@1.2.0
+281 silly addNamed semver.valid 1.2.0
+282 silly addNamed semver.validRange 1.2.0
+283 silly mapToRegistry name gulp-uglify
+284 silly mapToRegistry using default registry
+285 silly mapToRegistry registry https://registry.npmjs.org/
+286 silly mapToRegistry uri https://registry.npmjs.org/gulp-uglify
+287 verbose addNameVersion registry:https://registry.npmjs.org/gulp-uglify not in flight; fetching
+288 silly cache add args [ 'rimraf@^2.5.2', null ]
+289 verbose cache add spec rimraf@^2.5.2
+290 silly cache add parsed spec { raw: 'rimraf@^2.5.2',
+290 silly cache add   scope: null,
+290 silly cache add   name: 'rimraf',
+290 silly cache add   rawSpec: '^2.5.2',
+290 silly cache add   spec: '>=2.5.2 <3.0.0',
+290 silly cache add   type: 'range' }
+291 verbose addNamed rimraf@>=2.5.2 <3.0.0
+292 silly addNamed semver.valid null
+293 silly addNamed semver.validRange >=2.5.2 <3.0.0
+294 silly addNameRange { name: 'rimraf', range: '>=2.5.2 <3.0.0', hasData: false }
+295 silly mapToRegistry name rimraf
+296 silly mapToRegistry using default registry
+297 silly mapToRegistry registry https://registry.npmjs.org/
+298 silly mapToRegistry uri https://registry.npmjs.org/rimraf
+299 verbose addNameRange registry:https://registry.npmjs.org/rimraf not in flight; fetching
+300 silly cache add args [ 'typescript@^1.8.10', null ]
+301 verbose cache add spec typescript@^1.8.10
+302 silly cache add parsed spec { raw: 'typescript@^1.8.10',
+302 silly cache add   scope: null,
+302 silly cache add   name: 'typescript',
+302 silly cache add   rawSpec: '^1.8.10',
+302 silly cache add   spec: '>=1.8.10 <2.0.0',
+302 silly cache add   type: 'range' }
+303 verbose addNamed typescript@>=1.8.10 <2.0.0
+304 silly addNamed semver.valid null
+305 silly addNamed semver.validRange >=1.8.10 <2.0.0
+306 silly addNameRange { name: 'typescript', range: '>=1.8.10 <2.0.0', hasData: false }
+307 silly mapToRegistry name typescript
+308 silly mapToRegistry using default registry
+309 silly mapToRegistry registry https://registry.npmjs.org/
+310 silly mapToRegistry uri https://registry.npmjs.org/typescript
+311 verbose addNameRange registry:https://registry.npmjs.org/typescript not in flight; fetching
+312 silly cache add args [ 'typings@^1.3.1', null ]
+313 verbose cache add spec typings@^1.3.1
+314 silly cache add parsed spec { raw: 'typings@^1.3.1',
+314 silly cache add   scope: null,
+314 silly cache add   name: 'typings',
+314 silly cache add   rawSpec: '^1.3.1',
+314 silly cache add   spec: '>=1.3.1 <2.0.0',
+314 silly cache add   type: 'range' }
+315 verbose addNamed typings@>=1.3.1 <2.0.0
+316 silly addNamed semver.valid null
+317 silly addNamed semver.validRange >=1.3.1 <2.0.0
+318 silly addNameRange { name: 'typings', range: '>=1.3.1 <2.0.0', hasData: false }
+319 silly mapToRegistry name typings
+320 silly mapToRegistry using default registry
+321 silly mapToRegistry registry https://registry.npmjs.org/
+322 silly mapToRegistry uri https://registry.npmjs.org/typings
+323 verbose addNameRange registry:https://registry.npmjs.org/typings not in flight; fetching
+324 silly cache add args [ 'gulp-util@^3.0.7', null ]
+325 verbose cache add spec gulp-util@^3.0.7
+326 silly cache add parsed spec { raw: 'gulp-util@^3.0.7',
+326 silly cache add   scope: null,
+326 silly cache add   name: 'gulp-util',
+326 silly cache add   rawSpec: '^3.0.7',
+326 silly cache add   spec: '>=3.0.7 <4.0.0',
+326 silly cache add   type: 'range' }
+327 verbose addNamed gulp-util@>=3.0.7 <4.0.0
+328 silly addNamed semver.valid null
+329 silly addNamed semver.validRange >=3.0.7 <4.0.0
+330 silly addNameRange { name: 'gulp-util', range: '>=3.0.7 <4.0.0', hasData: false }
+331 silly mapToRegistry name gulp-util
+332 silly mapToRegistry using default registry
+333 silly mapToRegistry registry https://registry.npmjs.org/
+334 silly mapToRegistry uri https://registry.npmjs.org/gulp-util
+335 verbose addNameRange registry:https://registry.npmjs.org/gulp-util not in flight; fetching
+336 silly cache add args [ '@angular/common@2.0.0-rc.4', null ]
+337 verbose cache add spec @angular/common@2.0.0-rc.4
+338 silly cache add parsed spec { raw: '@angular/common@2.0.0-rc.4',
+338 silly cache add   scope: '@angular',
+338 silly cache add   name: '@angular/common',
+338 silly cache add   rawSpec: '2.0.0-rc.4',
+338 silly cache add   spec: '2.0.0-rc.4',
+338 silly cache add   type: 'version' }
+339 verbose addNamed @angular/common@2.0.0-rc.4
+340 silly addNamed semver.valid 2.0.0-rc.4
+341 silly addNamed semver.validRange 2.0.0-rc.4
+342 silly mapToRegistry name @angular/common
+343 silly mapToRegistry scope (from package name) @angular
+344 verbose mapToRegistry no registry URL found in name for scope @angular
+345 silly mapToRegistry using default registry
+346 silly mapToRegistry registry https://registry.npmjs.org/
+347 silly mapToRegistry uri https://registry.npmjs.org/@angular%2fcommon
+348 verbose addNameVersion registry:https://registry.npmjs.org/@angular%2fcommon not in flight; fetching
+349 silly cache add args [ '@angular/compiler@2.0.0-rc.4', null ]
+350 verbose cache add spec @angular/compiler@2.0.0-rc.4
+351 silly cache add parsed spec { raw: '@angular/compiler@2.0.0-rc.4',
+351 silly cache add   scope: '@angular',
+351 silly cache add   name: '@angular/compiler',
+351 silly cache add   rawSpec: '2.0.0-rc.4',
+351 silly cache add   spec: '2.0.0-rc.4',
+351 silly cache add   type: 'version' }
+352 verbose addNamed @angular/compiler@2.0.0-rc.4
+353 silly addNamed semver.valid 2.0.0-rc.4
+354 silly addNamed semver.validRange 2.0.0-rc.4
+355 silly mapToRegistry name @angular/compiler
+356 silly mapToRegistry scope (from package name) @angular
+357 verbose mapToRegistry no registry URL found in name for scope @angular
+358 silly mapToRegistry using default registry
+359 silly mapToRegistry registry https://registry.npmjs.org/
+360 silly mapToRegistry uri https://registry.npmjs.org/@angular%2fcompiler
+361 verbose addNameVersion registry:https://registry.npmjs.org/@angular%2fcompiler not in flight; fetching
+362 verbose request uri https://registry.npmjs.org/moment
+363 verbose request no auth needed
+364 info attempt registry request try #1 at 2:50:50 PM
+365 verbose request id be849879b3f37e09
+366 http request GET https://registry.npmjs.org/moment
+367 verbose request uri https://registry.npmjs.org/@angular%2fhttp
+368 verbose request no auth needed
+369 info attempt registry request try #1 at 2:50:51 PM
+370 verbose etag "DFT1G9OMUJQ9UAESG79B8WAWO"
+371 http request GET https://registry.npmjs.org/@angular%2fhttp
+372 verbose request uri https://registry.npmjs.org/@angular%2fforms
+373 verbose request no auth needed
+374 info attempt registry request try #1 at 2:50:51 PM
+375 verbose etag "2ER24PXIPJBMMPQRJJRFJAAHM"
+376 http request GET https://registry.npmjs.org/@angular%2fforms
+377 verbose request uri https://registry.npmjs.org/@angular%2frouter-deprecated
+378 verbose request no auth needed
+379 info attempt registry request try #1 at 2:50:51 PM
+380 verbose etag "4N3WIBBPFSIBA83WA7GKRUC7Z"
+381 http request GET https://registry.npmjs.org/@angular%2frouter-deprecated
+382 verbose request uri https://registry.npmjs.org/@angular%2fcore
+383 verbose request no auth needed
+384 info attempt registry request try #1 at 2:50:51 PM
+385 verbose etag "O9HMQLLNS2SD39QJX01DNZNS"
+386 http request GET https://registry.npmjs.org/@angular%2fcore
+387 verbose request uri https://registry.npmjs.org/@angular%2fplatform-browser
+388 verbose request no auth needed
+389 info attempt registry request try #1 at 2:50:51 PM
+390 verbose etag "EUIWOGYU4MEWY438P6TG1S5Q3"
+391 http request GET https://registry.npmjs.org/@angular%2fplatform-browser
+392 verbose request uri https://registry.npmjs.org/@angular%2frouter
+393 verbose request no auth needed
+394 info attempt registry request try #1 at 2:50:51 PM
+395 verbose etag "DD28O01QUYE6JU5L78X8HCXYH"
+396 http request GET https://registry.npmjs.org/@angular%2frouter
+397 verbose request uri https://registry.npmjs.org/@angular%2fplatform-browser-dynamic
+398 verbose request no auth needed
+399 info attempt registry request try #1 at 2:50:51 PM
+400 verbose etag "EAJDGF3RQXE692DCJE40D7TQH"
+401 http request GET https://registry.npmjs.org/@angular%2fplatform-browser-dynamic
+402 verbose request uri https://registry.npmjs.org/bootstrap
+403 verbose request no auth needed
+404 info attempt registry request try #1 at 2:50:51 PM
+405 verbose etag "5B4HYFL730E1V92UWSESX4VFQ"
+406 http request GET https://registry.npmjs.org/bootstrap
+407 verbose request uri https://registry.npmjs.org/@angular%2fupgrade
+408 verbose request no auth needed
+409 info attempt registry request try #1 at 2:50:51 PM
+410 verbose etag "ETNPYE3YVWQ93I4K63JSABP3V"
+411 http request GET https://registry.npmjs.org/@angular%2fupgrade
+412 verbose request uri https://registry.npmjs.org/reflect-metadata
+413 verbose request no auth needed
+414 info attempt registry request try #1 at 2:50:51 PM
+415 verbose etag "73B6IGAZQPI4H7RJ1DSZNY56I"
+416 http request GET https://registry.npmjs.org/reflect-metadata
+417 verbose request uri https://registry.npmjs.org/es6-promise
+418 verbose request no auth needed
+419 info attempt registry request try #1 at 2:50:51 PM
+420 verbose etag "ACJCPV24O7989HKGJS8C0GN5Y"
+421 http request GET https://registry.npmjs.org/es6-promise
+422 verbose request uri https://registry.npmjs.org/angular2-in-memory-web-api
+423 verbose request no auth needed
+424 info attempt registry request try #1 at 2:50:51 PM
+425 verbose etag "8CTG0HLEMVEYSLPWF6V5FAGA9"
+426 http request GET https://registry.npmjs.org/angular2-in-memory-web-api
+427 verbose request uri https://registry.npmjs.org/ng2-bs3-modal
+428 verbose request no auth needed
+429 info attempt registry request try #1 at 2:50:51 PM
+430 verbose etag "BML7ZXNUV0RBCTJYQCKPSHWVF"
+431 http request GET https://registry.npmjs.org/ng2-bs3-modal
+432 verbose request uri https://registry.npmjs.org/rxjs
+433 verbose request no auth needed
+434 info attempt registry request try #1 at 2:50:51 PM
+435 verbose etag "AC9EN817WT2KF3PHFGB9I2JK3"
+436 http request GET https://registry.npmjs.org/rxjs
+437 verbose request uri https://registry.npmjs.org/gulp-concat
+438 verbose request no auth needed
+439 info attempt registry request try #1 at 2:50:51 PM
+440 verbose etag "1Q9OOODHP1CSMUKVUXQIX7PWE"
+441 http request GET https://registry.npmjs.org/gulp-concat
+442 verbose request uri https://registry.npmjs.org/systemjs
+443 verbose request no auth needed
+444 info attempt registry request try #1 at 2:50:51 PM
+445 verbose etag "ERF5SEN7L1SEH646OJMWF07X9"
+446 http request GET https://registry.npmjs.org/systemjs
+447 verbose request uri https://registry.npmjs.org/gulp-uglify
+448 verbose request no auth needed
+449 info attempt registry request try #1 at 2:50:51 PM
+450 verbose etag "DI6MJAEAL2B55TV35P5GMFV2O"
+451 http request GET https://registry.npmjs.org/gulp-uglify
+452 verbose request uri https://registry.npmjs.org/lodash
+453 verbose request no auth needed
+454 info attempt registry request try #1 at 2:50:51 PM
+455 verbose etag "1XBZAQLW2XYN7H96UW2WEGN3U"
+456 http request GET https://registry.npmjs.org/lodash
+457 verbose request uri https://registry.npmjs.org/zone.js
+458 verbose request no auth needed
+459 info attempt registry request try #1 at 2:50:51 PM
+460 verbose etag "7FQDT72RO8QVETJP3TI9MRIGS"
+461 http request GET https://registry.npmjs.org/zone.js
+462 verbose request uri https://registry.npmjs.org/gulp
+463 verbose request no auth needed
+464 info attempt registry request try #1 at 2:50:51 PM
+465 verbose etag "4SE25LEKGJBZ8Q6EFR14Y2H9F"
+466 http request GET https://registry.npmjs.org/gulp
+467 verbose request uri https://registry.npmjs.org/gulp-util
+468 verbose request no auth needed
+469 info attempt registry request try #1 at 2:50:51 PM
+470 verbose etag "8HLTWRS4JLZET1PGG682G4KI1"
+471 http request GET https://registry.npmjs.org/gulp-util
+472 verbose request uri https://registry.npmjs.org/rimraf
+473 verbose request no auth needed
+474 info attempt registry request try #1 at 2:50:51 PM
+475 verbose etag "728APM8KM96TB04CT5WTWBZ0J"
+476 http request GET https://registry.npmjs.org/rimraf
+477 verbose request uri https://registry.npmjs.org/gulp-cssmin
+478 verbose request no auth needed
+479 info attempt registry request try #1 at 2:50:51 PM
+480 verbose etag "1QTFHNOEPBZMYTPOI1ZFJP1X1"
+481 http request GET https://registry.npmjs.org/gulp-cssmin
+482 verbose request uri https://registry.npmjs.org/@angular%2fcommon
+483 verbose request no auth needed
+484 info attempt registry request try #1 at 2:50:51 PM
+485 verbose etag "CGZTS01IP31IU0I6WA2FWMEIU"
+486 http request GET https://registry.npmjs.org/@angular%2fcommon
+487 verbose request uri https://registry.npmjs.org/es6-shim
+488 verbose request no auth needed
+489 info attempt registry request try #1 at 2:50:51 PM
+490 verbose etag "60ZRHV1P79AVMH36BNSBCXAFS"
+491 http request GET https://registry.npmjs.org/es6-shim
+492 verbose request uri https://registry.npmjs.org/@angular%2fcompiler
+493 verbose request no auth needed
+494 info attempt registry request try #1 at 2:50:51 PM
+495 verbose etag "CM5G08T6C28X22FSNWO7J2TLK"
+496 http request GET https://registry.npmjs.org/@angular%2fcompiler
+497 verbose request uri https://registry.npmjs.org/typings
+498 verbose request no auth needed
+499 info attempt registry request try #1 at 2:50:51 PM
+500 verbose etag "9NIBRUSDJNEZIS65UKKQA0U5N"
+501 http request GET https://registry.npmjs.org/typings
+502 verbose request uri https://registry.npmjs.org/typescript
+503 verbose request no auth needed
+504 info attempt registry request try #1 at 2:50:51 PM
+505 verbose etag "9FO0M5E65VALTM1VCK8T192XM"
+506 http request GET https://registry.npmjs.org/typescript
+507 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+508 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+509 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+510 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+511 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+512 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+513 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+514 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+515 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+516 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+517 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+518 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+519 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+520 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+521 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+522 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+523 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+524 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+525 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+526 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+527 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+528 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+529 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+530 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+531 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+532 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+533 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+534 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+535 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+536 info attempt registry request try #2 at 2:51:02 PM
+537 http request GET https://registry.npmjs.org/moment
+538 info attempt registry request try #2 at 2:51:02 PM
+539 verbose etag "2ER24PXIPJBMMPQRJJRFJAAHM"
+540 http request GET https://registry.npmjs.org/@angular%2fforms
+541 info attempt registry request try #2 at 2:51:02 PM
+542 verbose etag "DFT1G9OMUJQ9UAESG79B8WAWO"
+543 http request GET https://registry.npmjs.org/@angular%2fhttp
+544 info attempt registry request try #2 at 2:51:02 PM
+545 verbose etag "EUIWOGYU4MEWY438P6TG1S5Q3"
+546 http request GET https://registry.npmjs.org/@angular%2fplatform-browser
+547 info attempt registry request try #2 at 2:51:02 PM
+548 verbose etag "4N3WIBBPFSIBA83WA7GKRUC7Z"
+549 http request GET https://registry.npmjs.org/@angular%2frouter-deprecated
+550 info attempt registry request try #2 at 2:51:02 PM
+551 verbose etag "DD28O01QUYE6JU5L78X8HCXYH"
+552 http request GET https://registry.npmjs.org/@angular%2frouter
+553 info attempt registry request try #2 at 2:51:02 PM
+554 verbose etag "O9HMQLLNS2SD39QJX01DNZNS"
+555 http request GET https://registry.npmjs.org/@angular%2fcore
+556 info attempt registry request try #2 at 2:51:02 PM
+557 verbose etag "AC9EN817WT2KF3PHFGB9I2JK3"
+558 http request GET https://registry.npmjs.org/rxjs
+559 info attempt registry request try #2 at 2:51:02 PM
+560 verbose etag "8CTG0HLEMVEYSLPWF6V5FAGA9"
+561 http request GET https://registry.npmjs.org/angular2-in-memory-web-api
+562 info attempt registry request try #2 at 2:51:02 PM
+563 verbose etag "BML7ZXNUV0RBCTJYQCKPSHWVF"
+564 http request GET https://registry.npmjs.org/ng2-bs3-modal
+565 info attempt registry request try #2 at 2:51:02 PM
+566 verbose etag "ACJCPV24O7989HKGJS8C0GN5Y"
+567 http request GET https://registry.npmjs.org/es6-promise
+568 info attempt registry request try #2 at 2:51:02 PM
+569 verbose etag "7FQDT72RO8QVETJP3TI9MRIGS"
+570 http request GET https://registry.npmjs.org/zone.js
+571 info attempt registry request try #2 at 2:51:02 PM
+572 verbose etag "8HLTWRS4JLZET1PGG682G4KI1"
+573 http request GET https://registry.npmjs.org/gulp-util
+574 info attempt registry request try #2 at 2:51:02 PM
+575 verbose etag "728APM8KM96TB04CT5WTWBZ0J"
+576 http request GET https://registry.npmjs.org/rimraf
+577 info attempt registry request try #2 at 2:51:02 PM
+578 verbose etag "4SE25LEKGJBZ8Q6EFR14Y2H9F"
+579 http request GET https://registry.npmjs.org/gulp
+580 info attempt registry request try #2 at 2:51:02 PM
+581 verbose etag "1XBZAQLW2XYN7H96UW2WEGN3U"
+582 http request GET https://registry.npmjs.org/lodash
+583 info attempt registry request try #2 at 2:51:02 PM
+584 verbose etag "EAJDGF3RQXE692DCJE40D7TQH"
+585 http request GET https://registry.npmjs.org/@angular%2fplatform-browser-dynamic
+586 info attempt registry request try #2 at 2:51:02 PM
+587 verbose etag "CM5G08T6C28X22FSNWO7J2TLK"
+588 http request GET https://registry.npmjs.org/@angular%2fcompiler
+589 info attempt registry request try #2 at 2:51:02 PM
+590 verbose etag "1QTFHNOEPBZMYTPOI1ZFJP1X1"
+591 http request GET https://registry.npmjs.org/gulp-cssmin
+592 info attempt registry request try #2 at 2:51:02 PM
+593 verbose etag "60ZRHV1P79AVMH36BNSBCXAFS"
+594 http request GET https://registry.npmjs.org/es6-shim
+595 info attempt registry request try #2 at 2:51:02 PM
+596 verbose etag "CGZTS01IP31IU0I6WA2FWMEIU"
+597 http request GET https://registry.npmjs.org/@angular%2fcommon
+598 info attempt registry request try #2 at 2:51:02 PM
+599 verbose etag "ERF5SEN7L1SEH646OJMWF07X9"
+600 http request GET https://registry.npmjs.org/systemjs
+601 info attempt registry request try #2 at 2:51:02 PM
+602 verbose etag "DI6MJAEAL2B55TV35P5GMFV2O"
+603 http request GET https://registry.npmjs.org/gulp-uglify
+604 info attempt registry request try #2 at 2:51:02 PM
+605 verbose etag "1Q9OOODHP1CSMUKVUXQIX7PWE"
+606 http request GET https://registry.npmjs.org/gulp-concat
+607 info attempt registry request try #2 at 2:51:02 PM
+608 verbose etag "73B6IGAZQPI4H7RJ1DSZNY56I"
+609 http request GET https://registry.npmjs.org/reflect-metadata
+610 info attempt registry request try #2 at 2:51:02 PM
+611 verbose etag "ETNPYE3YVWQ93I4K63JSABP3V"
+612 http request GET https://registry.npmjs.org/@angular%2fupgrade
+613 info attempt registry request try #2 at 2:51:02 PM
+614 verbose etag "5B4HYFL730E1V92UWSESX4VFQ"
+615 http request GET https://registry.npmjs.org/bootstrap
+616 info attempt registry request try #2 at 2:51:02 PM
+617 verbose etag "9FO0M5E65VALTM1VCK8T192XM"
+618 http request GET https://registry.npmjs.org/typescript
+619 info attempt registry request try #2 at 2:51:02 PM
+620 verbose etag "9NIBRUSDJNEZIS65UKKQA0U5N"
+621 http request GET https://registry.npmjs.org/typings
+622 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+623 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+624 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+625 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+626 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+627 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+628 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+629 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+630 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+631 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+632 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+633 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+634 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+635 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+636 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+637 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+638 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+639 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+640 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+641 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+642 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+643 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+644 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+645 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+646 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+647 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+648 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+649 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+650 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+651 info attempt registry request try #3 at 2:52:03 PM
+652 http request GET https://registry.npmjs.org/moment
+653 info attempt registry request try #3 at 2:52:03 PM
+654 verbose etag "DFT1G9OMUJQ9UAESG79B8WAWO"
+655 http request GET https://registry.npmjs.org/@angular%2fhttp
+656 info attempt registry request try #3 at 2:52:03 PM
+657 verbose etag "2ER24PXIPJBMMPQRJJRFJAAHM"
+658 http request GET https://registry.npmjs.org/@angular%2fforms
+659 info attempt registry request try #3 at 2:52:03 PM
+660 verbose etag "EUIWOGYU4MEWY438P6TG1S5Q3"
+661 http request GET https://registry.npmjs.org/@angular%2fplatform-browser
+662 info attempt registry request try #3 at 2:52:03 PM
+663 verbose etag "DD28O01QUYE6JU5L78X8HCXYH"
+664 http request GET https://registry.npmjs.org/@angular%2frouter
+665 info attempt registry request try #3 at 2:52:03 PM
+666 verbose etag "4N3WIBBPFSIBA83WA7GKRUC7Z"
+667 http request GET https://registry.npmjs.org/@angular%2frouter-deprecated
+668 info attempt registry request try #3 at 2:52:03 PM
+669 verbose etag "O9HMQLLNS2SD39QJX01DNZNS"
+670 http request GET https://registry.npmjs.org/@angular%2fcore
+671 info attempt registry request try #3 at 2:52:03 PM
+672 verbose etag "ACJCPV24O7989HKGJS8C0GN5Y"
+673 http request GET https://registry.npmjs.org/es6-promise
+674 info attempt registry request try #3 at 2:52:03 PM
+675 verbose etag "8CTG0HLEMVEYSLPWF6V5FAGA9"
+676 http request GET https://registry.npmjs.org/angular2-in-memory-web-api
+677 info attempt registry request try #3 at 2:52:03 PM
+678 verbose etag "AC9EN817WT2KF3PHFGB9I2JK3"
+679 http request GET https://registry.npmjs.org/rxjs
+680 info attempt registry request try #3 at 2:52:03 PM
+681 verbose etag "BML7ZXNUV0RBCTJYQCKPSHWVF"
+682 http request GET https://registry.npmjs.org/ng2-bs3-modal
+683 info attempt registry request try #3 at 2:52:03 PM
+684 verbose etag "73B6IGAZQPI4H7RJ1DSZNY56I"
+685 http request GET https://registry.npmjs.org/reflect-metadata
+686 info attempt registry request try #3 at 2:52:03 PM
+687 verbose etag "DI6MJAEAL2B55TV35P5GMFV2O"
+688 http request GET https://registry.npmjs.org/gulp-uglify
+689 info attempt registry request try #3 at 2:52:03 PM
+690 verbose etag "1Q9OOODHP1CSMUKVUXQIX7PWE"
+691 http request GET https://registry.npmjs.org/gulp-concat
+692 info attempt registry request try #3 at 2:52:03 PM
+693 verbose etag "ETNPYE3YVWQ93I4K63JSABP3V"
+694 http request GET https://registry.npmjs.org/@angular%2fupgrade
+695 info attempt registry request try #3 at 2:52:03 PM
+696 verbose etag "728APM8KM96TB04CT5WTWBZ0J"
+697 http request GET https://registry.npmjs.org/rimraf
+698 info attempt registry request try #3 at 2:52:03 PM
+699 verbose etag "7FQDT72RO8QVETJP3TI9MRIGS"
+700 http request GET https://registry.npmjs.org/zone.js
+701 info attempt registry request try #3 at 2:52:03 PM
+702 verbose etag "8HLTWRS4JLZET1PGG682G4KI1"
+703 http request GET https://registry.npmjs.org/gulp-util
+704 info attempt registry request try #3 at 2:52:03 PM
+705 verbose etag "CM5G08T6C28X22FSNWO7J2TLK"
+706 http request GET https://registry.npmjs.org/@angular%2fcompiler
+707 info attempt registry request try #3 at 2:52:03 PM
+708 verbose etag "CGZTS01IP31IU0I6WA2FWMEIU"
+709 http request GET https://registry.npmjs.org/@angular%2fcommon
+710 info attempt registry request try #3 at 2:52:03 PM
+711 verbose etag "EAJDGF3RQXE692DCJE40D7TQH"
+712 http request GET https://registry.npmjs.org/@angular%2fplatform-browser-dynamic
+713 info attempt registry request try #3 at 2:52:03 PM
+714 verbose etag "ERF5SEN7L1SEH646OJMWF07X9"
+715 http request GET https://registry.npmjs.org/systemjs
+716 info attempt registry request try #3 at 2:52:03 PM
+717 verbose etag "1XBZAQLW2XYN7H96UW2WEGN3U"
+718 http request GET https://registry.npmjs.org/lodash
+719 info attempt registry request try #3 at 2:52:03 PM
+720 verbose etag "60ZRHV1P79AVMH36BNSBCXAFS"
+721 http request GET https://registry.npmjs.org/es6-shim
+722 info attempt registry request try #3 at 2:52:03 PM
+723 verbose etag "1QTFHNOEPBZMYTPOI1ZFJP1X1"
+724 http request GET https://registry.npmjs.org/gulp-cssmin
+725 info attempt registry request try #3 at 2:52:03 PM
+726 verbose etag "4SE25LEKGJBZ8Q6EFR14Y2H9F"
+727 http request GET https://registry.npmjs.org/gulp
+728 info attempt registry request try #3 at 2:52:03 PM
+729 verbose etag "5B4HYFL730E1V92UWSESX4VFQ"
+730 http request GET https://registry.npmjs.org/bootstrap
+731 info attempt registry request try #3 at 2:52:03 PM
+732 verbose etag "9NIBRUSDJNEZIS65UKKQA0U5N"
+733 http request GET https://registry.npmjs.org/typings
+734 info attempt registry request try #3 at 2:52:03 PM
+735 verbose etag "9FO0M5E65VALTM1VCK8T192XM"
+736 http request GET https://registry.npmjs.org/typescript
+737 silly get cb [ 304, undefined ]
+738 verbose etag https://registry.npmjs.org/@angular%2fhttp from cache
+739 verbose get saving @angular/http to C:\Users\niranjan.puri\AppData\Roaming\npm-cache\registry.npmjs.org\_40angular_252fhttp\.cache.json
+740 silly get cb [ 304, undefined ]
+741 verbose etag https://registry.npmjs.org/@angular%2fforms from cache
+742 verbose get saving @angular/forms to C:\Users\niranjan.puri\AppData\Roaming\npm-cache\registry.npmjs.org\_40angular_252fforms\.cache.json
+743 silly get cb [ 304, undefined ]
+744 verbose etag https://registry.npmjs.org/@angular%2fplatform-browser from cache
+745 verbose get saving @angular/platform-browser to C:\Users\niranjan.puri\AppData\Roaming\npm-cache\registry.npmjs.org\_40angular_252fplatform-browser\.cache.json
+746 silly get cb [ 304, undefined ]
+747 verbose etag https://registry.npmjs.org/@angular%2frouter-deprecated from cache
+748 verbose get saving @angular/router-deprecated to C:\Users\niranjan.puri\AppData\Roaming\npm-cache\registry.npmjs.org\_40angular_252frouter-deprecated\.cache.json
+749 silly get cb [ 304, undefined ]
+750 verbose etag https://registry.npmjs.org/@angular%2frouter from cache
+751 verbose get saving @angular/router to C:\Users\niranjan.puri\AppData\Roaming\npm-cache\registry.npmjs.org\_40angular_252frouter\.cache.json
+752 silly get cb [ 304, undefined ]
+753 verbose etag https://registry.npmjs.org/@angular%2fcore from cache
+754 verbose get saving @angular/core to C:\Users\niranjan.puri\AppData\Roaming\npm-cache\registry.npmjs.org\_40angular_252fcore\.cache.json
+755 silly get cb [ 304, undefined ]
+756 verbose etag https://registry.npmjs.org/angular2-in-memory-web-api from cache
+757 verbose get saving angular2-in-memory-web-api to C:\Users\niranjan.puri\AppData\Roaming\npm-cache\registry.npmjs.org\angular2-in-memory-web-api\.cache.json
+758 silly get cb [ 304, undefined ]
+759 verbose etag https://registry.npmjs.org/rxjs from cache
+760 verbose get saving rxjs to C:\Users\niranjan.puri\AppData\Roaming\npm-cache\registry.npmjs.org\rxjs\.cache.json
+761 silly get cb [ 304, undefined ]
+762 verbose etag https://registry.npmjs.org/es6-promise from cache
+763 verbose get saving es6-promise to C:\Users\niranjan.puri\AppData\Roaming\npm-cache\registry.npmjs.org\es6-promise\.cache.json
+764 silly get cb [ 304, undefined ]
+765 verbose etag https://registry.npmjs.org/ng2-bs3-modal from cache
+766 verbose get saving ng2-bs3-modal to C:\Users\niranjan.puri\AppData\Roaming\npm-cache\registry.npmjs.org\ng2-bs3-modal\.cache.json
+767 silly get cb [ 304, undefined ]
+768 verbose etag https://registry.npmjs.org/gulp-util from cache
+769 verbose get saving gulp-util to C:\Users\niranjan.puri\AppData\Roaming\npm-cache\registry.npmjs.org\gulp-util\.cache.json
+770 silly get cb [ 304, undefined ]
+771 verbose etag https://registry.npmjs.org/bootstrap from cache
+772 verbose get saving bootstrap to C:\Users\niranjan.puri\AppData\Roaming\npm-cache\registry.npmjs.org\bootstrap\.cache.json
+773 silly get cb [ 304, undefined ]
+774 verbose etag https://registry.npmjs.org/rimraf from cache
+775 verbose get saving rimraf to C:\Users\niranjan.puri\AppData\Roaming\npm-cache\registry.npmjs.org\rimraf\.cache.json
+776 silly get cb [ 304, undefined ]
+777 verbose etag https://registry.npmjs.org/typescript from cache
+778 verbose get saving typescript to C:\Users\niranjan.puri\AppData\Roaming\npm-cache\registry.npmjs.org\typescript\.cache.json
+779 silly get cb [ 304, undefined ]
+780 verbose etag https://registry.npmjs.org/zone.js from cache
+781 verbose get saving zone.js to C:\Users\niranjan.puri\AppData\Roaming\npm-cache\registry.npmjs.org\zone.js\.cache.json
+782 silly get cb [ 304, undefined ]
+783 verbose etag https://registry.npmjs.org/typings from cache
+784 verbose get saving typings to C:\Users\niranjan.puri\AppData\Roaming\npm-cache\registry.npmjs.org\typings\.cache.json
+785 silly get cb [ 304, undefined ]
+786 verbose etag https://registry.npmjs.org/@angular%2fupgrade from cache
+787 verbose get saving @angular/upgrade to C:\Users\niranjan.puri\AppData\Roaming\npm-cache\registry.npmjs.org\_40angular_252fupgrade\.cache.json
+788 silly get cb [ 304, undefined ]
+789 verbose etag https://registry.npmjs.org/@angular%2fcompiler from cache
+790 verbose get saving @angular/compiler to C:\Users\niranjan.puri\AppData\Roaming\npm-cache\registry.npmjs.org\_40angular_252fcompiler\.cache.json
+791 silly get cb [ 304, undefined ]
+792 verbose etag https://registry.npmjs.org/@angular%2fplatform-browser-dynamic from cache
+793 verbose get saving @angular/platform-browser-dynamic to C:\Users\niranjan.puri\AppData\Roaming\npm-cache\registry.npmjs.org\_40angular_252fplatform-browser-dynamic\.cache.json
+794 silly get cb [ 304, undefined ]
+795 verbose etag https://registry.npmjs.org/systemjs from cache
+796 verbose get saving systemjs to C:\Users\niranjan.puri\AppData\Roaming\npm-cache\registry.npmjs.org\systemjs\.cache.json
+797 silly get cb [ 304, undefined ]
+798 verbose etag https://registry.npmjs.org/es6-shim from cache
+799 verbose get saving es6-shim to C:\Users\niranjan.puri\AppData\Roaming\npm-cache\registry.npmjs.org\es6-shim\.cache.json
+800 silly get cb [ 304, undefined ]
+801 verbose etag https://registry.npmjs.org/lodash from cache
+802 verbose get saving lodash to C:\Users\niranjan.puri\AppData\Roaming\npm-cache\registry.npmjs.org\lodash\.cache.json
+803 silly get cb [ 304, undefined ]
+804 verbose etag https://registry.npmjs.org/@angular%2fcommon from cache
+805 verbose get saving @angular/common to C:\Users\niranjan.puri\AppData\Roaming\npm-cache\registry.npmjs.org\_40angular_252fcommon\.cache.json
+806 silly get cb [ 304, undefined ]
+807 verbose etag https://registry.npmjs.org/gulp-cssmin from cache
+808 verbose get saving gulp-cssmin to C:\Users\niranjan.puri\AppData\Roaming\npm-cache\registry.npmjs.org\gulp-cssmin\.cache.json
+809 silly get cb [ 304, undefined ]
+810 verbose etag https://registry.npmjs.org/gulp from cache
+811 verbose get saving gulp to C:\Users\niranjan.puri\AppData\Roaming\npm-cache\registry.npmjs.org\gulp\.cache.json
+812 silly get cb [ 304, undefined ]
+813 verbose etag https://registry.npmjs.org/reflect-metadata from cache
+814 verbose get saving reflect-metadata to C:\Users\niranjan.puri\AppData\Roaming\npm-cache\registry.npmjs.org\reflect-metadata\.cache.json
+815 silly get cb [ 304, undefined ]
+816 verbose etag https://registry.npmjs.org/gulp-uglify from cache
+817 verbose get saving gulp-uglify to C:\Users\niranjan.puri\AppData\Roaming\npm-cache\registry.npmjs.org\gulp-uglify\.cache.json
+818 silly get cb [ 304, undefined ]
+819 verbose etag https://registry.npmjs.org/gulp-concat from cache
+820 verbose get saving gulp-concat to C:\Users\niranjan.puri\AppData\Roaming\npm-cache\registry.npmjs.org\gulp-concat\.cache.json
+821 silly addNameRange number 2 { name: 'es6-promise', range: '>=3.1.2 <3.2.0', hasData: true }
+822 silly addNameRange versions [ 'es6-promise',
+822 silly addNameRange   [ '0.1.0',
+822 silly addNameRange     '0.1.1',
+822 silly addNameRange     '0.1.2',
+822 silly addNameRange     '1.0.0',
+822 silly addNameRange     '2.0.0',
+822 silly addNameRange     '2.0.1',
+822 silly addNameRange     '2.1.0',
+822 silly addNameRange     '2.1.1',
+822 silly addNameRange     '2.2.0',
+822 silly addNameRange     '2.3.0',
+822 silly addNameRange     '3.0.0',
+822 silly addNameRange     '3.0.1',
+822 silly addNameRange     '3.0.2',
+822 silly addNameRange     '3.1.2',
+822 silly addNameRange     '3.2.1' ] ]
+823 verbose addNamed es6-promise@3.1.2
+824 silly addNamed semver.valid 3.1.2
+825 silly addNamed semver.validRange 3.1.2
+826 silly cache afterAdd @angular/forms@0.2.0
+827 verbose afterAdd C:\Users\niranjan.puri\AppData\Roaming\npm-cache\@angular\forms\0.2.0\package\package.json not in flight; writing
+828 silly cache afterAdd @angular/router-deprecated@2.0.0-rc.2
+829 verbose afterAdd C:\Users\niranjan.puri\AppData\Roaming\npm-cache\@angular\router-deprecated\2.0.0-rc.2\package\package.json not in flight; writing
+830 silly cache afterAdd @angular/platform-browser@2.0.0-rc.4
+831 verbose afterAdd C:\Users\niranjan.puri\AppData\Roaming\npm-cache\@angular\platform-browser\2.0.0-rc.4\package\package.json not in flight; writing
+832 silly cache afterAdd @angular/http@2.0.0-rc.4
+833 verbose afterAdd C:\Users\niranjan.puri\AppData\Roaming\npm-cache\@angular\http\2.0.0-rc.4\package\package.json not in flight; writing
+834 silly addNameRange number 2 { name: 'ng2-bs3-modal', range: '>=0.6.1 <0.7.0', hasData: true }
+835 silly addNameRange versions [ 'ng2-bs3-modal',
+835 silly addNameRange   [ '0.1.0',
+835 silly addNameRange     '0.1.1',
+835 silly addNameRange     '0.1.2',
+835 silly addNameRange     '0.1.3',
+835 silly addNameRange     '0.1.4',
+835 silly addNameRange     '0.1.5',
+835 silly addNameRange     '0.1.6',
+835 silly addNameRange     '0.1.7',
+835 silly addNameRange     '0.2.0',
+835 silly addNameRange     '0.2.1',
+835 silly addNameRange     '0.2.2',
+835 silly addNameRange     '0.3.0',
+835 silly addNameRange     '0.3.1',
+835 silly addNameRange     '0.4.0',
+835 silly addNameRange     '0.4.1',
+835 silly addNameRange     '0.4.2',
+835 silly addNameRange     '0.4.3',
+835 silly addNameRange     '0.4.4',
+835 silly addNameRange     '0.4.5',
+835 silly addNameRange     '0.4.6',
+835 silly addNameRange     '0.4.7',
+835 silly addNameRange     '0.5.0',
+835 silly addNameRange     '0.5.1',
+835 silly addNameRange     '0.5.2',
+835 silly addNameRange     '0.6.0',
+835 silly addNameRange     '0.6.1' ] ]
+836 verbose addNamed ng2-bs3-modal@0.6.1
+837 silly addNamed semver.valid 0.6.1
+838 silly addNamed semver.validRange 0.6.1
+839 silly addNameRange number 2 { name: 'gulp-util', range: '>=3.0.7 <4.0.0', hasData: true }
+840 silly addNameRange versions [ 'gulp-util',
+840 silly addNameRange   [ '0.0.1',
+840 silly addNameRange     '1.0.0',
+840 silly addNameRange     '1.1.0',
+840 silly addNameRange     '1.1.1',
+840 silly addNameRange     '1.2.0',
+840 silly addNameRange     '1.3.0',
+840 silly addNameRange     '2.0.0',
+840 silly addNameRange     '2.1.1',
+840 silly addNameRange     '2.1.2',
+840 silly addNameRange     '2.1.3',
+840 silly addNameRange     '2.1.4',
+840 silly addNameRange     '2.2.0',
+840 silly addNameRange     '2.2.1',
+840 silly addNameRange     '2.2.2',
+840 silly addNameRange     '2.2.3',
+840 silly addNameRange     '2.2.5',
+840 silly addNameRange     '2.2.6',
+840 silly addNameRange     '2.2.7',
+840 silly addNameRange     '2.2.8',
+840 silly addNameRange     '2.2.9',
+840 silly addNameRange     '2.2.10',
+840 silly addNameRange     '2.2.11',
+840 silly addNameRange     '2.2.12',
+840 silly addNameRange     '2.2.13',
+840 silly addNameRange     '2.2.14',
+840 silly addNameRange     '2.2.15',
+840 silly addNameRange     '2.2.16',
+840 silly addNameRange     '2.2.17',
+840 silly addNameRange     '2.2.18',
+840 silly addNameRange     '2.2.19',
+840 silly addNameRange     '2.2.20',
+840 silly addNameRange     '3.0.0',
+840 silly addNameRange     '3.0.1',
+840 silly addNameRange     '3.0.2',
+840 silly addNameRange     '3.0.3',
+840 silly addNameRange     '3.0.4',
+840 silly addNameRange     '3.0.5',
+840 silly addNameRange     '3.0.6',
+840 silly addNameRange     '3.0.7' ] ]
+841 verbose addNamed gulp-util@3.0.7
+842 silly addNamed semver.valid 3.0.7
+843 silly addNamed semver.validRange 3.0.7
+844 silly addNameRange number 2 { name: 'rimraf', range: '>=2.5.2 <3.0.0', hasData: true }
+845 silly addNameRange versions [ 'rimraf',
+845 silly addNameRange   [ '1.0.0',
+845 silly addNameRange     '1.0.1',
+845 silly addNameRange     '1.0.2',
+845 silly addNameRange     '1.0.4',
+845 silly addNameRange     '1.0.5',
+845 silly addNameRange     '1.0.6',
+845 silly addNameRange     '1.0.7',
+845 silly addNameRange     '1.0.8',
+845 silly addNameRange     '1.0.9',
+845 silly addNameRange     '2.0.0',
+845 silly addNameRange     '2.0.1',
+845 silly addNameRange     '2.0.2',
+845 silly addNameRange     '2.0.3',
+845 silly addNameRange     '2.1.0',
+845 silly addNameRange     '2.1.1',
+845 silly addNameRange     '2.1.2',
+845 silly addNameRange     '2.1.3',
+845 silly addNameRange     '2.1.4',
+845 silly addNameRange     '2.2.0',
+845 silly addNameRange     '2.2.1',
+845 silly addNameRange     '2.2.2',
+845 silly addNameRange     '2.2.3',
+845 silly addNameRange     '2.2.4',
+845 silly addNameRange     '2.2.5',
+845 silly addNameRange     '2.2.6',
+845 silly addNameRange     '2.2.8',
+845 silly addNameRange     '2.3.0',
+845 silly addNameRange     '2.3.1',
+845 silly addNameRange     '2.3.2',
+845 silly addNameRange     '2.3.3',
+845 silly addNameRange     '2.3.4',
+845 silly addNameRange     '2.4.0',
+845 silly addNameRange     '2.4.1',
+845 silly addNameRange     '2.4.2',
+845 silly addNameRange     '2.4.3',
+845 silly addNameRange     '2.4.4',
+845 silly addNameRange     '2.4.5',
+845 silly addNameRange     '2.5.0',
+845 silly addNameRange     '2.5.1',
+845 silly addNameRange     '2.5.2',
+845 silly addNameRange     '2.5.3' ] ]
+846 verbose addNamed rimraf@2.5.3
+847 silly addNamed semver.valid 2.5.3
+848 silly addNamed semver.validRange 2.5.3
+849 silly addNameRange number 2 { name: 'typescript', range: '>=1.8.10 <2.0.0', hasData: true }
+850 silly addNameRange versions [ 'typescript',
+850 silly addNameRange   [ '0.8.0',
+850 silly addNameRange     '0.8.1',
+850 silly addNameRange     '0.8.1-1',
+850 silly addNameRange     '0.8.2',
+850 silly addNameRange     '0.8.3',
+850 silly addNameRange     '0.9.0',
+850 silly addNameRange     '0.9.0-1',
+850 silly addNameRange     '0.9.1',
+850 silly addNameRange     '0.9.1-1',
+850 silly addNameRange     '0.9.5',
+850 silly addNameRange     '0.9.7',
+850 silly addNameRange     '1.0.0',
+850 silly addNameRange     '1.0.1',
+850 silly addNameRange     '1.1.0-1',
+850 silly addNameRange     '1.3.0',
+850 silly addNameRange     '1.4.1',
+850 silly addNameRange     '1.5.0-alpha',
+850 silly addNameRange     '1.5.0-beta',
+850 silly addNameRange     '1.5.3',
+850 silly addNameRange     '1.6.0-dev.20150722.1',
+850 silly addNameRange     '1.6.0-dev.20150723',
+850 silly addNameRange     '1.6.0-dev.20150724',
+850 silly addNameRange     '1.6.0-dev.20150725',
+850 silly addNameRange     '1.6.0-dev.20150726',
+850 silly addNameRange     '1.6.0-dev.20150727',
+850 silly addNameRange     '1.6.0-dev.20150728',
+850 silly addNameRange     '1.6.0-dev.20150729',
+850 silly addNameRange     '1.6.0-dev.20150730',
+850 silly addNameRange     '1.6.0-dev.20150731',
+850 silly addNameRange     '1.6.0-dev.20150801',
+850 silly addNameRange     '1.6.0-dev.20150802',
+850 silly addNameRange     '1.6.0-dev.20150803',
+850 silly addNameRange     '1.6.0-dev.20150804',
+850 silly addNameRange     '1.6.0-dev.20150805',
+850 silly addNameRange     '1.6.0-dev.20150806',
+850 silly addNameRange     '1.6.0-dev.20150807',
+850 silly addNameRange     '1.6.0-dev.20150808',
+850 silly addNameRange     '1.6.0-dev.20150809',
+850 silly addNameRange     '1.6.0-dev.20150810',
+850 silly addNameRange     '1.6.0-dev.20150811',
+850 silly addNameRange     '1.6.0-dev.20150812',
+850 silly addNameRange     '1.6.0-dev.20150813',
+850 silly addNameRange     '1.6.0-dev.20150814',
+850 silly addNameRange     '1.6.0-dev.20150815',
+850 silly addNameRange     '1.6.0-dev.20150816',
+850 silly addNameRange     '1.6.0-dev.20150817',
+850 silly addNameRange     '1.6.0-dev.20150818',
+850 silly addNameRange     '1.6.0-dev.20150819',
+850 silly addNameRange     '1.6.0-dev.20150820',
+850 silly addNameRange     '1.6.0-dev.20150821',
+850 silly addNameRange     '1.6.0-dev.20150822',
+850 silly addNameRange     '1.6.0-dev.20150823',
+850 silly addNameRange     '1.6.0-dev.20150824',
+850 silly addNameRange     '1.6.0-dev.20150825',
+850 silly addNameRange     '1.7.0-dev.20150826',
+850 silly addNameRange     '1.7.0-dev.20150827',
+850 silly addNameRange     '1.7.0-dev.20150828',
+850 silly addNameRange     '1.7.0-dev.20150829',
+850 silly addNameRange     '1.7.0-dev.20150830',
+850 silly addNameRange     '1.7.0-dev.20150831',
+850 silly addNameRange     '1.7.0-dev.20150901',
+850 silly addNameRange     '1.7.0-dev.20150902',
+850 silly addNameRange     '1.6.0-beta',
+850 silly addNameRange     '1.7.0-dev.20150903',
+850 silly addNameRange     '1.7.0-dev.20150904',
+850 silly addNameRange     '1.6.0-dev.20150905',
+850 silly addNameRange     '1.6.0-dev.20150906',
+850 silly addNameRange     '1.6.0-dev.20150907',
+850 silly addNameRange     '1.6.0-dev.20150908',
+850 silly addNameRange     '1.6.0-dev.20150909',
+850 silly addNameRange     '1.6.0-dev.20150910',
+850 silly addNameRange     '1.6.0-dev.20150911',
+850 silly addNameRange     '1.6.0-dev.20150912',
+850 silly addNameRange     '1.6.0-dev.20150913',
+850 silly addNameRange     '1.6.0-dev.20150914',
+850 silly addNameRange     '1.6.0-dev.20150915',
+850 silly addNameRange     '1.7.0-dev.20150916',
+850 silly addNameRange     '1.6.2',
+850 silly addNameRange     '1.7.0-dev.20150917',
+850 silly addNameRange     '1.7.0-dev.20150918',
+850 silly addNameRange     '1.7.0-dev.20150919',
+850 silly addNameRange     '1.7.0-dev.20150920',
+850 silly addNameRange     '1.7.0-dev.20150921',
+850 silly addNameRange     '1.7.0-dev.20150922',
+850 silly addNameRange     '1.7.0-dev.20150923',
+850 silly addNameRange     '1.7.0-dev.20150924',
+850 silly addNameRange     '1.7.0-dev.20150925',
+850 silly addNameRange     '1.7.0-dev.20150926',
+850 silly addNameRange     '1.7.0-dev.20150927',
+850 silly addNameRange     '1.7.0-dev.20150928',
+850 silly addNameRange     '1.7.0-dev.20150929',
+850 silly addNameRange     '1.7.0-dev.20150930',
+850 silly addNameRange     '1.7.0-dev.20151001',
+850 silly addNameRange     '1.7.0-dev.20151002',
+850 silly addNameRange     '1.7.0-dev.20151003',
+850 silly addNameRange     '1.7.0-dev.20151004',
+850 silly addNameRange     '1.7.0-dev.20151005',
+850 silly addNameRange     '1.7.0-dev.20151006',
+850 silly addNameRange     '1.7.0-dev.20151014',
+850 silly addNameRange     '1.7.0-dev.20151015',
+850 silly addNameRange     '1.7.0-dev.20151016',
+850 silly addNameRange     '1.8.0-dev.20151017',
+850 silly addNameRange     '1.8.0-dev.20151018',
+850 silly addNameRange     '1.8.0-dev.20151019',
+850 silly addNameRange     '1.8.0-dev.20151020',
+850 silly addNameRange     '1.8.0-dev.20151021',
+850 silly addNameRange     '1.8.0-dev.20151022',
+850 silly addNameRange     '1.8.0-dev.20151023',
+850 silly addNameRange     '1.8.0-dev.20151024',
+850 silly addNameRange     '1.8.0-dev.20151025',
+850 silly addNameRange     '1.8.0-dev.20151026',
+850 silly addNameRange     '1.8.0-dev.20151027',
+850 silly addNameRange     '1.8.0-dev.20151028',
+850 silly addNameRange     '1.8.0-dev.20151029',
+850 silly addNameRange     '1.8.0-dev.20151030',
+850 silly addNameRange     '1.8.0-dev.20151031',
+850 silly addNameRange     '1.8.0-dev.20151101',
+850 silly addNameRange     '1.8.0-dev.20151102',
+850 silly addNameRange     '1.8.0-dev.20151103',
+850 silly addNameRange     '1.8.0-dev.20151104',
+850 silly addNameRange     '1.8.0-dev.20151105',
+850 silly addNameRange     '1.8.0-dev.20151106',
+850 silly addNameRange     '1.8.0-dev.20151107',
+850 silly addNameRange     '1.8.0-dev.20151108',
+850 silly addNameRange     '1.8.0-dev.20151109',
+850 silly addNameRange     '1.8.0-dev.20151110',
+850 silly addNameRange     '1.8.0-dev.20151111',
+850 silly addNameRange     '1.8.0-dev.20151112',
+850 silly addNameRange     '1.8.0-dev.20151113',
+850 silly addNameRange     '1.8.0-dev.20151114',
+850 silly addNameRange     '1.8.0-dev.20151115',
+850 silly addNameRange     '1.8.0-dev.20151116',
+850 silly addNameRange     '1.8.0-dev.20151117',
+850 silly addNameRange     '1.8.0-dev.20151118',
+850 silly addNameRange     '1.8.0-dev.20151119',
+850 silly addNameRange     '1.8.0-dev.20151120',
+850 silly addNameRange     '1.8.0-dev.20151121',
+850 silly addNameRange     '1.8.0-dev.20151122',
+850 silly addNameRange     '1.8.0-dev.20151123',
+850 silly addNameRange     '1.8.0-dev.20151124',
+850 silly addNameRange     '1.8.0-dev.20151125',
+850 silly addNameRange     '1.8.0-dev.20151126',
+850 silly addNameRange     '1.8.0-dev.20151127',
+850 silly addNameRange     '1.8.0-dev.20151128',
+850 silly addNameRange     '1.8.0-dev.20151129',
+850 silly addNameRange     '1.8.0-dev.20151130',
+850 silly addNameRange     '1.7.3',
+850 silly addNameRange     '1.8.0-dev.20151201',
+850 silly addNameRange     '1.8.0-dev.20151202',
+850 silly addNameRange     '1.8.0-dev.20151203',
+850 silly addNameRange     '1.8.0-dev.20151204',
+850 silly addNameRange     '1.8.0-dev.20151210',
+850 silly addNameRange     '1.8.0-dev.20151211',
+850 silly addNameRange     '1.8.0-dev.20151212',
+850 silly addNameRange     '1.8.0-dev.20151213',
+850 silly addNameRange     '1.8.0-dev.20151214',
+850 silly addNameRange     '1.7.5',
+850 silly addNameRange     '1.8.0-dev.20151215',
+850 silly addNameRange     '1.8.0-dev.20151216',
+850 silly addNameRange     '1.8.0-dev.20151217',
+850 silly addNameRange     '1.8.0-dev.20151218',
+850 silly addNameRange     '1.8.0-dev.20151219',
+850 silly addNameRange     '1.8.0-dev.20151220',
+850 silly addNameRange     '1.8.0-dev.20151221',
+850 silly addNameRange     '1.8.0-dev.20151222',
+850 silly addNameRange     '1.8.0-dev.20151223',
+850 silly addNameRange     '1.8.0-dev.20151224',
+850 silly addNameRange     '1.8.0-dev.20151225',
+850 silly addNameRange     '1.8.0-dev.20151226',
+850 silly addNameRange     '1.8.0-dev.20151227',
+850 silly addNameRange     '1.8.0-dev.20151228',
+850 silly addNameRange     '1.8.0-dev.20151229',
+850 silly addNameRange     '1.8.0-dev.20151230',
+850 silly addNameRange     '1.8.0-dev.20151231',
+850 silly addNameRange     '1.8.0-dev.20160101',
+850 silly addNameRange     '1.8.0-dev.20160102',
+850 silly addNameRange     '1.8.0-dev.20160103',
+850 silly addNameRange     '1.8.0-dev.20160104',
+850 silly addNameRange     '1.8.0-dev.20160105',
+850 silly addNameRange     '1.8.0-dev.20160106',
+850 silly addNameRange     '1.8.0-dev.20160107',
+850 silly addNameRange     '1.8.0-dev.20160108',
+850 silly addNameRange     '1.8.0-dev.20160109',
+850 silly addNameRange     '1.8.0-dev.20160110',
+850 silly addNameRange     '1.8.0-dev.20160111',
+850 silly addNameRange     '1.8.0-dev.20160112',
+850 silly addNameRange     '1.8.0-dev.20160113',
+850 silly addNameRange     '1.8.0-dev.20160114',
+850 silly addNameRange     '1.8.0-dev.20160115',
+850 silly addNameRange     '1.8.0-dev.20160116',
+850 silly addNameRange     '1.8.0-dev.20160117',
+850 silly addNameRange     '1.8.0-dev.20160118',
+850 silly addNameRange     '1.8.0-dev.20160119',
+850 silly addNameRange     '1.8.0-dev.20160120',
+850 silly addNameRange     '1.8.0-dev.20160121',
+850 silly addNameRange     '1.8.0-dev.20160122',
+850 silly addNameRange     '1.8.0-dev.20160123',
+850 silly addNameRange     '1.8.0-dev.20160124',
+850 silly addNameRange     '1.8.0-dev.20160125',
+850 silly addNameRange     '1.9.0-dev.20160126',
+850 silly addNameRange     '1.9.0-dev.20160127',
+850 silly addNameRange     '1.9.0-dev.20160128',
+850 silly addNameRange     '1.8.0',
+850 silly addNameRange     '1.9.0-dev.20160129',
+850 silly addNameRange     '1.9.0-dev.20160130',
+850 silly addNameRange     '1.9.0-dev.20160131',
+850 silly addNameRange     '1.9.0-dev.20160201',
+850 silly addNameRange     '1.9.0-dev.20160202',
+850 silly addNameRange     '1.9.0-dev.20160203',
+850 silly addNameRange     '1.9.0-dev.20160204',
+850 silly addNameRange     '1.9.0-dev.20160205',
+850 silly addNameRange     '1.9.0-dev.20160206',
+850 silly addNameRange     '1.9.0-dev.20160207',
+850 silly addNameRange     '1.9.0-dev.20160208',
+850 silly addNameRange     '1.9.0-dev.20160209',
+850 silly addNameRange     '1.9.0-dev.20160210',
+850 silly addNameRange     '1.9.0-dev.20160211',
+850 silly addNameRange     '1.9.0-dev.20160212',
+850 silly addNameRange     '1.9.0-dev.20160213',
+850 silly addNameRange     '1.9.0-dev.20160214',
+850 silly addNameRange     '1.9.0-dev.20160215',
+850 silly addNameRange     '1.9.0-dev.20160216',
+850 silly addNameRange     '1.9.0-dev.20160217',
+850 silly addNameRange     '1.9.0-dev.20160218',
+850 silly addNameRange     '1.9.0-dev.20160219',
+850 silly addNameRange     '1.9.0-dev.20160220',
+850 silly addNameRange     '1.9.0-dev.20160221',
+850 silly addNameRange     '1.9.0-dev.20160222',
+850 silly addNameRange     '1.8.2',
+850 silly addNameRange     '1.9.0-dev.20160223',
+850 silly addNameRange     '1.9.0-dev.20160224',
+850 silly addNameRange     '1.9.0-dev.20160225',
+850 silly addNameRange     '1.9.0-dev.20160226',
+850 silly addNameRange     '1.9.0-dev.20160227',
+850 silly addNameRange     '1.9.0-dev.20160228',
+850 silly addNameRange     '1.9.0-dev.20160229',
+850 silly addNameRange     '1.9.0-dev.20160301',
+850 silly addNameRange     '1.8.5',
+850 silly addNameRange     '1.8.6',
+850 silly addNameRange     '1.8.7',
+850 silly addNameRange     '1.9.0-dev.20160302',
+850 silly addNameRange     '1.9.0-dev.20160302.1',
+850 silly addNameRange     '1.9.0-dev.20160303',
+850 silly addNameRange     '1.9.0-dev.20160304',
+850 silly addNameRange     '1.9.0-dev.20160305',
+850 silly addNameRange     '1.9.0-dev.20160306',
+850 silly addNameRange     '1.9.0-dev.20160307',
+850 silly addNameRange     '1.9.0-dev.20160308',
+850 silly addNameRange     '1.9.0-dev.20160309',
+850 silly addNameRange     '1.9.0-dev.20160310',
+850 silly addNameRange     '1.9.0-dev.20160311',
+850 silly addNameRange     '1.9.0-dev.20160312',
+850 silly addNameRange     '1.9.0-dev.20160313',
+850 silly addNameRange     '1.9.0-dev.20160315',
+850 silly addNameRange     '1.9.0-dev.20160316',
+850 silly addNameRange     '1.8.9',
+850 silly addNameRange     '1.9.0-dev.20160317',
+850 silly addNameRange     '1.9.0-dev.20160318',
+850 silly addNameRange     '1.9.0-dev.20160319',
+850 silly addNameRange     '1.9.0-dev.20160320',
+850 silly addNameRange     '1.9.0-dev.20160321',
+850 silly addNameRange     '1.9.0-dev.20160322',
+850 silly addNameRange     '1.9.0-dev.20160323',
+850 silly addNameRange     '1.9.0-dev.20160324',
+850 silly addNameRange     '1.9.0-dev.20160325',
+850 silly addNameRange     '1.9.0-dev.20160326',
+850 silly addNameRange     '1.9.0-dev.20160327',
+850 silly addNameRange     '1.9.0-dev.20160328',
+850 silly addNameRange     '1.9.0-dev.20160329',
+850 silly addNameRange     '1.9.0-dev.20160330',
+850 silly addNameRange     '1.9.0-dev.20160331',
+850 silly addNameRange     '1.9.0-dev.20160401',
+850 silly addNameRange     '1.9.0-dev.20160402',
+850 silly addNameRange     '1.9.0-dev.20160403',
+850 silly addNameRange     '1.9.0-dev.20160404',
+850 silly addNameRange     '1.9.0-dev.20160405',
+850 silly addNameRange     '1.9.0-dev.20160406',
+850 silly addNameRange     '1.9.0-dev.20160407',
+850 silly addNameRange     '1.9.0-dev.20160408',
+850 silly addNameRange     '1.9.0-dev.20160409',
+850 silly addNameRange     '1.9.0-dev.20160411',
+850 silly addNameRange     '1.9.0-dev.20160412',
+850 silly addNameRange     '1.8.10',
+850 silly addNameRange     '1.9.0-dev.20160413',
+850 silly addNameRange     '1.9.0-dev.20160414',
+850 silly addNameRange     '1.9.0-dev.20160415',
+850 silly addNameRange     '1.9.0-dev.20160416',
+850 silly addNameRange     '1.9.0-dev.20160417',
+850 silly addNameRange     '1.9.0-dev.20160418',
+850 silly addNameRange     '1.9.0-dev.20160419',
+850 silly addNameRange     '1.9.0-dev.20160420',
+850 silly addNameRange     '1.9.0-dev.20160421',
+850 silly addNameRange     '1.9.0-dev.20160422',
+850 silly addNameRange     '1.9.0-dev.20160423',
+850 silly addNameRange     '1.9.0-dev.20160424',
+850 silly addNameRange     '1.9.0-dev.20160425',
+850 silly addNameRange     '1.9.0-dev.20160426',
+850 silly addNameRange     '1.9.0-dev.20160427',
+850 silly addNameRange     '1.9.0-dev.20160428',
+850 silly addNameRange     '1.9.0-dev.20160428-1.0',
+850 silly addNameRange     '1.9.0-dev.20160429',
+850 silly addNameRange     '1.9.0-dev.20160430',
+850 silly addNameRange     '1.9.0-dev.20160501',
+850 silly addNameRange     '1.9.0-dev.20160502',
+850 silly addNameRange     '1.9.0-dev.20160503',
+850 silly addNameRange     '1.9.0-dev.20160504',
+850 silly addNameRange     '1.9.0-dev.20160505',
+850 silly addNameRange     '1.9.0-dev.20160506',
+850 silly addNameRange     '1.9.0-dev.20160507',
+850 silly addNameRange     '1.9.0-dev.20160508',
+850 silly addNameRange     '1.9.0-dev.20160509',
+850 silly addNameRange     '1.9.0-dev.20160510',
+850 silly addNameRange     '1.9.0-dev.20160511',
+850 silly addNameRange     '1.9.0-dev.20160512',
+850 silly addNameRange     '1.9.0-dev.20160513',
+850 silly addNameRange     '1.9.0-dev.20160514',
+850 silly addNameRange     '1.9.0-dev.20160515',
+850 silly addNameRange     '1.9.0-dev.20160516',
+850 silly addNameRange     '1.9.0-dev.20160517-1.0',
+850 silly addNameRange     '1.9.0-dev.20160518-1.0',
+850 silly addNameRange     '1.9.0-dev.20160519-1.0',
+850 silly addNameRange     '1.9.0-dev.20160520-1.0',
+850 silly addNameRange     '1.9.0-dev.20160521-1.0',
+850 silly addNameRange     '1.9.0-dev.20160522-1.0',
+850 silly addNameRange     '1.9.0-dev.20160523-1.0',
+850 silly addNameRange     '1.9.0-dev.20160524-1.0',
+850 silly addNameRange     '1.9.0-dev.20160525-1.0',
+850 silly addNameRange     '1.9.0-dev.20160526-1.0',
+850 silly addNameRange     '1.9.0-dev.20160527-1.0',
+850 silly addNameRange     '1.9.0-dev.20160528-1.0',
+850 silly addNameRange     '1.9.0-dev.20160529-1.0',
+850 silly addNameRange     '1.9.0-dev.20160530-1.0',
+850 silly addNameRange     '1.9.0-dev.20160531-1.0',
+850 silly addNameRange     '1.9.0-dev.20160601-1.0',
+850 silly addNameRange     '1.9.0-dev.20160602-1.0',
+850 silly addNameRange     '1.9.0-dev.20160603-1.0',
+850 silly addNameRange     '1.9.0-dev.20160604-1.0',
+850 silly addNameRange     '1.9.0-dev.20160605-1.0',
+850 silly addNameRange     '1.9.0-dev.20160606-1.0',
+850 silly addNameRange     '1.9.0-dev.20160607-1.0',
+850 silly addNameRange     '1.9.0-dev.20160608-1.0',
+850 silly addNameRange     '1.9.0-dev.20160609-1.0',
+850 silly addNameRange     '1.9.0-dev.20160610-1.0',
+850 silly addNameRange     '1.9.0-dev.20160611-1.0',
+850 silly addNameRange     '1.9.0-dev.20160612-1.0',
+850 silly addNameRange     '1.9.0-dev.20160613-1.0',
+850 silly addNameRange     '1.9.0-dev.20160614-1.0',
+850 silly addNameRange     '1.9.0-dev.20160615-1.0',
+850 silly addNameRange     '1.9.0-dev.20160616-1.0',
+850 silly addNameRange     '1.9.0-dev.20160617-1.0',
+850 silly addNameRange     '1.9.0-dev.20160618-1.0',
+850 silly addNameRange     '1.9.0-dev.20160619-1.0',
+850 silly addNameRange     '1.9.0-dev.20160620-1.0',
+850 silly addNameRange     '1.9.0-dev.20160622-1.0',
+850 silly addNameRange     '1.9.0-dev.20160623-1.0',
+850 silly addNameRange     '1.9.0-dev.20160624-1.0',
+850 silly addNameRange     '1.9.0-dev.20160625-1.0',
+850 silly addNameRange     '1.9.0-dev.20160626-1.0',
+850 silly addNameRange     '1.9.0-dev.20160627-1.0',
+850 silly addNameRange     '2.0.0-dev.20160628',
+850 silly addNameRange     '2.0.0-dev.20160629',
+850 silly addNameRange     '2.0.0-dev.20160630',
+850 silly addNameRange     '2.0.0-dev.20160701',
+850 silly addNameRange     '2.0.0-dev.20160702',
+850 silly addNameRange     '2.0.0-dev.20160703',
+850 silly addNameRange     '2.0.0-dev.20160704',
+850 silly addNameRange     '2.0.0-dev.20160705',
+850 silly addNameRange     '2.0.0-dev.20160706',
+850 silly addNameRange     '2.0.0-dev.20160707',
+850 silly addNameRange     '2.0.0-dev.20160711',
+850 silly addNameRange     '2.0.0',
+850 silly addNameRange     '2.1.0-dev.20160712',
+850 silly addNameRange     '2.1.0-dev.20160713',
+850 silly addNameRange     '2.1.0-dev.20160714',
+850 silly addNameRange     '2.1.0-dev.20160715',
+850 silly addNameRange     '2.1.0-dev.20160716',
+850 silly addNameRange     '2.1.0-dev.20160717',
+850 silly addNameRange     '2.1.0-dev.20160718',
+850 silly addNameRange     '2.1.0-dev.20160719',
+850 silly addNameRange     '2.1.0-dev.20160720',
+850 silly addNameRange     '2.1.0-dev.20160721',
+850 silly addNameRange     '2.1.0-dev.20160722' ] ]
+851 verbose addNamed typescript@1.8.10
+852 silly addNamed semver.valid 1.8.10
+853 silly addNamed semver.validRange 1.8.10
+854 silly addNameRange number 2 { name: 'zone.js', range: '>=0.6.12 <0.7.0', hasData: true }
+855 silly addNameRange versions [ 'zone.js',
+855 silly addNameRange   [ '0.1.0',
+855 silly addNameRange     '0.1.1',
+855 silly addNameRange     '0.2.0',
+855 silly addNameRange     '0.2.1',
+855 silly addNameRange     '0.2.3',
+855 silly addNameRange     '0.2.2',
+855 silly addNameRange     '0.2.4',
+855 silly addNameRange     '0.3.0',
+855 silly addNameRange     '0.4.0',
+855 silly addNameRange     '0.4.1',
+855 silly addNameRange     '0.4.2',
+855 silly addNameRange     '0.4.3',
+855 silly addNameRange     '0.4.4',
+855 silly addNameRange     '0.5.0',
+855 silly addNameRange     '0.5.1',
+855 silly addNameRange     '0.5.2',
+855 silly addNameRange     '0.5.3',
+855 silly addNameRange     '0.5.4',
+855 silly addNameRange     '0.5.5',
+855 silly addNameRange     '0.5.6',
+855 silly addNameRange     '0.5.7',
+855 silly addNameRange     '0.5.8',
+855 silly addNameRange     '0.5.9',
+855 silly addNameRange     '0.5.10',
+855 silly addNameRange     '0.5.11',
+855 silly addNameRange     '0.5.12',
+855 silly addNameRange     '0.5.13',
+855 silly addNameRange     '0.5.14',
+855 silly addNameRange     '0.5.15',
+855 silly addNameRange     '0.6.0',
+855 silly addNameRange     '0.6.1',
+855 silly addNameRange     '0.6.2',
+855 silly addNameRange     '0.6.3',
+855 silly addNameRange     '0.6.4',
+855 silly addNameRange     '0.6.5',
+855 silly addNameRange     '0.6.6',
+855 silly addNameRange     '0.6.8',
+855 silly addNameRange     '0.6.9',
+855 silly addNameRange     '0.6.10',
+855 silly addNameRange     '0.6.11',
+855 silly addNameRange     '0.6.12' ] ]
+856 verbose addNamed zone.js@0.6.12
+857 silly addNamed semver.valid 0.6.12
+858 silly addNamed semver.validRange 0.6.12
+859 silly addNameRange number 2 { name: 'typings', range: '>=1.3.1 <2.0.0', hasData: true }
+860 silly addNameRange versions [ 'typings',
+860 silly addNameRange   [ '0.0.0',
+860 silly addNameRange     '0.0.2',
+860 silly addNameRange     '0.0.3',
+860 silly addNameRange     '0.0.4',
+860 silly addNameRange     '0.0.5',
+860 silly addNameRange     '0.0.6',
+860 silly addNameRange     '0.0.7',
+860 silly addNameRange     '0.0.8',
+860 silly addNameRange     '0.0.9',
+860 silly addNameRange     '0.0.10',
+860 silly addNameRange     '0.0.11',
+860 silly addNameRange     '0.0.12',
+860 silly addNameRange     '0.0.13',
+860 silly addNameRange     '0.1.0',
+860 silly addNameRange     '0.1.1',
+860 silly addNameRange     '0.1.2',
+860 silly addNameRange     '0.1.3',
+860 silly addNameRange     '0.1.4',
+860 silly addNameRange     '0.1.5',
+860 silly addNameRange     '0.1.6',
+860 silly addNameRange     '0.1.7',
+860 silly addNameRange     '0.2.0',
+860 silly addNameRange     '0.2.1',
+860 silly addNameRange     '0.2.2',
+860 silly addNameRange     '0.2.3',
+860 silly addNameRange     '0.2.4',
+860 silly addNameRange     '0.3.0',
+860 silly addNameRange     '0.3.1',
+860 silly addNameRange     '0.3.2',
+860 silly addNameRange     '0.3.3',
+860 silly addNameRange     '0.3.4',
+860 silly addNameRange     '0.3.5',
+860 silly addNameRange     '0.4.0',
+860 silly addNameRange     '0.4.1',
+860 silly addNameRange     '0.5.0',
+860 silly addNameRange     '0.5.1',
+860 silly addNameRange     '0.5.2',
+860 silly addNameRange     '0.6.0',
+860 silly addNameRange     '0.6.1',
+860 silly addNameRange     '0.6.2',
+860 silly addNameRange     '0.6.3',
+860 silly addNameRange     '0.6.4',
+860 silly addNameRange     '0.6.5',
+860 silly addNameRange     '0.6.6',
+860 silly addNameRange     '0.6.7',
+860 silly addNameRange     '0.6.8',
+860 silly addNameRange     '0.6.9',
+860 silly addNameRange     '0.6.10',
+860 silly addNameRange     '0.7.0',
+860 silly addNameRange     '0.7.1',
+860 silly addNameRange     '0.7.2',
+860 silly addNameRange     '0.7.3',
+860 silly addNameRange     '0.7.4',
+860 silly addNameRange     '0.7.5',
+860 silly addNameRange     '0.7.6',
+860 silly addNameRange     '0.7.7',
+860 silly addNameRange     '0.7.8',
+860 silly addNameRange     '0.7.9',
+860 silly addNameRange     '0.7.10',
+860 silly addNameRange     '0.7.11',
+860 silly addNameRange     '0.7.12',
+860 silly addNameRange     '0.8.0',
+860 silly addNameRange     '0.8.1',
+860 silly addNameRange     '1.0.1',
+860 silly addNameRange     '1.0.2',
+860 silly addNameRange     '1.0.3',
+860 silly addNameRange     '1.0.4',
+860 silly addNameRange     '1.0.5',
+860 silly addNameRange     '1.1.0',
+860 silly addNameRange     '1.2.0',
+860 silly addNameRange     '1.3.0',
+860 silly addNameRange     '1.3.1',
+860 silly addNameRange     '1.3.2' ] ]
+861 verbose addNamed typings@1.3.2
+862 silly addNamed semver.valid 1.3.2
+863 silly addNamed semver.validRange 1.3.2
+864 silly addNameRange number 2 { name: 'es6-shim', range: '>=0.35.1 <0.36.0', hasData: true }
+865 silly addNameRange versions [ 'es6-shim',
+865 silly addNameRange   [ '0.1.0',
+865 silly addNameRange     '0.2.0',
+865 silly addNameRange     '0.2.1',
+865 silly addNameRange     '0.3.0',
+865 silly addNameRange     '0.3.1',
+865 silly addNameRange     '0.4.0',
+865 silly addNameRange     '0.4.1',
+865 silly addNameRange     '0.5.0',
+865 silly addNameRange     '0.5.1',
+865 silly addNameRange     '0.5.2',
+865 silly addNameRange     '0.5.3',
+865 silly addNameRange     '0.6.0',
+865 silly addNameRange     '0.7.0',
+865 silly addNameRange     '0.8.0',
+865 silly addNameRange     '0.9.0',
+865 silly addNameRange     '0.9.1',
+865 silly addNameRange     '0.9.2',
+865 silly addNameRange     '0.9.3',
+865 silly addNameRange     '0.10.0',
+865 silly addNameRange     '0.10.1',
+865 silly addNameRange     '0.11.0',
+865 silly addNameRange     '0.11.1',
+865 silly addNameRange     '0.12.0',
+865 silly addNameRange     '0.13.0',
+865 silly addNameRange     '0.14.0',
+865 silly addNameRange     '0.15.0',
+865 silly addNameRange     '0.15.1',
+865 silly addNameRange     '0.16.0',
+865 silly addNameRange     '0.17.0',
+865 silly addNameRange     '0.18.0',
+865 silly addNameRange     '0.19.0',
+865 silly addNameRange     '0.19.1',
+865 silly addNameRange     '0.19.2',
+865 silly addNameRange     '0.20.0',
+865 silly addNameRange     '0.20.1',
+865 silly addNameRange     '0.20.2',
+865 silly addNameRange     '0.20.3',
+865 silly addNameRange     '0.20.4',
+865 silly addNameRange     '0.21.0',
+865 silly addNameRange     '0.21.1',
+865 silly addNameRange     '0.22.0',
+865 silly addNameRange     '0.22.1',
+865 silly addNameRange     '0.22.2',
+865 silly addNameRange     '0.23.0',
+865 silly addNameRange     '0.24.0',
+865 silly addNameRange     '0.25.0',
+865 silly addNameRange     '0.25.1',
+865 silly addNameRange     '0.25.2',
+865 silly addNameRange     '0.25.3',
+865 silly addNameRange     '0.26.0',
+865 silly addNameRange     '0.26.1',
+865 silly addNameRange     '0.27.1',
+865 silly addNameRange     '0.28.1',
+865 silly addNameRange     '0.29.0',
+865 silly addNameRange     '0.30.0',
+865 silly addNameRange     '0.31.0',
+865 silly addNameRange     '0.31.1',
+865 silly addNameRange     '0.31.2',
+865 silly addNameRange     '0.31.3',
+865 silly addNameRange     '0.32.0',
+865 silly addNameRange     '0.32.1',
+865 silly addNameRange     '0.32.2',
+865 silly addNameRange     '0.33.0',
+865 silly addNameRange     '0.33.1',
+865 silly addNameRange     '0.33.2',
+865 silly addNameRange     '0.33.3',
+865 silly addNameRange     '0.33.4',
+865 silly addNameRange     '0.33.5',
+865 silly addNameRange     '0.33.6',
+865 silly addNameRange     '0.33.7',
+865 silly addNameRange     '0.33.8',
+865 silly addNameRange     '0.33.9',
+865 silly addNameRange     '0.33.10',
+865 silly addNameRange     '0.33.11',
+865 silly addNameRange     '0.33.12',
+865 silly addNameRange     '0.33.13',
+865 silly addNameRange     '0.34.0',
+865 silly addNameRange     '0.34.1',
+865 silly addNameRange     '0.34.2',
+865 silly addNameRange     '0.34.3',
+865 silly addNameRange     '0.34.4',
+865 silly addNameRange     '0.35.0',
+865 silly addNameRange     '0.35.1' ] ]
+866 verbose addNamed es6-shim@0.35.1
+867 silly addNamed semver.valid 0.35.1
+868 silly addNamed semver.validRange 0.35.1
+869 silly addNameRange number 2 { name: 'lodash', range: '>=4.13.1 <5.0.0', hasData: true }
+870 silly addNameRange versions [ 'lodash',
+870 silly addNameRange   [ '0.1.0',
+870 silly addNameRange     '0.2.0',
+870 silly addNameRange     '0.2.1',
+870 silly addNameRange     '0.2.2',
+870 silly addNameRange     '0.3.0',
+870 silly addNameRange     '0.3.1',
+870 silly addNameRange     '0.3.2',
+870 silly addNameRange     '0.4.0',
+870 silly addNameRange     '0.4.1',
+870 silly addNameRange     '0.4.2',
+870 silly addNameRange     '0.5.0-rc.1',
+870 silly addNameRange     '0.5.0',
+870 silly addNameRange     '0.5.1',
+870 silly addNameRange     '0.5.2',
+870 silly addNameRange     '0.6.0',
+870 silly addNameRange     '0.6.1',
+870 silly addNameRange     '0.7.0',
+870 silly addNameRange     '0.8.0',
+870 silly addNameRange     '0.8.1',
+870 silly addNameRange     '0.8.2',
+870 silly addNameRange     '0.9.0',
+870 silly addNameRange     '0.9.1',
+870 silly addNameRange     '0.9.2',
+870 silly addNameRange     '0.10.0',
+870 silly addNameRange     '1.0.0-rc.1',
+870 silly addNameRange     '1.0.0-rc.2',
+870 silly addNameRange     '1.0.0-rc.3',
+870 silly addNameRange     '1.0.0',
+870 silly addNameRange     '1.0.1',
+870 silly addNameRange     '1.1.0',
+870 silly addNameRange     '1.1.1',
+870 silly addNameRange     '1.2.0',
+870 silly addNameRange     '1.2.1',
+870 silly addNameRange     '1.3.0',
+870 silly addNameRange     '1.3.1',
+870 silly addNameRange     '2.0.0',
+870 silly addNameRange     '2.1.0',
+870 silly addNameRange     '2.2.0',
+870 silly addNameRange     '2.2.1',
+870 silly addNameRange     '2.3.0',
+870 silly addNameRange     '2.4.0',
+870 silly addNameRange     '2.4.1',
+870 silly addNameRange     '3.0.0',
+870 silly addNameRange     '3.0.1',
+870 silly addNameRange     '3.1.0',
+870 silly addNameRange     '3.2.0',
+870 silly addNameRange     '3.3.0',
+870 silly addNameRange     '3.3.1',
+870 silly addNameRange     '3.4.0',
+870 silly addNameRange     '3.5.0',
+870 silly addNameRange     '3.6.0',
+870 silly addNameRange     '1.0.2',
+870 silly addNameRange     '3.7.0',
+870 silly addNameRange     '2.4.2',
+870 silly addNameRange     '3.8.0',
+870 silly addNameRange     '3.9.0',
+870 silly addNameRange     '3.9.1',
+870 silly addNameRange     '3.9.2',
+870 silly addNameRange     '3.9.3',
+870 silly addNameRange     '3.10.0',
+870 silly addNameRange     '3.10.1',
+870 silly addNameRange     '4.0.0',
+870 silly addNameRange     '4.0.1',
+870 silly addNameRange     '4.1.0',
+870 silly addNameRange     '4.2.0',
+870 silly addNameRange     '4.2.1',
+870 silly addNameRange     '4.3.0',
+870 silly addNameRange     '4.4.0',
+870 silly addNameRange     '4.5.0',
+870 silly addNameRange     '4.5.1',
+870 silly addNameRange     '4.6.0',
+870 silly addNameRange     '4.6.1',
+870 silly addNameRange     '4.7.0',
+870 silly addNameRange     '4.8.0',
+870 silly addNameRange     '4.8.1',
+870 silly addNameRange     '4.8.2',
+870 silly addNameRange     '4.9.0',
+870 silly addNameRange     '4.10.0',
+870 silly addNameRange     '4.11.0',
+870 silly addNameRange     '4.11.1',
+870 silly addNameRange     '4.11.2',
+870 silly addNameRange     '4.12.0',
+870 silly addNameRange     '4.13.0',
+870 silly addNameRange     '4.13.1' ] ]
+871 verbose addNamed lodash@4.13.1
+872 silly addNamed semver.valid 4.13.1
+873 silly addNamed semver.validRange 4.13.1
+874 silly cache afterAdd @angular/router@3.0.0-beta.1
+875 verbose afterAdd C:\Users\niranjan.puri\AppData\Roaming\npm-cache\@angular\router\3.0.0-beta.1\package\package.json not in flight; writing
+876 silly cache afterAdd @angular/core@2.0.0-rc.4
+877 verbose afterAdd C:\Users\niranjan.puri\AppData\Roaming\npm-cache\@angular\core\2.0.0-rc.4\package\package.json not in flight; writing
+878 silly addNameRange number 2 { name: 'bootstrap', range: '>=3.3.6 <4.0.0', hasData: true }
+879 silly addNameRange versions [ 'bootstrap',
+879 silly addNameRange   [ '0.0.1',
+879 silly addNameRange     '0.0.2',
+879 silly addNameRange     '3.1.1',
+879 silly addNameRange     '3.2.0',
+879 silly addNameRange     '3.3.0',
+879 silly addNameRange     '3.3.1',
+879 silly addNameRange     '3.3.2',
+879 silly addNameRange     '3.3.4',
+879 silly addNameRange     '3.3.5',
+879 silly addNameRange     '3.3.6',
+879 silly addNameRange     '4.0.0-alpha.2' ] ]
+880 verbose addNamed bootstrap@3.3.6
+881 silly addNamed semver.valid 3.3.6
+882 silly addNamed semver.validRange 3.3.6
+883 verbose afterAdd C:\Users\niranjan.puri\AppData\Roaming\npm-cache\@angular\forms\0.2.0\package\package.json written
+884 verbose afterAdd C:\Users\niranjan.puri\AppData\Roaming\npm-cache\@angular\router-deprecated\2.0.0-rc.2\package\package.json written
+885 verbose afterAdd C:\Users\niranjan.puri\AppData\Roaming\npm-cache\@angular\platform-browser\2.0.0-rc.4\package\package.json written
+886 silly addNameRange number 2 { name: 'reflect-metadata',
+886 silly addNameRange   range: '>=0.1.3 <0.2.0',
+886 silly addNameRange   hasData: true }
+887 silly addNameRange versions [ 'reflect-metadata',
+887 silly addNameRange   [ '0.0.2', '0.0.3', '0.1.0', '0.1.1', '0.1.2', '0.1.3' ] ]
+888 verbose addNamed reflect-metadata@0.1.3
+889 silly addNamed semver.valid 0.1.3
+890 silly addNamed semver.validRange 0.1.3
+891 silly cache afterAdd rxjs@5.0.0-beta.6
+892 verbose afterAdd C:\Users\niranjan.puri\AppData\Roaming\npm-cache\rxjs\5.0.0-beta.6\package\package.json not in flight; writing
+893 verbose afterAdd C:\Users\niranjan.puri\AppData\Roaming\npm-cache\@angular\http\2.0.0-rc.4\package\package.json written
+894 silly cache afterAdd es6-promise@3.1.2
+895 verbose afterAdd C:\Users\niranjan.puri\AppData\Roaming\npm-cache\es6-promise\3.1.2\package\package.json not in flight; writing
+896 silly cache afterAdd angular2-in-memory-web-api@0.0.7
+897 verbose afterAdd C:\Users\niranjan.puri\AppData\Roaming\npm-cache\angular2-in-memory-web-api\0.0.7\package\package.json not in flight; writing
+898 verbose afterAdd C:\Users\niranjan.puri\AppData\Roaming\npm-cache\@angular\router\3.0.0-beta.1\package\package.json written
+899 verbose afterAdd C:\Users\niranjan.puri\AppData\Roaming\npm-cache\@angular\core\2.0.0-rc.4\package\package.json written
+900 silly cache afterAdd ng2-bs3-modal@0.6.1
+901 verbose afterAdd C:\Users\niranjan.puri\AppData\Roaming\npm-cache\ng2-bs3-modal\0.6.1\package\package.json not in flight; writing
+902 silly cache afterAdd zone.js@0.6.12
+903 verbose afterAdd C:\Users\niranjan.puri\AppData\Roaming\npm-cache\zone.js\0.6.12\package\package.json not in flight; writing
+904 silly cache afterAdd gulp-util@3.0.7
+905 verbose afterAdd C:\Users\niranjan.puri\AppData\Roaming\npm-cache\gulp-util\3.0.7\package\package.json not in flight; writing
+906 silly cache afterAdd @angular/upgrade@2.0.0-rc.4
+907 verbose afterAdd C:\Users\niranjan.puri\AppData\Roaming\npm-cache\@angular\upgrade\2.0.0-rc.4\package\package.json not in flight; writing
+908 silly cache afterAdd @angular/compiler@2.0.0-rc.4
+909 verbose afterAdd C:\Users\niranjan.puri\AppData\Roaming\npm-cache\@angular\compiler\2.0.0-rc.4\package\package.json not in flight; writing
+910 silly cache afterAdd @angular/platform-browser-dynamic@2.0.0-rc.4
+911 verbose afterAdd C:\Users\niranjan.puri\AppData\Roaming\npm-cache\@angular\platform-browser-dynamic\2.0.0-rc.4\package\package.json not in flight; writing
+912 silly cache afterAdd @angular/common@2.0.0-rc.4
+913 verbose afterAdd C:\Users\niranjan.puri\AppData\Roaming\npm-cache\@angular\common\2.0.0-rc.4\package\package.json not in flight; writing
+914 silly cache afterAdd gulp-cssmin@0.1.7
+915 verbose afterAdd C:\Users\niranjan.puri\AppData\Roaming\npm-cache\gulp-cssmin\0.1.7\package\package.json not in flight; writing
+916 silly cache afterAdd lodash@4.13.1
+917 verbose afterAdd C:\Users\niranjan.puri\AppData\Roaming\npm-cache\lodash\4.13.1\package\package.json not in flight; writing
+918 silly cache afterAdd es6-shim@0.35.1
+919 verbose afterAdd C:\Users\niranjan.puri\AppData\Roaming\npm-cache\es6-shim\0.35.1\package\package.json not in flight; writing
+920 silly cache afterAdd systemjs@0.19.27
+921 verbose afterAdd C:\Users\niranjan.puri\AppData\Roaming\npm-cache\systemjs\0.19.27\package\package.json not in flight; writing
+922 silly cache afterAdd typings@1.3.2
+923 verbose afterAdd C:\Users\niranjan.puri\AppData\Roaming\npm-cache\typings\1.3.2\package\package.json not in flight; writing
+924 silly cache afterAdd rimraf@2.5.3
+925 verbose afterAdd C:\Users\niranjan.puri\AppData\Roaming\npm-cache\rimraf\2.5.3\package\package.json not in flight; writing
+926 silly cache afterAdd bootstrap@3.3.6
+927 verbose afterAdd C:\Users\niranjan.puri\AppData\Roaming\npm-cache\bootstrap\3.3.6\package\package.json not in flight; writing
+928 silly cache afterAdd gulp@3.8.11
+929 verbose afterAdd C:\Users\niranjan.puri\AppData\Roaming\npm-cache\gulp\3.8.11\package\package.json not in flight; writing
+930 silly cache afterAdd typescript@1.8.10
+931 verbose afterAdd C:\Users\niranjan.puri\AppData\Roaming\npm-cache\typescript\1.8.10\package\package.json not in flight; writing
+932 verbose afterAdd C:\Users\niranjan.puri\AppData\Roaming\npm-cache\rxjs\5.0.0-beta.6\package\package.json written
+933 verbose afterAdd C:\Users\niranjan.puri\AppData\Roaming\npm-cache\es6-promise\3.1.2\package\package.json written
+934 verbose afterAdd C:\Users\niranjan.puri\AppData\Roaming\npm-cache\angular2-in-memory-web-api\0.0.7\package\package.json written
+935 silly cache afterAdd reflect-metadata@0.1.3
+936 verbose afterAdd C:\Users\niranjan.puri\AppData\Roaming\npm-cache\reflect-metadata\0.1.3\package\package.json not in flight; writing
+937 verbose afterAdd C:\Users\niranjan.puri\AppData\Roaming\npm-cache\ng2-bs3-modal\0.6.1\package\package.json written
+938 silly cache afterAdd gulp-uglify@1.2.0
+939 verbose afterAdd C:\Users\niranjan.puri\AppData\Roaming\npm-cache\gulp-uglify\1.2.0\package\package.json not in flight; writing
+940 verbose afterAdd C:\Users\niranjan.puri\AppData\Roaming\npm-cache\gulp-util\3.0.7\package\package.json written
+941 verbose afterAdd C:\Users\niranjan.puri\AppData\Roaming\npm-cache\@angular\compiler\2.0.0-rc.4\package\package.json written
+942 verbose afterAdd C:\Users\niranjan.puri\AppData\Roaming\npm-cache\zone.js\0.6.12\package\package.json written
+943 verbose afterAdd C:\Users\niranjan.puri\AppData\Roaming\npm-cache\@angular\upgrade\2.0.0-rc.4\package\package.json written
+944 verbose afterAdd C:\Users\niranjan.puri\AppData\Roaming\npm-cache\@angular\common\2.0.0-rc.4\package\package.json written
+945 verbose afterAdd C:\Users\niranjan.puri\AppData\Roaming\npm-cache\gulp-cssmin\0.1.7\package\package.json written
+946 verbose afterAdd C:\Users\niranjan.puri\AppData\Roaming\npm-cache\@angular\platform-browser-dynamic\2.0.0-rc.4\package\package.json written
+947 verbose afterAdd C:\Users\niranjan.puri\AppData\Roaming\npm-cache\es6-shim\0.35.1\package\package.json written
+948 verbose afterAdd C:\Users\niranjan.puri\AppData\Roaming\npm-cache\lodash\4.13.1\package\package.json written
+949 verbose afterAdd C:\Users\niranjan.puri\AppData\Roaming\npm-cache\systemjs\0.19.27\package\package.json written
+950 verbose afterAdd C:\Users\niranjan.puri\AppData\Roaming\npm-cache\typings\1.3.2\package\package.json written
+951 verbose afterAdd C:\Users\niranjan.puri\AppData\Roaming\npm-cache\rimraf\2.5.3\package\package.json written
+952 verbose afterAdd C:\Users\niranjan.puri\AppData\Roaming\npm-cache\bootstrap\3.3.6\package\package.json written
+953 silly cache afterAdd gulp-concat@2.5.2
+954 verbose afterAdd C:\Users\niranjan.puri\AppData\Roaming\npm-cache\gulp-concat\2.5.2\package\package.json not in flight; writing
+955 verbose afterAdd C:\Users\niranjan.puri\AppData\Roaming\npm-cache\gulp\3.8.11\package\package.json written
+956 verbose afterAdd C:\Users\niranjan.puri\AppData\Roaming\npm-cache\typescript\1.8.10\package\package.json written
+957 verbose afterAdd C:\Users\niranjan.puri\AppData\Roaming\npm-cache\reflect-metadata\0.1.3\package\package.json written
+958 verbose afterAdd C:\Users\niranjan.puri\AppData\Roaming\npm-cache\gulp-uglify\1.2.0\package\package.json written
+959 verbose afterAdd C:\Users\niranjan.puri\AppData\Roaming\npm-cache\gulp-concat\2.5.2\package\package.json written
+960 verbose stack Error: connect ECONNREFUSED
+960 verbose stack     at exports._errnoException (util.js:746:11)
+960 verbose stack     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1000:19)
+961 verbose cwd E:\Autocare Association\POC\AutoCare.Product.Web\bin
+962 error Windows_NT 6.1.7601
+963 error argv "C:\\Program Files (x86)\\nodejs\\\\node.exe" "C:\\Program Files (x86)\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install"
+964 error node v0.12.2
+965 error npm  v2.7.4
+966 error code ECONNREFUSED
+967 error errno ECONNREFUSED
+968 error syscall connect
+969 error Error: connect ECONNREFUSED
+969 error     at exports._errnoException (util.js:746:11)
+969 error     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1000:19)
+969 error  { [Error: connect ECONNREFUSED]
+969 error   code: 'ECONNREFUSED',
+969 error   errno: 'ECONNREFUSED',
+969 error   syscall: 'connect',
+969 error   parent: 'OptimusPrime' }
+970 error If you are behind a proxy, please make sure that the
+970 error 'proxy' config is set properly.  See: 'npm help config'
+971 verbose exit [ 1, true ]

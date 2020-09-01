@@ -1,0 +1,99 @@
+﻿@model Northwind.Web.Models.ViewModels.Questionaire.ContractCloseOutViewModel
+<form id="contractCloseForm" method="post" action="Add" enctype="multipart/form-data">
+    @{
+        var redirectUrl = Model.ParentContractGuid == Guid.Empty ? "/contract/Details/" + Model.ContractGuid : "/project/Details/" + Model.ContractGuid;
+        bool accessable = (Model.RepresentativeType.ToUpper() == "NOTACCESSABLE" || string.IsNullOrEmpty(Model.RepresentativeType)) ? false : true;
+    }
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="ContractGuid" class="form-control" />
+    <input type="hidden" asp-for="ParentContractGuid" class="form-control" />
+    <input type="hidden" asp-for="RepresentativeType" class="form-control" />
+    <div class="row">
+        <div class="col-md-12 text-right">
+            @if (accessable)
+            {
+                <button type="submit" id="btnAdd" class="btn btn-primary"> Save </button>
+            }
+            <button type="reset" class="btn btn-secondary" onclick="location.href='@redirectUrl'">
+                Cancel
+            </button>
+        </div>
+    </div>
+    <br />
+    @if (Model.RepresentativeType == Model.AccountingRepresentativeQuestions[0].RepresentativeType || string.IsNullOrEmpty(Model.RepresentativeType))
+    {
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="contractClosePanel">
+                    <li class="k-state-active">
+                        <span class="k-link k-state-selected">Step (1) Project Manager : Operations </span>
+                        <partial name="_ProjectManagerQuestion.cshtml" />
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <ul class="contractClosePanel mb-3">
+                    <li class="k-state-active">
+                        <span class="k-link k-state-selected">Step (2) Contract Representative : Operations </span>
+                        <partial name="_ContractRepresentativeQuestion.cshtml" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <br />
+
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="contractClosePanel">
+                    <li class="k-state-active">
+                        <span class="k-link k-state-selected">Step (3) Accounting Representative : Operations </span>
+                        <partial name="_AccountingRepresentativeQuestion.cshtml" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+    }
+    else if (Model.RepresentativeType == Model.ContractRepresentativeQuestions[0].RepresentativeType)
+    {
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="contractClosePanel">
+                    <li class="k-state-active">
+                        <span class="k-link k-state-selected">Step (1) Project Manager : Operations </span>
+                        <partial name="_ProjectManagerQuestion.cshtml" />
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <ul class="contractClosePanel mb-3">
+                    <li class="k-state-active">
+                        <span class="k-link k-state-selected">Step (2) Contract Representative : Operations </span>
+                        <partial name="_ContractRepresentativeQuestion.cshtml" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+    }
+    else if (Model.RepresentativeType == Model.ProjectManagerQuestions[0].RepresentativeType)
+    {
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="contractClosePanel">
+                    <li class="k-state-active">
+                        <span class="k-link k-state-selected">Step (1) Project Manager : Operations </span>
+                        <partial name="_ProjectManagerQuestion.cshtml" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="row">
+            <div class="col-md-12">
+              <h3>Your role has no rights for the Close Out process on the current stage for this contract. </h3>
+            </div>
+        </div>
+    }
+</form>

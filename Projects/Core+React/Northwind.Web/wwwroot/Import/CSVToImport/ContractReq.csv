@@ -1,0 +1,6 @@
+ContractNumber,TaskOrderNumber,ProjectNumber,IsIDIQ,IsTaskOrder,IsPrime,Subcontract Number,OrgId,Title,Description,AwardAmount,FundedAmount,POP Start,POP End,ContractCountry,ContractState,NAICS,PSC,CPAREligible,QualityLevel,AcquisitionType,Competition,ContractType,Currency,Billing Address,Billing Frequency,OverheadFeePercent,GAFeePercent,FeePercent,Invoice Submission Method,Payment Terms,Applicable Wage Determination,Billing Formula,Revenue Formula,Revenue Recognition Percent,,OH Onsite,OH Offsite,ContractRepresentative,ProjectControlRepresentative,ProjectManager,AccountingRepresentative,Awarding Agency,Award Agency Contract Representative,Awarding Agency Technical Representative,Funding Agency Contract Representative,Funding Agency Technical Representative
+"C,d","c,d",d,c,o,c,if not prime compulsory,c,"c,d",o,o,o,c,c,C,c,c,o,c,?,?,Competed (o)o,,USD,o,o,o,o,o,o,o,"SCA, DBA",o,o,o,,o,o,c,o,o,o,c,c,c,c,c
+,,,,,,,,,,,,,,,,,,,,,,,,,,Compulsory if contract type is costplus,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,Compulsory if contract type is fixed price,,,,,,,,,,,,,,,,,,
+"Missing field: Quality level requirement, funding agency, status",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Doubt: Acquisition Type,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

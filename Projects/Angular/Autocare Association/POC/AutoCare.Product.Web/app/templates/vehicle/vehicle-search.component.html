@@ -1,0 +1,816 @@
+﻿<loading-gif [show]="showLoadingGif"></loading-gif>
+
+<div class="drawer-left">
+    <span></span>
+    <div>
+        <main class="clearfix">
+            <div>
+                <!-- Modify brake system form start -->
+                <div class="add-form">
+                    <h2>
+                        Filters
+                        <a class="btn larger" (click)="clearFilters()">CLEAR</a>
+                        <a class="btn icon search larger" (click)="searchVehicle()">SEARCH VEHICLES</a>
+                    </h2>
+
+                    <div class="clearfix">
+                        <div class="input-blocks clearfix">
+
+                            <div style="width: 215px;">
+                                <div class="filter-search green-submit">
+                                    <input type="text" class="cinput" placeholder="Search by Base Vehicle ID" title="Search by Base Vehicle ID" [(ngModel)]="baseVehicleId" (keypress)="onBaseIdKeyPress($event)">
+                                    <input type="submit" value="" (click)="searchByBaseVehicleId()">
+                                </div>
+
+                                <div style="margin-top: 50px;">
+                                    <strong class="float-left">Regions</strong>
+                                    <a class="float-right" (click)="clearFacet(vehicleSearchViewModel.facets.regions)" style="text-decoration:underline; cursor:pointer;">Clear</a>
+                                    <div class="clearfix"></div>
+                                    <div class="filter-search">
+                                        <input type="text" class="cinput" placeholder="Search Regions" (input)="filterRegions($event)" />
+                                        <input type="submit" value="">
+                                    </div>
+
+                                    <div class="clearfix"></div>
+
+                                    <div class="checkbox-wrap after-search" style="overflow: auto; height: 160px;">
+                                        <ul>
+                                            <li *ngFor="let region of regionFacet">
+                                                <label class="control control--checkbox green-checkbox">
+                                                    <input type="checkbox" [value]="region.name" [(ngModel)]="region.isSelected" (change)="onItemSelected($event, vehicleSearchViewModel.facets.regions)">
+                                                    <div class="control__indicator"></div>
+                                                    <span>{{region.name}}</span>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div style="margin-top: 20px;">
+                                    <strong>Years</strong>
+
+                                    <div class="select white-select" style="width: 100px;">
+                                        <select [(ngModel)]="selectedStartYear" (ngModelChange)="onYearSelected()">
+                                            <option value="0">--From--</option>
+                                            <option *ngFor="let year of startYearFacet" [value]="year">{{year}}</option>
+                                        </select>
+                                        <div class="select__arrow white-select__arrow"></div>
+                                    </div>
+                                    <span class="fa fa-caret-right"></span><!--pushkar-->
+                                    <div class="select white-select" style="width: 100px;">
+                                        <select [(ngModel)]="selectedEndYear" (ngModelChange)="onYearSelected()">
+                                            <option value="0">--To--</option>
+                                            <option *ngFor="let year of endYearFacet" [value]="year">{{year}}</option>
+                                        </select>
+                                        <div class="select__arrow white-select__arrow"></div>
+                                    </div>
+                                </div>
+                                <div style="margin-top: 20px;">
+                                    <strong class="float-left">Submodels</strong>
+                                    <a class="float-right" (click)="clearFacet(vehicleSearchViewModel.facets.subModels, false)" style="text-decoration:underline; cursor:pointer;">Clear</a>
+                                    <div class="clearfix"></div>
+                                    <div class="filter-search">
+                                        <input type="text" class="cinput" placeholder="Search Submodels" (input)="filterSubModels($event)" />
+                                        <input type="submit" value="">
+                                    </div>
+
+                                    <div class="clearfix"></div>
+
+                                    <div class="checkbox-wrap after-search" style="overflow: auto; height: 160px;">
+                                        <ul>
+                                            <li *ngFor="let subModel of subModelFacet">
+                                                <label class="control control--checkbox green-checkbox">
+                                                    <input type="checkbox" [value]="subModel.name" [(ngModel)]="subModel.isSelected">
+                                                    <div class="control__indicator"></div>
+                                                    <span>{{subModel.name}}</span>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="width: 215px;">
+                                <div class="filter-search green-submit">
+                                    <input type="text" class="cinput" placeholder="Search by Vehicle ID" [(ngModel)]="vehicleId" (keypress)="onVehicleIdKeyPress($event)" />
+                                    <input type="submit" value="" (click)="searchByVehicleId()">
+                                </div>
+
+                                <div style="margin-top: 50px;">
+                                    <strong class="float-left">Vehicle Type Groups</strong>
+                                    <a class="float-right" (click)="clearFacet(vehicleSearchViewModel.facets.vehicleTypeGroups)" style="text-decoration:underline; cursor:pointer;">Clear</a>
+                                    <div class="clearfix"></div>
+                                    <div class="filter-search">
+                                        <input type="text" class="cinput" placeholder="Search Vehicle Type Groups" (input)="filterVehicleTypeGroups($event)" />
+                                        <input type="submit" value="">
+                                    </div>
+
+                                    <div class="clearfix"></div>
+
+                                    <div class="checkbox-wrap after-search" style="overflow: auto; height: 160px;">
+                                        <ul>
+                                            <li *ngFor="let item of vehicleTypeGroupFacet">
+                                                <label class="control control--checkbox green-checkbox">
+                                                    <input type="checkbox" [value]="item.name" [(ngModel)]="item.isSelected" (change)="onItemSelected($event, vehicleSearchViewModel.facets.vehicleTypeGroups)">
+                                                    <div class="control__indicator"></div>
+                                                    <span>{{item.name}}</span>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div style="margin-top: 20px;">
+                                    <strong class="float-left">Makes</strong>
+                                    <a class="float-right" (click)="clearFacet(vehicleSearchViewModel.facets.makes)" style="text-decoration:underline; cursor:pointer;">Clear</a>
+                                    <div class="clearfix"></div>
+                                    <div class="filter-search">
+                                        <input type="text" class="cinput" placeholder="Search Makes" (input)="filterMakes($event)" />
+                                        <input type="submit" value="">
+                                    </div>
+
+                                    <div class="clearfix"></div>
+
+                                    <div class="checkbox-wrap after-search" style="overflow: auto; height: 160px;">
+                                        <ul>
+                                            <li *ngFor="let make of makeFacet">
+                                                <label class="control control--checkbox green-checkbox">
+                                                    <input type="checkbox" [value]="make.name" [(ngModel)]="make.isSelected" (change)="onItemSelected($event, vehicleSearchViewModel.facets.makes)">
+                                                    <div class="control__indicator"></div>
+                                                    <span>{{make.name}}</span>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="width: 215px;">
+                                <div style="margin-top: 50px;">
+                                    <strong class="float-left">Vehicle Types</strong>
+                                    <a class="float-right" (click)="clearFacet(vehicleSearchViewModel.facets.vehicleTypes)" style="text-decoration:underline; cursor:pointer;">Clear</a>
+                                    <div class="clearfix"></div>
+                                    <div class="filter-search">
+                                        <input type="text" class="cinput" placeholder="Search Vehicle Types" (input)="filterVehicleTypes($event)" />
+                                        <input type="submit" value="">
+                                    </div>
+
+                                    <div class="clearfix"></div>
+
+                                    <div class="checkbox-wrap after-search" style="overflow: auto; height: 160px;">
+                                        <ul>
+                                            <li *ngFor="let item of vehicleTypeFacet">
+                                                <label class="control control--checkbox green-checkbox">
+                                                    <input type="checkbox" [value]="item.name" [(ngModel)]="item.isSelected" (change)="onItemSelected($event, vehicleSearchViewModel.facets.vehicleTypes)">
+                                                    <div class="control__indicator"></div>
+                                                    <span>{{item.name}}</span>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div style="margin-top: 20px;">
+                                    <strong class="float-left">Models</strong>
+                                    <a class="float-right" (click)="clearFacet(vehicleSearchViewModel.facets.models)" style="text-decoration:underline; cursor:pointer;">Clear</a>
+                                    <div class="clearfix"></div>
+                                    <div class="filter-search">
+                                        <input type="text" class="cinput" placeholder="Search Models" (input)="filterModels($event)" />
+                                        <input type="submit" value="">
+                                    </div>
+
+                                    <div class="clearfix"></div>
+
+                                    <div class="checkbox-wrap after-search" style="overflow: auto; height: 160px;">
+                                        <ul>
+                                            <li *ngFor="let model of modelFacet">
+                                                <label class="control control--checkbox green-checkbox">
+                                                    <input type="checkbox" [value]="model.name" [(ngModel)]="model.isSelected" (change)="onItemSelected($event, vehicleSearchViewModel.facets.models)">
+                                                    <div class="control__indicator"></div>
+                                                    <span>{{model.name}}</span>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Left split screen end -->
+</div>
+<!-- Right split screen start -->
+<div id="main">
+    <!-- Main start -->
+    <main>
+        <div class="center">
+            <div class="clearfix">
+                <span class="icon-text" style="float:right;margin-top: 5px" *ngIf="vehicleSearchViewModel && vehicleSearchViewModel.totalCount">Showing <strong>1000</strong> of <strong>{{vehicleSearchViewModel.totalCount}}</strong> matching records</span>
+            </div>
+            <!-- Base Vehicles start -->
+            <div class="table-wrap">
+                <h2 class="foldable clearfix">
+                    <a [ngClass]="{fold:isBaseVehiclesExpanded, unfold:!isBaseVehiclesExpanded}" (click)="isBaseVehiclesExpanded=!isBaseVehiclesExpanded"></a>
+                    Base Vehicles
+                    <a class="btn blue icon add" (click)="routerLinkRedirect('/basevehicle/add',0)">NEW</a>
+                </h2>
+                <div class="ctable" [ngClass]="{unfolded:isBaseVehiclesExpanded, folded:!isBaseVehiclesExpanded}">
+                    <ac-grid #baseVehicleGrid [dataSource]="vehicleSearchViewModel.result.baseVehicles" #gd="acGrid"
+                             columns='[
+                 { "header":" ", "selectable": {"selected": true}},
+                 { "header":"Base ID","field":"id","sortable":true,"sortedByDesc":true},
+                 { "header":"Year","field":"yearId","sortable":true},
+                 { "header":"Make (ID)","field":"makeName","sortable":true},
+                 { "header":"Model (ID)","field":"modelName","sortable":true},
+                 { "header":"Change Requests"}
+                 ]'
+                             initialSortBy='[{"field": "id", "orderByDesc": true}]'
+                             paging='{"pageSize": 10, "numberOfPagesOnPageList" : 10}'
+                             (selectAllChangedEvent)="onSelectAllBaseVehicle($event)" [selectAllChecked]="isSelectAllBaseVehicles"
+                             [thresholdRecordCount]="thresholdRecordCount">
+                        <tr *ngFor="let baseVehicle of gd.items">
+                            <td>
+                                <label class="control control--checkbox green-checkbox">
+                                    <input type="checkbox" [(ngModel)]="baseVehicle.isSelected"
+                                           (change)="onBaseVehicleSelected(baseVehicle)">
+                                    <div class="control__indicator"></div>
+                                </label>
+                            </td>
+                            <td>{{baseVehicle.id}}</td>
+                            <td>{{baseVehicle.yearId}}</td>
+                            <td>{{baseVehicle.makeName}} ({{baseVehicle.makeId}})</td>
+                            <td>{{baseVehicle.modelName}} ({{baseVehicle.modelId}})</td>
+                            <td *ngIf="baseVehicle.changeRequestId && baseVehicle.changeRequestId != -1">
+                                <a (click)="onViewBaseVehicleChangeRequest(baseVehicle)" style="cursor: pointer;" class="btn-r-arrow blue">Pending</a>
+                            </td>
+                            <td *ngIf="!baseVehicle.changeRequestId || baseVehicle.changeRequestId == -1">
+                                <a class="box-icon pencil" title="Edit" (click)="routerLinkRedirect('/basevehicle/modify/',baseVehicle.id)"></a>
+                                <a class="box-icon delete" title="Delete" (click)="routerLinkRedirect('/basevehicle/delete/',baseVehicle.id)"></a>
+                                <a class="box-icon shuffle" title="Replace" (click)="routerLinkRedirect('/basevehicle/replace/',baseVehicle.id)"></a>
+                                <a class="box-icon add-vehicle" title="Add Vehicle" (click)="routerLinkRedirect('/vehicle/add/',baseVehicle.id)"></a>
+                            </td>
+                        </tr>
+                    </ac-grid>
+                </div>
+            </div>
+
+            <!-- Vehicles start -->
+            <div class="table-wrap">
+                <h2 class="foldable clearfix">
+                    <a [ngClass]="{fold:isVehiclesExpanded, unfold:!isVehiclesExpanded}" (click)="isVehiclesExpanded=!isVehiclesExpanded"></a>
+                    Vehicles
+                </h2>
+                <div class="ctable" [ngClass]="{unfolded:isVehiclesExpanded, folded:!isVehiclesExpanded}">
+                    <ac-grid #vehicleGrid [dataSource]="vehicles" #gd1="acGrid"
+                             columns='[
+                 { "header":" ", "selectable": {"selected": false}},
+                 { "header":"Base Vehicle ID","field":"baseVehicleId","sortable":true,"sortedByDesc":true},
+                 { "header":"Year","field":"yearId","sortable":true},
+                 { "header":"Make (ID)","field":"makeName","sortable":true},
+                 { "header":"Model (ID)","field":"modelName","sortable":true},
+                 { "header":"Vehicle ID","field":"id","sortable":true},
+                 { "header":"Submodel (ID)","field":"subModelName","sortable":true},
+                 { "header":"Region (ID)","field":"regionName","sortable":true},
+                 { "header":"Change Requests"}
+                 ]'
+                             initialSortBy='[{"field": "baseVehicleId", "orderByDesc": true}]'
+                             paging='{"pageSize": 10, "numberOfPagesOnPageList" : 10}'
+                             (selectAllChangedEvent)="onSelectAllVehicle($event)" [selectAllChecked]="isSelectAllVehicles"
+                             [thresholdRecordCount]="thresholdRecordCountVehicle">
+                        <tr *ngFor="let vehicle of gd1.items">
+                            <td>
+                                <label class="control control--checkbox green-checkbox">
+                                    <input type="checkbox" [(ngModel)]="vehicle.isSelected" (change)="onVehicleSelected(vehicle, $event)">
+                                    <div class="control__indicator"></div>
+                                </label>
+                            </td>
+                            <td>{{vehicle.baseVehicleId}}</td>
+                            <td>{{vehicle.yearId}}</td>
+                            <td>{{vehicle.makeName}} ({{vehicle.makeId}})</td>
+                            <td>{{vehicle.modelName}} ({{vehicle.modelId}})</td>
+                            <td>{{vehicle.id}}</td>
+                            <td>{{vehicle.subModelName}} ({{vehicle.subModelId}})</td>
+                            <td>{{vehicle.regionName}} ({{vehicle.regionId}})</td>
+                            <td *ngIf="vehicle.changeRequestId && vehicle.changeRequestId != -1">
+                                <a (click)="onViewVehicleCr(vehicle)" style="cursor: pointer;" class="btn-r-arrow blue">Pending</a>
+                            </td>
+                            <td *ngIf="!vehicle.changeRequestId || vehicle.changeRequestId == -1">
+                                <a class="box-icon pencil" title="Edit" (click)="routerLinkRedirect('/vehicle/modify/',vehicle.id)"></a>
+                                <a class="box-icon delete" title="Delete" (click)="routerLinkRedirect('/vehicle/delete/',vehicle.id)"></a>
+                            </td>
+                        </tr>
+                    </ac-grid>
+                </div>
+            </div>
+
+            <!-- Systems start -->
+            <div class="table-wrap">
+                <h2 class="foldable clearfix">
+                    <a [ngClass]="{fold:isSystemExpanded, unfold:!isSystemExpanded}" (click)="isSystemExpanded=!isSystemExpanded"></a>
+                    <div class="have-child" [ngClass]="{'show-child':showSystemSelect}">
+                        <a class="h2-dropdown with-icon" [ngClass]="iconClassReturn()" (click)="showSystemSelect=!showSystemSelect" *ngIf="selectedSystem===configSystems.Select">
+                            Select a Configuration System
+                        </a>
+                        <a class="h2-dropdown with-icon" [ngClass]="iconClassReturn()" (click)="showSystemSelect=!showSystemSelect" *ngIf="selectedSystem!==configSystems.Select">
+                            {{configSystems[selectedSystem]}} Systems
+                        </a>
+                        <ul class="drop-child" style="position: static; font-size: 25px;" *ngIf="configSystems">
+                            <li (click)="systemSelect(configSystems.Select)"><a class="with-icon">Select a Configuration System</a></li>
+                            <li (click)="systemSelect(configSystems.Brake)"><a class="with-icon brake-system">Brake Systems</a></li>
+                            <li (click)="systemSelect(configSystems.Bed)"><a class="with-icon truck-bed-system">Bed Systems</a></li>
+                            <li (click)="systemSelect(configSystems.Body)"><a class="with-icon body-system">Body Systems</a></li>
+                            <li (click)="systemSelect(configSystems.Drive)"><a class="with-icon body-system">Drive Type Systems</a></li>
+                            <!--<li><a class="with-icon chassis-system">Drive Type Systems</a></li>-->
+                            <li (click)="systemSelect(configSystems.Engine)"><a class="with-icon engine-system">Engine Systems</a></li>
+                            <li (click)="systemSelect(configSystems.MFR)"><a class="with-icon body-code-system">MFR Systems</a></li>
+                            <li><a class="with-icon spring-system">Spring Systems</a></li>
+                            <li><a class="with-icon steering-wheel-system">Steering Systems</a></li>
+                            <li><a class="with-icon transmission-system">Transmission Systems</a></li>
+                            <li (click)="systemSelect(configSystems.Wheel)"><a class="with-icon wheel-system">Wheel Base Systems</a></li>
+                        </ul>
+                    </div>
+                    <a *ngIf="selectedSystem!==configSystems.Select" class="btn blue icon add" (click)="onSystemAssociationClick()">ASSOCIATE SYSTEMS TO VEHICLE</a>
+                </h2>
+                <div class="ctable" [ngClass]="{unfolded: isSystemExpanded, folded:!isSystemExpanded}" *ngIf="selectedSystem === configSystems.Brake">
+                    <ac-grid #vehicleToBrakeConfigGrid [dataSource]="vehicleToBrakeConfigs" #gd2="acGrid"
+                             columns='[
+                 { "header":"Vehicle to Brake Config ID","field":"id","sortable":true},
+                 { "header":"Vehicle ID","field":"vehicleId","sortable":true},
+                 { "header":"Brake Config ID","field":"brakeConfigId","sortable":true},
+                 { "header":"Front Brake (ID)","field":"frontBrakeTypeName","sortable":true},
+                 { "header":"Rear Brake (ID)","field":"rearBrakeTypeName","sortable":true},
+                 { "header":"Brake ABS (ID)","field":"brakeABSName","sortable":true},
+                 { "header":"Brake System (ID)","field":"brakeSystemName","sortable":true},
+                 { "header":"Change Requests"}
+                 ]'
+                             initialSortBy='[{"field": "vehicleId", "orderByDesc": true}]'
+                             paging='{"pageSize": 10, "numberOfPagesOnPageList" : 10}'>
+                        <tr *ngIf="vehicleToBrakeConfigs.length<1">
+                            <td colspan="8">No Records</td>
+                        </tr>
+                        <tr *ngFor="let v of gd2.items">
+                            <td>{{v.id}}</td>
+                            <td>{{v.vehicleId}}</td>
+                            <td>{{v.brakeConfigId}}</td>
+                            <td>{{v.brakeConfig.frontBrakeTypeName}} ({{v.brakeConfig.frontBrakeTypeId}})</td>
+                            <td>{{v.brakeConfig.rearBrakeTypeName}} ({{v.brakeConfig.rearBrakeTypeId}})</td>
+                            <td>{{v.brakeConfig.brakeABSName}} ({{v.brakeConfig.brakeABSId}})</td>
+                            <td>{{v.brakeConfig.brakeSystemName}} ({{v.brakeConfig.brakeSystemId}})</td>
+                            <td *ngIf="v.changeRequestId && v.changeRequestId != -1">
+                                <a (click)="onViewAssociatedVehiclesCr(v)" style="cursor: pointer;" class="btn-r-arrow blue">Pending</a>
+                            </td>
+                            <td *ngIf="!v.changeRequestId || v.changeRequestId == -1">
+                                <a class="box-icon delete" title="Delete" (click)="onDeleteVehicleToBrakeConfig(v)"></a>
+                            </td>
+                        </tr>
+                    </ac-grid>
+                </div>
+
+                <div class="ctable" [ngClass]="{unfolded: isSystemExpanded, folded:!isSystemExpanded}" *ngIf="selectedSystem === configSystems.Bed">
+                    <ac-grid #vehicleToBedConfigGrid [dataSource]="vehicleToBedConfigs" #gd3="acGrid"
+                             columns='[
+                 { "header":"Vehicle to Bed Config ID","field":"id","sortable":true},
+                 { "header":"Vehicle ID","field":"vehicleId","sortable":true},
+                 { "header":"Bed Config ID","field":"bedConfigId","sortable":true},
+                 { "header":"Bed Length (ID)","field":"length","sortable":true},
+                 { "header":"Bed Type (ID)","field":"bedTypeName","sortable":true},
+                 { "header":"Change Requests"}
+                 ]'
+                             initialSortBy='[{"field": "vehicleId", "orderByDesc": true}]'
+                             paging='{"pageSize": 10, "numberOfPagesOnPageList" : 10}'>
+                        <tr *ngIf="vehicleToBedConfigs.length<1">
+                            <td colspan="8">No Records</td>
+                        </tr>
+                        <tr *ngFor="let v of gd3.items">
+                            <td>{{v.id}}</td>
+                            <td>{{v.vehicleId}}</td>
+                            <td>{{v.bedConfigId}}</td>
+                            <td>{{v.bedConfig.length}} ({{v.bedConfig.bedLengthId}})</td>
+                            <td>{{v.bedConfig.bedTypeName}} ({{v.bedConfig.bedTypeId}})</td>
+                            <td *ngIf="v.changeRequestId && v.changeRequestId != -1">
+                                <a (click)="onViewAssociatedVehiclesCr(v)" style="cursor: pointer;" class="btn-r-arrow blue">Pending</a>
+                            </td>
+                            <td *ngIf="!v.changeRequestId || v.changeRequestId == -1">
+                                <a class="box-icon delete" title="Delete" (click)="onDeleteVehicleToBedConfig(v)"></a>
+                            </td>
+                        </tr>
+                    </ac-grid>
+                </div>
+                <!--Ac Grid For BodyStyle System-->
+                <div class="ctable" [ngClass]="{unfolded: isSystemExpanded, folded:!isSystemExpanded}" *ngIf="selectedSystem === configSystems.Body">
+                    <ac-grid #vehicleToBodyStyleConfigGrid [dataSource]="vehicleToBodyStyleConfigs" #gd4="acGrid"
+                             columns='[
+                 { "header":"Vehicle to BodyStyle Config ID","field":"id","sortable":true},
+                 { "header":"Vehicle ID","field":"vehicleId","sortable":true},
+                 { "header":"Body Style Config ID","field":"bodyStyleConfigId","sortable":true},
+                 { "header":"Body Num Doors (ID)","field":"numDoors","sortable":true},
+                 { "header":"Body Type (ID)","field":"bodyTypeName","sortable":true},
+                 { "header":"Change Requests"}
+                 ]'
+                             initialSortBy='[{"field": "vehicleId", "orderByDesc": true}]'
+                             paging='{"pageSize": 10, "numberOfPagesOnPageList" : 10}'>
+                        <tr *ngIf="vehicleToBodyStyleConfigs.length<1">
+                            <td colspan="8">No Records</td>
+                        </tr>
+                        <tr *ngFor="let v of gd4.items">
+                            <td>{{v.id}}</td>
+                            <td>{{v.vehicleId}}</td>
+                            <td>{{v.bodyStyleConfigId}}</td>
+                            <td>{{v.bodyStyleConfig.numDoors}} ({{v.bodyStyleConfig.bodyNumDoorsId}})</td>
+                            <td>{{v.bodyStyleConfig.bodyTypeName}} ({{v.bodyStyleConfig.bodyTypeId}})</td>
+                            <td *ngIf="v.changeRequestId && v.changeRequestId != -1">
+                                <a (click)="onViewAssociatedVehiclesCr(v)" style="cursor: pointer;" class="btn-r-arrow blue">Pending</a>
+                            </td>
+                            <td *ngIf="!v.changeRequestId || v.changeRequestId == -1">
+                                <a class="box-icon delete" title="Delete" (click)="onDeleteVehicleToBodyStyleConfig(v)"></a>
+                            </td>
+                        </tr>
+                    </ac-grid>
+                </div>
+                <!--Ac Grid For Drive Type System-->
+                <div class="ctable" [ngClass]="{unfolded: isSystemExpanded, folded:!isSystemExpanded}" *ngIf="selectedSystem === configSystems.Drive">
+                    <ac-grid #vehicleToDriveTypeGrid [dataSource]="vehicleToDriveTypes" #gd4="acGrid"
+                             columns='[
+                 { "header":"Vehicle to Drive Type ID","field":"id","sortable":true},
+                 { "header":"Vehicle ID","field":"vehicleId","sortable":true},
+                 { "header":"Drive Type ID","field":"driveTypeId","sortable":true},
+                 { "header":"Drive Type Name (ID)","field":"driveTypeName","sortable":true},
+                 { "header":"Change Requests"}
+                 ]'
+                             initialSortBy='[{"field": "vehicleId", "orderByDesc": true}]'
+                             paging='{"pageSize": 10, "numberOfPagesOnPageList" : 10}'>
+                        <tr *ngIf="vehicleToDriveTypes.length<1">
+                            <td colspan="8">No Records</td>
+                        </tr>
+                        <tr *ngFor="let v of gd4.items">
+                            <td>{{v.id}}</td>
+                            <td>{{v.vehicleId}}</td>
+                            <td>{{v.driveTypeId}}</td>
+                            
+
+                            <!--<td>{{v.driveType.driv
+                            eTypes}} ({{v.driveType.driveTypesId}})</td>-->
+                            <td>{{v.name}} ({{v.driveT
+                            <td>{{v.name}} ({{v.driveTypeId}})</td>
+                            <td *ngIf="v.changeRequestId && v.changeRequestId != -1">
+                                <a (click)="onViewAssociatedVehiclesCr(v)" style="cursor: pointer;" class="btn-r-arrow blue">Pending</a>
+                            </td>
+                            <td *ngIf="!v.changeRequestId || v.changeRequestId == -1">
+                                <a class="box-icon delete" title="Delete" (click)="onDeleteVehicleToDriveType(v)"></a>
+                            </td>
+                        </tr>
+                    </ac-grid>
+                </div>
+
+                <!--Ac Grid For WheelBase System-->
+                <div class="ctable" [ngClass]="{unfolded: isSystemExpanded, folded:!isSystemExpanded}" *ngIf="selectedSystem === configSystems.Wheel">
+                    <ac-grid #vehicleToWheelBaseGrid [dataSource]="vehicleToWheelBases" #gd5="acGrid"
+                             columns='[
+                 { "header":"Vehicle to WheelBase ID","field":"id","sortable":true},
+                 { "header":"Vehicle ID","field":"vehicleId","sortable":true},
+                 { "header":"WheelBase ID","field":"wheelBaseId","sortable":true},
+                 { "header":"WheelBase (ID)","field":"wheelBase.base","sortable":true},
+                 { "header":"WheelBase Metric (ID)","field":"wheelBase.wheelBaseMetric","sortable":true},
+                 { "header":"Change Requests"}
+                 ]'
+                             initialSortBy='[{"field": "vehicleId", "orderByDesc": true}]'
+                             paging='{"pageSize": 10, "numberOfPagesOnPageList" : 10}'>
+                        <tr *ngIf="vehicleToWheelBases.length<1">
+                            <td colspan="8">No Records</td>
+                        </tr>
+                        <tr *ngFor="let v of gd5.items">
+                            <td>{{v.id}}</td>
+                            <td>{{v.vehicleId}}</td>
+                            <td>{{v.wheelBaseId}}</td>
+                            <td>{{v.wheelBase.base}} ({{v.wheelBase.id}})</td>
+                            <td>{{v.wheelBase.wheelBaseMetric}} ({{v.wheelBase.id}})</td>
+                            <td *ngIf="v.changeRequestId && v.changeRequestId != -1">
+                                <a (click)="onViewAssociatedVehiclesCr(v)" style="cursor: pointer;" class="btn-r-arrow blue">Pending</a>
+                            </td>
+                            <td *ngIf="!v.changeRequestId || v.changeRequestId == -1">
+                                <a class="box-icon delete" title="Delete" (click)="onDeleteVehicleToWheelBase(v)"></a>
+                            </td>
+                        </tr>
+                    </ac-grid>
+                </div>
+
+                <!--Ac Grid For MFR Body Code System-->
+                <div class="ctable" [ngClass]="{unfolded: isSystemExpanded, folded:!isSystemExpanded}" *ngIf="selectedSystem === configSystems.MFR">
+                    <ac-grid #vehicleToMfrBodyCodeGrid [dataSource]="vehicleToMfrBodyCodes" #gd5="acGrid"
+                             columns='[
+                 { "header":"Vehicle to MFR Body Code ID","field":"id","sortable":true},
+                 { "header":"Vehicle ID","field":"vehicleId","sortable":true},
+                 { "header":"MFR Body Code ID","field":"mfrBodyCodeId","sortable":true},
+                 { "header":"MFR Body Code","field":"mfrBodyCode","sortable":true},
+                 { "header":"Change Requests"}
+                 ]'
+                             initialSortBy='[{"field": "vehicleId", "orderByDesc": true}]'
+                             paging='{"pageSize": 10, "numberOfPagesOnPageList" : 10}'>
+                        <tr *ngIf="vehicleToMfrBodyCodes.length<1">
+                            <td colspan="8">No Records</td>
+                        </tr>
+                        <tr *ngFor="let v of gd5.items">
+                            <td>{{v.id}}</td>
+                            <td>{{v.vehicleId}}</td>
+                            <td>{{v.mfrBodyCodeId}}</td>
+                            <td>{{v.mfrBodyCode.name}}</td>
+                            <td *ngIf="v.changeRequestId && v.changeRequestId != -1">
+                                <a (click)="onViewAssociatedVehiclesCr(v)" style="cursor: pointer;" class="btn-r-arrow blue">Pending</a>
+                            </td>
+                            <td *ngIf="!v.changeRequestId || v.changeRequestId == -1">
+                                <a class="box-icon delete" title="Delete" (click)="onDeleteVehicleToMfrBodyCode(v)"></a>
+                            </td>
+                        </tr>
+                    </ac-grid>
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <!-- Main end -->
+</div>
+
+<modal #deleteBrakeAssociationPopup>
+    <div class="overlay dark show" *ngIf="deleteVehicleToBrakeConfig">
+        <div class="new-make modal-dialog">
+            <a class="close" (click)="deleteBrakeAssociationPopup.dismiss()"></a>
+            <div class="add-form">
+                <h2>Delete Brake Association</h2>
+                <div class="clearfix">
+
+                    <div class="input-blocks clearfix">
+                        <div>
+                            <strong>Base ID</strong>
+                            {{deleteVehicleToBrakeConfig.vehicle.baseVehicleId}}
+                        </div>
+
+                        <div>
+                            <strong>Vehicle ID</strong>
+                            {{deleteVehicleToBrakeConfig.vehicle.id}}
+                        </div>
+
+                        <div>
+                            <strong>Brake Config ID</strong>
+                            {{deleteVehicleToBrakeConfig.brakeConfig.id}}
+                        </div>
+                    </div>
+
+                    <div class="attach-wrap">
+                        <strong>OPTIONAL</strong>
+                        <ac-fileuploader upload-api-path="file/savechunk"></ac-fileuploader>
+
+                        <small>Include comments</small>
+                        <textarea cols="50" rows="5" [(ngModel)]="deleteVehicleToBrakeConfig.comment"></textarea>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    <!-- Submit and cancel button start -->
+                    <div class="btns">
+                        <input type="reset" value="CANCEL" class="btn transparent" (click)="deleteBrakeAssociationPopup.dismiss()">
+                        <input type="submit" value="SUBMIT" class="btn" (click)="onDeleteVehicleToBrakeConfigSubmit()">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</modal>
+<modal #deleteBedAssociationPopup>
+    <div class="overlay dark show" *ngIf="deleteVehicleToBedConfig">
+        <div class="new-make modal-dialog">
+            <a class="close" (click)="deleteBedAssociationPopup.dismiss()"></a>
+            <div class="add-form">
+                <h2>Delete Bed Association</h2>
+                <div class="clearfix">
+
+                    <div class="input-blocks clearfix">
+                        <div>
+                            <strong>Base ID</strong>
+                            {{deleteVehicleToBedConfig.vehicle.baseVehicleId}}
+                        </div>
+
+                        <div>
+                            <strong>Vehicle ID</strong>
+                            {{deleteVehicleToBedConfig.vehicle.id}}
+                        </div>
+
+                        <div>
+                            <strong>Bed Config ID</strong>
+                            {{deleteVehicleToBedConfig.bedConfig.id}}
+                        </div>
+                    </div>
+
+                    <div class="attach-wrap">
+                        <strong>OPTIONAL</strong>
+                        <ac-fileuploader upload-api-path="file/savechunk"></ac-fileuploader>
+
+                        <small>Include comments</small>
+                        <textarea cols="50" rows="5" [(ngModel)]="deleteVehicleToBedConfig.comment"></textarea>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    <!-- Submit and cancel button start -->
+                    <div class="btns">
+                        <input type="reset" value="CANCEL" class="btn transparent" (click)="deleteBedAssociationPopup.dismiss()">
+                        <input type="submit" value="SUBMIT" class="btn" (click)="onDeleteVehicleToBedConfigSubmit()">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</modal>
+
+<modal #deleteBodyStyleAssociationPopup>
+    <div class="overlay dark show" *ngIf="deleteVehicleToBodyStyleConfig">
+        <div class="new-make modal-dialog">
+            <a class="close" (click)="deleteBodyStyleAssociationPopup.dismiss()"></a>
+            <div class="add-form">
+                <h2>Delete Body Style Association</h2>
+                <div class="clearfix">
+
+                    <div class="input-blocks clearfix">
+                        <div>
+                            <strong>Base ID</strong>
+                            {{deleteVehicleToBodyStyleConfig.vehicle.baseVehicleId}}
+                        </div>
+
+                        <div>
+                            <strong>Vehicle ID</strong>
+                            {{deleteVehicleToBodyStyleConfig.vehicle.id}}
+                        </div>
+
+                        <div>
+                            <strong>Body Style Config ID</strong>
+                            {{deleteVehicleToBodyStyleConfig.bodyStyleConfig.id}}
+                        </div>
+                    </div>
+
+                    <div class="attach-wrap">
+                        <strong>OPTIONAL</strong>
+                        <ac-fileuploader upload-api-path="file/savechunk"></ac-fileuploader>
+
+                        <small>Include comments</small>
+                        <textarea cols="50" rows="5" [(ngModel)]="deleteVehicleToBodyStyleConfig.comment"></textarea>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    <!-- Submit and cancel button start -->
+                    <div class="btns">
+                        <input type="reset" value="CANCEL" class="btn transparent" (click)="deleteBodyStyleAssociationPopup.dismiss()">
+                        <input type="submit" value="SUBMIT" class="btn" (click)="onDeleteVehicleToBodyStyleConfigSubmit()">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</modal>
+<modal #deleteDriveTypeAssociationPopup>
+    <div class="overlay dark show" *ngIf="deleteVehicleToDriveType">
+        <div class="new-make modal-dialog">
+            <a class="close" (click)="deleteDriveTypeAssociationPopup.dismiss()"></a>
+            <div class="add-form">
+                <h2>Delete Drive Type Association</h2>
+                <div class="clearfix">
+
+                    <div class="input-blocks clearfix">
+                        <div>
+                            <strong>Base ID</strong>
+                            {{deleteVehicleToDriveType.vehicle.baseVehicleId}}
+                        </div>
+
+                        <div>
+                            <strong>Vehicle ID</strong>
+                            {{deleteVehicleToDriveType.vehicle.id}}
+                        </div>
+
+                        <div>
+                            <strong>Drive Type ID</strong>
+                            {{deleteVehicleToDriveType.driveType.id}}
+                        </div>
+                    </div>
+
+                    <div class="attach-wrap">
+                        <strong>OPTIONAL</strong>
+                        <ac-fileuploader upload-api-path="file/savechunk"></ac-fileuploader>
+
+                        <small>Include comments</small>
+                        <textarea cols="50" rows="5" [(ngModel)]="deleteVehicleToDriveType.comment"></textarea>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    <!-- Submit and cancel button start -->
+                    <div class="btns">
+                        <input type="reset" value="CANCEL" class="btn transparent" (click)="deleteDriveTypeAssociationPopup.dismiss()">
+                        <input type="submit" value="SUBMIT" class="btn" (click)="onDeleteVehicleToDriveTypeSubmit()">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</modal>
+
+<modal #deleteWheelBaseAssociationPopup>
+    <div class="overlay dark show" *ngIf="deleteVehicleToWheelBase">
+        <div class="new-make modal-dialog">
+            <a class="close" (click)="deleteWheelBaseAssociationPopup.dismiss()"></a>
+            <div class="add-form">
+                <h2>Delete Wheel Base Association</h2>
+                <div class="clearfix">
+
+                    <div class="input-blocks clearfix">
+                        <div>
+                            <strong>Base ID</strong>
+                            {{deleteVehicleToWheelBase.vehicle.baseVehicleId}}
+                        </div>
+
+                        <div>
+                            <strong>Vehicle ID</strong>
+                            {{deleteVehicleToWheelBase.vehicle.id}}
+                        </div>
+
+                        <div>
+                            <strong>Wheel Base ID</strong>
+                            {{deleteVehicleToWheelBase.wheelBase.id}}
+                        </div>
+                    </div>
+
+                    <div class="attach-wrap">
+                        <strong>OPTIONAL</strong>
+                        <ac-fileuploader upload-api-path="file/savechunk"></ac-fileuploader>
+
+                        <small>Include comments</small>
+                        <textarea cols="50" rows="5" [(ngModel)]="deleteVehicleToWheelBase.comment"></textarea>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    <!-- Submit and cancel button start -->
+                    <div class="btns">
+                        <input type="reset" value="CANCEL" class="btn transparent" (click)="deleteWheelBaseAssociationPopup.dismiss()">
+                        <input type="submit" value="SUBMIT" class="btn" (click)="onDeleteVehicleToWheelBaseSubmit()">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</modal>
+
+<modal #deleteMfrBodyCodeAssociationPopup>
+    <div class="overlay dark show" *ngIf="deleteVehicleToMfrBodyCode">
+        <div class="new-make modal-dialog">
+            <a class="close" (click)="deleteMfrBodyCodeAssociationPopup.dismiss()"></a>
+            <div class="add-form">
+                <h2>Delete MFR Body Code Association</h2>
+                <div class="clearfix">
+
+                    <div class="input-blocks clearfix">
+                        <div>
+                            <strong>Base ID</strong>
+                            {{deleteVehicleToMfrBodyCode.vehicle.baseVehicleId}}
+                        </div>
+
+                        <div>
+                            <strong>Vehicle ID</strong>
+                            {{deleteVehicleToMfrBodyCode.vehicle.id}}
+                        </div>
+
+                        <div>
+                            <strong>MFR Body Code ID</strong>
+                            {{deleteVehicleToMfrBodyCode.mfrBodyCode.id}}
+                        </div>
+                    </div>
+
+                    <div class="attach-wrap">
+                        <strong>OPTIONAL</strong>
+                        <ac-fileuploader upload-api-path="file/savechunk"></ac-fileuploader>
+
+                        <small>Include comments</small>
+                        <textarea cols="50" rows="5" [(ngModel)]="deleteVehicleToMfrBodyCode.comment"></textarea>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    <!-- Submit and cancel button start -->
+                    <div class="btns">
+                        <input type="reset" value="CANCEL" class="btn transparent" (click)="deleteMfrBodyCodeAssociationPopup.dismiss()">
+                        <input type="submit" value="SUBMIT" class="btn" (click)="onDeleteVehicleToMfrBodyCodeSubmit()">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</modal>
+

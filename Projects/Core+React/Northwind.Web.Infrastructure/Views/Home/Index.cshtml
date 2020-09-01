@@ -1,0 +1,12 @@
+﻿@using Northwind.Core.Entities
+@{
+    ViewData["Title"] = "Home Page";
+    var url = ViewData["url"];
+}
+<div id="dialog">
+    <div class="content"></div>
+</div>
+<div class="text-center">
+    <iframe src="@url" height="1000" width="100%" scrolling="no" frameborder="0" id="portageIframe"></iframe>
+</div>
+

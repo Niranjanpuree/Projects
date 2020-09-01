@@ -1,0 +1,16 @@
+D:\ESS\ESS-Web\src\Northwind.Infrastructure\bin\Debug\netcoreapp2.2\Northwind.Infrastructure.deps.json
+D:\ESS\ESS-Web\src\Northwind.Infrastructure\bin\Debug\netcoreapp2.2\Northwind.Infrastructure.dll
+D:\ESS\ESS-Web\src\Northwind.Infrastructure\bin\Debug\netcoreapp2.2\Northwind.Infrastructure.pdb
+D:\ESS\ESS-Web\src\Northwind.Infrastructure\bin\Debug\netcoreapp2.2\Northwind.Core.dll
+D:\ESS\ESS-Web\src\Northwind.Infrastructure\bin\Debug\netcoreapp2.2\Microsoft.AspNetCore.StaticFiles.dll
+D:\ESS\ESS-Web\src\Northwind.Infrastructure\bin\Debug\netcoreapp2.2\Microsoft.AspNetCore.Mvc.Core.dll
+D:\ESS\ESS-Web\src\Northwind.Infrastructure\bin\Debug\netcoreapp2.2\Northwind.Core.pdb
+D:\ESS\ESS-Web\src\Northwind.Infrastructure\bin\Debug\netcoreapp2.2\Microsoft.AspNetCore.StaticFiles.xml
+D:\ESS\ESS-Web\src\Northwind.Infrastructure\bin\Debug\netcoreapp2.2\Microsoft.AspNetCore.Mvc.Core.xml
+D:\ESS\ESS-Web\src\Northwind.Infrastructure\obj\Debug\netcoreapp2.2\Northwind.Infrastructure.csprojAssemblyReference.cache
+D:\ESS\ESS-Web\src\Northwind.Infrastructure\obj\Debug\netcoreapp2.2\Northwind.Infrastructure.csproj.CoreCompileInputs.cache
+D:\ESS\ESS-Web\src\Northwind.Infrastructure\obj\Debug\netcoreapp2.2\Northwind.Infrastructure.AssemblyInfoInputs.cache
+D:\ESS\ESS-Web\src\Northwind.Infrastructure\obj\Debug\netcoreapp2.2\Northwind.Infrastructure.AssemblyInfo.cs
+D:\ESS\ESS-Web\src\Northwind.Infrastructure\obj\Debug\netcoreapp2.2\Northwind.Infrastructure.csproj.CopyComplete
+D:\ESS\ESS-Web\src\Northwind.Infrastructure\obj\Debug\netcoreapp2.2\Northwind.Infrastructure.dll
+D:\ESS\ESS-Web\src\Northwind.Infrastructure\obj\Debug\netcoreapp2.2\Northwind.Infrastructure.pdb

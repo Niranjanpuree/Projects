@@ -1,0 +1,152 @@
+﻿@model Northwind.Web.Models.ViewModels.Customer.CustomerViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<div class="">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="CustomerGuid" class="form-control" />
+    <!-- <h3>@Model.CustomerName</h3> -->
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="CustomerCode" class=" control-label control-label-read"></label>
+                <h6>
+                    @Model.CustomerCode
+                </h6>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="CustomerTypeGuid" class="control-label control-label-read"></label>
+                <h6>
+                    @Model.CustomerTypeName
+                </h6>
+            </div>
+        </div>
+    </div>
+
+    @if (Model.Department != null)
+    {
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="Department" class="control-label control-label-read"></label>
+                    <h6>
+                        @Model.Department
+                    </h6>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="Agency" class="control-label control-label-read"></label>
+                    <h6>
+                        @Model.Agency
+                    </h6>
+                </div>
+            </div>
+        </div>
+    }
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label asp-for="CustomerDescription" class=" control-label control-label-read"></label>
+                <h6>
+                    @Model.CustomerDescription
+                </h6>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="CountryId" class="control-label control-label-read"></label>
+                <h6>
+                    @Model.CountryName
+                </h6>
+            </div>
+        </div>
+        <div class="col-md-3" id="HideDepartment">
+            <div class="form-group">
+                <label asp-for="StateId" class="control-label control-label-read"></label>
+                <h6>
+                    @Model.StatesName
+                </h6>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="City" class=" control-label control-label-read"></label>
+                <h6>
+                    @Model.City
+                </h6>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="ZipCode" class=" control-label control-label-read"></label>
+                <h6>
+                    @Model.ZipCode
+                </h6>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label asp-for="Address" class=" control-label control-label-read"></label>
+                <h6>
+                    @Model.Address
+                </h6>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label asp-for="AddressLine1" class=" control-label control-label-read"></label>
+                <h6>
+                    @Model.AddressLine1
+                </h6>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="PrimaryEmail" class=" control-label control-label-read"></label>
+                <h6>
+                    @Model.PrimaryEmail
+                </h6>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="PrimaryPhone" class=" control-label control-label-read"></label>
+                <h6>
+                    @Model.PrimaryPhone
+                </h6>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="Url" class=" control-label control-label-read"></label>
+                <h6>
+                    @Model.Url
+                </h6>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label asp-for="Tags" class=" control-label control-label-read"></label>
+                <h6>
+                    @Model.Tags
+                </h6>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label asp-for="Abbreviations" class=" control-label control-label-read"></label>
+                <h6>
+                    @Model.Abbreviations
+                </h6>
+            </div>
+        </div>
+
+    </div>
+</div>

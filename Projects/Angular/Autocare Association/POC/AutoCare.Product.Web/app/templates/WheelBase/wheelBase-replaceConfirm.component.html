@@ -1,0 +1,109 @@
+﻿<loading-gif [show]="showLoadingGif"></loading-gif>
+<!-- Breadcrumb start -->
+<div class="breadcrumb">
+    <div class="center">
+        <a class="back" routerLink="/system/search">Return to wheel base system search</a>
+    </div>
+</div>
+<!-- Breadcrumb end -->
+<!-- Main start -->
+<main class="clearfix">
+
+    <div class="center" *ngIf="existingWheelBase && replacementWheelBase">
+
+        <div class="table-wrap">
+            <h2 class="clearfix">
+                Existing Wheel Base
+            </h2>
+            <div class="ctable">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Wheel Base ID</td>
+                            <td>Wheel Base</td>
+                            <td>Wheel Base Metric</td>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="existingWheelBase">
+                        <tr>
+                            <td>{{existingWheelBase.id}}</td>
+                            <td>{{existingWheelBase.base}}</td>
+                            <td>{{existingWheelBase.wheelBaseMetric}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="table-wrap">
+            <h2 class="clearfix">
+                Replacement Wheel Base
+            </h2>
+            <div class="ctable">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Wheel Base ID</td>
+                            <td>Wheel Base</td>
+                            <td>Wheel Base Metric</td>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="replacementWheelBase">
+                        <tr>
+                            <td>{{replacementWheelBase.id}}</td>
+                            <td>{{replacementWheelBase.base}}</td>
+                            <td>{{replacementWheelBase.wheelBaseMetric}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Associations to replace start -->
+        <div class="table-wrap">
+            <h2 class="clearfix">
+                Associations to Replace
+            </h2>
+            <div class="ctable" *ngIf="existingWheelBase && existingWheelBase.vehicleToWheelBases">
+                <ac-grid [dataSource]="existingWheelBase.vehicleToWheelBases" #gd="acGrid"
+                         columns='[
+                 { "header":"Vehicle to Wheel Base ID","field":"id","sortable":true,"sortedByDesc":true},
+                 { "header":"Wheel Base ID",              "field":"wheelBaseId",       "sortable":true},
+                    { "header":"Base Vehicle (Year, Make, Model)","field":"vehicle.yearId","sortable":true},
+                 { "header":"Vehicle (Submodel, Region)","field":"vehicle.subModelName","sortable":true},
+                 { "header":"Wheel Base, Wheel Base Metric (ID)","field":"wheelBase.base","sortable":true}
+                 ]'
+                         initialSortBy='[{"field": "id", "orderByDesc": true}]'
+                         paging='{"pageSize": 10, "numberOfPagesOnPageList" : 10}'>
+                    <tr *ngFor="let vechicleToWheelBase of gd.items">
+                        <td>{{vechicleToWheelBase.id}}</td>
+                        <td>{{vechicleToWheelBase.wheelBaseId}}</td>
+                        <td>{{vechicleToWheelBase.vehicle.yearId}}, {{vechicleToWheelBase.vehicle.makeName}}, {{vechicleToWheelBase.vehicle.modelName}}</td>
+                        <td>{{vechicleToWheelBase.vehicle.subModelName}}, {{vechicleToWheelBase.vehicle.regionName}}</td>
+                        <td>{{vechicleToWheelBase.wheelBase.base}},{{vechicleToWheelBase.wheelBase.wheelBaseMetric}} ({{vechicleToWheelBase.wheelBase.id}})</td>
+                    </tr>
+                </ac-grid>
+            </div>
+        </div>
+
+        <div class="add-form">
+            <div class="clearfix">
+
+                <div class="submit-wrap">
+                    <input type="submit" value="SUBMIT CHANGE REQUEST" class="btn larger" (click)="onSubmitChangeRequest()">
+                    <input type="reset" value="CANCEL" class="btn transparent larger" routerLink="/system/search">
+                </div>
+
+                <div class="attach-wrap" style="margin-top: 40px;">
+                    <strong>OPTIONAL</strong>
+                    <ac-fileuploader upload-api-path="file/savechunk"></ac-fileuploader>
+                    <small>Include Comments</small>
+                    <textarea cols="50" rows="5" [(ngModel)]="existingWheelBase.comment"></textarea>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</main>
+<!-- Main end -->

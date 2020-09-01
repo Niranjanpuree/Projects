@@ -1,0 +1,18 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Notify";
+    Layout = null;
+}
+<h4>User List</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <div id="distributionUserList"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    (function () {
+        window.distributionList.pageView.loadUserList();
+    })()
+</script>

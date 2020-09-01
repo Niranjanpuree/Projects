@@ -1,0 +1,108 @@
+﻿@model Northwind.Web.Models.ViewModels.RevenueRecognition.RevenueRecognitionViewModel
+@{
+    IDictionary<string, bool> listItems = new Dictionary<string, bool>();
+    listItems.Add(new KeyValuePair<string, bool>("Yes", true));
+    listItems.Add(new KeyValuePair<string, bool>("No", false));
+
+    IDictionary<string, string> ListModification = new Dictionary<string, string>();
+    ListModification.Add(new KeyValuePair<string, string>("Yes", "Yes"));
+    ListModification.Add(new KeyValuePair<string, string>("No", "No"));
+    ListModification.Add(new KeyValuePair<string, string>("Not Applicable", "Not Applicable"));
+}
+<div>
+    <div>
+        <h5 class="mb-0"><span>Contract Overview</span></h5>
+        <p>Complete steps 1-5 of revenue recognition required by contract type and funded amount threshold.</p>
+    </div>
+    <div class="row">
+        <div class="col-md-12 form-group">
+            <label asp-for="IsModAdministrative" class="control-label  fontbold">Is the modification an administrative only change?</label>
+            <div class="form-check pl-0">
+                @foreach (var item in ListModification)
+                {
+                    <div class="form-check form-check-inline">
+                        <input asp-for="IsModAdministrative" type="radio" value="@item.Value"
+                               class="k-radio custom-checkbox IsModAdministrative"
+                               id="IsModAdministrative-@item.Value" />
+                        <label class="k-radio-label" for="IsModAdministrative-@item.Value">
+                            @item.Key
+                        </label>
+                    </div>
+                }
+            </div>
+            <span asp-validation-for="IsModAdministrative" class="text-danger"></span>
+            <div class="text-muted">
+                <small>
+                    Select <b>Not Applicable</b> if this is a review of the original contract. Select <b>YES</b> if this is a review of a contract mod that consists of an
+                    administrative change only with no impact on the scope or contract value (ex. change in CO or change in address).
+                </small>
+            </div>
+        </div>
+        <div class="col-md-12 form-group" id="idHIdeScopeContract">
+            <label asp-for="DoesScopeContractChange" class="control-label  fontbold">Does the modification change the scope of the contract?</label>
+            <div class="form-check pl-0">
+                @foreach (var item in listItems)
+                {
+                    <div class="form-check form-check-inline">
+                        <input asp-for="DoesScopeContractChange" type="radio" value="@item.Value"
+                               class="k-radio custom-checkbox DoesScopeContractChange"
+                               id="DoesScopeContractChange-@item.Value" />
+                        <label class="k-radio-label" for="DoesScopeContractChange-@item.Value">
+                            @item.Key
+                        </label>
+                    </div>
+                }
+            </div>
+            <span asp-validation-for="IsModAdministrative" class="text-danger"></span>
+        </div>
+        <div class="col-md-12 form-group">
+            <label asp-for="IsASC606" class="control-label  fontbold">Contract within the scope of ASC 606:</label>
+            <div class="form-check pl-0">
+                @foreach (var item in listItems)
+                {
+                    <div class="form-check form-check-inline">
+                        <input asp-for="IsASC606" type="radio" value="@item.Value"
+                               class="k-radio custom-checkbox IsASC606" id="IsASC606-@item.Value" />
+                        <label class="k-radio-label" for="IsASC606-@item.Value">
+                            @item.Key
+                        </label>
+                    </div>
+                }
+            </div>
+            <span asp-validation-for="IsASC606" class="text-danger"></span>
+        </div>
+        <div class="col-md-12 form-group">
+            <label asp-for="IsCurrentFiscalYearOfNorthWind" class="control-label  fontbold">Contract extends beyond end of the fiscal year of contract start date?</label>
+            <div class="form-check pl-0">
+                @foreach (var item in listItems)
+                {
+                    <div class="form-check form-check-inline">
+                        <input asp-for="IsCurrentFiscalYearOfNorthWind" type="radio" value="@item.Value"
+                               class="k-radio custom-checkbox IsCurrentFiscalYearOfNorthWind"
+                               id="IsCurrentFiscalYearOfNorthWind-@item.Value" />
+                        <label class="k-radio-label" for="IsCurrentFiscalYearOfNorthWind-@item.Value">
+                            @item.Key
+                        </label>
+                    </div>
+                }
+            </div>
+            <span asp-validation-for="IsCurrentFiscalYearOfNorthWind" class="text-danger"></span>
+            <div class="text-muted">
+                <small>
+                    Warning: Must update this answer if POP is extended/changed beyond the current fiscal year.
+                </small>
+            </div>
+        </div>
+        <div id="idHideFiscalYearInfo" class="col-md-12">
+            <div class="alert alert-primary">
+                The Project Period of Performance does not extend beyond the North Wind fiscal year.  Therefore, steps 1 through 5 are not required.  
+                Please complete the form by clicking the Save button.
+            </div>
+        </div>
+        <div class="col-md-12 form-group">
+            <label asp-for="OverviewNotes" class="control-label">Overview Notes:</label>
+            <textarea asp-for="OverviewNotes" class="form-control">@Model.OverviewNotes</textarea>
+            <span asp-validation-for="OverviewNotes" class="text-danger"></span>
+        </div>
+    </div>
+</div>

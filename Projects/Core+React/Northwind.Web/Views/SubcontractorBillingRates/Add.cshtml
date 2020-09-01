@@ -1,0 +1,70 @@
+﻿@model Northwind.Web.Models.ViewModels.LaborCategoryRatesViewModel
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+
+@{
+    var resourceVersion = @Configuration["resourceVersion"];
+    var fileBasePath = Configuration["fileBasePath"];
+    var cdnUrl = @Configuration["CDNUrl"];
+    var contractorTemplate = Configuration["subContractorBillingRatesTemplate"];
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="_AddSubcontractorBillingRates" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input hidden asp-for="CategoryRateGuid" class="form-control" />
+                <input hidden asp-for="ContractGuid" class="form-control" />
+            </div>
+
+            <div class="row file-upload-container">
+                <div class="col-md-12 text-center">
+                    <h5>Upload file for subcontractor billing rates</h5>
+                    <input type="file" name="FileToUpload" id="FileToUpload" class="file-upload-input form-control"
+                           accept=".csv" />
+                    <label for="FileToUpload" class="btn btn-primary file-upload">
+                        <i class="material-icons">
+                            cloud_upload
+                        </i>
+                        <span class="file-upload-text">Upload File</span>
+                    </label>
+                    <span class="file-name"></span>
+                </div>
+
+                <div class="divider-or"><span>OR</span></div>
+                <div class="col-md-12 text-center">
+                    <p><b>Download sample file of subcontractor billing rates</b></p>
+                    <a href="~/Templates/SubcontractorLaborBillingRatesTemplate.csv"
+                       class="file-download" download>
+                        <span>
+                            <i class="k-icon k-i-file-csv"></i>
+                            <p class="mb-0">Download the sample file</p>
+                        </span>
+                        <span>
+                            <i class="material-icons">
+                                cloud_download
+                            </i>
+                        </span>
+                    </a>
+                    
+                </div>
+                <div class="col-12">
+                <div class="row justify-content-center">
+                        <div class="col-md-8 text-center upload-help-text">
+                            <p class="mb-0">Please upload a file that includes the appropriate subcontractor billing rates.  This may be a CSV file with 
+                            the required headers or choose to download a template above and fill out the appropriate information before uploading.  
+                            Uploading CSV files will allow you to edit and add new rows in the future.  If you upload other file types, click on the upload 
+                            button.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="progressbar">
+                    <div id="progressBar" class="progressBarInactive"></div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="@cdnUrl/js/proj/contractfileUpload.js?v=@resourceVersion"></script>

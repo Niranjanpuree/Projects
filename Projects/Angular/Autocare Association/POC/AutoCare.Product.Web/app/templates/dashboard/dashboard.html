@@ -1,0 +1,24 @@
+﻿<div class="center">
+    <div *ngFor="let dashboardPreference of dashboardPreferences">
+        <!--<span>{{dashboardPreference.name}}</span>-->
+        <!--<span>{{dashboardPreference.htmlSelector}}</span>-->
+        <!--TODO
+        working on
+        generate dynamic html tags based on "dashboardPreference.htmlSelector"
+        and as a fallback to it, will use following manual condition-->
+
+        <div *ngIf="dashboardPreference.htmlSelector == 'search'">
+            <search></search>
+        </div>
+        <div *ngIf="dashboardPreference.htmlSelector == 'my-change-requests'">
+            <my-change-requests></my-change-requests>
+        </div>
+        <div *ngIf="dashboardPreference.htmlSelector == 'download-requests'">
+            <download-requests></download-requests>
+        </div>
+        <div *ngIf="dashboardPreference.htmlSelector == 'recent-changes'">
+            <recent-changes></recent-changes>
+        </div>
+
+    </div>
+</div>

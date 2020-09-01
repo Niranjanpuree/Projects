@@ -1,0 +1,124 @@
+.megamenu {
+    padding: 20px;
+    // width: calc(100% - 218px);
+    width: 75%;
+    margin-left: 218px;
+
+    // background:$color-primary
+    .row:not(:last-child) {
+        margin-bottom: 10px;
+    }
+
+    .megamenu-firstchild {
+        font-size: 15px;
+        font-weight: $fw-h; // border-bottom:1px solid $gray-300;
+    }
+
+    @include media-breakpoint-down(md) {
+        padding-top: 0;
+        // padding-bottom: 0;
+        width: 100%;
+        margin-left: 0;
+        background: transparent;
+        border: 0;
+
+        // .col-lg-3 {
+        //     padding: 0;
+        // }
+    }
+}
+
+.megamenu>div>li>ul {
+    padding: 0;
+    margin: 0;
+}
+
+.megamenu>div>li>ul>li {
+    list-style: none;
+}
+
+.megamenu a {
+    display: block;
+    padding: 3px 20px;
+    line-height: 1.5;
+    color: $gray-700;
+    white-space: normal;
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: $fw-b;
+
+    &:hover,
+    &:focus {
+        color: $color-primary;
+    }
+
+    @include media-breakpoint-down(md) {
+        &.megamenu-firstchild {
+            padding-left: 0;
+        }
+
+        padding-right: 0;
+        color: $gray-800;
+        line-height: 2;
+
+        &:hover {
+            color: $primary;
+        }
+    }
+}
+
+.megamenu.disabled>a,
+.megamenu.disabled>a:hover,
+.megamenu.disabled>a:focus {
+    color: #999999;
+}
+
+.megamenu.disabled>a:hover,
+.megamenu.disabled>a:focus {
+    text-decoration: none;
+    background-color: transparent;
+    background-image: none; // filter: progid: DXImageTransform.Microsoft.gradient(enabled=false);
+    cursor: not-allowed;
+}
+
+.megamenu.dropdown-header {
+    color: #428bca;
+    font-size: 18px;
+}
+
+@media (max-width: 768px) {
+
+    // .megamenu {
+    //     margin-left: 0;
+    //     margin-right: 0;
+    // }
+    .megamenu>li {
+        margin-bottom: 30px;
+    }
+
+    .megamenu>li:last-child {
+        margin-bottom: 0;
+    }
+
+    .megamenu.dropdown-header {
+        padding: 3px 15px !important;
+    }
+
+    .navbar-nav .open .dropdown-menu .dropdown-header {
+        color: #fff;
+    }
+}
+
+.slider {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    background: #fff;
+    width: 100%;
+    left: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    transition:0.25s ease-in-out;
+    &.active{
+        left:0;
+    }
+}

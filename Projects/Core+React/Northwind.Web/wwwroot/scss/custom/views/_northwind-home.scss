@@ -1,0 +1,60 @@
+.thumbnail {
+    &-sm {
+        max-width: 120px;
+        width: 100%;
+    }
+
+    &-xs {
+        max-width: 50px;
+        width: 100%;
+    }
+}
+
+.card-header h5 {
+    margin-bottom: 0;
+}
+
+
+.nw {
+    &-home{
+        .breadcrumb {
+            display: none !important;
+        }
+        .card-header{
+            color:$primary;
+            background:rgba($primary, 0.15);
+        }
+    }
+    &-landing-view{
+        padding-top:20px;
+    }
+    &-news {
+        img {
+            width: 100%;
+        }
+
+        p {
+            margin-bottom: 0;
+        }
+
+        .card-body {
+            max-height: 700px !important;
+            overflow: auto;
+        }
+    }
+
+    &-hire-video {
+        width: 33.3333333%;
+        float: left;
+        padding: 15px;
+    }
+
+    &-tab {
+        background: #fff;
+        float: left;
+        width: 100%;
+        border: 1px solid #dee2e6;
+        border-top: 0;
+    }
+}
+

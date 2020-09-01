@@ -1,0 +1,178 @@
+﻿@model Northwind.Web.Models.ViewModels.FarClause.FarContractViewModel
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+@{
+    var resourceVersion = @Configuration["resourceVersion"];
+    var cdnUrl = @Configuration["CDNUrl"];
+}
+
+<p class="p-3 mb-0">Last Updated By : <b>@Model.Questionniare.FirstOrDefault()?.UpdatedBy on @Model.Questionniare.FirstOrDefault()?.Updatedon.ToString("MM/dd/yyyy")</b>.</p>
+
+<div class="col-md-12">
+    <input type="hidden" asp-for="ContractGuid" class="form-control" />
+    <div class="row">
+        <div class="col-md-6">
+            <ul class="mb-3 list-unstyled">
+                <li class="k-state-active">
+                    <span class="k-link k-state-selected d-block border-bottom pb-2">Required Far Clauses</span>
+                    <!-- <div class="col-12"> -->
+                        <div class="row">
+                            @for (int i = 0; i < Model.RequiredFarClauses.Count; i++)
+                            {
+                                <div class="col-md-6">
+                                    <label asp-for="RequiredFarClauses[i].FarClauseTitle" class="d-block border-bottom py-2 control-label text-muted mb-0 h-100">
+                                        @Model.RequiredFarClauses[i].FarClauseNumber (@Model.RequiredFarClauses[i].FarClauseParagraph) - @Model.RequiredFarClauses[i].FarClauseTitle
+                                    </label>
+                                </div>
+                            }
+                        </div>
+                    <!-- </div> -->
+                </li>
+            </ul>
+            <div class="mt-4">
+                    <ul class="mb-3 list-unstyled">
+                        <li class="k-state-active">
+                            <span class="k-link k-state-selected d-block border-bottom pb-2">Applicable Far Clauses</span>
+                                <div class="row">
+                                    @for (int i = 0; i < Model.ApplicableFarClauses.Count; i++)
+                                    {
+                                        <div class="col-md-6">
+                                            <label asp-for="ApplicableFarClauses[i].FarClauseTitle" class="d-block border-bottom py-2 control-label text-muted mb-0 h-100">
+                                                @Model.ApplicableFarClauses[i].FarClauseNumber (@Model.ApplicableFarClauses[i].FarClauseParagraph) - @Model.ApplicableFarClauses[i].FarClauseTitle
+                                            </label>
+                                        </div>
+                                    }
+                                </div>
+                        </li>
+                    </ul>
+                </div>
+        </div>
+        <div class="col-md-6">
+            <ul class="mb-3 list-unstyled">
+                <li class="k-state-active">
+                    <span class="k-link k-state-selected d-block border-bottom pb-2">Contract Special Provisions</span>
+                        <div class="col-12 text-muted">
+                            @foreach (var data in Model.Questionniare)
+                            {
+                                @if (data.QuestionType == "Radio" && data.Id != "Warrenties")
+                                {
+                                    <div class="row border-bottom py-2">
+                                        <label class="control-label col">@data.Question</label>
+                                        <div class="col-auto">
+                                            @(data.YesNoAnswer != null ? @data.YesNoAnswer : "Not Entered")
+                                        </div>
+                                    </div>
+
+                                    @if (data.ReportLastReportDate != null && data.YesNoAnswer != null && data.YesNoAnswer != "NO")
+                                    {
+                                        <div class="row py-2">
+                                            <label class="control-label col">Date Last Report</label>
+                                            <div class="col-auto">
+                                                @(data.ReportLastReportDate != null ? @data.ReportLastReportDate : null)
+                                            </div>
+                                        </div>
+
+
+                                    }
+                                    @if (data.ReportNextReportDate != null && data.YesNoAnswer != null && data.YesNoAnswer != "NO")
+                                    {
+                                        <div class="row">
+                                            <label class="control-label col">Date Next Report</label>
+                                            <div class="col-auto">
+                                                @(data.ReportNextReportDate != null ? @data.ReportNextReportDate : null)
+                                            </div>
+                                        </div>
+
+                                    }
+                                }
+
+                                @if (data.Id == "Warrenties")
+                                {
+                                    <div class="row py-2">
+                                        <label class="control-label col">@data.Question</label>
+                                        <div class="col-auto">
+                                            @(data.YesNoAnswer != null ? @data.YesNoAnswer : "Not Entered")
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <label class="control-label col"> Warranties: Consistent with Standard Industry Provision of 12 months</label>
+                                        <div class="col-auto">
+                                            @(data.ChildYesNoAnswer != null ? @data.ChildYesNoAnswer : "Not Entered")
+                                        </div>
+                                    </div>
+
+                                    <div class="row py-2 border-bottom">
+                                        <label class="control-label col-12">Warranty Provision Description:</label>
+                                        <div class="col-auto">
+                                            @(data.Textanswer!=null?data.Textanswer:"Not Entered")
+                                        </div>
+                                    </div>
+
+
+                                }
+                                @if (data.QuestionType == "Text")
+                                {
+                                    <div class="row border-bottom py-2">
+                                        <label class="control-label col-12">@data.Question</label>
+                                        <div class="col-auto">
+                                            @(data.Textanswer != null ? data.Textanswer : "Not Entered")
+                                        </div>
+                                    </div>
+
+                                }
+
+                                @if (data.QuestionType == "TextWithRadio")
+                                {
+                                    <div class="row border-bottom py-2">
+                                        <label class="control-label col">@data.Question</label>
+                                        <div class="col-auto">
+                                            @(data.YesNoAnswer != null ? data.YesNoAnswer : "Not Entered")
+                                        </div>
+                                    </div>
+
+                                    @if (data.YesNoAnswer == "Yes")
+                                    {
+                                        <div class="row pt-2">
+                                            <label class="control-label col">Statement</label>
+                                            <div class="col-12">
+                                                @(data.Textanswer != null ? data.Textanswer : "Not Entered")
+                                            </div>
+                                        </div>
+
+                                    }
+                                }
+                                @if (data.QuestionType == "multi")
+                                {
+                                    <div class="row border-bottom py-2">
+                                        <label class="control-label col-12">@data.Question</label>
+                                        <div class="col-auto">
+                                            @Html.Raw(data.CheckBoxAnswer != null ? data.CheckBoxAnswer.Replace("|","<br/>") : "Not Entered")
+                                        </div>
+                                    </div>
+
+                                }
+
+                            }
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <br />
+        
+    </div>
+
+
+    @*<script>
+        $(document).ready(function () {
+            var panelBar = $(".panelBody").kendoPanelBar({
+                collapse: onCollapse
+            });
+
+            var onCollapse = function (e) {
+                panelBar.data("kendoPanelBar").unbind("collapse", onCollapse);
+            };
+
+        });
+    </script>*@

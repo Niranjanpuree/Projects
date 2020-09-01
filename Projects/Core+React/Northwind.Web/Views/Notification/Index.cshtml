@@ -1,0 +1,61 @@
+﻿@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+@{
+    ViewData["Title"] = "Notification";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    string key = ViewBag.key.ToString();
+    var parentControllerName = string.Empty;
+    var controllerName = key.Split('.')[0];
+    var cdnUrl = @Configuration["CDNUrl"];
+}
+
+@section breadcrumb
+    {
+
+    @*to show parentRedirection ie contract..*@
+    @if (!string.IsNullOrEmpty(ViewBag.parentRedirection))
+    {
+        <li class="breadcrumb-item"><a href="/Contract">@ViewBag.cameFrom</a></li>
+        <li class="breadcrumb-item"><a href="@ViewBag.parentRedirection">@ViewBag.parentContractNumber : Contract Detail</a></li>
+        <li class="breadcrumb-item"><a href="/@controllerName/Details/@ViewBag.resourceId">@ViewBag.resourceName : Task Order Detail</a></li>
+    }
+    else
+    {
+        <li class="breadcrumb-item"><a href="/@controllerName">@ViewBag.cameFrom</a></li>
+        <li class="breadcrumb-item"><a href="/@controllerName/Details/@ViewBag.resourceId">@ViewBag.resourceName : Contract Detail</a></li>
+    }
+    <li class="breadcrumb-item"><a href="#">Notify</a></li>
+}
+    <div class="alert alert-primary">
+        The @ViewBag.resourceDisplayName been saved successfully.  Please identify the individuals or distribution list of who should be 
+        notified of this action.  These individuals will be notified in the event of future Mods and/or Contract changes.  To create a 
+        distribution list for use with future contracts, click the Create button and a new distribution list will be applied to this list 
+        of individuals.  If you prefer to not notify other individuals, click on the Skip button.
+    </div>
+
+<div id="distributionList" class="p-3"></div>
+
+@section Scripts {
+    <script type="text/javascript">
+
+        function notifyCallBack() {
+            window.location.href = "@ViewBag.redirectUrl";
+        }
+        function skipCallBack() {
+            window.location.href = "@ViewBag.redirectUrl";
+        }
+        (function () {
+            window.distributionList.pageView.loadDistributionList('distributionList',
+                '@ViewBag.key',
+                '@ViewBag.resourceId',
+                true,
+                true,
+                true,
+                false,
+                true,
+                notifyCallBack,
+                skipCallBack);
+        })()
+    </script>
+}

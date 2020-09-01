@@ -1,0 +1,232 @@
+﻿@model Northwind.Web.Models.ViewModels.JobRequestViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<div class="p-4">
+    <div class="row">
+        <div class="col-sm-6 form-group">
+            <label asp-for="BasicContractInfo.IsIDIQContract" class="control-label control-label-read"></label>
+            <input type="hidden" Name="IsIDIQContractHidden" id="IsIDIQContractHidden" value="@Model.BasicContractInfo.IsIDIQContract.ToString()" />
+            <div class="form-value">
+                @Model.BasicContractInfo.IDIQContract 
+            </div>
+        </div>
+
+        <div class="col-sm-6 form-group">
+            <label class="control-label control-label-read">Is Task Order?</label>
+            @if (Model.Parent_ContractGuid != null)   //todo  Compare with Parent_ContractGuid not contractguid
+            {
+                <div class="form-value">
+                    Yes
+                </div>
+            }
+            else
+            {
+                <div class="form-value">
+                    No
+                </div>
+            }
+        </div>
+
+        <div class="col-sm-6 form-group">
+            <label asp-for="BasicContractInfo.ContractNumber" class="control-label control-label-read"></label>
+            <div class="form-value">
+                @(string.IsNullOrEmpty(Model.BasicContractInfo.ContractNumber) ? "Not Entered" : Model.BasicContractInfo.ContractNumber)
+            </div>
+        </div>
+
+        <div class="col-sm-6 form-group">
+            <label asp-for="BasicContractInfo.SubContractNumber" class="control-label control-label-read"></label>
+            @if (Model.BasicContractInfo.SubContractNumber != null && Model.BasicContractInfo.SubContractNumber != "")
+            {
+                <div class="form-value">
+                    @Model.BasicContractInfo.SubContractNumber
+                </div>
+            }
+            else
+            {
+                <div class="form-value">
+                    Not Entered
+                </div>
+            }
+        </div>
+
+        <div class="col-sm-6 form-group">
+            <label asp-for="BasicContractInfo.ContractTitle" class="control-label control-label-read"></label>
+            <div class="form-value">
+                @Html.DisplayFor(m=>m.BasicContractInfo.ContractTitle)
+            </div>
+        </div>
+
+        <div class="col-md-6 form-group">
+            <label asp-for="BasicContractInfo.ProjectNumber" class="control-label"></label>
+            <input asp-for="BasicContractInfo.ProjectNumber" class="form-control" />
+            <span asp-validation-for="BasicContractInfo.ProjectNumber" class="text-danger"></span>
+        </div>
+
+        <div class="col-sm-6 form-group">
+            <label asp-for="BasicContractInfo.ORGID" class="control-label control-label-read"></label>
+            <div class="form-value">
+                @Html.DisplayFor(m => m.BasicContractInfo.OrganizationName)
+            </div>
+        </div>
+
+        <div class="col-sm-6 form-group">
+            <label asp-for="BasicContractInfo.CompanyName" class="control-label control-label-read"></label>
+            <div class="form-value">
+                @Html.DisplayFor(m => m.BasicContractInfo.CompanyName)
+            </div>
+        </div>
+
+        <div class="col-sm-6 form-group">
+            <label asp-for="BasicContractInfo.RegionName" class="control-label control-label-read"></label>
+            <div class="form-value">
+                @Html.DisplayFor(m=>m.BasicContractInfo.RegionName)
+            </div>
+        </div>
+
+        <div class="col-sm-6 form-group">
+            <label asp-for="BasicContractInfo.OfficeName" class="control-label control-label-read"></label>
+            <div class="form-value">
+                @Html.DisplayFor(m=>m.BasicContractInfo.OfficeName)
+            </div>
+        </div>
+
+        <div class="col-sm-6 form-group">
+            <label asp-for="BasicContractInfo.CountryOfPerformance" class="control-label control-label-read"></label>
+            <div class="form-value">
+                @Html.DisplayFor(m => m.BasicContractInfo.CountryOfPerformanceSelected)
+            </div>
+        </div>
+
+        <div class="col-sm-6 form-group">
+            <label asp-for="BasicContractInfo.PlaceOfPerformance" class="control-label control-label-read"></label>
+            <div class="form-value">
+                @Html.DisplayFor(m=>m.BasicContractInfo.PlaceOfPerformanceSelected)
+            </div>
+        </div>
+
+        <div class="col-sm-6 form-group">
+            <label asp-for="BasicContractInfo.POPStart" class="control-label control-label-read"></label>
+            <div class="form-value">
+                @Model.BasicContractInfo.POPStart?.ToString("MM/dd/yyyy")
+            </div>
+        </div>
+
+        <div class="col-sm-6 form-group">
+            <label asp-for="BasicContractInfo.POPEnd" class="control-label control-label-read"></label>
+            <div class="form-value">
+                @Model.BasicContractInfo.POPEnd?.ToString("MM/dd/yyyy")
+            </div>
+        </div>
+
+        <div class="col-sm-6 form-group">
+            <label asp-for="BasicContractInfo.NAICSCode" class="control-label control-label-read"></label>
+            <div class="form-value">
+                @(string.IsNullOrEmpty(Model.BasicContractInfo.NAICSCodeName) ? "Not Entered" : Model.BasicContractInfo.NAICSCodeName)
+            </div>
+        </div>
+
+        <div class="col-sm-6 form-group QualityLevel">
+            <label asp-for="BasicContractInfo.QualityLevel" class="control-label control-label-read"></label>
+            <div class="form-value">
+                @(string.IsNullOrEmpty(Model.BasicContractInfo.QualityLevelName) ? "Not Entered" : Model.BasicContractInfo.QualityLevelName)
+            </div>
+        </div>
+
+        <div class="col-sm-6 form-group">
+            <label asp-for="FinancialInformation.ContractType" class="control-label control-label-read"></label>
+            <div class="form-value">
+                @(string.IsNullOrEmpty(Model.FinancialInformation.ContractTypeName) ? "Not Entered" : Model.FinancialInformation.ContractTypeName)
+            </div>
+        </div>
+
+        <div class="col-sm-6 form-group">
+            <label asp-for="FinancialInformation.AwardAmount" class="control-label control-label-read"></label><i class="k-icon k-i-info info-tooltip" title="Cumulative Amount"></i>
+            <div class="form-value">
+                @Html.DisplayFor(m => m.FinancialInformation.FormattedAwardAmount)
+            </div>
+        </div>
+
+        <div class="col-sm-6 form-group">
+            <label asp-for="FinancialInformation.FundingAmount" class="control-label control-label-read"></label><i class="k-icon k-i-info info-tooltip" title="Cumulative Amount"></i>
+            <div class="form-value">
+                @Html.DisplayFor(m => m.FinancialInformation.FormattedFundingAmount)
+            </div>
+        </div>
+
+        <div class="col-sm-6 form-group">
+            <label class="control-label control-label-read">Firm Fixed Price Fee %</label>
+            <div class="form-value">
+                @Html.DisplayFor(m => m.FinancialInformation.FormattedFeePercent)
+            </div>
+        </div>
+
+        <div class="col-sm-6 form-group">
+            <label asp-for="FinancialInformation.BillingAddress" class="control-label control-label-read"></label>
+            <div class="form-value">
+                @(string.IsNullOrEmpty(Model.FinancialInformation.BillingAddress) ? "Not Entered" : Model.FinancialInformation.BillingAddress)
+            </div>
+        </div>
+
+        <div class="col-sm-6 form-group">
+            <label class="control-label control-label-read">8A</label>
+            <div class="form-value">
+                @(string.IsNullOrEmpty(Model.FinancialInformation.SetAside) ? "Not Entered" : Model.FinancialInformation.SetAside)
+            </div>
+        </div>
+
+        @if (!Model.BasicContractInfo.IsIDIQContract)
+        {
+            <div class="col-12 pt-3 mb-3 bg-light">
+                <h5>Project Location</h5>
+
+                <div class="row">
+                    <div class="col-sm-6 form-group">
+                        <label asp-for="BasicContractInfo.AddressLine1" class="control-label control-label-read"></label>
+                        <div class="form-value">
+                            @(string.IsNullOrEmpty(Model.BasicContractInfo.AddressLine1) ? "Not Entered" : Model.BasicContractInfo.AddressLine1)
+                        </div>
+                    </div>
+                    <div class="col-sm-6 form-group">
+                        <label asp-for="BasicContractInfo.AddressLine2" class="control-label control-label-read"></label>
+                        <div class="form-value">
+                            @(string.IsNullOrEmpty(Model.BasicContractInfo.AddressLine2) ? "Not Entered" : Model.BasicContractInfo.AddressLine2)
+                        </div>
+                    </div>
+                    <div class="col-sm-6 form-group">
+                        <label asp-for="BasicContractInfo.AddressLine3" class="control-label control-label-read"></label>
+                        <div class="form-value">
+                            @(string.IsNullOrEmpty(Model.BasicContractInfo.AddressLine3) ? "Not Entered" : Model.BasicContractInfo.AddressLine3)
+                        </div>
+                    </div>
+                    <div class="col-sm-6 form-group">
+                        <label asp-for="BasicContractInfo.City" class="control-label control-label-read"></label>
+                        <div class="form-value">
+                            @(string.IsNullOrEmpty(Model.BasicContractInfo.City) ? "Not Entered" : Model.BasicContractInfo.City)
+                        </div>
+                    </div>
+                    <div class="col-sm-6 form-group">
+                        <label asp-for="BasicContractInfo.Province" class="control-label control-label-read"></label>
+                        <div class="form-value">
+                            @(string.IsNullOrEmpty(Model.BasicContractInfo.Province) ? "Not Entered" : Model.BasicContractInfo.Province)
+                        </div>
+                    </div>
+                    <div class="col-sm-6 form-group">
+                        <label asp-for="BasicContractInfo.County" class="control-label control-label-read"></label>
+                        <div class="form-value">
+                            @(string.IsNullOrEmpty(Model.BasicContractInfo.County) ? "Not Entered" : Model.BasicContractInfo.County)
+                        </div>
+                    </div>
+                    <div class="col-sm-6 form-group">
+                        <label asp-for="BasicContractInfo.PostalCode" class="control-label control-label-read"></label>
+                        <div class="form-value">
+                            @(string.IsNullOrEmpty(Model.BasicContractInfo.PostalCode) ? "Not Entered" : Model.BasicContractInfo.PostalCode)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+
+    </div>
+</div>

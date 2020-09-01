@@ -1,0 +1,110 @@
+﻿@model Northwind.PFS.Web.Models.ViewModels.ProjectViewModel
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, Northwind.Web
+@addTagHelper *, Northwind.Web.Helpers
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+@{
+    var resourceVersion = @Configuration["resourceVersion"];
+    var cdnUrl = @Configuration["CDNUrl"];
+    ViewData["Title"] = "Project Details";
+    Layout = "_Layout";
+    ViewData["class"] = "project-details";
+}
+<style>
+    #projectDetails .k-grouping-row {
+        display: none;
+    }
+</style>
+
+    @section breadcrumb
+        {
+        <li class="breadcrumb-item"><a href="#">Operations</a></li>
+        <li class="breadcrumb-item"><a href="~/project">Project Financial Tool</a></li>
+        <li class="breadcrumb-item"><a href="#">@Model.ContractNumber : Project Details</a></li>
+    }
+<style>
+    .k-dropdown-wrap .k-searchbar{
+        border: 1px solid #ddd;
+    }
+</style>
+
+<div class="row top-header">
+    <div class="col-12">
+        <div class="row pb-2 align-items-center">
+            <div class="col-md-8">
+                <h3 class="contract-title">
+                    @Model.Description
+                    <i class="k-icon k-i-info" data-toggle="collapse" href="#projects-details-info"
+                        aria-expanded="false" aria-controls="projects-details-info"></i>
+                </h3>
+            </div>
+        </div>
+        <div class="row contract-info collapse mt-2" id="projects-details-info">
+            <div class="col-md-12">
+                <p class="mb-3 pb-1 border-bottom">@Model.Description</p>
+            </div>
+
+            <div class="col-md-6">
+                <ul class="list-inline mb-0 p-0">
+                    <li>
+                        Name : <b>@Model.ProjectName</b>
+                    </li>
+                    <li>
+                        Project Number : <b>@Model.ProjectNumber</b>
+                    </li>
+                    <li>
+                        Contract Number : <b>@Model.ContractNumber</b>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="col-md-6 text-right">
+                <ul class="list-inline mb-0">
+                    <li>
+                        <div class="position-r">
+                            Project Manager : <span><b class="tooltipdetail">@Model.ProjectManager</b></span>
+                            <span class="popover-detail bottom right">
+                                <span class='popover-detail-container'>
+                                    <span>
+                                        <label>Name</label> Person Name
+                                    </span>
+                                    <span><label>Company </label> Company Name</span>
+                                    <span><label>Title </label>Job Title</span>
+                                    <span>
+                                        <label>Email </label><a
+                                            href='mailto:"workmail@mail.com"'
+                                            target='_blank'>workmail</a>
+                                    </span>
+                                    <span><label>Phone </label>98xxxxxxxxx</span>
+                                </span>
+                            </span>
+                        </div>
+                    </li>
+                    <li>
+                        Project Control : <b>@Model.ProjectControl</b>
+                    </li>
+                    <li>
+                        Org Id : <b>@Model.OrgId</b>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div id="projectDetails" class="col-12">
+
+    </div>
+</div>
+
+
+    @section Scripts {  
+        <script type="text/javascript">
+        (function () {
+            window.pfs.showProjectDetailsScreen('@Model.ProjectNumber', "USD");
+        })()
+        </script>
+    }

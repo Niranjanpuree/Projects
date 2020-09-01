@@ -1,0 +1,94 @@
+﻿@model Northwind.Web.Areas.IAM.Models.IAM.ViewModels.GroupViewModel
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+@{
+    ViewData["Title"] = "List Of Groups";
+    Layout = "~/Areas/IAM/Views/Shared/_Layout.cshtml";
+}
+@{
+    var resourceVersion = @Configuration["resourceVersion"];
+    var cdnUrl = @Configuration["CDNUrl"];
+
+}
+@section breadcrumb
+    {
+    <li class="breadcrumb-item"><a href="/admin/settings">Settings</a></li>
+    <li class="breadcrumb-item"><a href="/iam/user">User Management</a></li>
+}
+<style>
+    .GroupUser .k-widget.k-grid {
+        height: 410px !important;
+    }
+</style>
+<ul class="nav nav-tabs small" id="iam_tabs">
+    <li class="nav-item">
+        <a href="~/iam/User" class="nav-link" id="userTab">Users</a>
+    </li>
+    <li class="nav-item">
+        <a href="~/iam/Group" class="nav-link active" id="groupTab">Groups</a>
+    </li>
+    <!--<li class="nav-item">
+        <a href="~/iam/Policy" class="nav-link" id="policyTab">Policies</a>
+    </li>-->
+</ul>
+
+<!--Main Content Area-->
+    <div class="tab-container container-fluid">
+        <div class="row">
+            <div class="col-md-12 text-right">
+                <button type="button" id="btnUpdate" class="btn btn-primary" onclick="onSubmitForm()"> Update </button>
+                <button type="reset" class="btn btn-secondary"
+                        onclick="location.href='/iam/group'">
+                    Cancel
+                </button>
+            </div>
+        </div>
+        <h5 class="text-primary">@Model.CN</h5>
+        <div class="form-group mb-4">
+            <label class="control-label font-weight-bold">Description</label>
+            <p>@Model.Description</p>
+        </div>
+        <div class="row">
+            <div id="tabstrip" class="col-md-12">
+
+            </div>
+        </div>
+
+    </div>
+
+    @section ScriptsIAM {
+        <script>
+
+        function showSaveButton(v, sender) {
+            if (v) {
+                $("#groupGrid .k-dialog-buttongroup .k-primary").eq(0).show()
+            } else {
+                $("#groupGrid .k-dialog-buttongroup .k-primary").eq(0).hide()
+            }
+        }
+
+        function initGroupDetailsView(groupGuid) {
+            if (document.getElementById("tabstrip")) {
+                if (window.groupManagement && window.groupManagement.loadGroupDetails) {
+                    window.groupManagement.loadGroupDetails(groupGuid, 'tabstrip', showSaveButton);
+                }
+                else {
+                    setTimeout(function () { init() }, 500);
+                }
+            }
+        }
+
+        (function () { init() })()
+
+        function init() {
+            initGroupDetailsView('@Model.GroupGuid');
+
+        }
+
+        function onSubmitForm(e) {
+            var postValue = serializeToJson($("form"))
+            ajaxPost("/IAM/Group/ResourceGroup?groupGuid=@Model.GroupGuid", postValue, function (data) { window.location='/iam/group' }, function (err) { if (err && err.responseJSON && err.responseJSON.Message) { window.Dialog.alert(err.responseJSON.Message) } })
+        }
+
+        </script>
+    }

@@ -1,0 +1,43 @@
+﻿@model Northwind.Web.Models.ViewModels.Contract.ContractViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<div class="p-4">
+    <div class="row">
+        <div class="col-sm-6 form-group">
+            <label asp-for="CustomerInformation.AwardingAgencyOffice" class="control-label control-label-read"></label>
+            <div class="form-value" ><b id=@Model.CustomerInformation.AwardingAgencyOffice class="getDetailOfAgency tooltipdetail">@Model.CustomerInformation.AwardingAgencyOfficeName</b></div>
+            <div class="popover-detail bottom tooltipagency"></div>
+        </div>
+
+        <div class="col-sm-6 form-group">
+            <label asp-for="CustomerInformation.FundingAgencyOffice" class="control-label control-label-read"></label>
+            <div class="form-value" ><b id=@Model.CustomerInformation.FundingAgencyOffice class="getDetailOfAgency tooltipdetail">@Model.CustomerInformation.FundingAgencyOfficeName</b></div>
+            <div class="popover-detail bottom tooltipagency"></div>
+        </div>
+
+        <div class="col-sm-6 form-group">
+            <label asp-for="CustomerInformation.Office_ContractRepresentative" class="control-label control-label-read"></label>
+            <div class="form-value" ><b id=@Model.CustomerInformation.Office_ContractRepresentative class="getDetailOfContact tooltipdetail">@Model.CustomerInformation.Office_ContractRepresentativeName</b></div>
+            <div class="popover-detail bottom tooltipcontact"></div>
+        </div>
+
+        <div class="col-sm-6 form-group">
+            <label asp-for="CustomerInformation.FundingOffice_ContractRepresentative" class="control-label control-label-read"></label>
+            <div class="form-value" ><b id=@Model.CustomerInformation.FundingOffice_ContractRepresentative class="getDetailOfContact tooltipdetail">@Model.CustomerInformation.FundingOffice_ContractRepresentativeName</b></div>
+            <div class="popover-detail bottom tooltipcontact"></div>
+        </div>
+
+        <div class="col-sm-6 form-group">
+            <label asp-for="CustomerInformation.Office_ContractTechnicalRepresent" class="control-label control-label-read"></label>
+            <div class="form-value" ><b id=@Model.CustomerInformation.Office_ContractTechnicalRepresent class="getDetailOfContact tooltipdetail">@Model.CustomerInformation.Office_ContractTechnicalRepresentName</b></div>
+            <div class="popover-detail bottom tooltipcontact"></div>
+        </div>
+
+        <div class="col-sm-6 form-group">
+            <label asp-for="CustomerInformation.FundingOffice_ContractTechnicalRepresent" class="control-label control-label-read"></label>
+            <div class="form-value" ><b id=@Model.CustomerInformation.FundingOffice_ContractTechnicalRepresent class="getDetailOfContact tooltipdetail">@Model.CustomerInformation.FundingOffice_ContractTechnicalRepresentName</b></div>
+            <div class="popover-detail bottom tooltipcontact"></div>
+        </div>
+
+    </div>
+</div>

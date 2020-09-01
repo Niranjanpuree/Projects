@@ -1,0 +1,22 @@
+{
+  "awesomeTypescriptLoaderOptions": {
+    "useBabel": true
+  },
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "noEmitOnError": true,
+    "removeComments": false,
+    "sourceMap": true,
+    "target": "es6",
+    "outDir": "./wwwroot/js/",
+    "module": "commonjs",
+    "jsx": "react"
+  },
+  "include": [
+    "./scripts/index.d.ts", "../Northwind.Web.Infrastructure/Controllers/RichEditorController.cs" // declaration file path
+  ],
+  "exclude": [
+    "node_modules",
+    "wwwroot"
+  ]
+}

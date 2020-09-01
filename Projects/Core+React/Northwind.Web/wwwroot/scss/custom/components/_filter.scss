@@ -1,0 +1,21 @@
+.advanced-search-box {
+    display: inline-block;
+    padding-left: 15px;
+    line-height: 35px;
+    font-size: 14px;
+    font-weight: $fw-b;
+    i {
+        font-size: 18px;
+        color: $gray-600;
+        &:hover {
+            color: $primary;
+        }
+        &.k-i-delete:hover{
+            color:$danger;
+        }
+    }
+
+    a:hover {
+        text-decoration: none;
+    }
+}

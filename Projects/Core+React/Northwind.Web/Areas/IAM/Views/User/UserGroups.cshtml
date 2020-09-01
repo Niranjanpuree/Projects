@@ -1,0 +1,36 @@
+﻿@model dynamic
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+@{
+    ViewData["Title"] = "Settings: User Management ";
+    Layout = "~/Areas/IAM/Views/Shared/_Layout.cshtml";
+    var cdnUrl = @Configuration["CDNUrl"];
+}
+
+<ul class="nav nav-tabs small" id="iam_tabs">
+    <li class="nav-item">
+        <a href="~/iam/User" class="nav-link active" id="userTab">Users</a>
+    </li>
+    <li class="nav-item">
+        <a href="~/iam/Group" class="nav-link" id="groupTab">Groups</a>
+    </li>
+    <li class="nav-item">
+        <a href="~/iam/Policy" class="nav-link" id="policyTab">Policies</a>
+    </li>
+    <li class="nav-item">
+        <a href="~/iam/Password" class="nav-link" id="passwordTab">Password Settings</a>
+    </li>
+</ul>
+
+
+<div class="row">
+
+    <!--End Side Bar-->
+    <!--Main Content Area-->
+    <div class="col">
+        <div class="container-fluid">
+            <div id="userGroupSelection"></div>
+        </div>
+    </div>
+    <!--End Main Content Area-->
+</div>

@@ -1,0 +1,8 @@
+﻿@using Northwind.Core.Entities;
+@using Northwind.Core.Interfaces;
+@inject IMenuService  _menuService;
+@{
+    var rootNode = _menuService.GetUserInterfaceMenuTreeByClass("MainNav");
+
+}
+

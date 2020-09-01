@@ -1,0 +1,59 @@
+﻿@model Northwind.Web.Models.ViewModels.JobRequestViewModel
+
+<div>
+    <input hidden asp-for="LaborCategoryRates.CategoryRateGuid" class="form-control" />
+    <input hidden asp-for="ContractGuid" class="form-control" />
+</div>
+
+<div class="">
+    <div class="col-12">
+        <div class="row pt-3 align-items-center">
+            <div class="col">
+                <p class="mb-0">
+                    Please review the Subcontractor Billing Rates below.  If changes are required, click the Edit Here button.
+                </p>
+            </div>
+
+            @if (Model.LaborCategoryRates.IsCsv)
+            {
+                <div class="col col-sm-auto">
+                    <input id="idEditLaborCategoryRates" class="btn btn-sm btn-secondary" type="button"
+                           value="Not Complete? Edit here" />
+                </div>
+            }
+            else
+            {
+                <div class="col col-sm-auto">
+                    <input id="idViewSBRNonCSV" class="btn btn-sm btn-secondary" type="button"
+                           value="Not Complete? Edit here" />
+                </div>
+            }
+
+        </div>
+    </div>
+    @if (Model.LaborCategoryRates.IsCsv)
+    {
+        <div class="p-3">
+            <div id="JobLaborCategoryGrid"></div>
+        </div>
+    }
+    else
+    {
+        @if (Model.LaborCategoryRates != null)
+        {
+            var lbrPath = "/" + Model.BasicContractInfo.ContractNumber + "/Contract/LaborCategoryRates";
+            if (Model.LaborCategoryRates.FilePath.ToUpper() != lbrPath.ToUpper())
+            {
+                var fileName = !string.IsNullOrWhiteSpace(@Model.LaborCategoryRates.UploadFileName) ? Model.LaborCategoryRates.UploadFileName.Split("/").Last() : "";
+                <div class="col-md-12 uploaded-file">
+                    <a href="/ContractResourceFile/DownloadDocument/@Model.LaborCategoryRates.ContractResourceFileGuid"
+                       id="@fileName">
+                        <i class="k-icon k-i-file-txt"></i>
+                        <span class="control-label">@fileName</span>
+                    </a>
+                </div>
+            }
+        }
+
+    }
+</div>

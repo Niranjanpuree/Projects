@@ -1,0 +1,44 @@
+﻿@model Northwind.Web.Models.ViewModels.Contract.ContractViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<div class="p-4">
+    <div class="row">
+
+        <div class="col-md-6 form-group">
+            <label asp-for="KeyPersonnel.CompanyPresident" class="control-label control-label-read"></label>
+            <div class="form-value"><b id=@Model.KeyPersonnel.CompanyPresident class="getDetailOfUser tooltipdetail">@Model.KeyPersonnel.CompanyPresidentName</b></div>
+            <div class="popover-detail bottom tooltipuser"></div>
+        </div>
+
+        <div class="col-md-6 form-group">
+            <label asp-for="KeyPersonnel.RegionalManager" class="control-label control-label-read"></label>
+            <div class="form-value"><b id=@Model.KeyPersonnel.RegionalManager class="getDetailOfUser tooltipdetail">@Model.KeyPersonnel.RegionalManagerName</b></div>
+            <div class="popover-detail bottom tooltipuser"></div>
+        </div>
+
+        <div class="col-md-6 form-group">
+            <label asp-for="KeyPersonnel.ContractRepresentative" class="control-label control-label-read"></label>
+            <div class="form-value"><b id=@Model.KeyPersonnel.ContractRepresentative class="getDetailOfUser tooltipdetail">@Model.KeyPersonnel.ContractRepresentativeName</b></div>
+            <div class="popover-detail bottom tooltipuser"></div>
+        </div>
+
+        <div class="col-md-6 form-group">
+            <label asp-for="KeyPersonnel.ProjectManager" class="control-label control-label-read"></label>
+            <div class="form-value"><b id=@Model.KeyPersonnel.ProjectManager class="getDetailOfUser tooltipdetail">@Model.KeyPersonnel.ProjectManagerName</b></div>
+            <div class="popover-detail bottom tooltipuser"></div>
+        </div>
+
+        <div class="col-md-6 form-group">
+            <label asp-for="KeyPersonnel.ProjectControls" class="control-label control-label-read"></label>
+            <div class="form-value"><b id=@Model.KeyPersonnel.ProjectControls class="getDetailOfUser tooltipdetail">@Model.KeyPersonnel.ProjectControlName</b></div>
+            <div class="popover-detail bottom tooltipuser"></div>
+        </div>
+
+        <div class="col-md-6 form-group">
+            <label asp-for="KeyPersonnel.AccountingRepresentative" class="control-label control-label-read"></label>
+            <div class="form-value"><b id=@Model.KeyPersonnel.AccountingRepresentative class="getDetailOfUser tooltipdetail">@Model.KeyPersonnel.AccountingRepresentativeName</b></div>
+            <div class="popover-detail bottom tooltipuser"></div>
+        </div>
+
+    </div>
+</div>

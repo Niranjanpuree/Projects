@@ -1,0 +1,188 @@
+﻿h2 a.engine-system {
+    background-image: url(images/engine.png);
+}
+
+h2 a.wheel-system {
+    background-image: url(images/wheel.png);
+}
+
+h2 a.body-code-system {
+    background-image: url(images/body-code.png);
+}
+
+h2 a.body-system {
+    background-image: url(images/body.png);
+}
+
+h2 a.chassis-system {
+    background-image: url(images/chassis.png);
+}
+
+h2 a.spring-system {
+    background-image: url(images/spring.png);
+}
+
+h2 a.steering-wheel-system {
+    background-image: url(images/steering-wheel.png);
+}
+
+h2 a.transmission-system {
+    background-image: url(images/transmission.png);
+}
+
+h2 a.truck-bed-system {
+    background-image: url(images/truck-bed.png);
+}
+
+h2 a.wheelbase-system {
+    background-image: url(images/wheelbase.png);
+}
+
+a.comment-icon {
+    background-image: url(images/icon-comment.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 24px;
+    height: 24px;
+    border-radius: 2px;
+    margin-left: 6px;
+    visibility: visible;
+}
+
+.ctable-paging .prev {
+    cursor: pointer;
+}
+
+.ctable-paging .next {
+    cursor: pointer;
+}
+
+.ctable-paging .first {
+    background-image: url(images/arrow-right-double-ctable-paging.png);
+    cursor: pointer;
+    color: white;
+}
+
+.ctable-paging .last {
+    background-image: url(images/arrow-left-double-ctable-paging.png);
+    cursor: pointer;
+    color: white;
+}
+.pointer {
+    cursor: pointer;
+}
+.clpopup {
+    min-height: 200px;
+    overflow-y: auto;
+}
+
+.change-content {
+    text-overflow: ellipsis; 
+    overflow: hidden; 
+    white-space: nowrap; 
+    max-width: 150px;
+}
+.ctable td {
+    padding: 5px 10px 10px 10px;
+}
+
+/* Override of style.css
+    comment-box. 
+    0.5) fixed width  of 480px;
+    1) remove border. 
+    2) overflow-x to scroll.
+*/
+.comment-box {
+    max-width: 480px;
+}
+.comment-box ul {
+    border: none;
+    /*white-space: nowrap;
+    overflow-x: auto;*/
+    padding-left: 0px;
+}
+
+/* custom: comment popup on change request search page. */
+.display-flex {
+    display: flex;
+}
+.modal-comment-box {
+    max-width: 480px;
+}
+.modal-comment-box p {
+    margin-top: 10px;
+}
+.modal-comment-box .comment-box {
+    width: initial;
+}
+.modal-comment-box .clpopup {
+    padding-right: 30px;
+}
+.modal-like-box {
+    max-width: 300px;
+}
+.modal-like-box .clpopup {
+    margin-top: 10px;
+}
+.modal-like-box h5 {
+    margin-top: 10px;
+}
+.modal-assign-box {
+    max-width: 480px;
+}
+.modal-approval-box {
+    max-width: 480px;
+}
+
+/* style for change-search.component.html for like+comment popup controls. */
+.like-comment-control {
+    max-width: 100px;
+    min-width: 80px;
+    width: 80px;
+    height: 35px;
+    vertical-align: top;
+}
+.like-comment-control .like {
+    max-width: 50px;
+    width: 30px;
+    min-width: 30px;
+    float: left;
+    padding: 0 0 0 0;
+    margin: 4px 0 0 0; /* margin-top = 4, so that it aligns with icon.*/
+    padding-left: 5px;
+}
+.like-comment-control .comment {
+    max-width: 50px;
+    width: 30px;
+    min-width: 30px;
+    float: right;
+    padding: 0 0 0 0;
+    margin: 0px 0 0 0;
+}
+.change-search-action {
+    float: left; 
+    cursor: pointer; 
+    /*padding-top: 3px;*/
+}
+
+/* word wrap enabled with fix length component. */
+.word-wrap-150 {
+    max-width: 150px;
+    word-wrap: break-word;
+}
+.word-wrap-95 {
+    max-width: 95px;
+    word-wrap: break-word;
+}
+.word-wrap-160 {
+    max-width: 160px;
+    word-wrap: break-word;
+}
+.word-wrap-75-90 {
+    min-width: 75px;
+    max-width: 90px;
+    word-wrap: break-word;
+}
+.padding-r5-l5 td {
+    padding: 5px 5px 10px 5px !important;
+}

@@ -1,0 +1,61 @@
+﻿@model Northwind.Web.Models.ViewModels.RevenueRecognition.RevenueRecognitionViewModel
+@{
+    IDictionary<string, string> ListObligations = new Dictionary<string, string>();
+    ListObligations.Add(new KeyValuePair<string, string>("One", "One"));
+    ListObligations.Add(new KeyValuePair<string, string>("Multiple", "Multiple"));
+}
+<!-- <div class="col-12"> -->
+<h4><span>Allocate Transaction Price To Performance Obligations</span></h4>
+<div class="row">
+    <div class="col-md-12 form-group">
+        <label asp-for="HasMultipleContractObligations" class="control-label  fontbold">
+            Does the contract contain one or multiple contract obligations?
+        </label>
+        <div class="form-check pl-0">
+            @foreach (var item in ListObligations)
+            {
+                <div class="form-check form-check-inline">
+                    <input asp-for="HasMultipleContractObligations" type="radio" value="@item.Value"
+                           class="k-radio custom-checkbox HasMultipleContractObligations"
+                           id="HasMultipleContractObligations-@item.Value" />
+                    <label class="k-radio-label" for="HasMultipleContractObligations-@item.Value">
+                        @item.Key
+                    </label>
+                </div>
+            }
+        </div>
+        <span asp-validation-for="HasMultipleContractObligations" class="text-danger"></span>
+    </div>
+    <div id="idHideMultipleObligation" class="col-md-12 form-group">
+        <label asp-for="EachMultipleObligation" class="control-label">
+            List each obligation with the associated allocation of transaction price/CV:
+        </label>
+        <textarea class="form-control"
+                  asp-for="EachMultipleObligation">@Model.EachMultipleObligation</textarea>
+        <span asp-validation-for="EachMultipleObligation" class="text-danger"></span>
+        <div>
+            @if (!Model.IsIDIQContract && !string.IsNullOrWhiteSpace(Model.LaborFilePath))
+            {
+                <partial name="_LaborCategoryRatesView" />
+            }
+
+        </div>
+    </div>
+    <div class="col-md-12 form-group">
+        <label asp-for="Step4Note" class="control-label"> Step 4 Notes:</label>
+        <textarea class="form-control" asp-for="Step4Note">@Model.Step4Note</textarea>
+        <span asp-validation-for="Step4Note" class="text-danger"></span>
+    </div>
+    @if (!Model.IsNotify && !Model.IsAccountRepresentive)
+    {
+        <div class="col-md-12 form-group" id="hidenotify">
+            <input type="checkbox" id="idNotify" asp-for="IsNotify" class="k-checkbox">
+            <label asp-for="IsNotify" class="k-checkbox-label" for="idNotify">
+                I certify that I have reviewed all the Revenue Recognition information presented here
+                is correct and fit to be used by the company.
+            </label>
+            <span asp-validation-for="IsNotify" class="text-danger"></span>
+        </div>
+    }
+</div>
+<!-- </div> -->

@@ -1,0 +1,150 @@
+﻿@model Northwind.Web.Models.ViewModels.FarClause.FarContractViewModel
+
+<div>
+    <div class="col-12">
+        @for (int i = 0; i < Model.Questionniare.Count(); i++)
+        {
+        <div class="row border-top py-3">
+            <label class="control-label mb-0 col" id=" @Model.Questionniare[i].Id">
+                @Model.Questionniare[i].Question
+            </label>
+            <input type="hidden" asp-for=" @Model.Questionniare[i].Question" />
+            <input type="hidden" asp-for=" @Model.Questionniare[i].QuestionGuid" />
+            <input type="hidden" asp-for=" @Model.Questionniare[i].QuestionType" />
+            @if (Model.Questionniare[i].QuestionType == "Radio")
+            {
+                <div class="col-auto form-check pl-0">
+                    <div class="form-check form-check-inline">
+                        <input type="radio" id="@Model.Questionniare[i].ControlClass+Yes" class="@Model.Questionniare[i].ControlClass k-radio" asp-for="@Model.Questionniare[i].YesNoAnswer" value="Yes" />
+                        <label for="@Model.Questionniare[i].ControlClass+Yes" class="k-radio-label">Yes</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input asp-for="@Model.Questionniare[i].YesNoAnswer" id="@Model.Questionniare[i].ControlClass+No" class="@Model.Questionniare[i].ControlClass  k-radio" type="radio" value="No" />
+                        <label for="@Model.Questionniare[i].ControlClass+No" class="k-radio-label">No</label>
+                    </div>
+                </div>
+
+                @if (Model.Questionniare[i].Id != "Warrenties")
+                {
+                    @if (Model.Questionniare[i].Id != "FCCMQuestion")
+                    {
+                        <div class="col-12 mt-1">
+                            <div id="@Model.Questionniare[i].ChildId" class="row">
+                                <div class="col-md-6 form-group">
+                                    <label asp-for="@Model.Questionniare[i].ReportLastReportDate" class="control-label ">
+                                        Date of Last Report:
+                                    </label>
+                                    <input asp-for="@Model.Questionniare[i].ReportLastReportDate" placeholder="MM/dd/yyyy"
+                                           class="form-control  customdatepicker @Model.Questionniare[i].ChildId" />
+                                    <span asp-validation-for="@Model.Questionniare[i].ReportLastReportDate" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label asp-for="@Model.Questionniare[i].ReportNextReportDate" class="control-label">
+                                        Date of Next Report:
+                                    </label>
+                                    <input asp-for="@Model.Questionniare[i].ReportNextReportDate" placeholder="MM/dd/yyyy" class="form-control customdatepicker @Model.Questionniare[i].ChildId" />
+                                    <span asp-validation-for="@Model.Questionniare[i].ReportNextReportDate" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <div class="col-12 mt-3" id="@Model.Questionniare[i].ChildId">
+                        <div class="row form-group">
+                            <label asp-for="ContractQuestionaires.IsStandardIndustryProvision" class="mb-0 col control-label">
+                                Warranties: Consistent with Standard Industry Provision of 12 months
+                            </label>
+                            <div class="col-auto form-check pl-0">
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" asp-for="@Model.Questionniare[i].ChildYesNoAnswer" id="warrentiesyes" class="k-radio WarrantyProvisioncheckbox" value="Yes" />
+                                    <label for="warrentiesyes" class="k-radio-label">Yes</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input asp-for="@Model.Questionniare[i].ChildYesNoAnswer" type="radio" id="warrentiesno" class="k-radio WarrantyProvisioncheckbox" value="No" />
+                                    <label for="warrentiesno" class="k-radio-label">No</label>
+                                </div>
+                            </div>
+                            <span asp-validation-for="ContractQuestionaires.IsStandardIndustryProvision" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="@Model.Questionniare[i].Textanswer" class="control-label">
+                                Warranty Provision Description:
+                            </label>
+                            <textarea class="form-control WarrantyProvisionDescription"
+                                      asp-for="@Model.Questionniare[i].Textanswer"></textarea>
+                            <span asp-validation-for="@Model.Questionniare[i].Textanswer" class="text-danger"></span>
+                        </div>
+                    </div>
+                }
+            }
+
+
+            @if (Model.Questionniare[i].QuestionType == "Text")
+            {
+                <div class="col-12 mt-2">
+                    <textarea asp-for="@Model.Questionniare[i].Textanswer" class="form-control"></textarea>
+                </div>
+            }
+
+            @if (Model.Questionniare[i].QuestionType == "multi" && Model.Questionniare[i].ChildId == "Others")
+            {
+                <div class="col-auto form-check pl-0" id="checkboxes">
+                    @for (var j = 0; j < Model.Questionniare[i].MultiSelectAnswer.Count; j++)
+                    {
+                        <input type="checkbox" class="@Model.Questionniare[i].MultiSelectAnswer[j].Name k-checkbox" id="@Model.Questionniare[i].MultiSelectAnswer[j].Name" asp-for="@Model.Questionniare[i].MultiSelectAnswer[j].IsSelected" />
+                        <label asp-for="@Model.Questionniare[i].MultiSelectAnswer[j].IsSelected" for="@Model.Questionniare[i].MultiSelectAnswer[j].Name" class="k-checkbox-label mr-2">@Model.Questionniare[i].MultiSelectAnswer[j].Name</label>
+                        <input type="hidden" asp-for="@Model.Questionniare[i].MultiSelectAnswer[j].Name" />
+                    }
+
+                </div>
+
+                <div id="@Model.Questionniare[i].ChildId" class="col-12 mt-2">
+                    <textarea asp-for="@Model.Questionniare[i].Textanswer" id="textareaforothers" class="form-control"></textarea>
+                </div>
+
+            }
+
+            @if (Model.Questionniare[i].QuestionType == "multi" && Model.Questionniare[i].ControlClass == "checkboxes")
+            {
+                <div class="col-auto form-check mt-2" id="checkboxes">
+                    @for (var j = 0; j < Model.Questionniare[i].MultiSelectAnswer.Count; j++)
+                    {
+                    <div class="mb-1">
+                        <input type="checkbox" class="@Model.Questionniare[i].ControlClass k-checkbox" id="@Model.Questionniare[i].MultiSelectAnswer[j].Name" asp-for="@Model.Questionniare[i].MultiSelectAnswer[j].IsSelected" />
+                        <label asp-for="@Model.Questionniare[i].MultiSelectAnswer[j].IsSelected" for="@Model.Questionniare[i].MultiSelectAnswer[j].Name" class="k-checkbox-label mr-2">@Model.Questionniare[i].MultiSelectAnswer[j].Name</label>
+                        <input type="hidden" asp-for="@Model.Questionniare[i].MultiSelectAnswer[j].Name" />
+                    </div>
+                    }
+
+                </div>
+ 
+
+            }
+
+
+            @if (Model.Questionniare[i].QuestionType == "TextWithRadio")
+            {
+                <div class="col-auto form-check pl-0">
+                    <div class="form-check form-check-inline">
+                        <input type="radio" asp-for="@Model.Questionniare[i].YesNoAnswer" id="@Model.Questionniare[i].Id+'Yes'" class="@Model.Questionniare[i].ControlClass k-radio" value="Yes" />
+                        <label class="k-radio-label" for="@Model.Questionniare[i].Id+'Yes'">Yes</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="radio" asp-for="@Model.Questionniare[i].YesNoAnswer" id="@Model.Questionniare[i].Id+'No'" class="@Model.Questionniare[i].ControlClass k-radio" value="No" />
+                        <label class="k-radio-label" for="@Model.Questionniare[i].Id+'No'">No</label>
+                    </div>
+                </div>
+
+                <div id="@Model.Questionniare[i].ChildId" class="col-12 mt-2">
+                    <textarea asp-for="@Model.Questionniare[i].Textanswer" type="text" class="form-control @Model.Questionniare[i].Id"></textarea>
+                </div>
+            }
+
+        </div>
+        }
+    </div>
+    <div class="clearfix"></div>
+</div>
+

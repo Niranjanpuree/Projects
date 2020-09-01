@@ -1,0 +1,103 @@
+.profile {
+    [aria-label="breadcrumb"] {
+        display: none;
+    }
+    &-top{
+        // @include gradient-y($primary, darken($primary, 5) 0%, 100%);
+        padding:50px 30px;
+    }
+    &-container {
+        position: relative;        
+        .form-control-plaintext {
+            font-weight: $fw-b;
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        .card-header {
+            font-size: 18px;
+            font-weight: $fw-b;
+            color: $dark;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+
+            i {
+                opacity: 0.4;
+            }
+        }
+    }
+
+    &-detail {
+        @extend %container;
+        padding-top: 60px;
+    }
+
+    &-image {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        border: 2px solid #fff;
+        background: url('/img/user.svg') #fff center no-repeat;
+        background-size: 70px;
+        margin-right:20px;
+        position: relative;
+        z-index: 1;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.08);
+
+        &:before {
+            content: '';
+            height: 100%;
+            width: 100%;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.7);
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: 0.2s linear;
+        }
+
+        &:hover {
+            &:before {
+                opacity: 1;
+
+            }
+
+            .profile-image-option {
+                opacity: 1;
+                visibility: visible;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        &-option {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, 0);
+            min-width: 100%;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.1s, visibility 0.1s, transform 0.2s linear;
+            border-radius: 4px;
+            text-align: center;
+
+            a {
+                color: rgba($light, 0.75);
+                display: inline-block;
+
+                &:hover {
+                    color: $light;
+                }
+            }
+        }
+    }
+
+    &-info {
+        // color:$light;
+        i {
+            font-size: 16px;
+        }
+    }
+}

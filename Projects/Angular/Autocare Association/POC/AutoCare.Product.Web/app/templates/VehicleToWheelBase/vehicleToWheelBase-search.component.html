@@ -1,0 +1,287 @@
+﻿<loading-gif [show]="showLoadingGif"></loading-gif>
+<div class="clearfix">
+    <span class="icon-text" style="float:right;" *ngIf="vehicleToWheelBaseSearchViewModel && vehicleToWheelBaseSearchViewModel.totalCount">Reading <strong>1000</strong> of <strong>{{vehicleToWheelBaseSearchViewModel.totalCount}}</strong> matching records</span>
+</div>
+
+<!-- WheelBase  unfolded start -->
+<div class="table-wrap">
+    <h2 class="foldable clearfix">
+        <a [ngClass]="{fold:isWheelBaseSystemsExpanded, unfold:!isWheelBaseSystemsExpanded}" (click)="isWheelBaseSystemsExpanded=!isWheelBaseSystemsExpanded"></a>
+        Wheel Base Systems
+        <a class="btn blue icon add" (click)="onNew()">NEW</a>
+    </h2>
+
+    <div class="ctable">
+        <ac-grid [dataSource]="vehicleToWheelBaseSearchViewModel.result.wheelBases" #gd="acGrid" columns='[
+                 { "header":" ", "selectable": {"selected": true}},
+                 { "header":"Wheel Base ID" , "field":"id", "sortable": "true" },
+                 { "header":"Wheel Base Name" , "field":"base", "sortable": true },
+                 { "header":"Wheel Base Metric" , "field":"wheelBaseMetric", "sortable": true },
+                 { "header":"Change requests"}]'
+                 initialSortBy='[{"field": "id", "orderByDesc": true}]'
+                 paging='{"pageSize": 10, "numberOfPagesOnPageList" : 10}'
+                 (selectAllChangedEvent)="onSelectAllWheelBase($event)" [selectAllChecked]="isSelectAllWheelBaseSystems"
+                 [thresholdRecordCount]="thresholdRecordCount">
+            <tr *ngFor="let wheelBases of gd.items; let whenOdd=odd; let whenEven=even;" [ngClass]="{'table-even-row':whenOdd, 'table-odd-row':whenEven}">
+                <td>
+                    <label class="control control--checkbox green-checkbox">
+                        <input type="checkbox" [(ngModel)]="wheelBases.isSelected" (change)="onWheelBaseSelected(wheelBases)">
+                        <div class="control__indicator"></div>
+                    </label>
+                </td>
+                <td>{{wheelBases.id}}</td>
+                <td>{{wheelBases.base}}</td>
+                <td>{{wheelBases.wheelBaseMetric}}</td>
+                <td class="Pending" *ngIf="wheelBases.changeRequestId && wheelBases.changeRequestId != -1">
+                    <a (click)="view(wheelBases)" style="cursor: pointer;" class="btn-r-arrow blue">Pending</a>
+                </td>
+                <td *ngIf="!wheelBases.changeRequestId || wheelBases.changeRequestId == -1 ">
+                    <a class="box-icon pencil" style="cursor: pointer;" title="Edit" (click)="onModify(wheelBases)"></a>
+                    <a class="box-icon delete" title="Delete" (click)="onDelete(wheelBases)"></a>
+                    <a class="box-icon shuffle" title="Replace" (click)="routerLinkRedirect('/wheelbase/replace/',wheelBases.id)"></a>
+                </td>
+            </tr>
+        </ac-grid>
+    </div>
+
+</div>
+
+<!-- Associated vehicles folded start -->
+<div class="table-wrap">
+    <h2 class="foldable clearfix">
+        <a [ngClass]="{fold:isAssociatedVehiclesExpanded, unfold:!isAssociatedVehiclesExpanded}" (click)="isAssociatedVehiclesExpanded=!isAssociatedVehiclesExpanded"></a>
+        Associated Vehicles
+        <a class="btn blue icon add" (click)="onSelectedNewWheelBaseAssociation()">NEW</a>
+    </h2>
+    <div class="ctable" [ngClass]="{unfolded:isAssociatedVehiclesExpanded, folded:!isAssociatedVehiclesExpanded}">
+        <ac-grid #vehicleToWheelBaseGrid [dataSource]="vehicleToWheelBaseForSelectedWheelBase" #gd1="acGrid"
+                 columns='[
+                         { "header":"Vehicle to Wheel Base ID",   "field":"id",                   "sortable":true},
+                         { "header":"Vehicle ID",                   "field":"vehicle.id",           "sortable":true},
+                         { "header":"Wheel Base ID",                "field":"WheelBaseId",    "sortable":true},
+                         { "header":"Year",                         "field":"vehicle.yearId",       "sortable":true},
+                         { "header":"Make (ID)",                    "field":"vehicle.makeName",     "sortable":true},
+                         { "header":"Model (ID)",                   "field":"vehicle.modelName",    "sortable":true},
+                         { "header":"Submodel (ID)",                "field":"vehicle.subModelName", "sortable":true},
+                         { "header":"Region (ID)",                  "field":"regionName",           "sortable":true},
+                         { "header":"Change Requests"}
+                         ]'
+                 initialSortBy='[{"field": "id", "orderByDesc": true}]'
+                 paging='{"pageSize": 10, "numberOfPagesOnPageList" : 10}'>
+            <tr *ngFor="let selection of gd1.items">
+                <td>{{selection.id}}</td>
+                <td>{{selection.vehicle.id}}</td>
+                <td>{{selection.wheelBaseId}}</td>
+                <td>{{selection.vehicle.yearId}}</td>
+                <td>{{selection.vehicle.makeName}} ({{selection.vehicle.makeId}})</td>
+                <td>{{selection.vehicle.modelName}} ({{selection.vehicle.modelId}})</td>
+                <td>{{selection.vehicle.subModelName}} ({{selection.vehicle.subModelId}})</td>
+                <td>{{selection.vehicle.regionName}} ({{selection.vehicle.regionId}})</td>
+                <td *ngIf="selection.changeRequestId && selection.changeRequestId != -1">
+                    <a (click)="onViewAssociatedVehiclesCr(selection)" style="cursor: pointer;" class="btn-r-arrow blue">Pending</a>
+                </td>
+                <td *ngIf="!selection.changeRequestId || selection.changeRequestId == -1">
+                    <a class="box-icon delete" title="Delete" (click)="onDeleteVehicleToWheelBase(selection)"></a>
+                </td>
+            </tr>
+        </ac-grid>
+    </div>
+</div>
+<modal #newPopup>
+    <div class="overlay dark show">
+        <div class="new-make">
+            <a (click)="onCancel()" class="close"></a>
+            <div class="add-form">
+                <h2>New Wheel Base</h2>
+                <div class="clearfix">
+
+                    <div class="input-blocks clearfix">
+                        <strong>Wheel Base</strong>
+                        <input type="text" autofocus class="cinput" [(ngModel)]="wheelBase.base" (keyup)="limittoonedecimal($event,'add')"  maxlength="{{maxlength}}" placeholder="New Wheel Base" />
+                    </div>
+
+                    <div class="input-blocks clearfix">
+                        <strong>Wheel Base Metric</strong>
+                        <input type="text"  class="cinput" [(ngModel)]="wheelBase.wheelBaseMetric" maxlength="10" placeholder="New Wheel Base Metric" />
+                    </div>
+
+                    <div class="attach-wrap">
+                        <strong>OPTIONAL</strong>
+
+                        <ac-fileuploader upload-api-path="file/savechunk" delete-api-path="file/deleteblob" #newPopupAcFileUploader></ac-fileuploader>
+                        <small>Include comments</small>
+                        <textarea cols="50" rows="5" [(ngModel)]="wheelBase.comment"></textarea>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    <!-- Submit and cancel button start -->
+                    <div class="btns">
+                        <input type="submit" value="CANCEL" class="btn transparent" (click)="onCancel()" />
+                        <input type="submit" value="SUBMIT" class="btn" (click)="onNewSubmit()" />
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</modal>
+
+<modal #modifyPopup>
+    <div class="overlay dark show">
+        <div class="new-make">
+            <a (click)="onCancel()" class="close"></a>
+            <div class="add-form">
+                <h2>Edit Wheel Base</h2>
+                <div class="clearfix">
+
+	                <div class="input-blocks clearfix">
+		                <strong>Wheel Base</strong>
+		                <input type="text" autofocus class="cinput" (keyup)="limittoonedecimal($event,'modify')"  maxlength="10" [(ngModel)]="modifiedWheelBase.base"/>
+	                </div>
+
+                    <div class="input-blocks clearfix">
+                        <strong>Wheel Base Metric</strong>
+                        <input type="text"  class="cinput" maxlength="10" [(ngModel)]="modifiedWheelBase.wheelBaseMetric" />
+                    </div>
+
+                    <div class="warning-wrap">
+                        <div>
+                            <strong>Associated records will be impacted</strong>
+                            <span>
+                                {{wheelBase.vehicleToWheelBaseCount}} VehicleToWheelBases
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="attach-wrap">
+                        <strong>OPTIONAL</strong>
+
+                        <ac-fileuploader upload-api-path="file/savechunk" #modifyPopupAcFileUploader="acFileUploader"></ac-fileuploader>
+                        <small>Include comments</small>
+                        <textarea cols="50" rows="5" [(ngModel)]="modifiedWheelBase.comment"></textarea>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+
+                    <div class="btns">
+                        <input type="submit" value="CANCEL" class="btn transparent" (click)="onCancel()" />
+                        <input type="submit" value="SUBMIT" class="btn" (click)="onModifySubmit()" />
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</modal>
+
+<modal #deleteConfirmPopup>
+
+    <div class="overlay dark show">
+        <div class="new-make">
+            <a (click)="onCancel()" class="close"></a>
+            <div class="add-form">
+                <h2>Remove Wheel Base</h2>
+                <div class="clearfix">
+
+                    <div class="warning-wrap confirmation">
+                        <div>
+                            <strong>Please confirm that you wish to remove Wheel Base with Base "{{wheelBase.base}}" and Wheel Base Metric "{{wheelBase.wheelBaseMetric}}" </strong>
+                        </div>
+                    </div>
+                    <div class="attach-wrap">
+                        <strong>OPTIONAL</strong>
+
+                        <ac-fileuploader upload-api-path="file/savechunk" #deletePopupAcFileUploader="acFileUploader"></ac-fileuploader>
+                        <small>Include comments</small>
+                        <textarea cols="50" rows="5" [(ngModel)]="wheelBase.comment"></textarea>
+                    </div>
+
+                    <div class="btns">
+                        <input type="submit" value="CANCEL" class="btn transparent" (click)="onCancel()">
+                        <input type="submit" value="CONFIRM" class="btn" (click)="onDeleteConfirm()">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</modal>
+<modal #deleteErrorPopup>
+
+    <div class="overlay dark show">
+        <div class="new-make">
+            <a data-dismiss="modal" class="close"></a>
+            <div class="add-form">
+                <h2>Remove Wheel Base</h2>
+                <div class="clearfix">
+
+                    <div class="warning-wrap delete-error-wrap">
+                        <div>
+                            <strong>Associated records will be impacted</strong>
+                            <span>
+                                {{wheelBase.vehicleToWheelBaseCount}} VehicleToWheelBases
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="btns">
+                        <input type="submit" value="CANCEL" class="btn blue" (click)="onCancel()">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</modal>
+
+<modal #deleteWheelBaseAssociationPopup>
+    <div class="overlay dark show" *ngIf="deleteVehicleToWheelBase">
+        <div class="new-make">
+            <a class="close" (click)="onCancel()"></a>
+            <div class="add-form">
+                <h2>Delete WheelBase Association</h2>
+                <div class="clearfix">
+
+                    <div class="input-blocks clearfix">
+                        <div>
+                            <strong>Base ID</strong>
+                            {{deleteVehicleToWheelBase.vehicle.baseVehicleId}}
+                        </div>
+
+                        <div>
+                            <strong>Vehicle ID</strong>
+                            {{deleteVehicleToWheelBase.vehicle.id}}
+                        </div>
+
+                        <div>
+                            <strong>WheelBase ID</strong>
+                            {{deleteVehicleToWheelBase.wheelBaseId}}
+                        </div>
+                    </div>
+
+                    <div class="attach-wrap">
+                        <strong>OPTIONAL</strong>
+                        <ac-fileuploader upload-api-path="file/savechunk"></ac-fileuploader>
+                        <small>Include comments</small>
+                        <textarea cols="50" rows="5" [(ngModel)]="deleteVehicleToWheelBase.comment"></textarea>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    <!-- Submit and cancel button start -->
+                    <div class="btns">
+                        <input type="reset" value="CANCEL" class="btn transparent" (click)="onCancel()">
+                        <input type="submit" value="SUBMIT" class="btn" (click)="onDeleteVehicleToWheelBaseSubmit()">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</modal>

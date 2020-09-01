@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WF9:add-base-vehicle-Success</title>
+
+    <!-- Custom external CSS -->
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Fontawesome CSS -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <!-- jQuery library -->
+    <script src="js/jquery-1.12.3.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <link href="css/opensans-font.css" rel="stylesheet" />
+
+    <script type="text/javascript">
+
+        $(function () {
+            //Attach click event handler to your menu
+            $('.nav li').click(function () {
+                // Remove the active class from previously selected item
+                $(this).siblings().removeClass('active');
+                //Set the active class to currently selected item
+                $(this).addClass('active');
+            });
+        });
+
+    </script>
+
+</head>
+<body class="background">
+
+    <!-- Header Nav section -->
+    <header>
+        <nav role="navigation" class="navbar navbar-default headerbackground navbar-height top-nav-text">
+            <div class="navbar-header">
+                <a href="#" class="navbar-brand logo-align"><img src="images/logo-white-small.png" /></a>
+            </div>
+            <div>
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle active-header-dropdown" data-toggle="dropdown" href="#">VCDB <i class="caret"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">PCDB</a></li>
+                            <li><a href="#">QDB</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="user-header">
+                        <img src="images/person.png" class="img-circle user-logo-align" alt="User Image" id="UsrImg" style="height:16px; width: 16px;" />
+                        <a class="dropdown-toggle bottom-nav-text" data-toggle="dropdown" href="#">Shrestha.Narayan <i class="caret"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">User Account</a></li>
+                            <li><a href="#">Settings</a></li>
+                            <li><a href="#">Log Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <nav id="btmNav" role="navigation" class="navbar navbar-default headerbackground-bottom navbar-bottom-height bottom-nav-text">
+            <div class="navbar-header">
+                <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div id="navbarCollapse" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Dashboard</a></li>
+                    <li class="active"><a href="#">Vehicles</a></li>
+                    <li><a href="#">Systems</a></li>
+                    <li><a href="#">Changes</a></li>
+                    <li><a href="#">Reference Data</a></li>
+                    <li><a href="#">Downloads</a></li>
+                    <li><a href="#">Uploads</a></li>
+                </ul>
+            </div>
+        </nav>F
+    </header>
+
+    <!-- Base Vehicle Table  -->
+    <section class="container">
+        <div>
+            <div class="col-lg-6 table-titles Form-Elements">
+                <h3>Add Base Vehicle - Success</h3>
+            </div>
+        </div>
+
+        <div class="col-lg-12">
+            <div class="col-lg-12">
+                <h4 class="PreviewHeader" style="margin-left: 0px; color: #88b849; padding-left: 0px;">CHANGE REQUEST #238</h4>
+            </div>
+            <div class="col-lg-12">
+                <h4 class="PreviewHeader" style="margin-left: 0px;">Your change request includes the following rows:</h4>
+            </div>
+            <div class="table table-bordered table-responsive glowing-border">
+                <table class="table tablebottom col-lg-12 ">
+                    <thead class="tableheadercolor header-text">
+                        <tr>
+                            <th style="width: 13%;">Make Name</th>
+                            <th style="width: 13%;">Model Name</th>
+                            <th style="width: 13%;">Series Name</th>
+                            <th style="width: 13%;">Start Year</th>
+                            <th style="width: 12%;">End Year</th>
+                            <th style="width: 12%;">Make ID</th>
+                            <th style="width: 12%;">Model ID</th>
+                            <th style="width: 12%;">Series ID</th>
+                        </tr>
+                    </thead>
+                    <tbody class="tablecontentsize table-body-text">
+                        <tr class="tableicons">
+                            <td>Acura</td>
+                            <td>Integra</td>
+                            <td>09984</td>
+                            <td>2000</td>
+                            <td>2005</td>
+                            <td>17</td>
+                            <td>561</td>
+                            <td>897</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="col-lg-12">
+            <div class="col-lg-12" style="padding-left: 70%;">
+                <ul class="nav nav-pills">
+                    <li class="active active-button"><a href="#"><span class="Filters">ADD ANOTHER BASE VEHICLE</span></a></li>
+                </ul>
+            </div>
+        </div>
+        <div style="margin-bottom: 250px;"></div>
+        <div class="col-lg-12">
+            <div class="col-lg-12" style="padding-left: 70%;">
+                <ul class="nav nav-pills">
+                    <li class="active active-button"><a href="#"><span class="Filters">RETURN TO VCDB</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <div style="height: 150px;">
+
+    </div>
+
+    <footer class="col-lg-12 footersec">
+        <p><i class="fa fa-copyright"></i> 2016 AutoCare Association, so on and so forth </p>
+    </footer>
+</body>
+</html>

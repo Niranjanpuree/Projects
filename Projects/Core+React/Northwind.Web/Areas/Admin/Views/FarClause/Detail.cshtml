@@ -1,0 +1,43 @@
+﻿@model Northwind.Web.Models.ViewModels.FarClause.FarClauseViewModel
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+@{
+    var resourceVersion = @Configuration["resourceVersion"];
+    var cdnUrl = @Configuration["CDNUrl"];
+}
+<div class="row">
+    <div class="col-md-6" id="@Model.Number">
+        <div class="form-group">
+            <label class="control-label">
+                Number
+            </label>
+            <h5>
+                @Model.Number
+            </h5>
+        </div>
+    </div>
+    <div class="col-md-6" id="@Model.Title">
+        <div class="form-group">
+            <label class="control-label">
+                Title
+            </label>
+            <h5>
+                @Model.Title
+            </h5>
+        </div>
+    </div>
+    <div class="col-md-6" id="@Model.Paragraph">
+        <div class="form-group">
+            <label class="control-label">
+                Paragraph
+            </label>
+            <h5>
+                @Model.Paragraph
+            </h5>
+        </div>
+    </div>
+</div>
+<div id="farContractTypeList" className="far-contract-detail"></div>
+<script>
+    window.loadFarClause.loadFarClauseList("farContractTypeList",'@Model.FarClauseGuid','detail');
+</script>

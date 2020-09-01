@@ -1,0 +1,19 @@
+{
+  "awesomeTypescriptLoaderOptions": {
+    "useBabel": true
+  },
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "noEmitOnError": true,
+    "removeComments": false,
+    "sourceMap": true,
+    "target": "es6",
+    "outDir": "./wwwroot/js/",
+    "module": "commonjs",
+    "jsx": "react"
+  },
+  "exclude": [
+    "node_modules",
+    "wwwroot"
+  ]
+}

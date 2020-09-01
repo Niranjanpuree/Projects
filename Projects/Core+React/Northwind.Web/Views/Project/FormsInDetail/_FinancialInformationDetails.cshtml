@@ -1,0 +1,138 @@
+﻿@model Northwind.Web.Models.ViewModels.Contract.ContractViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<div class="p-4">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label asp-for="FinancialInformation.SetAside" class="control-label control-label-read"></label>
+                    <div class="form-value" id="setAside">@Html.DisplayFor(m => m.FinancialInformation.SetAsideName)</div>
+                </div>
+
+                @if (Model.FinancialInformation.SetAside == "8(a)")
+                {
+                    <div class="form-group col-md-6">
+                        <label asp-for="FinancialInformation.SelfPerformancePercent" class="control-label control-label-read"></label>
+                        <div class="form-value" id="SelfPerformance_Percent">@Html.DisplayFor(m => m.FinancialInformation.FormattedSelfPerformancePercent)</div>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label asp-for="FinancialInformation.SBA" class="control-label control-label-read"></label>
+                        <div class="form-value" id="SBA">@Html.DisplayFor(m => m.FinancialInformation.SBAString)</div>
+                    </div>
+                }
+
+                <div class="form-group col-md-6">
+                    <label asp-for="FinancialInformation.Competition" class="control-label control-label-read"></label>
+                    <div class="form-value" id="Competition">@Html.DisplayFor(m => m.FinancialInformation.CompetitionType)</div>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label asp-for="FinancialInformation.ContractType" class="control-label control-label-read"></label>
+                    <div class="form-value" id="ProjectType">@Html.DisplayFor(m => m.FinancialInformation.ContractTypeName)</div>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label asp-for="FinancialInformation.OverHead" class="control-label control-label-read"></label>
+                    <div class="form-value" id="OverHead">@Html.DisplayFor(m => m.FinancialInformation.FormattedOverHead)</div>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label asp-for="FinancialInformation.GAPercent" class="control-label control-label-read"></label>
+                    <div class="form-value" id="G_A_Percent">@Html.DisplayFor(m => m.FinancialInformation.FormattedGAPercent)</div>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label asp-for="FinancialInformation.FeePercent" class="control-label control-label-read"></label>
+                    <div class="form-value" id="Fee_Percent">@Html.DisplayFor(m => m.FinancialInformation.FormattedFeePercent)</div>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label asp-for="FinancialInformation.Currency" class="control-label control-label-read"></label>
+                    <div class="form-value" id="Currency">@Html.DisplayFor(m => m.FinancialInformation.CurrencyName)</div>
+                </div>
+
+                @*<div class="form-group col-md-6">
+            <label asp-for="FinancialInformation.BlueSkyAwardAmount"
+                   class="control-label control-label-read"></label>
+            <div class="form-value" id="BlueSkyAward_Amount">@Model.FinancialInformation.Currency @Model.FinancialInformation.FormattedBlueSkyAwardAmount</div>
+        </div>*@
+
+                <div class="form-group col-md-6">
+                    <label asp-for="FinancialInformation.AwardAmount" class="control-label control-label-read"></label><i class="k-icon k-i-info info-tooltip" title="Cumulative Amount"></i>
+                    <div class="form-value" id="AwardAmount">@Html.DisplayFor(m => m.FinancialInformation.FormattedAwardAmount)</div>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label asp-for="FinancialInformation.FundingAmount" class="control-label control-label-read"></label><i class="k-icon k-i-info info-tooltip" title="Cumulative Amount"></i>
+                    <div class="form-value" id="FundingAmount">@Html.DisplayFor(m => m.FinancialInformation.FormattedFundingAmount)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 border-left">
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label asp-for="FinancialInformation.BillingAddress" class="control-label control-label-read"></label>
+                    <div class="form-value" id="BillingAddress">@Html.DisplayFor(m => m.FinancialInformation.BillingAddress)</div>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label asp-for="FinancialInformation.BillingFrequency" class="control-label control-label-read"></label>
+                    <div class="form-value" id="BillingFrequency">@Html.DisplayFor(m => m.FinancialInformation.BillingFrequencyName)</div>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label asp-for="FinancialInformation.InvoiceSubmissionMethod"
+                           class="control-label control-label-read"></label>
+                    <div class="form-value" id="InvoiceSubmissionMethod">@Html.DisplayFor(m=>m.FinancialInformation.InvoiceSubmissionMethodName)</div>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label asp-for="FinancialInformation.PaymentTerms" class="control-label control-label-read"></label>
+                    <div class="form-value" id="PaymentTerms">@Html.DisplayFor(m => m.FinancialInformation.PaymentTermsName)</div>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label asp-for="FinancialInformation.AppWageDetermineDavisBaconAct"
+                           class="control-label control-label-read"></label>
+                    <div class="form-value" id="AppWageDetermine_DavisBaconAct">
+                        @Html.DisplayFor(m => m.FinancialInformation.AppWageDetermineDavisBaconActType)
+                        <br />
+                        @if (!string.IsNullOrWhiteSpace(Model.FinancialInformation.AppWageDetermineServiceContractActType))
+                        {
+                            @Html.DisplayFor(m => m.FinancialInformation.AppWageDetermineServiceContractActType)
+                        }
+                        </div>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label asp-for="FinancialInformation.BillingFormulaName" class="control-label control-label-read"></label>
+                    <div class="form-value" id="BillingFormula">@Html.DisplayFor(m => m.FinancialInformation.BillingFormulaName)</div>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label asp-for="FinancialInformation.RevenueFormulaName" class="control-label control-label-read"></label>
+                    <div class="form-value" id="RevenueFormula">@Html.DisplayFor(m => m.FinancialInformation.RevenueFormulaName)</div>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label asp-for="FinancialInformation.RevenueRecognitionEACPercent"
+                           class="control-label control-label-read"></label>
+                    <div class="form-value" id="RevenueRecognitionEAC_Percent">@Html.DisplayFor(m => m.FinancialInformation.RevenueRecognitionEACPercent)</div>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label asp-for="FinancialInformation.OHonsite" class="control-label control-label-read"></label>
+                    <div class="form-value" id="OHonsite">@Html.DisplayFor(m => m.FinancialInformation.OHonsite)</div>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label asp-for="FinancialInformation.OHoffsite" class="control-label control-label-read"></label>
+                    <div class="form-value" id="OHoffsite">@Html.DisplayFor(m => m.FinancialInformation.OHoffsite)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

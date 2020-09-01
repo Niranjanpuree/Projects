@@ -1,0 +1,131 @@
+﻿@model Northwind.Web.Models.ViewModels.RevenueRecognition.RevenueRecognitionViewModel
+@{
+    IDictionary<string, bool> listItems = new Dictionary<string, bool>();
+    listItems.Add(new KeyValuePair<string, bool>("Yes", true));
+    listItems.Add(new KeyValuePair<string, bool>("No", false));
+}
+@{
+    IDictionary<string, string> ListTerminationClause = new Dictionary<string, string>();
+    ListTerminationClause.Add(new KeyValuePair<string, string>("Government Standard Termination Clause", "Government Standard Termination Clause"));
+    ListTerminationClause.Add(new KeyValuePair<string, string>("Other", "Other"));
+}
+@{
+    IDictionary<string, string> ListApproach = new Dictionary<string, string>();
+    ListApproach.Add(new KeyValuePair<string, string>("Individual Contract", "Individual Contract"));
+}
+<!-- <div class="col-12"> -->
+<h4><span>Identity Contract</span></h4>
+<div class="row">
+    <div class="col-md-12 form-group">
+        <label asp-for="IdentityContract" class="control-label  requiredAstreicks">Enforceable agreement executed and evidenced by:</label>
+        <select asp-for="IdentityContract" id="IdentityContract" class="form-control" required>
+            <option value="">--Select--</option>
+            @foreach (var item in Model.IdentifyContract)
+            {
+                <option value="@item.Key">@item.Value</option>
+            }
+        </select>
+        <span asp-validation-for="IdentityContract" class="text-danger"></span>
+    </div>
+    <div class="col-md-12 form-group">
+        <label asp-for="IsTerminationClauseGovernmentStandard" class="control-label  fontbold">Termination Clause's:</label>
+        <div class="form-check pl-0">
+            @foreach (var item in ListTerminationClause)
+            {
+                <div class="form-check form-check-inline">
+                    <input asp-for="IsTerminationClauseGovernmentStandard" type="radio"
+                           value="@item.Value"
+                           class="k-radio custom-checkbox IsTerminationClauseGovernmentStandard"
+                           id="IsTerminationClauseGovernmentStandard-@item.Value" />
+                    <label class="k-radio-label"
+                           for="IsTerminationClauseGovernmentStandard-@item.Value">
+                        @item.Key
+                    </label>
+                </div>
+            }
+            <div class="text-muted">
+                <small>
+                    Termination Clause's including early termination fees - Standard in government contracts.
+                </small>
+            </div>
+        </div>
+        <span asp-validation-for="IsTerminationClauseGovernmentStandard" class="text-danger"></span>
+
+    </div>
+    <div class="col-md-12 form-group" id="idHideTermianlClause">
+        <label asp-for="IdentifyTerminationClause" class="control-label">Identify Termination Clause:</label>
+        <textarea asp-for="IdentifyTerminationClause" class="form-control">@Model.IdentifyTerminationClause</textarea>
+        <span asp-validation-for="IdentifyTerminationClause" class="text-danger"></span>
+        <div class="text-muted">
+            <small>
+                Does the contract provide unilateral termination for convenience or other early termination rights for our client? If yes, are these the standard US Government Termination for Convenience Provisions – FAR Part 49, Termination of Contracts. If such early termination rights are not the standard terms contained within FAR Part 49,
+                then please briefly describe such early termination provisions.
+            </small>
+        </div>
+    </div>
+    
+    <div class="col-md-12 form-group">
+        <label asp-for="IsContractTermExpansion" class="control-label  fontbold"> Contract term extension/option?</label>
+        <div class="form-check pl-0">
+            @foreach (var item in listItems)
+            {
+                <div class="form-check form-check-inline">
+                    <input asp-for="IsContractTermExpansion" type="radio" value="@item.Value"
+                           class="k-radio custom-checkbox IsContractTermExpansion"
+                           id="IsContractTermExpansion-@item.Value" />
+                    <label class="k-radio-label" for="IsContractTermExpansion-@item.Value">
+                        @item.Key
+                    </label>
+                </div>
+            }
+        </div>
+        <span asp-validation-for="IsContractTermExpansion" class="text-danger"></span>
+    </div>
+    <div id="idHideExtensionPeriod" class="col-12">
+        <div class="row form-group no-gutters">
+            <table class="col-md-6 extensiondate">
+                <tbody id="tbodySyllabus" class="row">
+                    @for (int i = 0; i < Model.ListContractExtension.Count; i++)
+                    {
+                        <tr data-i="@i" class="w-100 d-flex mb-3">
+                            <td class="idhideCheckbox">
+                                <input type="hidden" asp-for="ListContractExtension[i].ContractExtensionGuid" class="form-control hiddenclass" />
+                                <input type="checkbox" name="record" class="child_Checkbox k-checkbox" id="@("ContractExtensionGuid"+i)" />
+                                <label class="k-checkbox-label" for="@("ContractExtensionGuid"+i)"></label>
+                            </td>
+                            <td class="w-100">
+                                <label asp-for="ListContractExtension[i].ExtensionDate" class="control-label requiredAstreicks">Contract term extension/renewal period dates:</label>
+                                <input asp-for="ListContractExtension[i].ExtensionDate" class="form-control customdatepickers" required />
+                                <span asp-validation-for="ListContractExtension[i].ExtensionDate" class="text-danger"></span>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+        <div class="row justify-content-center">
+            <button type="button" class="btn btn-icon btn-outline-primary" id="idAddExtensionPeriod" data-toggle="tooltip" data-placement="top" title="Add another Contract term extension/renewal period dates"><i class="k-icon k-i-plus-circle"></i>Contact Term</button>
+            <button type="button" class="btn btn-icon btn-outline-danger ml-2 idhideCheckbox" id="idDeleteExtensionPeriod"><i class="k-icon k-i-delete"></i>Contract Term</button>
+        </div>
+        <div class="row">
+            <div class="col-md-4 form-group">
+                <label asp-for="Approach" class="control-label requiredAstreicks">Approach:</label>
+                <select asp-for="Approach" id="IdentityContract" class="form-control" required>
+                    <option value="">--Select--</option>
+                    @foreach (var item in ListApproach)
+                    {
+                        <option value="@item.Key">@item.Value</option>
+                    }
+                </select>
+                <span asp-validation-for="Approach" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 form-group">
+        <label asp-for="Step1Note" class="control-label"> Step 1 Notes:</label>
+        <textarea class="form-control" asp-for="Step1Note">@Model.Step1Note</textarea>
+        <span asp-validation-for="Step1Note" class="text-danger"></span>
+    </div>
+</div>
+<!-- </div> -->

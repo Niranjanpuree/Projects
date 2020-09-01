@@ -1,0 +1,331 @@
+﻿<loading-gif [show]="showLoadingGif"></loading-gif>
+<div class="drawer-left">
+    <span></span>
+    <div>
+        <main class="clearfix">
+            <div>
+                <div class="add-form">
+                    <h2>
+                        Filters
+                        <a class="btn larger" (click)="clearAllFacets()">CLEAR</a>
+                        <a class="btn icon search larger" (click)="searchVehicleToBodyStyleConfigs()">SEARCH BODY SYSTEMS</a>
+                    </h2>
+
+                    <div class="clearfix">
+                        <div class="input-blocks clearfix">
+
+                            <div style="width: 215px;">
+                                <div style="margin-top: 10px;">
+                                    <strong class="float-left">Regions</strong>
+                                    <a class="float-right" (click)="clearFacet(vehicleToBodyStyleConfigSearchViewModel.facets.regions)" style="text-decoration:underline; cursor:pointer;">Clear</a>
+                                    <div class="clearfix"></div>
+                                    <div class="filter-search">
+                                        <input type="text" class="cinput" placeholder="Search Regions" (input)="filterRegions($event)" />
+                                        <input type="submit" value="">
+                                    </div>
+
+                                    <div class="clearfix"></div>
+
+                                    <div class="checkbox-wrap after-search" style="overflow: auto; height: 160px;">
+                                        <ul>
+                                            <li *ngFor="let region of regionFacet">
+                                                <label class="control control--checkbox green-checkbox">
+                                                    <input type="checkbox" [value]="region.name" [(ngModel)]="region.isSelected" (change)="onItemSelected($event, vehicleToBodyStyleConfigSearchViewModel.facets.regions)">
+                                                    <div class="control__indicator"></div>
+                                                    <span>{{region.name}}</span>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div style="margin-top: 20px;">
+                                    <strong>Years</strong>
+
+                                    <div class="select white-select" style="width: 100px;">
+                                        <select [(ngModel)]="selectedStartYear" (ngModelChange)="onYearSelected()">
+                                            <option value="0">--From--</option>
+                                            <option *ngFor="let year of startYearFacet" [value]="year">{{year}}</option>
+                                        </select>
+                                        <div class="select__arrow white-select__arrow"></div>
+                                    </div>
+                                    <span class="fa fa-caret-right"></span><!--pushkar-->
+                                    <div class="select white-select" style="width: 100px;">
+                                        <select [(ngModel)]="selectedEndYear" (ngModelChange)="onYearSelected()">
+                                            <option value="0">--To--</option>
+                                            <option *ngFor="let year of endYearFacet" [value]="year">{{year}}</option>
+                                        </select>
+                                        <div class="select__arrow white-select__arrow"></div>
+                                    </div>
+                                </div>
+                                <div style="margin-top: 20px;">
+                                    <strong class="float-left">Submodels</strong>
+                                    <a class="float-right" (click)="clearFacet(vehicleToBodyStyleConfigSearchViewModel.facets.subModels, false)" style="text-decoration:underline; cursor:pointer;">Clear</a>
+                                    <div class="clearfix"></div>
+                                    <div class="filter-search">
+                                        <input type="text" class="cinput" placeholder="Search Submodels" (input)="filterSubModels($event)" />
+                                        <input type="submit" value="">
+                                    </div>
+
+                                    <div class="clearfix"></div>
+
+                                    <div class="checkbox-wrap after-search" style="overflow: auto; height: 160px;">
+                                        <ul>
+                                            <li *ngFor="let subModel of subModelFacet">
+                                                <label class="control control--checkbox green-checkbox">
+                                                    <input type="checkbox" [value]="subModel.name" [(ngModel)]="subModel.isSelected">
+                                                    <div class="control__indicator"></div>
+                                                    <span>{{subModel.name}}</span>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="width: 215px;">
+
+                                <div style="margin-top: 10px;">
+                                    <strong class="float-left">Vehicle Type Groups</strong>
+                                    <a class="float-right" (click)="clearFacet(vehicleToBodyStyleConfigSearchViewModel.facets.vehicleTypeGroups)" style="text-decoration:underline; cursor:pointer;">Clear</a>
+                                    <div class="clearfix"></div>
+                                    <div class="filter-search">
+                                        <input type="text" class="cinput" placeholder="Search Vehicle Type Groups" (input)="filterVehicleTypeGroups($event)" />
+                                        <input type="submit" value="">
+                                    </div>
+
+                                    <div class="clearfix"></div>
+
+                                    <div class="checkbox-wrap after-search" style="overflow: auto; height: 160px;">
+                                        <ul>
+                                            <li *ngFor="let item of vehicleTypeGroupFacet">
+                                                <label class="control control--checkbox green-checkbox">
+                                                    <input type="checkbox" [value]="item.name" [(ngModel)]="item.isSelected" (change)="onItemSelected($event, vehicleToBodyStyleConfigSearchViewModel.facets.vehicleTypeGroups)">
+                                                    <div class="control__indicator"></div>
+                                                    <span>{{item.name}}</span>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div style="margin-top: 20px;">
+                                    <strong class="float-left">Makes</strong>
+                                    <a class="float-right" (click)="clearFacet(vehicleToBodyStyleConfigSearchViewModel.facets.makes)" style="text-decoration:underline; cursor:pointer;">Clear</a>
+                                    <div class="clearfix"></div>
+                                    <div class="filter-search">
+                                        <input type="text" class="cinput" placeholder="Search Makes" (input)="filterMakes($event)" />
+                                        <input type="submit" value="">
+                                    </div>
+
+                                    <div class="clearfix"></div>
+
+                                    <div class="checkbox-wrap after-search" style="overflow: auto; height: 160px;">
+                                        <ul>
+                                            <li *ngFor="let make of makeFacet">
+                                                <label class="control control--checkbox green-checkbox">
+                                                    <input type="checkbox" [value]="make.name" [(ngModel)]="make.isSelected" (change)="onItemSelected($event, vehicleToBodyStyleConfigSearchViewModel.facets.makes)">
+                                                    <div class="control__indicator"></div>
+                                                    <span>{{make.name}}</span>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="width: 215px;">
+                                <div style="margin-top: 10px;">
+                                    <strong class="float-left">Vehicle Types</strong>
+                                    <a class="float-right" (click)="clearFacet(vehicleToBodyStyleConfigSearchViewModel.facets.vehicleTypes)" style="text-decoration:underline; cursor:pointer;">Clear</a>
+                                    <div class="clearfix"></div>
+                                    <div class="filter-search">
+                                        <input type="text" class="cinput" placeholder="Search Vehicle Types" (input)="filterVehicleTypes($event)" />
+                                        <input type="submit" value="">
+                                    </div>
+
+                                    <div class="clearfix"></div>
+
+                                    <div class="checkbox-wrap after-search" style="overflow: auto; height: 160px;">
+                                        <ul>
+                                            <li *ngFor="let item of vehicleTypeFacet">
+                                                <label class="control control--checkbox green-checkbox">
+                                                    <input type="checkbox" [value]="item.name" [(ngModel)]="item.isSelected" (change)="onItemSelected($event, vehicleToBodyStyleConfigSearchViewModel.facets.vehicleTypes)">
+                                                    <div class="control__indicator"></div>
+                                                    <span>{{item.name}}</span>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div style="margin-top: 20px;">
+                                    <strong class="float-left">Models</strong>
+                                    <a class="float-right" (click)="clearFacet(vehicleToBodyStyleConfigSearchViewModel.facets.models)" style="text-decoration:underline; cursor:pointer;">Clear</a>
+                                    <div class="clearfix"></div>
+                                    <div class="filter-search">
+                                        <input type="text" class="cinput" placeholder="Search Models" (input)="filterModels($event)" />
+                                        <input type="submit" value="">
+                                    </div>
+
+                                    <div class="clearfix"></div>
+
+                                    <div class="checkbox-wrap after-search" style="overflow: auto; height: 160px;">
+                                        <ul>
+                                            <li *ngFor="let model of modelFacet">
+                                                <label class="control control--checkbox green-checkbox">
+                                                    <input type="checkbox" [value]="model.name" [(ngModel)]="model.isSelected" (change)="onItemSelected($event, vehicleToBodyStyleConfigSearchViewModel.facets.models)">
+                                                    <div class="control__indicator"></div>
+                                                    <span>{{model.name}}</span>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </main>
+    </div>
+    <!-- Left split screen end -->
+</div>
+<!-- Right split screen start -->
+<!-- Breadcrumb start -->
+<div class="breadcrumb">
+    <div class="center">
+        <a routerLink="/system/search" class="back">Return to body system search</a>
+    </div>
+</div>
+<!-- Breadcrumb end -->
+<div id="main">
+    <!-- Main start -->
+    <main class="clearfix">
+        <div class="center">
+            <!-- Existing Body systems start -->
+            <div class="table-wrap">
+                <h2 class="clearfix">
+                    Existing Body Systems
+                </h2>
+                <div class="ctable">
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>Body Style Config ID</td>
+                                <td>Body Number Door (ID)</td>
+                                <td>Body Type (ID)</td>
+                            </tr>
+                        </thead>
+                        <tbody *ngIf="existingBodyStyleConfig">
+                            <tr>
+                                <td>{{existingBodyStyleConfig.id}}</td>
+                                <td>{{existingBodyStyleConfig.numDoors}} ({{existingBodyStyleConfig.bodyNumDoorsId}})</td>
+                                <td>{{existingBodyStyleConfig.bodyTypeName}} ({{existingBodyStyleConfig.bodyTypeId}})</td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Modify body system form start -->
+            <div class="add-form">
+                <h2>
+                    Select Replacement Body System
+                    <div class="filter-search" style="float:right;">
+                        <input type="text" class="cinput" [(ngModel)]="bodyStyleConfigIdSearchText" (keypress)="onBodyStyleConfigIdKeyPress($event)" placeholder="Body System Search">
+                        <input type="submit" value="" (click)="onBodyStyleConfigIdSearch()">
+                    </div>
+                </h2>
+                <div class="clearfix">
+                    <div class="input-blocks clearfix">
+                        <div style="width:100px">
+                            <strong>Body Style Config ID</strong>
+                            <div class="select white-select" style="width: 220px;">
+                                <label *ngIf="!replaceBodyStyleConfig || replaceBodyStyleConfig.id <= 0">N/A</label>
+                                <label *ngIf="replaceBodyStyleConfig && replaceBodyStyleConfig.id > 0">{{replaceBodyStyleConfig.id}}</label>
+                            </div>
+                        </div>
+                        <div>
+                            <strong>Body Number Door (ID)</strong>
+
+                            <div class="select white-select" style="width: 220px;">
+                                <select [disabled]="!bodyNumDoors || bodyNumDoors.length==0" [(ngModel)]="replaceBodyStyleConfig.bodyNumDoorsId" (ngModelChange)="onChangeBodyNumDoors(replaceBodyStyleConfig.bodyNumDoorsId)">
+                                    <option value="-1" *ngIf="!bodyNumDoors">Loading...</option>
+                                    <option value="-1" *ngIf="bodyNumDoors">--Select Body Number Doors--</option>
+                                    <option *ngFor="let item of bodyNumDoors" [value]="item.id">{{item.numDoors}} ({{item.id}})</option>
+                                </select>
+                                <div class="select__arrow white-select__arrow"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <strong>Body Type (ID)</strong>
+
+                            <div class="select white-select" style="width: 220px;">
+                                <select [disabled]="!bodyTypes || bodyTypes.length==0" [(ngModel)]="replaceBodyStyleConfig.bodyTypeId" (ngModelChange)="onChangeBodyType(replaceBodyStyleConfig.bodyTypeId,replaceBodyStyleConfig.bodyNumDoorsId)">
+                                    <option value="-1" *ngIf="!bodyTypes">Loading...</option>
+                                    <option value="-1" *ngIf="bodyTypes">--Select Body Type--</option>
+                                    <option *ngFor="let item of bodyTypes" [value]="item.id">{{item.name}} ({{item.id}})</option>
+                                </select>
+                                <div class="select__arrow white-select__arrow"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div>
+                    <input type="submit" value="VIEW AFFECTED ASSOCIATIONS" class="btn blue larger" (click)="onViewAffectedAssociations()">
+                </div>
+            </div>
+            <!-- Select associations for replacement start -->
+            <div class="table-wrap">
+                <h2 class="clearfix" *ngIf="existingBodyStyleConfig && existingBodyStyleConfig.vehicleToBodyStyleConfigs">
+                    Select Associations for Replacement
+                </h2>
+                <div class="ctable" *ngIf="existingBodyStyleConfig && existingBodyStyleConfig.vehicleToBodyStyleConfigs">
+                    <ac-grid #vehicleToBodyStyleConfigGrid [dataSource]="existingBodyStyleConfig.vehicleToBodyStyleConfigs" #gd="acGrid"
+                              columns='[
+                 { "header":" ", "selectable": {"selected": false}},
+                 { "header":"Vehicle to Body Style Config ID","field":"id","sortable":false,"sortedByDesc":true},
+                 { "header":"Body Style Config ID","field":"bodyStyleConfigId","sortable":false,"sortedByDesc":true},
+                 { "header":"Base Vehicle (Year, Make, Model)","field":"vehicle.yearId","sortable":true},
+                 { "header":"Vehicle (Submodel, Region)","field":"vehicle.subModelName","sortable":true},
+                 { "header":"Body Number Door(ID)","field":"bodyStyleConfig.numDoors","sortable":true},
+                 { "header":"Body Type (ID)", "field":"bodyStyleConfig.bodyTypeName", "sortable":true}
+                 ]'
+                             initialSortBy='[{"field": "id", "orderByDesc": true}]'
+                             paging='{"pageSize": 10, "numberOfPagesOnPageList" : 10}'
+                             (selectAllChangedEvent)="onSelectAllVehicleToBodyStyleConfig($event)" [selectAllChecked]="isSelectAllVehicleToBodyStyleConfig"
+                             [thresholdRecordCount]="thresholdRecordCount">
+                        <tr *ngFor="let vechicleToBodyStyleConfig of gd.items">
+                            <td>
+                                <label class="control control--checkbox green-checkbox">
+                                    <input type="checkbox" [(ngModel)]="vechicleToBodyStyleConfig.isSelected" (change)="onVehicleToBodyStyleConfigSelected(vechicleToBodyStyleConfig)" />
+                                    <div class="control__indicator"></div>
+                                </label>
+                            </td>
+	                        <td>{{vechicleToBodyStyleConfig.id}}</td>
+                            <td>{{vechicleToBodyStyleConfig.bodyStyleConfigId}}</td>
+                            <td>{{vechicleToBodyStyleConfig.vehicle.yearId}}, {{vechicleToBodyStyleConfig.vehicle.makeName}}, {{vechicleToBodyStyleConfig.vehicle.modelName}}</td>
+	                        <td>{{vechicleToBodyStyleConfig.vehicle.subModelName}}, {{vechicleToBodyStyleConfig.vehicle.regionName}}</td>
+                            <td>{{vechicleToBodyStyleConfig.bodyStyleConfig.numDoors}} ({{vechicleToBodyStyleConfig.bodyStyleConfig.bodyNumDoorsId}})</td>
+                            <td>{{vechicleToBodyStyleConfig.bodyStyleConfig.bodyTypeName}} ({{vechicleToBodyStyleConfig.bodyStyleConfig.bodyTypeId}})</td>
+
+                        </tr>
+                    </ac-grid>
+                </div>
+
+
+                <!-- Submit and cancel button start -->
+                <div class="btns">
+                    <input type="submit" value="CONTINUE" class="btn  larger" (click)="onContinue()">
+                    <input type="reset" value="CANCEL" class="btn larger transparent" routerLink="/system/search">
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+    <!-- Main end -->
+</div>

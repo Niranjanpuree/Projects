@@ -1,0 +1,236 @@
+﻿<loading-gif [show]="showLoadingGif"></loading-gif>
+<user-likes-comp #likeComponent></user-likes-comp>
+<!-- Main start -->
+<main class="clearfix">
+
+    <div class="center" *ngIf="bedConfigChangeRequest">
+
+        <!-- Breadcrumb start -->
+        <div class="breadcrumb">
+            <a class="back" routerLink={{backNavigation}}>{{backNavigationText}}</a>
+        </div>
+        <!-- Breadcrumb end -->
+    <h2 class="foldable clearfix">
+        <span *ngIf="bedConfigChangeRequest.stagingItem.changeType == 'Add'">New</span>
+        <span *ngIf="bedConfigChangeRequest.stagingItem.changeType == 'Modify'">Modify</span>
+        <span *ngIf="bedConfigChangeRequest.stagingItem.changeType == 'Delete'">Remove</span>
+        <span *ngIf="bedConfigChangeRequest.stagingItem.changeType == 'Replace'">Replace</span>
+        Bed Config Request
+        <span class="float-right" *ngIf="bedConfigChangeRequest.canDelete">
+                <input type="submit" value="DELETE" class="btn orange" (click)="onSubmitReview('delete')">
+            </span>
+    </h2>
+        <br />
+
+        <strong>Change Request Id: {{bedConfigChangeRequest.stagingItem.changeRequestId}}</strong>
+        <div class="table-wrap" *ngIf="bedConfigChangeRequest.stagingItem.changeType == 'Modify' || bedConfigChangeRequest.stagingItem.changeType == 'Replace'">
+            <h2 class="sfont" >
+                Existing Bed System
+            </h2>
+            <div class="ctable">
+                <table>
+                    <thead>
+                        <tr>
+                            <td *ngIf="bedConfigChangeRequest.entityStaging.id > 0">Bed Config Id</td>
+                            <td>Bed Length (ID)</td>
+                            <td>Bed Type (ID)</td>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="bedConfigChangeRequest.entityCurrent">
+                        <tr>
+                            <td>{{bedConfigChangeRequest.entityCurrent.id}}</td>
+                            <td>{{bedConfigChangeRequest.entityCurrent.length}}({{bedConfigChangeRequest.entityCurrent.bedLengthId}})</td>
+                            <td>{{bedConfigChangeRequest.entityCurrent.bedTypeName}}({{bedConfigChangeRequest.entityCurrent.bedTypeId}})</td>
+                            
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="table-wrap">
+            <h2 class="sfont" *ngIf="bedConfigChangeRequest.stagingItem.changeType == 'Modify'">
+                Proposed Bed System
+            </h2>
+            <h2 class="sfont" *ngIf="bedConfigChangeRequest.stagingItem.changeType == 'Replace'">
+                Replacement Bed System
+            </h2>
+            <div class="ctable">
+                <table>
+                    <thead>
+                        <tr>
+                            <td *ngIf="bedConfigChangeRequest.entityStaging.id > 0">Bed Config Id</td>
+                            <td>Bed Length (ID)</td>
+                            <td>Bed Type (ID)</td>
+                        </tr>
+                    </thead>
+                    
+                    <tbody *ngIf="bedConfigChangeRequest.entityStaging">
+                        <tr>
+                            <td *ngIf="bedConfigChangeRequest.entityStaging.id > 0">{{bedConfigChangeRequest.entityStaging.id}}</td>
+                            <td>{{bedConfigChangeRequest.entityStaging.length}}({{bedConfigChangeRequest.entityStaging.bedLengthId}})</td>
+                            <td>{{bedConfigChangeRequest.entityStaging.bedTypeName}}({{bedConfigChangeRequest.entityStaging.bedTypeId}})</td>
+                            
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="table-wrap" *ngIf="bedConfigChangeRequest.stagingItem.changeType == 'Replace'">
+            <h2 class="sfont">
+                Affected Associations
+            </h2>
+            <div class="ctable">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Vehicle<br>to Bed Config ID</td>
+                            <td>Base Vehicle<br>(Make, Model)</td>
+                            <td>Vehicle<br>(Submodel, Region)</td>
+                            <td>Bed Length (ID)</td>
+                            <td>Bed Type (ID)</td>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="bedConfigChangeRequest && bedConfigChangeRequest.replacementVehicleToBedConfigs">
+                        <tr *ngFor="let vechicleToBedConfig of bedConfigChangeRequest.replacementVehicleToBedConfigs">
+                            <td>{{vechicleToBedConfig.id}}</td>
+                            <td>{{vechicleToBedConfig.vehicle.makeName}}, {{vechicleToBedConfig.vehicle.modelName}}</td>
+                            <td>{{vechicleToBedConfig.vehicle.subModelName}}, {{vechicleToBedConfig.vehicle.regionName}}</td>
+                            <td>{{vechicleToBedConfig.bedConfig.length}} ({{vechicleToBedConfig.bedConfig.bedLengthId}})</td>
+                            <td>{{vechicleToBedConfig.bedConfig.bedTypeName}} ({{vechicleToBedConfig.bedConfig.bedTypeId}})</td>
+                            
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!--  -->
+        <div class="twocol-equal clearfix">
+            <div class="margin-t-20px">
+                <div class="warning-wrap" *ngIf="bedConfigChangeRequest.stagingItem.changeType == 'Modify'">
+                    <div>
+                        <strong>Associated records will be impacted</strong>
+                        <span>{{ bedConfigChangeRequest.entityStaging.vehicleToBedConfigCount }} vehicle to bed configurations</span>
+                    </div>
+                </div>
+                <p>
+                    <strong>Submitted by</strong><br>
+                    {{bedConfigChangeRequest.stagingItem.submittedBy}}, {{bedConfigChangeRequest.stagingItem.createdDateTime | date: "MMMM dd,yyyy"}}
+                </p>
+
+                <p *ngIf="bedConfigChangeRequest.canLike">
+                    <span *ngIf="!bedConfigChangeRequest.isCompleted">
+                        <input type="button" (click)="onLikeClick('Like')" [disabled]="isLiked" class="btn icon thumb-up" value="Like"> &nbsp;&nbsp;&nbsp; {{likeStagingGet.likeCount}} likes
+                    </span>
+                </p>
+
+                <p *ngIf="!bedConfigChangeRequest.canLike &&(!bedConfigChangeRequest.canFinal|| likeStagingGet.likeCount == 0)">
+                    <span class="icon-text thumb-up">{{likeStagingGet.likeCount}} likes</span>
+                </p>
+                <p *ngIf="bedConfigChangeRequest.canFinal && likeStagingGet.likeCount > 0">
+                    <span class="icon-text thumb-up"> <a class="pointer" (click)="onClickLikes(bedConfigChangeRequest.stagingItem.changeRequestId)"> {{likeStagingGet.likeCount}} likes </a></span>
+                </p>
+
+
+                <p>
+                    <strong>Attachments</strong><br>
+                    <ac-fileuploader [existing-files]="bedConfigChangeRequest.attachments"
+                                     upload-api-path="file/savechunk" [can-attach]="false" #existingAcFileUploader></ac-fileuploader>
+                </p>
+                <div class="add-form">
+                    <div class="input-blocks">
+                        <div>
+                            <strong>Assigned reviewer</strong>
+                            <div class="select white-select">
+                                <select [(ngModel)]="assignedReviewer.assignedToUserId " [disabled]="bedConfigChangeRequest.isCompleted||!bedConfigChangeRequest.canAssign" (ngModelChange)="onReviewerChange()">
+                                    <option value="-1" *ngIf="usersForAssignment">Me</option>
+                                    <option *ngFor="let user of usersForAssignment" [value]="user.id">
+                                        {{user.user}}
+                                    </option>
+                                </select>
+                                <div class="select__arrow white-select__arrow"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <strong>Current status</strong>
+                            {{bedConfigChangeRequest.stagingItem.status}}
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        <div *ngIf="bedConfigChangeRequest.canReview">
+                            <strong>Your review</strong>
+                            <div *ngIf="!bedConfigChangeRequest.canFinal == true">
+                                <!-- note: for reviewer, approve .equals preliminary approve. -->
+                                <div class="custom-radio yes-no">
+                                    <label class="yes left">
+                                        <input type="radio" name="radio" (change)="onChange('PreliminaryApprove')" [checked]="isPreliminaryApproveChecked">
+                                        <small></small>
+                                        <span class="bg"></span>
+                                        <ins>APPROVE</ins>
+                                    </label>
+
+                                    <label class="no right">
+                                        <input type="radio" name="radio" (change)="onChange('Reject')" [checked]="isRejectChecked">
+                                        <small></small>
+                                        <span class="bg"></span>
+                                        <ins>REJECT</ins>
+                                    </label>
+
+                                </div>
+                            </div>
+                            <!-- todo: admin final/ prelim/ reject -->
+                            <div *ngIf="bedConfigChangeRequest.canFinal">
+                                <div class="custom-radio">
+                                    <label class="left">
+                                        <input type="radio" name="radio" (change)="onChange('Approve')" [checked]="isApproveChecked">
+                                        <small></small>
+                                        <span class="bg"></span>
+                                        <ins>FINAL</ins>
+                                    </label>
+                                    <label *ngIf="showPrelimRadio">
+                                        <input type="radio" name="radio" (change)="onChange('PreliminaryApprove')" [checked]="isPreliminaryApproveChecked">
+                                        <small></small>
+                                        <span class="bg"></span>
+                                        <ins>PRELIM</ins>
+                                    </label>
+                                    <label class="no right">
+                                        <input type="radio" name="radio" (change)="onChange('Reject')" [checked]="isRejectChecked">
+                                        <small></small>
+                                        <span class="bg"></span>
+                                        <ins>REJECT</ins>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="submit-wrap" *ngIf="bedConfigChangeRequest.canSubmit">
+                        <input type="submit" value="SUBMIT" class="btn" (click)="onSubmitReview()">
+                        <input type="reset" value="CANCEL" class="btn transparent" (click)="onCancel()">
+                    </div>
+                </div>
+
+            </div>
+
+            <div>
+                <div class="comment-box">
+                    <reviewer-comments-comp [comments]="bedConfigChangeRequest.comments"></reviewer-comments-comp>
+                </div>
+
+                <div class="attach-wrap" *ngIf="bedConfigChangeRequest.canSubmit">
+                    <strong>OPTIONAL</strong>
+                    <ac-fileuploader upload-api-path="file/savechunk" #newAcFileUploader can-attach="bedConfigChangeRequest.canAttach"></ac-fileuploader>
+                    <small>Include comments</small>
+                    <textarea cols="50" rows="5" [(ngModel)]="reviewComment.comment"></textarea>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+<!-- Main end -->

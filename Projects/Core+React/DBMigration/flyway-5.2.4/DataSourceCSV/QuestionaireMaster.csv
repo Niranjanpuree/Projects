@@ -1,0 +1,58 @@
+QuestionaireMasterGuid,ParentMasterGuid,Questions,OrderNumber,QuestionaireManagerTypeGuid,IsActive,ResourceType,QuestionType,MultiSelectOption,Id,Class,ChildClass,ChildId
+EC7A7994-C230-4717-B47A-04D0A982D44D,,"All reviews, walkthroughs, and inspections completed",,E0617516-A967-4470-813A-2F01A6DFB611,1,CONTRACTCLOSEOUT,,,,,,
+4774E7AF-BF5B-4FD2-90E3-06891F62EB6D,,Clear outstanding commitments in Purchasing System,,8583FF86-0ED7-4B3E-AD3F-958C5901BFAB,1,CONTRACTCLOSEOUT,,,,,,
+022DDCA8-C3E7-4E84-90DA-0B4C74FF100E,EC7A7994-C230-4717-B47A-04D0A982D44D,All equipment properly decontaminated,,E0617516-A967-4470-813A-2F01A6DFB611,1,CONTRACTCLOSEOUT,,,,,,
+EE71B36A-27E6-4364-BC95-0BB606864DD1,,"Verify with Tax Accountant that all project taxes are posted (e.g. B&O, NMGRT, etc)",,8583FF86-0ED7-4B3E-AD3F-958C5901BFAB,1,CONTRACTCLOSEOUT,,,,,,
+16997BE1-F46D-4A4E-A76E-1448AAA211F9,50D6E578-F3E7-4A99-BF64-1B4B597249D0,Marketing write-up / project description completed and submitted to Business Development,,E0617516-A967-4470-813A-2F01A6DFB611,1,CONTRACTCLOSEOUT,,,,,,
+50D6E578-F3E7-4A99-BF64-1B4B597249D0,,"Has useful Customer Feedback (including complaints) been obtained to help improvement with customer and future projects (Utilizing Customer Assessment forms PMF-104, Project Performance Evaluation and PMF-105, Employee Performance Evaluation)",,E0617516-A967-4470-813A-2F01A6DFB611,1,CONTRACTCLOSEOUT,,,,,,
+D91A8845-9C3E-41B0-9D60-1BB487A0236A,,All contract change orders resolved,,E0617516-A967-4470-813A-2F01A6DFB611,1,CONTRACTCLOSEOUT,,,,,,
+13DA412C-36F7-46A0-9C76-1E8443AFCCDF,50D6E578-F3E7-4A99-BF64-1B4B597249D0,Lessons learned from the project are documented and communicated,,E0617516-A967-4470-813A-2F01A6DFB611,1,CONTRACTCLOSEOUT,,,,,,
+E7648043-B153-462D-9A4E-1EEC92B2AAA2,EC7A7994-C230-4717-B47A-04D0A982D44D,A signed acceptance letter by the client is in project file,,E0617516-A967-4470-813A-2F01A6DFB611,1,CONTRACTCLOSEOUT,,,,,,
+F271D38C-B1D9-4C47-A818-214C37E2A51A,,Final Subcontractor Release and Waivers have been received from each subcontractor (e.g. Release of Claims),,97DCBC0C-6963-49B3-8EA4-8C368677508D,1,CONTRACTCLOSEOUT,,,,,,
+FE48788D-2F32-41FB-9252-25FFABCDE9D2,,"Verify that the project is officially ""CLOSED"" in the accounting system",,8583FF86-0ED7-4B3E-AD3F-958C5901BFAB,1,CONTRACTCLOSEOUT,,,,,,
+ED13249A-2C13-4647-824C-3CD0B7871D42,829CFD35-893F-4B9A-8B25-D29C1E41FBB0,All functions / systems thoroughly tested,,E0617516-A967-4470-813A-2F01A6DFB611,1,CONTRACTCLOSEOUT,,,,,,
+C3A4F906-6A7D-4A00-93BE-3F404DBD676A,50D6E578-F3E7-4A99-BF64-1B4B597249D0,Staff released or reassigned,,E0617516-A967-4470-813A-2F01A6DFB611,1,CONTRACTCLOSEOUT,,,,,,
+956F52FC-BD9E-49AE-8481-4267B42F05F6,EC7A7994-C230-4717-B47A-04D0A982D44D,"Documentation package, including operating instructions and owner manuals, turned over to the client",,E0617516-A967-4470-813A-2F01A6DFB611,1,CONTRACTCLOSEOUT,,,,,,
+01F1CEB9-CA32-4615-9C4A-5D1F3BCAD69F,EC7A7994-C230-4717-B47A-04D0A982D44D,All hazardous materials and samples properly disposed of and/or regulated,,E0617516-A967-4470-813A-2F01A6DFB611,1,CONTRACTCLOSEOUT,,,,,,
+8BF75A52-B26F-4AE8-BF6B-66BA6F6DD220,EC7A7994-C230-4717-B47A-04D0A982D44D,Access to client applications disabled or modified,,E0617516-A967-4470-813A-2F01A6DFB611,1,CONTRACTCLOSEOUT,,,,,,
+C0699FC0-46C0-4088-A07B-6783A048097B,,Have all source files been obtained for all deliverables,,E0617516-A967-4470-813A-2F01A6DFB611,1,CONTRACTCLOSEOUT,,,,,,
+043C5DCA-A13A-4208-AEED-6FE77073621D,EC7A7994-C230-4717-B47A-04D0A982D44D,Client training performed as required by the contract,,E0617516-A967-4470-813A-2F01A6DFB611,1,CONTRACTCLOSEOUT,,,,,,
+5FEF2963-B504-4F2A-B4EF-81DC5F8D6423,EC7A7994-C230-4717-B47A-04D0A982D44D,All security badges secured / returned,,E0617516-A967-4470-813A-2F01A6DFB611,1,CONTRACTCLOSEOUT,,,,,,
+11357DB6-CBED-4DEA-B4ED-8ED547D0DBF6,,Funded/Obligated Amount Greater then $100K ?,1,E0617516-A967-4470-813A-2F01A6DFB611,1,CONTRACTCLOSEOUT,,,,,,
+387B2F93-09C1-49F3-8D38-92E2062A6546,,Verify that client’s final payment has been received,,8583FF86-0ED7-4B3E-AD3F-958C5901BFAB,1,CONTRACTCLOSEOUT,,,,,,
+322CB661-B52B-40C2-A7EB-966264E0E4BB,829CFD35-893F-4B9A-8B25-D29C1E41FBB0,Final safety checks performed,,E0617516-A967-4470-813A-2F01A6DFB611,1,CONTRACTCLOSEOUT,,,,,,
+D17B8517-FFB4-43AD-9BF5-9F8439B9DAD0,EC7A7994-C230-4717-B47A-04D0A982D44D,Obtain copies of customer provided training and forward completion records to the Training Coordinator,,E0617516-A967-4470-813A-2F01A6DFB611,1,CONTRACTCLOSEOUT,,,,,,
+99630EAD-22BB-42D8-98BE-A0CF4D5CD108,,"Clear the Open Billing Detail and verify Unbilled Receivables equals ""0""",,8583FF86-0ED7-4B3E-AD3F-958C5901BFAB,1,CONTRACTCLOSEOUT,,,,,,
+11733DE4-238C-4490-9514-A49F8A2D2D85,EC7A7994-C230-4717-B47A-04D0A982D44D,"Documentation drawings are ""as-built",,E0617516-A967-4470-813A-2F01A6DFB611,1,CONTRACTCLOSEOUT,,,,,,
+1E64D5DC-A248-4A7A-BEC6-AADD41D0E3F8,EC7A7994-C230-4717-B47A-04D0A982D44D,Client property returned and transfer properly documented,,E0617516-A967-4470-813A-2F01A6DFB611,1,CONTRACTCLOSEOUT,,,,,,
+F6035FEE-FDE9-49A6-B005-B8B5F9D7248D,,Project Status Report(s) and Accounts Receivable information is correct and confirms close-out,,8583FF86-0ED7-4B3E-AD3F-958C5901BFAB,1,CONTRACTCLOSEOUT,,,,,,
+8786CC0F-6B2E-42E8-806E-B940E841B6F7,,Funded/Obligated Amount,,E0617516-A967-4470-813A-2F01A6DFB611,0,CONTRACTCLOSEOUT,,,,,,
+BD8D8B62-8E5B-4A51-9043-BA021D8AE91C,,"Contract file is properly organized: required documents are contained in file, documents filed per requirements of NW QAP-171 – Records Management Procedure, and duplicate documents have been removed",,97DCBC0C-6963-49B3-8EA4-8C368677508D,1,CONTRACTCLOSEOUT,,,,,,
+CE9C4993-67F9-4BAF-893E-C29E5384493D,EC7A7994-C230-4717-B47A-04D0A982D44D,"All subcontractor access to North Wind systems and/or facilities closed (e.g. FOBs returned, Outlook access shut off, server access shut off, etc)",,E0617516-A967-4470-813A-2F01A6DFB611,1,CONTRACTCLOSEOUT,,,,,,
+26E7B402-3F1C-4D84-BA03-CB3E15C287BF,EC7A7994-C230-4717-B47A-04D0A982D44D,"All project-specific internet and client access accounts disabled, including FTP sites established for project-specific access",,E0617516-A967-4470-813A-2F01A6DFB611,1,CONTRACTCLOSEOUT,,,,,,
+AD143614-19D6-4A92-958E-CD7032336E39,,"AR has been reconciled, backlog removed from system, and revenue adjustments made as necessary for close-out",,8583FF86-0ED7-4B3E-AD3F-958C5901BFAB,1,CONTRACTCLOSEOUT,,,,,,
+128A5930-6F8E-4E6D-BD84-CED8533013B5,C0699FC0-46C0-4088-A07B-6783A048097B,All warranty / retainage items addressed,,E0617516-A967-4470-813A-2F01A6DFB611,1,CONTRACTCLOSEOUT,,,,,,
+77321483-3B76-4E9C-8CB1-D21A399B6C7E,829CFD35-893F-4B9A-8B25-D29C1E41FBB0,All punch list items are completed,,E0617516-A967-4470-813A-2F01A6DFB611,1,CONTRACTCLOSEOUT,,,,,,
+829CFD35-893F-4B9A-8B25-D29C1E41FBB0,,All subcontractors / suppliers have provided invoices and been paid - all contractual obligations are paid in full or resolved,,E0617516-A967-4470-813A-2F01A6DFB611,1,CONTRACTCLOSEOUT,,,,,,
+A42E0890-0599-49F4-BAC4-D3FD52A3BC03,,"All contractual obligations are completed (e.g. final release with client, all paperwork signed, etc)",,97DCBC0C-6963-49B3-8EA4-8C368677508D,1,CONTRACTCLOSEOUT,,,,,,
+2CA4C68D-0061-4F6E-AB7E-DC258CC385BF,,Final invoice sent to client and client paid contract in full,,E0617516-A967-4470-813A-2F01A6DFB611,1,CONTRACTCLOSEOUT,,,,,,
+36CE56CF-052A-4C06-BD0B-DD4164AA840F,,All contractual deliverables completed and signed off/approved,,E0617516-A967-4470-813A-2F01A6DFB611,1,CONTRACTCLOSEOUT,,,,,,
+0B688984-8788-4178-A31B-E15265C2306F,829CFD35-893F-4B9A-8B25-D29C1E41FBB0,Field commissioning tests performed and accepted by the client,,E0617516-A967-4470-813A-2F01A6DFB611,1,CONTRACTCLOSEOUT,,,,,,
+38F3C8F7-0FEA-4B45-81FD-E8248032A9C9,,Disallow charging on all IWO Project Codes and enter “CLOSED” in the Notes field,,8583FF86-0ED7-4B3E-AD3F-958C5901BFAB,1,CONTRACTCLOSEOUT,,,,,,
+CA0C5D07-FB98-24CC-AA15-F6B386DAE78F,,Identify other special provisions/limitations specified in the contract.,1,,1,FARCONTRACT,Text,,,,,
+CA0C5D07-FB98-24CC-AA15-F6B396DAE78F,,Brief Statement of Scope of Work,2,,0,FARCONTRACT,Text,,,,,
+FF0C5D07-FB68-42CC-AA15-F6C385DAE87F,,GSA Schedule Sales & Industrial Funding Fee (GSAR 552.238-74),6,,1,FARCONTRACT,Radio,,,IsGSAschedulesale,,HideIsGSAschedulesale
+CA0C5D07-FB98-24CC-AA15-F6C386DAE78F,,Identify any profit or fee provisions in the contract.,3,,1,FARCONTRACT,Text,,,,,
+FF0C5D07-FB98-24CC-AA15-F6C386DAE78F,,Warranties,7,,1,FARCONTRACT,Radio,,Warrenties,IsWarranties,,HideIsWarranties
+EE0C5D07-FB98-42CC-AA15-F6C386DAE87F,,"Does the contract contain restrictions or special requirements for subcontracts?If yes, identify the relevant portions of the contract.",9,,1,FARCONTRACT,TextWithRadio,,ID1,Restrictions,Restrictionclass,HideIsRestrictions
+FF0C5D07-FB98-42CC-AA15-F6C386DAE87F,,"Government-Wide Acquisition Contracts (GQAC), examples: GSA - Alliant, STARS) or NIH CIO-SP3)",8,,1,FARCONTRACT,Radio,,,IsGQAC,,HideIsGQAC
+FF0C5D07-FB98-42CC-AA15-F6C966FAE87F,,Identify any costs made specifically unallowable by the terms of the contract.,4,,1,FARCONTRACT,Text,,,,,
+86B2B2B1-1328-472C-97AB-F7FC00B42CD9,,"Disallow charging and enter ""CLOSED"" in the Notes field",,8583FF86-0ED7-4B3E-AD3F-958C5901BFAB,1,CONTRACTCLOSEOUT,,,,,,
+FF0C5D07-FB68-42CC-AA15-F9C384DAE87F,,"All contractual deliverable financial records, contacts, memos, letters, calculations, test results, project files (including disks), etc., filed per requirements of North Wind QAP 171, Records Management",,E0617516-A967-4470-813A-2F01A6DFB611,1,CONTRACTCLOSEOUT,,,,,,
+DD0C5D07-FB68-42CC-AA15-F9C385DAE87F,,"Does the contract contain precontract or cost allowability restrictions?If yes, identify the relevant portions of the contract.",10,,1,FARCONTRACT,TextWithRadio,,ID2,CostRestrictions,CostRestrictionsClass,HideIsCostRestriction
+FF0C5D07-FB68-42CC-AA51-F9C385DAE87F,,Procurement Regulations,13,,1,FARCONTRACT,multi,FAR|DFARS|NASA|OTHERS,,,,Others
+FF0C5D07-FB68-42CC-AA51-F9C583DAE87F,,"If this is a cost sharing contract, identify the terms of the cost sharing arrangement.",5,,1,FARCONTRACT,Text,,,,,
+FF0C5D07-FB68-42CC-AA91-F9C583DAE87F,,"Does the contract contain a level of effort clause?If yes, identify the limitations specified in the contract.",11,,1,FARCONTRACT,TextWithRadio,,ID3,EffortClause,EffortClauseClass,HideIsEffortClause
+FF0C5D07-FB68-42CC-AA51-F9C654DAE87F,,"Does the contract contain ceilings on the indirect costs?If yes, identify the ceiling rates (attach relevant portions of the contract).",12,,1,FARCONTRACT,TextWithRadio,,ID4,Limitations,LimitationsClass,HideIsLimitations
+ff0c5d07-fb68-42cc-aa51-f9c794dae87f,,Is Facilities Capital Cost of Money (FCCM) allowable on this contract?,14,,1,FARCONTRACT,Radio,,FCCMQuestion,FCCM,FCCMClass,HideFCCM
+ff0c5d07-fb68-42cc-aa51-f6f385dae87f,,Earned Value Management (EVM) and Other Program Management System Reporting Requirements.Identify the EVM and other reporting requirements contained in the contract.,15,,1,FARCONTRACT,multi,"Earned Value Management (DFARS 252.242-7002 (MAR2005)) 252.234-7001 (MAR 1998)|Cost Performance Report (CPR) (DD Form 2734) or equivalent|Cost I Schedule Status Report (CISSR) (DD Form 2735) or equivalent (DFARS 252.242-7005(6)|Contract Fund Status Report (CFSR) (DD Form 1586) or equivalent|Contractor Cost Data Report (CCDR) (DD Forms 1921, 1921-1 and 1921-2) or equivalent",,checkboxes,,

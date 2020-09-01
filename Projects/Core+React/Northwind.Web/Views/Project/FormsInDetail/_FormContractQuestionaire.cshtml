@@ -1,0 +1,293 @@
+﻿@*@model Northwind.Web.Models.ViewModels.Contract.ContractQuestionaireViewModel
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+
+@{
+    var resourceVersion = @Configuration["resourceVersion"];
+    var cdnUrl = @Configuration["CDNUrl"];
+}
+<form asp-action="AddCusomerQuestionaire" class="row">
+    <div asp-validation-summary="ModelOnly" class="col-12 text-danger"></div>
+    <div class="col-md-12">
+        <input hidden asp-for="ContractQuestionaireGuid" class="form-control" />
+        <input hidden asp-for="ContractGuid" class="form-control" />
+    </div>
+    <div class="form-group col-md-6">
+        <label asp-for="IsFARclause" class="control-label requiredAstreicks "></label>
+        <div class="form-check pl-0">
+            @foreach (var item in Model.radioFARClause)
+            {
+                var radioFARClause = Guid.NewGuid();
+                <div class="form-check form-check-inline">
+                    <input type="radio" @((item.Key) == Model.IsFARclause ? "checked='checked'" : string.Empty)
+                           class="k-radio custom-checkbox IsFARclause" name="IsFARclause" value="@item.Key"
+                           id="@radioFARClause.ToString()">
+                    <label class="k-radio-label" for="@radioFARClause.ToString()">
+                        @item.Value
+                    </label>
+                </div>
+            }
+            <div>
+                <small>
+                    Does the contract (CPFF ot T&M) contain FAR clause 52.216-7 * Allowable Costs and Payment Clause *
+                    and or FAR Claues 52.232-7
+                    * Payments under Time-and-Materials and Labor-Hour-Contracts*? Select YES if either are applicable.
+                </small>
+            </div>
+        </div>
+        <span asp-validation-for="IsFARclause" class="text-danger"></span>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label asp-for="IsReportExecCompensation" class="control-label requiredAstreicks "></label>
+            <div class="form-check pl-0">
+                @foreach (var item in Model.radioReportingExecCompensation)
+                {
+                    var radioReportingExecCompensation = Guid.NewGuid();
+                    <div class="form-check form-check-inline">
+                        <input type="radio" @((item.Key) == Model.IsReportExecCompensation ? "checked='checked'" : string.Empty) class="k-radio custom-checkbox IsReportExecCompensation "
+                               name="IsReportExecCompensation" value="@item.Key"
+                               id="@radioReportingExecCompensation.ToString()">
+                        <label class="k-radio-label " for="@radioReportingExecCompensation.ToString()">
+                            @item.Value
+                        </label>
+                    </div>
+                }
+
+            </div>
+            <span asp-validation-for="IsReportExecCompensation" class="text-danger"></span>
+        </div>
+        <div id="HideReportDate" class="row">
+            <div class="col-md-6 form-group">
+                <label asp-for="ReportLastReportDate" class="control-label "></label>
+                <input asp-for="ReportLastReportDate" placeholder="MM/dd/yyyy"
+                       class="form-control  customdatepicker" />
+                <span asp-validation-for="ReportLastReportDate" class="text-danger"></span>
+            </div>
+            <div class="col-md-6 form-group">
+                <label asp-for="ReportNextReportDate" class="control-label requiredAstreicks"></label>
+                <input asp-for="ReportNextReportDate" placeholder="MM/dd/yyyy" class="form-control customdatepicker" />
+                <span asp-validation-for="ReportNextReportDate" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label asp-for="IsGSAschedulesale" class="control-label requiredAstreicks "></label>
+            <div class="form-check pl-0">
+                @foreach (var item in Model.radioGSAschedule)
+                {
+                    var radioGSAschedule = Guid.NewGuid();
+                    <div class="form-check form-check-inline">
+                        <input type="radio" @((item.Key) == Model.IsGSAschedulesale ? "checked='checked'" : string.Empty)
+                               class="k-radio custom-checkbox IsGSAschedulesale" name="IsGSAschedulesale" value="@item.Key"
+                               id="@radioGSAschedule.ToString()">
+                        <label class="k-radio-label" for="@radioGSAschedule.ToString()">
+                            @item.Value
+                        </label>
+                    </div>
+                }
+
+            </div>
+            <span asp-validation-for="IsGSAschedulesale" class="text-danger"></span>
+        </div>
+        <div id="HideIsGSAschedulesale" class="row">
+            <div class="col-md-6 form-group">
+                <label asp-for="GSALastReportDate" class="control-label "></label>
+                <input asp-for="GSALastReportDate" placeholder="MM/dd/yyyy" class="form-control customdatepicker" />
+                <span asp-validation-for="GSALastReportDate" class="text-danger"></span>
+            </div>
+            <div class="col-md-6 form-group">
+                <label asp-for="GSANextReportDate" class="control-label requiredAstreicks"></label>
+                <input asp-for="GSANextReportDate" placeholder="MM/dd/yyyy" class="form-control customdatepicker" />
+                <span asp-validation-for="GSANextReportDate" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label asp-for="IsSBsubcontract" class="control-label requiredAstreicks "></label>
+            <div class="form-check pl-0">
+                @foreach (var item in Model.radioSBsubcontracting)
+                {
+                    var radioSBsubcontracting = Guid.NewGuid();
+                    <div class="form-check form-check-inline">
+                        <input type="radio" @((item.Key) == Model.IsSBsubcontract ? "checked='checked'" : string.Empty)
+                               class="k-radio custom-checkbox IsSBsubcontract" name="IsSBsubcontract" value="@item.Key"
+                               id="@radioSBsubcontracting.ToString()">
+                        <label class="k-radio-label" for="@radioSBsubcontracting.ToString()">
+                            @item.Value
+                        </label>
+                    </div>
+                }
+
+            </div>
+            <span asp-validation-for="IsSBsubcontract" class="text-danger"></span>
+        </div>
+        <div id="HideIsSBsubcontract" class="row">
+            <div class="col-md-6 form-group">
+                <label asp-for="SBLastReportDate" class="control-label "></label>
+                <input asp-for="SBLastReportDate" placeholder="MM/dd/yyyy" class="form-control customdatepicker" />
+                <span asp-validation-for="SBLastReportDate" class="text-danger"></span>
+            </div>
+            <div class="col-md-6 form-group">
+                <label asp-for="SBNextReportDate" class="control-label requiredAstreicks"></label>
+                <input asp-for="SBNextReportDate" placeholder="MM/dd/yyyy" class="form-control customdatepicker" />
+                <span asp-validation-for="SBNextReportDate" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label asp-for="IsGovtFurnishedProperty" class="control-label requiredAstreicks "></label>
+            <div class="form-check pl-0">
+                @foreach (var item in Model.radioGovFurnishedProperty)
+                {
+                    var radioGovFurnishedProperty = Guid.NewGuid();
+                    <div class="form-check form-check-inline">
+                        <input type="radio" @((item.Key) == Model.IsGovtFurnishedProperty ? "checked='checked'" : string.Empty) class="k-radio custom-checkbox IsGovtFurnishedProperty"
+                               name="IsGovtFurnishedProperty" value="@item.Key" id="@radioGovFurnishedProperty.ToString()">
+                        <label class="k-radio-label" for="@radioGovFurnishedProperty.ToString()">
+                            @item.Value
+                        </label>
+                    </div>
+                }
+
+            </div>
+            <span asp-validation-for="IsGovtFurnishedProperty" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="IsServiceContractReport" class="control-label requiredAstreicks "></label>
+            <div class="form-check pl-0">
+                @foreach (var item in Model.radioServiceContractReport)
+                {
+                    var radioServiceContractReport = Guid.NewGuid();
+                    <div class="form-check form-check-inline">
+                        <input type="radio" @((item.Key) == Model.IsServiceContractReport ? "checked='checked'" : string.Empty) class="k-radio custom-checkbox IsServiceContractReport"
+                               name="IsServiceContractReport" value="@item.Key" id="@radioServiceContractReport.ToString()">
+                        <label class="k-radio-label" for="@radioServiceContractReport.ToString()">
+                            @item.Value
+                        </label>
+                    </div>
+                }
+
+            </div>
+            <span asp-validation-for="IsServiceContractReport" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label asp-for="IsGQAC" class="control-label requiredAstreicks "></label>
+            <div class="form-check pl-0">
+                @foreach (var item in Model.radioGQAC)
+                {
+                    var radioGQAC = Guid.NewGuid();
+                    <div class="form-check form-check-inline">
+                        <input type="radio" @((item.Key) == Model.IsGQAC ? "checked='checked'" : string.Empty)
+                               class="k-radio custom-checkbox IsGQAC" name="IsGQAC" value="@item.Key"
+                               id="@radioGQAC.ToString()">
+                        <label class="k-radio-label" for="@radioGQAC.ToString()">
+                            @item.Value
+                        </label>
+                    </div>
+                }
+
+            </div>
+            <span asp-validation-for="IsGQAC" class="text-danger"></span>
+        </div>
+        <div id="HideIsGQAC" class="row">
+            <div class="form-group col-md-6">
+                <label asp-for="GQACLastReportDate" class="control-label "></label>
+                <input asp-for="GQACLastReportDate" placeholder="MM/dd/yyyy" class="form-control customdatepicker" />
+                <span asp-validation-for="GQACLastReportDate" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="GQACNextReportDate" class="control-label requiredAstreicks"></label>
+                <input asp-for="GQACNextReportDate" placeholder="MM/dd/yyyy" class="form-control customdatepicker" />
+                <span asp-validation-for="GQACNextReportDate" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label asp-for="IsCPARS" class="control-label requiredAstreicks "></label>
+            <div class="form-check pl-0">
+                @foreach (var item in Model.radioCPARS)
+                {
+                    var radioCPARS = Guid.NewGuid();
+                    <div class="form-check form-check-inline">
+                        <input type="radio" @((item.Key) == Model.IsCPARS ? "checked='checked'" : string.Empty)
+                               class="k-radio custom-checkbox IsCPARS" name="IsCPARS" value="@item.Key"
+                               id="@radioCPARS.ToString()">
+                        <label class="k-radio-label" for="@radioCPARS.ToString()">
+                            @item.Value
+                        </label>
+                    </div>
+                }
+
+            </div>
+            <span asp-validation-for="IsCPARS" class="text-danger"></span>
+        </div>
+        <div id="HideIsCPARS" class="row">
+            <div class="form-group col-md-6">
+                <label asp-for="CPARSLastReportDate" class="control-label "></label>
+                <input asp-for="CPARSLastReportDate" placeholder="MM/dd/yyyy" class="form-control customdatepicker" />
+                <span asp-validation-for="CPARSLastReportDate" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="CPARSNextReportDate" class="control-label requiredAstreicks"></label>
+                <input asp-for="CPARSNextReportDate" placeholder="MM/dd/yyyy" class="form-control customdatepicker" />
+                <span asp-validation-for="CPARSNextReportDate" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label asp-for="IsWarranties" class="control-label requiredAstreicks "></label>
+            <div class="form-check pl-0">
+                @foreach (var item in Model.radioCPARS)
+                {
+                    var radioCPARS = Guid.NewGuid();
+                    <div class="form-check form-check-inline">
+                        <input type="radio" @((item.Key) == Model.IsWarranties ? "checked='checked'" : string.Empty)
+                               class="k-radio custom-checkbox IsWarranties" name="IsWarranties" value="@item.Key"
+                               id="@radioCPARS.ToString()">
+                        <label class="k-radio-label" for="@radioCPARS.ToString()">
+                            @item.Value
+                        </label>
+                    </div>
+                }
+
+            </div>
+            <span asp-validation-for="IsWarranties" class="text-danger"></span>
+        </div>
+        <div id="HideIsWarranties">
+            <div class="form-group">
+                <label asp-for="IsStandardIndustryProvision" class="control-label requiredAstreicks "></label>
+                <div class="form-check pl-0">
+                    @foreach (var item in Model.radioWarrantyProvision)
+                    {
+                        var radioWarrantyProvision = Guid.NewGuid();
+                        <div class="form-check form-check-inline">
+                            <input type="radio" @((item.Key) == Model.IsStandardIndustryProvision ? "checked='checked'" : string.Empty) class="k-radio custom-checkbox IsStandardIndustryProvision"
+                                   name="IsStandardIndustryProvision" value="@item.Key"
+                                   id="@radioWarrantyProvision.ToString()">
+                            <label class="k-radio-label" for="@radioWarrantyProvision.ToString()">
+                                @item.Value
+                            </label>
+                        </div>
+                    }
+
+                </div>
+                <span asp-validation-for="WarrantyProvisionDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WarrantyProvisionDescription" class="control-label requiredAstreicks"></label>
+                <textarea class="form-control"
+                          asp-for="WarrantyProvisionDescription">@Model.WarrantyProvisionDescription</textarea>
+                <span asp-validation-for="WarrantyProvisionDescription" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+</form>
+<script src="@cdnUrl/js/proj/contractQuestionaries.js?v=@resourceVersion"></script>*@

@@ -1,0 +1,46 @@
+.k-tabstrip {
+    &-wrapper{
+        padding-bottom:10px;
+    }
+    .k-item .k-link {
+        padding: 15px 30px;
+    }
+
+    &-items {
+        .k-item {
+            margin-right: 5px;
+
+            &.k-state-active {
+                border-top: 4px solid $primary;
+            }
+        }
+    }
+}
+
+
+.nav-tabs {
+    font-weight: $fw-b;
+    font-size: 14px;
+
+    .nav-link {
+        border-top-width: 3px;
+        background: $gray-300;
+        color: $gray-500;
+        margin-right: 5px;
+        padding: 15px 30px;
+        line-height: 1;
+
+        &:hover:not(.active) {
+            color: darken($primary, 10);
+            background: #cbdae2;
+            border-color: #cbdae2;
+        }
+    }
+}
+
+.tab-container {
+    background: $white;
+    padding: 15px;
+    border: 1px solid #dee2e6;
+    border-top: 0;
+}

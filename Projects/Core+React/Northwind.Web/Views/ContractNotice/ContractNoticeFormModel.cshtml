@@ -1,0 +1,81 @@
+﻿@model Northwind.Web.Models.ViewModels.Contract.ContractNoticeViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+@{
+    var resourceVersion = @Configuration["resourceVersion"];
+    var cdnUrl = @Configuration["CDNUrl"];
+}
+
+@{
+    IDictionary<bool, string> listItems = new Dictionary<bool, string>();
+    listItems.Add(new KeyValuePair<bool, string>(true, "Yes"));
+    var enabledisable = Model.ActionItem == "Add" ? "Enabled" : "Disabled";
+}
+ 
+<form id="ContractNoticeForm" asp-action="_FormModel">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="ContractGuid" class="form-control" />
+    <input type="hidden" asp-for="ContractNoticeGuid" class="form-control" />
+    <input type="hidden" asp-for="ContractNumber" class="form-control" />
+    <div class="row">
+
+
+
+        @if(Model.ActionItem == "Add")
+        {
+        <div class="col-md-4 form-group">
+            <label asp-for="NoticeType" class="control-label requiredAstreicks fontbold"></label>
+            <Select asp-for="NoticeType" asp-items="ViewBag.noticeTypes"  class="form-control" required>
+                <option value="">Please Select Notice Type</option>
+            </Select>
+            <span asp-validation-for="NoticeType" class="text-danger"></span>
+        </div>
+        }
+        else
+        {
+        <div class="col-md-4 form-group">
+            <label asp-for="NoticeType" class="control-label requiredAstreicks fontbold"></label>
+            <Select asp-for="NoticeType" asp-items="ViewBag.noticeTypes" class="form-control"  disabled required>
+                <option value="">Please Select Notice Type</option>
+            </Select>
+            <input asp-for="NoticeType" type="hidden" />
+            <span asp-validation-for="NoticeType" class="text-danger"></span>
+        </div>
+        }
+        <div class="col-md-4 form-group">
+            <label asp-for="Resolution" class="control-label requiredAstreicks fontbold"></label>
+            <Select asp-for="Resolution" class="form-control" asp-items="ViewBag.resolutions" required>
+                <option value="">Please Select Resolution</option>
+            </Select>
+            <span asp-validation-for="Resolution" class="text-danger"></span>
+        </div>
+        <div class="col-md-4 form-group">
+            <label asp-for="IssuedDate" class="control-label requiredAstreicks"></label>
+            @Html.TextBoxFor(x => x.IssuedDate, new { id = "IssuedDate", placeholder ="MM/dd/yyyy",
+           @class="form-control"})
+            @Html.ValidationMessageFor(x => x.IssuedDate)
+        </div>
+        <div class="col-md-12 form-group">
+            <label asp-for="NoticeDescription" class="control-label fontbold"></label>
+            <textarea asp-for="NoticeDescription" class="form-control"> </textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <label><b>Upload Notice File</b></label>
+            <div id="fileUploadMod"></div>
+        </div>
+    </div>
+
+
+    <div class="progressBar">
+        <div id="progressBar" class="progressBarInactive">
+        </div>
+    </div>
+</form>
+<script>
+    $("#IssuedDate").kendoDatePicker();
+</script>
+<script src="@cdnUrl/js/amountFormat.js?v=@resourceVersion"></script>
+<script src="@cdnUrl/js/proj/modificationformload.js?v=@resourceVersion"></script>

@@ -1,0 +1,98 @@
+﻿<loading-gif [show]="showLoadingGif"></loading-gif>
+<!-- Breadcrumb start -->
+<div class="breadcrumb">
+    <div class="center">
+        <a class="back" routerLink="/system/search">Return to bed system search</a>
+    </div>
+</div>
+<!-- Breadcrumb end -->
+<!-- Main start -->
+<main class="clearfix">
+
+    <div class="center">
+
+        <!-- Existing Bed systems start -->
+        <div class="table-wrap">
+            <h2 class="clearfix">
+                Existing Bed Systems
+            </h2>
+            <div class="ctable">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Bed Config ID</td>
+                            <td>Bed length (ID)</td>
+                            <td>Bed length Metric</td>
+                            <td>Bed Type (ID)</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngIf="existingBedConfig">
+                            <td>{{existingBedConfig.id}}</td>
+                            <td>{{existingBedConfig.length}} ({{existingBedConfig.bedLengthId}})</td>
+                            <td>{{existingBedConfig.bedLengthMetric}}</td>
+                            <td>{{existingBedConfig.bedTypeName}} ({{existingBedConfig.bedTypeId}})</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+        <!-- Modify Bed system form start -->
+        <div class="add-form">
+            <h2>Modify Bed System</h2>
+            <div class="clearfix">
+                <div class="input-blocks clearfix">
+                    <div>
+                        <strong>Bed Length (ID)</strong>
+
+                        <div class="select white-select" style="width: 220px;" *ngIf="modifiedBedConfig">
+                            <select [disabled]="!bedLengths" [(ngModel)]="modifiedBedConfig.bedLengthId">
+                                <option value="-1" *ngIf="!bedLengths">Loading...</option>
+                                <option value="-1" *ngIf="bedLengths">--Select Bed Length--</option>
+                                <option *ngFor="let item of bedLengths" [value]="item.id">{{item.length}} ({{item.id}})</option>
+                            </select>
+                            <div class="select__arrow white-select__arrow"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <strong>Bed Type (ID)</strong>
+
+                        <div class="select white-select" style="width: 220px;" *ngIf="modifiedBedConfig">
+                            <select [disabled]="!bedTypes" [(ngModel)]="modifiedBedConfig.bedTypeId">
+                                <option value="-1" *ngIf="!bedTypes">Loading...</option>
+                                <option value="-1" *ngIf="bedTypes">--Select Bed Type--</option>
+                                <option *ngFor="let item of bedTypes" [value]="item.id">{{item.name}} ({{item.id}})</option>
+                            </select>
+                            <div class="select__arrow white-select__arrow"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="warning-wrap">
+                    <div *ngIf="existingBedConfig">
+                        <strong>Associated records will be impacted</strong>
+                        <span>{{existingBedConfig.vehicleToBedConfigCount}} vehicle to bed configurations</span>
+                    </div>
+                </div>
+
+                <div class="submit-wrap">
+                    <input type="submit" value="SUBMIT CHANGE REQUEST" class="btn larger" (click)="onSubmitChangeRequests()">
+                    <input type="reset" value="CANCEL" class="btn transparent larger" routerLink="/system/search">
+                </div>
+
+                <div class="attach-wrap" style="margin-top: 40px;" *ngIf="modifiedBedConfig">
+                    <strong>OPTIONAL</strong>
+                   
+                    <ac-fileuploader upload-api-path="file/savechunk"></ac-fileuploader>
+                    <small>Include comments</small>
+                    <textarea cols="50" rows="5" [(ngModel)]="modifiedBedConfig.comment"></textarea>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</main>
+<!-- Main end -->

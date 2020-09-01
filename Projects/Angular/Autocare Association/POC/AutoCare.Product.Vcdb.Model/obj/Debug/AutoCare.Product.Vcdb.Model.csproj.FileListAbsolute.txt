@@ -1,0 +1,23 @@
+E:\Autocare Association\POC\AutoCare.Product.Vcdb.Model\bin\Debug\AutoCare.Product.Vcdb.Model.dll
+E:\Autocare Association\POC\AutoCare.Product.Vcdb.Model\bin\Debug\AutoCare.Product.Vcdb.Model.pdb
+E:\Autocare Association\POC\AutoCare.Product.Vcdb.Model\bin\Debug\Newtonsoft.Json.dll
+E:\Autocare Association\POC\AutoCare.Product.Vcdb.Model\bin\Debug\Newtonsoft.Json.xml
+E:\Autocare Association\POC\AutoCare.Product.Vcdb.Model\obj\Debug\AutoCare.Product.Vcdb.Model.dll
+E:\Autocare Association\POC\AutoCare.Product.Vcdb.Model\obj\Debug\AutoCare.Product.Vcdb.Model.pdb
+E:\Autocare Association\POC\AutoCare.Product.Vcdb.Model\obj\Debug\AutoCare.Product.Vcdb.Model.csprojResolveAssemblyReference.cache
+D:\Autocare Association\POC\AutoCare.Product.Vcdb.Model\bin\Debug\AutoCare.Product.Vcdb.Model.dll
+D:\Autocare Association\POC\AutoCare.Product.Vcdb.Model\bin\Debug\AutoCare.Product.Vcdb.Model.pdb
+D:\Autocare Association\POC\AutoCare.Product.Vcdb.Model\bin\Debug\Newtonsoft.Json.dll
+D:\Autocare Association\POC\AutoCare.Product.Vcdb.Model\bin\Debug\Newtonsoft.Json.xml
+D:\Autocare Association\POC\AutoCare.Product.Vcdb.Model\obj\Debug\AutoCare.Product.Vcdb.Model.csprojResolveAssemblyReference.cache
+D:\Autocare Association\POC\AutoCare.Product.Vcdb.Model\obj\Debug\AutoCare.Product.Vcdb.Model.dll
+D:\Autocare Association\POC\AutoCare.Product.Vcdb.Model\obj\Debug\AutoCare.Product.Vcdb.Model.pdb
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.Vcdb.Model\bin\Debug\AutoCare.Product.Vcdb.Model.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.Vcdb.Model\bin\Debug\AutoCare.Product.Vcdb.Model.pdb
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.Vcdb.Model\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.Vcdb.Model\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.Vcdb.Model\obj\Debug\AutoCare.Product.Vcdb.Model.csprojAssemblyReference.cache
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.Vcdb.Model\obj\Debug\AutoCare.Product.Vcdb.Model.csproj.CoreCompileInputs.cache
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.Vcdb.Model\obj\Debug\AutoCare.Product.Vcdb.Model.csproj.CopyComplete
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.Vcdb.Model\obj\Debug\AutoCare.Product.Vcdb.Model.dll
+C:\Users\Ishan Xylontech\Desktop\AutoCare\Autocare Association\POC\AutoCare.Product.Vcdb.Model\obj\Debug\AutoCare.Product.Vcdb.Model.pdb

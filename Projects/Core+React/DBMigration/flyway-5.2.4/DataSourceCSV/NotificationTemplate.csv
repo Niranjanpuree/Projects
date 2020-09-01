@@ -1,0 +1,1251 @@
+﻿NotificationTemplateGuid,Keys,NotificationTypeGuid,Subject,Message,IsActive,Priority,IsRecurring,RecurringInterval,UserInteraction,CreatedOn,CreatedBy
+ECEB13D9-0044-4368-A8B3-04CC16C45500,ProjectModification.Edit,133FAB36-1BAE-4278-AF92-2835578F5021,[Task Order Modification]:  A  Task Order Modification Form has been updated  for {CONTRACT_NUMBER},"<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul {
+        list-style-position: inside;
+    }
+</style>
+<div style='background: #eee; color:#777; padding: 50px 15px; font-size: 14px;'>
+    <div style='max-width: 600px; margin:0 auto;'>
+        Dear<b style=""color:#00649B"">
+            {RECEIVER_DISPLAY_NAME}
+        </b>,
+        <br>
+        <br>
+
+        <p style=""line-height:1.6;"">{SUBMITTED_NAME} has updated  task order modification form. Please review the  task order modification form.</p>
+        <br>
+        <div
+            style='width: 100%;margin: 0 auto; overflow:hidden; padding-top:10px;border: 1px solid #eee; background: #fff;line-height: 1.5;border-radius: 5px;'>
+            <table style='border-collapse: collapse;width:100%'>
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Contract
+                        Number:</td>
+                    <td
+                        style="" vertical-align: top; padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {CONTRACT_NUMBER}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Project
+                        Number:</td>
+                    <td
+                        style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {PROJECT_NUMBER}
+                    </td>
+                </tr>
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Modification Title:</td>
+                    <td
+                        style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {MODIFICATION_TITLE}
+                    </td>
+                </tr>
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Modification Number:</td>
+                    <td
+                        style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {MODIFICATION_NUMBER}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Awarding
+                        Agency:</td>
+                    <td
+                        style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {AWARDING_AGENCY}
+                    </td>
+                </tr>
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Award Amount:</td>
+                    <td
+                        style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {AWARD_AMOUNT}
+                    </td>
+                </tr>
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Funding
+                        Agency:</td>
+                    <td
+                        style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {FUNDING_AGENCY}
+                    </td>
+                </tr>
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Funding
+                        Amount:</td>
+                    <td
+                        style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {FUNDING_AMOUNT}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Status:
+                    </td>
+                    <td
+                        style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {STATUS}
+                    </td>
+                </tr>
+               
+                <tr>
+                    <td colspan=""2""
+                        style="" padding:8px 20px; font-size: 14px;line-height: 2.5; text-align:center; padding-bottom:30px; padding-top:30px;"">
+                        <span style=""display:block; padding-bottom:5px;"">Details of the updated task order Mod</span><a
+                            style=""padding:10px 50px; background:#00649B;border-radius:4px; letter-spacing: 1px; color:#fff; text-transform: uppercase; text-decoration: none;""
+                            href='{LINK}'>view detail</a></td>
+
+                </tr>
+                <tr>
+                    <td colspan=""2"" style="" padding:0; font-size: 12px;line-height: 1.5;"">
+                        <div style='background:#f5f5f5; padding:20px; border-top:1px solid #eee;'>
+                            <div><span style='color:#aaa;'>Additional
+                                    people notified:</span></div>
+                            <div>
+                                {ADDITIONAL_RECIPIENT}
+                            </div>
+                        </div>
+                    </td>
+
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>",1,0,0,0,1,2012-12-12 00:00:00.000,133FAB36-1BAE-4278-AF92-2835578F5021
+1C97717A-C098-48F6-B32D-1879DADBEEDF,Project.Notify,133FAB36-1BAE-4278-AF92-2835578F5021,[Task Order] notification  for {CONTRACT_NUMBER},"<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul {
+        list-style-position: inside;
+    }
+</style>
+<div style='background: #eee; color:#777; padding: 50px 15px; font-size: 14px;'>
+    <div style='max-width: 600px; margin:0 auto;'>
+        Dear<b style=""color:#00649B"">
+            {RECEIVER_DISPLAY_NAME}
+        </b>,
+        <br>
+        <br>
+
+        <p style=""line-height:1.6;"">Notificaton for</p>
+        <br>
+        <div
+            style='width: 100%;margin: 0 auto; overflow:hidden; padding-top:10px;border: 1px solid #eee; background: #fff;line-height: 1.5;border-radius: 5px;'>
+            <table style='border-collapse: collapse;width:100%'>
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Contract
+                        Number:</td>
+                    <td
+                        style="" vertical-align: top; padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {CONTRACT_NUMBER}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Project
+                        Number:</td>
+                    <td
+                        style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {PROJECT_NUMBER}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Awarding
+                        Agency:</td>
+                    <td
+                        style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {AWARDING_AGENCY}
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Funding
+                        Agency:</td>
+                    <td
+                        style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {FUNDING_AGENCY}
+                    </td>
+                </tr>
+              
+
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Status:
+                    </td>
+                    <td
+                        style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {STATUS}
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan=""2"" style="" padding:0; font-size: 12px;line-height: 1.5;"">
+                        <div style='background:#f5f5f5; padding:20px; border-top:1px solid #eee;'>
+                            
+                            <div><span style='color:#aaa;'>Additional
+                                    people notified:</span></div>
+                            <div>
+                                {ADDITIONAL_RECIPIENT}
+                            </div>
+                        </div>
+                    </td>
+
+                </tr>
+              
+            </table>
+        </div>
+    </div>
+</div>",1,0,0,0,1,2012-12-12 00:00:00.000,133FAB36-1BAE-4278-AF92-2835578F5021
+96EEAA8A-0B57-4E2F-AC65-1B9708701999,RevenueRecognition.Notify,133FAB36-1BAE-4278-AF92-2835578F5021,The Revenue Recognition Form Is Submitted,"<style>      * {          margin: 0;          padding: 0;      }        ul {          list-style-position: inside;      }  </style>  <div style='background: #eee; color:#777; padding: 50px 15px; font-size: 14px;'>      <div style='max-width: 600px; margin:0 auto;'>          Dear<b style=""color:#00649B"">              {RECEIVER_DISPLAY_NAME}          </b>,          <br>          <br>            <p style=""line-height:1.6;"">The new Revenue Recognition is submitted for the accounting review</p>          <br>          <div              style='width: 100%;margin: 0 auto; overflow:hidden; padding-top:10px;border: 1px solid #eee; background: #fff;line-height: 1.5;border-radius: 5px;'>              <table style='border-collapse: collapse;width:100%'>                   <tr>                      <td                          style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">     The  new Revenue Recognition form  has been submitted and ask for the review from the account section.                           </td>                      <td                          style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">                      </td>                  </tr>                    <tr>                      <td                          style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">     Requested By:                         </td>                      <td                          style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">                          {Submitted_by}                      </td>                  </tr>      <tr>                      <td                          style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">     Job Title:                         </td>                      <td                          style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">                          {Job_title}                      </td>                  </tr>                                                           <tr>                          <td colspan=""2""                              style="" padding:8px 20px; font-size: 14px;line-height: 2.5; text-align:center; padding-bottom:30px; padding-top:30px;"">                              <span style=""display:block; padding-bottom:5px;"">Redirect to review page</span><a                                  style=""padding:10px 50px; background:#00649B;border-radius:4px; letter-spacing: 1px; color:#fff; text-transform: uppercase; text-decoration: none;""                                  href={Redirect_Url}>Review Revenue Recognition</a></td>                        </tr>                              </table>          </div>      </div>  </div>",1,0,0,0,1,2012-12-12 00:00:00.000,133FAB36-1BAE-4278-AF92-2835578F5021
+CF7CDD12-1799-4DB0-A7A3-2BAE49AAA43B,ContractModification.Create,133FAB36-1BAE-4278-AF92-2835578F5021,[New Contract Modification]:  A new Contract Modification Form has been submitted for {CONTRACT_NUMBER},"<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul {
+        list-style-position: inside;
+    }
+</style>
+<div style='background: #eee; color:#777; padding: 50px 15px; font-size: 14px;'>
+    <div style='max-width: 600px; margin:0 auto;'>
+        Dear<b style=""color:#00649B"">
+            {RECEIVER_DISPLAY_NAME}
+        </b>,
+        <br>
+        <br>
+
+        <p style=""line-height:1.6;"">{SUBMITTED_NAME} has added new  contract modification form. Please review the  contract  modification form.</p>
+        <br>
+        <div
+            style='width: 100%;margin: 0 auto; overflow:hidden; padding-top:10px;border: 1px solid #eee; background: #fff;line-height: 1.5;border-radius: 5px;'>
+            <table style='border-collapse: collapse;width:100%'>
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Contract
+                        Number:</td>
+                    <td
+                        style="" vertical-align: top; padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {CONTRACT_NUMBER}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Project
+                        Number:</td>
+                    <td
+                        style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {PROJECT_NUMBER}
+                    </td>
+                </tr>
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Modification Title:</td>
+                    <td
+                        style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {MODIFICATION_TITLE}
+                    </td>
+                </tr>
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Modification Number:</td>
+                    <td
+                        style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {MODIFICATION_NUMBER}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Awarding
+                        Agency:</td>
+                    <td
+                        style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {AWARDING_AGENCY}
+                    </td>
+                </tr>
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Award Amount:</td>
+                    <td
+                        style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {AWARD_AMOUNT}
+                    </td>
+                </tr>
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Funding
+                        Agency:</td>
+                    <td
+                        style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {FUNDING_AGENCY}
+                    </td>
+                </tr>
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Funding
+                        Amount:</td>
+                    <td
+                        style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {FUNDING_AMOUNT}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Status:
+                    </td>
+                    <td
+                        style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {STATUS}
+                    </td>
+                </tr>
+               
+                <tr>
+                    <td colspan=""2""
+                        style="" padding:8px 20px; font-size: 14px;line-height: 2.5; text-align:center; padding-bottom:30px; padding-top:30px;"">
+                        <span style=""display:block; padding-bottom:5px;"">Details of the added Contract Mod</span><a
+                            style=""padding:10px 50px; background:#00649B;border-radius:4px; letter-spacing: 1px; color:#fff; text-transform: uppercase; text-decoration: none;""
+                            href='{LINK}'>view detail</a></td>
+
+                </tr>
+                <tr>
+                    <td colspan=""2"" style="" padding:0; font-size: 12px;line-height: 1.5;"">
+                        <div style='background:#f5f5f5; padding:20px; border-top:1px solid #eee;'>
+                            <div><span style='color:#aaa;'>Additional
+                                    people notified:</span></div>
+                            <div>
+                                {ADDITIONAL_RECIPIENT}
+                            </div>
+                        </div>
+                    </td>
+
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>",1,0,0,0,1,2012-12-12 00:00:00.000,133FAB36-1BAE-4278-AF92-2835578F5021
+43588CAF-7DA5-4F8E-BC71-51F26B981E24,JobRequest.Notify,133FAB36-1BAE-4278-AF92-2835578F5021,Email Notification,"<link href=""https://fonts.googleapis.com/css?family=Poppins:500&display=swap"" rel=""stylesheet"">
+<div style='background: #eee; color:#777; padding: 50px 15px; font-size: 14px; font-family: ""Poppins"", sans-serif;'>
+    <div style='max-width: 600px; margin:0 auto;'>
+        Dear<b style=""color:#00649B"">
+            {RECEIVER_NAME}
+        </b>,
+        <br>
+        <br>
+
+        {SUBMITTED_NAME} has submitted a new job request form. Please review the new job request form and
+            add additional details and forward it to next responsible party.
+            <br><br>
+            <div
+                style='width: 100%;margin: 0 auto; overflow:hidden; padding-top:10px;border: 1px solid #eee; background: #fff;line-height: 1.5;border-radius: 5px;'>
+                <table style='border-collapse: collapse;width:100%;font-family: ""Poppins"", sans-serif;'>
+                    <tr>
+                        <td style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">Contract
+                            Number:</td>
+                        <td style="" vertical-align: top; padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                            {CONTRACT_NUMBER}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">Awarding
+                            Agency:</td>
+                        <td style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                            {AWARDING_AGENCY}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">Funding
+                            Agency:</td>
+                        <td style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                            {FUNDING_AGENCY}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">Task Order
+                            Number:</td>
+                        <td style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                            {TASK_ORDERNUMBER}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">Project
+                            Number:</td>
+                        <td style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                            {PROJECT_NUMBER}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">Submitted
+                            By:
+                        </td>
+                        <td style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                            {SUBMITTED_BY}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">Status:
+                        </td>
+                        <td style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                            {STATUS}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">Key
+                            Personnel:
+                        </td>
+                        <td style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                            {KEY_PERSONNELLIST}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan=""2""
+                            style="" padding:8px 20px; font-size: 14px;line-height: 2.5; text-align:center; padding-bottom:30px; padding-top:30px;"">
+                            <span style=""display:block; padding-bottom:5px;"">Details of the New Job Request</span><a
+                                style=""padding:10px 50px; background:#00649B;border-radius:4px; letter-spacing: 1px; color:#fff; text-transform: uppercase; text-decoration: none;""
+                                href='{JOBREQUEST_URL}'>view detail</a></td>
+
+                    </tr>
+                    <tr>
+                        <td colspan=""2"" style="" padding:0; font-size: 12px;line-height: 1.5;"">
+                            <div style='background:#f5f5f5; padding:20px; border-top:1px solid #eee;'>
+                                <div><span style=' color:#aaa;'>This
+                                        email has been copied to:</span></div>
+                                <div style=""margin-bottom:20px;"">
+                                    {NOTIFY_TO}
+                                </div>
+                                <div><span style='color:#aaa;'>Additional
+                                        people notified:</span></div>
+                                <div>
+                                    {NOTIFY_OTHER}
+                                </div>
+                            </div>
+                        </td>
+
+                    </tr>
+                </table>
+            </div>
+    </div>
+</div>",1,0,0,0,1,2012-06-06 00:00:00.000,03DAA37F-EB04-479E-A3AA-012FA95C24E3
+786CC657-16FD-4175-ACC8-6BBD2CFEFD87,Project.Edit,133FAB36-1BAE-4278-AF92-2835578F5021," A  Task Order Form has been updated for {CONTRACT_NUMBER}","<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul {
+        list-style-position: inside;
+    }
+</style>
+<div style='background: #eee; color:#777; padding: 50px 15px; font-size: 14px;'>
+    <div style='max-width: 600px; margin:0 auto;'>
+        Dear<b style=""color:#00649B"">
+            {RECEIVER_DISPLAY_NAME}
+        </b>,
+        <br>
+        <br>
+
+        <p style=""line_height:1.6;"">{SUBMITTED_NAME} has updated task order form. Please review the task order form.</p>
+        <br>
+        <div
+            style='width: 100%;margin: 0 auto; overflow:hidden; padding-top:10px;border: 1px solid #eee; background: #fff;line-height: 1.5;border-radius: 5px;'>
+            <table style='border-collapse: collapse;width:100%'>
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Contract
+                        Number:</td>
+                    <td
+                        style="" vertical-align: top; padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {CONTRACT_NUMBER}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Project
+                        Number:</td>
+                    <td
+                        style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {PROJECT_NUMBER}
+                    </td>
+                </tr>
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Awarding
+                        Agency:</td>
+                    <td
+                        style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {AWARDING_AGENCY}
+                    </td>
+                </tr>
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Funding
+                        Agency:</td>
+                    <td
+                        style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {FUNDING_AGENCY}
+                    </td>
+                </tr>
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Status:
+                    </td>
+                    <td
+                        style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {STATUS}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan=""2""
+                        style="" padding:8px 20px; font-size: 14px;line-height: 2.5; text-align:center; padding-bottom:30px; padding-top:30px;"">
+                        <span style=""display:block; padding-bottom:5px;"">Details of the updated Task order</span><a
+                            style=""padding:10px 50px; background:#00649B;border-radius:4px; letter-spacing: 1px; color:#fff; text-transform: uppercase; text-decoration: none;""
+                            href='{LINK}'>view detail</a></td>
+
+                </tr>
+                <tr>
+                    <td colspan=""2"" style="" padding:0; font-size: 12px;line-height: 1.5;"">
+                        <div style='background:#f5f5f5; padding:20px; border-top:1px solid #eee;'>
+                            <div><span style='color:#aaa;'>Additional
+                                    people notified:</span></div>
+                            <div>
+                                {ADDITIONAL_RECIPIENT}
+                            </div>
+                        </div>
+                    </td>
+
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>",1,0,0,0,1,2012-12-12 00:00:00.000,133FAB36-1BAE-4278-AF92-2835578F5021
+FE7E8801-ED88-4D8D-9D9A-7673FDD93751,Contract.Create,133FAB36-1BAE-4278-AF92-2835578F5021,[New Contract]:  A new Contract Form has been submitted for {CONTRACT_NUMBER},"<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul {
+        list-style-position: inside;
+    }
+</style>
+<div style='background: #eee; color:#777; padding: 50px 15px; font-size: 14px;'>
+    <div style='max-width: 600px; margin:0 auto;'>
+        Dear<b style=""color:#00649B"">
+            {RECEIVER_DISPLAY_NAME}
+        </b>,
+        <br>
+        <br>
+
+        <p style=""line_height:1.6;"">{SUBMITTED_NAME} has added a new contract form. Please review the contract form.</p>
+        <br>
+        <div
+            style='width: 100%;margin: 0 auto; overflow:hidden; padding-top:10px;border: 1px solid #eee; background: #fff;line-height: 1.5;border-radius: 5px;'>
+            <table style='border-collapse: collapse;width:100%'>
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Contract
+                        Number:</td>
+                    <td
+                        style="" vertical-align: top; padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {CONTRACT_NUMBER}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Project
+                        Number:</td>
+                    <td
+                        style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {PROJECT_NUMBER}
+                    </td>
+                </tr>
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Awarding
+                        Agency:</td>
+                    <td
+                        style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {AWARDING_AGENCY}
+                    </td>
+                </tr>
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Funding
+                        Agency:</td>
+                    <td
+                        style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {FUNDING_AGENCY}
+                    </td>
+                </tr>
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Status:
+                    </td>
+                    <td
+                        style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {STATUS}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan=""2""
+                        style="" padding:8px 20px; font-size: 14px;line-height: 2.5; text-align:center; padding-bottom:30px; padding-top:30px;"">
+                        <span style=""display:block; padding-bottom:5px;"">Details of the new Contract</span><a
+                            style=""padding:10px 50px; background:#00649B;border-radius:4px; letter-spacing: 1px; color:#fff; text-transform: uppercase; text-decoration: none;""
+                            href='{LINK}'>view detail</a></td>
+
+                </tr>
+                <tr>
+                    <td colspan=""2"" style="" padding:0; font-size: 12px;line-height: 1.5;"">
+                        <div style='background:#f5f5f5; padding:20px; border-top:1px solid #eee;'>
+                            <div><span style='color:#aaa;'>Additional
+                                    people notified:</span></div>
+                            <div>
+                                {ADDITIONAL_RECIPIENT}
+                            </div>
+                        </div>
+                    </td>
+
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>",1,0,0,0,1,2012-12-12 00:00:00.000,133FAB36-1BAE-4278-AF92-2835578F5021
+6238E019-A69C-45D9-A173-7708A0D07D2D,ContractModification.Edit,133FAB36-1BAE-4278-AF92-2835578F5021,[Contract Modification]:  Contract Modification Form has been updated for  {CONTRACT_NUMBER},"<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul {
+        list-style-position: inside;
+    }
+</style>
+<div style='background: #eee; color:#777; padding: 50px 15px; font-size: 14px;'>
+    <div style='max-width: 600px; margin:0 auto;'>
+        Dear<b style=""color:#00649B"">
+            {RECEIVER_DISPLAY_NAME}
+        </b>,
+        <br>
+        <br>
+
+        <p style=""line-height:1.6;"">{SUBMITTED_NAME} has updated  contract modification form. Please review the  contract modification form.</p>
+        <br>
+        <div
+            style='width: 100%;margin: 0 auto; overflow:hidden; padding-top:10px;border: 1px solid #eee; background: #fff;line-height: 1.5;border-radius: 5px;'>
+            <table style='border-collapse: collapse;width:100%'>
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Contract
+                        Number:</td>
+                    <td
+                        style="" vertical-align: top; padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {CONTRACT_NUMBER}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Project
+                        Number:</td>
+                    <td
+                        style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {PROJECT_NUMBER}
+                    </td>
+                </tr>
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Modification Title:</td>
+                    <td
+                        style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {MODIFICATION_TITLE}
+                    </td>
+                </tr>
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Modification Number:</td>
+                    <td
+                        style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {MODIFICATION_NUMBER}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Awarding
+                        Agency:</td>
+                    <td
+                        style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {AWARDING_AGENCY}
+                    </td>
+                </tr>
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Award Amount:</td>
+                    <td
+                        style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {AWARD_AMOUNT}
+                    </td>
+                </tr>
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Funding
+                        Agency:</td>
+                    <td
+                        style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {FUNDING_AGENCY}
+                    </td>
+                </tr>
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Funding
+                        Amount:</td>
+                    <td
+                        style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {FUNDING_AMOUNT}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Status:
+                    </td>
+                    <td
+                        style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {STATUS}
+                    </td>
+                </tr>
+               
+                <tr>
+                    <td colspan=""2""
+                        style="" padding:8px 20px; font-size: 14px;line-height: 2.5; text-align:center; padding-bottom:30px; padding-top:30px;"">
+                        <span style=""display:block; padding-bottom:5px;"">Details of the updated Contract Mod</span><a
+                            style=""padding:10px 50px; background:#00649B;border-radius:4px; letter-spacing: 1px; color:#fff; text-transform: uppercase; text-decoration: none;""
+                            href='{LINK}'>view detail</a></td>
+
+                </tr>
+                <tr>
+                    <td colspan=""2"" style="" padding:0; font-size: 12px;line-height: 1.5;"">
+                        <div style='background:#f5f5f5; padding:20px; border-top:1px solid #eee;'>
+                            <div><span style='color:#aaa;'>Additional
+                                    people notified:</span></div>
+                            <div>
+                                {ADDITIONAL_RECIPIENT}
+                            </div>
+                        </div>
+                    </td>
+
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>",1,0,0,0,1,2012-12-12 00:00:00.000,133FAB36-1BAE-4278-AF92-2835578F5021
+29517926-0E42-4EA9-B944-93D6D74936F8,RevenueRecognition.Create,133FAB36-1BAE-4278-AF92-2835578F5021,"A New Revenue Recognition Is Required ","<style>      * {          margin: 0;          padding: 0;      }        ul {          list-style-position: inside;      }  </style>  <div style='background: #eee; color:#777; padding: 50px 15px; font-size: 14px;'>      <div style='max-width: 600px; margin:0 auto;'>          Dear<b style=""color:#00649B"">              {RECEIVER_DISPLAY_NAME}          </b>,          <br>          <br>            <p style=""line-height:1.6;"">The new Revenue Recognition is required please add the Revenue Recognition and submit for the accounting review</p>          <br>          <div              style='width: 100%;margin: 0 auto; overflow:hidden; padding-top:10px;border: 1px solid #eee; background: #fff;line-height: 1.5;border-radius: 5px;'>              <table style='border-collapse: collapse;width:100%'>                                   <tr>                      <td                          style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">     The new Revenue Recognition is triggered by the change in award amount of the  {Resource_Name}                         </td>                      <td                          style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">                                                </td>                  </tr>                   <tr>                      <td                          style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">     Title:                         </td>                      <td                          style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">                          {Resource_NameTitle}                      </td>                  </tr>                                               <tr>                          <td colspan=""2""                              style="" padding:8px 20px; font-size: 14px;line-height: 2.5; text-align:center; padding-bottom:30px; padding-top:30px;"">                              <span style=""display:block; padding-bottom:5px;"">Redirect to review page</span><a                                  style=""padding:10px 50px; background:#00649B;border-radius:4px; letter-spacing: 1px; color:#fff; text-transform: uppercase; text-decoration: none;""                                  href={Redirect_Url}>Review Revenue Recognition</a></td>                        </tr>                              </table>          </div>      </div>  </div>",1,0,0,0,1,2019-06-06 00:00:00.000,133FAB36-1BAE-4278-AF92-2835578F5021
+FA53357E-7593-430E-85C2-99FCE0CB0609,ProjectModification.Create,133FAB36-1BAE-4278-AF92-2835578F5021,[New Task Order Modification]:  A new Task Order Modification Form has been submitted for {CONTRACT_NUMBER},"<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul {
+        list-style-position: inside;
+    }
+</style>
+<div style='background: #eee; color:#777; padding: 50px 15px; font-size: 14px;'>
+    <div style='max-width: 600px; margin:0 auto;'>
+        Dear<b style=""color:#00649B"">
+            {RECEIVER_DISPLAY_NAME}
+        </b>,
+        <br>
+        <br>
+
+        <p style=""line-height:1.6;"">{SUBMITTED_NAME} has added new  task order modification form. Please review the  task order  modification form.</p>
+        <br>
+        <div
+            style='width: 100%;margin: 0 auto; overflow:hidden; padding-top:10px;border: 1px solid #eee; background: #fff;line-height: 1.5;border-radius: 5px;'>
+            <table style='border-collapse: collapse;width:100%'>
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Contract
+                        Number:</td>
+                    <td
+                        style="" vertical-align: top; padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {CONTRACT_NUMBER}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Project
+                        Number:</td>
+                    <td
+                        style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {PROJECT_NUMBER}
+                    </td>
+                </tr>
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Modification Title:</td>
+                    <td
+                        style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {MODIFICATION_TITLE}
+                    </td>
+                </tr>
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Modification Number:</td>
+                    <td
+                        style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {MODIFICATION_NUMBER}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Awarding
+                        Agency:</td>
+                    <td
+                        style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {AWARDING_AGENCY}
+                    </td>
+                </tr>
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Award Amount:</td>
+                    <td
+                        style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {AWARD_AMOUNT}
+                    </td>
+                </tr>
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Funding
+                        Agency:</td>
+                    <td
+                        style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {FUNDING_AGENCY}
+                    </td>
+                </tr>
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Funding
+                        Amount:</td>
+                    <td
+                        style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {FUNDING_AMOUNT}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Status:
+                    </td>
+                    <td
+                        style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {STATUS}
+                    </td>
+                </tr>
+               
+                <tr>
+                    <td colspan=""2""
+                        style="" padding:8px 20px; font-size: 14px;line-height: 2.5; text-align:center; padding-bottom:30px; padding-top:30px;"">
+                        <span style=""display:block; padding-bottom:5px;"">Details of the added task order Mod</span><a
+                            style=""padding:10px 50px; background:#00649B;border-radius:4px; letter-spacing: 1px; color:#fff; text-transform: uppercase; text-decoration: none;""
+                            href='{LINK}'>view detail</a></td>
+
+                </tr>
+                <tr>
+                    <td colspan=""2"" style="" padding:0; font-size: 12px;line-height: 1.5;"">
+                        <div style='background:#f5f5f5; padding:20px; border-top:1px solid #eee;'>
+                            <div><span style='color:#aaa;'>Additional
+                                    people notified:</span></div>
+                            <div>
+                                {ADDITIONAL_RECIPIENT}
+                            </div>
+                        </div>
+                    </td>
+
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>",1,0,0,0,1,2012-12-12 00:00:00.000,133FAB36-1BAE-4278-AF92-2835578F5021
+52ED23FE-6363-42C2-9564-9E58ADC78FEA,RevenueRecognition.Reviewed,133FAB36-1BAE-4278-AF92-2835578F5021,A Revenue Recognition has been reviewed,"<style>      * {          margin: 0;          padding: 0;      }        ul {          list-style-position: inside;      }  </style>  <div style='background: #eee; color:#777; padding: 50px 15px; font-size: 14px;'>      <div style='max-width: 600px; margin:0 auto;'>          Dear<b style=""color:#00649B"">              {RECEIVER_DISPLAY_NAME}          </b>,          <br>          <br>            <p style=""line-height:1.6;"">The new Revenue Recognition is Reviewd for the accounting section</p>          <br>          <div              style='width: 100%;margin: 0 auto; overflow:hidden; padding-top:10px;border: 1px solid #eee; background: #fff;line-height: 1.5;border-radius: 5px;'>              <table style='border-collapse: collapse;width:100%'>                   <tr>                      <td                          style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">     The  new Revenue Recognition form  has been reviewd from the account section.                           </td>                      <td                          style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">                      </td>                  </tr>                    <tr>                      <td                          style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">     Requested By:                         </td>                      <td                          style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">                          {Submitted_by}                      </td>                  </tr>      <tr>                      <td                          style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">     Job Title:                         </td>                      <td                          style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">                          {Job_title}                      </td>                  </tr>                                                           <tr>                          <td colspan=""2""                              style="" padding:8px 20px; font-size: 14px;line-height: 2.5; text-align:center; padding-bottom:30px; padding-top:30px;"">                              <span style=""display:block; padding-bottom:5px;"">Redirect to review page</span><a                                  style=""padding:10px 50px; background:#00649B;border-radius:4px; letter-spacing: 1px; color:#fff; text-transform: uppercase; text-decoration: none;""                                  href={Redirect_Url}>View Revenue Recognition</a></td>                        </tr>                              </table>          </div>      </div>  </div>",1,0,0,0,1,2019-06-27 00:00:00.000,133FAB36-1BAE-4278-AF92-2835578F5021
+94F63B22-946D-4ECD-BE7A-DC1EE1CAF431,Contract.Notify,133FAB36-1BAE-4278-AF92-2835578F5021,Contract notification  for {CONTRACT_NUMBER},"<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul {
+        list-style-position: inside;
+    }
+</style>
+<div style='background: #eee; color:#777; padding: 50px 15px; font-size: 14px;'>
+    <div style='max-width: 600px; margin:0 auto;'>
+        Dear<b style=""color:#00649B"">
+            {RECEIVER_DISPLAY_NAME}
+        </b>,
+        <br>
+        <br>
+
+        <p style=""line-height:1.6;"">Notificaton for</p>
+        <br>
+        <div
+            style='width: 100%;margin: 0 auto; overflow:hidden; padding-top:10px;border: 1px solid #eee; background: #fff;line-height: 1.5;border-radius: 5px;'>
+            <table style='border-collapse: collapse;width:100%'>
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Contract
+                        Number:</td>
+                    <td
+                        style="" vertical-align: top; padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {CONTRACT_NUMBER}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Project
+                        Number:</td>
+                    <td
+                        style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {PROJECT_NUMBER}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Awarding
+                        Agency:</td>
+                    <td
+                        style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {AWARDING_AGENCY}
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Funding
+                        Agency:</td>
+                    <td
+                        style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {FUNDING_AGENCY}
+                    </td>
+                </tr>
+              
+
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Status:
+                    </td>
+                    <td
+                        style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {STATUS}
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan=""2"" style="" padding:0; font-size: 12px;line-height: 1.5;"">
+                        <div style='background:#f5f5f5; padding:20px; border-top:1px solid #eee;'>
+                            
+                            <div><span style='color:#aaa;'>Additional
+                                    people notified:</span></div>
+                            <div>
+                                {ADDITIONAL_RECIPIENT}
+                            </div>
+                        </div>
+                    </td>
+
+                </tr>
+              
+            </table>
+        </div>
+    </div>
+</div>",1,0,0,0,1,2012-12-12 00:00:00.000,133FAB36-1BAE-4278-AF92-2835578F5021
+94F63B22-946D-4ECD-BE7A-DC1EE1CAF432,Project.Create,133FAB36-1BAE-4278-AF92-2835578F5021,[New Task Order]:  A new Task Order Form has been submitted for {CONTRACT_NUMBER},"<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul {
+        list-style-position: inside;
+    }
+</style>
+<div style='background: #eee; color:#777; padding: 50px 15px; font-size: 14px;'>
+    <div style='max-width: 600px; margin:0 auto;'>
+        Dear<b style=""color:#00649B"">
+            {RECEIVER_DISPLAY_NAME}
+        </b>,
+        <br>
+        <br>
+
+        <p style=""line_height:1.6;"">{SUBMITTED_NAME} has added a new task order form. Please review the task order form.</p>
+        <br>
+        <div
+            style='width: 100%;margin: 0 auto; overflow:hidden; padding-top:10px;border: 1px solid #eee; background: #fff;line-height: 1.5;border-radius: 5px;'>
+            <table style='border-collapse: collapse;width:100%'>
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Contract
+                        Number:</td>
+                    <td
+                        style="" vertical-align: top; padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {CONTRACT_NUMBER}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Project
+                        Number:</td>
+                    <td
+                        style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {PROJECT_NUMBER}
+                    </td>
+                </tr>
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Awarding
+                        Agency:</td>
+                    <td
+                        style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {AWARDING_AGENCY}
+                    </td>
+                </tr>
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Funding
+                        Agency:</td>
+                    <td
+                        style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {FUNDING_AGENCY}
+                    </td>
+                </tr>
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Status:
+                    </td>
+                    <td
+                        style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {STATUS}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan=""2""
+                        style="" padding:8px 20px; font-size: 14px;line-height: 2.5; text-align:center; padding-bottom:30px; padding-top:30px;"">
+                        <span style=""display:block; padding-bottom:5px;"">Details of the new Task order</span><a
+                            style=""padding:10px 50px; background:#00649B;border-radius:4px; letter-spacing: 1px; color:#fff; text-transform: uppercase; text-decoration: none;""
+                            href='{LINK}'>view detail</a></td>
+
+                </tr>
+                <tr>
+                    <td colspan=""2"" style="" padding:0; font-size: 12px;line-height: 1.5;"">
+                        <div style='background:#f5f5f5; padding:20px; border-top:1px solid #eee;'>
+                            <div><span style='color:#aaa;'>Additional
+                                    people notified:</span></div>
+                            <div>
+                                {ADDITIONAL_RECIPIENT}
+                            </div>
+                        </div>
+                    </td>
+
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>",1,0,0,0,1,2012-12-12 00:00:00.000,133FAB36-1BAE-4278-AF92-2835578F5021
+46E9F891-DC18-4BB8-ADE4-DC2145A9903A,Contract.Edit,133FAB36-1BAE-4278-AF92-2835578F5021," A  Contract Form has been updated for {CONTRACT_NUMBER}","<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul {
+        list-style-position: inside;
+    }
+</style>
+<div style='background: #eee; color:#777; padding: 50px 15px; font-size: 14px;'>
+    <div style='max-width: 600px; margin:0 auto;'>
+        Dear<b style=""color:#00649B"">
+            {RECEIVER_DISPLAY_NAME}
+        </b>,
+        <br>
+        <br>
+
+        <p style=""line-height:1.6;"">{SUBMITTED_NAME} has updated contract form. Please review the  contract form.</p>
+        <br>
+        <div
+            style='width: 100%;margin: 0 auto; overflow:hidden; padding-top:10px;border: 1px solid #eee; background: #fff;line-height: 1.5;border-radius: 5px;'>
+            <table style='border-collapse: collapse;width:100%'>
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Contract
+                        Number:</td>
+                    <td
+                        style="" vertical-align: top; padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {CONTRACT_NUMBER}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Project
+                        Number:</td>
+                    <td
+                        style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {PROJECT_NUMBER}
+                    </td>
+                </tr>
+                
+
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Awarding
+                        Agency:</td>
+                    <td
+                        style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {AWARDING_AGENCY}
+                    </td>
+                </tr>
+             
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Funding
+                        Agency:</td>
+                    <td
+                        style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {FUNDING_AGENCY}
+                    </td>
+                </tr>
+               
+
+                <tr>
+                    <td
+                        style="" vertical-align: top; padding:8px 8px 8px 20px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        Status:
+                    </td>
+                    <td
+                        style="" vertical-align: top;padding:8px 20px 8px 8px; font-size: 14px;line-height: 1.5; color:#444;"">
+                        {STATUS}
+                    </td>
+                </tr>
+               
+                <tr>
+                    <td colspan=""2""
+                        style="" padding:8px 20px; font-size: 14px;line-height: 2.5; text-align:center; padding-bottom:30px; padding-top:30px;"">
+                        <span style=""display:block; padding-bottom:5px;"">Details of the Updated Contract:</span><a
+                            style=""padding:10px 50px; background:#00649B;border-radius:4px; letter-spacing: 1px; color:#fff; text-transform: uppercase; text-decoration: none;""
+                            href='{LINK}'>view detail</a></td>
+
+                </tr>
+                <tr>
+                    <td colspan=""2"" style="" padding:0; font-size: 12px;line-height: 1.5;"">
+                        <div style='background:#f5f5f5; padding:20px; border-top:1px solid #eee;'>
+                            <div><span style='color:#aaa;'>Additional
+                                    people notified:</span></div>
+                            <div>
+                                {ADDITIONAL_RECIPIENT}
+                            </div>
+                        </div>
+                    </td>
+
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>",1,0,0,0,1,2012-12-12 00:00:00.000,133FAB36-1BAE-4278-AF92-2835578F5021

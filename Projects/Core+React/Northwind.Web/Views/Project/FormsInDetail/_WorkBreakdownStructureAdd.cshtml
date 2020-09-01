@@ -1,0 +1,57 @@
+﻿@model Northwind.Web.Models.ViewModels.Contract.ContractWBSViewModel
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+
+@{
+    var resourceVersion = @Configuration["resourceVersion"];
+    var fileBasePath = Configuration["fileBasePath"];
+    var cdnUrl = @Configuration["CDNUrl"];
+    var wbsTemplate = Configuration["wbsTemplateFile"];
+}
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="_WorkBreakdownStructureAdd" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div>
+                <input hidden asp-for="ContractWBSGuid" class="form-control" />
+                <input hidden asp-for="ContractGuid" class="form-control" />
+            </div>
+            <div class="row file-upload-container">
+                <div class="col-md-12 text-center">
+                    <h5>Upload file for work breakdown structure</h5>
+                    <input type="file" name="FileToUpload" id="FileToUpload" class="file-upload-input form-control"
+                           accept=".csv" />
+                    <label for="FileToUpload" class="btn btn-primary file-upload">
+                        <i class="material-icons">
+                            cloud_upload
+                        </i>
+                        <span class="file-upload-text">Upload File</span>
+                    </label>
+                    <span class="file-name"></span>
+                </div>
+                <div class="divider-or"><span>OR</span></div>
+                <div class="col-md-12 text-center">
+                    <p><small>Download sample file of work breakdown structure to upload</small></p>
+                    <a href="/Contract/DownloadSampleDocument?filePath=@fileBasePath&fileName=@wbsTemplate"
+                       class="file-download" download>
+                        <span>
+                            <i class="k-icon k-i-file-csv"></i>
+                            <p class="mb-0">Download the sample file</p>
+                        </span>
+                        <span>
+                            <i class="material-icons">
+                                cloud_download
+                            </i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="progressbar">
+                <div id="progressBar" class="progressBarInactive"></div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="@cdnUrl/js/proj/contractfileUpload.js?v=@resourceVersion"></script>

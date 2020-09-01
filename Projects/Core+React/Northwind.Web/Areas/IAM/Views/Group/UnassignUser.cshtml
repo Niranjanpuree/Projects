@@ -1,0 +1,48 @@
+﻿@model Northwind.Web.Areas.IAM.Models.IAM.ViewModels.UserViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, Northwind.Web
+@addTagHelper *, Northwind.Web.Helpers
+
+@{
+    dynamic groupUser = ViewBag.GroupUser;
+}
+
+<h3>Are you sure you want to unassign this user?</h3>
+<div>
+    <form asp-action="UnassignUser" class="col-sm-12"  onsubmit="return false">
+        <div class="col-sm-12">
+            <div class="form-group row">
+                <label asp-for="Name" class="col-sm-4"></label>
+                <div class="col-sm-8">@Model.Name</div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Username" class="col-sm-4"></label>
+                <div class="col-sm-8">@Model.Username</div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="UserStatus" class="col-sm-4"></label>
+                <div class="col-sm-8">@Model.UserStatus</div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="JobTitle" class="col-sm-4"></label>
+                <div class="col-sm-8">@Model.JobTitle</div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Company" class="col-sm-4"></label>
+                <div class="col-sm-8">@Model.Company</div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Department" class="col-sm-4"></label>
+                <div class="col-sm-8">@Model.Department</div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="JobStatus" class="col-sm-4"></label>
+                <div class="col-sm-8">@Model.JobStatus</div>
+            </div>
+        </div>
+
+        <input name="GroupUserGUID" type="hidden" value="@groupUser.GroupUserGUID" />
+        <input name="GroupGUID" type="hidden" value="@groupUser.GroupGUID" />
+        <input name="UserGUID" type="hidden" value="@groupUser.UserGUID" />
+    </form>
+</div>

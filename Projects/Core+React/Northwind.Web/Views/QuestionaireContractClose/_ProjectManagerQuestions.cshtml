@@ -1,0 +1,109 @@
+﻿@model Northwind.Web.Models.ViewModels.Questionaire.ContractCloseOutViewModel
+
+@{
+    Dictionary<string, string> options = new Dictionary<string, string>();
+    options.Add("Yes", "Yes");
+    options.Add("No (See Attached Documentation)", "No (See Attached Documentation)");
+    options.Add("No", "No");
+
+    Dictionary<string, string> optionsTwo = new Dictionary<string, string>();
+    optionsTwo.Add("Yes", "Yes");
+    optionsTwo.Add("No", "No");
+
+}
+
+<div class="col-12">
+    <h4 class="row bg-light py-2 px-3 mb-0">Project Manager : Operations</h4>
+    <input type="hidden" asp-for="ContractGuid" class="form-control" />
+    <ul class="list-unstyled">
+        @for (int i = 0; i < Model.ProjectManagerQuestions.Count; i++)
+        {
+            <li>
+                <input type="hidden" asp-for="ProjectManagerQuestions[i].QuestionaireMasterGuid" class="form-control" />
+                <input type="hidden" asp-for="ProjectManagerQuestions[i].Questions" class="form-control" />
+                <input type="hidden" asp-for="ProjectManagerQuestions[i].QuestionaireManagerTypeGuid" class="form-control" />
+                <input type="hidden" asp-for="ProjectManagerQuestions[i].RepresentativeType" class="form-control" />
+                <input type="hidden" asp-for="ProjectManagerQuestions[i].OrderNumber" class="form-control" />
+
+                <div class="row border-bottom  pt-3 pb-2 validateMsg">
+                    <label asp-for="ProjectManagerQuestions[i].Questions" class="col-md-7 col-sm-6 control-label mb-0 requiredAstreicks">
+                        @Model.ProjectManagerQuestions[i].Questions
+                    </label>
+                    <span asp-validation-for="ProjectManagerQuestions[i].Answer" class="text-danger"></span>
+                    <div class="col text-right form-required">
+                        @if (Model.ProjectManagerQuestions[i].OrderNumber == 1)
+                        {
+                            @foreach (var item in optionsTwo)
+                            {
+                                var dictionaryBoolString = Guid.NewGuid();
+                                <div class="form-check form-check-inline form-required">
+                                    <input type="radio" @((item.Key) == Model.ProjectManagerQuestions[i].Answer ? "checked='checked'" : string.Empty)
+                                           class="k-radio custom-checkbox checked-Value"
+                                           name="ProjectManagerQuestions[@i].Answer" value="@item.Key"
+                                           id="@dictionaryBoolString.ToString()" required >
+                                    <label class="k-radio-label" for="@dictionaryBoolString.ToString()">
+                                        @item.Value
+                                    </label>
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            @foreach (var item in options)
+                            {
+                                var dictionaryBoolString = Guid.NewGuid();
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" @((item.Key) == Model.ProjectManagerQuestions[i].Answer ? "checked='checked'" : string.Empty)
+                                           class="k-radio custom-checkbox"
+                                           name="ProjectManagerQuestions[@i].Answer" value="@item.Key"
+                                           id="@dictionaryBoolString.ToString()" required >
+                                    <label class="k-radio-label" for="@dictionaryBoolString.ToString()">
+                                        @item.Value
+                                    </label>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+                <div class="row hide-SubQuestions">
+                    <ul class="w-100 list-group list-group-flush pl-4 border-bottom">
+                        @for (int j = 0; j < Model.SubQuestions.Count; j++)
+                        {
+                            if (Model.SubQuestions[j].ParentMasterGuid == Model.ProjectManagerQuestions[i].QuestionaireMasterGuid)
+                            {
+                                <li class="list-group-item px-3">
+                                    <input type="hidden" asp-for="SubQuestions[j].QuestionaireMasterGuid" class="form-control" />
+                                    <input type="hidden" asp-for="SubQuestions[j].Questions" class="form-control" />
+                                    <input type="hidden" asp-for="SubQuestions[j].QuestionaireManagerTypeGuid" class="form-control" />
+                                    <input type="hidden" asp-for="SubQuestions[j].RepresentativeType" class="form-control" />
+                                    <div class="row validateMsg">
+                                        <label asp-for="SubQuestions[j].Questions" class="col-md-7 col-sm-6 control-label mb-0 requiredAstreicks">
+                                            @Model.SubQuestions[j].Questions
+                                        </label>
+                                        <span asp-validation-for="SubQuestions[j].Answer" class="text-danger"></span>
+                                        <div class="col text-right form-requiredSubQuestion">
+                                            @foreach (var item in options)
+                                            {
+                                                var dictionaryBoolString = Guid.NewGuid();
+                                                <div class="form-check form-check-inline">
+                                                    <input type="radio" @((item.Key) == Model.SubQuestions[j].Answer ? "checked='checked'" : string.Empty)
+                                                           class="k-radio custom-checkbox"
+                                                           name="SubQuestions[@j].Answer" value="@item.Key"
+                                                           id="@dictionaryBoolString.ToString()" required >
+                                                    <label class="k-radio-label " for="@dictionaryBoolString.ToString()">
+                                                        @item.Value
+                                                    </label>
+                                                </div>
+                                            }
+                                        </div>
+                                    </div>
+                                </li>
+                            }
+                        }
+                    </ul>
+                </div>
+            </li>
+        }
+    </ul>
+</div>
+

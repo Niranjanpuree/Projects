@@ -1,0 +1,22 @@
+.k-dialog-wrapper {
+    .k-overlay {
+        opacity: 0.5 !important;
+    }
+}
+.dialog-custom {
+    max-height: 90vh;
+    margin: 5vh 0;
+    .k-dialog {
+        max-height: 90vh;
+    }
+    // .k-widget.k-grid {
+    //     height: auto !important;
+    //     max-height: 500px !important;
+    // }
+}
+
+.advanced-search-box {
+    .k-dropdown.form-control {
+        border: 0;
+    }
+}

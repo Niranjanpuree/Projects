@@ -1,0 +1,184 @@
+﻿<loading-gif [show]="showLoadingGif"></loading-gif>
+
+<article>
+    <div class="center">
+        <div class="table-wrap">
+            <h2 class="clearfix">
+                <div class="filter-search">
+                    <input ac-autocomplete [(ngModel)]="filterTextFuelDeliverySubTypeName" [dataSourceMethod]="getSuggestions" min-chars="1" source="nothing" value-property-name="id"
+                           display-property-name="name"
+                           (keywordChanged)="applyFilter($event)"
+                           placeholder="Filter FuelDeliverySubType"
+                           title="Press ENTER to apply filter" type="text" class="cinput">
+                    <input type="submit" (click)="applyFilter()" title="Apply filter" value="">
+                </div>
+                <a (click)="openAddFuelDeliverySubTypeModal()" class="btn blue icon add">NEW</a>
+            </h2>
+            <div class="ctable">
+                    <ac-grid [dataSource]="fuelDeliverySubTypeList" #gd="acGrid" columns='[
+                 { "header":"FuelDeliverySubType ID" , "field":"id", "sortable": "true" },
+                 { "header":"FuelDeliverySubType Name" , "field":"name", "sortable": true },
+                 { "header":"Last Revision" , "field":"lastUpdateDate", "sortable": false },
+                 { "header":"Change Requests"}]'
+                             initialSortBy='[
+                 {"field": "id", "orderByDesc": false},
+                 {"field": "name", "orderByDesc": false}]'
+                             paging='{"pageSize": 10, "numberOfPagesOnPageList": 10}'>
+                        <tr *ngFor="let fuelDeliverySubType of gd.items">
+                            <td>{{fuelDeliverySubType.id}}</td>
+                            <td>{{fuelDeliverySubType.name}}</td>
+                            <td>{{fuelDeliverySubType.lastUpdateDate | date: "MM-dd-yyyy"}}</td>
+                            <td *ngIf="fuelDeliverySubType.changeRequestId">
+                                <a (click)="view(fuelDeliverySubType)" style="cursor: pointer;" class="btn-r-arrow blue">Pending</a>
+                            </td>
+                            <td *ngIf="!fuelDeliverySubType.changeRequestId">
+                                <a (click)="modify(fuelDeliverySubType)" class="box-icon pencil" title="Edit"></a>
+                                <a (click)="delete(fuelDeliverySubType)" class="box-icon delete" title="Delete"></a>
+                                <!--<a href="#" class="box-icon shuffle" title="Shuffle"></a>-->
+                            </td>
+                        </tr>
+                    </ac-grid>
+            </div>
+        </div>
+    </div>
+</article>
+
+<div class="popup">
+    <modal #addFuelDeliverySubTypeModal>
+        <div class="overlay dark show">
+            <div class="new-make">
+                <a (click)="onCancel()" class="close"></a>
+                <div class="add-form">
+                    <h2>New FuelDeliverySubType</h2>
+                    <div class="clearfix">
+                        <div class="input-blocks clearfix">
+                            <strong>Submit a new FuelDeliverySubType name for review:</strong>
+                            <input type="text" [(ngModel)]="fuelDeliverySubType.name" class="cinput" placeholder="New FuelDeliverySubType Name">
+                        </div>
+
+                        <div class="attach-wrap">
+                            <strong>OPTIONAL</strong>
+                            <ac-fileuploader upload-api-path="file/savechunk" delete-api-path="file/deleteblob"  #newPopupAcFileUploader></ac-fileuploader>
+                            <small>Include comments</small>
+                            <textarea cols="50" rows="5" [(ngModel)]="fuelDeliverySubType.comment"></textarea>
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        <!-- Submit and cancel button start -->
+                        <div class="btns">
+                            <input type="reset" value="CANCEL" class="btn transparent" (click)="onCancel()">
+                            <input type="submit" value="SUBMIT" class="btn" (click)="add()">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </modal>
+
+    <modal #modifyFuelDeliverySubTypeModal>
+        <div class="overlay dark show">
+            <div class="new-make">
+                <a (click)="onCancel()" class="close"></a>
+                <div class="add-form">
+                    <h2>Edit FuelDeliverySubType</h2>
+                    <div class="clearfix">
+
+                        <div class="input-blocks clearfix">
+                            <strong>Submit a revised FuelDeliverySubType name for review:</strong>
+                            <input type="text" [(ngModel)]="fuelDeliverySubType.name" required class="cinput">
+                        </div>
+
+                        <div class="warning-wrap">
+                            <div>
+                                <strong>Associated records will be impacted</strong>
+                                <span>
+                                    {{selectedFuelDeliverySubType.fuelDeliveryConfigCount}} Fuel Delivery Config
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="attach-wrap">
+                            <strong>OPTIONAL</strong>
+
+                             <ac-fileuploader upload-api-path="file/savechunk" #modifyPopupAcFileUploader="acFileUploader"></ac-fileuploader>
+                            <small>Include comments</small>
+                            <textarea cols="50" rows="5" [(ngModel)]="fuelDeliverySubType.comment"></textarea>
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        <!-- Submit and cancel button start -->
+                        <div class="btns">
+                            <input type="submit" value="CANCEL" class="btn transparent" (click)="onCancel()">
+                            <input type="submit" value="SUBMIT" class="btn" (click)="modifySubmit()">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </modal>
+       
+
+    <modal #deleteFuelDeliverySubTypeConfirmModal>
+        <div class="overlay dark show">
+            <div class="new-make">
+                <a (click)="onCancel()" class="close"></a>
+                <div class="add-form">
+                    <h2>Remove FuelDeliverySubType</h2>
+                    <div class="clearfix">
+
+                        <div class="warning-wrap confirmation">
+                            <div>
+                                <strong>Please confirm that you wish to remove the "{{selectedFuelDeliverySubType.name}}" fuelDeliverySubType.</strong>
+                            </div>
+                        </div>
+                        <div class="attach-wrap">
+                            <strong>OPTIONAL</strong>
+
+                           <ac-fileuploader upload-api-path="file/savechunk" #deletePopupAcFileUploader="acFileUploader"></ac-fileuploader>
+                            <small>Include comments</small>
+                            <textarea cols="50" rows="5" [(ngModel)]="selectedFuelDeliverySubType.comment"></textarea>
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        <!-- Submit and cancel button start -->
+                        <div class="btns">
+                            <input type="reset" value="CANCEL" class="btn transparent" (click)="onCancel()">
+                            <input type="submit" value="CONFIRM" class="btn" (click)="deleteSubmit()">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </modal>
+
+
+    <modal #deleteFuelDeliverySubTypeErrorModal>
+        <div class="overlay dark show">
+            <div class="new-make">
+                <a (click)="deleteFuelDeliverySubTypeErrorModal.dismiss()" class="close"></a>
+                <div class="add-form">
+                    <h2>Remove FuelDeliverySubType</h2>
+                    <div class="clearfix">
+                        <div class="warning-wrap delete-error-wrap">
+                            <div>
+                                <strong>Associated records will be impacted</strong>
+                                <span>
+                                    {{selectedFuelDeliverySubType.fuelDeliveryConfigCount}} Fuel Delivery Config
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Submit and cancel button start -->
+                        <div class="btns">
+                            <input type="submit" (click)="deleteFuelDeliverySubTypeErrorModal.dismiss()" value="CANCEL" class="btn blue">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </modal>
+</div>

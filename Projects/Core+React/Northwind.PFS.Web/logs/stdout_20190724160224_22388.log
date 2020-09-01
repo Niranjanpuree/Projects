@@ -1,0 +1,65 @@
+Hosting environment: Development
+Content root path: C:\Users\Shishir\Source\Repos\ESS-Web\src\Northwind.CostPoint.Web
+Application started. Press Ctrl+C to shut down.
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/  
+warn: Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware[3]
+      Failed to determine the https port for redirect.
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.PFS.Web.Controllers.TaskOrderController.Index (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {action = "Index", controller = "TaskOrder", area = ""}. Executing action Northwind.PFS.Web.Controllers.TaskOrderController.Index (Northwind.PFS.Web)
+info: Microsoft.AspNetCore.Authorization.DefaultAuthorizationService[1]
+      Authorization was successful.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.PFS.Web.Controllers.TaskOrderController.Index (Northwind.PFS.Web) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.PFS.Web.Controllers.TaskOrderController.Index (Northwind.PFS.Web), returned result Microsoft.AspNetCore.Mvc.RedirectResult in 0.4522ms.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.RedirectResultExecutor[1]
+      Executing RedirectResult, redirecting to /PFS/project.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.PFS.Web.Controllers.TaskOrderController.Index (Northwind.PFS.Web) in 47.3342ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.PFS.Web.Controllers.TaskOrderController.Index (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 142.2279ms 302 
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/PFS/project  
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Index (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {area = "PFS", action = "Index", controller = "Project"}. Executing action Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Index (Northwind.PFS.Web)
+info: Microsoft.AspNetCore.Authorization.DefaultAuthorizationService[1]
+      Authorization was successful.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Index (Northwind.PFS.Web) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Index (Northwind.PFS.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.3364ms.
+info: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[1]
+      Executing ViewResult, running view Index.
+info: Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor[4]
+      Executed ViewResult - view Index executed in 278.7234ms.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Index (Northwind.PFS.Web) in 290.7036ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.PFS.Web.Areas.CostPoint.Controllers.ProjectController.Index (Northwind.PFS.Web)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 306.9379ms 200 text/html; charset=utf-8
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:59440/Notification/GetUnReadDesktopNotification?dt=1563984154570 application/json 
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Route matched with {action = "GetUnReadDesktopNotification", controller = "Notification", area = ""}. Executing action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[1]
+      Executing action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) - Validation state: Valid
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action method Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure), returned result Microsoft.AspNetCore.Mvc.JsonResult in 7.5568ms.
+info: Microsoft.AspNetCore.Mvc.Formatters.Json.Internal.JsonResultExecutor[1]
+      Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[Northwind.Web.Infrastructure.Models.ViewModels.NotificationMessageViewModel, Northwind.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+info: Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker[2]
+      Executed action Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure) in 124.3983ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'Northwind.Web.Infrastructure.NotificationController.GetUnReadDesktopNotification (Northwind.Web.Infrastructure)'
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
+      Request finished in 134.8887ms 200 application/json; charset=utf-8

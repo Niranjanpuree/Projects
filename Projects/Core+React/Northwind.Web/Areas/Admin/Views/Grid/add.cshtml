@@ -1,0 +1,106 @@
+﻿@model Northwind.Core.Entities.Customer
+
+@{
+    ViewData["Title"] = "View";
+}
+
+<h1>View</h1>
+
+<h4>Customer</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        @using (Html.BeginForm("_Create", "Customer", FormMethod.Post, new { id = "CustomerForm" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(x => x.CreatedBy)
+            @Html.HiddenFor(x => x.CreatedOn)
+            @Html.HiddenFor(x => x.UpdatedBy)
+            @Html.HiddenFor(x => x.UpdatedOn)
+            @Html.HiddenFor(x => x.CustomerGuid)
+            @Html.HiddenFor(x => x.IsActive)
+            @Html.HiddenFor(x => x.IsDeleted)
+
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="row-fluid">
+
+                    
+                    <div class="form-group row">
+                        @Html.LabelFor(model => model.CustomerName, new { @class = "col-4 control-label required" })
+                        <div class="col-8">
+                            @Html.TextBoxFor(model => model.CustomerName, new { @class = "form-control", @required = "Required" })
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        @Html.LabelFor(model => model.CustomerCode, new { @class = "col-4 control-label required" })
+                        <div class="col-8">
+                            @Html.TextBoxFor(model => model.CustomerCode, new { @class = "form-control", @required = "Required" })
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        @Html.LabelFor(model => model.Address, new { @class = "col-4 control-label required" })
+                        <div class="col-8">
+                            @Html.TextBoxFor(model => model.Address, new { @class = "form-control", @required = "Required" })
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        @Html.LabelFor(model => model.AddressLine1, new { @class = "col-4 control-label required" })
+                        <div class="col-8">
+                            @Html.TextBoxFor(model => model.AddressLine1, new { @class = "form-control", @required = "Required" })
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        @Html.LabelFor(model => model.City, new { @class = "col-4 control-label required" })
+                        <div class="col-8">
+                            @Html.TextBoxFor(model => model.City, new { @class = "form-control", @required = "Required" })
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        @Html.LabelFor(model => model.ZipCode, new { @class = "col-4 control-label required" })
+                        <div class="col-8">
+                            @Html.TextBoxFor(model => model.ZipCode, new { @class = "form-control", @required = "Required" })
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        @Html.LabelFor(model => model.PrimaryPhone, new { @class = "col-4 control-label required" })
+                        <div class="col-8">
+                            @Html.TextBoxFor(model => model.PrimaryPhone, new { @class = "form-control", @required = "Required" })
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        @Html.LabelFor(model => model.PrimaryEmail, new { @class = "col-4 control-label required" })
+                        <div class="col-8">
+                            @Html.TextBoxFor(model => model.PrimaryEmail, new { @class = "form-control", @required = "Required" })
+                            @Html.ValidationMessageFor(model => model.PrimaryEmail)
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        @Html.LabelFor(model => model.Url, new { @class = "col-4 control-label" })
+                        <div class="col-8">
+                            @Html.TextBoxFor(model => model.Url, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        @Html.LabelFor(model => model.Tags, new { @class = "col-4 control-label" })
+                        <div class="col-8">
+                            @Html.TextBoxFor(model => model.Tags, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        @Html.LabelFor(model => model.Abbreviations, new { @class = "col-4 control-label" })
+                        <div class="col-8">
+                            @Html.TextBoxFor(model => model.Abbreviations, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        @Html.LabelFor(model => model.CustomerDescription, new { @class = "col-4 control-label required" })
+                        <div class="col-8">
+                            @Html.TextAreaFor(model => model.CustomerDescription, new { @class = "form-control", @required = "Required" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

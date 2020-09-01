@@ -1,0 +1,183 @@
+﻿<loading-gif [show]="showLoadingGif"></loading-gif>
+<!-- Breadcrumb start -->
+<div class="breadcrumb">
+    <div class="center">
+        <a routerLink="/system/search" class="back">Return to body system search</a>
+    </div>
+</div>
+<!-- Breadcrumb end -->
+<!-- Main start -->
+<main class="with-sidemenu clearfix">
+
+    <div class="center">
+
+        <!-- Add bed system form start -->
+        <div class="add-form add-bed-system">
+            <h2>Add a Body Style System</h2>
+            <div class="clearfix">
+                <div class="input-blocks clearfix">
+                    <div>
+                        <strong>Body Num Doors (ID)</strong>
+
+                        <div class="select white-select" style="width: 210px;">
+                            <select class="drop-download DropdownTypeOne" [disabled]="!bodyNumDoors" [(ngModel)]="newBodyStyleConfig.bodyNumDoorsId">
+                                <option value="-1" *ngIf="!bodyNumDoors">Loading...</option>
+                                <option value="-1" *ngIf="bodyNumDoors">--Select Body Number Door--</option>
+                                <option *ngFor="let item of bodyNumDoors" [value]="item.id">{{item.numDoors}} ({{item.id}})</option>
+                            </select>
+                            <div class="select__arrow white-select__arrow"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <strong>Body Type (ID)</strong>
+
+                        <div class="select white-select" style="width: 180px;">
+                            <select class="drop-download DropdownTypeTwo" [disabled]="!bodyTypes" [(ngModel)]="newBodyStyleConfig.bodyTypeId">
+                                <option value="-1" *ngIf="!bodyTypes">Loading...</option>
+                                <option value="-1" *ngIf="bodyTypes">--Select Body Type--</option>
+                                <option *ngFor="let item of bodyTypes" [value]="item.id">{{item.name}} ({{item.id}})</option>
+                            </select>
+                            <div class="select__arrow white-select__arrow"></div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="submit-wrap">
+                    <input type="submit" value="ADD TO PROPOSED CHANGES" class="btn blue larger" (click)="onAddToProposedChanges()">
+                </div>
+
+                <div class="attach-wrap">
+                    <strong>OPTIONAL</strong>
+                    <ac-fileuploader upload-api-path="file/savechunk"></ac-fileuploader>
+                    <small>Include comments</small>
+                    <textarea cols="50" rows="5" [(ngModel)]="newBodyStyleConfig.comment"></textarea>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Proposed Base systems start -->
+        <div class="table-wrap">
+            <h2 class="clearfix">
+                Proposed Body Style Systems
+            </h2>
+            <div class="ctable">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>Body Num Doors (ID)</td>
+                            <td>Body Type (ID)</td>
+                            <td>Optional Info</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let bodyStyleConfig of proposedBodyStyleConfigs">
+                            <td><a class="btn-row-remove" (click)="onRemoveBodyStyleConfig(bodyStyleConfig)"></a></td>
+                            <td>{{ bodyStyleConfig.numDoors }} ({{ bodyStyleConfig.bodyNumDoorsId }})</td>
+                            <td>{{ bodyStyleConfig.bodyTypeName }} ({{ bodyStyleConfig.bodyTypeId }})</td>
+
+                            <td>
+                                <a class="box-icon attachment" title="Attachment" (click)=openAttachmentPopupModal(bodyStyleConfig)></a>
+                                <a class="box-icon drive-document" title="Drive Documents" (click)="openCommentPopupModal(bodyStyleConfig)"></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Submit and cancel button start -->
+            <div class="btns">
+                <input type="submit" value="SUBMIT CHANGE REQUESTS" class="btn  larger" (click)="onSubmitChangeRequests()" />
+                <input type="reset" value="CANCEL" class="btn larger transparent" routerLink="/system/search" />
+            </div>
+
+        </div>
+
+        <!-- Pending new body system requests start -->
+        <div class="table-wrap">
+            <h2 class="clearfix">
+                Pending New Body System Requests
+            </h2>
+            <div class="ctable">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Body Num Doors (ID)</td>
+                            <td>Body Type (ID)</td>
+                            <td>Optional Info</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let bodyStyleConfig of pendingBodyStyleConfigChangeRequests">
+                            <td>{{ bodyStyleConfig.numDoors }} ({{ bodyStyleConfig.bodyNumDoorsId }})</td>
+                            <td>{{ bodyStyleConfig.bodyTypeName }} ({{ bodyStyleConfig.bodyTypeId }})</td>
+                            <td *ngIf="bodyStyleConfig.changeRequestId">
+                                <a class="btn-r-arrow blue" (click)="onViewBodySystemCr(bodyStyleConfig)" style="cursor: pointer;"> View</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</main>
+<!-- Main end -->
+<div class="popup">
+    <modal #commentPopupModel>
+        <div class="overlay dark show">
+            <div class="new-make modal-sm">
+                <a (click)="commentPopupModel.dismiss()" class="close"></a>
+                <div class="add-form">
+                    <h2>Edit Comment</h2>
+                    <div class="clearfix">
+                        <div class="attach-wrap">
+                            <small>comments</small>
+                            <textarea cols="50" rows="5" [(ngModel)]="bodyStyleConfig.comment"></textarea>
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        <!-- Submit and cancel button start -->
+                        <div class="btns">
+                            <input type="button" value="CANCEL" class="btn transparent" (click)="commentPopupModel.dismiss()">
+                            <input type="submit" value="CONFIRM" class="btn" (click)="onCommentConfirm()">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </modal>
+</div>
+<div class="popup">
+    <modal #attachmentsPopupModel>
+        <div class="overlay dark show">
+            <div class="new-make modal-sm">
+                <a (click)="onAttachmentCancel()" class="close"></a>
+                <div class="add-form">
+                    <h2>Edit Attachments</h2>
+                    <div class="clearfix">
+                        <div class="attach-wrap">
+                            <p *ngIf="bodyStyleConfig.attachments">
+                                <strong>Attachments</strong><br>
+                                <ac-fileuploader [existing-files]="bodyStyleConfig.attachments"
+                                                 upload-api-path="file/savechunk" #attachmentsPopupAcFileUploader="acFileUploader" [can-attach]="true"></ac-fileuploader>
+                            </p>
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        <!-- Submit and cancel button start -->
+                        <div class="btns">
+                            <input type="button" value="CANCEL" class="btn transparent" (click)="onAttachmentCancel()">
+                            <input type="submit" value="CONFIRM" class="btn" (click)="onAttachmentConfirm()">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </modal>
+</div>

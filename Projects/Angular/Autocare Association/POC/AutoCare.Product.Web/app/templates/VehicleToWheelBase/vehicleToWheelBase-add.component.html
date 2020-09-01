@@ -1,0 +1,432 @@
+﻿<loading-gif [show]="showLoadingGif"></loading-gif>
+
+<!-- Breadcrumb start -->
+<div class="breadcrumb">
+    <div class="center">
+        <a class="back" routerLink={{backNavigation}}>{{backNavigationText}}</a>
+        <br />
+    </div>
+</div>
+<!-- Breadcrumb end -->
+<!-- Main start -->
+<main class="clearfix">
+    <div class="center">
+        <h1 class="green">Create Wheel Base Association</h1>
+
+        <!-- Select a base vehicle start -->
+        <div class="add-form">
+            <h2>
+                Select a Base Vehicle & Vehicle
+                <div class="filter-search" style="float: right">
+                    <input type="text" class="cinput" placeholder="Vehicle ID search" [(ngModel)]="vehicleIdSearchText" (keypress)="onVehicleIdKeyPress($event)">
+                    <input type="submit" value="" (click)="onVehicleIdSearch()">
+                </div>
+            </h2>
+            <div class="clearfix">
+                <div class="input-blocks clearfix">
+                    <div>
+                        <strong>Base ID</strong>
+                        <label *ngIf="!vehicle || vehicle.baseVehicleId==-1">N/A</label>
+                        <label *ngIf="vehicle && vehicle.baseVehicleId!=-1">{{vehicle.baseVehicleId}}</label>
+                    </div>
+                    <div>
+                        <strong>Year</strong>
+
+                        <div class="select white-select" style="width: 180px;">
+                            <select [disabled]="!years || years.length==0" [(ngModel)]="vehicle.yearId" (ngModelChange)="onSelectYear()">
+                                <option value="-1" *ngIf="!years">Loading...</option>
+                                <option value="-1" *ngIf="years">--Select Years--</option>
+                                <option *ngFor="let year of years" [value]="year.id">{{year.id}}</option>
+                            </select>
+                            <div class="select__arrow white-select__arrow"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <strong>Make (ID)</strong>
+
+                        <div class="select white-select" style="width: 220px;">
+                            <select [disabled]="!makes || makes.length==0" [(ngModel)]="vehicle.makeId" (ngModelChange)="onSelectMake()">
+                                <option value="-1" *ngIf="!makes">Loading...</option>
+                                <option value="-1" *ngIf="makes">--Select Make--</option>
+                                <option *ngFor="let make of makes" [value]="make.id">{{make.name}} ({{make.id}})</option>
+                            </select>
+                            <div class="select__arrow white-select__arrow"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <strong>Model (ID)</strong>
+
+                        <div class="select white-select" style="width: 220px;">
+                            <select [disabled]="!models || models.length==0" [(ngModel)]="vehicle.baseVehicleId" (ngModelChange)="onSelectModel()">
+                                <option value="-1" *ngIf="!models">Loading...</option>
+                                <option value="-1" *ngIf="models">--Select Model--</option>
+                                <option *ngFor="let model of models" [value]="model.baseVehicleId">{{model.name}} ({{model.id}})</option>
+                            </select>
+                            <div class="select__arrow white-select__arrow"></div>
+                        </div>
+                    </div>
+                    <div>
+                    </div>
+
+                    <span class="clearfix"></span>
+
+                    <div>
+                        <strong>Vehicle ID</strong>
+                        <label *ngIf="!vehicle || vehicle.id==-1">N/A</label>
+                        <label *ngIf="vehicle && vehicle.id!=-1">{{vehicle.id}}</label>
+                    </div>
+                    <div>
+                        <strong>Submodel name (ID)</strong>
+
+                        <div class="select white-select" style="width: 220px;">
+                            <select [(ngModel)]="vehicle.subModelId" [disabled]="!subModels || subModels.length==0" (ngModelChange)="onSelectSubModel()">
+                                <option value="-1" *ngIf="!subModels">Loading...</option>
+                                <option value="-1" *ngIf="subModels">--Select Sub-Model--</option>
+                                <option [value]="submodel.id" *ngFor="let submodel of subModels">{{submodel.name}} ({{submodel.id}})</option>
+                            </select>
+                            <div class="select__arrow white-select__arrow"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <strong>Region (ID)</strong>
+
+                        <div class="select white-select" style="width: 220px;">
+                            <select [(ngModel)]="vehicle.regionId" [disabled]="!regions || regions.length==0" (ngModelChange)="onSelectRegion()">
+                                <option value="-1" *ngIf="!regions">Loading...</option>
+                                <option value="-1" *ngIf="regions">--Select Region--</option>
+                                <option [value]="region.id" *ngFor="let region of regions">{{region.name}} ({{region.id}})</option>
+                            </select>
+                            <div class="select__arrow white-select__arrow"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="submit-wrap" style="margin-top: 15px;">
+                    <input type="submit" value="ADD TO SELECTIONS" class="btn blue larger" (click)="onAddVehicleToSelection()">
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Vehicles to associate start -->
+        <div class="table-wrap">
+            <h2 class="clearfix">
+                Vehicles To Associate
+            </h2>
+            <div class="ctable">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>Base ID</td>
+                            <td>Vehicle ID</td>
+                            <td>Year</td>
+                            <td>Make</td>
+                            <td>Model</td>
+                            <td>Submodel</td>
+                            <td>Region</td>
+                            <td>Wheel Base Associations</td>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="vehicles">
+                        <tr *ngFor="let vehicle of vehicles">
+                            <td><a class="btn-row-remove" (click)="onRemoveVehicle(vehicle.id)"></a></td>
+                            <td>{{vehicle.baseVehicleId}}</td>
+                            <td>{{vehicle.id}}</td>
+                            <td>{{vehicle.yearId}}</td>
+                            <td>{{vehicle.makeName}}</td>
+                            <td>{{vehicle.modelName}}</td>
+                            <td>{{vehicle.subModelName}}</td>
+                            <td>{{vehicle.regionName}}</td>
+                            <td><a class="btn-r-arrow blue" style="cursor: pointer;" (click)="onViewWheelBaseAssociations(vehicle)">{{vehicle.vehicleToWheelBaseCount==0 ? '':vehicle.vehicleToWheelBaseCount + ' :'}} view</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- Select a wheel base form start -->
+        <div class="add-form">
+            <h2>
+                Select Wheel Base
+                <div class="filter-search" style="float: right">
+                    <input type="text" class="cinput" placeholder="Wheel Base ID search" [(ngModel)]="wheelBaseIdSearchText" (keypress)="onWheelBaseIdKeyPress($event)" />
+                    <input type="submit" value="" (click)="onWheelBaseIdSearch()">
+                </div>
+            </h2>
+            <div class="clearfix">
+                <div class="input-blocks clearfix">
+                    <div>
+                        <strong>Wheel Base ID</strong>
+                        <label *ngIf="!wheelBase || wheelBase.id==-1">N/A</label>
+                        <label *ngIf="wheelBase && wheelBase.id!=-1">{{wheelBase.id}}</label>
+                    </div>
+                    <div>
+                        <strong>Wheel Base, Wheel Base Metric</strong>
+                        <div class="select white-select" style="width: 220px;">
+                            <select [disabled]="!allWheelBases || allWheelBases.length==0" [(ngModel)]="wheelBase.id">
+                                <option value="-1" *ngIf="!allWheelBases">Loading...</option>
+                                <option value="-1" *ngIf="allWheelBases">--Select Wheel Base--</option>
+                                <option *ngFor="let item of allWheelBases" [value]="item.id">{{item.base}}, {{item.wheelBaseMetric}}</option>
+                            </select>
+                            <div class="select__arrow white-select__arrow"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="submit-wrap" style="margin-top: 15px;">
+                    <input type="submit" value="ADD TO SELECTIONS" class="btn blue larger" (click)="onAddWheelBaseToSelection()">
+                </div>
+            </div>
+        </div>
+
+        <!-- wheel base to associate start -->
+        <div class="table-wrap">
+            <h2 class="clearfix">
+                Wheel Base Systems To Associate
+            </h2>
+            <div class="ctable">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>Wheel Base ID</td>
+                            <td>Wheel Base</td>
+                            <td>Wheel Base Metric</td>
+                            <td>Associations</td>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="wheelBases">
+                        <tr *ngFor="let item of wheelBases">
+                            <td><a class="btn-row-remove" (click)="onRemoveWheelBase(item.id)"></a></td>
+                            <td>{{item.id}}</td>
+                            <td>{{item.base}}</td>
+                            <td>{{item.wheelBaseMetric}}</td>
+                            <td><a style="cursor: pointer;" class="btn-r-arrow blue" (click)="onViewAssociations(item)">{{item.vehicleToWheelBaseCount==0 ? '' : item.vehicleToWheelBaseCount + ' :'}} view</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+        <!-- Proposed wheel base associations start -->
+        <div class="table-wrap">
+            <h2 class="clearfix">
+                Proposed Wheel Base Associations
+            </h2>
+
+            <div class="ctable">
+                <table>
+                    <thead>
+                        <tr>
+                            <td width="10">
+                                <label class="control control--checkbox green-checkbox">
+                                    <input type="checkbox" checked="checked" [(ngModel)]="selectAllChecked" (change)="onSelectAllProposedWheelBaseAssociations($event)" [disabled]="!proposedVehicleToWheelBases || proposedVehicleToWheelBases.length==0">
+                                    <div class="control__indicator"></div>
+                                </label>
+                            </td>
+                            <td>Base ID</td>
+                            <td>Vehicle ID</td>
+                            <td>Year</td>
+                            <td>Make</td>
+                            <td>Model</td>
+                            <td>Submodel</td>
+                            <td>Region</td>
+                            <td>Wheel Base ID</td>
+                            <td>Wheel Base</td>
+                            <td>Wheel Base Metric</td>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="proposedVehicleToWheelBases">
+                        <tr *ngFor="let v of proposedVehicleToWheelBases">
+                            <td>
+                                <label class="control control--checkbox green-checkbox">
+                                    <input type="checkbox" [(ngModel)]="v.isSelected" (change)="refreshProposedVehicleToWheelBasesSelectionCount($event, v)">
+                                    <div class="control__indicator"></div>
+                                </label>
+                            </td>
+                            <td>{{v.vehicle.baseVehicleId}}</td>
+                            <td>{{v.vehicle.id}}</td>
+                            <td>{{v.vehicle.yearId}}</td>
+                            <td>{{v.vehicle.makeName}}</td>
+                            <td>{{v.vehicle.modelName}}</td>
+                            <td>{{v.vehicle.subModelName}}</td>
+                            <td>{{v.vehicle.regionName}}</td>
+                            <td>{{v.wheelBase.id}}</td>
+                            <td>{{v.wheelBase.base}}</td>
+                            <td>{{v.wheelBase.wheelBaseMetric}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="add-form">
+            <div class="clearfix">
+                <div class="submit-wrap">
+                    <input type="submit" value="SUBMIT {{proposedVehicleToWheelBasesSelectionCount}} ASSOCIATIONS" class="btn larger" (click)="onSubmitAssociations()">
+                    <input type="reset" value="CANCEL" class="btn transparent larger" routerLink="/system/search">
+                </div>
+
+                <div class="attach-wrap" style="margin-top: 40px;">
+                    <strong>OPTIONAL</strong>
+                    <ac-fileuploader upload-api-path="file/savechunk"></ac-fileuploader>
+                    <small>Include comments</small>
+                    <textarea cols="50" rows="5" [(ngModel)]="commenttoadd"></textarea>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="table-wrap">
+            <h2 class="clearfix">
+                Existing Wheel Base Associations
+            </h2>
+            <div class="ctable">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Base ID</td>
+                            <td>Vehicle ID</td>
+                            <td>Year</td>
+                            <td>Make</td>
+                            <td>Model</td>
+                            <td>Submodel</td>
+                            <td>Region</td>
+                            <td>Wheel Base ID</td>
+                            <td>Wheel Base</td>
+                            <td>Wheel Base Metric</td>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="existingVehicleToWheelBases">
+                        <tr *ngFor="let v of existingVehicleToWheelBases">
+                            <td>{{v.vehicle.baseVehicleId}}</td>
+                            <td>{{v.vehicle.id}}</td>
+                            <td>{{v.vehicle.yearId}}</td>
+                            <td>{{v.vehicle.makeName}}</td>
+                            <td>{{v.vehicle.modelName}}</td>
+                            <td>{{v.vehicle.subModelName}}</td>
+                            <td>{{v.vehicle.regionName}}</td>
+                            <td>{{v.wheelBase.id}}</td>
+                            <td>{{v.wheelBase.base}}</td>
+                            <td>{{v.wheelBase.wheelBaseMetric}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Main end -->
+<span class="alert-warning">{{errorMessage}}</span>
+
+<modal #wheelBaseAssociationsPopup>
+    <div class="overlay dark show">
+        <div>
+            <a class="close" data-dismiss="modal" (click)="wheelBaseAssociationsPopup.dismiss()"></a>
+            <div class="table-wrap">
+                <h2 class="clearfix">
+                    Wheel Base Associations
+                </h2>
+                <div class="ctable">
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>Vehicle To Wheel Base ID</td>
+                                <td>Base ID</td>
+                                <td>Vehicle ID</td>
+                                <td>Wheel Base ID</td>
+                                <td>Year</td>
+                                <td>Make</td>
+                                <td>Model</td>
+                                <td>Submodel</td>
+                                <td>Region</td>
+                                <td>Wheel Base</td>
+                                <td>Wheel Base Metric</td>
+                            </tr>
+                        </thead>
+                        <tbody *ngIf="popupVehicle">
+                            <tr *ngIf="!popupVehicle.vehicleToWheelBases">
+                                <td colspan="12">Loading...</td>
+                            </tr>
+                            <tr class="tableicons" *ngFor="let v of popupVehicle.vehicleToWheelBases">
+                                <td>{{v.id}}</td>
+                                <td>{{v.vehicle.baseVehicleId}}</td>
+                                <td>{{v.vehicle.id}}</td>
+                                <td>{{v.wheelBase.id}}</td>
+                                <td>{{v.vehicle.yearId}}</td>
+                                <td>{{v.vehicle.makeName}}</td>
+                                <td>{{v.vehicle.modelName}}</td>
+                                <td>{{v.vehicle.subModelName}}</td>
+                                <td>{{v.vehicle.regionName}}</td>
+                                <td>{{v.wheelBase.base}}</td>
+                                <td>{{v.wheelBase.wheelBaseMetric}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Submit and cancel button start -->
+                <div class="btns">
+                    <button type="button" class="btn" data-dismiss="modal">CLOSE</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</modal>
+
+<modal #associationsPopup>
+    <div class="overlay dark show">
+        <div>
+            <a class="close" data-dismiss="modal" (click)="associationsPopup.dismiss()"></a>
+            <div class="table-wrap">
+                <h2 class="clearfix">
+                    Associations
+                </h2>
+                <div class="ctable">
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>Vehicle To Wheel Base ID</td>
+                                <td>Base ID</td>
+                                <td>Vehicle ID</td>
+                                <td>Wheel Base ID</td>
+                                <td>Year</td>
+                                <td>Make</td>
+                                <td>Model</td>
+                                <td>Submodel</td>
+                                <td>Region</td>
+                                <td>Wheel Base</td>
+                                <td>Wheel Base Metric</td>
+                            </tr>
+                        </thead>
+                        <tbody *ngIf="popupWheelBase">
+                            <tr *ngIf="!popupWheelBase.vehicleToWheelBases">
+                                <td colspan="12">Loading...</td>
+                            </tr>
+                            <tr *ngIf="popupWheelBase.vehicleToWheelBases && popupWheelBase.vehicleToWheelBases.length == 0">
+                                <td colspan="12">No Records Found</td>
+                            </tr>
+                            <tr class="tableicons" *ngFor="let v of popupWheelBase.vehicleToWheelBases">
+                                <td>{{v.id}}</td>
+                                <td>{{v.vehicle.baseVehicleId}}</td>
+                                <td>{{v.vehicle.id}}</td>
+                                <td>{{v.wheelBase.id}}</td>
+                                <td>{{v.vehicle.yearId}}</td>
+                                <td>{{v.vehicle.makeName}}</td>
+                                <td>{{v.vehicle.modelName}}</td>
+                                <td>{{v.vehicle.subModelName}}</td>
+                                <td>{{v.vehicle.regionName}}</td>
+                                <td>{{v.wheelBase.base}}</td>
+                                <td>{{v.wheelBase.wheelBaseMetric}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Submit and cancel button start -->
+                <div class="btns">
+                    <button type="button" class="btn" data-dismiss="modal">CLOSE</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</modal>

@@ -1,0 +1,254 @@
+﻿@model Northwind.Web.Models.ViewModels.FarClause.FarContractViewModel
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+@{
+    var resourceVersion = @Configuration["resourceVersion"];
+    var cdnUrl = @Configuration["CDNUrl"];
+}
+
+<p class="px-3">Last Updated By <b>@Model.UpdatedBy on @Model.UpdatedOn.ToString("MM/dd/yyyy")</b>.</p>
+
+<div class="col-md-12">
+    <input type="hidden" asp-for="ContractGuid" class="form-control" />
+    <div class="row">
+        <div class="col-md-6">
+            <ul class="panelBody">
+                <li class="k-state-active">
+                    <span class="k-link k-state-selected">Required Far Clauses</span>
+                    <div class="col-12">
+                        <div class="row border-top pt-3">
+                            @for (int i = 0; i < Model.RequiredFarClauses.Count; i++)
+                            {
+                                <div class="col-md-6 form-group mb-2 border-bottom pt-2">
+                                    <label asp-for="RequiredFarClauses[i].FarClauseTitle" class=" control-label mb-0">
+                                        @Model.RequiredFarClauses[i].FarClauseNumber (@Model.RequiredFarClauses[i].FarClauseParagraph) - @Model.RequiredFarClauses[i].FarClauseTitle
+                                    </label>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <ul class="panelBody mb-3">
+                <li class="k-state-active">
+                    <span class="k-link k-state-selected">Contract Special Provisions</span>
+                    <div class="col-12">
+                        <div class="col-12">
+                            <div class="row border-top pt-3 form-group">
+
+                                <label asp-for="ContractQuestionaires.IsReportExecCompensation" class="control-label mb-0 col  ">
+                                    Reporting Executive Compensation and First-Tier Subcontract Awards (52.204-10):
+                                </label>
+                                <div class="col-auto form-check pl-0 text-primary">
+                                    @Model.ContractQuestionaires.IsReportExecCompensationStatus
+                                </div>
+                            </div>
+
+                            @if (Model.ContractQuestionaires.IsReportExecCompensation)
+                            {
+                                <div id="HideReportDate" class="row">
+                                    <div class="col-md-6 form-group">
+                                        <label asp-for="ContractQuestionaires.ReportLastReportDate" class="control-label ">
+                                            Date of Last Report:
+                                        </label>
+                                        @(Model.ContractQuestionaires.ReportLastReportDate == null ? "Not Provided" :
+                                                                                                                                                                                    Model.ContractQuestionaires.ReportLastReportDate.Value.ToShortDateString())
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label asp-for="ContractQuestionaires.ReportNextReportDate" class="control-label ">
+                                            Date of Next Report:
+                                        </label>
+                                        @(Model.ContractQuestionaires.ReportNextReportDate == null ? "Not Provided" :
+                                                                                                                                                                                      Model.ContractQuestionaires.ReportNextReportDate.Value.ToShortDateString())
+                                    </div>
+                                </div>
+                            }
+
+                            <div class="row border-top pt-3 form-group">
+                                <label asp-for="ContractQuestionaires.IsGSAschedulesale" class="control-label col mb-0  ">
+                                    GSA Schedule Sales & Industrial Funding Fee (GSAR 552.238-74):
+                                </label>
+                                <div class="col-auto form-check pl-0 text-primary">
+                                    @Model.ContractQuestionaires.IsGSAschedulesaleStatus
+                                </div>
+                            </div>
+
+                            @if (Model.ContractQuestionaires.IsGSAschedulesale)
+                            {
+                                <div id="HideIsGSAschedulesale" class="row">
+                                    <div class="col-md-6 form-group">
+                                        <label asp-for="ContractQuestionaires.GSALastReportDate" class="control-label ">
+                                            Date of Last Report:
+                                        </label>
+                                        @(Model.ContractQuestionaires.GSALastReportDate == null ? "Not Provided" :
+                                                                                                                                                                                Model.ContractQuestionaires.GSALastReportDate.Value.ToShortDateString())
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label asp-for="ContractQuestionaires.GSANextReportDate" class="control-label ">
+                                            Date of Next Report:
+                                        </label>
+                                        @(Model.ContractQuestionaires.GSANextReportDate == null ? "Not Provided" :
+                                                                                                                                                                                    Model.ContractQuestionaires.GSANextReportDate.Value.ToShortDateString())
+                                    </div>
+                                </div>
+                            }
+
+                            <div class="row border-top pt-3 form-group">
+                                <label asp-for="ContractQuestionaires.IsSBsubcontract" class="col mb-0 control-label  ">
+                                    Progress towards SB Subcontracting Plans (52.218-9):
+                                </label>
+                                <div class="col-auto form-check pl-0 text-primary">
+                                    @Model.ContractQuestionaires.IsSBsubcontractStatus
+                                </div>
+                                    </div >
+
+                                    @if (Model.ContractQuestionaires.IsSBsubcontract)
+                                    {
+                                        <div id = "HideIsSBsubcontract" class="row">
+                                        <div class="col-md-6 form-group">
+                                            <label asp-for="ContractQuestionaires.SBLastReportDate" class="control-label ">
+                                                Date of Last Report:
+                                            </label>
+                                            @(Model.ContractQuestionaires.SBLastReportDate == null ? "Not Provided" :
+                                                                                                                                                                                                Model.ContractQuestionaires.SBLastReportDate.Value.ToShortDateString())
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <label asp-for="ContractQuestionaires.SBNextReportDate" class="control-label ">
+                                                Date of Next Report:
+                                            </label>
+                                            @(Model.ContractQuestionaires.SBNextReportDate == null ? "Not Provided" : Model.ContractQuestionaires.SBNextReportDate.Value.ToShortDateString())
+                                        </div>
+                                    </div>
+                                }
+
+                                    <div class="row border-top pt-3 form-group">
+                                        <label asp-for="ContractQuestionaires.IsGQAC" class="control-label mb-0 col  ">
+                                            Government-Wide Acquisition Contracts(GQAC), examples: GSA - Alliant, STARS) or NIH CIO-SP3):
+                                        </label>
+                                        <div class="col-auto form-check pl-0 text-primary">
+                                            @Model.ContractQuestionaires.IsGQACStatus
+                                        </div>
+                                    </div>
+
+
+                                    @if (Model.ContractQuestionaires.IsGQAC)
+                                    {
+                                        <div id="HideIsGQAC" class="row">
+                                            <div class="form-group col-md-6">
+                                                <label asp-for="ContractQuestionaires.GQACLastReportDate" class="control-label ">
+                                                    Date of Last Report:
+                                                </label>
+                                                @(Model.ContractQuestionaires.GQACLastReportDate == null ? "Not Provided" :
+                                                                                                                                                                                                Model.ContractQuestionaires.GQACLastReportDate.Value.ToShortDateString())
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label asp-for="ContractQuestionaires.GQACNextReportDate" class="control-label ">
+                                                    Date of Next Report:
+                                                </label>
+                                                @(Model.ContractQuestionaires.GQACNextReportDate == null ? "Not Provided" :
+                                                                                                                                                                                            Model.ContractQuestionaires.GQACNextReportDate.Value.ToShortDateString())
+                                            </div>
+                                        </div>
+                                    }
+
+                                    <div class="row border-top pt-3 form-group">
+                                        <label asp-for="ContractQuestionaires.IsCPARS" class="mb-0 control-label col  ">
+                                            CPARS (FAR Subpart 42.215):
+                                        </label>
+                                        <div class="form-check col-auto pl-0 text-primary">
+                                            @Model.ContractQuestionaires.IsCPARSStatus
+                                        </div>
+                                    </div>
+
+                                    @if (Model.ContractQuestionaires.IsCPARS)
+                                    {
+                                        <div id="HideIsCPARS" class="row">
+                                            <div class="form-group col-md-6">
+                                                <label asp-for="ContractQuestionaires.CPARSLastReportDate" class="control-label ">
+                                                    Date of Last Report:
+                                                </label>
+                                                @(Model.ContractQuestionaires.CPARSLastReportDate == null ? "Not Provided" : Model.ContractQuestionaires.CPARSLastReportDate.Value.ToShortDateString())
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label asp-for="ContractQuestionaires.CPARSNextReportDate" class="control-label ">
+                                                    Date of Next Report:
+                                                </label>
+                                                @(Model.ContractQuestionaires.CPARSNextReportDate == null ? "Not Provided" :
+                                                                                                                                                                                            Model.ContractQuestionaires.CPARSNextReportDate.Value.ToShortDateString())
+                                            </div>
+                                        </div>
+                                    }
+
+                                    <div class="row border-top pt-3 form-group">
+                                        <label asp-for="ContractQuestionaires.IsWarranties" class="mb-0 control-label col  ">
+                                            Warranties:
+                                        </label>
+                                        <div class="col-auto form-check pl-0 text-primary">
+                                            @Model.ContractQuestionaires.IsWarrantiesStatus
+                                        </div>
+                                    </div>
+
+                                    @if (Model.ContractQuestionaires.IsWarranties)
+                                    {
+                                        <div id="HideIsWarranties">
+                                            <div class="form-group">
+                                                <label asp-for="ContractQuestionaires.IsStandardIndustryProvision" class="mb-0 control-label  ">
+                                                    Warranties: Consistent with Standard Industry Provision of 12 months
+                                                </label>
+                                                <div class="form-check pl-0">
+                                                    @Model.ContractQuestionaires.IsStandardIndustryProvisionStatus
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label asp-for="ContractQuestionaires.WarrantyProvisionDescription" class="control-label ">
+                                                    Warranty Provision Description:
+                                                </label>
+                                                <div class="col-auto form-check pl-0 text-primary">
+                                                    @Model.ContractQuestionaires.WarrantyProvisionDescription
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <br />
+        <div>
+            <ul class="panelBody">
+                <li class="k-state-active">
+                    <span class="k-link k-state-selected">Applicable Far Clauses</span>
+                    <div class="col-12">
+                        <div class="row border-top pt-3">
+                            @for (int i = 0; i < Model.ApplicableFarClauses.Count; i++)
+                            {
+                                <div class="col-md-6 form-group mb-2 border-bottom pt-2">
+                                    <label asp-for="ApplicableFarClauses[i].FarClauseTitle" class=" control-label mb-0">
+                                        @Model.ApplicableFarClauses[i].FarClauseNumber (@Model.ApplicableFarClauses[i].FarClauseParagraph) - @Model.ApplicableFarClauses[i].FarClauseTitle
+                                    </label>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <script>
+        $(document).ready(function () {
+            var panelBar = $(".panelBody").kendoPanelBar({
+                collapse: onCollapse
+            });
+
+            var onCollapse = function (e) {
+                panelBar.data("kendoPanelBar").unbind("collapse", onCollapse);
+            };
+
+        });
+    </script>

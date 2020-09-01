@@ -1,0 +1,124 @@
+﻿<loading-gif [show]="showLoadingGif"></loading-gif>
+<!-- Breadcrumb start -->
+<div class="breadcrumb">
+    <div class="center">
+        <a class="back" routerLink="/system/search">Return to brake system search</a>
+    </div>
+</div>
+<!-- Breadcrumb end -->
+<!-- Main start -->
+<main class="clearfix">
+
+    <div class="center">
+
+        <!-- Existing Brake systems start -->
+        <div class="table-wrap">
+            <h2 class="clearfix">
+                Existing Brake Systems
+            </h2>
+            <div class="ctable">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Brake Config ID</td>
+                            <td>Front Brake (ID)</td>
+                            <td>Rear Brake (ID)</td>
+                            <td>Brake ABS (ID)</td>
+                            <td>Brake System (ID)</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngIf="existingBrakeConfig">
+                            <td>{{existingBrakeConfig.id}}</td>
+                            <td>{{existingBrakeConfig.frontBrakeTypeName}} ({{existingBrakeConfig.frontBrakeTypeId}})</td>
+                            <td>{{existingBrakeConfig.rearBrakeTypeName}} ({{existingBrakeConfig.rearBrakeTypeId}})</td>
+                            <td>{{existingBrakeConfig.brakeABSName}} ({{existingBrakeConfig.brakeABSId}})</td>
+                            <td>{{existingBrakeConfig.brakeSystemName}} ({{existingBrakeConfig.brakeSystemId}})</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+        <!-- Modify brake system form start -->
+        <div class="add-form">
+            <h2>Modify Brake System</h2>
+            <div class="clearfix">
+                <div class="input-blocks clearfix">
+                    <div>
+                        <strong>Front Brake (ID)</strong>
+
+                        <div class="select white-select" style="width: 220px;" *ngIf="modifiedBrakeConfig">
+                            <select [disabled]="!brakeTypes" [(ngModel)]="modifiedBrakeConfig.frontBrakeTypeId">
+                                <option value="-1" *ngIf="!brakeTypes">Loading...</option>
+                                <option value="-1" *ngIf="brakeTypes">--Select Front Brake Type--</option>
+                                <option *ngFor="let item of brakeTypes" [value]="item.id">{{item.name}} ({{item.id}})</option>
+                            </select>
+                            <div class="select__arrow white-select__arrow"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <strong>Rear Brake (ID)</strong>
+
+                        <div class="select white-select" style="width: 220px;" *ngIf="modifiedBrakeConfig">
+                            <select [disabled]="!brakeTypes" [(ngModel)]="modifiedBrakeConfig.rearBrakeTypeId">
+                                <option value="-1" *ngIf="!brakeTypes">Loading...</option>
+                                <option value="-1" *ngIf="brakeTypes">--Select Rear Brake Type--</option>
+                                <option *ngFor="let item of brakeTypes" [value]="item.id">{{item.name}} ({{item.id}})</option>
+                            </select>
+                            <div class="select__arrow white-select__arrow"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <strong>Brake ABS (ID)</strong>
+
+                        <div class="select white-select" style="width: 200px;" *ngIf="modifiedBrakeConfig">
+                            <select [disabled]="!brakeABSes" [(ngModel)]="modifiedBrakeConfig.brakeABSId">
+                                <option value="-1" *ngIf="!brakeABSes">Loading...</option>
+                                <option value="-1" *ngIf="brakeABSes">--Select Brake ABS--</option>
+                                <option *ngFor="let item of brakeABSes" [value]="item.id">{{item.name}} ({{item.id}})</option>
+                            </select>
+                            <div class="select__arrow white-select__arrow"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <strong>Brake System (ID)</strong>
+
+                        <div class="select white-select" style="width: 180px;" *ngIf="modifiedBrakeConfig">
+                            <select [disabled]="!brakeSystems" [(ngModel)]="modifiedBrakeConfig.brakeSystemId">
+                                <option value="-1" *ngIf="!brakeSystems">Loading...</option>
+                                <option value="-1" *ngIf="brakeSystems">--Select Brake System Name--</option>
+                                <option *ngFor="let item of brakeSystems" [value]="item.id">{{item.name}} ({{item.id}})</option>
+                            </select>
+                            <div class="select__arrow white-select__arrow"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="warning-wrap">
+                    <div *ngIf="existingBrakeConfig">
+                        <strong>Associated records will be impacted</strong>
+                        <span>{{existingBrakeConfig.vehicleToBrakeConfigCount}} vehicle to brake configurations</span>
+                    </div>
+                </div>
+
+                <div class="submit-wrap">
+                    <input type="submit" value="SUBMIT CHANGE REQUEST" class="btn larger" (click)="onSubmitChangeRequests()">
+                    <input type="reset" value="CANCEL" class="btn transparent larger" routerLink="/system/search">
+                </div>
+
+                <div class="attach-wrap" style="margin-top: 40px;" *ngIf="modifiedBrakeConfig">
+                    <strong>OPTIONAL</strong>
+                   
+                    <ac-fileuploader upload-api-path="file/savechunk"></ac-fileuploader>
+                    <small>Include comments</small>
+                    <textarea cols="50" rows="5" [(ngModel)]="modifiedBrakeConfig.comment"></textarea>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</main>
+<!-- Main end -->

@@ -1,0 +1,83 @@
+﻿@model Northwind.Web.Models.ViewModels.Company.CompanyViewModel
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    var resourceVersion = @Configuration["resourceVersion"];
+    var cdnUrl = @Configuration["CDNUrl"];
+}
+@section breadcrumb
+    {
+    <li class="breadcrumb-item"><a href="~/admin/Settings">Settings</a></li>
+    <li class="breadcrumb-item"><a href="#">Company</a></li>
+}
+<div class="row">
+    <div class="col-lg-6 col-md-8">
+        <form id="customerSearchForm" class="search-form-r">
+            <div class="input-group mb-3 mb-sm-0">
+                @Html.TextBoxFor(model => model.SearchValue, new { @class = "form-control", placeholder = " Search By Name" })
+                <div class="input-group-append">
+                    <div class="input-group-text" id="btnSearch">
+                        <i class="k-icon k-i-search"></i>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-lg-6 col-md-4 text-right">
+        <button type="button" class="btn btn-primary" id="addNewCompany">Add Company</button>
+        <div class="dropdown float-right ml-1">
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">More</button>
+            <div class="dropdown-menu  dropdown-menu-right">
+                <a id="ExportToPdf" rel="#CompanyGrid" data-resource="Company" class="dropdown-item" href="#">
+                    <i class="k-icon k-i-file-pdf"></i> Export to Pdf
+                </a>
+                <a id="ExportToCSV" rel="#CompanyGrid" data-resource="Company" class="dropdown-item" href="#">
+                    <i class="k-icon k-i-file-excel"></i> Export to Excel
+                </a>
+                <a id="DeleteCompany" class="dropdown-item" href="#">
+                    <i class="k-icon k-i-delete"></i>
+                    Delete
+                </a>
+                <a id="DisableCompany" class="dropdown-item" href="#">
+                    <i class="k-icon k-i-cancel"></i>
+                    Disable
+                </a>
+                <a id="EnableCompany" class="dropdown-item" href="#">
+                    <i class="k-icon k-i-check"></i>
+                    Enable
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <div class="search-pills-container" id="searchPills">
+            @if (!string.IsNullOrEmpty(Model.SearchValue))
+            {
+                <div class="badge badge-pill badge-secondary">
+                    @Model.SearchValue
+                    <a href="#" id="clearSearch" class="pill-close"><i class="material-icons">close</i></a>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<div id="dialog">
+    <div class="content"></div>
+</div>
+<div class="row mt-3">
+    <div class="col">
+        <div id="CompanyGrid" class="table-grid table-more-btn">
+        </div>
+    </div>
+</div>
+<!-- </div> -->
+
+@section Scripts {
+    <script src="@cdnUrl/js/proj/Company.js?v=@resourceVersion"></script>
+}

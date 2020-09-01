@@ -1,0 +1,154 @@
+﻿<loading-gif [show]="showLoadingGif"></loading-gif>
+<!-- Breadcrumb start -->
+<div class="breadcrumb">
+    <div class="center">
+        <a routerLink="/vehicle/search" class="back">Return to vehicle search</a>
+    </div>
+</div>
+<!-- Breadcrumb end -->
+<!-- Main start -->
+<main class="clearfix">
+
+    <div class="center">
+
+        <!-- Existing Base vehicle start -->
+        <div class="table-wrap">
+            <h2 class="clearfix">
+                Existing Base Vehicle
+            </h2>
+            <div class="ctable">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Base ID</td>
+                            <td>Year</td>
+                            <td>Make (ID)</td>
+                            <td>Model (ID)</td>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="existingBaseVehicle">
+                        <tr>
+                            <td>{{existingBaseVehicle.id}}</td>
+                            <td>{{existingBaseVehicle.yearId}}</td>
+                            <td>{{existingBaseVehicle.makeName}} ({{existingBaseVehicle.makeId}})</td>
+                            <td>{{existingBaseVehicle.modelName}} ({{existingBaseVehicle.modelId}})</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+        <!-- Modify base vehicle form start -->
+        <div class="add-form">
+            <h2>Modify base vehicle</h2>
+            <div class="clearfix">
+                <div class="input-blocks clearfix" *ngIf="changeBaseVehicle">
+                    <div>
+                        <strong>Year</strong>
+
+                        <div class="select white-select" style="width: 100px">
+                            <select [(ngModel)]="changeBaseVehicle.yearId">
+                                <option value="-1">--Year--</option>
+                                <option *ngFor="let year of years" [value]="year.id">{{year.id}}</option>
+                            </select>
+                            <div class="select__arrow white-select__arrow"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <strong>Make Name (ID)</strong>
+
+                        <div class="select white-select">
+                            <select [disabled]="!makes" [(ngModel)]="changeBaseVehicle.makeId">
+                                <option value="-1" *ngIf="!makes">Loading...</option>
+                                <option value="-1" *ngIf="makes">--Select Make--</option>
+                                <option *ngFor="let make of makes" [value]="make.id">{{make.name}} ({{make.id}})</option>
+                            </select>
+                            <div class="select__arrow white-select__arrow"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <strong>Model Name (ID)</strong>
+
+                        <div class="select white-select">
+                            <select [disabled]="!models" [(ngModel)]="changeBaseVehicle.modelId">
+                                <option value="-1" *ngIf="!models">Loading...</option>
+                                <option value="-1" *ngIf="models">--Select Model--</option>
+                                <option *ngFor="let model of models" [value]="model.id">{{model.name}} ({{model.id}})</option>
+                            </select>
+                            <div class="select__arrow white-select__arrow"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="warning-wrap">
+                    <div *ngIf="existingBaseVehicle">
+                        <strong>Associated records will be impacted</strong>
+                        <span *ngIf="existingBaseVehicle">{{ existingBaseVehicle.vehicleCount }} Vehicles</span>
+                        <a class="icon-text blue right" *ngIf="existingBaseVehicle.vehicleCount> 0" (click)="onViewAffectedVehicles()"  style="cursor: pointer">View affected vehicles</a>
+                    </div>
+                </div>
+
+                <div class="submit-wrap">
+                    <input type="submit" value="SUBMIT CHANGE REQUESTS" class="btn larger" (click)="onModifyBaseVehicle()">
+                    <input type="reset" value="CANCEL" class="btn transparent larger" routerLink="/vehicle/search">
+                </div>
+
+                <div class="attach-wrap">
+                    <strong>OPTIONAL</strong>
+                    <ac-fileuploader upload-api-path="file/savechunk"></ac-fileuploader>
+                    <small>Include comments</small>
+                    <textarea cols="50" rows="5" [(ngModel)]="changeBaseVehicle.comment"></textarea>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</main>
+<!-- Main end -->
+<!--Modal Affected Vehicles-->
+<modal #viewAffectedVehiclesModal>
+    <div class="overlay dark show">
+        <div>
+            <a class="close" data-dismiss="modal" (click)="viewAffectedVehiclesModal.dismiss()"></a>
+            <!-- Affected vehicles start -->
+            <div class="table-wrap">
+                <h2 class="clearfix">
+                    Affected vehicles
+                </h2>
+                <div class="ctable">
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>Year</td>
+                                <td>Make (ID)</td>
+                                <td>Model (ID)</td>
+                                <td>Vehicle ID</td>
+                                <td>Submodel (ID)</td>
+                                <td>Region (ID)</td>
+                            </tr>
+                        </thead>
+                        <tbody *ngIf="existingBaseVehicle">
+                            <tr *ngIf="!existingBaseVehicle.vehicles">
+                                <td colspan="6">Loading...</td>
+                            </tr>
+                            <tr class="tableicons" *ngFor="let vehicle of existingBaseVehicle.vehicles">
+                                <td>{{vehicle.yearId}}</td>
+                                <td>{{vehicle.makeName}} ({{vehicle.makeId}})</td>
+                                <td>{{vehicle.modelName}} ({{vehicle.modelId}})</td>
+                                <td>{{vehicle.id}}</td>
+                                <td>{{vehicle.subModelName}} ({{vehicle.subModelId}})</td>
+                                <td>{{vehicle.regionName}} ({{vehicle.regionId}})</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Submit and cancel button start -->
+                <div class="btns">
+                    <button type="button" class="btn" data-dismiss="modal">CLOSE</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</modal>

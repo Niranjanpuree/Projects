@@ -1,0 +1,37 @@
+﻿@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+@{
+    ViewData["Title"] = "Settings: User Management ";
+    Layout = "~/Areas/IAM/Views/Shared/_Layout.cshtml";
+}
+@{
+    var resourceVersion = @Configuration["resourceVersion"];
+    var cdnUrl = @Configuration["CDNUrl"];
+}
+@section breadcrumb
+    {
+    <li class="breadcrumb-item"><a href="/admin/settings">Settings</a></li>
+    <li class="breadcrumb-item"><a href="#">User Management</a></li>
+}
+    <ul class="nav nav-tabs" id="iam_tabs">
+        <li class="nav-item">
+            <a href="~/iam/User" class="nav-link active" id="userTab">Users</a>
+        </li>
+        <li class="nav-item">
+            <a href="~/iam/Group" class="nav-link" id="groupTab">Groups</a>
+        </li>
+        <!--<li class="nav-item">
+        <a href="~/iam/Policy" class="nav-link" id="policyTab">Policies</a>
+        </li>
+     <li class="nav-item">
+        <a href="~/iam/Password" class="nav-link" id="passwordTab">Password Settings</a>
+    </li> -->
+    </ul>
+
+
+    <!--End Side Bar-->
+    <!--Main Content Area-->
+    <div class="tab-container container-fluid">
+        <div id="userGrid" class="table-iam"></div>
+    </div>
+    <!--End Main Content Area-->

@@ -1,0 +1,126 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+
+		<!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <!-- Fontawesome CSS -->
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <!-- Custom external CSS -->
+        <link rel="stylesheet" href="css/custom.css">
+        <!-- Custom external CSS -->
+        <link rel="stylesheet" href="css/customnew.css">
+        <!-- jQuery library -->
+        <script src="js/jquery-1.12.3.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="js/bootstrap.min.js"></script>
+        <!-- jQuery -->
+        <script src="js/search.js"></script>
+        
+
+</head>
+
+<body>
+
+<section class="col-md-12 container sectiontopmargin">
+	<div class="col-md-6 table-titles">
+    	<h2>Filters</h2>
+	</div>
+    <div class="col-md-6">
+    	<button type="button" class="btn searchbutton pull-right"><i class="fa fa-search"></i> <span>SEARCH VEHICLES</span></button>
+    </div>
+</section>
+<section class="col-md-12">
+	<section class="col-md-2">
+    	<div>
+        	<p class="years">Years</p>
+            <div>
+                <select class="sl-text">
+                    <option value="1943">1943</option>
+                    <option value="1943">1944</option>
+                    <option value="1943">1945</option>
+                    <option value="1943">1946</option>
+                </select>
+                <span class="fa fa-caret-right"></span>
+                <select class="sl-text">
+                    <option value="1943">2016</option>
+                    <option value="1943">2015</option>
+                    <option value="1943">2014</option>
+                    <option value="1943">2013</option>
+                </select>
+            </div>
+            <div class="sectiontopmargin">
+        		<p class="years">Vehicle Type Group</p>
+                <div>
+                <ul>
+                    <li><input type="checkbox" id="ld"/><label for="ld"><span></span> Light duty</label></li>
+                    <li><input type="checkbox" id="md"/><label for="md"><span></span> Medium duty</label></li>
+                    <li><input type="checkbox" id="hd"/><label for="hd"><span></span> Heavy duty</label></li>
+                    <li><input type="checkbox" id="td"/><label for="td"><span></span> Truck duty</label></li>
+                </ul>
+                </div>
+            	<p class="years">Vehicle Type Group</p>
+                <div>
+                <ul>
+                    <li><input type="checkbox" id="car"/><label for="car"><span></span> Car</label></li>
+                    <li><input type="checkbox" id="truck"/><label for="truck"><span></span> Truck</label></li>
+                    <li><input type="checkbox" id="van"/><label for="van"><span></span> Van</label></li>
+                </ul>
+                </div>
+        	</div>
+        </div>
+	</section>
+	<section class="col-md-5">
+        <div>
+        	<p class="years">Make Name</p>
+            <div class="search-box">
+              	<span class="fa fa-search"></span>
+              	<input type="text" name="makename" id="makename" onfocus="if(this.value == 'Search Make') { this.value = ''; }" onBlur="if(this.value == '') { this.value = 'Search Make'; }" value="Search Make">
+              	<div class="makename" style="display: none;">
+                	<ul class="searchitems">
+                       	<li><input type="checkbox" id="acura"/><label for="acura"><span></span> Acura</label></li>
+                        <li><input type="checkbox" id="blackhawk"/><label for="blackhawk"><span></span> Blackhawk</label></li>
+                        <li><input type="checkbox" id="bultaco"/><label for="bultaco"><span></span> Bultaco</label></li>
+                        <li><input type="checkbox" id="bci"/><label for="bci"><span></span> Bus &amp; Coach Intl (BCI)</label></li>
+    				</ul>
+ 			 	</div>
+            </div>
+        </div>
+    </section>
+    <section class="col-md-5">
+        <div>
+        	<p class="years">Model Name</p>
+            <div class="search-box">
+              <span class="fa fa-search"></span>
+              <input type="text" name="modelname" id="modelname" onfocus="if(this.value == 'Search Models') { this.value = ''; }" onBlur="if(this.value == '') { this.value = 'Search Models'; }" value="Search Models">
+              <div class="modelname" style="display: none;">
+                	<ul class="searchitems">
+                       	<li><input type="checkbox" id="integra"/><label for="integra"><span></span> Integra</label></li>
+                        <li><input type="checkbox" id="legend"/><label for="legend"><span></span> Legend</label></li>
+                        <li><input type="checkbox" id="mdx"/><label for="mdx"><span></span> MDX</label></li>
+                        <li><input type="checkbox" id="nsx"/><label for="nsx"><span></span> NSX</label></li>
+    				</ul>
+ 			 	</div>
+            </div>
+        </div>
+        <div class="sectiontopmargin">
+        	<p class="years">Series Name</p>
+            <div class="search-box">
+              <span class="fa fa-search"></span>
+              <input type="text" name="seriesname" id="seriesname" onfocus="if(this.value == 'Search Series') { this.value = ''; }" onBlur="if(this.value == '') { this.value = 'Search Series'; }" value="Search Series">
+              <div class="seriesname" style="display: none;">
+                	<ul class="searchitems">
+                       	<li> </li>
+                        <li> </li>
+                        <li> </li>
+                        <li> </li>
+    				</ul>
+ 			 	</div>
+            </div>
+        </div>
+</section>
+</section>
+</body>
+</html>

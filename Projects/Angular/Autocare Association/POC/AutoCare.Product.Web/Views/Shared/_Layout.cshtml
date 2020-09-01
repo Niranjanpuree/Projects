@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <base href="/">
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <title>Auto Care Association</title>
+
+    <!-- New Design: Start -->
+
+    <link rel="apple-touch-icon" href="~/Content/images/apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+    <!-- Bootstrap start -->
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Content/bootstrap-theme.min.css">
+
+    <!-- Base css start -->
+    <link rel="stylesheet" href="~/Content/reset.css">
+    <link rel="stylesheet" href="~/Content/style.css">
+    <link rel="stylesheet" href="~/Content/custom.css" />
+
+    <!-- Custom form elements start -->
+    <link rel="stylesheet" href="~/Content/custom-form-elements/css/style.css">
+  
+
+    <!-- Modernizer start -->
+    <script src="~/Scripts/modernizr-2.8.3.min.js"></script>
+
+    <!-- Google font open sans start -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- ng2 Toaster-->
+    <link href="~/Content/ng2-toastr.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/loader.css" />
+    <!-- Split screen start -->
+    <style>
+        #main {
+            overflow: hidden;
+        }
+
+        #sidebar {
+            float: left;
+            position: relative;
+            padding-right: 15px;
+            background: #fff;
+            overflow: hidden;
+            width: 600px;
+        }
+
+        .addyearbutton {
+            margin-left: 230px;
+            margin-right: -120px;
+            margin-top: -75px;
+        }
+
+        #split-bar {
+            background-color: #76848f;
+            position: absolute;
+            float: right;
+            width: 15px;
+            cursor: col-resize;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            z-index: 1;
+        }
+
+            #split-bar:before {
+                content: '';
+                border-left: 2px solid #c7bfb5;
+                border-right: 2px solid #c7bfb5;
+                position: absolute;
+                height: 30px;
+                width: 7px;
+                top: 50%;
+                left: 50%;
+                margin-top: -15px;
+                margin-left: -4px;
+            }
+
+            #split-bar span {
+                position: absolute;
+                height: 30px;
+                line-height: 30px;
+                background: #e8cf00;
+                color: #fff;
+                font-size: 13px;
+                top: 50%;
+                right: 16px;
+                margin-top: -15px;
+                display: none;
+                padding: 0 15px;
+                border-radius: 3px;
+            }
+
+            #split-bar:hover span {
+                display: block;
+            }
+
+        .delete-error-wrap {
+            /*width: 396px;*/
+            width: auto;
+        }
+
+        .modal-content {
+            border: none;
+        }
+    </style>
+
+    <script src="~/Scripts/jquery-1.12.3.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/pace.min.js"></script>
+
+
+    <!--Date Picker-->
+    <script src="~/app/lib/aclibs/ng2-datetime/bootstrap-datepicker.min.js"></script>
+    <link href="~/app/lib/aclibs/ng2-datetime/bootstrap-datepicker3.min.css" rel="stylesheet" />
+    <link href="~/app/lib/aclibs/ng2-datetime/bootstrap-timepicker.min.css" rel="stylesheet" />
+    <script src="~/app/lib/aclibs/ng2-datetime/bootstrap-timepicker.min.js"></script>
+
+</head>
+<body class="background">
+    @*Raja added for security*@
+    <form id="__AjaxAntiForgeryForm" action="#" method="post">@Html.AntiForgeryToken()</form>
+
+    @RenderBody()
+
+
+    <script src="~/Scripts/lib/npmlibs/core-js/client/shim.min.js"></script>
+    <script src="~/Scripts/lib/npmlibs/zone.js/dist/zone.js"></script>
+    <script src="~/Scripts/lib/npmlibs/reflect-metadata/Reflect.js"></script>
+    <script src="~/Scripts/lib/npmlibs/systemjs/dist/system.src.js"></script>
+    <script src="~/Scripts/lib/aclibs/ng2-toastr/bundles/ng2-toastr.min.js"></script>
+    <script src="~/systemjs.config.js"></script>
+    <script>
+        System.import('app').catch(function (err) { console.error(err); });
+    </script>
+
+    <script>
+        // Mobile menu start
+        $(document).on('click', '.mmenu-toggle', function (event) {
+            $('nav').addClass('show-mmenu');
+        });
+        $(document).on('click', '.show-mmenu .mmenu-toggle', function (event) {
+            $('nav').removeClass('show-mmenu');
+        });
+        // Mobile menu end
+
+    </script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

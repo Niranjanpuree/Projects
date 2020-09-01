@@ -1,0 +1,193 @@
+{
+  "ImportConfiguration": {
+    "DeleteFileAfterProcessing": "no",
+    "Region": {
+      "InputFolderPath": "D:\\Xylontech Projects\\src\\Northwind.Web\\wwwroot\\Import\\CSVToImport\\Region",
+      "LogOutputPath": "D:\\Xylontech Projects\\src\\Northwind.Web\\wwwroot\\Import\\ExportedCSV\\Region\\",
+      "CSVToAttributeMapping": {
+        "RegionCode": "Code",
+        "RegionName": "Name",
+        "Manager": "Manager",
+        "Action": "Action"
+      }
+    },
+    "Company": {
+      "InputFolderPath": "D:\\Xylontech Projects\\src\\Northwind.Web\\wwwroot\\Import\\CSVToImport\\Company",
+      "LogOutputPath": "D:\\Xylontech Projects\\src\\Northwind.Web\\wwwroot\\Import\\ExportedCSV\\Company\\",
+      "CSVToAttributeMapping": {
+        "Code": "Code",
+        "Name": "Name",
+        "President": "President",
+        "Abbreviation": "Abbreviation",
+        "Description": "Description",
+        "Action": "Action"
+      }
+    },
+    "CustomerContact": {
+      "InputFolderPath": "D:\\Xylontech Projects\\src\\Northwind.Web\\wwwroot\\Import\\CSVToImport\\CustomerContact",
+      "LogOutputPath": "D:\\Xylontech Projects\\src\\Northwind.Web\\wwwroot\\Import\\ExportedCSV\\CustomerContact\\",
+      "CSVToAttributeMapping": {
+        "CustomerName": "Customer Name",
+        "ContactType": "Contact Type",
+        "ContactName": "Contact Name",
+        "FirstName": "Firstname",
+        "MiddleName": "Middlename",
+        "LastName": "Lastname",
+        "PhoneNumber": "Phone",
+        "AltPhoneNumber": "AltPhone",
+        "EmailAddress": "Email",
+        "AltEmailAddress": "AltEmail",
+        "Notes": "Notes",
+        "Action": "Action"
+      }
+    },
+    "Customer": {
+      "InputFolderPath": "D:\\Xylontech Projects\\src\\Northwind.Web\\wwwroot\\Import\\CSVToImport\\Customer",
+      "LogOutputPath": "D:\\Xylontech Projects\\src\\Northwind.Web\\wwwroot\\Import\\ExportedCSV\\Customer\\",
+      "CSVToAttributeMapping": {
+
+        "CustomerName": "Customer Name",
+        "CustomerType": "Customer Type",
+        "Department": "Department",
+        "Agency": "Agency",
+        "CustomerDescription": "Description",
+        "Address": "Address",
+        //"AddressLine1": "AddressLine1",
+        "City": "City",
+        "ZipCode": "Zip Code",
+        "PrimaryPhone": "PhoneNo",
+        "PrimaryEmail": "Email",
+        "Abbreviations": "Abbreviation",
+        //"Tags": "Tags",
+        //"Url": "Url",
+        "State": "State",
+        "Country": "Country",
+        "Action": "Action"
+      }
+    },
+    "Office": {
+      "InputFolderPath": "D:\\Xylontech Projects\\src\\Northwind.Web\\wwwroot\\Import\\CSVToImport\\Office",
+      "LogOutputPath": "D:\\Xylontech Projects\\src\\Northwind.Web\\wwwroot\\Import\\ExportedCSV\\Office\\",
+      "CSVToAttributeMapping": {
+        "OfficeCode": "ORG ID Code",
+        "OfficeName": "Name",
+        "PhysicalAddress": "PhysicalAddress",
+        "PhysicalAddress1": "PhysicalAddress1",
+        "PhysicalCountry": "PhysicalCountry",
+        "PhysicalState": "PhysicalState",
+        "PhysicalCity": "PhysicalCity",
+        "PhysicalZipCode": "PhysicalZipCode",
+        "MailingAddress": "MailingAddress",
+        "MailingAddress1": "MailingAddress1",
+        "MailingCountry": "MailingCountry",
+        "MailingState": "MailingState",
+        //"MailingCity": "MailingCity",
+        "MailingZipCode": "MailingZipCode",
+        "Phone": "Phone",
+        "Fax": "Fax",
+        "OperationManager": "Operation Manager",
+        "Action": "Action"
+      }
+    },
+    "Mods": {
+      "InputFolderPath": "D:\\Xylontech Projects\\src\\Northwind.Web\\wwwroot\\Import\\CSVToImport\\Mods",
+      "LogOutputPath": "D:\\Xylontech Projects\\src\\Northwind.Web\\wwwroot\\Import\\ExportedCSV\\Mods\\",
+      "CSVToAttributeMapping": {
+        "ProjectNumber": "ProjectNumber",
+        "ModNumber": "ModNumber",
+        "ModTitle": "ModTitle",
+        "POPStart": "POPStart",
+        "POPEnd": "POPEnd",
+        "AwardAmount": "AwardAmount",
+        "FundingAmount": "FundingAmount",
+        "Action": "Action"
+      }
+    },
+    "Contract": {
+      "InputFolderPath": "D:\\Xylontech Projects\\src\\Northwind.Web\\wwwroot\\Import\\CSVToImport\\Contract",
+      "LogOutputPath": "D:\\Xylontech Projects\\src\\Northwind.Web\\wwwroot\\Import\\ExportedCSV\\Contract\\",
+      "CSVToAttributeMapping": {
+        "MasterTaskNodeID": "MasterTaskNodeId",
+        "TaskNodeID": "NodeID",
+        "ContractNumber": "Contract Number",
+        "TaskOrderNumber": "Task Order Number",
+        "ProjectNumber": "Project Number",
+        "IsIDIQContract": "IsIDIQ",
+        "IsTaskOrder": "IsTaskOrder",
+        "IsPrimeContract": "IsPrime",
+        "SubContractNumber": "Subcontract Number",
+        "OrganisationID": "Org ID",
+        "ContractTitle": "Title",
+        "Description": "Description",
+        "AwardAmount": "Award Amount",
+        "FundingAmount": "Funded Amount",
+        "POPStart": "POP Start",
+        "POPEnd": "POP End",
+        "ContractCountry": "Contract Country",
+        "ContractState": "Contract State",
+        "NAICSCodeValue": "NAICS",
+        "PSCCodeValue": "PSC",
+        "CPAREligible": "CPAR eligible",
+        "QualityLevel": "Quality Level",
+        "SetAside": "Acquisition Type",
+        "Competition": "Competition",
+        "ContractType": "Contract Type",
+        "Currency": "Currency",
+        "BillingAddress": "Billing Address",
+        "BillingFrequency": "Billing Frequency",
+        "OverHead": "OH %",
+        "GAPercent": "G&A %",
+        "FeePercent": "Fee %",
+        "InvoiceSubmissionMethod": "Invoice Submission Method",
+        "PaymentTerms": "Payment Terms",
+        "ApplicableWageDetermination": "Applicable Wage Determination",
+        "BillingFormula": "Billing Formula",
+        "RevenueFormula": "Revenue Formula",
+        "RevenueRecognitionEACPercent": "Revenue Recognition EAC %",
+        "OHonsite": "Onsite OH",
+        "OHoffsite": "Offsite OH",
+        "ContractRepresentatives": "Contract Rep",
+        "ProjectControlRepresentative": "Project Controls Rep",
+        "ContractProjectManager": "Project Manager",
+        "AccountingRepresentative": "Accounting Rep",
+        "AwardingAgency": "Awarding Agency",
+        "AwardAgencyContractRepresentative": "Award Agency Contract Representative",
+        "AwardingAgencyTechnicalRepresentative": "Awarding Agency Technical Representative",
+        "FundingAgency": "Funding Agency",
+        "FundingAgencyContractRepresentative": "Funding Agency Contract Representative",
+        "FundingAgencyTechnicalRepresentative": "Funding Agency Technical Representative",
+        "Status": "Status",
+        "ContractSubContractAdministrator": "Subcontract Rep",
+        "ContractPurchasingRepresentative": "Purchasing Rep",
+        "ContractHumanResourceRepresentative": "Human Resources Rep",
+        "ContractQualityRepresentative": "Quality Rep",
+        "ContractSafetyOfficer": "Safety Officer",
+        "Action": "Action"
+      }
+    },
+    "FarClause": {
+      "InputFolderPath": "D:\\Xylontech Projects\\src\\Northwind.Web\\wwwroot\\Import\\CSVToImport\\FarClause",
+      "LogOutputPath": "D:\\Xylontech Projects\\src\\Northwind.Web\\wwwroot\\Import\\ExportedCSV\\FarClause\\",
+      "CSVToAttributeMapping": {
+        "ContractNumber": "Contract Number",
+        "ProjectNumber": "Project Number",
+        "CPARS": "42.15",
+        "GovernmentFurnished": "52.245-1",
+        "ProgressTowardsSB": "52.219-9",
+        "ReportingExecutiveCompensation": "52.204-1"
+      }
+    },
+    "Questionaire": {
+      "InputFolderPath": "D:\\Xylontech Projects\\src\\Northwind.Web\\wwwroot\\Import\\CSVToImport\\Questionaire",
+      "LogOutputPath": "D:\\Xylontech Projects\\src\\Northwind.Web\\wwwroot\\Import\\ExportedCSV\\Questionaire\\",
+      "CSVToAttributeMapping": {
+        "ContractNumber": "Contract Number",
+        "ProjectNumber": "Project Number",
+        "GSAR": "GSAR",
+        "GQAC": "GQAC",
+        "ServiceContractReporting": "Service Contract Reporting",
+        "Warranties": "Warranties"
+      }
+    }
+  }
+}

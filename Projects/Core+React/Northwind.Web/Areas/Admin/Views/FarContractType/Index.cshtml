@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Far Contract Type";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+@{
+    var resourceVersion = @Configuration["resourceVersion"];
+    var cdnUrl = @Configuration["CDNUrl"];
+}
+
+<style>
+    .auditLog_grid .btn-link {
+        color: #00649B;
+    }
+
+        .auditLog_grid .btn-link:hover {
+            text-decoration: underline;
+        }
+</style>
+@section breadcrumb
+    {
+    <li class="breadcrumb-item"><a href="/Admin/Settings">Settings</a></li>
+    <li class="breadcrumb-item"><a href="#">Far Contract Type</a></li>
+}
+
+<div id="farContractTypeGrid"></div>
+<div id="dialog">
+    <div class="content"></div>
+</div>
+
+@section Scripts {
+    <script src="@cdnUrl/js/dist/dialog.js?v=@resourceVersion"></script>
+    <script src="@cdnUrl/js/dist/kendogrid.js?v=@resourceVersion"></script>
+
+    <script type="text/javascript">
+        (function () {
+            window.farContractType.farContractTypeList('Far Contract Type List', '@User.Claims.Where(c=>c.Type.ToString() == "fullName").ToList()[0].Value');
+        })()
+    </script>
+}

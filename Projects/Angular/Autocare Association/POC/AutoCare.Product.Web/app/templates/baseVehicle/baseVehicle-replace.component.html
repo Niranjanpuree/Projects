@@ -1,0 +1,155 @@
+﻿<loading-gif [show]="showLoadingGif"></loading-gif>
+<!-- Breadcrumb start -->
+<div class="breadcrumb">
+    <div class="center">
+        <a class="back" routerLink="/vehicle/search">Return to vehicle search</a>
+    </div>
+</div>
+<!-- Breadcrumb end -->
+<!-- Main start -->
+<main class="clearfix">
+
+    <div class="center">
+
+        <!-- Existing Base vehicle start -->
+        <div class="table-wrap">
+            <h2 class="clearfix">
+                Existing Base Vehicle
+            </h2>
+            <div class="ctable">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Base ID</td>
+                            <td>Year</td>
+                            <td>Make (ID)</td>
+                            <td>Model (ID)</td>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="existingBaseVehicle">
+                        <tr>
+                            <td>{{existingBaseVehicle.id}}</td>
+                            <td>{{existingBaseVehicle.yearId}}</td>
+                            <td>{{existingBaseVehicle.makeName}} ({{existingBaseVehicle.makeId}})</td>
+                            <td>{{existingBaseVehicle.modelName}} ({{existingBaseVehicle.modelId}})</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+        <!-- Select replacement base vehicle form start -->
+        <div class="add-form">
+            <h2 class="clearfix">
+                Select Replacement Base Vehicle
+                <div class="filter-search" style="float:right;">
+                    <input type="text" class="cinput" [(ngModel)]="baseIdSearchText" (keypress)="onBaseIdKeyPress($event)" placeholder="Base ID search">
+                    <input type="submit" value="" (click)="onBaseIdSearch()">
+                </div>
+            </h2>
+            <div class="clearfix">
+                <div class="input-blocks clearfix">
+                    <div>
+                        <strong>Base ID</strong>
+                        <!--label not used by design team-->
+                        <label *ngIf="!newBaseVehicle || newBaseVehicle.id==-1">N/A</label>
+                        <label *ngIf="newBaseVehicle && newBaseVehicle.id!=-1">{{newBaseVehicle.id}}</label>
+                    </div>
+                    <div>
+                        <strong>Year</strong>
+
+                        <div class="select white-select">
+                            <select [disabled]="!years || years.length==0" [(ngModel)]="newBaseVehicle.yearId" (ngModelChange)="onSelectYear()">
+                                <option value="-1" *ngIf="!years">Loading...</option>
+                                <option value="-1" *ngIf="years">--Select Year--</option>
+                                <option *ngFor="let year of years" [value]="year.id">{{year.id}}</option>
+                            </select>
+                            <div class="select__arrow white-select__arrow"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <strong>Make (ID)</strong>
+
+                        <div class="select white-select">
+                            <select [disabled]="!makes || makes.length==0" [(ngModel)]="newBaseVehicle.makeId" (ngModelChange)="onSelectMake()">
+                                <option value="-1" *ngIf="!makes">Loading...</option>
+                                <option value="-1" *ngIf="makes">--Select Make--</option>
+                                <option *ngFor="let make of makes" [value]="make.id">{{make.name}} ({{make.id}})</option>
+                            </select>
+                            <div class="select__arrow white-select__arrow"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <strong>Model (ID)</strong>
+
+                        <div class="select white-select">
+                            <select [disabled]="!models || models.length==0" [(ngModel)]="newBaseVehicle.id">
+                                <option value="-1" *ngIf="!models">Loading...</option>
+                                <option value="-1" *ngIf="models">--Select Model--</option>
+                                <option *ngFor="let model of models" [value]="model.baseVehicleId">{{model.name}} ({{model.id}})</option>
+                            </select>
+                            <div class="select__arrow white-select__arrow"></div>
+                        </div>
+                    </div>
+                    <div>
+                    </div>
+                    
+                </div>
+
+                <div>
+                    <input type="submit" value="VIEW AFFECTED VEHICLES" class="btn blue larger" (click)="onViewAffectedVehicles()">
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Select vehicles to receive base replacement start -->
+        <div class="table-wrap">
+            <h2 class="clearfix" *ngIf="existingBaseVehicle && existingBaseVehicle.vehicles">
+                Select Vehicles to Receive Base Replacement
+            </h2>
+            <div class="table-wrap">
+                <div class="ctable" *ngIf="existingBaseVehicle && existingBaseVehicle.vehicles">
+
+                    <ac-grid [dataSource]="existingBaseVehicle.vehicles" #gd="acGrid"
+                             columns='[
+                 { "header":" ", "selectable": {"selected": false}},
+                 { "header":"Year","field":"yearId","sortable":true},
+                 { "header":"Make (ID)","field":"makeName","sortable":true},
+                 { "header":"Model (ID)","field":"modelName","sortable":true},
+                 { "header":"Vehicle (ID)","field":"id","sortable":true,"sortedByDesc":true},
+                 { "header":"Submodel (ID)","field":"subModelName","sortable":true},
+                 { "header":"Region ID", "field":"regionName", "sortable":true}
+                 ]'
+                             initialSortBy='[{"field": "id", "orderByDesc": true}]'
+                             paging='{"pageSize": 10, "numberOfPagesOnPageList" : 10}'
+                             (selectAllChangedEvent)="onSelectAllVehicles($event)" [selectAllChecked]="isSelectAllVehiclesToReplace">
+                        <tr *ngFor="let vehicle of gd.items">
+                            <td>
+                                <label class="control control--checkbox green-checkbox">
+                                    <input type="checkbox" [(ngModel)]="vehicle.isSelected" (change)="onVehiclesToReplaceSelect(vehicle)">
+                                    <div class="control__indicator"></div>
+                                </label>
+                            </td>
+                            <td>{{vehicle.yearId}}</td>
+                            <td>{{vehicle.makeName}} ({{vehicle.makeId}})</td>
+                            <td>{{vehicle.modelName}} ({{vehicle.modelId}})</td>
+                            <td>{{vehicle.id}}</td>
+                            <td>{{vehicle.subModelName}} ({{vehicle.subModelId}})</td>
+                            <td>{{vehicle.regionName}} ({{vehicle.regionId}})</td>
+                        </tr>
+                    </ac-grid>
+                </div>
+            </div>
+
+            <!-- Submit and cancel button start -->
+            <div class="btns">
+                <input type="submit" value="CONTINUE" class="btn larger" (click)="onContinue()">
+                <input type="reset" value="CANCEL" class="btn larger transparent" routerLink="/vehicle/search">
+            </div>
+        </div>
+    </div>
+
+</main>
+<!-- Main end -->

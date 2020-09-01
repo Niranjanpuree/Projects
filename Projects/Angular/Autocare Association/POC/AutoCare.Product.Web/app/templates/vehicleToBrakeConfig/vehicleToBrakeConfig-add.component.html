@@ -1,0 +1,502 @@
+﻿<loading-gif [show]="showLoadingGif"></loading-gif>
+
+<!-- Breadcrumb start -->
+<div class="breadcrumb">
+    <div class="center">
+        <a class="back" routerLink={{backNavigation}}>{{backNavigationText}}</a>
+        <br />
+        <!--<a class="back" (click)="goBack()">Go Back</a>-->
+    </div>
+</div>
+<!-- Breadcrumb end -->
+<!-- Main start -->
+<main class="clearfix">
+
+    <div class="center">
+
+        <h1 class="green">Create Brake System Association</h1>
+
+        <!-- Select a base vehicle start -->
+        <div class="add-form">
+            <h2>
+                Select a Base Vehicle & Vehicle
+                <div class="filter-search" style="float: right">
+                    <input type="text" class="cinput" placeholder="Vehicle ID Search" [(ngModel)]="vehicleIdSearchText" (keypress)="onVehicleIdKeyPress($event)">
+                    <input type="submit" value="" (click)="onVehicleIdSearch()">
+                </div>
+            </h2>
+            <div class="clearfix">
+                <div class="input-blocks clearfix">
+                    <div>
+                        <strong>Base ID</strong>
+                        <!--label not used by design team-->
+                        <label *ngIf="!vehicle || vehicle.baseVehicleId==-1">N/A</label>
+                        <label *ngIf="vehicle && vehicle.baseVehicleId!=-1">{{vehicle.baseVehicleId}}</label>
+                    </div>
+                    <div>
+                        <strong>Year</strong>
+
+                        <div class="select white-select" style="width: 180px;">
+                            <select [disabled]="!years || years.length==0" [(ngModel)]="vehicle.yearId" (ngModelChange)="onSelectYear()">
+                                <option value="-1" *ngIf="!years">Loading...</option>
+                                <option value="-1" *ngIf="years">--Select Years--</option>
+                                <option *ngFor="let year of years" [value]="year.id">{{year.id}}</option>
+                            </select>
+                            <div class="select__arrow white-select__arrow"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <strong>Make (ID)</strong>
+
+                        <div class="select white-select" style="width: 220px;">
+                            <select [disabled]="!makes || makes.length==0" [(ngModel)]="vehicle.makeId" (ngModelChange)="onSelectMake()">
+                                <option value="-1" *ngIf="!makes">Loading...</option>
+                                <option value="-1" *ngIf="makes">--Select Make--</option>
+                                <option *ngFor="let make of makes" [value]="make.id">{{make.name}} ({{make.id}})</option>
+                            </select>
+                            <div class="select__arrow white-select__arrow"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <strong>Model (ID)</strong>
+
+                        <div class="select white-select" style="width: 220px;">
+                            <select [disabled]="!models || models.length==0" [(ngModel)]="vehicle.baseVehicleId" (ngModelChange)="onSelectModel()">
+                                <option value="-1" *ngIf="!models">Loading...</option>
+                                <option value="-1" *ngIf="models">--Select Model--</option>
+                                <option *ngFor="let model of models" [value]="model.baseVehicleId">{{model.name}} ({{model.id}})</option>
+                            </select>
+                            <div class="select__arrow white-select__arrow"></div>
+                        </div>
+                    </div>
+                    <div>
+                    </div>
+
+                    <span class="clearfix"></span>
+
+                    <div>
+                        <strong>Vehicle ID</strong>
+                        <!--label not used by design team-->
+                        <label *ngIf="!vehicle || vehicle.id==-1">N/A</label>
+                        <label *ngIf="vehicle && vehicle.id!=-1">{{vehicle.id}}</label>
+                    </div>
+                    <div>
+                        <strong>Submodel (ID)</strong>
+
+                        <div class="select white-select" style="width: 220px;">
+                            <select [(ngModel)]="vehicle.subModelId" [disabled]="!subModels || subModels.length==0" (ngModelChange)="onSelectSubModel()">
+                                <option value="-1" *ngIf="!subModels">Loading...</option>
+                                <option value="-1" *ngIf="subModels">--Select Sub-Model--</option>
+                                <option [value]="submodel.id" *ngFor="let submodel of subModels">{{submodel.name}} ({{submodel.id}})</option>
+                            </select>
+                            <div class="select__arrow white-select__arrow"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <strong>Region (ID)</strong>
+
+                        <div class="select white-select" style="width: 220px;">
+                            <select [(ngModel)]="vehicle.regionId" [disabled]="!regions || regions.length==0" (ngModelChange)="onSelectRegion()">
+                                <option value="-1" *ngIf="!regions">Loading...</option>
+                                <option value="-1" *ngIf="regions">--Select Region--</option>
+                                <option [value]="region.id" *ngFor="let region of regions">{{region.name}} ({{region.id}})</option>
+                            </select>
+                            <div class="select__arrow white-select__arrow"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="submit-wrap" style="margin-top: 15px;">
+                    <input type="submit" value="ADD TO SELECTIONS" class="btn blue larger" (click)="onAddVehicleToSelection()">
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Vehicles to associate start -->
+        <div class="table-wrap">
+            <h2 class="clearfix">
+                Vehicles to Associate
+            </h2>
+            <div class="ctable">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>Base ID</td>
+                            <td>Year</td>
+                            <td>Make</td>
+                            <td>Model</td>
+                            <td>Vehicle ID</td>
+                            <td>Submodel</td>
+                            <td>Region</td>
+                            <td>Brake Associations</td>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="vehicles">
+                        <tr *ngFor="let vehicle of vehicles">
+                            <td><a class="btn-row-remove" (click)="onRemoveVehicle(vehicle.id)"></a></td>
+                            <td>{{vehicle.baseVehicleId}}</td>
+                            <td>{{vehicle.yearId}}</td>
+                            <td>{{vehicle.makeName}}</td>
+                            <td>{{vehicle.modelName}}</td>
+                            <td>{{vehicle.id}}</td>
+                            <td>{{vehicle.subModelName}}</td>
+                            <td>{{vehicle.regionName}}</td>
+                            <td><a class="btn-r-arrow blue" (click)="onViewBrakeAssociations(vehicle)">{{vehicle.vehicleToBrakeConfigCount==0?'':vehicle.vehicleToBrakeConfigCount + ' :'}} view</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Select a brake system form start -->
+        <div class="add-form">
+            <h2>
+                Select a Brake System
+                <div class="filter-search" style="float: right">
+                    <input type="text" class="cinput" placeholder="Brake ID Search" [(ngModel)]="brakeConfigIdSearchText" (keypress)="onBrakeConfigIdKeyPress($event)" />
+                    <input type="submit" value="" (click)="onBrakeConfigIdSearch()">
+                </div>
+            </h2>
+            <div class="clearfix">
+                <div class="input-blocks clearfix">
+                    <div>
+                        <strong>Brake Config ID</strong>
+                        <!--label not used by design team-->
+                        <label *ngIf="!brakeConfig || brakeConfig.id==-1">N/A</label>
+                        <label *ngIf="brakeConfig && brakeConfig.id!=-1">{{brakeConfig.id}}</label>
+                    </div>
+                    <div>
+                        <strong>Front Brake (ID)</strong>
+
+                        <div class="select white-select" style="width: 220px;">
+                            <select [(ngModel)]="brakeConfig.frontBrakeTypeId" [disabled]="!frontBrakeTypes || frontBrakeTypes.length==0" (ngModelChange)="onSelectFrontBrakeType()">
+                                <option value="-1" *ngIf="!frontBrakeTypes">Loading...</option>
+                                <option value="-1" *ngIf="frontBrakeTypes">--Select Front Brake Type--</option>
+                                <option [value]="frontBrakeType.id" *ngFor="let frontBrakeType of frontBrakeTypes">{{frontBrakeType.name}} ({{frontBrakeType.id}})</option>
+                            </select>
+                            <div class="select__arrow white-select__arrow"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <strong>Rear Brake (ID)</strong>
+
+                        <div class="select white-select" style="width: 220px;">
+                            <select [(ngModel)]="brakeConfig.rearBrakeTypeId" [disabled]="!rearBrakeTypes || rearBrakeTypes.length==0" (ngModelChange)="onSelectRearBrakeType()">
+                                <option value="-1" *ngIf="!rearBrakeTypes">Loading...</option>
+                                <option value="-1" *ngIf="rearBrakeTypes">--Select Rear Brake Type--</option>
+                                <option [value]="rearBrakeType.id" *ngFor="let rearBrakeType of rearBrakeTypes">{{rearBrakeType.name}} ({{rearBrakeType.id}})</option>
+                            </select>
+                            <div class="select__arrow white-select__arrow"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <strong>Brake ABS (ID)</strong>
+
+                        <div class="select white-select" style="width: 200px;">
+                            <select [(ngModel)]="brakeConfig.brakeABSId" [disabled]="!brakeABSes || brakeABSes.length==0" (ngModelChange)="onSelectBrakeABS()">
+                                <option value="-1" *ngIf="!brakeABSes">Loading...</option>
+                                <option value="-1" *ngIf="brakeABSes">--Select Brake ABS--</option>
+                                <option [value]="brakeABS.id" *ngFor="let brakeABS of brakeABSes">{{brakeABS.name}} ({{brakeABS.id}})</option>
+                            </select>
+                            <div class="select__arrow white-select__arrow"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <strong>Brake System (ID)</strong>
+
+                        <div class="select white-select" style="width: 180px;">
+                            <select [(ngModel)]="brakeConfig.brakeSystemId" [disabled]="!brakeSystems || brakeSystems.length==0" (ngModelChange)="onSelectBrakeSystem()">
+                                <option value="-1" *ngIf="!brakeSystems">Loading...</option>
+                                <option value="-1" *ngIf="brakeSystems">--Select Brake System--</option>
+                                <option [value]="brakeSystem.id" *ngFor="let brakeSystem of brakeSystems">{{brakeSystem.name}} ({{brakeSystem.id}})</option>
+                            </select>
+                            <div class="select__arrow white-select__arrow"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="submit-wrap" style="margin-top: 15px;">
+                    <input type="submit" value="ADD TO SELECTIONS" class="btn blue larger" (click)="onAddBrakeConfigToSelection()">
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Brake system to associate start -->
+        <div class="table-wrap">
+            <h2 class="clearfix">
+                Brake Systems to Associate
+            </h2>
+            <div class="ctable">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>Brake Config ID</td>
+                            <td>Front Brake (ID)</td>
+                            <td>Rear Brake (ID)</td>
+                            <td>Brake ABS (ID)</td>
+                            <td>Brake System (ID)</td>
+                            <td>Associations</td>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="brakeConfigs">
+                        <tr *ngFor="let brakeConfig of brakeConfigs">
+                            <td><a class="btn-row-remove" (click)="onRemoveBrakeConfig(brakeConfig.id)"></a></td>
+                            <td>{{brakeConfig.id}}</td>
+                            <td>{{brakeConfig.frontBrakeTypeName}} ({{brakeConfig.frontBrakeTypeId}})</td>
+                            <td>{{brakeConfig.rearBrakeTypeName}} ({{brakeConfig.rearBrakeTypeId}})</td>
+                            <td>{{brakeConfig.brakeABSName}} ({{brakeConfig.brakeABSId}})</td>
+                            <td>{{brakeConfig.brakeSystemName}} ({{brakeConfig.brakeSystemId}})</td>
+                            <td><a class="btn-r-arrow blue" (click)="onViewAssociations(brakeConfig)">{{brakeConfig.vehicleToBrakeConfigCount==0?'':brakeConfig.vehicleToBrakeConfigCount + ' :'}} view</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Proposed brake associations start -->
+        <div class="table-wrap">
+            <h2 class="clearfix">
+                Proposed Brake Associations
+            </h2>
+
+            <div class="ctable">
+                <table>
+                    <thead>
+                        <tr>
+                            <td width="10">
+                                <label class="control control--checkbox green-checkbox">
+                                    <input type="checkbox" checked="checked" [(ngModel)]="selectAllChecked" (change)="onSelectAllProposedBrakeAssociations($event)" [disabled]="!proposedVehicleToBrakeConfigs || proposedVehicleToBrakeConfigs.length==0">
+                                    <div class="control__indicator"></div>
+                                </label>
+                            </td>
+                            <td>Base ID</td>
+                            <td>Year</td>
+                            <td>Make</td>
+                            <td>Model</td>
+                            <td>Vehicle ID</td>
+                            <td>Submodel</td>
+                            <td>Region</td>
+                            <td>Brake Config ID</td>
+                            <td>Front Brake (ID)</td>
+                            <td>Rear Brake (ID)</td>
+                            <td>Brake ABS (ID)</td>
+                            <td>Brake System (ID)</td>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="proposedVehicleToBrakeConfigs">
+                        <tr *ngFor="let v of proposedVehicleToBrakeConfigs">
+                            <td>
+                                <label class="control control--checkbox green-checkbox">
+                                    <input type="checkbox" [(ngModel)]="v.isSelected" (change)="refreshProposedVehicleToBrakeConfigsSelectionCount($event, v)">
+                                    <div class="control__indicator"></div>
+                                </label>
+                            </td>
+                            <td>{{v.vehicle.baseVehicleId}}</td>
+                            <td>{{v.vehicle.yearId}}</td>
+                            <td>{{v.vehicle.makeName}}</td>
+                            <td>{{v.vehicle.modelName}}</td>
+                            <td>{{v.vehicle.id}}</td>
+                            <td>{{v.vehicle.subModelName}}</td>
+                            <td>{{v.vehicle.regionName}}</td>
+                            <td>{{v.brakeConfig.id}}</td>
+                            <td>{{v.brakeConfig.frontBrakeTypeName}} ({{v.brakeConfig.frontBrakeTypeId}})</td>
+                            <td>{{v.brakeConfig.rearBrakeTypeName}} ({{v.brakeConfig.rearBrakeTypeId}})</td>
+                            <td>{{v.brakeConfig.brakeABSName}} ({{v.brakeConfig.brakeABSId}})</td>
+                            <td>{{v.brakeConfig.brakeSystemName}} ({{v.brakeConfig.brakeSystemId}})</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!--  -->
+        <div class="add-form">
+            <div class="clearfix">
+                <div class="submit-wrap">
+                    <!--TODO: *ngIf="proposedVehicleToBrakeConfigs" for submit button OR validate on click-->
+                    <input type="submit" value="SUBMIT {{proposedVehicleToBrakeConfigsSelectionCount}} ASSOCIATIONS" class="btn larger" (click)="onSubmitAssociations()">
+                    <input type="reset" value="CANCEL" class="btn transparent larger" routerLink="/system/search">
+                </div>
+
+                <div class="attach-wrap" style="margin-top: 40px;">
+                    <strong>OPTIONAL</strong>
+                    <ac-fileuploader upload-api-path="file/savechunk"></ac-fileuploader>
+                    <small>Include comments</small>
+                    <textarea cols="50" rows="5" [(ngModel)]="commenttoadd"></textarea>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Existing brake associations start -->
+        <div class="table-wrap">
+            <h2 class="clearfix">
+                Existing Brake Associations
+            </h2>
+
+            <div class="ctable">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Base ID</td>
+                            <td>Year</td>
+                            <td>Make</td>
+                            <td>Model</td>
+                            <td>Vehicle ID</td>
+                            <td>Submodel</td>
+                            <td>Region</td>
+                            <td>Brake Config ID</td>
+                            <td>Front Brake (ID)</td>
+                            <td>Rear Brake (ID)</td>
+                            <td>Brake ABS (ID)</td>
+                            <td>Brake System (ID)</td>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="existingVehicleToBrakeConfigs">
+                        <tr *ngFor="let v of existingVehicleToBrakeConfigs">
+                            <td>{{v.vehicle.baseVehicleId}}</td>
+                            <td>{{v.vehicle.yearId}}</td>
+                            <td>{{v.vehicle.makeName}}</td>
+                            <td>{{v.vehicle.modelName}}</td>
+                            <td>{{v.vehicle.id}}</td>
+                            <td>{{v.vehicle.subModelName}}</td>
+                            <td>{{v.vehicle.regionName}}</td>
+                            <td>{{v.brakeConfig.id}}</td>
+                            <td>{{v.brakeConfig.frontBrakeTypeName}}({{v.brakeConfig.frontBrakeTypeId}})</td>
+                            <td>{{v.brakeConfig.rearBrakeTypeName}}({{v.brakeConfig.rearBrakeTypeId}})</td>
+                            <td>{{v.brakeConfig.brakeABSName}} ({{v.brakeConfig.brakeABSId}})</td>
+                            <td>{{v.brakeConfig.brakeSystemName}} ({{v.brakeConfig.brakeSystemId}})</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+</main>
+<!-- Main end -->
+<span class="alert-warning">{{errorMessage}}</span>
+
+<modal #brakeAssociationsPopup>
+    <div class="overlay dark show">
+        <div>
+            <a class="close" data-dismiss="modal" (click)="brakeAssociationsPopup.dismiss()"></a>
+            <div class="table-wrap">
+                <h2 class="clearfix">
+                    Brake Associations
+                </h2>
+                <div class="ctable">
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>Vehicle to Brake Config ID</td>
+                                <td>Base ID</td>
+                                <td>Year</td>
+                                <td>Make</td>
+                                <td>Model</td>
+                                <td>Vehicle ID</td>
+                                <td>Submodel</td>
+                                <td>Region</td>
+                                <td>Brake Config ID</td>
+                                <td>Front Brake</td>
+                                <td>Rear Brake</td>
+                                <td>Brake ABS</td>
+                                <td>Brake System</td>
+                            </tr>
+                        </thead>
+                        <tbody *ngIf="popupVehicle">
+                            <tr *ngIf="!popupVehicle.vehicleToBrakeConfigs">
+                                <td colspan="13">Loading...</td>
+                            </tr>
+                            <tr class="tableicons" *ngFor="let v of popupVehicle.vehicleToBrakeConfigs">
+                                <td>{{v.id}}</td>
+                                <td>{{v.vehicle.baseVehicleId}}</td>
+                                <td>{{v.vehicle.yearId}}</td>
+                                <td>{{v.vehicle.makeName}}</td>
+                                <td>{{v.vehicle.modelName}}</td>
+                                <td>{{v.vehicle.id}}</td>
+                                <td>{{v.vehicle.subModelName}}</td>
+                                <td>{{v.vehicle.regionName}}</td>
+                                <td>{{v.brakeConfig.id}}</td>
+                                <td>{{v.brakeConfig.frontBrakeTypeName}}</td>
+                                <td>{{v.brakeConfig.rearBrakeTypeName}}</td>
+                                <td>{{v.brakeConfig.brakeABSName}}</td>
+                                <td>{{v.brakeConfig.brakeSystemName}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Submit and cancel button start -->
+                <div class="btns">
+                    <button type="button" class="btn" data-dismiss="modal">CLOSE</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</modal>
+
+<modal #associationsPopup>
+    <div class="overlay dark show">
+        <div>
+            <a class="close" data-dismiss="modal" (click)="associationsPopup.dismiss()"></a>
+            <div class="table-wrap">
+                <h2 class="clearfix">
+                    Associations
+                </h2>
+                <div class="ctable">
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>Vehicle to Brake Config ID</td>
+                                <td>Base ID</td>
+                                <td>Year</td>
+                                <td>Make</td>
+                                <td>Model</td>
+                                <td>Vehicle ID</td>
+                                <td>Submodel</td>
+                                <td>Region</td>
+                                <td>Brake Config ID</td>
+                                <td>Front Brake</td>
+                                <td>Rear Brake</td>
+                                <td>Brake ABS</td>
+                                <td>Brake System</td>
+                            </tr>
+                        </thead>
+                        <tbody *ngIf="popupBrakeConfig">
+                            <tr *ngIf="!popupBrakeConfig.vehicleToBrakeConfigs">
+                                <td colspan="13">Loading...</td>
+                            </tr>
+                            <tr *ngIf="popupBrakeConfig.vehicleToBrakeConfigs && popupBrakeConfig.vehicleToBrakeConfigs.length == 0">
+                                <td colspan="13">No Records Found</td>
+                            </tr>
+                            <tr class="tableicons" *ngFor="let v of popupBrakeConfig.vehicleToBrakeConfigs">
+                                <td>{{v.id}}</td>
+                                <td>{{v.vehicle.baseVehicleId}}</td>
+                                <td>{{v.vehicle.yearId}}</td>
+                                <td>{{v.vehicle.makeName}}</td>
+                                <td>{{v.vehicle.modelName}}</td>
+                                <td>{{v.vehicle.id}}</td>
+                                <td>{{v.vehicle.subModelName}}</td>
+                                <td>{{v.vehicle.regionName}}</td>
+                                <td>{{v.brakeConfig.id}}</td>
+                                <td>{{v.brakeConfig.frontBrakeTypeName}}</td>
+                                <td>{{v.brakeConfig.rearBrakeTypeName}}</td>
+                                <td>{{v.brakeConfig.brakeABSName}}</td>
+                                <td>{{v.brakeConfig.brakeSystemName}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Submit and cancel button start -->
+                <div class="btns">
+                    <button type="button" class="btn" data-dismiss="modal">CLOSE</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</modal>

@@ -1,0 +1,66 @@
+.block {
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.16);
+
+}
+
+.distribution {
+    &-list {
+        max-height: 300px;
+        overflow: auto;
+        border-bottom: 1px solid $gray-200;
+
+        &-wrap {
+            margin: 0 -2.5rem 2rem;
+            padding: 0 1rem;
+        }
+
+
+
+        &-create {
+            background: #fff;
+            padding: 20px;
+        }
+
+        .row {
+            &:not(:last-child) {
+                border-bottom: 1px solid $gray-200;
+            }
+
+            &:hover {
+                background: $gray-100;
+            }
+
+        }
+
+        &-users {
+            padding: 15px;
+            background: $gray-200;
+
+            .search-form {
+                width: 100%;
+                margin-bottom: 15px;
+            }
+        }
+    }
+
+    &-users-list {
+        max-height: 400px;
+        overflow: auto;
+        width: 100%;
+
+        .form-check {
+            padding: 5px 0;
+            &:not(:last-child){border-bottom:1px solid $gray-300;}
+        }
+    }
+}
+
+#JobWorkBreakdownStructureGrid, #JobEmployeeBillingGrid, #JobLaborCategoryGrid{
+    height:auto !important;
+
+    .k-grid-content{
+        height:auto !important;
+    }
+}

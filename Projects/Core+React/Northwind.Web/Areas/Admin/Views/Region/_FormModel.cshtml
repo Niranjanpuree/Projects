@@ -1,0 +1,58 @@
+﻿@model Northwind.Web.Models.ViewModels.Region.RegionViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<div class="">
+    <form asp-action="_FormModel" class="row">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="RegionGuid" class="form-control" />
+        <div class="col-md-6 form-group">
+            <label asp-for="RegionCode" class=" fontbold requiredAstreicks control-label"></label>
+            <input asp-for="RegionCode" class="form-control" placeholder="2 CHARACTER CODE" maxlength="2" />
+            <span asp-validation-for="RegionCode" class="text-danger"></span>
+        </div>
+        <div class="col-md-6 form-group">
+            <label asp-for="RegionName" class="fontbold requiredAstreicks control-label"></label>
+            <input asp-for="RegionName" class="form-control" />
+            <span asp-validation-for="RegionName" class="text-danger"></span>
+        </div>
+        <div class="col-md-6 form-group">
+            <label asp-for="RegionalManager" class="fontbold  requiredAstreicks control-label"></label>
+            <select asp-for="RegionalManager" class="form-control">
+                <option value="">--Select--</option>
+                @foreach (var item in Model.UserSelectListItems)
+                {
+                    <option value="@item.Key">@item.Value</option>
+                }
+            </select>
+        </div>
+        <div class="col-md-6 form-group">
+            <label asp-for="DeputyRegionalManager" class="fontbold  requiredAstreicks control-label"></label>
+            <select asp-for="DeputyRegionalManager" class="form-control">
+                <option value="">--Select--</option>
+                @foreach (var item in Model.UserSelectListItems)
+                {
+                    <option value="@item.Key">@item.Value</option>
+                }
+            </select>
+        </div>
+        <div class="col-md-6 form-group">
+            <label asp-for="BusinessDevelopmentRegionalManager" class="fontbold  requiredAstreicks control-label"></label>
+            <select asp-for="BusinessDevelopmentRegionalManager" class="form-control">
+                <option value="">--Select--</option>
+                @foreach (var item in Model.UserSelectListItems)
+                {
+                    <option value="@item.Key">@item.Value</option>
+                }
+            </select>
+        </div>
+        <div class="col-md-6 form-group">
+            <label asp-for="HSRegionalManager" class="fontbold  requiredAstreicks control-label"></label>
+            <select asp-for="HSRegionalManager" class="form-control">
+                <option value="">--Select--</option>
+                @foreach (var item in Model.UserSelectListItems)
+                {
+                    <option value="@item.Key">@item.Value</option>
+                }
+            </select>
+        </div>
+    </form>
+</div>

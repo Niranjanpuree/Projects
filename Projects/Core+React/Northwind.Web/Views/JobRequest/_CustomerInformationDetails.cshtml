@@ -1,0 +1,104 @@
+﻿@model Northwind.Web.Models.ViewModels.JobRequestViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<div class="p-4">
+    <input type="hidden" name="FundingAgencyOfficeName" value="@Model.CustomerInformation.FundingAgencyOfficeName" />
+    <input hidden asp-for="@Model.CustomerInformation.AwardingAgencyOfficeName" />
+    <input hidden asp-for="@Model.CustomerInformation.FundingAgencyOfficeName" />
+
+    @{
+        var customerinfo = Model.CustomerInformation;
+    }
+
+    <div class="row">
+        <div class="col-sm-6 form-group">
+            <label asp-for="CustomerInformation.AwardingAgencyOfficeName" class="control-label control-label-read"></label>
+            <div class="form-value"><b id=@Model.CustomerInformation.AwardingAgencyOfficeName class="getDetailOfAgency @(string.IsNullOrEmpty(Model.CustomerInformation.AwardingAgencyOfficeName)? "":"tooltipdetail")">@Html.DisplayFor(m => m.CustomerInformation.AwardingAgencyOfficeName)</b></div>
+            <div class="popover-detail bottom tooltipagency"></div>
+        </div>
+
+        <div class="col-sm-6 form-group">
+            <label asp-for="CustomerInformation.FundingAgencyOfficeName" class="control-label control-label-read"></label>
+            <div class="form-value"><b id=@Model.CustomerInformation.FundingAgencyOfficeName class="getDetailOfAgency  @(string.IsNullOrEmpty(Model.CustomerInformation.FundingAgencyOfficeName)? "":"tooltipdetail")">@Html.DisplayFor(m => m.CustomerInformation.FundingAgencyOfficeName)</b></div>
+            <div class="popover-detail bottom tooltipagency"></div>
+        </div>
+
+        <div class="col-sm-6 form-group">
+            <label asp-for="CustomerInformation.AwardingAgencyCustomerTypeName" class="control-label control-label-read"></label>
+            <div class="form-value"><b id=@Model.CustomerInformation.AwardingAgencyCustomerTypeName class="getDetailOfContact @(!String.IsNullOrEmpty(customerinfo.AwardingAgencyCustomerTypeName) ? "tooltipdetail": "")">@Html.DisplayFor(m => m.CustomerInformation.AwardingAgencyCustomerTypeName)</b></div>
+            <div class="popover-detail bottom tooltipcontact"></div>
+        </div>
+
+        <div class="col-sm-6 form-group">
+            <label asp-for="CustomerInformation.FundingAgencyCustomerTypeName" class="control-label control-label-read"></label>
+            <div class="form-value"><b id=@Model.CustomerInformation.FundingAgencyCustomerTypeName class="getDetailOfContact @(!String.IsNullOrEmpty(customerinfo.FundingAgencyCustomerTypeName) ? "tooltipdetail": "")">@Html.DisplayFor(m => m.CustomerInformation.FundingAgencyCustomerTypeName)</b></div>
+            <div class="popover-detail bottom tooltipcontact"></div>
+        </div>
+
+        <div class="col-sm-6 form-group">
+            <label asp-for="CustomerInformation.OfficeContractRepresentativeName" class="control-label control-label-read"></label>
+            <div class="form-value"><b id=@Model.CustomerInformation.OfficeContractRepresentativeName class="getDetailOfContact  @(string.IsNullOrEmpty(Model.CustomerInformation.OfficeContractRepresentativeName)? "":"tooltipdetail")">@Html.DisplayFor(m => m.CustomerInformation.OfficeContractRepresentativeName)</b></div>
+
+            <div class="row">
+                <div class="col-sm-12 control-label control-label-read">Contact:</div>
+                <div class="col-sm-12"><div class="form-value"><b id=@Model.CustomerInformation.ContractRepresentativePhoneNumber class="getDetailOfContact @(!String.IsNullOrEmpty(customerinfo.ContractRepresentativePhoneNumber) ? "tooltipdetail": "")">@Html.DisplayFor(m => m.CustomerInformation.ContractRepresentativeContact)</b></div></div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12 control-label control-label-read">Alternative Contact:</div>
+                <div class="col-sm-12"><div class="form-value"><b id=@Model.CustomerInformation.ContractRepresentativeAltPhoneNumber class="getDetailOfContact @(!String.IsNullOrEmpty(customerinfo.ContractRepresentativeAltPhoneNumber) ? "tooltipdetail": "")">@Html.DisplayFor(m => m.CustomerInformation.ContractRepresentativeAltContact)</b></div></div>
+            </div>
+
+            <div class="popover-detail bottom tooltipcontact"></div>
+        </div>
+
+        <div class="col-sm-6 form-group">
+            <label asp-for="CustomerInformation.FundingOfficeContractRepresentativeName" class="control-label control-label-read"></label>
+            <div class="form-value"><b id=@Model.CustomerInformation.FundingOfficeContractRepresentativeName class="getDetailOfContact  @(string.IsNullOrEmpty(Model.CustomerInformation.FundingOfficeContractRepresentativeName)? "":"tooltipdetail")">@Html.DisplayFor(m => m.CustomerInformation.FundingOfficeContractRepresentativeName)</b></div>
+            <div class="row">
+                <div class="col-sm-12 control-label control-label-read">Contact:</div>
+                <div class="col-sm-12"><div class="form-value"><b id=@Model.CustomerInformation.OfficeContractRepresentativePhoneNumber class="getDetailOfContact @(!String.IsNullOrEmpty(customerinfo.OfficeContractRepresentativeAltPhoneNumber) ? "tooltipdetail": "")">@Html.DisplayFor(m => m.CustomerInformation.OfficeContractRepresentativeContact)</b></div></div>
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-12 control-label control-label-read">Alternative Contact:</div>
+                <div class="col-sm-12"><div class="form-value"><b id=@Model.CustomerInformation.OfficeContractRepresentativeAltPhoneNumber class="getDetailOfContact @(!String.IsNullOrEmpty(customerinfo.OfficeContractRepresentativeAltPhoneNumber) ? "tooltipdetail": "")">@Html.DisplayFor(m => m.CustomerInformation.OfficeContractRepresentativeAltContact)</b></div></div>
+            </div>
+            <div class="popover-detail bottom tooltipcontact"></div>
+
+        </div>
+
+        <div class="col-sm-6 form-group">
+            <label asp-for="CustomerInformation.OfficeContractTechnicalRepresentName" class="control-label control-label-read"></label>
+            <div class="form-value"><b id=@Model.CustomerInformation.OfficeContractTechnicalRepresentName class="getDetailOfContact  @(string.IsNullOrEmpty(Model.CustomerInformation.AwardingAgencyOfficeName)? "":"tooltipdetail")">@Html.DisplayFor(m => m.CustomerInformation.OfficeContractTechnicalRepresentName)</b></div>
+
+            <div class="row">
+                <div class="col-sm-12 control-label control-label-read">Contact:</div>
+                <div class="col-sm-12"><div class="form-value"><b id=@Model.CustomerInformation.ContractTechnicalRepresentativePhoneNumber class="getDetailOfContact @(!String.IsNullOrEmpty(customerinfo.ContractTechnicalRepresentativePhoneNumber) ? "tooltipdetail": "")">@Html.DisplayFor(m => m.CustomerInformation.ContractTechnicalRepresentativePhoneNumber)</b></div></div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12 control-label control-label-read">Alternative Contact:</div>
+                <div class="col-sm-12"><div class="form-value"><b id=@Model.CustomerInformation.ContractRepresentativeAltPhoneNumber class="getDetailOfContact @(!String.IsNullOrEmpty(customerinfo.ContractTechnicalRepresentativeAltPhoneNumber) ? "tooltipdetail": "")">@Html.DisplayFor(m => m.CustomerInformation.ContractTechnicalRepresentativeAltPhoneNumber)</b></div></div>
+            </div>
+
+            <div class="popover-detail bottom tooltipcontact"></div>
+        </div>
+
+        <div class="col-sm-6 form-group">
+            <label asp-for="CustomerInformation.FundingOfficeContractTechnicalRepresentName" class="control-label control-label-read"></label>
+            <div class="form-value"><b id=@Model.CustomerInformation.FundingOfficeContractTechnicalRepresentName class="getDetailOfContact  @(string.IsNullOrEmpty(Model.CustomerInformation.FundingOfficeContractTechnicalRepresentName)? "":"tooltipdetail")">@Html.DisplayFor(m => m.CustomerInformation.FundingOfficeContractTechnicalRepresentName)</b></div>
+            <div class="row">
+                <div class="col-sm-12 control-label control-label-read">Contact:</div>
+                <div class="col-sm-12"><div class="form-value"><b id=@Model.CustomerInformation.OfficeContractTechnicalRepresentativePhoneNumber class="getDetailOfContact @(!String.IsNullOrEmpty(customerinfo.OfficeContractTechnicalRepresentativePhoneNumber) ? "tooltipdetail": "")">@Html.DisplayFor(m => m.CustomerInformation.OfficeContractTechnicalRepresentativeContact)</b></div></div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12 control-label control-label-read">Alternative Contact:</div>
+                <div class="col-sm-12"><div class="form-value"><b id=@Model.CustomerInformation.OfficeContractTechnicalRepresentativeAltPhoneNumber class="getDetailOfContact @(!String.IsNullOrEmpty(customerinfo.OfficeContractTechnicalRepresentativeAltPhoneNumber) ? "tooltipdetail": "")">@Html.DisplayFor(m => m.CustomerInformation.OfficeContractTechnicalRepresentativeAltContact)</b></div></div>
+            </div>
+            <div class="popover-detail bottom tooltipcontact"></div>
+        </div>
+
+    </div>
+</div>

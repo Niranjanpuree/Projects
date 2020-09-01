@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Event Log";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+@{
+    var resourceVersion = @Configuration["resourceVersion"];
+    var cdnUrl = @Configuration["CDNUrl"];
+}
+@section breadcrumb
+    {
+    <li class="breadcrumb-item"><a href="/Admin/Settings">Settings</a></li>
+    <li class="breadcrumb-item"><a href="#">Event Logs</a></li>
+}
+
+<div id="eventLogGrid"></div>
+<div id="dialog" class="dialog-contract-detail">
+    <div class="content"></div>
+</div>
+
+@section Scripts {
+    <script src="@cdnUrl/js/dist/dialog.js?v=@resourceVersion"></script>
+    <script src="@cdnUrl/js/dist/kendogrid.js?v=@resourceVersion"></script>
+
+    <script type="text/javascript">
+        (function ()
+        {
+            window.eventLog.eventLogList('EventLog Lists', '@User.Claims.Where(c=>c.Type.ToString() == "fullName").ToList()[0].Value');
+        })()
+    </script>
+}

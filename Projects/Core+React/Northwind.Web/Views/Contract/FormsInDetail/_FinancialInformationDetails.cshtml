@@ -1,0 +1,141 @@
+﻿@using System.Globalization
+@model Northwind.Web.Models.ViewModels.Contract.ContractViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<div class="p-4">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    <label asp-for="FinancialInformation.setAside" class="control-label control-label-read"></label>
+                    @*<input type="hidden" Name="SetAsideHidden" id="SetAsideHidden" value="@Model.FinancialInformation.setAsideName.ToString()" />*@
+                    <div class="form-value" id="setAside">@Model.FinancialInformation.setAsideName</div>
+                </div>
+                <div class="col-md-6 form-group setAsideDependent">
+                    <label asp-for="FinancialInformation.SelfPerformance_Percent"
+                           class="control-label control-label-read"></label>
+                    <div class="form-value" id="SelfPerformance_Percent">
+                        @Model.FinancialInformation.SelfPerformance_Percent
+                    </div>
+                </div>
+
+                <div class="col-md-6 form-group setAsideDependent">
+                    <label asp-for="FinancialInformation.SBA" class="control-label control-label-read"></label>
+                    <div class="form-value" id="SBA">@Model.FinancialInformation.SBAString</div>
+                </div>
+
+                <div class="col-md-6 form-group">
+                    <label asp-for="FinancialInformation.Competition" class="control-label control-label-read"></label>
+                    <div class="form-value" id="Competition">@Model.FinancialInformation.CompetitionType</div>
+                </div>
+
+                <div class="col-md-6 form-group">
+                    <label asp-for="FinancialInformation.ContractType" class="control-label control-label-read"></label>
+                    @*<input type="hidden" Name="ContractTypeVal" id="ContractTypeVal" value="@Model.FinancialInformation.ContractTypeName.ToString()" />*@
+                    <div class="form-value" id="ContractType">@Model.FinancialInformation.ContractTypeName</div>
+                </div>
+
+                <div class="col-md-6 form-group contractTypeDependent">
+                    <label asp-for="FinancialInformation.OverHead" class="control-label control-label-read"></label>
+                    <div class="form-value" id="OverHead">@Model.FinancialInformation.OverHead</div>
+                </div>
+
+                <div class="col-md-6 form-group contractTypeDependent">
+                    <label asp-for="FinancialInformation.G_A_Percent" class="control-label control-label-read"></label>
+                    <div class="form-value" id="G_A_Percent">@Model.FinancialInformation.G_A_Percent</div>
+                </div>
+
+                <div class="col-md-6 form-group contractTypeDoubleDependent">
+                    <label asp-for="FinancialInformation.Fee_Percent" class="control-label control-label-read"></label>
+                    <div class="form-value" id="Fee_Percent">@Model.FinancialInformation.Fee_Percent</div>
+                </div>
+
+                <div class="col-md-6 form-group">
+                    <label asp-for="FinancialInformation.Currency" class="control-label control-label-read"></label>
+                    <div class="form-value" id="Currency">@Model.FinancialInformation.CurrencyName</div>
+                </div>
+
+                <div class="col-md-6 form-group BlueSkyAward_Amount">
+                    <label asp-for="FinancialInformation.BlueSkyAward_Amount" class="control-label control-label-read"></label>
+                    <div class="form-value" id="BlueSkyAward_Amount">@Model.FinancialInformation.Currency  @Model.FinancialInformation.FormattedBlueSkyAward_Amount</div>
+                </div>
+
+                <div class="col-md-6 form-group">
+                    <label asp-for="FinancialInformation.AwardAmount" class="control-label control-label-read"></label>
+                    <div class="form-value" id="AwardAmount">@Model.FinancialInformation.Currency @Model.FinancialInformation.FormattedAwardAmount</div>
+                </div>
+
+                <div class="col-md-6 form-group">
+                    <label asp-for="FinancialInformation.FundingAmount" class="control-label control-label-read"></label>
+                    <div class="form-value" id="FundingAmount">@Model.FinancialInformation.Currency @Model.FinancialInformation.FormattedFundingAmount</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 border-left">
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    <label asp-for="FinancialInformation.BillingAddress" class="control-label control-label-read"></label>
+                    <div class="form-value" id="BillingAddress">@Model.FinancialInformation.BillingAddress</div>
+                </div>
+
+                <div class="col-md-6 form-group">
+                    <label asp-for="FinancialInformation.BillingFrequency" class="control-label control-label-read"></label>
+                    <div class="form-value" id="BillingFrequency">@Model.FinancialInformation.BillingFrequencyName</div>
+                </div>
+
+                <div class="col-md-6 form-group">
+                    <label asp-for="FinancialInformation.InvoiceSubmissionMethod"
+                           class="control-label control-label-read"></label>
+                    <div class="form-value" id="InvoiceSubmissionMethod">
+                        @Model.FinancialInformation.InvoiceSubmissionMethodName
+                    </div>
+                </div>
+
+                <div class="col-md-6 form-group">
+                    <label asp-for="FinancialInformation.PaymentTerms" class="control-label control-label-read"></label>
+                    <div class="form-value" id="PaymentTerms">@Model.FinancialInformation.PaymentTermsName</div>
+                </div>
+
+                <div class="col-md-6 form-group">
+                    <label asp-for="FinancialInformation.AppWageDetermine_DavisBaconAct"
+                           class="control-label control-label-read"></label>
+                    <div class="form-value" id="AppWageDetermine_DavisBaconAct">
+                        @Model.FinancialInformation.AppWageDetermine_DavisBaconActType
+                        <br />
+                        @Model.FinancialInformation.AppWageDetermine_ServiceContractActType
+                    </div>
+                </div>
+
+                <div class="col-md-6 form-group">
+                    <label asp-for="FinancialInformation.BillingFormula" class="control-label control-label-read"></label>
+                    <div class="form-value" id="BillingFormula">@Model.FinancialInformation.BillingFormula</div>
+                </div>
+
+                <div class="col-md-6 form-group">
+                    <label asp-for="FinancialInformation.RevenueFormula" class="control-label control-label-read"></label>
+                    <div class="form-value" id="RevenueFormula">@Model.FinancialInformation.RevenueFormula</div>
+                </div>
+
+                <div class="col-md-6 form-group">
+                    <label asp-for="FinancialInformation.RevenueRecognitionEAC_Percent"
+                           class="control-label control-label-read"></label>
+                    <div class="form-value" id="RevenueRecognitionEAC_Percent">
+                        @Model.FinancialInformation.RevenueRecognitionEAC_Percent
+                    </div>
+                </div>
+
+                <div class="col-md-6 form-group">
+                    <label asp-for="FinancialInformation.OHonsite" class="control-label control-label-read"></label>
+                    <div class="form-value" id="OHonsite">@Model.FinancialInformation.OHonsite</div>
+                </div>
+
+                <div class="col-md-6 form-group">
+                    <label asp-for="FinancialInformation.OHoffsite" class="control-label control-label-read"></label>
+                    <div class="form-value" id="OHoffsite">@Model.FinancialInformation.OHoffsite</div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

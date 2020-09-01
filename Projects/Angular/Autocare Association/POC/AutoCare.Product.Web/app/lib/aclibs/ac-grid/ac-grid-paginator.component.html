@@ -1,0 +1,12 @@
+<nav class="pagination" *ngIf=" totalRecordsCount > pagingDetail.pageSize">
+    <li *ngIf="showGoToFirstPage" (click)="loadPage(1)">
+        <a style="cursor: pointer">&laquo;</a>
+    </li>
+
+    <li *ngFor="let page of pagesList" (click)="loadPage(page)">
+        <a style="cursor: pointer" [ngClass]="{active: page === activePage}">{{page}}</a>
+    </li>
+    <li *ngIf="showGoToLastPage" (click)="loadPage(totalPageCount)">
+        <a style="cursor: pointer">&raquo;</a>
+    </li>
+</nav>

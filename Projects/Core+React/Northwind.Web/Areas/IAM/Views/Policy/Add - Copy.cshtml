@@ -1,0 +1,165 @@
+﻿@using Northwind.Web.Areas.IAM.Models;
+@model AddPolicyViewModel
+@{
+    ViewData["Title"] = "North Wind Group Inc: Add Policy";
+    Layout = "~/Areas/IAM/Views/Shared/_Layout.cshtml";
+}
+<form class="small">
+    <div class="container">
+        <div class="row mb-2 justify-content-end">
+            <div class="col text-right mr-1">
+                <button class="btn btn-primary">Save Policy</button>
+                <a class="btn btn-secondary" href="/ess/IAM/Policy/">Cancel</a>
+            </div>
+        </div>
+        <div class="row">
+
+        </div>
+        <ul id="panelBar">
+            <li class="k-state-active">
+                <h5 class="k-link k-state-selected">Policy Information</h5>
+                <div class="container-fluid">
+
+                    <div class="row form-group mt-3">
+                        <div class="col-2">
+
+                            <label for="policyName">Policy Name</label>
+                        </div>
+                        <div class="col-5">
+                            <input type="text" class="form-control form-control-sm" id="policyName" placeholder="Enter policy name" />
+                        </div>
+                    </div>
+                    <div class="row form-group mt-3">
+                        <div class="col-2">
+                            <label for="policyDescription">Policy Description</label>
+                        </div>
+                        <div class="col-5">
+                            <input type="text" class="form-control form-control-sm" id="policyDescription" placeholder="Policy Description" />
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+            </li>
+            <li class="k-state-active">
+                <h5 class="k-link">Add Policy Rules</h5>
+                <div class="container-fluid">
+                    <div class="form-group row mt-3">
+                        <div class="col-2">
+                            <label for="cboSelectResource">Select resource</label>
+                        </div>
+                        <div class="col-md-5">
+                            <select asp-for="Resource" asp-items="Model.Resources" id="cboResource" class="form-control form-control-sm"></select>
+                        </div>
+                    </div>
+                    <!--
+                    <div class="form-group row">
+                        <div class="col-2">
+                            <label for="cboSelecSubResource">Select Sub resource</label>
+
+                        </div>
+                        <div class="col-md-5">
+                            <select id="cboSelectSubResource" class="form-control form-control-sm">
+                                <option>Select Sub Resource</option>
+                                <option>Contract Attachments</option>
+                                <option>Contract Modifications</option>
+                                <option>Contract Sub Resource 1</option>
+                                <option>Contract Sub Resource 2</option>
+                            </select>
+                        </div>
+                    </div>-->
+                    <div class="row form-group" id="selectActions">
+                        <div class="col-2">
+                            <label for="cboAction">Select Actions</label>
+                        </div>
+                        <div class="col-md-5">
+                            <select id="cboAction" class="form-control form-control-sm"></select>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-2">
+                            <label for="addConditions">State Conditions</label>
+                        </div>
+                        <div class="col-5">
+                            <div id="advancedSearchDialog"></div>
+                            <!--<a href="#" id="addConditions">Click here to add conditions</a>
+
+                            <div id="conditionsPanel" class="container-fluid small d-none">
+
+                            </div>
+                            End Conditions Panel-->
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-2">
+                            <label for="cboAction">Effect</label>
+                        </div>
+                        <div class="col-5">
+                            <select class="form-control form-control-sm">
+                                <option>Deny</option>
+                                <option>Allow</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+
+
+    </div>
+
+
+
+
+
+</form>
+@section ScriptsIAM {
+
+    <style>
+        .k-animation-container {
+            z-index: 10003
+        }
+    </style>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    
+    <script src="~/js/dist/addPolicy.js"></script>
+   
+
+   
+
+
+    <!--<script type="text/javascript" src="~/js/Components/TextInput.js"></script>
+    <script type="text/javascript" src="~/js/Components/ConditionDialog.js"></script>
+    <script type="text/javascript" src="~/js/policyadd.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            var template = "";
+            $.ajax("/IAM/Policy/GetConditionPanel").done(function (data) {
+                template = data;
+                var config = {
+                    selectedConditons: [],
+                    htmlRef: $("#conditionsPanel"),
+                    template: template,
+                    resourceIds: ["Contract"],
+
+                }
+
+                var dialog = new ConditionDialog(config);
+
+                var policyAdd = new PolicyAdd($("#cboResource"), $("#cboAction"), $("#addConditions"), $("#panelBar"), dialog);
+            });
+
+        });
+
+
+
+    </script>-->
+}
+
+

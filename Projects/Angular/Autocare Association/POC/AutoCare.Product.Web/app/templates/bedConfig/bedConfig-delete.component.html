@@ -1,0 +1,70 @@
+﻿<loading-gif [show]="showLoadingGif"></loading-gif>
+  <!-- Breadcrumb start -->
+<div class="breadcrumb">
+    <div class="center">
+        <a class="back" routerLink="/system/search">Return to bed system search</a>
+    </div>
+</div>
+<!-- Breadcrumb end -->
+<!-- Main start -->
+<main class="clearfix">
+
+    <div class="center">
+
+        <!-- Existing Bed systems start -->
+        <div class="table-wrap">
+            <h2 class="clearfix">
+                Existing Bed Systems
+            </h2>
+            <div class="ctable">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Bed Config ID</td>
+                            <td>Bed length (ID)</td>
+                            <td>Bed length Metric</td>
+                            <td>Bed Type (ID)</td>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="bedConfig">
+                        <tr>
+                            <td>{{bedConfig.id}}</td>
+                            <td>{{bedConfig.length}} ({{bedConfig.bedLengthId}})</td>
+                            <td>{{bedConfig.bedLengthMetric}}
+                            <td>{{bedConfig.bedTypeName}} ({{bedConfig.bedTypeId}})</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+        <!-- Modify bed system form start -->
+        <div class="add-form">
+            <div class="clearfix">
+
+                <div class="warning-wrap">
+                    <div>
+                        <strong>Associated records will be impacted</strong>
+                        <span *ngIf="bedConfig">{{bedConfig.vehicleToBedConfigCount}} vehicle to bed configurations</span>
+                    </div>
+                </div>
+
+                <div class="submit-wrap">
+                    <input type="submit" value="SUBMIT CHANGE REQUEST" class="btn larger" (click)="deleteSubmit()">
+                    <input type="reset" value="CANCEL" class="btn transparent larger" routerLink="/system/search">
+                </div>
+
+                <div class="attach-wrap" style="margin-top: 40px;">
+                    <strong>OPTIONAL</strong>
+                    <ac-fileuploader upload-api-path="file/savechunk"></ac-fileuploader>
+                    <small>Include comments</small>
+                    <textarea cols="50" rows="5" *ngIf="bedConfig" [(ngModel)]="bedConfig.comment"></textarea>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</main>
+<!-- Main end -->

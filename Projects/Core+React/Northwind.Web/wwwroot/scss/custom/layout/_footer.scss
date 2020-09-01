@@ -1,0 +1,130 @@
+$footer-height:60px;
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    padding-top: 62px;
+    margin-bottom: $footer-height;
+    // min-height: calc(100vh - #{$footer-height});
+    overflow: auto;
+
+    @include media-breakpoint-down(sm) {
+        padding-top: 72px;
+        padding-bottom: 120px;
+        margin-bottom:0;
+    }
+}
+
+#portageIframe {
+    height: calc(100vh - 165px);
+}
+
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    height: calc(#{$footer-height} - 10px);
+    line-height: calc(#{$footer-height} - 10px);
+    // overflow: hidden;
+    background: $primary-alt;
+    color: $white;
+
+    @include media-breakpoint-down(sm) {
+        height: 120px;
+        text-align: center;
+        line-height: 2;
+
+        img {
+            margin: 15px auto 5px;
+        }
+
+        small.pl-3 {
+            padding: 0 !important;
+            display: block;
+        }
+
+        .col-auto {
+            width: 100%;
+            text-align: center;
+            white-space: normal;
+
+            small.float-right {
+                float: initial !important;
+            }
+        }
+
+    }
+
+    .float-right>span,
+    a {
+        padding: 15px;
+        text-decoration: none;
+        color: $white;
+        font-weight: $fw-r;
+        position: relative;
+        @include media-breakpoint-down(sm) {
+            padding:15px 0;
+        }
+        &:hover {
+            color: $white;
+
+            .footer-popup {
+                display: block;
+            }
+        }
+    }
+
+    &-popup {
+        position: absolute;
+        width: 500px;
+        bottom: 45px;
+        right: 0;
+        padding: 15px;
+        color: $primary-alt;
+        white-space: normal;
+        background: rgba(255, 255, 255, 0.9);
+        line-height: 1.6;
+        border: 1px solid #999;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.16);
+        text-align: center;
+        display: none;
+        font-size: 14px;
+        @include media-breakpoint-down(md) {
+            position: fixed;
+            left: 15px;
+            right: 15px;
+            width: calc(100% - 30px);
+        }
+        &-lg {
+            width: 700px;
+        }
+
+        a {
+            color: $primary-alt;
+            padding: 0;
+
+            &:hover {
+                color: $primary-alt;
+            }
+        }
+
+        b {
+            font-size: 18px;
+            padding-bottom: 5px;
+            display: block;
+        }
+
+        u {
+            text-decoration: none;
+            border-bottom: 1px solid rgba(0, 67, 104, 0.4);
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+    }
+}

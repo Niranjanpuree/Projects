@@ -1,0 +1,139 @@
+﻿<loading-gif [show]="showLoadingGif"></loading-gif>
+<div class="clearfix">
+    <span class="icon-text" style="float:right;" *ngIf="vehicleToBrakeConfigSearchViewModel && vehicleToBrakeConfigSearchViewModel.totalCount">Reading <strong>1000</strong> of <strong>{{vehicleToBrakeConfigSearchViewModel.totalCount}}</strong> matching records</span>
+</div>
+
+<!-- Brake config unfolded start -->
+<div class="table-wrap">
+    <h2 class="foldable clearfix">
+        <a [ngClass]="{fold:isBrakeSystemsExpanded, unfold:!isBrakeSystemsExpanded}" (click)="isBrakeSystemsExpanded=!isBrakeSystemsExpanded"></a>
+        Brake Systems
+        <a class="btn blue icon add" (click)="routerLinkRedirect('/brakeconfig/add',0)">NEW</a>
+    </h2>
+    <div class="ctable" [ngClass]="{unfolded:isBrakeSystemsExpanded, folded:!isBrakeSystemsExpanded}">
+        <ac-grid #brakeConfigGrid [dataSource]="vehicleToBrakeConfigSearchViewModel.result.brakeConfigs" #gd="acGrid"
+                  columns='[
+                        { "header":" ", "selectable": {"selected": true}},
+                 { "header":"Brake Config ID",        "field":"id",                   "sortable":true,"sortedByDesc":true },
+                 { "header":"Front Brake (ID)",   "field":"frontBrakeTypeName",   "sortable":true},
+                 { "header":"Rear Brake (ID)",    "field":"rearBrakeTypeName",    "sortable":true},
+                 { "header":"Brake ABS (ID)",          "field":"brakeABSName",         "sortable":true},
+                 { "header":"Brake System (ID)",      "field":"brakeSystemName",      "sortable":true},
+                 { "header":"Change Requests"}
+                 ]'
+                  initialSortBy='[{"field": "id", "orderByDesc": true}]'
+                  paging='{"pageSize": 10, "numberOfPagesOnPageList" : 10}'
+                  (selectAllChangedEvent)="onSelectAllBrakeConfig($event)" [selectAllChecked]="isSelectAllBrakeSystems"
+                  [thresholdRecordCount]="thresholdRecordCount">
+            <tr *ngFor="let brakeConfig of gd.items">
+                <td>
+                    <label class="control control--checkbox green-checkbox">
+                        <input type="checkbox" [(ngModel)]="brakeConfig.isSelected" (change)="onBrakeConfigSelected(brakeConfig)">
+                        <div class="control__indicator"></div>
+                    </label>
+                </td>
+                <td>{{brakeConfig.id}}</td>
+                <td>{{brakeConfig.frontBrakeTypeName}} ({{brakeConfig.frontBrakeTypeId}})</td>
+                <td>{{brakeConfig.rearBrakeTypeName}} ({{brakeConfig.rearBrakeTypeId}})</td>
+                <td>{{brakeConfig.brakeABSName}} ({{brakeConfig.brakeABSId}})</td>
+                <td>{{brakeConfig.brakeSystemName}} ({{brakeConfig.brakeSystemId}})</td>
+                <td *ngIf="brakeConfig.changeRequestId && brakeConfig.changeRequestId != -1">
+                    <a (click)="onViewBrakeConfigCr(brakeConfig)" class="btn-r-arrow blue" style="cursor: pointer;">Pending</a>
+                </td>
+                <td *ngIf="!brakeConfig.changeRequestId || brakeConfig.changeRequestId == -1">
+                    <a class="box-icon pencil" title="Edit" (click)="routerLinkRedirect('/brakeconfig/modify/', brakeConfig.id)"></a>
+                    <a class="box-icon delete" title="Delete" (click)="routerLinkRedirect('/brakeconfig/delete/', brakeConfig.id)"></a>
+                    <a class="box-icon shuffle" title="Replace" (click)="routerLinkRedirect('/brakeconfig/replace/',brakeConfig.id)"></a>
+                </td>
+            </tr>
+        </ac-grid>
+    </div>
+</div>
+
+<!-- Associated vehicles folded start -->
+<div class="table-wrap">
+    <h2 class="foldable clearfix">
+        <a [ngClass]="{fold:isAssociatedVehiclesExpanded, unfold:!isAssociatedVehiclesExpanded}" (click)="isAssociatedVehiclesExpanded=!isAssociatedVehiclesExpanded"></a>
+        Associated vehicles
+        <a class="btn blue icon add" (click)="onSelectedNewBrakeAssociation()">NEW</a>
+    </h2>
+    <div class="ctable" [ngClass]="{unfolded:isAssociatedVehiclesExpanded, folded:!isAssociatedVehiclesExpanded}">
+        <ac-grid #vehicleToBrakeConfigGrid [dataSource]="vehicleToBrakeConfigsForSelectedBrake" #gd1="acGrid"
+                  columns='[
+                        { "header":"Vehicle to Brake Config ID",   "field":"id",                   "sortable":true},
+                 { "header":"Vehicle ID",                   "field":"vehicle.id",           "sortable":true},
+                 { "header":"Brake Config ID",              "field":"brakeConfigId",       "sortable":true}, 
+                 { "header":"Year",                         "field":"vehicle.yearId",       "sortable":true},
+                 { "header":"Make (ID)",                    "field":"vehicle.makeName",     "sortable":true},
+                 { "header":"Model (ID)",                   "field":"vehicle.modelName",    "sortable":true},
+                 { "header":"Submodel (ID)",                "field":"vehicle.subModelName", "sortable":true},
+                 { "header":"Region (ID)",                  "field":"vehicle.regionName",           "sortable":true},
+                 { "header":"Change Requests"}
+                 ]'
+                    initialSortBy='[{"field": "id", "orderByDesc": true}]'
+                    paging='{"pageSize": 10, "numberOfPagesOnPageList" : 10}'>
+            <tr *ngFor="let selection of gd1.items">
+                <td>{{selection.id}}</td>
+	            <td>{{selection.vehicle.id}}</td>
+                 <td>{{selection.brakeConfigId}}</td>
+                <td>{{selection.vehicle.yearId}}</td>
+                <td>{{selection.vehicle.makeName}} ({{selection.vehicle.makeId}})</td>
+                <td>{{selection.vehicle.modelName}} ({{selection.vehicle.modelId}})</td>
+                <td>{{selection.vehicle.subModelName}} ({{selection.vehicle.subModelId}})</td>
+                <td>{{selection.vehicle.regionName}} ({{selection.vehicle.regionId}})</td>
+                <td *ngIf="selection.changeRequestId && selection.changeRequestId != -1">
+                    <a (click)="onViewAssociatedVehiclesCr(selection)" style="cursor: pointer;" class="btn-r-arrow blue">Pending</a>
+                </td>
+                <td *ngIf="!selection.changeRequestId || selection.changeRequestId == -1">
+                    <a class="box-icon delete" title="Delete" (click)="onDeleteVehicleToBrakeConfig(selection)"></a>
+                </td>
+            </tr>
+        </ac-grid>
+    </div>
+</div>
+
+<modal #deleteBrakeAssociationPopup>
+    <div class="overlay dark show" *ngIf="deleteVehicleToBrakeConfig">
+        <div class="new-make">
+            <a class="close" (click)="deleteBrakeAssociationPopup.dismiss()"></a>
+            <div class="add-form">
+                <h2>Delete brake association</h2>
+                <div class="clearfix">
+
+                    <div class="input-blocks clearfix">
+                        <div>
+                            <strong>Base ID</strong>
+                            {{deleteVehicleToBrakeConfig.vehicle.baseVehicleId}}
+                        </div>
+
+                        <div>
+                            <strong>Vehicle ID</strong>
+                            {{deleteVehicleToBrakeConfig.vehicle.id}}
+                        </div>
+
+                        <div>
+                            <strong>Brake config ID</strong>
+                            {{deleteVehicleToBrakeConfig.brakeConfig.id}}
+                        </div>
+                    </div>
+
+                    <div class="attach-wrap">
+                        <strong>OPTIONAL</strong>
+                        <ac-fileuploader upload-api-path="file/savechunk"></ac-fileuploader>
+                        <small>Include comments</small>
+                        <textarea cols="50" rows="5" [(ngModel)]="deleteVehicleToBrakeConfig.comment"></textarea>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    <!-- Submit and cancel button start -->
+                    <div class="btns">
+                        <input type="reset" value="CANCEL" class="btn transparent" (click)="deleteBrakeAssociationPopup.dismiss()">
+                        <input type="submit" value="SUBMIT" class="btn" (click)="onDeleteVehicleToBrakeConfigSubmit()">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</modal>

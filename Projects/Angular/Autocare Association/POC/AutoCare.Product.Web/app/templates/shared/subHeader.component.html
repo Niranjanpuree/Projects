@@ -1,0 +1,43 @@
+﻿
+
+<nav class="" >
+    <a href="javascript:void(0)" class="mmenu-toggle"><span></span></a>
+    <ul class="clearfix" *ngIf="sharedService.selectedMenuHeaderItem.selectedMainHeaderMenuItem==='VCDB'">
+	    <li routerLinkActive="active-menu"><a [routerLink]="['dashboard']">Dashboard</a></li>
+        <li [class.active-menu]="activevehicle" [ngClass]="isVehiclesActive()"><a [routerLink]="['/vehicle']">Vehicles</a></li>
+        <li [class.active-menu]="activesystem" [ngClass]="isSystemsActive()"><a [routerLink]="['/system']">Systems</a></li>
+        <li routerLinkActive="active-menu"><a [routerLink]="['change']">Changes</a></li>
+        <li routerLinkActive="active-menu"><a [routerLink]="['referencedata']">Reference Data</a></li>
+        <li routerLinkActive="active-menu"><a href="javascript:void(0)">Downloads</a></li>
+        <li routerLinkActive="active-menu"><a href="javascript:void(0)">Uploads</a></li>
+    </ul>
+    <ul class="clearfix" *ngIf="sharedService.selectedMenuHeaderItem.selectedMainHeaderMenuItem==='PCADB'">
+        <li routerLinkActive="active-menu"><a [routerLink]="['dashboard']">Dashboard</a></li>
+        <li routerLinkActive="active-menu"><a href="javascript:void(0)">Parts</a></li>
+        <li routerLinkActive="active-menu"><a href="javascript:void(0)">Attributes</a></li>
+        <li routerLinkActive="active-menu"><a href="javascript:void(0)">Styles</a></li>
+        <li routerLinkActive="active-menu"><a href="javascript:void(0)">Changes</a></li>
+        <li routerLinkActive="active-menu"><a [routerLink]="['pcadb/referencedata']">Reference Data</a></li>
+        <li routerLinkActive="active-menu"><a href="javascript:void(0)">Downloads</a></li>
+        <li routerLinkActive="active-menu"><a href="javascript:void(0)">Uploads</a></li>
+    </ul>
+    <ul class="clearfix" *ngIf="sharedService.selectedMenuHeaderItem.selectedMainHeaderMenuItem==='QDB'">
+        <li routerLinkActive="active-menu"><a [routerLink]="['dashboard']">Dashboard</a></li>
+        <li routerLinkActive="active-menu"><a href="javascript:void(0)">Qualifiers</a></li>
+        <li routerLinkActive="active-menu"><a href="javascript:void(0)">Changes</a></li>
+        <li routerLinkActive="active-menu"><a [routerLink]="['qdb/referencedata']">Reference Data</a></li>
+        <li routerLinkActive="active-menu"><a href="javascript:void(0)">Downloads</a></li>
+        <li routerLinkActive="active-menu"><a href="javascript:void(0)">Uploads</a></li>
+    </ul>
+    <ul class="clearfix" *ngIf="sharedService.selectedMenuHeaderItem.selectedMainHeaderMenuItem==='Brand'">
+        <li routerLinkActive="active-menu"><a [routerLink]="['dashboard']">Dashboard</a></li>
+        <li routerLinkActive="active-menu"><a href="javascript:void(0)">Parent</a></li>
+        <li routerLinkActive="active-menu"><a href="javascript:void(0)">Brand Owner</a></li>
+        <li routerLinkActive="active-menu"><a href="javascript:void(0)">Brand</a></li>
+        <li routerLinkActive="active-menu"><a href="javascript:void(0)">Sub-Brand</a></li>
+        <li routerLinkActive="active-menu"><a href="javascript:void(0)">Changes</a></li>
+        <li routerLinkActive="active-menu"><a href="javascript:void(0)">Downloads</a></li>
+        <li routerLinkActive="active-menu"><a href="javascript:void(0)">Uploads</a></li>
+    </ul>
+</nav>
+

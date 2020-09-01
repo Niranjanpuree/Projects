@@ -1,0 +1,46 @@
+﻿<!-- New Design: Start -->
+<div class="table-wrap">
+    <h2 class="clearfix">
+        Download Request
+        <time datetime="2016-01-01" class="date-stamp">
+            <span class="icon-text date">01-01-2016 ▸ Today</span>
+        </time>
+    </h2>
+    <div class="ctable">
+        <table>
+            <thead>
+            <tr>
+                <td>ID</td>
+                <td>File Type</td>
+                <td>Content</td>
+                <td>Date</td>
+                <td>Status</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let downloadRequest of downloadRequests; let whenOdd=odd; let whenEven=even;" [ngClass]="{'table-even-row':whenOdd, 'table-odd-row':whenEven}">
+                <td>{{downloadRequest.id}}</td>
+                <td>{{downloadRequest.fileType}}</td>
+                <td>{{downloadRequest.content}}</td>
+                <td>{{downloadRequest.date}}</td>
+                <td *ngIf="downloadRequest.status == 'Request'"><span class="icon-text timer">{{downloadRequest.status}}</span></td>
+                <td *ngIf="downloadRequest.status == 'Download'"><a href="javascript:void(0)" class="icon-text cloud-download box-btn no-shadow">{{downloadRequest.status}}</a></td>
+            </tr>
+            <!--<tr>
+                <td>428</td>
+                <td>Comma / ASCII</td>
+                <td>Powersport</td>
+                <td>06-11-2016 10:44 am PST</td>
+                <td><a href="#" class="icon-text cloud-download box-btn">DOWNLOAD</a></td>
+            </tr>
+            <tr>
+                <td>3498</td>
+                <td>Aceess</td>
+                <td>VCDB, lt duty</td>
+                <td>06-11-2016 10:41 am PST</td>
+                <td><a href="#" class="icon-text cloud-download box-btn no-shadow">DOWNLOAD</a></td>
+            </tr>-->
+            </tbody>
+        </table>
+    </div>
+</div>

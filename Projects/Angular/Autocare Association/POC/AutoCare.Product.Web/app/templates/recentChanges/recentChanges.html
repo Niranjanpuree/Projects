@@ -1,0 +1,85 @@
+﻿<div class="table-wrap">
+    <h2>
+        Recent changes
+    </h2>
+    <div class="ctable-catops">
+        <a href="javascript:void(0)" class="btn large">VCDB</a>
+        <a href="javascript:void(0)">PCDB</a>
+        <a href="javascript:void(0)">QDB</a>
+
+    </div>
+
+    <div class="ctable-logs clearfix">
+        <strong class="icon-text add-circle">
+            7 Adds
+        </strong>
+        <strong class="icon-text create">
+            11 Updates
+        </strong>
+        <strong class="icon-text delete">
+            123 Deletes
+        </strong>
+
+        Sort <div class="select white-select">
+            <select>
+                <option>Approve date</option>
+                <option>Pending date</option>
+                <option>Declined date</option>
+            </select>
+            <div class="select__arrow white-select__arrow"></div>
+        </div>
+
+        <time datetime="2016-01-01" class="date-stamp">
+            <span class="icon-text date">01-01-2016 ▸ Today</span>
+        </time>
+    </div>
+
+    <div class="ctable">
+        <table>
+            <thead>
+                <tr>
+                    <td>Table</td>
+                    <td>New Value</td>
+                    <td>Previous Value</td>
+                    <td>Row ID</td>
+                    <td>Approved</td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let recentChange of recentChanges; let whenOdd=odd; let whenEven=even;" [ngClass]="{'table-even-row':whenOdd, 'table-odd-row':whenEven}">
+                    <td *ngIf="recentChange.changeType == 'Add'"><span class="icon-text add-circle">{{recentChange.table}}</span></td>
+                    <td *ngIf="recentChange.changeType == 'Update'"><span class="icon-text create">{{recentChange.table}}</span></td>
+                    <td *ngIf="recentChange.changeType == 'Delete'"><span class="icon-text delete">{{recentChange.table}}</span></td>
+                    <td>{{recentChange.newValue}}</td>
+                    <td>{{recentChange.previousValue}}</td>
+                    <td>{{recentChange.rowId}}</td>
+                    <td>{{recentChange.approve}}</td>
+                    <td><a href="javascript:void(0)" class="btn-r-arrow">VIEW</a></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="ctable-paging">
+
+            <a href="javascript:void(0)" class="prev"></a>
+            Page<input type="text" value="1">of 3
+            <a href="javascript:void(0)" class="next"></a>
+
+            <div class="rowcount">
+                Rows per page
+                <select>
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
+                    <option value="40">40</option>
+                    <option value="50">50</option>
+                </select>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="ctable-footer">
+        <a href="javascript:void(0)" class="btn-r-arrow">VIEW VCDB CHANGELOG</a>
+    </div>
+</div>

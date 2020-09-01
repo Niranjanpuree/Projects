@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewData["Title"] = "Contract : Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div id="dialog">
+    <div class="content"></div>
+</div>
+<h1>View</h1>
+<div class="row">
+    <div id="editor1" style="width: 100%; height: 500px"></div>
+    <button onclick="onText()">Click</button>
+</div>
+@section Scripts
+{
+    <script type="text/javascript">
+        var editor = null;
+        (function () {
+
+            editor = window.richEditor.loadRichEditor('editor1', "test", "/images/public/");
+
+        })();
+
+        function onText() {
+            alert(editor.getValue())
+        }
+    </script>
+}

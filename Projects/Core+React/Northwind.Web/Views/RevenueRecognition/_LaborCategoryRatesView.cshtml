@@ -1,0 +1,39 @@
+﻿@model Northwind.Web.Models.ViewModels.RevenueRecognition.RevenueRecognitionViewModel
+
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+
+@{
+    var resourceVersion = @Configuration["resourceVersion"];
+    var cdnUrl = @Configuration["CDNUrl"];
+}
+<input type="hidden" asp-for="ContractGuid" class="form-control" />
+
+@if (Model.ContractGuid != Guid.Empty || Model.ContractGuid != null)
+{
+    @if (Model.IsCsvLaborCategoryRate)
+    {
+        <div class="row pt-3 form-group no-gutters">
+            <div class="col">
+                <input type="button" id="DownloadLCRGrid" class="download btn btn-sm btn-secondary" value="Export to CSV" />
+            </div>
+        </div>
+        <div class="" id="LaborCategoryGrid">
+        </div>
+        <script src="@cdnUrl/js/proj/subLaborGridList.js?v=@resourceVersion" class="SubLaborGridList" data-gridname="#LaborCategoryGrid"
+                data-controller="SubcontractorBillingRates" data-idvalue="#ContractGuid" data-guid="categoryRateGuid"
+                data-fields="subContractor|laborCode|employeeName|rate|startDate|endDate" data-titles="Sub Contractor|Labor Code|Employee Name|Rate|Start Date|End Date"
+                data-downloadgrid="#DownloadLCRGrid" data-path="@Model.LaborFilePath"></script>
+    }
+    else if (!string.IsNullOrEmpty(Model.LaborFilePath))
+    {
+        var fileName = @Model.LaborFilePath.Split("/").Last();
+        <div class="col-md-6 form-group">
+            <a href="/Contract/DownloadDocument?filePath=@Model.LaborFilePath&fileName=@fileName"
+               id="@fileName" class="text-left">
+                <span class="control-label">@fileName</span>
+            </a>
+        </div>
+    }
+
+}

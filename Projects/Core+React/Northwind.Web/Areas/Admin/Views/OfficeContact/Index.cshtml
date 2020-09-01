@@ -1,0 +1,66 @@
+﻿@model Northwind.Web.Models.ViewModels.OfficeContactViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@Html.HiddenFor(x => x.OfficeGuid)
+@Html.HiddenFor(x => x.OfficeName)
+<div class="row">
+    <div class="col-lg-7 col-md-8">
+        <form id="OfficeSearchForm" class="search-form-r">
+            <div class="input-group mb-3 mb-sm-0">
+                <input asp-for="SearchValue" id="SearchText" placeholder="Search By Name" class="form-control" />
+                <div class="input-group-append">
+                    <div class="input-group-text" id="btnOfficeSearch">
+                        <i class="k-icon k-i-search"></i>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="search-pills mt-2" id="searchPills">
+            @if (!string.IsNullOrEmpty(Model.SearchValue))
+            {
+            foreach (var searchKey in Model.SearchValue.Split(" "))
+            {
+            <span class="k-button pillsButtons" id="@searchKey">
+                <span>@searchKey</span>
+                <span class="k-select">
+                    <span class="k-icon k-i-close btnSearchPills">
+                    </span>
+                </span>
+            </span>
+            }
+            }
+        </div>
+    </div>
+    <div class="col-lg-5 col-md-4 text-right">
+        <button type="button" class="btn btn-primary" id="addNewOfficeContact">Add Contact</button>
+        <div class="dropdown float-right ml-1">
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">More</button>
+            <div class="dropdown-menu  dropdown-menu-right">
+                @*<a id="ExportToPdf" rel="#OfficeContactGrid" class="dropdown-item" href="#"><i
+                        class="k-icon k-i-file-pdf"></i> Export to Pdf</a>
+                <a id="ExportToCSV" rel="#OfficeContactGrid" class="dropdown-item" href="#"><i
+                        class="k-icon k-i-file-excel"></i> Export to Excel</a>*@
+                <a id="DeleteOfficeContact" class="dropdown-item" href="#">
+                    <i class="k-icon k-i-delete"></i>
+                    Delete
+                </a>
+                <a id="DisableOfficeContact" class="dropdown-item" href="#">
+                    <i class="k-icon k-i-cancel"></i>
+                    Disable
+                </a>
+                <a id="EnableOfficeContact" class="dropdown-item" href="#">
+                    <i class="k-icon k-i-check"></i>
+                    Enable
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-3">
+    <div class="col">
+        <div id="OfficeContactGrid" class="table-more-btn">
+        </div>
+    </div>
+</div>
+<!-- </div> -->
+<script src="~/js/proj/OfficeContact.js"></script>

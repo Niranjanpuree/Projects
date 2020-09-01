@@ -1,0 +1,427 @@
+﻿<loading-gif [show]="showLoadingGif"></loading-gif>
+
+<!-- Breadcrumb start -->
+<div class="breadcrumb">
+    <div class="center">
+        <a class="back" routerLink={{backNavigation}}>{{backNavigationText}}</a>
+        <br />
+        <!--<a class="back" (click)="goBack()">Go Back</a>-->
+    </div>
+</div>
+<!-- Breadcrumb end -->
+<!-- Main start -->
+<main class="clearfix">
+
+    <div class="center">
+
+        <h1 class="green">Create Mfr Body Code Association</h1>
+
+        <!-- Select a base vehicle start -->
+        <div class="add-form">
+            <h2>
+                Select a Base Vehicle & Vehicle
+                <div class="filter-search" style="float: right">
+                    <input type="text" class="cinput" placeholder="Vehicle ID Search" [(ngModel)]="vehicleIdSearchText" (keypress)="onVehicleIdKeyPress($event)">
+                    <input type="submit" value="" (click)="onVehicleIdSearch()">
+                </div>
+            </h2>
+            <div class="clearfix">
+                <div class="input-blocks clearfix">
+                    <div>
+                        <strong>Base ID</strong>
+                        <!--label not used by design team-->
+                        <label *ngIf="!vehicle || vehicle.baseVehicleId==-1">N/A</label>
+                        <label *ngIf="vehicle && vehicle.baseVehicleId!=-1">{{vehicle.baseVehicleId}}</label>
+                    </div>
+                    <div>
+                        <strong>Year</strong>
+
+                        <div class="select white-select" style="width: 180px;">
+                            <select [disabled]="!years || years.length==0" [(ngModel)]="vehicle.yearId" (ngModelChange)="onSelectYear()">
+                                <option value="-1" *ngIf="!years">Loading...</option>
+                                <option value="-1" *ngIf="years">--Select Years--</option>
+                                <option *ngFor="let year of years" [value]="year.id">{{year.id}}</option>
+                            </select>
+                            <div class="select__arrow white-select__arrow"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <strong>Make (ID)</strong>
+
+                        <div class="select white-select" style="width: 220px;">
+                            <select [disabled]="!makes || makes.length==0" [(ngModel)]="vehicle.makeId" (ngModelChange)="onSelectMake()">
+                                <option value="-1" *ngIf="!makes">Loading...</option>
+                                <option value="-1" *ngIf="makes">--Select Make--</option>
+                                <option *ngFor="let make of makes" [value]="make.id">{{make.name}} ({{make.id}})</option>
+                            </select>
+                            <div class="select__arrow white-select__arrow"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <strong>Model (ID)</strong>
+
+                        <div class="select white-select" style="width: 220px;">
+                            <select [disabled]="!models || models.length==0" [(ngModel)]="vehicle.baseVehicleId" (ngModelChange)="onSelectModel()">
+                                <option value="-1" *ngIf="!models">Loading...</option>
+                                <option value="-1" *ngIf="models">--Select Model--</option>
+                                <option *ngFor="let model of models" [value]="model.baseVehicleId">{{model.name}} ({{model.id}})</option>
+                            </select>
+                            <div class="select__arrow white-select__arrow"></div>
+                        </div>
+                    </div>
+                    <div>
+                    </div>
+
+                    <span class="clearfix"></span>
+
+                    <div>
+                        <strong>Vehicle ID</strong>
+                        <!--label not used by design team-->
+                        <label *ngIf="!vehicle || vehicle.id==-1">N/A</label>
+                        <label *ngIf="vehicle && vehicle.id!=-1">{{vehicle.id}}</label>
+                    </div>
+                    <div>
+                        <strong>Submodel (ID)</strong>
+
+                        <div class="select white-select" style="width: 220px;">
+                            <select [(ngModel)]="vehicle.subModelId" [disabled]="!subModels || subModels.length==0" (ngModelChange)="onSelectSubModel()">
+                                <option value="-1" *ngIf="!subModels">Loading...</option>
+                                <option value="-1" *ngIf="subModels">--Select Sub-Model--</option>
+                                <option [value]="submodel.id" *ngFor="let submodel of subModels">{{submodel.name}} ({{submodel.id}})</option>
+                            </select>
+                            <div class="select__arrow white-select__arrow"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <strong>Region (ID)</strong>
+
+                        <div class="select white-select" style="width: 220px;">
+                            <select [(ngModel)]="vehicle.regionId" [disabled]="!regions || regions.length==0" (ngModelChange)="onSelectRegion()">
+                                <option value="-1" *ngIf="!regions">Loading...</option>
+                                <option value="-1" *ngIf="regions">--Select Region--</option>
+                                <option [value]="region.id" *ngFor="let region of regions">{{region.name}} ({{region.id}})</option>
+                            </select>
+                            <div class="select__arrow white-select__arrow"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="submit-wrap" style="margin-top: 15px;">
+                    <input type="submit" value="ADD TO SELECTIONS" class="btn blue larger" (click)="onAddVehicleToSelection()">
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Vehicles to associate start -->
+        <div class="table-wrap">
+            <h2 class="clearfix">
+                Vehicles to Associate
+            </h2>
+            <div class="ctable">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>Base ID</td>
+                            <td>Year</td>
+                            <td>Make</td>
+                            <td>Model</td>
+                            <td>Vehicle ID</td>
+                            <td>Submodel</td>
+                            <td>Region</td>
+                            <td>Mfr Body Code Associations</td>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="vehicles">
+                        <tr *ngFor="let vehicle of vehicles">
+                            <td><a class="btn-row-remove" (click)="onRemoveVehicle(vehicle.id)"></a></td>
+                            <td>{{vehicle.baseVehicleId}}</td>
+                            <td>{{vehicle.yearId}}</td>
+                            <td>{{vehicle.makeName}}</td>
+                            <td>{{vehicle.modelName}}</td>
+                            <td>{{vehicle.id}}</td>
+                            <td>{{vehicle.subModelName}}</td>
+                            <td>{{vehicle.regionName}}</td>
+                            <td><a class="btn-r-arrow blue" (click)="onViewMfrBodyCodeAssociations(vehicle)">{{vehicle.vehicleToMfrBodyCodeCount==0?'':vehicle.vehicleToMfrBodyCodeCount + ' :'}} view</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Select a Mfr Body Code form start -->
+        <div class="add-form">
+            <h2>
+                Select a Mfr Body Code
+                <div class="filter-search" style="float: right">
+                    <input type="text" class="cinput" placeholder="Mfr Body Code Id Search" [(ngModel)]="mfrBodyCodeIdSearchText" (keypress)="onMfrBodyCodeIdKeyPress($event)" />
+                    <input type="submit" value="" (click)="onMfrBodyCodeIdSearch()">
+                </div>
+            </h2>
+            <div class="clearfix">
+                <div class="input-blocks clearfix">
+                    <div>
+                        <strong>Mfr Body Code ID</strong>
+                        <label *ngIf="!mfrBodyCode || mfrBodyCode.id==-1">N/A</label>
+                        <label *ngIf="mfrBodyCode && mfrBodyCode.id!=-1">{{mfrBodyCode.id}}</label>
+                    </div>
+                    <div>
+                        <strong>Mfr Body Code (ID)</strong>
+
+                        <div class="select white-select" style="width: 220px;">
+                            <select [(ngModel)]="mfrBodyCode.id" [disabled]="!mfrBodyCodesForSelection || mfrBodyCodesForSelection.length==0">
+                                <option value="-1" *ngIf="!mfrBodyCodes">Loading...</option>
+                                <option value="-1" *ngIf="mfrBodyCodes">--Select Mfr Body Code--</option>
+                                <option [value]="mfrBodyCode.id" *ngFor="let mfrBodyCode of mfrBodyCodesForSelection">{{mfrBodyCode.name}} ({{mfrBodyCode.id}})</option>
+                            </select>
+                            <div class="select__arrow white-select__arrow"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="submit-wrap" style="margin-top: 15px;">
+                    <input type="submit" value="ADD TO SELECTIONS" class="btn blue larger" (click)="onAddMfrBodyCodeToSelection()">
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Mfr Body code to associate start -->
+        <div class="table-wrap">
+            <h2 class="clearfix">
+               Mfr Body Codes to Associate
+            </h2>
+            <div class="ctable">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td> Mfr Body Code ID</td>
+                            <td>Associations</td>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="mfrBodyCodes">
+                        <tr *ngFor="let mfrBodyCode of mfrBodyCodes">
+                            <td><a class="btn-row-remove" (click)="onRemoveMfrBodyCode(mfrBodyCode.id)"></a></td>
+                            <td>{{mfrBodyCode.name}}({{mfrBodyCode.id}})</td>
+                            <td><a class="btn-r-arrow blue" (click)="onViewAssociations(mfrBodyCode)">{{mfrBodyCode.vehicleToMfrBodyCodeCount==0?'':mfrBodyCode.vehicleToMfrBodyCodeCount + ' :'}} view</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Proposed Mfr Body Code associations start -->
+        <div class="table-wrap">
+            <h2 class="clearfix">
+                Proposed Mfr Body Code Associations
+            </h2>
+
+            <div class="ctable">
+                <table>
+                    <thead>
+                        <tr>
+                            <td width="10">
+                                <label class="control control--checkbox green-checkbox">
+                                    <input type="checkbox" checked="checked" [(ngModel)]="selectAllChecked" (change)="onSelectAllProposedMfrBodyCodeAssociations($event)" [disabled]="!proposedVehicleToMfrBodyCodes || proposedVehicleToMfrBodyCodes.length==0">
+                                    <div class="control__indicator"></div>
+                                </label>
+                            </td>
+                            <td>Base ID</td>
+                            <td>Year</td>
+                            <td>Make</td>
+                            <td>Model</td>
+                            <td>Vehicle ID</td>
+                            <td>Submodel</td>
+                            <td>Region</td>
+                            <td>Mfr Body Code (ID)</td>
+                           
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="proposedVehicleToMfrBodyCodes">
+                        <tr *ngFor="let v of proposedVehicleToMfrBodyCodes">
+                            <td>
+                                <label class="control control--checkbox green-checkbox">
+                                    <input type="checkbox" [(ngModel)]="v.isSelected" (change)="refreshProposedVehicleToMfrBodyCodesSelectionCount($event, v)">
+                                    <div class="control__indicator"></div>
+                                </label>
+                            </td>
+                            <td>{{v.vehicle.baseVehicleId}}</td>
+                            <td>{{v.vehicle.yearId}}</td>
+                            <td>{{v.vehicle.makeName}}</td>
+                            <td>{{v.vehicle.modelName}}</td>
+                            <td>{{v.vehicle.id}}</td>
+                            <td>{{v.vehicle.subModelName}}</td>
+                            <td>{{v.vehicle.regionName}}</td>
+                            <td>{{v.mfrBodyCode.name}}({{v.mfrBodyCode.id}})</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!--  -->
+        <div class="add-form">
+            <div class="clearfix">
+                <div class="submit-wrap">
+                    <!--TODO: *ngIf="proposedVehicleToMfrBodyCodes" for submit button OR validate on click-->
+                    <input type="submit" value="SUBMIT {{proposedVehicleToMfrBodyCodesSelectionCount}} ASSOCIATIONS" class="btn larger" (click)="onSubmitAssociations()">
+                    <input type="reset" value="CANCEL" class="btn transparent larger" routerLink="/system/search">
+                </div>
+
+                <div class="attach-wrap" style="margin-top: 40px;">
+                    <strong>OPTIONAL</strong>
+                    <ac-fileuploader upload-api-path="file/savechunk"></ac-fileuploader>
+                    <small>Include comments</small>
+                    <textarea cols="50" rows="5" [(ngModel)]="commenttoadd"></textarea>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Existing Mfr Body Code associations start -->
+        <div class="table-wrap">
+            <h2 class="clearfix">
+                Existing Mfr Body Code Associations
+            </h2>
+
+            <div class="ctable">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Base ID</td>
+                            <td>Year</td>
+                            <td>Make</td>
+                            <td>Model</td>
+                            <td>Vehicle ID</td>
+                            <td>Submodel</td>
+                            <td>Region</td>
+                            <td>Mfr Body Code (ID)</td>
+                           
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="existingVehicleToMfrBodyCodes">
+                        <tr *ngFor="let v of existingVehicleToMfrBodyCodes">
+                            <td>{{v.vehicle.baseVehicleId}}</td>
+                            <td>{{v.vehicle.yearId}}</td>
+                            <td>{{v.vehicle.makeName}}</td>
+                            <td>{{v.vehicle.modelName}}</td>
+                            <td>{{v.vehicle.id}}</td>
+                            <td>{{v.vehicle.subModelName}}</td>
+                            <td>{{v.vehicle.regionName}}</td>
+                            <td>{{v.mfrBodyCode.name}}({{v.mfrBodyCode.id}})</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+</main>
+<!-- Main end -->
+<span class="alert-warning">{{errorMessage}}</span>
+
+<modal #mfrBodyCodeAssociationsPopup>
+    <div class="overlay dark show">
+        <div>
+            <a class="close" data-dismiss="modal" (click)="mfrBodyCodeAssociationsPopup.dismiss()"></a>
+            <div class="table-wrap">
+                <h2 class="clearfix">
+                    Mfr Body Code Associations
+                </h2>
+                <div class="ctable">
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>Vehicle to Mfr Body Code ID</td>
+                                <td>Base ID</td>
+                                <td>Year</td>
+                                <td>Make</td>
+                                <td>Model</td>
+                                <td>Vehicle ID</td>
+                                <td>Submodel</td>
+                                <td>Region</td>
+                                <td>Mfr Body Code ID</td>
+                            </tr>
+                        </thead>
+                        <tbody *ngIf="popupVehicle">
+                            <tr *ngIf="!popupVehicle.vehicleToMfrBodyCodes">
+                                <td colspan="13">Loading...</td>
+                            </tr>
+                            <tr class="tableicons" *ngFor="let v of popupVehicle.vehicleToMfrBodyCodes">
+                                <td>{{v.id}}</td>
+                                <td>{{v.vehicle.baseVehicleId}}</td>
+                                <td>{{v.vehicle.yearId}}</td>
+                                <td>{{v.vehicle.makeName}}</td>
+                                <td>{{v.vehicle.modelName}}</td>
+                                <td>{{v.vehicle.id}}</td>
+                                <td>{{v.vehicle.subModelName}}</td>
+                                <td>{{v.vehicle.regionName}}</td>
+                                <td>{{v.mfrBodyCode.name}}({{v.mfrBodyCode.id}})</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Submit and cancel button start -->
+                <div class="btns">
+                    <button type="button" class="btn" data-dismiss="modal">CLOSE</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</modal>
+
+<modal #associationsPopup>
+    <div class="overlay dark show">
+        <div>
+            <a class="close" data-dismiss="modal" (click)="associationsPopup.dismiss()"></a>
+            <div class="table-wrap">
+                <h2 class="clearfix">
+                    Associations
+                </h2>
+                <div class="ctable">
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>Vehicle to Mfr Body Code ID</td>
+                                <td>Base ID</td>
+                                <td>Year</td>
+                                <td>Make</td>
+                                <td>Model</td>
+                                <td>Vehicle ID</td>
+                                <td>Submodel</td>
+                                <td>Region</td>
+                                <td>Mfr Body Code</td>
+                            </tr>
+                        </thead>
+                        <tbody *ngIf="popupMfrBodyCode">
+                            <tr *ngIf="!popupMfrBodyCode.vehicleToMfrBodyCodes">
+                                <td colspan="13">Loading...</td>
+                            </tr>
+                            <tr *ngIf="popupMfrBodyCode.vehicleToMfrBodyCodes && popupMfrBodyCode.vehicleToMfrBodyCodes.length == 0">
+                                <td colspan="13">No Records Found</td>
+                            </tr>
+                            <tr class="tableicons" *ngFor="let v of popupMfrBodyCode.vehicleToMfrBodyCodes">
+                                <td>{{v.id}}</td>
+                                <td>{{v.vehicle.baseVehicleId}}</td>
+                                <td>{{v.vehicle.yearId}}</td>
+                                <td>{{v.vehicle.makeName}}</td>
+                                <td>{{v.vehicle.modelName}}</td>
+                                <td>{{v.vehicle.id}}</td>
+                                <td>{{v.vehicle.subModelName}}</td>
+                                <td>{{v.vehicle.regionName}}</td>
+                                <td>{{v.mfrBodyCode.name}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Submit and cancel button start -->
+                <div class="btns">
+                    <button type="button" class="btn" data-dismiss="modal">CLOSE</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</modal>

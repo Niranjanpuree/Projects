@@ -1,0 +1,32 @@
+﻿@model Northwind.Web.Models.ViewModels.Contract.ContractModificationViewModel
+<div>
+    <partial name="_FormModel" />
+</div>
+<script>
+     //call submit method from contract index.tsx
+    window.uploaderMod = window.loadFileUpload.pageView.loadFileUpload('fileUploadMod', '@ViewBag.Resourcekey',true, '@ViewBag.ResourceId', '@ViewBag.UpdatedBy', '@ViewBag.UpdatedOn', 'No path', true, false, true,true,false, submitCallBack);
+
+    function submitCallBack(resourceId) {
+        //call the notification component..
+            // finally redirect to  notification page..
+            window.loadDistributionListDialog.pageView.loadDistributionListDialog('distributionList',
+                'ProjectModification.Edit',
+                resourceId,
+                true,
+                true,
+                false,
+                false,
+                true,
+                notifyCallBack,
+                skipCallBack,
+            true);
+    }
+</script>
+<script>
+    function notifyCallBack() {
+
+    }
+    function skipCallBack() {
+
+    }
+</script>

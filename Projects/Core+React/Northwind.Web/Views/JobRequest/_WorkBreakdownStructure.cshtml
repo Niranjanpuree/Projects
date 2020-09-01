@@ -1,0 +1,57 @@
+﻿@model Northwind.Web.Models.ViewModels.JobRequestViewModel
+
+<div>
+    <input hidden asp-for="ContractWBS.ContractWBSGuid" class="form-control" />
+    <input hidden asp-for="ContractGuid" class="form-control" />
+</div>
+
+<div id="jobrequest-workbreakdown">
+    <div class="col-12">
+        <div class="row pt-3 align-items-center">
+            <div class="col">
+                <p class="mb-0">
+                    Please review the Work Breakdown Structure below.  If changes are required, click the Edit Here button.
+                </p>
+            </div>
+            @if (Model.ContractWBS.IsCsv)
+            {
+                <div class="col col-sm-auto">
+                    <input id="idEditContractWBS" class="btn btn-sm btn-secondary" type="button"
+                           value="Not Complete? Edit here" />
+                </div>
+            }
+            else
+            {
+                <div class="col col-sm-auto">
+                    <input id="idViewWBSNonCSV" class="btn btn-sm btn-secondary" type="button"
+                           value="Not Complete? Edit here" />
+                </div>
+            }
+
+        </div>
+    </div>
+    @if (Model.ContractWBS.IsCsv)
+    {
+        <div class="p-3">
+            <div id="JobWorkBreakdownStructureGrid"></div>
+        </div>
+    }
+    else
+    {
+        @if (Model.ContractWBS != null)
+        {
+          
+                //var fileName = @Model.ContractWBS.UploadFileName.Split("/").Last();
+                var fileName = !string.IsNullOrWhiteSpace(@Model.ContractWBS.UploadFileName) ? Model.ContractWBS.UploadFileName.Split("/").Last() : "";
+                <div class="col-md-12 uploaded-file">
+                    <a href="/ContractResourceFile/DownloadDocument/@Model.ContractWBS.ContractResourceFileGuid"
+                       id="@fileName">
+                        <i class="k-icon k-i-file-txt"></i>
+                        <span class="control-label">@fileName</span>
+                    </a>
+                </div>
+        }
+
+    }
+
+</div>

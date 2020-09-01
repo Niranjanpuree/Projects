@@ -1,0 +1,105 @@
+﻿<loading-gif [show]="showLoadingGif"></loading-gif>
+<article>
+    <div class="center">
+        <div class="table-wrap">
+            <h2 class="clearfix">
+                <div class="filter-search">
+                    <input class="form-control search-ht ReferenceDataSearch btn-color" [(ngModel)]="year.id" placeholder="Enter Year" type="number" max="9999" required />
+                    <input type="button" class="btn blue icon add addyearbutton" value="ADD YEAR" (click)="add(year)" />
+                </div>
+                <div style="margin-left: 5px; margin-right: -150px; margin-top: -33px;">
+                    <div *ngIf="!isYearValidNumber">Invalid Year.</div>
+                    <div *ngIf="!isYearLengthValid">Year must be of four digit.</div>
+                </div>
+            </h2>
+            <div class="ctable">
+                <ac-grid [dataSource]="years" #gd="acGrid" columns='[
+                 { "header":"Year" , "field":"id", "sortable": true },
+                 { "header":"Change Requests"}]'
+                         initialSortBy='[
+                 {"field": "id", "orderByDesc": false}]'
+                         paging='{"pageSize": 10, "numberOfPagesOnPageList": 10}'>
+                    <tr *ngFor="let year of gd.items; let whenOdd=odd; let whenEven=even;" [ngClass]="{'table-even-row':whenOdd, 'table-odd-row':whenEven}">
+                        <td>{{year.id}}</td>
+                        <!--<td *ngIf="year.baseVehicleCount == 0">-->
+                        <td *ngIf="year.changeRequestId">
+                            <a (click)="view(year)" style="cursor: pointer;" class="btn-r-arrow blue">Pending</a>
+                        </td>
+                        <td *ngIf="!year.changeRequestId">
+                            <a class="box-icon delete" title="Delete" (click)="delete(year)"></a>
+                        </td>
+                    </tr>
+                </ac-grid>
+            </div>
+        </div>
+    </div>
+</article>
+
+<modal #deleteErrorPopup>
+    <div class="overlay show popup">
+        <div class="new-make">
+            <a data-dismiss="modal" class="close"></a>
+            <div class="add-form">
+                <h2>Remove Year</h2>
+                <div class="clearfix">
+
+                    <div class="warning-wrap delete-error-wrap">
+                        <div>
+                            <strong>
+                                All associated records must be removed before
+                                the "{{selectedYear.id}}" Year can be removed.
+                            </strong>
+                            <span>
+                                {{selectedYear.baseVehicleCount}} Base vehicles<br>
+
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Submit and cancel button start -->
+                    <div class="btns">
+                        <input type="submit" value="CANCEL" class="btn blue" (click)="deleteErrorPopup.dismiss()" />
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</modal>
+
+<modal #deleteConfirmPopup>
+    <div class="overlay dark show">
+        <div class="new-make">
+            <a (click)="onCancel()" class="close"></a>
+            <div class="add-form">
+                <h2>Remove Year</h2>
+                <div class="clearfix">
+
+                    <div class="warning-wrap confirmation">
+                        <div>
+                            <strong> Please confirm that you wish to remove the "{{selectedYear.id}}" Year.</strong>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="attach-wrap">
+                        <strong>OPTIONAL</strong>
+
+                        <ac-fileuploader upload-api-path="file/savechunk" #deletePopupAcFileUploader="acFileUploader"></ac-fileuploader>
+                        <small>Include comments</small>
+                        <textarea cols="50" rows="5" [(ngModel)]="year.comment"></textarea>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    <!-- Submit and cancel button start -->
+                    <div class="btns">
+                        <input type="reset" value="CANCEL" class="btn transparent" data-dismiss="modal" (click)="onCancel()" />
+                        <input type="submit" value="CONFIRM" class="btn" (click)="onDeleteConfirm()" />
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</modal>
+

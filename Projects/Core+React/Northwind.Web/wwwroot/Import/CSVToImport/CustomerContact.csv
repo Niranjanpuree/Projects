@@ -1,0 +1,4 @@
+Customer Name,ContactType,Firstname,Middlename,Lastname,Phone,AltPhone,Email,AltEmail,Notes,Action
+demo fourr,Contract Representative,gautam,thapa,magar,9803,9849,abc@gmail.com,abc@gmail.com,Test Notes,Add
+demo fourr, Contract Technical Representative,gautam,thapa,magar,,,,,Test Notes,Add
+demo fourr,Other,gautam,thapa,magar,,,,,Test Notes,Add

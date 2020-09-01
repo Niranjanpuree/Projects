@@ -1,0 +1,69 @@
+.office {
+    &-directory {
+        margin-top:20px;
+        label {
+            font-size: 14px;
+        }
+
+        .k-checkbox-label {
+            margin-top: 2px;
+        }
+
+        i {
+            font-size: 16px;
+            color: $gray-500;
+        }
+        .item-block{
+            margin-top:0;
+        }
+        
+    }
+
+    &-location {
+        padding-left: 25px;
+        position: relative;
+
+        i {
+            position: absolute;
+            left: 0;
+            top: 27px;
+
+
+        }
+    }
+
+    &-contact {
+        i {
+            margin-right: 7px;
+        }
+    }
+
+    &-update-time i {
+        font-size: 13px;
+    }
+}
+
+.btn-more {
+    line-height: 1;
+    margin-left: 10px;
+
+    i {
+        line-height: 1;
+        cursor: pointer;
+    }
+
+    &:hover i {
+        color: $gray-500;
+    }
+}
+
+.office-directory, .employee-directory{
+    + .k-grid-pager{
+        background:transparent;
+        border:0;
+        padding:16px 0;
+    }
+    .item-block{
+        margin-bottom:30px;
+    }
+}

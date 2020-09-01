@@ -1,0 +1,63 @@
+﻿@model Northwind.Web.Models.ViewModels.Contact.ContactViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+
+            <label class="control-label control-label-read">
+                Customer Name
+            </label>
+            <h5>
+                @Model.CustomerName
+            </h5>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label control-label-read">
+                Full Name
+            </label>
+            <h5>
+                @(Model.FirstName + " " + Model.MiddleName + " " + Model.LastName )
+            </h5>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label control-label-read">
+                Contact Type
+            </label>
+            <h5>
+                @Model.ContactTypeName
+            </h5>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label control-label-read">
+                Contact Number
+            </label>
+            <h5>
+               @Model.ContactNumbers
+            </h5>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label control-label-read">
+                Email Address
+            </label>
+            <h5>
+               @Model.EmailAddresses
+            </h5>
+        </div>
+    </div>
+    <div class="form-group col-md-6">
+        <label class="control-label control-label-read">
+            Notes
+        </label>
+        <h5>
+            @Model.Notes
+        </h5>
+    </div>
+</div>

@@ -1,0 +1,628 @@
+﻿@model Northwind.Web.Models.ViewModels.Contract.ContractViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<div class="p-4">
+    <div class="row">
+
+        <div class="col-md-6 form-group">
+            <label asp-for="KeyPersonnel.CompanyPresident" class="control-label control-label-read"></label>
+            @if (Model.KeyPersonnel.CompanyPresidentModel != null)
+            {
+                <div class="form-value"><b id=@Model.KeyPersonnel.CompanyPresident class="getDetailOfUser tooltipdetail">@Model.KeyPersonnel.CompanyPresidentName</b></div>
+                <div class="popover-detail bottom tooltipuser">
+                    <span class='popover-detail-container'>
+
+                        <span>
+                            <label>Name</label> : @Model.KeyPersonnel.CompanyPresidentModel.Firstname @Model.KeyPersonnel.CompanyPresidentModel.Lastname
+                        </span>
+                        <span><label>Company </label>: @(!string.IsNullOrWhiteSpace(Model.KeyPersonnel.CompanyPresidentModel.Company) ? Model.KeyPersonnel.CompanyPresidentModel.Company : "Not Entered")</span>
+                        <span><label>Title </label>: @Model.KeyPersonnel.CompanyPresidentModel.JobTitle</span>
+                        @if (!string.IsNullOrWhiteSpace(Model.KeyPersonnel.CompanyPresidentModel.WorkEmail))
+                        {
+                            if (Model.KeyPersonnel.CompanyPresidentModel.WorkEmail == "Not Entered")
+                            {
+                                <span>
+                                    <label>Email </label>: @Model.KeyPersonnel.CompanyPresidentModel.WorkEmail
+                                </span>
+                            }
+                            else
+                            {
+                                <span>
+                                    <label>Email </label><a href='mailto:"@Model.KeyPersonnel.CompanyPresidentModel.WorkEmail"' target='_blank'>:  @Model.KeyPersonnel.CompanyPresidentModel.WorkEmail</a>
+                                </span>
+                            }
+
+                        }
+                        @if (!string.IsNullOrWhiteSpace(Model.KeyPersonnel.CompanyPresidentModel.WorkPhone))
+                        {
+                            <span><label>Phone </label>: @Model.KeyPersonnel.CompanyPresidentModel.WorkPhone</span>
+                        }
+                    </span>
+                </div>
+            }
+            else
+            {
+                <div class="form-value">Not Entered</div>
+            }
+        </div>
+
+        <div class="col-md-6 form-group">
+            <label asp-for="KeyPersonnel.RegionalManager" class="control-label control-label-read"></label>
+            @if (Model.KeyPersonnel.RegionalManagerModel != null)
+            {
+                <div class="form-value"><b id=@Model.KeyPersonnel.RegionalManager class="getDetailOfUser tooltipdetail">@Model.KeyPersonnel.RegionalManagerName</b></div>
+                <div class="popover-detail bottom tooltipuser">
+                    <span class='popover-detail-container'>
+
+                        <span>
+                            <label>Name</label> : @Model.KeyPersonnel.RegionalManagerModel.Firstname @Model.KeyPersonnel.RegionalManagerModel.Lastname
+                        </span>
+                        <span><label>Company </label>: @(!string.IsNullOrWhiteSpace(Model.KeyPersonnel.RegionalManagerModel.Company) ? Model.KeyPersonnel.RegionalManagerModel.Company : "Not Entered")</span>
+                        <span><label>Title </label>: @Model.KeyPersonnel.RegionalManagerModel.JobTitle</span>
+                        @if (!string.IsNullOrWhiteSpace(Model.KeyPersonnel.RegionalManagerModel.WorkEmail))
+                        {
+                            if (Model.KeyPersonnel.RegionalManagerModel.WorkEmail == "Not Entered")
+                            {
+                                <span>
+                                    <label>Email </label>: @Model.KeyPersonnel.RegionalManagerModel.WorkEmail
+                                </span>
+                            }
+                            else
+                            {
+                                <span>
+                                    <label>Email </label><a href='mailto:"@Model.KeyPersonnel.RegionalManagerModel.WorkEmail"' target='_blank'>: @Model.KeyPersonnel.RegionalManagerModel.WorkEmail</a>
+                                </span>
+                            }
+
+                        }
+                        @if (!string.IsNullOrWhiteSpace(Model.KeyPersonnel.RegionalManagerModel.WorkPhone))
+                        {
+                            <span><label>Phone </label>: @Model.KeyPersonnel.RegionalManagerModel.WorkPhone</span>
+                        }
+                    </span>
+                </div>
+            }
+            else
+            {
+                <div class="form-value">Not Entered</div>
+            }
+        </div>
+
+        <div class="col-md-6 form-group">
+            <label asp-for="KeyPersonnel.DeputyRegionalManager" class="control-label control-label-read"></label>
+            @if (Model.KeyPersonnel.DeputyRegionalManagerModel != null)
+            {
+                <div class="form-value"><b id=@Model.KeyPersonnel.DeputyRegionalManager class="getDetailOfUser tooltipdetail">@Model.KeyPersonnel.DeputyRegionalManagerName</b></div>
+                <div class="popover-detail bottom tooltipuser">
+                    <span class='popover-detail-container'>
+
+                        <span>
+                            <label>Name</label> : @Model.KeyPersonnel.DeputyRegionalManagerModel.Firstname @Model.KeyPersonnel.DeputyRegionalManagerModel.Lastname
+                        </span>
+                        <span><label>Company </label>: @(!string.IsNullOrWhiteSpace(Model.KeyPersonnel.DeputyRegionalManagerModel.Company) ? Model.KeyPersonnel.DeputyRegionalManagerModel.Company : "Not Entered")</span>
+                        <span><label>Title </label>: @Model.KeyPersonnel.DeputyRegionalManagerModel.JobTitle</span>
+                        @if (!string.IsNullOrWhiteSpace(Model.KeyPersonnel.DeputyRegionalManagerModel.WorkEmail))
+                        {
+                            if (Model.KeyPersonnel.DeputyRegionalManagerModel.WorkEmail == "Not Entered")
+                            {
+                                <span>
+                                    <label>Email </label>: @Model.KeyPersonnel.DeputyRegionalManagerModel.WorkEmail
+                                </span>
+                            }
+                            else
+                            {
+                                <span>
+                                    <label>Email </label><a href='mailto:"@Model.KeyPersonnel.DeputyRegionalManagerModel.WorkEmail"' target='_blank'>: @Model.KeyPersonnel.DeputyRegionalManagerModel.WorkEmail</a>
+                                </span>
+                            }
+
+                        }
+                        @if (!string.IsNullOrWhiteSpace(Model.KeyPersonnel.DeputyRegionalManagerModel.WorkPhone))
+                        {
+                            <span><label>Phone </label>: @Model.KeyPersonnel.DeputyRegionalManagerModel.WorkPhone</span>
+                        }
+                    </span>
+                </div>
+            }
+            else
+            {
+                <div class="form-value">Not Entered</div>
+            }
+        </div>
+
+        <div class="col-md-6 form-group">
+            <label asp-for="KeyPersonnel.HealthAndSafetyRegionalManager" class="control-label control-label-read"></label>
+            @if (Model.KeyPersonnel.HSRegionalManagerModel != null)
+            {
+                <div class="form-value"><b id=@Model.KeyPersonnel.HealthAndSafetyRegionalManager class="getDetailOfUser tooltipdetail">@Model.KeyPersonnel.HealthAndSafetyRegionalManagerName</b></div>
+                <div class="popover-detail bottom tooltipuser">
+                    <span class='popover-detail-container'>
+
+                        <span>
+                            <label>Name</label> : @Model.KeyPersonnel.HSRegionalManagerModel.Firstname @Model.KeyPersonnel.HSRegionalManagerModel.Lastname
+                        </span>
+                        <span><label>Company </label>: @(!string.IsNullOrWhiteSpace(Model.KeyPersonnel.HSRegionalManagerModel.Company) ? Model.KeyPersonnel.HSRegionalManagerModel.Company : "Not Entered")</span>
+                        <span><label>Title </label>: @Model.KeyPersonnel.HSRegionalManagerModel.JobTitle</span>
+                        @if (!string.IsNullOrWhiteSpace(Model.KeyPersonnel.HSRegionalManagerModel.WorkEmail))
+                        {
+                            if (Model.KeyPersonnel.HSRegionalManagerModel.WorkEmail == "Not Entered")
+                            {
+                                <span>
+                                    <label>Email </label>: @Model.KeyPersonnel.HSRegionalManagerModel.WorkEmail
+                                </span>
+                            }
+                            else
+                            {
+                                <span>
+                                    <label>Email </label><a href='mailto:"@Model.KeyPersonnel.HSRegionalManagerModel.WorkEmail"' target='_blank'>: @Model.KeyPersonnel.HSRegionalManagerModel.WorkEmail</a>
+                                </span>
+                            }
+
+                        }
+                        @if (!string.IsNullOrWhiteSpace(Model.KeyPersonnel.HSRegionalManagerModel.WorkPhone))
+                        {
+                            <span><label>Phone </label>: @Model.KeyPersonnel.HSRegionalManagerModel.WorkPhone</span>
+                        }
+                    </span>
+                </div>
+            }
+            else
+            {
+                <div class="form-value">Not Entered</div>
+            }
+        </div>
+
+        <div class="col-md-6 form-group">
+            <label asp-for="KeyPersonnel.BusinessDevelopmentRegionalManager" class="control-label control-label-read"></label>
+            @if (Model.KeyPersonnel.BDRegionalManagerModel != null)
+            {
+                <div class="form-value"><b id=@Model.KeyPersonnel.BusinessDevelopmentRegionalManager class="getDetailOfUser tooltipdetail">@Model.KeyPersonnel.BusinessDevelopmentRegionalManagerName</b></div>
+                <div class="popover-detail bottom tooltipuser">
+                    <span class='popover-detail-container'>
+
+                        <span>
+                            <label>Name</label> : @Model.KeyPersonnel.BDRegionalManagerModel.Firstname @Model.KeyPersonnel.BDRegionalManagerModel.Lastname
+                        </span>
+                        <span><label>Company </label>: @(!string.IsNullOrWhiteSpace(Model.KeyPersonnel.BDRegionalManagerModel.Company) ? Model.KeyPersonnel.BDRegionalManagerModel.Company : "Not Entered")</span>
+                        <span><label>Title </label>: @Model.KeyPersonnel.BDRegionalManagerModel.JobTitle</span>
+                        @if (!string.IsNullOrWhiteSpace(Model.KeyPersonnel.BDRegionalManagerModel.WorkEmail))
+                        {
+                            if (Model.KeyPersonnel.BDRegionalManagerModel.WorkEmail == "Not Entered")
+                            {
+                                <span>
+                                    <label>Email </label>: @Model.KeyPersonnel.BDRegionalManagerModel.WorkEmail
+                                </span>
+                            }
+                            else
+                            {
+                                <span>
+                                    <label>Email </label><a href='mailto:"@Model.KeyPersonnel.BDRegionalManagerModel.WorkEmail"' target='_blank'>: @Model.KeyPersonnel.BDRegionalManagerModel.WorkEmail</a>
+                                </span>
+                            }
+
+                        }
+                        @if (!string.IsNullOrWhiteSpace(Model.KeyPersonnel.BDRegionalManagerModel.WorkPhone))
+                        {
+                            <span><label>Phone </label>: @Model.KeyPersonnel.BDRegionalManagerModel.WorkPhone</span>
+                        }
+                    </span>
+                </div>
+            }
+            else
+            {
+                <div class="form-value">Not Entered</div>
+            }
+        </div>
+
+        <div class="col-md-6 form-group">
+            <label class="control-label control-label-read">Task Order Representative</label>
+            @if (Model.KeyPersonnel.ContractRepresentativeModel != null)
+            {
+                <div class="form-value"><b id=@Model.KeyPersonnel.ContractRepresentative class="getDetailOfUser tooltipdetail">@Model.KeyPersonnel.ContractRepresentativeName</b></div>
+                <div class="popover-detail bottom tooltipuser">
+                    <span class='popover-detail-container'>
+
+                        <span>
+                            <label>Name</label> : @Model.KeyPersonnel.ContractRepresentativeModel.Firstname @Model.KeyPersonnel.ContractRepresentativeModel.Lastname
+                        </span>
+                        <span><label>Company </label>: @(!string.IsNullOrWhiteSpace(Model.KeyPersonnel.ContractRepresentativeModel.Company) ? Model.KeyPersonnel.ContractRepresentativeModel.Company : "Not Entered")</span>
+                        <span><label>Title </label>: @Model.KeyPersonnel.ContractRepresentativeModel.JobTitle</span>
+                        @if (!string.IsNullOrWhiteSpace(Model.KeyPersonnel.ContractRepresentativeModel.WorkEmail))
+                        {
+                            if (Model.KeyPersonnel.ContractRepresentativeModel.WorkEmail == "Not Entered")
+                            {
+                                <span>
+                                    <label>Email </label>: @Model.KeyPersonnel.ContractRepresentativeModel.WorkEmail
+                                </span>
+                            }
+                            else
+                            {
+                                <span>
+                                    <label>Email </label><a href='mailto:"@Model.KeyPersonnel.ContractRepresentativeModel.WorkEmail"' target='_blank'>: @Model.KeyPersonnel.ContractRepresentativeModel.WorkEmail</a>
+                                </span>
+                            }
+
+                        }
+                        @if (!string.IsNullOrWhiteSpace(Model.KeyPersonnel.ContractRepresentativeModel.WorkPhone))
+                        {
+                            <span><label>Phone </label>: @Model.KeyPersonnel.ContractRepresentativeModel.WorkPhone</span>
+                        }
+                    </span>
+                </div>
+            }
+            else
+            {
+                <div class="form-value">Not Entered</div>
+            }
+        </div>
+
+        <div class="col-md-6 form-group">
+            <label asp-for="KeyPersonnel.ProjectManager" class="control-label control-label-read"></label>
+            @if (Model.KeyPersonnel.ProjectManagerModel != null)
+            {
+                <div class="form-value"><b id=@Model.KeyPersonnel.ProjectManager class="getDetailOfUser tooltipdetail">@Model.KeyPersonnel.ProjectManagerName</b></div>
+                <div class="popover-detail bottom tooltipuser">
+                    <span class='popover-detail-container'>
+
+                        <span>
+                            <label>Name</label> : @Model.KeyPersonnel.ProjectManagerModel.Firstname @Model.KeyPersonnel.ProjectManagerModel.Lastname
+                        </span>
+                        <span><label>Company </label>: @(!string.IsNullOrWhiteSpace(Model.KeyPersonnel.ProjectManagerModel.Company) ? Model.KeyPersonnel.ProjectManagerModel.Company : "Not Entered")@Model.KeyPersonnel.ProjectManagerModel.Company</span>
+                        <span><label>Title </label>: @Model.KeyPersonnel.ProjectManagerModel.JobTitle</span>
+                        @if (!string.IsNullOrWhiteSpace(Model.KeyPersonnel.ProjectManagerModel.WorkEmail))
+                        {
+                            if (Model.KeyPersonnel.ProjectManagerModel.WorkEmail == "Not Entered")
+                            {
+                                <span>
+                                    <label>Email </label>: @Model.KeyPersonnel.ProjectManagerModel.WorkEmail
+                                </span>
+                            }
+                            else
+                            {
+                                <span>
+                                    <label>Email </label><a href='mailto:"@Model.KeyPersonnel.ProjectManagerModel.WorkEmail"' target='_blank'>: @Model.KeyPersonnel.ProjectManagerModel.WorkEmail</a>
+                                </span>
+                            }
+
+                        }
+                        @if (!string.IsNullOrWhiteSpace(Model.KeyPersonnel.ProjectManagerModel.WorkPhone))
+                        {
+                            <span><label>Phone </label>: @Model.KeyPersonnel.ProjectManagerModel.WorkPhone</span>
+                        }
+                    </span>
+                </div>
+            }
+            else
+            {
+                <div class="form-value">Not Entered</div>
+            }
+        </div>
+
+        <div class="col-md-6 form-group">
+            <label asp-for="KeyPersonnel.ProjectControls" class="control-label control-label-read"></label>
+            @if (Model.KeyPersonnel.ProjectControlModel != null)
+            {
+                <div class="form-value"><b id=@Model.KeyPersonnel.ProjectControls class="getDetailOfUser tooltipdetail">@Model.KeyPersonnel.ProjectControlName</b></div>
+                <div class="popover-detail bottom tooltipuser">
+                    <span class='popover-detail-container'>
+
+                        <span>
+                            <label>Name</label> : @Model.KeyPersonnel.ProjectControlModel.Firstname @Model.KeyPersonnel.ProjectControlModel.Lastname
+                        </span>
+                        <span><label>Company </label>: @(!string.IsNullOrWhiteSpace(Model.KeyPersonnel.ProjectControlModel.Company) ? Model.KeyPersonnel.ProjectControlModel.Company : "Not Entered")</span>
+                        <span><label>Title </label>: @Model.KeyPersonnel.ProjectControlModel.JobTitle</span>
+                        @if (Model.KeyPersonnel.ProjectControlModel.WorkEmail != "Not Entered")
+                        {
+                            <span>
+                                <label>Email </label><a href='mailto:"@Model.KeyPersonnel.ProjectControlModel.WorkEmail"' target='_blank'>: @Model.KeyPersonnel.ProjectControlModel.WorkEmail</a>
+                            </span>
+                        }
+                        else if (Model.KeyPersonnel.ProjectControlModel.WorkEmail == "Not Entered")
+                        {
+                            <span>
+                                <label>Email </label>: @Model.KeyPersonnel.ProjectControlModel.WorkEmail
+                            </span>
+                        }
+                        @if (!string.IsNullOrWhiteSpace(Model.KeyPersonnel.ProjectControlModel.WorkPhone))
+                        {
+                            <span><label>Phone </label>: @Model.KeyPersonnel.ProjectControlModel.WorkPhone</span>
+                        }
+                    </span>
+                </div>
+            }
+            else
+            {
+                <div class="form-value">Not Entered</div>
+            }
+        </div>
+
+        <div class="col-md-6 form-group">
+            <label asp-for="KeyPersonnel.AccountingRepresentative" class="control-label control-label-read"></label>
+            @if (Model.KeyPersonnel.AccountRepresentativeModel != null)
+            {
+                <div class="form-value"><b id=@Model.KeyPersonnel.AccountingRepresentative class="getDetailOfUser tooltipdetail">@Model.KeyPersonnel.AccountingRepresentativeName</b></div>
+                <div class="popover-detail bottom tooltipuser">
+                    <span class='popover-detail-container'>
+
+                        <span>
+                            <label>Name</label> : @Model.KeyPersonnel.AccountRepresentativeModel.Firstname @Model.KeyPersonnel.AccountRepresentativeModel.Lastname
+                        </span>
+                        <span><label>Company </label>: @(!string.IsNullOrWhiteSpace(Model.KeyPersonnel.AccountRepresentativeModel.Company) ? Model.KeyPersonnel.AccountRepresentativeModel.Company : "Not Entered")</span>
+                        <span><label>Title </label>: @Model.KeyPersonnel.AccountRepresentativeModel.JobTitle</span>
+                        @if (!string.IsNullOrWhiteSpace(Model.KeyPersonnel.AccountRepresentativeModel.WorkEmail))
+                        {
+                            if (Model.KeyPersonnel.AccountRepresentativeModel.WorkEmail == "Not Entered")
+                            {
+                                <span>
+                                    <label>Email </label>: @Model.KeyPersonnel.AccountRepresentativeModel.WorkEmail
+                                </span>
+                            }
+                            else
+                            {
+                                <span>
+                                    <label>Email </label><a href='mailto:"@Model.KeyPersonnel.AccountRepresentativeModel.WorkEmail"' target='_blank'>: @Model.KeyPersonnel.AccountRepresentativeModel.WorkEmail</a>
+                                </span>
+                            }
+
+                        }
+                        @if (!string.IsNullOrWhiteSpace(Model.KeyPersonnel.AccountRepresentativeModel.WorkPhone))
+                        {
+                            <span><label>Phone </label>: @Model.KeyPersonnel.AccountRepresentativeModel.WorkPhone</span>
+                        }
+                    </span>
+                </div>
+            }
+            else
+            {
+                <div class="form-value">Not Entered</div>
+            }
+        </div>
+
+        <div class="col-md-6 form-group">
+            <label asp-for="KeyPersonnel.SubContractAdministrator" class="control-label control-label-read"></label>
+            @if (Model.KeyPersonnel.SubContractAdministrator != Guid.Empty)
+            {
+                <div class="form-value"><b id=@Model.KeyPersonnel.SubContractAdministrator class="getDetailOfUser tooltipdetail">@Model.KeyPersonnel.SubContractAdministratorName</b></div>
+                <div class="popover-detail bottom tooltipuser">
+                    <span class='popover-detail-container'>
+                        <span>
+                            <label>Name</label> : @Model.KeyPersonnel.SubContractAdministratorModel.Firstname @Model.KeyPersonnel.SubContractAdministratorModel.Lastname
+                        </span>
+                        <span><label>Company </label>: @(!string.IsNullOrWhiteSpace(Model.KeyPersonnel.SubContractAdministratorModel.Company) ? Model.KeyPersonnel.SubContractAdministratorModel.Company : "Not Entered")</span>
+                        <span><label>Title </label>: @Model.KeyPersonnel.SubContractAdministratorModel.JobTitle</span>
+                        @if (!string.IsNullOrWhiteSpace(Model.KeyPersonnel.SubContractAdministratorModel.WorkEmail))
+                        {
+                            if (Model.KeyPersonnel.SubContractAdministratorModel.WorkEmail == "Not Entered")
+                            {
+                                <span>
+                                    <label>Email </label>: @Model.KeyPersonnel.SubContractAdministratorModel.WorkEmail
+                                </span>
+                            }
+                            else
+                            {
+                                <span>
+                                    <label>Email </label><a href='mailto:"@Model.KeyPersonnel.SubContractAdministratorModel.WorkEmail"' target='_blank'>: @Model.KeyPersonnel.SubContractAdministratorModel.WorkEmail</a>
+                                </span>
+                            }
+
+                        }
+                        @if (!string.IsNullOrWhiteSpace(Model.KeyPersonnel.SubContractAdministratorModel.WorkPhone))
+                        {
+                            <span><label>Phone </label>: @Model.KeyPersonnel.SubContractAdministratorModel.WorkPhone</span>
+                        }
+                    </span>
+                </div>
+            }
+            else
+            {
+                <div class="form-value">Not Entered</div>
+            }
+        </div>
+
+        <div class="col-md-6 form-group">
+            <label asp-for="KeyPersonnel.PurchasingRepresentative" class="control-label control-label-read"></label>
+            @if (Model.KeyPersonnel.PurchasingRepresentative != Guid.Empty)
+            {
+                <div class="form-value"><b id=@Model.KeyPersonnel.PurchasingRepresentative class="getDetailOfUser tooltipdetail">@Model.KeyPersonnel.PurchasingRepresentativeName</b></div>
+                <div class="popover-detail bottom tooltipuser">
+                    <span class='popover-detail-container'>
+                        <span>
+                            <label>Name</label> : @Model.KeyPersonnel.PurchasingRepresentativeModel.Firstname @Model.KeyPersonnel.PurchasingRepresentativeModel.Lastname
+                        </span>
+                        <span><label>Company </label>: @(!string.IsNullOrWhiteSpace(Model.KeyPersonnel.PurchasingRepresentativeModel.Company) ? Model.KeyPersonnel.PurchasingRepresentativeModel.Company : "Not Entered")</span>
+                        <span><label>Title </label>: @Model.KeyPersonnel.PurchasingRepresentativeModel.JobTitle</span>
+                        @if (!string.IsNullOrWhiteSpace(Model.KeyPersonnel.PurchasingRepresentativeModel.WorkEmail))
+                        {
+                            if (Model.KeyPersonnel.PurchasingRepresentativeModel.WorkEmail == "Not Entered")
+                            {
+                                <span>
+                                    <label>Email </label>: @Model.KeyPersonnel.PurchasingRepresentativeModel.WorkEmail
+                                </span>
+                            }
+                            else
+                            {
+                                <span>
+                                    <label>Email </label><a href='mailto:"@Model.KeyPersonnel.PurchasingRepresentativeModel.WorkEmail"' target='_blank'>: @Model.KeyPersonnel.PurchasingRepresentativeModel.WorkEmail</a>
+                                </span>
+                            }
+
+                        }
+                        @if (!string.IsNullOrWhiteSpace(Model.KeyPersonnel.PurchasingRepresentativeModel.WorkPhone))
+                        {
+                            <span><label>Phone </label>: @Model.KeyPersonnel.PurchasingRepresentativeModel.WorkPhone</span>
+                        }
+                    </span>
+                </div>
+            }
+            else
+            {
+                <div class="form-value">Not Entered</div>
+            }
+        </div>
+
+        <div class="col-md-6 form-group">
+            <label asp-for="KeyPersonnel.HumanResourceRepresentative" class="control-label control-label-read"></label>
+            @if (Model.KeyPersonnel.HumanResourceRepresentative != Guid.Empty)
+            {
+                <div class="form-value"><b id=@Model.KeyPersonnel.HumanResourceRepresentative class="getDetailOfUser tooltipdetail">@Model.KeyPersonnel.HumanResourceRepresentativeName</b></div>
+                <div class="popover-detail bottom tooltipuser">
+                    <span class='popover-detail-container'>
+                        <span>
+                            <label>Name</label> : @Model.KeyPersonnel.HumanResourceRepresentativeModel.Firstname @Model.KeyPersonnel.HumanResourceRepresentativeModel.Lastname
+                        </span>
+                        <span><label>Company </label>: @(!string.IsNullOrWhiteSpace(Model.KeyPersonnel.HumanResourceRepresentativeModel.Company) ? Model.KeyPersonnel.HumanResourceRepresentativeModel.Company : "Not Entered")</span>
+                        <span><label>Title </label>: @Model.KeyPersonnel.HumanResourceRepresentativeModel.JobTitle</span>
+                        @if (!string.IsNullOrWhiteSpace(Model.KeyPersonnel.HumanResourceRepresentativeModel.WorkEmail))
+                        {
+                            if (Model.KeyPersonnel.HumanResourceRepresentativeModel.WorkEmail == "Not Entered")
+                            {
+                                <span>
+                                    <label>Email </label>: @Model.KeyPersonnel.HumanResourceRepresentativeModel.WorkEmail
+                                </span>
+                            }
+                            else
+                            {
+                                <span>
+                                    <label>Email </label><a href='mailto:"@Model.KeyPersonnel.HumanResourceRepresentativeModel.WorkEmail"' target='_blank'>: @Model.KeyPersonnel.HumanResourceRepresentativeModel.WorkEmail</a>
+                                </span>
+                            }
+
+                        }
+                        @if (!string.IsNullOrWhiteSpace(Model.KeyPersonnel.HumanResourceRepresentativeModel.WorkPhone))
+                        {
+                            <span><label>Phone </label>: @Model.KeyPersonnel.HumanResourceRepresentativeModel.WorkPhone</span>
+                        }
+                    </span>
+                </div>
+            }
+            else
+            {
+                <div class="form-value">Not Entered</div>
+            }
+        </div>
+
+        <div class="col-md-6 form-group">
+            <label asp-for="KeyPersonnel.QualityRepresentative" class="control-label control-label-read"></label>
+            @if (Model.KeyPersonnel.QualityRepresentative != Guid.Empty)
+            {
+                <div class="form-value"><b id=@Model.KeyPersonnel.QualityRepresentative class="getDetailOfUser tooltipdetail">@Model.KeyPersonnel.QualityRepresentativeName</b></div>
+                <div class="popover-detail bottom tooltipuser">
+                    <span class='popover-detail-container'>
+                        <span>
+                            <label>Name</label> : @Model.KeyPersonnel.QualityRepresentativeModel.Firstname @Model.KeyPersonnel.QualityRepresentativeModel.Lastname
+                        </span>
+                        <span><label>Company </label>: @(!string.IsNullOrWhiteSpace(Model.KeyPersonnel.QualityRepresentativeModel.Company) ? Model.KeyPersonnel.QualityRepresentativeModel.Company : "Not Entered")</span>
+                        <span><label>Title </label>: @Model.KeyPersonnel.QualityRepresentativeModel.JobTitle</span>
+                        @if (!string.IsNullOrWhiteSpace(Model.KeyPersonnel.QualityRepresentativeModel.WorkEmail))
+                        {
+                            if (Model.KeyPersonnel.QualityRepresentativeModel.WorkEmail == "Not Entered")
+                            {
+                                <span>
+                                    <label>Email </label>: @Model.KeyPersonnel.QualityRepresentativeModel.WorkEmail
+                                </span>
+                            }
+                            else
+                            {
+                                <span>
+                                    <label>Email </label><a href='mailto:"@Model.KeyPersonnel.QualityRepresentativeModel.WorkEmail"' target='_blank'>: @Model.KeyPersonnel.QualityRepresentativeModel.WorkEmail</a>
+                                </span>
+                            }
+
+                        }
+                        @if (!string.IsNullOrWhiteSpace(Model.KeyPersonnel.QualityRepresentativeModel.WorkPhone))
+                        {
+                            <span><label>Phone </label>: @Model.KeyPersonnel.QualityRepresentativeModel.WorkPhone</span>
+                        }
+                    </span>
+                </div>
+            }
+            else
+            {
+                <div class="form-value">Not Entered</div>
+            }
+        </div>
+
+        <div class="col-md-6 form-group">
+            <label asp-for="KeyPersonnel.SafetyOfficer" class="control-label control-label-read"></label>
+            @if (Model.KeyPersonnel.SafetyOfficer != Guid.Empty)
+            {
+                <div class="form-value"><b id=@Model.KeyPersonnel.SafetyOfficer class="getDetailOfUser tooltipdetail">@Model.KeyPersonnel.SafetyOfficerName</b></div>
+                <div class="popover-detail bottom tooltipuser">
+                    <span class='popover-detail-container'>
+                        <span>
+                            <label>Name</label> : @Model.KeyPersonnel.SafetyOfficeModel.Firstname @Model.KeyPersonnel.SafetyOfficeModel.Lastname
+                        </span>
+                        <span><label>Company </label>: @(!string.IsNullOrWhiteSpace(Model.KeyPersonnel.SafetyOfficeModel.Company) ? Model.KeyPersonnel.SafetyOfficeModel.Company : "Not Entered")</span>
+                        <span><label>Title </label>: @Model.KeyPersonnel.SafetyOfficeModel.JobTitle</span>
+                        @if (!string.IsNullOrWhiteSpace(Model.KeyPersonnel.SafetyOfficeModel.WorkEmail))
+                        {
+                            if (Model.KeyPersonnel.SafetyOfficeModel.WorkEmail == "Not Entered")
+                            {
+                                <span>
+                                    <label>Email </label>: @Model.KeyPersonnel.SafetyOfficeModel.WorkEmail
+                                </span>
+                            }
+                            else
+                            {
+                                <span>
+                                    <label>Email </label><a href='mailto:"@Model.KeyPersonnel.SafetyOfficeModel.WorkEmail"' target='_blank'>: @Model.KeyPersonnel.SafetyOfficeModel.WorkEmail</a>
+                                </span>
+                            }
+
+                        }
+                        @if (!string.IsNullOrWhiteSpace(Model.KeyPersonnel.SafetyOfficeModel.WorkPhone))
+                        {
+                            <span><label>Phone </label>: @Model.KeyPersonnel.SafetyOfficeModel.WorkPhone</span>
+                        }
+                    </span>
+                </div>
+            }
+            else
+            {
+                <div class="form-value">Not Entered</div>
+            }
+        </div>
+
+        <div class="col-md-6 form-group">
+            <label asp-for="KeyPersonnel.OperationManager" class="control-label control-label-read"></label>
+            @if (Model.KeyPersonnel.OperationManager != null && Model.KeyPersonnel.OperationManager != Guid.Empty)
+            {
+                <div class="form-value"><b id=@Model.KeyPersonnel.OperationManager class="getDetailOfUser tooltipdetail">@Model.KeyPersonnel.OperationManagerName</b></div>
+                <div class="popover-detail bottom tooltipuser">
+                    <span class='popover-detail-container'>
+                        <span>
+                            <label>Name</label> : @Model.KeyPersonnel.OperationManagerModel.Firstname @Model.KeyPersonnel.OperationManagerModel.Lastname
+                        </span>
+                        <span><label>Company </label>: @(!string.IsNullOrWhiteSpace(Model.KeyPersonnel.OperationManagerModel.Company) ? Model.KeyPersonnel.OperationManagerModel.Company : "Not Entered")</span>
+                        <span><label>Title </label>: @Model.KeyPersonnel.OperationManagerModel.JobTitle</span>
+                        @if (!string.IsNullOrWhiteSpace(Model.KeyPersonnel.OperationManagerModel.WorkEmail))
+                        {
+                            if (Model.KeyPersonnel.OperationManagerModel.WorkEmail == "Not Entered")
+                            {
+                                <span>
+                                    <label>Email </label>: @Model.KeyPersonnel.OperationManagerModel.WorkEmail
+                                </span>
+                            }
+                            else
+                            {
+                                <span>
+                                    <label>Email </label><a href='mailto:"@Model.KeyPersonnel.OperationManagerModel.WorkEmail"' target='_blank'>: @Model.KeyPersonnel.OperationManagerModel.WorkEmail</a>
+                                </span>
+                            }
+
+                        }
+                        @if (!string.IsNullOrWhiteSpace(Model.KeyPersonnel.OperationManagerModel.WorkPhone))
+                        {
+                            <span><label>Phone </label>: @Model.KeyPersonnel.OperationManagerModel.WorkPhone</span>
+                        }
+                    </span>
+                </div>
+            }
+            else
+            {
+                <div class="form-value">Not Entered</div>
+            }
+        </div>
+
+    </div>
+</div>

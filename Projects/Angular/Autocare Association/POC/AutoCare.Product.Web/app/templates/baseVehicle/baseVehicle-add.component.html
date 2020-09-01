@@ -1,0 +1,195 @@
+﻿<loading-gif [show]="showLoadingGif"></loading-gif>
+<!-- Breadcrumb start -->
+<div class="breadcrumb">
+    <div class="center">
+        <a class="back" routerLink="/vehicle/search">Return to vehicle search</a>
+    </div>
+</div>
+<!-- Breadcrumb end -->
+<!-- Main start -->
+<main class="with-sidemenu clearfix">
+
+    <div class="center">
+        <div class="add-form">
+            <h2>Add a Base Vehicle</h2>
+            <div class="clearfix">
+                <div class="input-blocks clearfix">
+                    <div>
+                        <strong>Year</strong>
+
+                        <div class="select white-select" style="width: 100px">
+                            <select [(ngModel)]="baseVehicle.yearId">
+                                <option value="-1">--Year--</option>
+                                <option *ngFor="let year of years" [value]="year.id">{{year.id}}</option>
+                            </select>
+                            <div class="select__arrow white-select__arrow"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <strong>Make Name (ID)</strong>
+
+                        <div class="select white-select">
+                            <select [disabled]="!makes" [(ngModel)]="baseVehicle.makeId">
+                                <option value="-1" *ngIf="!makes">Loading...</option>
+                                <option value="-1" *ngIf="makes">--Select Make--</option>
+                                <option *ngFor="let make of makes" [value]="make.id">{{make.name}} ({{make.id}})</option>
+                            </select>
+                            <div class="select__arrow white-select__arrow"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <strong>Model Name (ID)</strong>
+
+                        <div class="select white-select">
+                            <select [disabled]="!models" [(ngModel)]="baseVehicle.modelId">
+                                <option value="-1" *ngIf="!models">Loading...</option>
+                                <option value="-1" *ngIf="models">--Select Model--</option>
+                                <option *ngFor="let model of models" [value]="model.id">{{model.name}} ({{model.id}})</option>
+                            </select>
+                            <div class="select__arrow white-select__arrow"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="submit-wrap">
+                    <input type="submit" value="ADD TO PROPOSED CHANGES" class="btn blue larger" (click)="onAddToProposedChanges()">
+                </div>
+
+                <div class="attach-wrap">
+                    <strong>OPTIONAL</strong>
+                    <ac-fileuploader upload-api-path="file/savechunk" delete-api-path="file/deleteblob"></ac-fileuploader>
+                    <!--<span class="icon-text attachment">
+                        Attach a file (&#60; 10mb)
+                        <input type="file">
+                    </span>-->
+                    <small>Include comments</small>
+                    <textarea cols="50" rows="5" [(ngModel)]="baseVehicle.comment"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- Proposed Base vehicles start -->
+        <div class="table-wrap">
+            <h2 class="clearfix">
+                Proposed Base Vehicles
+            </h2>
+            <div class="ctable unfolded">
+                <table>
+                    <thead>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>Year</td>
+                        <td>Make (ID)</td>
+                        <td>Model (ID)</td>
+                        <td>Optional Info</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <!--<tr *ngFor="let proposedBaseVehicle of proposedBaseVehicles; let whenOdd=odd; let whenEven=even;" [ngClass]="{'table-even-row':whenOdd, 'table-odd-row':whenEven}">-->
+                    <tr *ngFor="let proposedBaseVehicle of proposedBaseVehicles">
+                        <td><a class="btn-row-remove" (click)="onRemoveBaseVehicle(proposedBaseVehicle)"></a></td>
+                        <td>{{proposedBaseVehicle.yearId}}</td>
+                        <td>{{proposedBaseVehicle.makeName}} ({{proposedBaseVehicle.makeId}})</td>
+                        <td>{{proposedBaseVehicle.modelName}} ({{proposedBaseVehicle.modelId}})</td>
+                        <td>
+                            <a class="box-icon attachment" title="Attachment" (click)=openAttachmentPopupModal(proposedBaseVehicle)></a>
+                            <a class="box-icon drive-document" title="Drive Documents" (click)="openCommentPopupModal(proposedBaseVehicle)"></a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Submit and cancel button start -->
+            <div class="btns">
+                <input type="submit" value="SUBMIT CHANGE REQUESTS" class="btn larger" (click)="onSubmitChangeRequests()" />
+                <input type="reset" value="CANCEL" class="btn larger transparent" routerLink="/vehicle/search">
+            </div>
+
+        </div>
+
+        <!-- Pending new base vehicle request start -->
+        <div class="table-wrap">
+            <h2 class="clearfix">
+                Pending New Base Vehicle Requests
+            </h2>
+            <div class="ctable unfolded">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Year</td>
+                            <td>Make (ID)</td>
+                            <td>Model (ID)</td>
+                            <td>Change Requests</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let changeRequest of pendingBaseVehicleChangeRequests">
+                            <td>{{changeRequest.yearId}}</td>
+                            <td>{{changeRequest.makeName}} ({{changeRequest.makeId}})</td>
+                            <td>{{changeRequest.modelName}} ({{changeRequest.modelId}})</td>
+                            <td><a (click)="onViewPendingNew(changeRequest)"  style="cursor: pointer;" class="btn-r-arrow blue">View</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</main>
+<!-- Main end -->
+<div class="popup">
+    <modal #commentPopupModel>
+        <div class="overlay dark show">
+            <div class="new-make modal-sm">
+                <a (click)="commentPopupModel.dismiss()" class="close"></a>
+                <div class="add-form">
+                    <h2>Edit Comment</h2>
+                    <div class="clearfix">
+                        <div class="attach-wrap">
+                            <small>comments</small>
+                            <textarea cols="50" rows="5" [(ngModel)]="proposedBaseVehicle.comment"></textarea>
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        <!-- Submit and cancel button start -->
+                        <div class="btns">
+                            <input type="button" value="CANCEL" class="btn transparent" (click)="commentPopupModel.dismiss()">
+                            <input type="submit" value="CONFIRM" class="btn" (click)="onCommentConfirm()">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </modal>
+</div>
+<div class="popup">
+    <modal #attachmentsPopupModel>
+        <div class="overlay dark show">
+            <div class="new-make modal-sm">
+                <a (click)="onAttachmentCancel()" class="close"></a>
+                <div class="add-form">
+                    <h2>Edit Attachments</h2>
+                    <div class="clearfix">
+                        <div class="attach-wrap">
+                            <p *ngIf="proposedBaseVehicle.attachments">
+                                <strong>Attachments</strong><br>
+                                <ac-fileuploader [existing-files]="proposedBaseVehicle.attachments"
+                                                 upload-api-path="file/savechunk" delete-api-path="file/deleteblob"  #attachmentsPopupAcFileUploader="acFileUploader" [can-attach]="true"></ac-fileuploader>
+                            </p>
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        <!-- Submit and cancel button start -->
+                        <div class="btns">
+                            <input type="button" value="CANCEL" class="btn transparent" (click)="onAttachmentCancel()">
+                            <input type="submit" value="CONFIRM" class="btn" (click)="onAttachmentConfirm()">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </modal>
+</div>

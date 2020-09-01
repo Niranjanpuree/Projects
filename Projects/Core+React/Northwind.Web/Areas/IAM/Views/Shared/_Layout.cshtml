@@ -1,0 +1,16 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb d-none d-sm-flex">
+        @RenderSection("breadcrumb", required: false)
+    </ol>
+</nav>
+@RenderBody()
+
+
+@section Scripts {
+    @RenderSection("ScriptsIAM", required: false)
+}
+

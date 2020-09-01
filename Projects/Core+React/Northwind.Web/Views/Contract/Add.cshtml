@@ -1,0 +1,123 @@
+﻿@model Northwind.Web.Models.ViewModels.Contract.ContractViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+@{
+    var resourceVersion = @Configuration["resourceVersion"];
+    var cdnUrl = @Configuration["CDNUrl"];
+}
+@{
+    ViewData["Title"] = "Contract : Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section breadcrumb
+    {
+    <li class="breadcrumb-item"><a href="/Contract">List Of Contracts</a></li>
+    <li class="breadcrumb-item"><a href="#">Add</a></li>
+}
+<div id="dialog">
+    <div class="content"></div>
+</div>
+<form id="contractForm" method="post" action="Add" enctype="multipart/form-data">
+    @*<div asp-validation-summary="ModelOnly" class="text-danger validation-summary-errors"></div>*@
+    <div class="text-danger validation-summary-errors"></div>
+
+    <div class="row" id="sticky-header">
+        <div class="col-md-12 text-right mb-3">
+            <button type="submit" id="btnAdd" class="btn btn-primary"> Save </button>
+            <button type="reset" class="btn btn-secondary" onclick="location.href='/contract'">
+                Cancel
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <ul id="basicContractInformationPanel" class="contractPanel">
+                <li class="k-state-active">
+                    <span class="k-link k-state-selected">Basic Contract Information</span>
+                    <partial name="Partial/_BasicContractInformation.cshtml" />
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <ul id="keyPersonnelPanel" class="contractPanel mb-3">
+                <li class="k-state-active">
+                    <span class="k-link k-state-selected">Key Personnel </span>
+                    <partial name="Partial/_KeyPersonnelPanel.cshtml" />
+                </li>
+            </ul>
+            <ul id="customerInformationPanel" class="contractPanel">
+                <li class="k-state-active">
+                    <span class="k-link k-state-selected">Customer Information</span>
+                    <partial name="Partial/_CustomerInformationPanel.cshtml" />
+                </li>
+            </ul>
+        </div>
+    </div>
+    <br />
+
+    <div class="row">
+        <div class="col-12">
+            <ul id="financialInfoPanel" class="contractPanel">
+                <li class="k-state-active">
+                    <span class="k-link k-state-selected">Financial Information</span>
+                    <partial name="Partial/_FinancialInformation.cshtml" />
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <ul id="financialInfoPanel" class="contractPanel">
+                <li class="k-state-active">
+                    <span class="k-link k-state-selected">Contract Files</span>
+                    <partial name="Partial/_ContractFiles.cshtml" />
+                    <div id="folderTree"></div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</form>
+
+@section Scripts
+    {
+    <script src="@cdnUrl/js/proj/contract.js?v=@resourceVersion"></script>
+    <script src="@cdnUrl/js/amountFormat.js?v=@resourceVersion"></script>
+
+    <script>
+        window.uploader = null;
+        window.notificationLink = null;
+
+        $(document).ready(function () {
+            window.onscroll = function () {
+                stickyrow()
+            };
+
+            var header = document.getElementById("sticky-header");
+            var sticky = header.offsetTop + 100;
+
+            function stickyrow() {
+                if (window.pageYOffset > sticky) {
+                    header.classList.add("active");
+                } else {
+                    header.classList.remove("active");
+                }
+            }
+            var url = "/Contract/Add";
+            afterDocumentReadyValidateAndSubmit(url, false);
+        });
+    </script>
+
+    <script>
+    //assign in uploader variable the component because we need onSubmitFiles method from component after the contract page submit succesfully from ajax ..
+    window.uploader = window.loadFileUpload.pageView.loadFileUpload('fileUpload', '@ViewBag.Resourcekey', true,
+        undefined, '@ViewBag.UpdatedBy', '@ViewBag.UpdatedOn', 'N/A', false, true, false, false, false,
+        submitCallBack,undefined,false);
+
+    function submitCallBack() {
+        // finally redirect to  notification page..
+        window.location.href = window.notificationLink;
+    }
+    </script>
+}

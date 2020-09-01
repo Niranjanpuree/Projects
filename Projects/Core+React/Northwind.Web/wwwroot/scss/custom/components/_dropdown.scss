@@ -1,0 +1,123 @@
+.dropdown-item,
+.k-list-container .k-button-icontext {
+    .k-icon {
+        margin: -3px 5px 0 0;
+        transition: 0.12s linear;
+    }
+
+    @at-root .k-item:hover,
+    &:hover {
+        background-color: rgba($color-primary, 0.1);
+        color: darken($color-primary, 10%);
+
+    }
+}
+
+
+.dropdown-item {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 14px;
+
+    &:hover {
+        .k-icon {
+            transform: scale(1.2)
+        }
+    }
+}
+
+.k-list-container .k-button-icontext {
+    font-weight: $fw-b;
+    font-size: 14px;
+
+    .k-icon {
+        margin-right: 10px;
+    }
+}
+
+.k-menu:not(.k-context-menu) {
+    font-weight: $fw-b;
+
+    >.k-item.k-state-focused {
+        box-shadow: none;
+    }
+}
+
+.k-popup .k-link {
+    font-size: 14px;
+
+    .k-icon,
+    input[type="checkbox"] {
+        margin-right: 5px;
+        transition: 0.12s linear;
+    }
+}
+
+.k-menu-vertical .k-item>.k-link {
+    line-height: 2;
+}
+
+.k-animation-container {
+    font-weight: $fw-b;
+
+    .k-columnmenu-item-content .k-column-list-item {
+        padding: 6px 1rem;
+
+        .k-checkbox-label {
+            padding-left: 25px;
+        }
+    }
+}
+
+.k-list .k-item:focus:hover,
+.k-list .k-item:focus.k-state-hover,
+.k-list .k-item.k-state-focused:hover,
+.k-list .k-item.k-state-focused.k-state-hover,
+.k-list-optionlabel:focus:hover,
+.k-list-optionlabel:focus.k-state-hover,
+.k-list-optionlabel.k-state-focused:hover,
+.k-list-optionlabel.k-state-focused.k-state-hover {
+    box-shadow: none;
+}
+
+.k-animation-container {
+    .k-item {
+        overflow: hidden;
+        padding: 6px 10px;
+
+        >a {
+            padding: 0;
+
+            &:hover {
+                background: transparent;
+            }
+        }
+    }
+}
+
+.dropdown.dropdown {
+    &-custom {
+        .btn {
+            padding: 0;
+            width: 100%;
+        }
+
+        .dropdown-toggle:after {
+            border: 0;
+        }
+    }
+}
+
+.rowMenu {
+    overflow: visible !important;
+    vertical-align: middle !important;
+
+    .k-i-more-vertical {
+        background: transparent !important;
+        border: 0px !important;
+    }
+}
+
+.k-animation-container.k-animation-container-relative.k-animation-container-shown{
+    z-index: 99999;
+}

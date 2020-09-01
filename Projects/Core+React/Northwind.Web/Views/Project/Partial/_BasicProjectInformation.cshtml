@@ -1,0 +1,230 @@
+﻿@model Northwind.Web.Models.ViewModels.Contract.ContractViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<div class="p-4">
+    <div class="row">
+        <div class="col-md-6 form-group form-required">
+            <label class="control-label requiredAstreicks"> Task Order Number </label>
+            <input asp-for="BasicContractInfo.ContractNumber" class="form-control" />
+            <span asp-validation-for="BasicContractInfo.ContractNumber" class="text-danger"></span>
+        </div>
+        <div class="col-md-6 form-group form-required">
+            <label asp-for="BasicContractInfo.ProjectNumber" class="control-label requiredAstreicks"></label>
+            <input asp-for="BasicContractInfo.ProjectNumber" class="form-control" />
+            <span asp-validation-for="BasicContractInfo.ProjectNumber" class="text-danger"></span>
+        </div>
+        <div class="col-md-6 form-group form-required">
+            <label class="control-label requiredAstreicks">Task Order Title</label>
+            <input asp-for="BasicContractInfo.ContractTitle" class="form-control" />
+            <span asp-validation-for="BasicContractInfo.ContractTitle" class="text-danger"></span>
+        </div>
+        <div class="col-md-6 form-group form-required">
+            <label asp-for="BasicContractInfo.ORGID" class="control-label requiredAstreicks"></label>
+            <input asp-for="BasicContractInfo.OrganizationName" id="ORGID" placeholder="Start typing ORG Id"
+                   class="form-control" autocomplete="off" />
+            <input type="hidden" asp-for="BasicContractInfo.ORGID" id="hiddenORGID" autocomplete="off" />
+            <span asp-validation-for="BasicContractInfo.ORGID" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-6 form-group" id="CompanyNameBlock">
+            <label asp-for="BasicContractInfo.CompanyName" class="control-label"></label>
+            <h6 class="mb-0" id="companyName">@Model.BasicContractInfo.CompanyName</h6>
+            <input type="hidden" asp-for="BasicContractInfo.CompanyName" id="hiddenCompanyName"
+                   value="@Model.BasicContractInfo.CompanyName" />
+            <span asp-validation-for="BasicContractInfo.CompanyName" class="text-danger"></span>
+        </div>
+        <div class="col-md-6 form-group" id="RegionNameBlock">
+            <label asp-for="BasicContractInfo.RegionName" class="control-label"></label>
+            <h6 class="mb-0" id="regionName">@Model.BasicContractInfo.RegionName</h6>
+            <input type="hidden" asp-for="BasicContractInfo.RegionName" id="hiddenRegionName"
+                   value="@Model.BasicContractInfo.RegionName" />
+            <span asp-validation-for="BasicContractInfo.RegionName" class="text-danger"></span>
+        </div>
+        <div class="col-md-6 form-group" id="OfficeNameBlock">
+            <label asp-for="BasicContractInfo.OfficeName" class="control-label"></label>
+            <h6 class="mb-0" id="officeName">@Model.BasicContractInfo.OfficeName</h6>
+            <input type="hidden" asp-for="BasicContractInfo.OfficeName" id="hiddenOfficeName"
+                   value="@Model.BasicContractInfo.OfficeName" />
+            <span asp-validation-for="BasicContractInfo.OfficeName" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-6 form-group form-required">
+            <label asp-for="BasicContractInfo.CountryOfPerformance" class="control-label  requiredAstreicks "></label>
+            <select asp-for="BasicContractInfo.CountryOfPerformance" id="drpCountry" class="form-control">
+                <option value="">--Select--</option>
+                @foreach (var item in Model.CountrySelectListItems)
+                {
+                    <option value="@item.Key">@item.Value</option>
+                }
+            </select>
+            <span asp-validation-for="BasicContractInfo.CountryOfPerformance" class="text-danger"></span>
+        </div>
+
+
+        <div class="col-md-12 form-group">
+            <div id="example" role="application">
+                <div class="list-boxes k-content">
+                    <div class="row">
+                        <div class="pl-3 w-50">
+                            <label class="control-label" for="OptionnalLoadPlaceOfPerformance"
+                                   id="statesLabel">States (Place of Performance)</label>
+                        </div>
+                        <div class="w-50">
+                            <label class="control-label requiredAstreicks" for="PlaceOfPerformance">
+                                Selected Place of
+                                Performance
+                            </label>
+                        </div>
+                    </div>
+                    <div class="list-box-container">
+                        <input type="hidden" asp-for="BasicContractInfo.PlaceOfPerformanceSelectedIds"
+                               value="@Model.BasicContractInfo.PlaceOfPerformanceSelectedIds"
+                               id="hiddenPlaceOfPerformanceSelectedIds" />
+                        <select id="OptionnalLoadPlaceOfPerformance"></select>
+                        <select id="PlaceOfPerformance" asp-for="BasicContractInfo.PlaceOfPerformance"></select>
+                        <span class="list-box-error text-danger error" asp-validation-for="BasicContractInfo.PlaceOfPerformance" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+     
+        
+        <div class="col-md-6 form-group form-required">
+            <label asp-for="BasicContractInfo.FarContractTypeGuid"
+                   class="control-label  requiredAstreicks">
+                Far Contract
+                Type <i class="k-icon k-i-info info-tooltip" title="Lorem Ipsum is simply dummy text of the printing and typesetting industry" data-role="tooltip"></i>
+            </label>
+            <select asp-for="BasicContractInfo.FarContractTypeGuid" id="contractType" class="form-control">
+                <option value="">--Select--</option>
+                @foreach (var item in Model.CustomerAttributeValuesModel.ddlFarContractType)
+                {
+                    <option value="@item.Key">@item.Value</option>
+                }
+            </select>
+            <span asp-validation-for="BasicContractInfo.FarContractTypeGuid" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-6 form-group form-required">
+            <label asp-for="BasicContractInfo.POPStart" class="control-label requiredAstreicks"></label>
+            @* <input asp-for="BasicContractInfo.POPStart" id="POPStart" placeholder="MM/dd/yyyy" class="form-control"
+            /> *@
+            @Html.TextBoxFor(x => x.BasicContractInfo.POPStart, new
+            {
+                id = "POPStart", placeholder = "MM/dd/yyyy", @class
+                    = "form-control"
+            })
+            @* <input asp-for="BasicContractInfo.POPStart" id="POPStart" placeholder="MM/dd/yyyy" class="form-control"
+            /> *@
+            <span asp-validation-for="BasicContractInfo.POPStart" class="text-danger"></span>
+        </div>
+        <div class="col-md-6 form-group form-required">
+            <label asp-for="BasicContractInfo.POPEnd" class="control-label requiredAstreicks"></label>
+            @* <input asp-for="BasicContractInfo.POPEnd" id="POPEnd" placeholder="MM/dd/yyyy" class="form-control" /> *@
+            @Html.TextBoxFor(x => x.BasicContractInfo.POPEnd, new
+            {
+                id = "POPEnd", placeholder = "MM/dd/yyyy", @class =
+                    "form-control"
+            })
+            <span asp-validation-for="BasicContractInfo.POPEnd" class="text-danger"></span>
+        </div>
+        <div class="col-md-6 form-group form-required">
+            <label asp-for="BasicContractInfo.NAICSCode" class="control-label requiredAstreicks"></label>
+            <input asp-for="BasicContractInfo.NAICSCodeName" id="NAICSCode" placeholder="Start typing NAICS Code"
+                   class="form-control" />
+            <input type="hidden" asp-for="BasicContractInfo.NAICSCode" id="hiddenNAICSCode" />
+            <span asp-validation-for="BasicContractInfo.NAICSCodeName" class="text-danger"></span>
+        </div>
+        <div class="col-md-6 form-group">
+            <label asp-for="BasicContractInfo.PSCCode" class="control-label"></label>
+            <input asp-for="BasicContractInfo.PSCCodeName" id="PSCCode" placeholder="Start typing PSC Code"
+                   class="form-control keyUpAction" />
+            <input type="hidden" asp-for="BasicContractInfo.PSCCode" class="hiddenValue" id="hiddenPSCCode" />
+            <span asp-validation-for="BasicContractInfo.PSCCodeName" class="text-danger"></span>
+        </div>
+        <div class="col-md-6 form-group">
+            <label asp-for="BasicContractInfo.QualityLevelRequirements" class="control-label "></label>
+            <div class="form-check pl-0">
+                @foreach (var item in Model.CustomerAttributeValuesModel.radioQualityLevelRequirements)
+                {
+                    <div class="form-check form-check-inline">
+                        <input asp-for="BasicContractInfo.QualityLevelRequirements" type="radio" value="@item.Key"
+                               class="k-radio custom-checkbox QualityLevelRequirements"
+                               id="QualityLevelRequirements-@item.Key" />
+                        <label class="k-radio-label" for="QualityLevelRequirements-@item.Key"> @item.Value</label>
+                    </div>
+                }
+            </div>
+            <span asp-validation-for="BasicContractInfo.QualityLevelRequirements" class="text-danger"></span>
+        </div>
+        <div class="col-md-6 form-group" id="QualityLevelBlock">
+            <label asp-for="BasicContractInfo.QualityLevel" class="control-label  requiredAstreicks "></label>
+            <select asp-for="BasicContractInfo.QualityLevel" id="drpQualityLevel" class="form-control">
+                <option value="">--Select--</option>
+                @foreach (var item in Model.CustomerAttributeValuesModel.ddlQualityLevel)
+                {
+                    <option value="@item.Key">@item.Value</option>
+                }
+            </select>
+            <span asp-validation-for="BasicContractInfo.QualityLevel" class="text-danger"></span>
+        </div>
+
+        @*<div class="col-md-6 form-group form-required">
+            <label asp-for="Status" class="control-label  requiredAstreicks"></label>
+            <select asp-for="Status" class="form-control">
+                <option value="">--Select--</option>
+                @foreach (var item in Model.CustomerAttributeValuesModel.ddlStatus)
+                {
+                    <option value="@item.Key">@item.Value</option>
+                }
+            </select>
+            <span asp-validation-for="Status" class="text-danger error"></span>
+        </div>*@
+
+        <div class="col-md-12 form-group">
+            <label class="control-label">Task Order Description<i class="k-icon k-i-info info-tooltip" title="Lorem Ipsum is simply dummy text of the printing and typesetting industry" data-role="tooltip"></i></label>
+            <textarea asp-for="BasicContractInfo.Description" class="form-control"></textarea>
+            <span asp-validation-for="BasicContractInfo.Description" class="text-danger"></span>
+        </div>
+        <div class="col-12 pt-3 mb-3 bg-light">
+        <h5>Project Location</h5>
+            <div class="row">
+        <div class="col-md-6 form-group">
+
+            <label asp-for="BasicContractInfo.AddressLine1" class="control-label"></label>
+            <input asp-for="BasicContractInfo.AddressLine1" class="form-control">
+            <span asp-validation-for="BasicContractInfo.AddressLine1" class="text-danger error"></span>
+        </div>
+        <div class="col-md-6 form-group">
+            <label asp-for="BasicContractInfo.AddressLine2" class="control-label"></label>
+            <input asp-for="BasicContractInfo.AddressLine2" class="form-control">
+            <span asp-validation-for="BasicContractInfo.AddressLine2" class="text-danger error"></span>
+        </div>
+        <div class="col-md-6 form-group">
+            <label asp-for="BasicContractInfo.AddressLine3" class="control-label"></label>
+            <input asp-for="BasicContractInfo.AddressLine3" class="form-control">
+            <span asp-validation-for="BasicContractInfo.AddressLine3" class="text-danger error"></span>
+        </div>
+        <div class="col-md-6 form-group">
+            <label asp-for="BasicContractInfo.City" class="control-label"></label>
+            <input asp-for="BasicContractInfo.City" class="form-control">
+            <span asp-validation-for="BasicContractInfo.City" class="text-danger error"></span>
+        </div>
+        <div class="col-md-6 form-group">
+            <label asp-for="BasicContractInfo.Province" class="control-label"></label>
+            <input asp-for="BasicContractInfo.Province" class="form-control">
+            <span asp-validation-for="BasicContractInfo.Province" class="text-danger error"></span>
+        </div>
+        <div class="col-md-6 form-group">
+            <label asp-for="BasicContractInfo.County" class="control-label"></label>
+            <input asp-for="BasicContractInfo.County" class="form-control">
+            <span asp-validation-for="BasicContractInfo.County" class="text-danger error"></span>
+        </div>
+        <div class="col-md-6 form-group">
+            <label asp-for="BasicContractInfo.PostalCode" class="control-label"></label>
+            <input asp-for="BasicContractInfo.PostalCode" class="form-control">
+            <span asp-validation-for="BasicContractInfo.PostalCode" class="text-danger error"></span>
+        </div>
+        </div></div>
+    </div>
+</div>

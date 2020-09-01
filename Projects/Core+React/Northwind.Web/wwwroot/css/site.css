@@ -1,0 +1,87 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+/* a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+} */
+
+/* Sticky footer styles
+-------------------------------------------------- */
+
+
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+
+
+
+
+
+/*Bootstrap-Customized Classes*/
+
+.k-panelbar > .k-item > .k-link.k-state-selected {
+    background-color: #F5F5F5;
+    color: #000000;
+    
+    
+}
+
+/* .k-panelbar > .k-item > .k-link {
+    background-color: #F5F5F5;
+    color: #000000;
+   
+} */
+
+.nav-pills .nav-link.active {
+    background-color:#F8F9FA;
+    color:#000000;
+    font-weight:bold;
+}
+
+
+.profile-menu {
+    min-width:400px;
+}
+
+
+/*TODO: Need to work on this and check for responsiveness*/
+    
+/*Navbar dropdown Menu styling*/
+.menu-large {
+    position: static !important;
+}
+
+
+/*Bootstrap-Customized Classes*/
+
+
+/*kendo popup*/
+  .popup-content {
+     padding: 30px;
+     color: #787878;
+     background-color: #fcf7f8;
+     border: 1px solid rgba(0,0,0,.05);
+ }
+
+
+  /* .k-animation-container{
+      z-index: 900000 !important;
+  } */
+
+
+.auto-complete-popup {
+    position: absolute;
+    background: #ffffff;
+    border: 1px solid #c4c4c4;
+    z-index: 9999;
+    margin-top: 5px;
+    margin-left: -8px;
+    width: 100% !important;
+}

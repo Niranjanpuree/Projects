@@ -1,0 +1,74 @@
+﻿@model Northwind.Web.Models.ViewModels.OfficeViewModel
+
+<div class="row">
+    <div class="col-md-4 hideDivIfValueNotFound" id="@Model.OfficeCode">
+        <div class="form-group">
+            <label class="control-label control-label-read">
+                Office Code
+            </label>
+            <h6>
+                @Model.OfficeCode
+            </h6>
+        </div>
+    </div>
+    <div class="col-md-4 hideDivIfValueNotFound" id="@Model.OfficeName">
+        <div class="form-group">
+            <label class="control-label control-label-read">
+                Office Name
+            </label>
+            <h6>
+                @Model.OfficeName
+            </h6>
+        </div>
+    </div>
+    <div class="col-md-4 hideDivIfValueNotFound" id="@Model.OfficeName">
+        <div class="form-group">
+            <label class="control-label control-label-read">
+               Operation Manager
+            </label>
+            <h6>
+                @Model.OperationManagerName
+            </h6>
+        </div>
+    </div>
+    <div class="col-md-6 hideDivIfValueNotFound" id="@Model.PhysicalAddressDisplay">
+        <div class="form-group">
+            <label class="control-label control-label-read">
+                Physical Address
+            </label>
+            <h6>
+                @Html.Raw(@Model.PhysicalAddressDisplay)
+            </h6>
+        </div>
+    </div>
+    <div class="col-md-6 hideDivIfValueNotFound" id="@Model.MailingAddressDisplay">
+        <div class="form-group">
+            <label class="control-label control-label-read">
+                Mailing Address
+            </label>
+            <h6>
+                @Html.Raw(@Model.MailingAddressDisplay)
+            </h6>
+        </div>
+    </div>
+    <div class="col-md-6 hideDivIfValueNotFound" id="@Model.Phone">
+        <div class="form-group">
+            <label class="control-label control-label-read">
+                Phone
+            </label>
+            <h6>
+                @Model.Phone
+            </h6>
+        </div>
+    </div>
+    <div class="col-md-6 hideDivIfValueNotFound" id="@Model.Fax">
+        <div class="form-group">
+            <label class="control-label control-label-read">
+                Fax
+            </label>
+            <h6>
+                @Model.Fax
+            </h6>
+        </div>
+    </div>
+</div>

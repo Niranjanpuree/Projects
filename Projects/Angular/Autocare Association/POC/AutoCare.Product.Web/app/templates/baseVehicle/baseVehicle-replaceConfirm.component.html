@@ -1,0 +1,125 @@
+﻿<loading-gif [show]="showLoadingGif"></loading-gif>
+<!-- Breadcrumb start -->
+<div class="breadcrumb">
+    <div class="center">
+        <a class="back" routerLink="/vehicle/search">Return to vehicle search</a>
+    </div>
+</div>
+<!-- Breadcrumb end -->
+<!-- Main start -->
+<main class="clearfix">
+
+    <div class="center">
+
+        <!-- Existing Base vehicle start -->
+        <div class="table-wrap">
+            <h2 class="clearfix">
+                Existing Base Vehicle
+            </h2>
+            <div class="ctable">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Base ID</td>
+                            <td>Year</td>
+                            <td>Make (ID)</td>
+                            <td>Model (ID)</td>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="existingBaseVehicle">
+                        <tr>
+                            <td>{{existingBaseVehicle.id}}</td>
+                            <td>{{existingBaseVehicle.yearId}}</td>
+                            <td>{{existingBaseVehicle.makeName}} ({{existingBaseVehicle.makeId}})</td>
+                            <td>{{existingBaseVehicle.modelName}} ({{existingBaseVehicle.modelId}})</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+        <!-- Replacement Base vehicle start -->
+        <div class="table-wrap">
+            <h2 class="clearfix">
+                Replacement Base Vehicle
+            </h2>
+            <div class="ctable">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Base ID</td>
+                            <td>Year</td>
+                            <td>Make (ID)</td>
+                            <td>Model (ID)</td>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="newBaseVehicle">
+                        <tr>
+                            <td>{{newBaseVehicle.id}}</td>
+                            <td>{{newBaseVehicle.yearId}}</td>
+                            <td>{{newBaseVehicle.makeName}} ({{newBaseVehicle.makeId}})</td>
+                            <td>{{newBaseVehicle.modelName}} ({{newBaseVehicle.modelId}})</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+        <!-- Affected vehicles start -->
+        <div class="table-wrap">
+            <h2 class="clearfix">
+                Affected Vehicles
+            </h2>
+
+            <div class="ctable">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Year</td>
+                            <td>Make (ID)</td>
+                            <td>Model (ID)</td>
+                            <td>Vehicle (ID)</td>
+                            <td>Submodel (ID)</td>
+                            <td>Region ID</td>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="existingBaseVehicle">
+                        <tr *ngFor="let vehicle of existingBaseVehicle.vehicles">
+                            <td>{{vehicle.yearId}}</td>
+                            <td>{{vehicle.makeName}} ({{vehicle.makeId}})</td>
+                            <td>{{vehicle.modelName}} ({{vehicle.modelId}})</td>
+                            <td>{{vehicle.id}}</td>
+                            <td>{{vehicle.subModelName}} ({{vehicle.subModelId}})</td>
+                            <td>{{vehicle.regionName}} ({{vehicle.regionId}})</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="add-form">
+                <div class="clearfix">
+                    <div class="submit-wrap">
+                        <input type="submit" value="SUBMIT CHANGE REQUEST" class="btn larger" (click)="onReplaceChecked()">
+                        <input type="reset" value="CANCEL" class="btn larger transparent" routerLink="/vehicle/search">
+                    </div>
+
+                    <div class="attach-wrap" style="margin-top: 40px;">
+                        <strong>OPTIONAL</strong>
+                        <!--<span class="icon-text attachment">
+                            Attach a file (&#60; 10mb)
+                            <input type="file">
+                        </span>-->
+                        <ac-fileuploader upload-api-path="file/savechunk"></ac-fileuploader>
+                        <small>Include comments</small>
+                        <textarea cols="50" rows="5" [(ngModel)]="existingBaseVehicle.comment"></textarea>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+<!-- Main end -->

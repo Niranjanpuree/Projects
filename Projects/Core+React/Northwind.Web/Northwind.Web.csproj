@@ -1,0 +1,347 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AspNetCoreHostingModel>OutOfProcess</AspNetCoreHostingModel>
+    <TypeScriptToolsVersion>3.1</TypeScriptToolsVersion>
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Areas\Admin\Data\**" />
+    <Compile Remove="Areas\Admin\Models\**" />
+    <Compile Remove="Areas\Admin\Views\OfficeContact\**" />
+    <Compile Remove="Areas\Contract\**" />
+    <Compile Remove="Areas\IAM\Data\**" />
+    <Compile Remove="Areas\Settings\**" />
+    <Compile Remove="AuditLog\**" />
+    <Compile Remove="Authorization\**" />
+    <Compile Remove="Models\ViewModels\Login\**" />
+    <Compile Remove="Scripts\Common\Grid1\**" />
+    <Compile Remove="Scripts\Component\FarClauseCustomTable\**" />
+    <Compile Remove="Scripts\Component\FarContractTypeClause\**" />
+    <Compile Remove="Templates\**" />
+    <Compile Remove="Views\ContractQuestionaire\**" />
+    <Compile Remove="Views\Contract\FormsInDetail\**" />
+    <Compile Remove="Views\Home\**" />
+    <Compile Remove="Views\Login\**" />
+    <Compile Remove="Views\Shared\**" />
+    <Content Remove="Areas\Admin\Data\**" />
+    <Content Remove="Areas\Admin\Models\**" />
+    <Content Remove="Areas\Admin\Views\OfficeContact\**" />
+    <Content Remove="Areas\Contract\**" />
+    <Content Remove="Areas\IAM\Data\**" />
+    <Content Remove="Areas\Settings\**" />
+    <Content Remove="AuditLog\**" />
+    <Content Remove="Authorization\**" />
+    <Content Remove="Models\ViewModels\Login\**" />
+    <Content Remove="Scripts\Common\Grid1\**" />
+    <Content Remove="Scripts\Component\FarClauseCustomTable\**" />
+    <Content Remove="Scripts\Component\FarContractTypeClause\**" />
+    <Content Remove="Templates\**" />
+    <Content Remove="Views\ContractQuestionaire\**" />
+    <Content Remove="Views\Contract\FormsInDetail\**" />
+    <Content Remove="Views\Home\**" />
+    <Content Remove="Views\Login\**" />
+    <Content Remove="Views\Shared\**" />
+    <EmbeddedResource Remove="Areas\Admin\Data\**" />
+    <EmbeddedResource Remove="Areas\Admin\Models\**" />
+    <EmbeddedResource Remove="Areas\Admin\Views\OfficeContact\**" />
+    <EmbeddedResource Remove="Areas\Contract\**" />
+    <EmbeddedResource Remove="Areas\IAM\Data\**" />
+    <EmbeddedResource Remove="Areas\Settings\**" />
+    <EmbeddedResource Remove="AuditLog\**" />
+    <EmbeddedResource Remove="Authorization\**" />
+    <EmbeddedResource Remove="Models\ViewModels\Login\**" />
+    <EmbeddedResource Remove="Scripts\Common\Grid1\**" />
+    <EmbeddedResource Remove="Scripts\Component\FarClauseCustomTable\**" />
+    <EmbeddedResource Remove="Scripts\Component\FarContractTypeClause\**" />
+    <EmbeddedResource Remove="Templates\**" />
+    <EmbeddedResource Remove="Views\ContractQuestionaire\**" />
+    <EmbeddedResource Remove="Views\Contract\FormsInDetail\**" />
+    <EmbeddedResource Remove="Views\Home\**" />
+    <EmbeddedResource Remove="Views\Login\**" />
+    <EmbeddedResource Remove="Views\Shared\**" />
+    <None Remove="Areas\Admin\Data\**" />
+    <None Remove="Areas\Admin\Models\**" />
+    <None Remove="Areas\Admin\Views\OfficeContact\**" />
+    <None Remove="Areas\Contract\**" />
+    <None Remove="Areas\IAM\Data\**" />
+    <None Remove="Areas\Settings\**" />
+    <None Remove="AuditLog\**" />
+    <None Remove="Authorization\**" />
+    <None Remove="Models\ViewModels\Login\**" />
+    <None Remove="Scripts\Common\Grid1\**" />
+    <None Remove="Scripts\Component\FarClauseCustomTable\**" />
+    <None Remove="Scripts\Component\FarContractTypeClause\**" />
+    <None Remove="Templates\**" />
+    <None Remove="Views\ContractQuestionaire\**" />
+    <None Remove="Views\Contract\FormsInDetail\**" />
+    <None Remove="Views\Home\**" />
+    <None Remove="Views\Login\**" />
+    <None Remove="Views\Shared\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Areas\Admin\Controllers\OfficeContactController.cs" />
+    <Compile Remove="Controllers\ContractControllerBackup.cs" />
+    <Compile Remove="Controllers\ContractQuestionaireController.cs" />
+    <Compile Remove="Controllers\HomeController.cs" />
+    <Compile Remove="Controllers\LoginController.cs" />
+    <Compile Remove="Controllers\ProjectModificationControllerBackup.cs" />
+    <Compile Remove="Helpers\CurrentDateTimeHelper.cs" />
+    <Compile Remove="Helpers\ESSMenuTagHelper.cs" />
+    <Compile Remove="Helpers\FormatHelper.cs" />
+    <Compile Remove="Helpers\KeyValueHelper.cs" />
+    <Compile Remove="Helpers\RouteUrlHelper.cs" />
+    <Compile Remove="Helpers\UserHelper.cs" />
+    <Compile Remove="Models\BadRequestFormatter.cs" />
+    <Compile Remove="Models\BaseModel.cs" />
+    <Compile Remove="Models\GridviewField.cs" />
+    <Compile Remove="Models\ViewModels\CustomerViewModel.cs" />
+    <Compile Remove="Models\ViewModels\Notification\NotificationMessageViewModel.cs" />
+    <Compile Remove="Models\ViewModels\RevenueRecognitionViewModel.cs" />
+    <Compile Remove="Models\ViewModels\UserViewModel.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Areas\Admin\Views\Company\_FormModelold.cshtml" />
+    <Content Remove="Areas\Admin\Views\Customer\FormModel.cshtml" />
+    <Content Remove="Views\Contract\_Details.cshtml" />
+    <Content Remove="Views\Contract\_Edit.cshtml" />
+    <Content Remove="Views\Contract\_FormModel.cshtml" />
+    <Content Remove="Views\DistributionList\_Add.cshtml" />
+    <Content Remove="Views\FarContract\_FormModelOld.cshtml" />
+    <Content Remove="Views\ContractCloseOut\Details.cshtml" />
+    <Content Remove="Views\ContractCloseOut\Edit.cshtml" />
+    <Content Remove="Views\RevenueRecognition\DetailList - Copy.cshtml" />
+    <Content Remove="wwwroot\js\proj\customdialog.js" />
+    <Content Remove="wwwroot\js\proj\officeContact.js" />
+    <Content Remove="wwwroot\js\proj\projectfileUploadGrid.js" />
+    <Content Remove="wwwroot\js\proj\wbsGridList.js" />
+    <Content Remove="wwwroot\Templates\EmployeeBillingRatesTemplate.csv" />
+    <Content Remove="wwwroot\Templates\SubcontractorLaborBillingRatesTemplate.csv" />
+    <Content Remove="wwwroot\Templates\WorkBreakDownStructureTemplate.csv" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Scripts\Common\AutoComplete\AutoComplete.tsx" />
+    <None Remove="Scripts\Common\ContextMenu\ContextMenu.tsx" />
+    <None Remove="Scripts\Common\DocumentManager\DocumentManager.tsx" />
+    <None Remove="Scripts\Common\DocumentManager\index.tsx" />
+    <None Remove="Scripts\Common\DropDown\DropDown.tsx" />
+    <None Remove="Scripts\Common\RichEditor\FileBrowser.tsx" />
+    <None Remove="Scripts\Common\RichEditor\ImageController.tsx" />
+    <None Remove="Scripts\Common\RichEditor\index.tsx" />
+    <None Remove="Scripts\Common\RichEditor\RichEditor.tsx" />
+    <None Remove="Scripts\Component\ContractBrief\CheckBoxForMultiOption.tsx" />
+    <None Remove="Scripts\Component\ContractBrief\CheckedUnCheckedImage.tsx" />
+    <None Remove="Scripts\Component\ContractBrief\ContractBrief.tsx" />
+    <None Remove="Scripts\Component\ContractBrief\Index.tsx" />
+    <None Remove="Scripts\Common\Grid\BootstrapDropdown.tsx" />
+    <None Remove="Scripts\Common\Grid\BootstrapRowMenu.tsx" />
+    <None Remove="Scripts\Common\Grid\ContractIndex.tsx" />
+    <None Remove="Scripts\Common\Grid\GridColumnMenu.tsx" />
+    <None Remove="Scripts\Common\Grid\SearchPills.tsx" />
+    <None Remove="Scripts\Common\MultiSelectDropDown\MultiSelectDropDown.tsx" />
+    <None Remove="Scripts\Common\MultiSelectPanel\index.tsx" />
+    <None Remove="Scripts\Common\MultiSelectPanel\MultiSelectPanel.tsx" />
+    <None Remove="Scripts\Common\Remote\Remote.tsx" />
+    <None Remove="Scripts\Component\AdvancedSearch.tsx" />
+    <None Remove="Scripts\Component\AdvancedSearchDialog.tsx" />
+    <None Remove="Scripts\Component\AdvancedSearchPills.tsx" />
+    <None Remove="Scripts\Component\AdvancedSearch\AdvancedSearchHeader.tsx" />
+    <None Remove="Scripts\Component\AdvancedSearch\AdvancedSearchRow.tsx" />
+    <None Remove="Scripts\Component\ContractBrief\PageTemplate.tsx" />
+    <None Remove="Scripts\Component\ContractBrief\QuestionsConfig.tsx" />
+    <None Remove="Scripts\Component\ContractBrief\ShowYesNoCheckBoxByLogic.tsx" />
+    <None Remove="Scripts\Component\DistributionList\CheckBox.tsx" />
+    <None Remove="Scripts\Component\DistributionList\DistributionList.bak" />
+    <None Remove="Scripts\Component\DistributionList\DistributionList.tsx" />
+    <None Remove="Scripts\Component\DistributionList\DistributionListDialog.bak" />
+    <None Remove="Scripts\Component\DistributionList\DistributionListDialog.tsx" />
+    <None Remove="Scripts\Component\DistributionList\DistributionUserDialog.tsx" />
+    <None Remove="Scripts\Component\DistributionList\Index.tsx" />
+    <None Remove="Scripts\Component\DistributionList\MultiSelectDropDown.tsx" />
+    <None Remove="Scripts\Component\DistributionList\Validate.tsx" />
+    <None Remove="Scripts\Component\EmployeeDirectory\Index.tsx" />
+    <None Remove="Scripts\Component\Entities\Condition.tsx" />
+    <None Remove="Scripts\Component\Entities\DropdownListItem.tsx" />
+    <None Remove="Scripts\Component\Entities\IPolicyRule.tsx" />
+    <None Remove="Scripts\Component\FarClause\index.tsx" />
+    <None Remove="Scripts\Component\FileUpload\FileCommandCell.tsx" />
+    <None Remove="Scripts\Component\FileUpload\FileUpload.tsx" />
+    <None Remove="Scripts\Component\FileUpload\FileUploadGrid.tsx" />
+    <None Remove="Scripts\Component\FileUpload\Index.tsx" />
+    <None Remove="Scripts\Component\FileUpload\SpinnerPage.tsx" />
+    <None Remove="Scripts\Component\FolderTree\FileCommandCell.tsx" />
+    <None Remove="Scripts\Component\FolderTree\FileUploadGrid.tsx" />
+    <None Remove="Scripts\Component\FolderTree\Index.tsx" />
+    <None Remove="Scripts\Component\GroupManagement\GroupManagement.tsx" />
+    <None Remove="Scripts\Component\GroupManagement\index.tsx" />
+    <None Remove="Scripts\Component\GroupManagement\Tabs\GroupDetails.tsx" />
+    <None Remove="Scripts\Component\GroupManagement\Tabs\GroupPermission.tsx" />
+    <None Remove="Scripts\Component\GroupManagement\Tabs\GroupPolicy.tsx" />
+    <None Remove="Scripts\Component\GroupManagement\Tabs\GroupUsers.tsx" />
+    <None Remove="Scripts\Component\GroupManagement\Tabs\UsersGroup.tsx" />
+    <None Remove="Scripts\Component\GroupManagement\Tabs\UsersInfo.tsx" />
+    <None Remove="Scripts\Component\GroupManagement\UserManagement.tsx" />
+    <None Remove="Scripts\Component\Layout\Bucket.tsx" />
+    <None Remove="Scripts\Component\MessageInbox\MessageList.tsx" />
+    <None Remove="Scripts\Component\MessageInbox\SingleMessageEntity.tsx" />
+    <None Remove="Scripts\Component\NotificationSummary\NotificationIndividualSummary.tsx" />
+    <None Remove="Scripts\Component\NotificationSummary\NotificationSummary - Copy.tsx" />
+    <None Remove="Scripts\Component\NotificationSummary\NotificationSummary.tsx" />
+    <None Remove="Scripts\Component\OfficeDirectory\AlphabetFilter.tsx" />
+    <None Remove="Scripts\Component\OfficeDirectory\ExportFile.tsx" />
+    <None Remove="Scripts\Component\OfficeDirectory\index.tsx" />
+    <None Remove="Scripts\Component\OfficeDirectory\OfficeDirectory.tsx" />
+    <None Remove="Scripts\Component\OfficeDirectory\OfficeDirectoryBlock.tsx" />
+    <None Remove="Scripts\Component\OfficeDirectory\Pagination.tsx" />
+    <None Remove="Scripts\Component\Policy\AddPolicy.tsx" />
+    <None Remove="Scripts\Component\Policy\PolicyRule.tsx" />
+    <None Remove="Scripts\Component\RevenueRecognition\DetailGrid.tsx" />
+    <None Remove="Scripts\Component\RevenueRecognition\Details.tsx" />
+    <None Remove="Scripts\Component\RevenueRecognition\Index.tsx" />
+    <None Remove="Scripts\Component\SwitchUser\index.tsx" />
+    <None Remove="Scripts\Component\SwitchUser\SwitchUser.tsx" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="6.0.0" />
+    <PackageReference Include="ClosedXML" Version="0.94.2" />
+    <PackageReference Include="CsvHelper" Version="12.1.2" />
+    <PackageReference Include="Hangfire" Version="1.6.23" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
+    <PackageReference Include="NLog" Version="4.6.6" />
+    <PackageReference Include="NLog.Appsettings.Standard" Version="2.1.0" />
+    <PackageReference Include="NLog.Extended" Version="4.6.7" />
+    <PackageReference Include="NLog.Web.AspNetCore" Version="4.8.4" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\Northwind.Core\Northwind.Core.csproj" />
+    <ProjectReference Include="..\Northwind.Costpoint\Northwind.Costpoint.csproj" />
+    <ProjectReference Include="..\Northwind.Infrastructure\Northwind.Infrastructure.csproj" />
+    <ProjectReference Include="..\Northwind.Web.Infrastructure\Northwind.Web.Infrastructure.csproj" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <None Include="Areas\Admin\Views\Customer\Add.cshtml" />
+    <None Include="Areas\Admin\Views\Customer\Edit.cshtml" />
+    <None Include="Areas\Admin\Views\Customer\Index.cshtml" />
+    <None Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <None Include="wwwroot\Templates\EmployeeBillingRatesTemplate.csv" CopyToPublishDirectory="Always" />
+    <None Include="wwwroot\Templates\SubcontractorLaborBillingRatesTemplate.csv" CopyToPublishDirectory="Always" />
+    <None Include="wwwroot\Templates\WorkBreakDownStructureTemplate.csv" CopyToPublishDirectory="Always" />
+    <None Include="wwwroot\Templates\EmployeeBillingRatesTemplate.csv" CopyToPublishDirectory="Always">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="wwwroot\Templates\SubcontractorLaborBillingRatesTemplate.csv" CopyToPublishDirectory="Always">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="wwwroot\Templates\WorkBreakDownStructureTemplate.csv" CopyToPublishDirectory="Always">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\Common\AutoComplete\AutoComplete.tsx" />
+    <TypeScriptCompile Include="Scripts\Common\ContextMenu\ContextMenu.tsx" />
+    <TypeScriptCompile Include="Scripts\Common\DocumentManager\DocumentManager.tsx" />
+    <TypeScriptCompile Include="Scripts\Common\DocumentManager\index.tsx" />
+    <TypeScriptCompile Include="Scripts\Common\RichEditor\FileBrowser.tsx" />
+    <TypeScriptCompile Include="Scripts\Common\RichEditor\ImageController.tsx" />
+    <TypeScriptCompile Include="Scripts\Common\RichEditor\index.tsx" />
+    <TypeScriptCompile Include="Scripts\Common\RichEditor\RichEditor.tsx" />
+    <TypeScriptCompile Include="Scripts\Component\ContractBrief\PageTemplate.tsx" />
+    <TypeScriptCompile Include="Scripts\Component\ContractBrief\ShowYesNoCheckBoxByLogic.tsx" />
+    <TypeScriptCompile Include="Scripts\Component\ContractBrief\CheckBoxForMultiOption.tsx" />
+    <TypeScriptCompile Include="Scripts\Component\ContractBrief\QuestionsConfig.tsx" />
+    <TypeScriptCompile Include="Scripts\Component\ContractBrief\ContractBrief.tsx" />
+    <TypeScriptCompile Include="Scripts\Component\ContractBrief\Index.tsx" />
+    <TypeScriptCompile Include="Scripts\Common\Grid\BootstrapRowMenu.tsx" />
+    <TypeScriptCompile Include="Scripts\Common\Grid\BootstrapDropdown.tsx" />
+    <TypeScriptCompile Include="Scripts\Common\Grid\ContractIndex.tsx" />
+    <TypeScriptCompile Include="Scripts\Common\Grid\GridColumnMenu.tsx" />
+    <TypeScriptCompile Include="Scripts\Common\Grid\SearchPills.tsx" />
+    <TypeScriptCompile Include="Scripts\Common\DropDown\DropDown.tsx" />
+    <TypeScriptCompile Include="Scripts\Common\MultiSelectDropDown\MultiSelectDropDown.tsx" />
+    <TypeScriptCompile Include="Scripts\Common\MultiSelectPanel\index.tsx" />
+    <TypeScriptCompile Include="Scripts\Common\MultiSelectPanel\MultiSelectPanel.tsx" />
+    <TypeScriptCompile Include="Scripts\Common\Remote\Remote.tsx" />
+    <TypeScriptCompile Include="Scripts\Component\AdvancedSearch\AdvancedSearch.tsx" />
+    <TypeScriptCompile Include="Scripts\Component\AdvancedSearch\AdvancedSearchDialog.tsx" />
+    <TypeScriptCompile Include="Scripts\Component\AdvancedSearch\AdvancedSearchPills.tsx" />
+    <TypeScriptCompile Include="Scripts\Component\AdvancedSearch\AdvancedSearchHeader.tsx" />
+    <TypeScriptCompile Include="Scripts\Component\AdvancedSearch\AdvancedSearchRow.tsx" />
+    <TypeScriptCompile Include="Scripts\Common\CheckBox\CheckBox.tsx" />
+    <TypeScriptCompile Include="Scripts\Component\ContractBrief\CheckedUnCheckedImage.tsx" />
+    <TypeScriptCompile Include="Scripts\Component\DistributionList\DistributionList.bak" />
+    <TypeScriptCompile Include="Scripts\Component\DistributionList\DistributionList.tsx" />
+    <TypeScriptCompile Include="Scripts\Component\DistributionList\DistributionListDialog.bak" />
+    <TypeScriptCompile Include="Scripts\Component\DistributionList\DistributionListDialog.tsx" />
+    <TypeScriptCompile Include="Scripts\Component\DistributionList\Validate.tsx" />
+    <TypeScriptCompile Include="Scripts\Component\DistributionList\Index.tsx" />
+    <TypeScriptCompile Include="Scripts\Component\EmployeeDirectory\Index.tsx" />
+    <TypeScriptCompile Include="Scripts\Component\Entities\Condition.tsx" />
+    <TypeScriptCompile Include="Scripts\Component\Entities\DropdownListItem.tsx" />
+    <TypeScriptCompile Include="Scripts\Component\Entities\IPolicyRule.tsx" />
+    <TypeScriptCompile Include="Scripts\Component\FarClause\index.tsx" />
+    <TypeScriptCompile Include="Scripts\Component\FileUpload\FileCommandCell.tsx" />
+    <TypeScriptCompile Include="Scripts\Component\FileUpload\SpinnerPage.tsx" />
+    <TypeScriptCompile Include="Scripts\Component\FileUpload\FileUploadGrid.tsx" />
+    <TypeScriptCompile Include="Scripts\Component\FileUpload\FileUpload.tsx" />
+    <TypeScriptCompile Include="Scripts\Component\FileUpload\Index.tsx" />
+    <TypeScriptCompile Include="Scripts\Component\FolderTree\FileCommandCell.tsx" />
+    <TypeScriptCompile Include="Scripts\Component\FolderTree\FileUploadGrid.tsx" />
+    <TypeScriptCompile Include="Scripts\Component\FolderTree\Index.tsx" />
+    <TypeScriptCompile Include="Scripts\Component\GroupManagement\Tabs\UsersInfo.tsx" />
+    <TypeScriptCompile Include="Scripts\Component\GroupManagement\UserManagement.tsx" />
+    <TypeScriptCompile Include="Scripts\Component\GroupManagement\GroupManagement.tsx" />
+    <TypeScriptCompile Include="Scripts\Component\GroupManagement\index.tsx" />
+    <TypeScriptCompile Include="Scripts\Component\GroupManagement\Tabs\GroupDetails.tsx" />
+    <TypeScriptCompile Include="Scripts\Component\GroupManagement\Tabs\GroupPermission.tsx" />
+    <TypeScriptCompile Include="Scripts\Component\GroupManagement\Tabs\GroupPolicy.tsx" />
+    <TypeScriptCompile Include="Scripts\Component\GroupManagement\Tabs\UsersGroup.tsx" />
+    <TypeScriptCompile Include="Scripts\Component\GroupManagement\Tabs\GroupUsers.tsx" />
+    <TypeScriptCompile Include="Scripts\Component\Layout\Bucket.tsx" />
+    <TypeScriptCompile Include="Scripts\Component\MessageInbox\SingleMessageEntity.tsx" />
+    <TypeScriptCompile Include="Scripts\Component\MessageInbox\MessageInbox.tsx" />
+    <TypeScriptCompile Include="Scripts\Component\NotificationSummary\NotificationSummary.tsx" />
+    <TypeScriptCompile Include="Scripts\Common\AlphabetFilter\AlphabetFilter.tsx" />
+    <TypeScriptCompile Include="Scripts\Common\ExportFile\ExportFile.tsx" />
+    <TypeScriptCompile Include="Scripts\Component\OfficeDirectory\index.tsx" />
+    <TypeScriptCompile Include="Scripts\Component\OfficeDirectory\OfficeDirectory.tsx" />
+    <TypeScriptCompile Include="Scripts\Component\OfficeDirectory\OfficeDirectoryBlock.tsx" />
+    <TypeScriptCompile Include="Scripts\Common\Pagination\Pagination.tsx" />
+    <TypeScriptCompile Include="Scripts\Component\Policy\AddPolicy.tsx" />
+    <TypeScriptCompile Include="Scripts\Component\Policy\PolicyRule.tsx" />
+    <TypeScriptCompile Include="Scripts\Component\SwitchUser\index.tsx" />
+    <TypeScriptCompile Include="Scripts\Component\SwitchUser\SwitchUser.tsx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="..\Northwind.Shared.Web\Views\**\*.cshtml" />
+    <TypeScriptCompile Include="Scripts\Component\RevenueRecognition\Details.tsx" />
+    <TypeScriptCompile Include="Scripts\Component\RevenueRecognition\DetailGrid.tsx" />
+    <TypeScriptCompile Include="Scripts\Component\RevenueRecognition\Index.tsx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Import\CSVToImport\Office\" />
+    <Folder Include="wwwroot\js\dist\" />
+  </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1Development_1json__JSONSchema="" /></VisualStudio></ProjectExtensions>
+
+</Project>

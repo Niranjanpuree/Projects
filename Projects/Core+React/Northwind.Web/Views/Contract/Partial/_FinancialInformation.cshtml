@@ -1,0 +1,283 @@
+﻿@model Northwind.Web.Models.ViewModels.Contract.ContractViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<div class="p-4">
+    <div class="row">
+        <div class="col-md-6 border-right pr-md-4">
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    <label asp-for="FinancialInformation.SetAside"
+                           class="control-label  "></label>
+                    <select asp-for="FinancialInformation.SetAside" id="setAside" class="form-control">
+                        <option value="">--Select--</option>
+                        @foreach (var item in Model.CustomerAttributeValuesModel.ddlSetAside)
+                        {
+                            <option value="@item.Key">@item.Value</option>
+                        }
+                    </select>
+                    <span asp-validation-for="FinancialInformation.SetAside" class="text-danger"></span>
+                </div>
+                <div id="ShowSBAfield" class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-6 form-group" id="selfPerformancePercent">
+                            <label asp-for="FinancialInformation.SelfPerformancePercent"
+                                   class="control-label  "></label>
+
+                            <input asp-for="FinancialInformation.SelfPerformancePercent"
+                                   value="@Model.FinancialInformation.SelfPerformancePercent"
+                                   placeholder="0.00"
+                                   id="SelfPerformance_Percent" type="number" step="any" class="form-control" />
+                            <span asp-validation-for="FinancialInformation.SelfPerformancePercent"
+                                  class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label asp-for="FinancialInformation.SBA"
+                                   class="control-label  "></label>
+                            <div class="form-check pl-0">
+                                @foreach (var item in Model.CustomerAttributeValuesModel.radioSBA)
+                                {<div class="form-check form-check-inline">
+                                        <input asp-for="FinancialInformation.SBA" type="radio" value="@item.Key" class="k-radio custom-checkbox SBA" id="SBA-@item.Key" />
+                                        <label class="k-radio-label" for="SBA-@item.Key"> @item.Value</label>
+                                    </div>
+                                }
+                                <span asp-validation-for="FinancialInformation.SBA" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 form-group">
+                    <label asp-for="FinancialInformation.Competition"
+                           class="control-label  "></label>
+                    <div class="form-check pl-0">
+                        @foreach (var item in Model.CustomerAttributeValuesModel.radioCompetition)
+                        {
+                            <div class="form-check form-check-inline">
+                                <input asp-for="FinancialInformation.Competition" type="radio" value="@item.Key" class="k-radio custom-checkbox Competition" id="Competition-@item.Key" />
+                                <label class="k-radio-label" for="Competition-@item.Key"> @item.Value</label>
+                            </div>
+                        }
+                        <span asp-validation-for="FinancialInformation.Competition" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6 form-group form-required">
+                    <label asp-for="FinancialInformation.ContractType"
+                           class="control-label  "></label>
+                    <select asp-for="FinancialInformation.ContractType" id="contractType" class="form-control">
+                        <option value="">--Select--</option>
+                        @foreach (var item in Model.CustomerAttributeValuesModel.ddlContractType)
+                        {
+                            <option value="@item.Key">@item.Value</option>
+                        }
+                    </select>
+                    <span asp-validation-for="FinancialInformation.ContractType" class="text-danger"></span>
+                </div>
+                <div id="idCostPrice" class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-6 form-group" id="overHead">
+                            <label asp-for="FinancialInformation.OverHead"
+                                   class="control-label  "></label>
+
+                            <input asp-for="FinancialInformation.OverHead"
+                                   value="@Model.FinancialInformation.OverHead"
+                                   placeholder="0.00" id="OverHead"
+                                   type="number" step="any" class="form-control" />
+                            <span asp-validation-for="FinancialInformation.OverHead" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6 form-group" id="gaPercent">
+                            <label asp-for="FinancialInformation.GAPercent"
+                                   class="control-label  "></label>
+
+                            <input asp-for="FinancialInformation.GAPercent"
+                                   value="@Model.FinancialInformation.GAPercent"
+                                   placeholder="0.00" id="G_A_Percent"
+                                   type="number" step="any" class="form-control" />
+                            <span asp-validation-for="FinancialInformation.GAPercent" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 form-group" id="idFixedPrice">
+                    <label asp-for="FinancialInformation.FeePercent"
+                           class="control-label  "></label>
+
+                    <input asp-for="FinancialInformation.FeePercent" placeholder="0.00" id="Fee_Percent" type="number" step="any"
+                           class="form-control" />
+                    <span asp-validation-for="FinancialInformation.FeePercent" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 form-group">
+                    <label asp-for="FinancialInformation.Currency"
+                           class="control-label  "></label>
+
+                    <select asp-for="FinancialInformation.Currency" class="form-control">
+                        <option value="">--Select--</option>
+                        @foreach (var item in Model.CustomerAttributeValuesModel.ddlCurrency)
+                        {
+                            <option value="@item.Key">@item.Value</option>
+                        }
+                    </select>
+                    <span asp-validation-for="FinancialInformation.Currency" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 form-group" id="idBlueSkyAward">
+                    <label asp-for="FinancialInformation.BlueSkyAwardAmount"
+                           class="control-label">MA/IDIQ Maximum Value</label>
+
+                    <input asp-for="FinancialInformation.BlueSkyAwardAmount"
+                           value="@Model.FinancialInformation.BlueSkyAwardAmount"
+                           placeholder="0.00"
+                           id="BlueSkyAward_Amount" type="text" step="any" class="form-control amountStyle" />
+                    <span asp-validation-for="FinancialInformation.BlueSkyAwardAmount" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 form-group">
+                    <label asp-for="FinancialInformation.AwardAmount"
+                           class="control-label  "></label>
+
+                    <input asp-for="FinancialInformation.AwardAmount"
+                           value="@Model.FinancialInformation.AwardAmount"
+                           placeholder="0.00" type="text" step="any"
+                           class="form-control amountStyle" />
+                    <span asp-validation-for="FinancialInformation.AwardAmount" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 form-group">
+                    <label asp-for="FinancialInformation.FundingAmount"
+                           class="control-label  "></label>
+
+                    <input asp-for="FinancialInformation.FundingAmount"
+                           placeholder="0.00" type="text" step="any"
+                           value="@Model.FinancialInformation.FundingAmount"
+                           class="form-control amountStyle" />
+                    <span asp-validation-for="FinancialInformation.FundingAmount" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 form-group">
+                    <label asp-for="FinancialInformation.BillingAddress"
+                           class="control-label  "></label>
+
+                    <textarea class="form-control" asp-for="FinancialInformation.BillingAddress">@Model.FinancialInformation.BillingAddress</textarea>
+                    <span asp-validation-for="FinancialInformation.BillingAddress" class="text-danger"></span>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    <label asp-for="FinancialInformation.BillingFrequency"
+                           class="control-label  "></label>
+
+                    <select asp-for="FinancialInformation.BillingFrequency" class="form-control">
+                        <option value="">--Select--</option>
+                        @foreach (var item in Model.CustomerAttributeValuesModel.ddlBillingFrequency)
+                        {
+                            <option value="@item.Key">@item.Value</option>
+                        }
+                    </select>
+                    <span asp-validation-for="FinancialInformation.BillingFrequency" class="text-danger"></span>
+
+                </div>
+                <div class="col-md-6 form-group">
+                    <label asp-for="FinancialInformation.InvoiceSubmissionMethod"
+                           class="control-label  "></label>
+
+                    <select asp-for="FinancialInformation.InvoiceSubmissionMethod" class="form-control">
+                        <option value="">--Select--</option>
+                        @foreach (var item in Model.CustomerAttributeValuesModel.ddlInvoiceSubmissionMethod)
+                        {
+                            <option value="@item.Key">@item.Value</option>
+                        }
+                    </select>
+                    <span asp-validation-for="FinancialInformation.InvoiceSubmissionMethod" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 form-group">
+                    <label asp-for="FinancialInformation.PaymentTerms"
+                           class="control-label  "></label>
+
+                    <select asp-for="FinancialInformation.PaymentTerms" class="form-control">
+                        <option value="">--Select--</option>
+                        @foreach (var item in Model.CustomerAttributeValuesModel.ddlPaymentTerms)
+                        {
+                            <option value="@item.Key">@item.Value</option>
+                        }
+                    </select>
+                    <span asp-validation-for="FinancialInformation.PaymentTerms" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 form-group">
+                    <label asp-for="FinancialInformation.AppWageDetermineDavisBaconAct"
+                           class="control-label  "></label>
+                    <div class="form-check pl-0">
+                        @foreach (var item in
+                    Model.CustomerAttributeValuesModel.radioAppWageDetermine_DavisBaconAct)
+                        {
+                            <div class="form-check form-check-inline">
+                                <input type="checkbox"
+                                       @((item.Key) == Model.FinancialInformation.AppWageDetermineDavisBaconAct ? "checked='checked'" : string.Empty) class="k-checkbox custom-checkbox"
+                                       id="AppWageDetermineDavisBaconAct"
+                                       name="FinancialInformation.AppWageDetermineDavisBaconAct" value="@item.Key">
+                                <label class="k-checkbox-label" for="AppWageDetermineDavisBaconAct">@item.Value</label>
+                            </div>
+                        }
+                        @foreach (var item in
+                    Model.CustomerAttributeValuesModel.radioAppWageDetermine_ServiceContractAct)
+                        {
+                            <div class="form-check form-check-inline">
+                                <input type="checkbox"
+                                       @((item.Key) == Model.FinancialInformation.AppWageDetermineServiceContractAct ? "checked='checked'" : string.Empty) class="k-checkbox custom-checkbox"
+                                       id="AppWageDetermineServiceContractAct"
+                                       name="FinancialInformation.AppWageDetermineServiceContractAct" value="@item.Key">
+                                <label class="k-checkbox-label" for="AppWageDetermineServiceContractAct">
+                                    @item.Value
+                                </label>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="col-md-6 form-group">
+                    <label asp-for="FinancialInformation.BillingFormula"
+                           class="control-label  "></label>
+
+                    <select asp-for="FinancialInformation.BillingFormula" class="form-control">
+                        <option value="">--Select--</option>
+                        @foreach (var item in Model.CustomerAttributeValuesModel.ddlBillingFormula)
+                        {
+                            <option value="@item.Key">@item.Value</option>
+                        }
+                    </select>
+                    <span asp-validation-for="FinancialInformation.BillingFormula" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 form-group">
+                    <label asp-for="FinancialInformation.RevenueFormula"
+                           class="control-label  "></label>
+
+                    <select asp-for="FinancialInformation.RevenueFormula" class="form-control">
+                        <option value="">--Select--</option>
+                        @foreach (var item in Model.CustomerAttributeValuesModel.ddlRevenueFormula)
+                        {
+                            <option value="@item.Key">@item.Value</option>
+                        }
+                    </select>
+                    <span asp-validation-for="FinancialInformation.RevenueFormula" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 form-group">
+                    <label asp-for="FinancialInformation.RevenueRecognitionEACPercent"
+                           class="control-label  "></label>
+
+                    <input asp-for="FinancialInformation.RevenueRecognitionEACPercent"
+                           placeholder="0.00" type="number" step="any" value="@Model.FinancialInformation.RevenueRecognitionEACPercent"
+                           class="form-control" />
+                    <span asp-validation-for="FinancialInformation.RevenueRecognitionEACPercent"
+                          class="text-danger"></span>
+                </div>
+                <div class="col-md-6 form-group">
+                    <label asp-for="FinancialInformation.OHonsite"
+                           class="control-label  "></label>
+                    <input asp-for="FinancialInformation.OHonsite" class="form-control" />
+                    <span asp-validation-for="FinancialInformation.OHonsite" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 form-group">
+                    <label asp-for="FinancialInformation.OHoffsite"
+                           class="control-label  "></label>
+                    <input asp-for="FinancialInformation.OHoffsite" class="form-control" />
+                    <span asp-validation-for="FinancialInformation.OHoffsite" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

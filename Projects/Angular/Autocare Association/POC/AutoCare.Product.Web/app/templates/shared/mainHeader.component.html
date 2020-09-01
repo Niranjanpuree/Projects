@@ -1,0 +1,50 @@
+﻿<!--Top Nav Section :: Start-->
+<header class="clearfix">
+    <div style="z-index: 2;">
+        <!-- Logo -->
+        <a href="#" class="logo">
+            <img src="/Content/images/autocare.svg" alt="AutoCare">
+        </a>
+
+        <!-- Section menu -->
+        <div class="section-menu">
+            <a href="#">{{selectedMainHeaderMenu.selectedMainHeaderMenuItem}}</a>
+            <ul>
+                <li (click)="onMainHeaderMenuClick('VCDB')"><a href="javascript:void(0)">VCDB</a></li>
+                <li (click)="onMainHeaderMenuClick('PCADB')"><a href="javascript:void(0)">PCDB/PADB</a></li>
+                <li (click)="onMainHeaderMenuClick('QDB')"><a href="javascript:void(0)">QDB</a></li>
+                <li (click)="onMainHeaderMenuClick('Brand')"><a href="javascript:void(0)">Brand</a></li>
+            </ul>
+        </div>
+
+        <!-- User menu -->
+        <div class="user-menu">
+            <a href="#">{{ sharedService.getTokenModel() ? sharedService.getTokenModel().customer_id : 'USERNAME' }}</a>
+            <ul>
+                <li><a href="javascript:void(0)">{{ sharedService.getTokenModel() ? sharedService.getTokenModel().customer_id : 'USERNAME' }}</a></li>
+                <li><a href="javascript:void(0)">Profile</a></li>
+                <li><a href="javascript:void(0)">Change password</a></li>
+                <li>
+                    <div action="/Account/LogOff" method="post" id="logoutForm">
+                        <a href="javascript:document.getElementById('logoutForm').submit()" (click)="onLogout()">Log out</a>
+                    </div>
+
+                    <!--using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                    {
+                    @Html.AntiForgeryToken()
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                        </li>
+                        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+                    </ul>
+                    }-->
+                    <!--<a href="/Account/LogOff">Log out</a>-->
+
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+<!--Top Nav Section :: End-->

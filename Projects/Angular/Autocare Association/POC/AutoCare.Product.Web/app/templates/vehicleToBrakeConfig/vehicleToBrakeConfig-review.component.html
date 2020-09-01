@@ -1,0 +1,198 @@
+﻿<loading-gif [show]="showLoadingGif"></loading-gif>
+<user-likes-comp #likeComponent></user-likes-comp>
+<!-- Main start -->
+<main class="clearfix">
+
+    <div class="center" *ngIf="vehicleToBrakeConfigChangeRequest">
+
+        <!-- Breadcrumb start -->
+        <div class="breadcrumb">
+            <a class="back" routerLink={{backNavigation}}>{{backNavigationText}}</a>
+        </div>
+        <!-- Breadcrumb end -->
+        <h2 class="foldable clearfix">
+            <span *ngIf="vehicleToBrakeConfigChangeRequest.stagingItem.changeType == 'Add'">New</span>
+            <span *ngIf="vehicleToBrakeConfigChangeRequest.stagingItem.changeType == 'Delete'">Remove</span>
+            &nbsp;Brake Association Request
+            <span class="float-right" *ngIf="vehicleToBrakeConfigChangeRequest.canDelete">
+                <input type="submit" value="DELETE" class="btn orange" (click)="onSubmitReview('delete')">
+            </span>
+        </h2>
+        <br />
+
+        <strong>Change Request ID: {{vehicleToBrakeConfigChangeRequest.stagingItem.changeRequestId}}</strong>
+        <div class="table-wrap">
+            <div class="ctable">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Base ID</td>
+	                        <td>Vehicle ID</td>
+                            <td>Year</td>
+                            <td>Make</td>
+                            <td>Model</td>
+                            <td>Submodel</td>
+	                        <td>Region</td>
+                            <td>Brake Config ID</td>
+                            <td>Front Brake</td>
+                            <td>Rear Brake</td>
+                            <td>Brake ABS</td>
+                            <td>Brake System</td>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="vehicleToBrakeConfigChangeRequest.entityStaging.vehicle && vehicleToBrakeConfigChangeRequest.entityStaging.brakeConfig">
+                        <tr>
+                            <td> {{vehicleToBrakeConfigChangeRequest.entityStaging.vehicle.baseVehicleId}}</td>
+	                         <td>{{vehicleToBrakeConfigChangeRequest.entityStaging.vehicle.id}}</td>
+                            <td>{{vehicleToBrakeConfigChangeRequest.entityStaging.vehicle.yearId}}</td>
+                            <td>{{vehicleToBrakeConfigChangeRequest.entityStaging.vehicle.makeName}}</td>
+                            <td>{{vehicleToBrakeConfigChangeRequest.entityStaging.vehicle.modelName}}</td>
+                              <td>{{vehicleToBrakeConfigChangeRequest.entityStaging.vehicle.subModelName}}</td>
+	                        <td>{{vehicleToBrakeConfigChangeRequest.entityStaging.vehicle.regionName}}</td>
+                            <td>{{vehicleToBrakeConfigChangeRequest.entityStaging.brakeConfigId}}</td>
+                            <td>{{vehicleToBrakeConfigChangeRequest.entityStaging.brakeConfig.frontBrakeTypeName}}</td>
+                            <td>{{vehicleToBrakeConfigChangeRequest.entityStaging.brakeConfig.rearBrakeTypeName}}</td>
+                            <td>{{vehicleToBrakeConfigChangeRequest.entityStaging.brakeConfig.brakeABSName}}</td>
+                            <td>{{vehicleToBrakeConfigChangeRequest.entityStaging.brakeConfig.brakeSystemName}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="twocol-equal clearfix">
+            <div class="margin-t-20px">
+
+                <p>
+                    <strong>Submitted by</strong><br>
+                    {{vehicleToBrakeConfigChangeRequest.stagingItem.submittedBy}}, {{vehicleToBrakeConfigChangeRequest.stagingItem.createdDateTime | date: "MMMM dd,yyyy"}}
+                </p>
+
+                <p *ngIf="vehicleToBrakeConfigChangeRequest.canLike">
+                    <span *ngIf="!vehicleToBrakeConfigChangeRequest.isCompleted">
+                        <input type="button" (click)="onLikeClick('Like')" [disabled]="isLiked" class="btn icon thumb-up" value="Like"> &nbsp;&nbsp;&nbsp; {{likeStagingGet.likeCount}} likes
+                    </span>
+                </p>
+                <p *ngIf="!vehicleToBrakeConfigChangeRequest.canLike  &&(!vehicleToBrakeConfigChangeRequest.canFinal|| likeStagingGet.likeCount == 0)">
+                    <span class="icon-text thumb-up">{{likeStagingGet.likeCount}} likes</span>
+                </p>
+                <p *ngIf="vehicleToBrakeConfigChangeRequest.canFinal && likeStagingGet.likeCount > 0">
+                    <span class="icon-text thumb-up"> <a class="pointer" (click)="onClickLikes(vehicleToBrakeConfigChangeRequest.stagingItem.changeRequestId)"> {{likeStagingGet.likeCount}} likes </a></span>
+                </p>
+
+
+                <p>
+                    <strong>Attachments</strong><br>
+                    <ac-fileuploader [existing-files]="vehicleToBrakeConfigChangeRequest.attachments"
+                                     upload-api-path="file/savechunk" [can-attach]="false" #existingAcFileUploader></ac-fileuploader>
+                </p>
+
+                <!--<p>
+                    <strong>Request comments</strong><br>
+                    <span *ngIf="vehicleToBrakeConfigChangeRequest.requestorComments && vehicleToBrakeConfigChangeRequest.requestorComments.length > 0">
+                        <ul>
+                            <li *ngFor="let comment of vehicleToBrakeConfigChangeRequest.requestorComments">
+                                {{comment.comment}}
+                            </li>
+                        </ul>
+                    </span>
+                </p>-->
+
+                <div class="add-form">
+                    <div class="input-blocks">
+                        <div>
+                            <strong>Assigned Reviewer</strong>
+                            <div class="select white-select" >
+                                <select [(ngModel)]="assignedReviewer.assignedToUserId" [disabled]="vehicleToBrakeConfigChangeRequest.isCompleted || !vehicleToBrakeConfigChangeRequest.canAssign" (ngModelChange)="onReviewerChange()">
+                                    <option value="-1" *ngIf="usersForAssignment">Me</option>
+                                    <option *ngFor="let user of usersForAssignment" [value]="user.id">
+                                        {{user.user}}
+                                    </option>
+                                </select>
+                                <div class="select__arrow white-select__arrow"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <strong>Current Status</strong>
+                            {{vehicleToBrakeConfigChangeRequest.stagingItem.status}}
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        <div *ngIf="vehicleToBrakeConfigChangeRequest.canReview">
+                            <strong>Your Review</strong>
+                            <div *ngIf="!vehicleToBrakeConfigChangeRequest.canFinal">
+                                <div class="custom-radio yes-no">
+
+                                    <label class="yes left">
+                                        <input type="radio" name="radio" (change)="onChange('PreliminaryApprove')" [checked]="isPreliminaryApproveChecked">
+                                        <small></small>
+                                        <span class="bg"></span>
+                                        <ins>APPROVE</ins>
+                                    </label>
+
+                                    <label class="no right">
+                                        <input type="radio" name="radio" (change)="onChange('Reject')" [checked]="isRejectChecked">
+                                        <small></small>
+                                        <span class="bg"></span>
+                                        <ins>REJECT</ins>
+                                    </label>
+
+                                </div>
+                            </div>
+
+                            <div *ngIf="vehicleToBrakeConfigChangeRequest.canFinal">
+                                <div class="custom-radio">
+                                    <label class="left">
+                                        <input type="radio" name="radio" (change)="onChange('Approve')" [checked]="isApproveChecked">
+                                        <small></small>
+                                        <span class="bg"></span>
+                                        <ins>FINAL</ins>
+                                    </label>
+                                    <label *ngIf="showPrelimRadio">
+                                        <input type="radio" name="radio" (change)="onChange('PreliminaryApprove')" [checked]="isPreliminaryApproveChecked">
+                                        <small></small>
+                                        <span class="bg"></span>
+                                        <ins>PRELIM</ins>
+                                    </label>
+                                    <label class="no right">
+                                        <input type="radio" name="radio" (change)="onChange('Reject')" [checked]="isRejectChecked">
+                                        <small></small>
+                                        <span class="bg"></span>
+                                        <ins>REJECT</ins>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="submit-wrap" *ngIf="vehicleToBrakeConfigChangeRequest.canSubmit">
+                        <input type="submit" value="SUBMIT" class="btn" (click)="onSubmitReview()">
+                        <input type="reset" value="CANCEL" class="btn transparent" (click)="onCancel()">
+                    </div>
+                </div>
+
+            </div>
+
+            <div>
+                <div class="comment-box">
+                    <reviewer-comments-comp [comments]="vehicleToBrakeConfigChangeRequest.comments"></reviewer-comments-comp>
+
+                </div>
+
+                <div class="attach-wrap" *ngIf="vehicleToBrakeConfigChangeRequest.canSubmit">
+                    <strong>OPTIONAL</strong>
+                    <ac-fileuploader upload-api-path="file/savechunk" #newAcFileUploader can-attach="vehicleToBrakeConfigChangeRequest.canAttach"></ac-fileuploader>
+                    <small>Include comments</small>
+                    <textarea cols="50" rows="5" [(ngModel)]="reviewComment.comment"></textarea>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+<!-- Main end -->

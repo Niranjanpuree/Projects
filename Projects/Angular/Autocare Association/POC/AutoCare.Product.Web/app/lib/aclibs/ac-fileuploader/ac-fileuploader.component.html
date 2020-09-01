@@ -1,0 +1,63 @@
+<div class="ac-attachment">
+    <span *ngIf="canAttach">
+        <input *ngIf="!multifileBrowser" type="file" [attr.id]="fileInputId" class="inputfile" 
+               (change)="onFilesSelected($event)" [accept]="acceptedFileTypes" />
+        <input *ngIf="multifileBrowser" type="file" [attr.id]="fileInputId" class="inputfile" 
+               (change)="onFilesSelected($event)" multiple [accept]="acceptedFileTypes" />
+        <label [attr.for]="fileInputId" class="icon-text attachment">Attach a file (&#60; 10mb)</label>
+    </span>
+
+    <div *ngFor="let acFile of acFiles" class="attachment-rect">
+        <div class="progressBar" [style.width]="acFile.progress"></div>
+        
+        <p *ngIf="acFile.fileStatus == fileStatusEnum.uploaded" class="uploaded">
+
+            <a href="{{acFile.fileUri}}" target="_blank">
+                <span>{{acFile.fileName}}</span>
+                <span> ({{acFile.attachedBy}}, {{acFile.formattedSize}})</span>
+            </a>
+
+            <span *ngIf="acFile.canDelete" style="float: right">
+                <img src="../../../../Content/images/delete@2x.png" class="delete"
+                     (click)="removeAttachment(acFile)" />
+            </span>
+        </p>
+
+        <p *ngIf="acFile.fileStatus == fileStatusEnum.pending" class="pending">
+            <span>{{acFile.fileName}}</span>
+            <span> ({{acFile.formattedSize}})</span>
+            <span style="float: right">
+                <img src="../../../../Content/images/close@2x.png" class="cancel"
+                     (click)="cancelUpload(acFile)" />
+            </span>
+        </p>
+
+        <p *ngIf="acFile.fileStatus == fileStatusEnum.failed" class="failed">
+            <span>{{acFile.fileName}}</span>
+            <span> ({{acFile.formattedSize}})</span>
+            <span style="float: right">
+                <img src="../../../../Content/images/close@2x.png" class="cancel"
+                     (click)="cancelUpload(acFile)" />
+            </span>
+        </p>
+
+        <p *ngIf="acFile.fileStatus == fileStatusEnum.deleted" class="deleted">
+            <a href="{{acFile.fileUri}}" target="_blank">
+                <span>{{acFile.fileName}}</span>
+                <span> ({{acFile.attachedBy}}, {{acFile.formattedSize}})</span>
+            </a>
+            <!--<span *ngIf="acFile.canDelete" style="float: right">
+                <img src="../../../../Content/images/delete@2x.png" class="delete"
+                     (click)="removeAttachment(acFile)" />
+            </span>-->
+        </p>
+    </div>
+
+    <div *ngIf="showUploadButton">
+        <input type="button" value="Upload" class="btn uploadBtn" (click)="uploadFiles()" />
+    </div>
+
+    <div *ngIf="showDeleteButton">
+        <input type="button" value="Delete" class="btn uploadBtn" (click)="deleteFiles()" />
+    </div>
+</div>

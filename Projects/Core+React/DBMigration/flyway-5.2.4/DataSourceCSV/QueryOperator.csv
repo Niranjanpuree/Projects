@@ -1,0 +1,27 @@
+QueryOperatorGuid,Name,Title,Type
+{D959B319-7520-44F0-A955-03929ACA9F96},RadioEquals,Equals,Radio
+{22AEAB65-4E5E-4CA6-A488-0928C17D2640},IntegerGreaterThan,Greater Than,Integer
+{606FB1D5-8015-4005-A485-0FD61FC3F24B},StringLike,Like,String
+{0B597270-6766-404D-AD02-31E6A368B326},DecimalGreaterThanOrEquals,Greater Than Or Equals,Decimal
+{67372F13-7AA8-4ACF-A584-3771635E4022},DateTimeGreaterThan,Greater Than,DateTime
+{748A9E93-26C0-4335-932B-3E1665AD80B3},MultiCheckboxEquals,Equals,MultiCheckbox
+{3AFBD6D5-41DE-4E46-BDBC-3E6647632D46},IntegerLessThanOrEquals,Less Than Or Equals,Integer
+{7E757C56-9CB2-4E96-B0B9-451B80A9F5D3},ComboEquals,Equals,Combo
+{8ABE0C77-C82E-4CA1-8C8F-4E5211088877},ComboIn,In,Combo
+{682342CC-3DDD-408D-AB0A-4F74AEE6A18F},MultiCheckboxIn,In,MultiCheckbox
+{C57041EA-F567-47AD-B478-57BDB4E8FF6E},DateTimeLessThanOrEquals,Less Than Or Equals,DateTime
+{AF9F4782-1A2F-418B-A25E-5F81A01CE0AE},DecimalGreaterThan,Greater Than,Decimal
+{DEA85A7F-4333-4B9C-A413-719ED23310D4},DecimalLessThan,Less Than,Decimal
+{747B0F34-68E2-46CC-B821-7DB03F1DA724},DecimalEquals,Equals,Decimal
+{7D7FDE49-241B-4D52-8CA2-867322437EA2},DecimalLessThanOrEquals,Less Than Or Equals,Decimal
+{B07E3BBE-DEBA-440A-AFD6-86D34F527C74},IntegerBetween,Between,Integer
+{F473AADE-80E9-4BD5-A732-902933392829},DateTimeLessThan,Less Than,DateTime
+{B0E07512-121D-4E4A-8712-940C725CE539},IntegerEquals,Equals,Integer
+{71B99408-F299-4AFB-96BB-9D20A13D39E0},DecimalBetween,Between,Decimal
+{75EC0E2D-6009-4A6D-AA65-B5213F65B38A},StringGreaterThan,Greater Than,String
+{D4A089F5-2080-4F01-90B7-D13E37438B24},DateTimeEquals,Equals,DateTime
+{D41FEA5A-9EAD-4167-A705-D258800F6846},DateTimeBetween,Between,DateTime
+{EE6972E2-C39E-4472-9211-E414B9D1C2AC},DateTimeGreaterThanOrEquals,Greater Than Or Equals,DateTime
+{5429C25A-1306-4622-B197-E8E9CDE24646},IntegerLessThan,Less Than,Integer
+{D894BAEF-4412-4711-BDB4-FA140529A7CE},StringEquals,Equals,String
+{D16175BB-2392-4392-8BCF-FDCD10B5BE2C},IntegerGreaterThanOrEquals,Greater Than Or Equals,Integer

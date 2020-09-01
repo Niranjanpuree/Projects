@@ -1,0 +1,266 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WF12-Modify Vehicle</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Fontawesome CSS -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <!-- Custom external CSS -->
+    <link rel="stylesheet" href="css/custom.css">
+    <link href="css/opensans-font.css" rel="stylesheet" />
+    <!-- jQuery library -->
+    <script src="js/jquery-1.12.3.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            //Attach click event handler to your menu
+            $('.nav li').click(function () {
+                // Remove the active class from previously selected item
+                $(this).siblings().removeClass('active');
+                //Set the active class to currently selected item
+                $(this).addClass('active');
+
+            });
+        });
+    </script>
+
+</head>
+
+<body class="background">
+
+    <header>
+        <nav role="navigation" class="navbar navbar-default headerbackground navbar-height top-nav-text">
+            <div class="navbar-header">
+                <a href="#" class="navbar-brand logo-align"><img src="images/logo-white-small.png" /></a>
+            </div>
+            <div>
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle active-header-dropdown" data-toggle="dropdown" href="#">VCDB <i class="caret"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">PCDB</a></li>
+                            <li><a href="#">QDB</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="user-header">
+                        <img src="images/person.png" class="img-circle user-logo-align" alt="User Image" id="UsrImg" style="height:16px; width: 16px;" />
+                        <a class="dropdown-toggle bottom-nav-text" data-toggle="dropdown" href="#">Shrestha.Narayan <i class="caret"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">User Account</a></li>
+                            <li><a href="#">Settings</a></li>
+                            <li><a href="#">Log Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <nav id="btmNav" role="navigation" class="navbar navbar-default headerbackground-bottom navbar-bottom-height bottom-nav-text">
+            <div class="navbar-header">
+                <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div id="navbarCollapse" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Dashboard</a></li>
+                    <li class="active"><a href="#">Vehicles</a></li>
+                    <li><a href="#">Systems</a></li>
+                    <li><a href="#">Changes</a></li>
+                    <li><a href="#">Reference Data</a></li>
+                    <li><a href="#">Downloads</a></li>
+                    <li><a href="#">Uploads</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Base Vehicle Table  -->
+    <section class="container">
+        <div class=" ReturnSearchAssociation">
+            <img src="images/arrow-back.png" />
+            <a class="btn-back-search"> Return to vehicle search</a>
+        </div>
+
+        <div>
+            <div class="col-lg-6 table-titles">
+                <h2 class="Recent-searches">Base vehicle</h2>
+            </div>
+        </div>
+
+        <div class="col-lg-12">
+            <div class="table table-bordered table-responsive glowing-border">
+                <table class="table tablebottom col-lg-12">
+                    <thead class="tableheadercolor header-text">
+                        <tr>
+                            <th class="ProposedTableTD">Base ID</th>
+                            <th class="ProposedTableTD">Make (ID)</th>
+                            <th class="ProposedTableTD">Model (ID)</th>
+                            <th class="ProposedTableTD">Series (ID)</th>
+                            <th class="ProposedTableTD">Years (start/end)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="tablecontentsize table-body-text">
+                        <tr class="tableicons table-odd-row">
+                            <td>116</td>
+                            <td>Ford (24)</td>
+                            <td>Escort (3581)</td>
+                            <td>2 (7134)</td>
+                            <td>2009-2013</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Existing Vehicle Table  -->
+    <section class="container">
+        <div>
+            <div class="col-lg-6 table-titles">
+                <h2 class="Recent-searches">Existing vehicle</h2>
+            </div>
+        </div>
+
+        <div class="col-lg-12">
+            <div class="table table-bordered table-responsive glowing-border">
+                <table class="table tablebottom col-lg-12">
+                    <thead class="tableheadercolor header-text">
+                        <tr>
+                            <th class="ProposedTableTD">Vehicle ID</th>
+                            <th class="ProposedTableTD">Submodel (ID)</th>
+                            <th class="ProposedTableTD">Region (ID)</th>
+                            <th class="ProposedTableTD">Series (ID)</th>
+                            <th class="ProposedTableTD">Years (start/end)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="tablecontentsize table-body-text">
+                        <tr class="tableicons table-odd-row">
+                            <td>116</td>
+                            <td>Cosworth (24)</td>
+                            <td>Baltics (3581)</td>
+                            <td>2 (7134)</td>
+                            <td>2009-2013</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modify Vehicle Table  -->
+    <section class="container">
+        <div>
+            <div class="col-lg-12 table-titles">
+                <h2 class="Recent-searches">Modify vehicle</h2>
+            </div>
+        </div>
+
+        <div class="col-lg-12">
+            <div class="table_borderless table-responsive">
+                <table class="table_borderless table-responsive tablebottom table-borderless Table50">
+                    <tbody>
+                        <tr class="AddBaseVehicleTableHeader">
+                            <td class="TableTD30"><label>Submodel (ID)</label></td>
+                            <td class="TableTD25"><label>Region (ID)</label></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <select class="drop-download SubmodelDropdown222">
+                                    <option value="Option1">Platinum Edition (99)</option>
+                                    <option value="Option2">Option2 (25)</option>
+                                    <option value="Option3">Option3 (22)</option>
+                                    <option value="Option4">Option4 (54)</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="drop-download RegionDropdown214">
+                                    <option value="Option1">Eastern Europe (85441)</option>
+                                    <option value="Option2">Option2 (2525)</option>
+                                    <option value="Option3">Option3 (2223)</option>
+                                    <option value="Option4">Option4 (3456)</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="Rectangle-94-Big">
+                <p class="Associated-records"><img src="images/error.png" /> Associated records will be impacted</p>
+                <p class="Associated-records-vehicles"> 12 Brake configurations</p>
+                <p class="Associated-records-vehicles"> 7 Engine configurations</p>
+                <p class="Associated-records-vehicles"> 7 Fuel system configurations</p>
+                <p class="Associated-records-vehicles"> 5 Cooling configurations</p>
+                <p class="Associated-records-vehicles"> 4 Exhaust configurations</p>
+                <p class="Associated-records-vehicles"> 4 Transmission configurations</p>
+                <p class="Associated-records-vehicles"> 2 Suspension configurations</p>
+                <p class="Associated-records-vehicles"> 1 Steering configurations</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Submit Change Requests/Attachment Table  -->
+    <section class="container AttachmentTopMargin">
+        <div class="col-lg-12">
+            <div class="table_borderless table-responsive ">
+                <table class="table_borderless table-responsive tablebottom table-borderless Table-Attachement">
+                    <tbody>
+                        <tr>
+                            <td class="AttachmentTableTD1Style">
+                                <ul class="nav nav-pills">
+                                    <li class="active active-button Button-Submit-Change-Requests"><a href="#"><span class="CONTINUE">SUBMIT CHANGE REQUESTS</span></a></li>
+                                </ul>
+                            </td>
+                            <td class="AttachmentTableTD2Style">
+                                <ul class="nav nav-pills">
+                                    <li><a class="btn-color Button-Cancel" href="#"><span class="Filters-Cancel">CANCEL</span></a></li>
+                                </ul>
+                            </td>
+                            <td class="AttachmentTableTD3Style">
+                                <label class="OPTIONAL">OPTIONAL</label> <br />
+                                <img src="images/attachment.png" class="AttachmentIcon" />
+                                <label class="Attach-a-file-10mb">Attach a file (<10mb)</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="AttachmentTableTD1Style"></td>
+                            <td class="AttachmentTableTD2Style"></td>
+                            <td class="AttachmentTableTD3Style">
+                                <label class="IncludeComments">Include comments</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="AttachmentTableTD1Style"></td>
+                            <td class="AttachmentTableTD2Style"></td>
+                            <td class="AttachmentTableTD3Style">
+                                <textarea class="AttachmentCommentTextbox"></textarea>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="col-lg-12 footersec">
+        <p><i class="fa fa-copyright"></i> 2016 AutoCare Association, so on and so forth </p>
+    </footer>
+</body>
+</html>

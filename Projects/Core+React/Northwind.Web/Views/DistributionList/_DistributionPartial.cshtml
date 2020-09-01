@@ -1,0 +1,47 @@
+﻿@{
+    ViewData["Title"] = "User Distribution";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+@{
+    var resourceVersion = @Configuration["resourceVersion"];
+    var cdnUrl = @Configuration["CDNUrl"];
+}
+
+
+@section breadcrumb
+    {
+    <li class="breadcrumb-item"><a href="#">User Distribution</a></li>
+}
+
+<div id="distributionList"></div>
+
+<script src="@cdnUrl/lib/jquery/dist/jquery.min.js?v=@resourceVersion"></script>
+
+<script src="@cdnUrl/js/dist/dialog.js?v=@resourceVersion"></script>
+<script src="@cdnUrl/js/dist/kendogrid.js?v=@resourceVersion"></script>
+
+<script src="@cdnUrl/js/dist/distributionlist.js?v=@resourceVersion"></script>
+<script type="text/javascript">
+
+    function notifyCallBack(e, e1) {
+        //redirect to url..
+    }
+    function skipCallBack(e, e1) {
+        //redirect to url..
+    }
+
+    (function () {
+        window.loadDistributionListDialog.pageView.loadDistributionListDialog('distributionList',
+            'key',
+            'resourceId',
+            true,
+            true,
+            false,
+            false,
+            true,
+            notifyCallBack,
+            skipCallBack);
+    })();
+</script>

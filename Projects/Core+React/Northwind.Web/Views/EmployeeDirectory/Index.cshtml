@@ -1,0 +1,22 @@
+﻿@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+@{
+    var resourceVersion = @Configuration["resourceVersion"];
+    var cdnUrl = @Configuration["CDNUrl"];
+}
+
+@{
+    ViewData["Title"] = "Employee Directory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section breadcrumb
+    {
+    <li class="breadcrumb-item"><a href="#">Employee Directory</a></li>
+}
+
+<div id="employeeBox"></div>
+
+@*<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+<script src="@cdnUrl/lib/jquery/dist/jquery.js?v=@resourceVersion"></script>
+<script src="@cdnUrl/js/dist/employeeDirectory.js?v=@resourceVersion"></script>*@

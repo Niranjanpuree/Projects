@@ -1,0 +1,139 @@
+﻿
+<loading-gif [show]="showLoadingGif"></loading-gif>
+<div class="breadcrumb">
+    <div class="center">
+        <a class="back" routerLink="/vehicle/search">Return to Vehicle Search</a>
+    </div>
+</div>
+
+    <main class="with-sidemenu clearfix">
+
+        <div class="center">
+            <!-- Base vehicles start -->
+            <div class="table-wrap">
+                <h2 class="clearfix">
+                    Base Vehicle
+                </h2>
+                <div class="ctable unfolded">
+                    <table>
+                        <thead>
+                        <tr>
+                            <td>Base (ID)</td>
+                            <td>Year</td>
+                            <td>Make (ID)</td>
+                            <td>Model (ID)</td>
+                        </tr>
+                        </thead>
+                        <tbody *ngIf="vehicle">
+                        <tr>
+                            <td>{{vehicle.baseVehicleId}}</td>
+                            <td>{{vehicle.yearId}}</td>
+                            <td>{{vehicle.makeName}} ({{vehicle.makeId}})</td>
+                            <td>{{vehicle.modelName}} ({{vehicle.modelId}})</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Existing vehicles start -->
+            <div class="table-wrap" *ngIf="vehicle">
+                <h2 class="clearfix">
+                    Existing Vehicle
+                </h2>
+                <div class="ctable unfolded">
+                    <table>
+                        <thead>
+                        <tr>
+                            <td>Vehicle ID</td>
+                            <td>Submodel (ID)</td>
+                            <td>Region (ID)</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>{{vehicle.id}}</td>
+                            <td>{{vehicle.subModelName}} ({{vehicle.subModelId}})</td>
+                            <td>{{vehicle.regionName}} ({{vehicle.regionId}})</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+            <!-- Modify vehicle start -->
+            <div class="add-form" *ngIf="vehicle">
+                <h2>Modify Vehicle</h2>
+                <div class="clearfix">
+
+                    <div class="input-blocks clearfix">
+                        <div>
+                            <strong>Submodel (ID)</strong>
+
+                            <div class="select white-select">
+                                <select [disabled]="!subModels || subModels.length==0" [(ngModel)]="modifiedVehicle.subModelId">
+                                    <option value="-1" *ngIf="!subModels">Loading...</option>
+                                    <option value="-1" *ngIf="subModels">--Select Submodel--</option>
+                                    <option *ngFor="let s of subModels" [value]="s.id">{{s.name}} ({{s.id}})</option>
+                                </select>
+                                <div class="select__arrow white-select__arrow"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <strong>Region (ID)</strong>
+
+                            <div class="select white-select">
+                                <select [disabled]="!regions || regions.length==0" [(ngModel)]="modifiedVehicle.regionId">
+                                    <option value="-1" *ngIf="!regions">Loading...</option>
+                                    <option value="-1" *ngIf="regions">--Select Region--</option>
+                                    <option *ngFor="let r of regions" [value]="r.id">{{r.name}} ({{r.id}})</option>
+                                </select>
+                                <div class="select__arrow white-select__arrow"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="warning-wrap">
+                        <div>
+                            <strong>Associated records will be impacted</strong>
+                            <span style="margin-bottom: 0;">
+                                <!--12 Brake configurations<br>
+                                7 Engine configurations<br>
+                                7 Fuel system configurations<br>
+                                5 cooling configurations<br>
+                                4 Exhaust configurations<br>
+                                4 Transmission configurations<br>
+                                2 Suspension configurations<br>
+                                1 Steering configurations-->
+                                {{vehicle.vehicleToBrakeConfigCount}} Brake configurations<br />
+                                {{vehicle.vehicleToBedConfigCount}} Bed configurations<br>
+                                {{vehicle.vehicleToBodyStyleConfigCount}} Body Style configurations<br>
+                                {{vehicle.vehicleToMfrBodyCodeCount}}Mfr Body Code configurations<br>
+                                {{vehicle.vehicleToWheelBaseCount}} Wheel Base configurations<br>
+                                {{vehicle.vehicleToDriveTypeCount}} Drive Type configurations<br>
+                                </span>
+                        </div>
+                    </div>
+
+                    <div class="submit-wrap">
+                        <input type="submit" value="SUBMIT CHANGE REQUEST" class="btn larger" (click)="onModifySubmit()">
+                        <input type="submit" value="CANCEL" class="btn transparent larger" routerLink="/vehicle/search">
+                    </div>
+
+                    <div class="attach-wrap">
+                        <strong>Attachments</strong>
+                        
+                        <ac-fileuploader upload-api-path="file/savechunk"></ac-fileuploader>
+                        <small>Include comments</small>
+                        <textarea cols="50" rows="5" [(ngModel)]="modifiedVehicle.comment"></textarea>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+    <!-- Main end -->
+
+  

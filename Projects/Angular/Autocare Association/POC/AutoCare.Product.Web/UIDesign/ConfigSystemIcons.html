@@ -1,0 +1,102 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Config System Icons</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Fontawesome CSS -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <!-- Custom external CSS -->
+    <link rel="stylesheet" href="css/custom.css">
+    <link href="css/opensans-font.css" rel="stylesheet" />
+    <!-- jQuery library -->
+    <script src="js/jquery-1.12.3.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            //Attach click event handler to your menu
+            $('.nav li').click(function () {
+                // Remove the active class from previously selected item
+                $(this).siblings().removeClass('active');
+                //Set the active class to currently selected item
+                $(this).addClass('active');
+
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(window).load(function () {
+            $('#ConfigSystems-modal').modal('show');
+        });
+    </script>
+
+</head>
+
+<body class="background">
+
+    <header>
+        
+
+        
+    </header>
+
+    
+
+    <!--Modal Affected Vehicles-->
+    <div class="modal modal-transparent fade" id="ConfigSystems-modal" tabindex="-Z" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="ModifyBasevehicleModal-fullscreen ">
+            <div class="modal-content ModifyBasevehicleModal">
+                <div class="modal-header headermodel ModifyBasevehicleModal-Header">
+                    <button type="button" class="close closebutton" data-dismiss="modal"><span>&times;</span><span class="sr-only">Close</span></button>
+                    <!--<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>-->
+                    <h4 class="Affected Vehicles" id="myModalLabel">Config System Icons</h4>
+                </div>
+
+                <div class="modal-body ModalBody ">
+                    <div class="col-lg-12 ">
+                        <div class="table_borderless table-responsive ">
+                            <table class="table_borderless table-responsive tablebottom table-borderless ">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            
+                                        </td>
+                                        <td>
+                                            
+                                        </td>
+                                        <td>
+                                           
+                                        </td>
+                                        <td>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                            
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

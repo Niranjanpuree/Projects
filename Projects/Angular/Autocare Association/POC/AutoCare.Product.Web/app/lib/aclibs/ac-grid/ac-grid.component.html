@@ -1,0 +1,72 @@
+<div class="ctable-paging" [style.display]="totalRecordsCount > 0 ? 'block': 'none'">
+    <a *ngIf="activePage>1" (click)="onFirst()" class="first"></a>
+    <a *ngIf="activePage>1" (click)="onPrevious()" class="prev"></a>
+    Page<input type="text" [(ngModel)]="activePage" (blur)="onBlur()" (keypress)="onKeyPress($event)" />of {{ pageSplit ? pageSplit.length : 0 }}
+    <a *ngIf="pageSplit && activePage < pageSplit.length" (click)="onNext()" class="next"></a>
+    <a *ngIf="pageSplit && activePage < pageSplit.length" (click)="onLast()" class="last"></a>
+    <div class="rowcount">
+        Rows per page
+        <select [(ngModel)]="pageSize" (change)="onPageSizeChange($event)">
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="30">30</option>
+            <option value="40">40</option>
+            <option value="50">50</option>
+        </select>
+    </div>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <td *ngFor="let column of gridColumns">
+                <div *ngIf="totalRecordsCount <= thresholdRecordCount">
+                    <label class="control control--checkbox green-checkbox" style="vertical-align: middle"
+                           *ngIf="column.selectable">
+                        <input type="checkbox" [(ngModel)]="selectAllChecked"
+                               (change)="selectAllChanged(selectAllChecked)" [disabled]="totalRecordsCount == 0">
+
+                        <div class="control__indicator"></div>
+
+                    </label>
+                </div>
+                <span *ngIf="totalRecordsCount > thresholdRecordCount && column.selectable">X</span>
+                <span *ngIf="!column.sortable || column.sortable === false || column.sortable === 'false'">{{column.header}}</span>
+                <a *ngIf="column.sortable === true || column.sortable === 'true'" (click)="sortColumn(column)" style="color: #fff; cursor: pointer">
+                    {{column.header}}
+                    <span *ngIf="sortedColumnName === column.header && sortedByDesc === false" class="glyphicon glyphicon-sort-by-attributes"></span>
+                    <span *ngIf="sortedColumnName === column.header && sortedByDesc === true" class="glyphicon glyphicon-sort-by-attributes-alt"></span>
+                </a>
+            </td>
+        </tr>
+    </thead>
+
+    <ng-content></ng-content>
+
+    <!--<tfoot align="center">
+        <tr [style.display]="pagingDetail && totalRecordsCount > pagingDetail.pageSize ? 'table-row': 'none'">
+            <td [attr.colspan]="columnCount">
+                <ac-grid-paginator [totalRecordsCount]="totalRecordsCount" [pagingDetail]="pagingDetail" (pageNumberChangedEvent)="onPageChanged($event)"></ac-grid-paginator>
+            </td>
+        </tr>
+    </tfoot>-->
+</table>
+
+<!-- New Pagination design. -->
+<div class="ctable-paging" [style.display]="totalRecordsCount > 0 ? 'block': 'none'">
+    <a *ngIf="activePage>1" (click)="onFirst()" class="first"></a>
+    <a *ngIf="activePage>1" (click)="onPrevious()" class="prev"></a>
+    Page<input type="text" [(ngModel)]="activePage" (blur)="onBlur()" (keypress)="onKeyPress($event)" />of {{ pageSplit ? pageSplit.length : 0 }}
+    <a *ngIf="pageSplit && activePage < pageSplit.length" (click)="onNext()" class="next"></a>
+    <a *ngIf="pageSplit && activePage < pageSplit.length" (click)="onLast()" class="last"></a>
+    <div class="rowcount">
+        Rows per page
+        <select [(ngModel)]="pageSize" (change)="onPageSizeChange($event)">
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="30">30</option>
+            <option value="40">40</option>
+            <option value="50">50</option>
+        </select>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+﻿@model Northwind.Web.Models.ViewModels.LaborCategoryRatesViewModel
+
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="_LaborCategoryRatesView">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input hidden asp-for="CategoryRateGuid" class="form-control" />
+                <input hidden asp-for="ContractGuid" class="form-control" />
+            </div>
+
+            @if (Model.IsCsv)
+            {
+                <div class="row form-group no-gutters">
+                    <div class="col">
+                        <input type="button" id="DownloadLCRGrid" class="download btn btn-secondary"
+                               value="Export to CSV" />
+                        <input type="button" id="AddLCRRow" class="btn btn-secondary" value="Add Row" />
+                    </div>
+                </div>
+
+                <div class="form-group" id="LaborCategoryGrid"></div>
+            }
+            else
+            {
+                var fileName = @Model.UploadFileName.Split("/").Last();
+                <div class="col-md-6 form-group">
+                    <a href="/Contract/DownloadDocument?filePath=@Model.UploadFileName&fileName=@fileName"
+                       id="@fileName" class="text-left">
+                        @*Click here to download file..
+                        <br />*@
+                        <span class="control-label">@fileName</span>
+                    </a>
+                </div>
+            }
+
+        </form>
+    </div>
+</div>
+
+<script src="~/js/proj/contractfileUploadGrid.js" class="UploadGrid" data-gridname="#LaborCategoryGrid"
+        data-controller="GetLaborCategoryRates" data-idvalue="#ContractGuid" data-guid="categoryRateGuid"
+        data-fields="subContractor|laborCode|employeeName|rate|startDate|endDate" data-titles="Sub Contractor|Labor Code|Employee Name|Rate|Start Date|End Date"
+        data-editable="1" data-downloadgrid="#DownloadLCRGrid" data-path=@Model.UploadFileName data-addrow="#AddLCRRow"></script>

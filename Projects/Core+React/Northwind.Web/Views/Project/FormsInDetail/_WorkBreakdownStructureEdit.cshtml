@@ -1,0 +1,49 @@
+﻿@model Northwind.Web.Models.ViewModels.Contract.ContractWBSViewModel
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+@{
+    var resourceVersion = @Configuration["resourceVersion"];
+    var cdnUrl = @Configuration["CDNUrl"];
+}
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="_WorkBreakdownStructureEdit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div>
+                <input hidden asp-for="ContractWBSGuid" class="form-control" />
+                <input hidden asp-for="ContractGuid" class="form-control" />
+            </div>
+
+            @if (Model.IsCsv)
+            {
+                <div class="row form-group no-gutters">
+                    <div class="col-12">
+                        <input type="button" id="DownloadWBSGrid" class="download btn btn-secondary"
+                               value="Export to CSV" />
+                        <input type="button" id="AddWBSRow" class="btn btn-secondary" value="Add Row" />
+                    </div>
+                </div>
+
+                <div class="form-group" id="WorkBreakdownStructureGrid"></div>
+            }
+            else
+            {
+                var fileName = @Model.UploadFileName.Split("/").Last();
+                <div class="col-md-6 form-group">
+                    <a href="/Contract/DownloadDocument?filePath=@Model.UploadFileName&fileName=@fileName"
+                       id="@fileName" class="text-left">
+                        @*Click here to download file..
+                            <br />*@
+                        <span class="control-label">@fileName</span>
+                    </a>
+                </div>
+            }
+
+        </form>
+    </div>
+</div>
+
+<script src="@cdnUrl/js/proj/projectfileUploadGrid.js?v=@resourceVersion" class="UploadGrid" data-gridname="#WorkBreakdownStructureGrid"
+        data-controller="WorkBreakDownStructure" data-idvalue="#ContractGuid" data-guid="contractWBSGuid"
+        data-fields="wbsCode|description|value|contractType|invoiceAtThisLevel" data-titles="WBS Code|Description|Value|Contract Type|Invoice At This Level"
+        data-editable="1" data-downloadgrid="#DownloadWBSGrid" data-path=@Model.UploadFileName data-addrow="#AddWBSRow"></script>

@@ -1,0 +1,207 @@
+﻿@model Northwind.Web.Models.ViewModels.Contract.ContractViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<div class="p-4">
+    <div class="row">
+        <div class="col-sm-6 form-group">
+            <label asp-for="BasicContractInfo.IsIDIQContract" class="control-label control-label-read"></label>
+            <input type="hidden" Name="IsIDIQContractHidden" id="IsIDIQContractHidden" value="@Model.BasicContractInfo.IsIDIQContract.ToString()" />
+            <div class="form-value">
+                @Model.BasicContractInfo.IDIQContract
+            </div>
+        </div>
+
+        <div class="col-sm-6 form-group">
+            <label asp-for="BasicContractInfo.IsPrimeContract" class="control-label control-label-read"></label>
+            <input type="hidden" Name="IsPrimeContractHidden" id="IsPrimeContractHidden" value="@Model.BasicContractInfo.IsPrimeContract.ToString()" />
+            <div class="form-value">
+                @Model.BasicContractInfo.PrimeContract
+            </div>
+        </div>
+
+        <div class="col-sm-6 form-group">
+            <label asp-for="BasicContractInfo.ContractNumber" class="control-label control-label-read"></label>
+            <div class="form-value">
+                @Html.DisplayFor(m => m.BasicContractInfo.ContractNumber)
+            </div>
+        </div>
+
+        <div class="col-sm-6 form-group SubContractNumber">
+            <label asp-for="BasicContractInfo.SubContractNumber" class="control-label control-label-read"></label>
+            <div class="form-value">
+                @Html.DisplayFor(m => m.BasicContractInfo.SubContractNumber)
+            </div>
+        </div>
+
+        <div class="col-sm-6 form-group SubContractNumber">
+            <label asp-for="BasicContractInfo.ProjectNumber" class="control-label control-label-read"></label>
+            <div class="form-value">
+                @Html.DisplayFor(m => m.BasicContractInfo.ProjectNumber)
+            </div>
+        </div>
+
+        <div class="col-sm-6 form-group">
+            <label asp-for="BasicContractInfo.ORGID" class="control-label control-label-read"></label>
+            <div class="form-value">
+                @Html.DisplayFor(m => m.BasicContractInfo.OrganizationName)
+            </div>
+        </div>
+
+        <div class="col-sm-6 form-group">
+            <label asp-for="BasicContractInfo.CompanyName" class="control-label control-label-read"></label>
+            <div class="form-value">
+                @Html.DisplayFor(m => m.BasicContractInfo.CompanyName)
+            </div>
+        </div>
+
+        <div class="col-sm-6 form-group">
+            <label asp-for="BasicContractInfo.RegionName" class="control-label control-label-read"></label>
+            <div class="form-value">
+                @Html.DisplayFor(m => m.BasicContractInfo.RegionName)
+            </div>
+        </div>
+
+        <div class="col-sm-6 form-group">
+            <label asp-for="BasicContractInfo.OfficeName" class="control-label control-label-read"></label>
+            <div class="form-value">
+                @Html.DisplayFor(m => m.BasicContractInfo.OfficeName)
+            </div>
+        </div>
+
+        <div class="col-sm-6 form-group">
+            <label asp-for="BasicContractInfo.CountryOfPerformance" class="control-label control-label-read"></label>
+            <div class="form-value">
+                 @Html.DisplayFor(m => m.BasicContractInfo.CountryOfPerformanceSelected)
+            </div>
+        </div>
+
+        <div class="col-sm-6 form-group">
+            <label asp-for="BasicContractInfo.PlaceOfPerformance" class="control-label control-label-read"></label>
+            <div class="form-value">
+                @Html.DisplayFor(m => m.BasicContractInfo.PlaceOfPerformanceSelected)
+            </div>
+        </div>
+        <div class="col-sm-6 form-group">
+            <label asp-for="BasicContractInfo.FarContractType" class="control-label control-label-read">Far Contract Type <i class="k-icon k-i-info info-tooltip" title="Lorem Ipsum is simply dummy text of the printing and typesetting industry" data-role="tooltip"></i></label>
+            <div class="form-value">
+                @Html.DisplayFor(m => m.BasicContractInfo.FarContractType)
+            </div>
+        </div>
+
+        <div class="col-sm-6 form-group">
+            <label asp-for="BasicContractInfo.POPStart" class="control-label control-label-read"></label>
+            <div class="form-value">
+                @Model.BasicContractInfo.POPStart?.ToString("MM/dd/yyyy")
+            </div>
+        </div>
+
+        <div class="col-sm-6 form-group">
+            <label asp-for="BasicContractInfo.POPEnd" class="control-label control-label-read"></label>
+            <div class="form-value">
+                @Model.BasicContractInfo.POPEnd?.ToString("MM/dd/yyyy")
+            </div>
+        </div>
+
+        <div class="col-sm-6 form-group">
+            <label asp-for="BasicContractInfo.NAICSCode" class="control-label control-label-read"></label>
+            <div class="form-value">
+                @Html.DisplayFor(m => m.BasicContractInfo.NAICSCodeName)
+            </div>
+        </div>
+
+        <div class="col-sm-6 form-group">
+            <label asp-for="BasicContractInfo.PSCCode" class="control-label control-label-read"></label>
+            <div class="form-value">
+                @Html.DisplayFor(m => m.BasicContractInfo.PSCCodeName)
+            </div>
+        </div>
+
+        <div class="col-sm-6 form-group">
+            <label asp-for="BasicContractInfo.CPAREligible" class="control-label control-label-read"></label>
+            <div class="form-value">
+                @Model.BasicContractInfo.CPAREligibleString
+            </div>
+        </div>
+
+        <div class="col-sm-6 form-group">
+            <label asp-for="BasicContractInfo.QualityLevelRequirements" class="control-label control-label-read"></label>
+            <input type="hidden" Name="QualityLevelRequirementsHidden" id="QualityLevelRequirementsHidden" value="@Model.BasicContractInfo.QualityLevelRequirements.ToString()" />
+            <div class="form-value">
+                @Model.BasicContractInfo.QualityLevelRequirementsString
+            </div>
+        </div>
+
+        <div class="col-sm-6 form-group QualityLevel">
+            <label asp-for="BasicContractInfo.QualityLevel" class="control-label control-label-read"></label>
+            <div class="form-value">
+                @Html.DisplayFor(m => m.BasicContractInfo.QualityLevelName)
+            </div>
+        </div>
+
+        <div class="col-sm-6 form-group">
+            <label asp-for="BasicContractInfo.Description" class="control-label control-label-read">Description <i class="k-icon k-i-info info-tooltip" title="Lorem Ipsum is simply dummy text of the printing and typesetting industry" data-role="tooltip"></i></label>
+            <div class="form-value">
+                @Html.DisplayFor(m => m.BasicContractInfo.Description)
+            </div>
+        </div>
+
+        <div class="col-sm-6 form-group">
+            <label asp-for="Status" class="control-label control-label-read"></label>
+            <div class="form-value">
+                @Html.DisplayFor(m => m.Status)
+            </div>
+        </div>
+        @if (!Model.BasicContractInfo.IsIDIQContract)
+        {
+            <div class="col-12 pt-3 mb-3 bg-light">
+                <h5>Project Location</h5>
+
+                <div class="row">
+                    <div class="col-sm-6 form-group">
+                        <label asp-for="BasicContractInfo.AddressLine1" class="control-label control-label-read"></label>
+                        <div class="form-value">
+                            @Html.DisplayFor(m => m.BasicContractInfo.AddressLine1)
+                        </div>
+                    </div>
+                    <div class="col-sm-6 form-group">
+                        <label asp-for="BasicContractInfo.AddressLine2" class="control-label control-label-read"></label>
+                        <div class="form-value">
+                            @Html.DisplayFor(m => m.BasicContractInfo.AddressLine2)
+                        </div>
+                    </div>
+                    <div class="col-sm-6 form-group">
+                            <label asp-for="BasicContractInfo.AddressLine3" class="control-label control-label-read"></label>
+                            <div class="form-value">
+                                @Html.DisplayFor(m => m.BasicContractInfo.AddressLine3)
+                            </div>
+                        </div>
+                    <div class="col-sm-6 form-group">
+                        <label asp-for="BasicContractInfo.City" class="control-label control-label-read"></label>
+                        <div class="form-value">
+                            @Html.DisplayFor(m => m.BasicContractInfo.City)
+                        </div>
+                    </div>
+                    <div class="col-sm-6 form-group">
+                        <label asp-for="BasicContractInfo.Province" class="control-label control-label-read"></label>
+                        <div class="form-value">
+                            @Html.DisplayFor(m => m.BasicContractInfo.Province)
+                        </div>
+                    </div>
+                    <div class="col-sm-6 form-group">
+                        <label asp-for="BasicContractInfo.County" class="control-label control-label-read"></label>
+                        <div class="form-value">
+                            @Html.DisplayFor(m => m.BasicContractInfo.County)
+                        </div>
+                    </div>
+                    <div class="col-sm-6 form-group">
+                        <label asp-for="BasicContractInfo.PostalCode" class="control-label control-label-read"></label>
+                        <div class="form-value">
+                            @Html.DisplayFor(m => m.BasicContractInfo.PostalCode)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>

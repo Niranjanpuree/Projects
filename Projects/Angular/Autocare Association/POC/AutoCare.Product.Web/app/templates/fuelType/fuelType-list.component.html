@@ -1,0 +1,198 @@
+﻿<loading-gif [show]="showLoadingGif"></loading-gif>
+<article>
+    <div class="center">
+        <div class="table-wrap">
+            <h2 class="clearfix">
+                <div class="filter-search">
+                    <input ac-autocomplete class="cinput"
+                           [(ngModel)]="fuelTypeNameFilter" [dataSourceMethod]="getSuggestions" min-chars="1" source="nothing"
+                           value-property-name="fuelTypeId"
+                           display-property-name="fuelTypeName"
+                           (keywordChanged)="applyFilter($event)"
+                           placeholder="Filter Fuel Types"
+                           title="Press ENTER to apply filter"/>
+                    <input type="submit" value="" (click)="applyFilter()">
+                </div>
+                <a class="btn blue icon add" (click)="onNew()">NEW</a>
+            </h2>
+       
+            <div class="ctable">
+                <ac-grid [dataSource]="fuelTypes" #gd="acGrid" columns='[
+                 { "header":"Fuel Type ID" , "field":"id", "sortable": "true" },
+                 { "header":"Fuel Type Name" , "field":"name", "sortable": true },
+                 { "header":"Last revision" , "field":"lastUpdateDate", "sortable": false },
+                 { "header":"Change requests"}]'
+                          initialSortBy='[
+                 {"field": "id", "orderByDesc": false},
+                 {"field": "name", "orderByDesc": false}]'
+                          paging='{"pageSize": 10, "numberOfPagesOnPageList": 10}'>
+                    <tr *ngFor="let fuelType of gd.items; let whenOdd=odd; let whenEven=even;" [ngClass]="{'table-even-row':whenOdd, 'table-odd-row':whenEven}">
+                        <td>{{fuelType.id}}</td>
+                        <td>{{fuelType.name}}</td>
+                        <td>{{fuelType.lastUpdateDate| date: "MM-dd-yyyy"}}</td>
+                        <td class="Pending" *ngIf="fuelType.changeRequestId">
+                            <a (click)="view(fuelType)" style="cursor: pointer;" class="btn-r-arrow blue">Pending</a>
+                        </td>
+                        <td *ngIf="!fuelType.changeRequestId">
+                            <a class="box-icon pencil" style="cursor: pointer;" title="Edit" (click)="onModify(fuelType)"></a>
+                            <a class="box-icon delete" title="Delete" (click)="onDelete(fuelType)"></a>
+                        </td>
+                    </tr>
+                </ac-grid>
+            </div>
+        </div>
+    </div>
+</article>
+
+
+<modal #newPopup>
+    <div class="overlay dark show">
+        <div class="new-make">
+            <a (click)="onCancel()" class="close"></a>
+            <div class="add-form">
+                <h2>New Fuel Type</h2>
+                <div class="clearfix">
+
+                    <div class="input-blocks clearfix">
+                        <strong>Fuel Type Name (ID)</strong>
+                        <input type="text" autofocus class="cinput" [(ngModel)]=" fuelType.name" placeholder="New Fuel Type Name"/>
+                    </div>
+
+                    <div class="attach-wrap">
+                        <strong>OPTIONAL</strong>
+
+                        <ac-fileuploader upload-api-path="file/savechunk" delete-api-path="file/deleteblob" #newPopupAcFileUploader></ac-fileuploader>
+                        <small>Include comments</small>
+                        <textarea cols="50" rows="5" [(ngModel)]=" fuelType.comment"></textarea>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    <!-- Submit and cancel button start -->
+                    <div class="btns">
+                        <input type="submit" value="CANCEL" class="btn transparent" (click)="onCancel()"/>
+                        <input type="submit" value="SUBMIT" class="btn" (click)="onNewSubmit()"/>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</modal>
+
+<modal #modifyPopup>
+    <div class="overlay dark show">
+        <div class="new-make">
+            <a (click)="onCancel()" class="close"></a>
+            <div class="add-form">
+                <h2>Edit Fuel Type</h2>
+                <div class="clearfix">
+
+                    <div class="input-blocks clearfix">
+                        <strong>Fuel Type Name (ID)</strong>
+                        <!--<input type="text" class="cinput">-->
+                        <input type="text" autofocus class="cinput" [(ngModel)]="modifiedFuelType.name" placeholder="New Fuel Type Name"/>
+                    </div>
+
+                    <div class="warning-wrap">
+                        <div>
+                            <strong>Associated records will be impacted</strong>
+                            <span>
+                                {{modifiedFuelType.engineConfigCount}} engine configs
+                                <br />
+                                {{modifiedFuelType.vehicleToEngineConfigCount}} vehicle to engine configs
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="attach-wrap">
+                        <strong>OPTIONAL</strong>
+
+                        <ac-fileuploader upload-api-path="file/savechunk" #modifyPopupAcFileUploader="acFileUploader"></ac-fileuploader>
+                        <small>Include comments</small>
+                        <textarea cols="50" rows="5" [(ngModel)]="modifiedFuelType.comment"></textarea>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    <!-- Submit and cancel button start -->
+                    <div class="btns">
+                        <input type="submit" value="CANCEL" class="btn transparent" (click)="onCancel()"/>
+                        <input type="submit" value="SUBMIT" class="btn" (click)="onModifySubmit()"/>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</modal>
+
+<modal #deleteConfirmPopup>
+
+    <div class="overlay dark show">
+        <div class="new-make">
+            <a (click)="onCancel()" class="close"></a>
+            <div class="add-form">
+                <h2>RemoveFuel Type</h2>
+                <div class="clearfix">
+
+                    <div class="warning-wrap confirmation">
+                        <div>
+                            <strong>Please confirm that you wish to remove the "{{ fuelType.name}}"Fuel Type.</strong>
+                        </div>
+                    </div>
+                    <div class="attach-wrap">
+                        <strong>OPTIONAL</strong>
+
+                        <ac-fileuploader upload-api-path="file/savechunk" #deletePopupAcFileUploader="acFileUploader"></ac-fileuploader>
+                        <small>Include comments</small>
+                        <textarea cols="50" rows="5" [(ngModel)]=" fuelType.comment"></textarea>
+                    </div>
+
+                    <!-- Submit and cancel button start -->
+                    <div class="btns">
+                        <input type="submit" value="CANCEL" class="btn transparent" (click)="onCancel()">
+                        <input type="submit" value="CONFIRM" class="btn" (click)="onDeleteConfirm()">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</modal>
+
+<modal #deleteErrorPopup>
+
+    <div class="overlay dark show">
+        <div class="new-make">
+            <a data-dismiss="modal" class="close"></a>
+            <div class="add-form">
+                <h2>Remove Fuel Type</h2>
+                <div class="clearfix">
+
+                    <div class="warning-wrap delete-error-wrap">
+                        <div>
+                            <strong>Associated records will be impacted</strong>
+                            <!--<label style="padding-left:20px;">before the "{{ fuelType.name}}"Fuel Type can be removed.</label>-->
+                            <span>
+                                {{ fuelType.engineConfigCount}} engine configs
+                                <br />
+                                {{fuelType.vehicleToEngineConfigCount}} vehicle to engine configs
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Submit and cancel button start -->
+                    <div class="btns">
+                        <input type="submit" value="CANCEL" class="btn blue" (click)="onCancel()">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</modal>

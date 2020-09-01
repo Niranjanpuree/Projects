@@ -1,0 +1,654 @@
+﻿@model Northwind.Web.Models.ViewModels.Contract.ContractViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+@{
+    var resourceVersion = @Configuration["resourceVersion"];
+    var cdnUrl = @Configuration["CDNUrl"];
+}
+
+@{
+    ViewData["Title"] = "Contract : Details";
+    ViewData["class"] = "contract-details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section breadcrumb
+    {
+    <li class="breadcrumb-item"><a href="/Contract">List Of Contracts</a></li>
+    <li class="breadcrumb-item"><a href="#">@Model.BasicContractInfo.ProjectNumber : Contract Detail</a></li>
+}
+@Html.HiddenFor(x => x.ContractGuid)
+@Html.HiddenFor(x => x.ContractQuestionaire.ContractQuestionaireGuid)
+@Html.HiddenFor(x => x.EmployeeBillingRatesViewModel.BillingRateGuid)
+@Html.HiddenFor(x => x.LaborCategoryRates.CategoryRateGuid)
+@Html.HiddenFor(x => x.ContractWBS.ContractWBSGuid)
+@Html.HiddenFor(x => x.RevenueRecognitionModel.RevenueRecognizationGuid)
+@Html.HiddenFor(x => x.ModuleType)
+@Html.HiddenFor(x => x.JobRequest.JobRequestGuid)
+
+
+<style>
+    #contractModificationGrid .k-grouping-row {
+        display: none;
+    }
+</style>
+<!-- id="sticky-header" -->
+<div class="row top-header" id="sticky-header">
+    <div class="col-12">
+        <div class="row pb-2 align-items-center">
+            <div class="col">
+                <h3 class="contract-title">
+                    @Model.BasicContractInfo.ProjectNumber :
+                    @Model.BasicContractInfo.ContractTitle
+
+                    @if ((bool)ViewBag.IsExistInCostPoint)
+                    {
+                        <i class="k-icon k-i-kpi-status-open"></i>
+                    }
+                    else
+                    {
+                        <i class="k-icon k-i-kpi-status-open text-danger"></i>
+                    }
+                </h3>
+            </div>
+            <div class="col-auto">
+                <div class="text-right">
+                    <button type="button" class="btn btn-primary" id="editContract">Edit Contract</button>
+                    <button type="button" class="btn btn-secondary" id="contractList">Contract List</button>
+                    <div class="dropdown ml-1 float-right" id="MoreOption">
+                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
+                            More
+                        </button>
+                        <div class="dropdown-menu  dropdown-menu-right">
+                            <a id="idAddContractMod" class="dropdown-item" href="#">
+                                <i class="k-icon k-i-add getContractNumber"
+                                   id="@Model.BasicContractInfo.ContractNumber"></i>
+                                Add Contract Mod
+                            </a>
+                            <a id="idAddProject" class="dropdown-item" href="#">
+                                <i class="k-icon k-i-add"></i>
+                                Add Task Order
+                            </a>
+                            <a id="idAddContractNotice" class="dropdown-item" href="#">
+                                <i class="k-icon k-i-add"></i>
+                                Add Notice
+                            </a>
+                            @if (Model.IsAuthorizedForContractClose)
+                            {
+                                <a id="idContractCloseOut" class="dropdown-item" href="#">
+                                    <i class="k-icon k-i-close"></i>
+                                    Contract Close Out
+                                </a>
+                            }
+                            <a id="DeleteContract" class="dropdown-item" href="#">
+                                <i class="k-icon k-i-delete"></i>
+                                Delete
+                            </a>
+                            <a class="dropdown-item" href="/Contract/ContractBrief?contractGuid=@Model.ContractGuid">
+                                <i class="k-icon k-i-add"></i>
+                                DCAA Contract Brief
+                            </a>
+                            @*<a id="DisableContract" class="dropdown-item" href="#">
+                                    <i class="k-icon k-i-cancel"></i>
+                                    Disable
+                                </a>
+                                <a id="EnableContract" class="dropdown-item" href="#">
+                                    <i class="k-icon k-i-check"></i>
+                                    Enable
+                                </a>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row contract-info collapse show mt-2" id="contract-details-info">
+            <div class="col-md-12"> <p class="mb-2 pb-1 border-bottom">@Model.BasicContractInfo.Description</p></div>
+            <div class="col-md-6">
+                <ul class="list-inline mb-0 p-0">
+                    <li>Prime : <b>@Html.DisplayFor(m => m.BasicContractInfo.PrimeContract)</b></li>
+                    <li>
+                        Contract Number : <b>@Html.DisplayFor(m => m.BasicContractInfo.ContractNumber)</b>,
+                        <span class="SubContractNumber">
+                            Subcontract Number : <b>@Html.DisplayFor(m => m.BasicContractInfo.SubContractNumber)</b>
+                        </span>
+                    </li>
+                    <li>Project Number : <b>@Html.DisplayFor(m => m.BasicContractInfo.ProjectNumber)</b></li>
+                    <li>Awarding Agency : <b>@Html.DisplayFor(m => m.CustomerInformation.AwardingAgencyOfficeName)</b></li>
+                    <li>Company Name : <b>@Html.DisplayFor(m => m.BasicContractInfo.CompanyName)</b></li>
+                    <li class="ellipsis">Place Of Performance : <b>@Html.DisplayFor(m => m.BasicContractInfo.PlaceOfPerformanceSelected)</b></li>
+
+                </ul>
+            </div>
+            <div class="col-md-6 text-right">
+                <ul class="list-inline mb-0">
+                    <li>
+                        Created By : <b>@Html.DisplayFor(m => m.CreatedByName)</b>
+                        Created On : <b>@Model.CreatedOn.ToString("MM/dd/yyyy")</b>,
+                    </li>
+                    <li>
+                        POP Start : <b>@Model.BasicContractInfo.POPStart?.ToString("MM/dd/yyyy")</b>,
+                        POP End : <b>@Model.BasicContractInfo.POPEnd?.ToString("MM/dd/yyyy")</b>
+                    </li>
+                    <li>
+                        <div class="position-r">
+                            President :@if (Model.KeyPersonnel.CompanyPresidentModel != null)
+                            {<span><b class="getDetailOfUser tooltipdetail" id=@Model.KeyPersonnel.CompanyPresident>@Html.DisplayFor(m => m.KeyPersonnel.CompanyPresidentName)</b></span><span class="popover-detail bottom right tooltipuser">
+                                <span class='popover-detail-container'>
+
+                                    <span>
+                                        <label>Name</label> : @Model.KeyPersonnel.CompanyPresidentModel.Firstname @Model.KeyPersonnel.CompanyPresidentModel.Lastname
+                                    </span>
+                                    <span><label>Company </label>: @(!string.IsNullOrWhiteSpace(Model.KeyPersonnel.CompanyPresidentModel.Company) ? Model.KeyPersonnel.CompanyPresidentModel.Company : "Not Entered")</span>
+                                    <span><label>Title </label>: @Model.KeyPersonnel.CompanyPresidentModel.JobTitle</span>
+                                    @if (!string.IsNullOrWhiteSpace(Model.KeyPersonnel.CompanyPresidentModel.WorkEmail))
+                                    {
+                                        if (Model.KeyPersonnel.CompanyPresidentModel.WorkEmail == "Not Entered")
+                                        {
+                                            <span>
+                                                <label>Email </label>: @Model.KeyPersonnel.CompanyPresidentModel.WorkEmail
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            <span>
+                                                <label>Email </label><a href='mailto:"@Model.KeyPersonnel.CompanyPresidentModel.WorkEmail"' target='_blank'>:  @Model.KeyPersonnel.CompanyPresidentModel.WorkEmail</a>
+                                            </span>
+                                        }
+
+                                    }
+                                    @if (!string.IsNullOrWhiteSpace(Model.KeyPersonnel.CompanyPresidentModel.WorkPhone))
+                                    {
+                                        <span><label>Phone </label>: @Model.KeyPersonnel.CompanyPresidentModel.WorkPhone</span>
+                                    }
+
+
+                                </span>
+                            </span>}
+                        else
+                        {
+                            <span><b>Not Entered</b></span>
+                        },
+                        </div>
+                        <div class="position-r">
+                            Regional Manager : @if (Model.KeyPersonnel.RegionalManagerModel != null)
+                            {
+                                <span><b class="getDetailOfUser tooltipdetail" id=@Model.KeyPersonnel.RegionalManager>@Html.DisplayFor(m => m.KeyPersonnel.RegionalManagerName)</b></span><span class="popover-detail bottom right tooltipuser">
+                                    <span class='popover-detail-container'>
+                                        <span>
+                                            <label>Name</label> : @Model.KeyPersonnel.RegionalManagerModel.Firstname @Model.KeyPersonnel.RegionalManagerModel.Lastname
+                                        </span>
+                                        <span><label>Company </label>: @(!string.IsNullOrWhiteSpace(Model.KeyPersonnel.RegionalManagerModel.Company) ? Model.KeyPersonnel.RegionalManagerModel.Company : "Not Entered")</span>
+                                        <span><label>Title </label>: @Model.KeyPersonnel.RegionalManagerModel.JobTitle</span>
+                                        @if (!string.IsNullOrWhiteSpace(Model.KeyPersonnel.RegionalManagerModel.WorkEmail))
+                                        {
+                                            if (Model.KeyPersonnel.RegionalManagerModel.WorkEmail == "Not Entered")
+                                            {
+                                                <span>
+                                                    <label>Email </label>: @Model.KeyPersonnel.RegionalManagerModel.WorkEmail
+                                                </span>
+                                            }
+                                            else
+                                            {
+                                                <span>
+                                                    <label>Email </label><a href='mailto:"@Model.KeyPersonnel.RegionalManagerModel.WorkEmail"' target='_blank'>: @Model.KeyPersonnel.RegionalManagerModel.WorkEmail</a>
+                                                </span>
+                                            }
+
+                                        }
+                                        @if (!string.IsNullOrWhiteSpace(Model.KeyPersonnel.RegionalManagerModel.WorkPhone))
+                                        {
+                                            <span><label>Phone </label>: @Model.KeyPersonnel.RegionalManagerModel.WorkPhone</span>
+                                        }
+                                    </span>
+                                </span>
+                            }
+                            else
+                            {
+                                <span><b>Not Entered</b></span>
+                            },
+                        </div>
+
+                        <div class="position-r">
+                            Deputy Regional Manager : @if (Model.KeyPersonnel.DeputyRegionalManagerModel != null)
+                            {
+                                <span><b class="getDetailOfUser tooltipdetail" id=@Model.KeyPersonnel.DeputyRegionalManager>@Html.DisplayFor(m => m.KeyPersonnel.DeputyRegionalManagerName)</b></span><span class="popover-detail bottom right tooltipuser">
+                                    <span class='popover-detail-container'>
+                                        <span>
+                                            <label>Name</label> : @Model.KeyPersonnel.DeputyRegionalManagerModel.Firstname @Model.KeyPersonnel.DeputyRegionalManagerModel.Lastname
+                                        </span>
+                                        <span><label>Company </label>: @(!string.IsNullOrWhiteSpace(Model.KeyPersonnel.DeputyRegionalManagerModel.Company) ? Model.KeyPersonnel.DeputyRegionalManagerModel.Company : "Not Entered")</span>
+                                        <span><label>Title </label>: @Model.KeyPersonnel.DeputyRegionalManagerModel.JobTitle</span>
+                                        @if (!string.IsNullOrWhiteSpace(Model.KeyPersonnel.DeputyRegionalManagerModel.WorkEmail))
+                                        {
+                                            if (Model.KeyPersonnel.DeputyRegionalManagerModel.WorkEmail == "Not Entered")
+                                            {
+                                                <span>
+                                                    <label>Email </label>: @Model.KeyPersonnel.DeputyRegionalManagerModel.WorkEmail
+                                                </span>
+                                            }
+                                            else
+                                            {
+                                                <span>
+                                                    <label>Email </label><a href='mailto:"@Model.KeyPersonnel.DeputyRegionalManagerModel.WorkEmail"' target='_blank'>: @Model.KeyPersonnel.DeputyRegionalManagerModel.WorkEmail</a>
+                                                </span>
+                                            }
+
+                                        }
+                                        @if (!string.IsNullOrWhiteSpace(Model.KeyPersonnel.DeputyRegionalManagerModel.WorkPhone))
+                                        {
+                                            <span><label>Phone </label>: @Model.KeyPersonnel.DeputyRegionalManagerModel.WorkPhone</span>
+                                        }
+                                    </span>
+                                </span>
+                            }
+                            else
+                            {
+                                <span><b>Not Entered</b></span>
+                            },
+                        </div>
+
+                        <div class="position-r">
+                            Health And Safety Regional Manager : @if (Model.KeyPersonnel.HSRegionalManagerModel != null)
+                            {
+                                <span><b class="getDetailOfUser tooltipdetail" id=@Model.KeyPersonnel.HealthAndSafetyRegionalManager>@Html.DisplayFor(m => m.KeyPersonnel.HealthAndSafetyRegionalManagerName)</b></span><span class="popover-detail bottom right tooltipuser">
+                                    <span class='popover-detail-container'>
+                                        <span>
+                                            <label>Name</label> : @Model.KeyPersonnel.HSRegionalManagerModel.Firstname @Model.KeyPersonnel.HSRegionalManagerModel.Lastname
+                                        </span>
+                                        <span><label>Company </label>: @(!string.IsNullOrWhiteSpace(Model.KeyPersonnel.HSRegionalManagerModel.Company) ? Model.KeyPersonnel.HSRegionalManagerModel.Company : "Not Entered")</span>
+                                        <span><label>Title </label>: @Model.KeyPersonnel.HSRegionalManagerModel.JobTitle</span>
+                                        @if (!string.IsNullOrWhiteSpace(Model.KeyPersonnel.HSRegionalManagerModel.WorkEmail))
+                                        {
+                                            if (Model.KeyPersonnel.HSRegionalManagerModel.WorkEmail == "Not Entered")
+                                            {
+                                                <span>
+                                                    <label>Email </label>: @Model.KeyPersonnel.HSRegionalManagerModel.WorkEmail
+                                                </span>
+                                            }
+                                            else
+                                            {
+                                                <span>
+                                                    <label>Email </label><a href='mailto:"@Model.KeyPersonnel.HSRegionalManagerModel.WorkEmail"' target='_blank'>: @Model.KeyPersonnel.HSRegionalManagerModel.WorkEmail</a>
+                                                </span>
+                                            }
+
+                                        }
+                                        @if (!string.IsNullOrWhiteSpace(Model.KeyPersonnel.HSRegionalManagerModel.WorkPhone))
+                                        {
+                                            <span><label>Phone </label>: @Model.KeyPersonnel.HSRegionalManagerModel.WorkPhone</span>
+                                        }
+                                    </span>
+                                </span>
+                            }
+                            else
+                            {
+                                <span><b>Not Entered</b></span>
+                            },
+                        </div>
+
+                        <div class="position-r">
+                            Business Development Regional Manager : @if (Model.KeyPersonnel.BDRegionalManagerModel != null)
+                            {
+                                <span><b class="getDetailOfUser tooltipdetail" id=@Model.KeyPersonnel.BusinessDevelopmentRegionalManager>@Html.DisplayFor(m => m.KeyPersonnel.BusinessDevelopmentRegionalManagerName)</b></span><span class="popover-detail bottom right tooltipuser">
+                                    <span class='popover-detail-container'>
+                                        <span>
+                                            <label>Name</label> : @Model.KeyPersonnel.BDRegionalManagerModel.Firstname @Model.KeyPersonnel.BDRegionalManagerModel.Lastname
+                                        </span>
+                                        <span><label>Company </label>: @(!string.IsNullOrWhiteSpace(Model.KeyPersonnel.BDRegionalManagerModel.Company) ? Model.KeyPersonnel.BDRegionalManagerModel.Company : "Not Entered")</span>
+                                        <span><label>Title </label>: @Model.KeyPersonnel.BDRegionalManagerModel.JobTitle</span>
+                                        @if (!string.IsNullOrWhiteSpace(Model.KeyPersonnel.BDRegionalManagerModel.WorkEmail))
+                                        {
+                                            if (Model.KeyPersonnel.BDRegionalManagerModel.WorkEmail == "Not Entered")
+                                            {
+                                                <span>
+                                                    <label>Email </label>: @Model.KeyPersonnel.BDRegionalManagerModel.WorkEmail
+                                                </span>
+                                            }
+                                            else
+                                            {
+                                                <span>
+                                                    <label>Email </label><a href='mailto:"@Model.KeyPersonnel.BDRegionalManagerModel.WorkEmail"' target='_blank'>: @Model.KeyPersonnel.BDRegionalManagerModel.WorkEmail</a>
+                                                </span>
+                                            }
+
+                                        }
+                                        @if (!string.IsNullOrWhiteSpace(Model.KeyPersonnel.BDRegionalManagerModel.WorkPhone))
+                                        {
+                                            <span><label>Phone </label>: @Model.KeyPersonnel.BDRegionalManagerModel.WorkPhone</span>
+                                        }
+                                    </span>
+                                </span>
+                            }
+                            else
+                            {
+                                <span><b>Not Entered</b></span>
+                            },
+                        </div>
+
+                        <div class="position-r">
+                            Project Manager : @if (Model.KeyPersonnel.ProjectManagerModel != null)
+                            {<span><b class="getDetailOfUser tooltipdetail" id=@Model.KeyPersonnel.ProjectManager>@Html.DisplayFor(m => m.KeyPersonnel.ProjectManagerName)</b></span>
+                            <span class="popover-detail bottom right tooltipuser">
+                                <span class='popover-detail-container'>
+
+                                    <span>
+                                        <label>Name</label> : @Model.KeyPersonnel.ProjectManagerModel.Firstname @Model.KeyPersonnel.ProjectManagerModel.Lastname
+                                    </span>
+                                    <span><label>Company </label>: @(!string.IsNullOrWhiteSpace(Model.KeyPersonnel.ProjectManagerModel.Company) ? Model.KeyPersonnel.ProjectManagerModel.Company : "Not Entered")@Model.KeyPersonnel.ProjectManagerModel.Company</span>
+                                    <span><label>Title </label>: @Model.KeyPersonnel.ProjectManagerModel.JobTitle</span>
+                                    @if (!string.IsNullOrWhiteSpace(Model.KeyPersonnel.ProjectManagerModel.WorkEmail))
+                                    {
+                                        if (Model.KeyPersonnel.ProjectManagerModel.WorkEmail == "Not Entered")
+                                        {
+                                            <span>
+                                                <label>Email </label>: @Model.KeyPersonnel.ProjectManagerModel.WorkEmail
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            <span>
+                                                <label>Email </label><a href='mailto:"@Model.KeyPersonnel.ProjectManagerModel.WorkEmail"' target='_blank'>: @Model.KeyPersonnel.ProjectManagerModel.WorkEmail</a>
+                                            </span>
+                                        }
+
+                                    }
+                                    @if (!string.IsNullOrWhiteSpace(Model.KeyPersonnel.ProjectManagerModel.WorkPhone))
+                                    {
+                                        <span><label>Phone </label>: @Model.KeyPersonnel.ProjectManagerModel.WorkPhone</span>
+                                    }
+                                </span>
+                            </span>
+                        }
+                        else
+                        {
+                            <span><b>Not Entered</b></span>
+                        }
+                        </div>
+
+                        @if (Model.IsImported)
+                        {
+                            <div>
+                                <span><a target="_blank" href="@Configuration.GetSection("ContractNodeURL").Value@Model.TaskNodeId">Dashboard URL</a></span>
+                            </div>
+                        }
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="text-center collapse-btn"><i class="k-icon k-i-arrow-chevron-up" data-toggle="collapse" href="#contract-details-info" aria-expanded="false" aria-controls="contract-details-info"></i></div>
+    </div>
+</div>
+
+<div id="tabstrip">
+    <ul>
+        <li class="k-state-active" id="CurrentInfo-0" onclick="loadDocumentOnProjectDetails()">
+            Contract Info
+        </li>
+        <li id="ProjectsAndModsList_1">
+            Task Order And Mods
+        </li>
+        <li @(!(bool)ViewBag.ViewDocument ? "style = display:none" : "") id="DocumentManagement-2" onclick="loadDocumentOnContactfiles()">
+            Contract Files
+        </li>
+    </ul>
+
+    <div>
+        <div class="row">
+            <div class="col-md-6">
+
+                <ul id="basicContractInformationPanel" class="contractPanel">
+                    <li class="k-state-active">
+                        <span class="k-link k-state-selected">Basic Contract Information</span>
+                        <partial name="AdditionalContract/BasicContractInformationDetails.cshtml" />
+                    </li>
+                </ul>
+
+            </div>
+
+            <div class="col-md-6">
+
+                <ul id="importantForms" class="contractPanel">
+                    <li class="k-state-active">
+                        <span class="k-link k-state-selected">Additional Contract Data</span>
+                        <partial name="AdditionalContract/ImportantFormsPanel.cshtml" />
+                    </li>
+                </ul>
+
+                <ul id="keyPersonnelPanel" class="contractPanel mb-3">
+                    <li class="k-state-active">
+                        <span class="k-link k-state-selected">Key Personnel</span>
+                        <partial name="AdditionalContract/KeyPersonnelDetails.cshtml" />
+                    </li>
+                </ul>
+
+                <ul id="customerInformationPanel" class="contractPanel mb-3">
+                    <li class="k-state-active">
+                        <span class="k-link k-state-selected">Customer Information</span>
+                        <partial name="AdditionalContract/CustomerInformationDetails.cshtml" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <ul id="financialInfoPanel" class="contractPanel">
+                    <li class="k-state-active">
+                        <span class="k-link k-state-selected">Financial Information</span>
+                        <partial name="AdditionalContract/FinancialInformationDetails.cshtml" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div @(!(bool)ViewBag.ViewDocument ? "style = display:none" : "") class="row">
+            <div class="col-md-12">
+                <ul id="financialInfoPanel" class="contractPanel">
+                    <li class="k-state-active">
+                        <span class="k-link k-state-selected">Contract Files</span>
+                        @*<div class="p-4">
+                                <div id="fileUpload"></div>
+                            </div>
+                            <div>
+                                <div id="fileUploadDialog"></div>
+                            </div>*@
+
+                        <div id="folderTree" class="document-management p-3"></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <ul id="ContractModificationListPanel" class="contractPanel">
+                    <li class="k-state-active">
+                        <span class="k-link k-state-selected">Contract Modification List</span>
+                        <div id="partialContractModificationList">
+                            <div class="col py-3">
+                                <div id="contractModificationGrid">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row" @(!(bool)ViewBag.ContractNoticeList ? "style = display:none" : "")>
+            <div class="col-md-12">
+                <ul id="ContractModificationListPanel" class="contractPanel">
+                    <li class="k-state-active">
+                        <span class="k-link k-state-selected">Contract Notices</span>
+                        <div id="partialContractNoticeList">
+                            <div class="col py-3">
+                                <div id="contractNoticeGrid">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div id="projectAndModList" class="document-management"></div>
+    </div>
+    <div>
+        <div id="contractDocumentManagement" class="document-management"></div>
+    </div>
+
+</div>
+
+<div id="distributionList"></div>
+
+<div id="dialog" class="dialog-contract-detail">
+    <div class="content"></div>
+</div>
+<div id="dialog1" class="dialog-contract-detail">
+    <div class="content"></div>
+</div>
+
+@section Scripts{
+    <script src="@cdnUrl/js/proj/contractDetails.js?v=@resourceVersion"></script>
+    <script src="@cdnUrl/js/proj/ProjectGrid.js?v=@resourceVersion"></script>
+    <script src="@cdnUrl/js/proj/contractModificationGrid.js?v=@resourceVersion"></script>
+    <script src="@cdnUrl/js/dist/compiledScript.js?v=@resourceVersion"></script>
+
+    <script type="text/javascript">
+        var contractAndMods = null;
+        var projectsAndModsInContractDetail = null;
+        var isManageView = false// '@ViewBag.DocumentManagerManage' === 'True' ? true: false;
+        $(document).ready(function () {
+
+            window.onscroll = function () {
+                stickyrow()
+
+            };
+
+            var header = document.getElementById("sticky-header");
+            var sticky = header.offsetTop + 100;
+
+            function stickyrow() {
+                if (window.pageYOffset > sticky) {
+                    header.classList.add("active");
+                    var sticky_height = $('.row.top-header').height();
+                    $('.top-header.active + .k-tabstrip-wrapper').css({'margin-top': sticky_height+'px'});
+                } else {
+                    header.classList.remove("active");
+                    $('.top-header + .k-tabstrip-wrapper').css({'margin-top': 0});
+                }
+            }
+           
+            window.admin.documentManagement.loadDocumentManager(
+                '/@Northwind.Web.Models.DocumentManagementHelper.getValidFolderName(Model.BasicContractInfo.ContractNumber)',
+                '@Model.BasicContractInfo.ContractNumber', '@Model.ContractGuid', "folderTree", "", false, isManageView)
+
+
+            contractAndMods = window.project.modlist.loadContractMods('@Model.ContractGuid',
+                '@Model.FinancialInformation.Currency', "Contract Mod List", '@User.Claims.Where(c=>c.Type.ToString() == "fullName").ToList()[0].Value');
+            contractAndMods.refresh();
+            contractNotices = window.contractNotice.loadContractNotice('@Model.ContractGuid','@Model.BasicContractInfo.ProjectNumber','Notice Lists', '@User.Claims.Where(c=>c.Type.ToString() == "fullName").ToList()[0].Value');
+            contractNotices.refresh();
+            $("#ProjectsAndModsList_1").on("click", reloadProjectAndModule);
+        });
+
+        function loadDocumentOnProjectDetails() {
+            window.admin.documentManagement.loadDocumentManager1(
+                '/@Northwind.Web.Models.DocumentManagementHelper.getValidFolderName(Model.BasicContractInfo.ContractNumber)',
+                '@Model.BasicContractInfo.ContractNumber', '@Model.ContractGuid', "folderTree", "contractDocumentManagement", true, false)
+        }
+
+        function loadDocumentOnContactfiles() {
+            window.admin.documentManagement.loadDocumentManager(
+                '/@Northwind.Web.Models.DocumentManagementHelper.getValidFolderName(Model.BasicContractInfo.ContractNumber)',
+                '@Model.BasicContractInfo.ContractNumber', '@Model.ContractGuid', "contractDocumentManagement", "folderTree", true, isManageView)
+        }
+
+
+        function reloadProjectAndModule()
+        {
+            if (!projectsAndModsInContractDetail) {
+                setTimeout(function () {
+                    projectsAndModsInContractDetail = window.project.modlist.loadProjectsAndMods('@Model.ContractGuid',
+                '@Model.FinancialInformation.Currency', "Project And Mod List", '@User.Claims.Where(c=>c.Type.ToString() == "fullName").ToList()[0].Value')
+                }, 500)
+            }
+        }
+
+        function notifyCallBack() {
+        }
+        function skipCallBack() {
+        }
+
+        function reloadRevenuerecognition(e) {
+            if (e.istriggered) {
+                $('#idAddRevenueRecognition').show();
+                $('#idViewRevenueRecognition').hide();
+                $('#idEditRevenueRecognition').hide();
+                $('#idHideUpdatedBy').hide();
+                $('#RevenueRecognitionModel_RevenueRecognizationGuid').val(e.revenueGuid);
+                $('#idnotice').hide();
+            }
+            if (e.viewHistory) {
+                $('#idViewHistoryRevenueRecognition').show();
+            }
+        }
+        function ShowAttachmentDialog(resourceguid, noticetype) {
+            var data = {}
+            data.url = "/ContractNotice/GetAttachments?resourceGuid=" + resourceguid + "";
+            var options = {
+                title: 'Attachments',
+                height: '50%',
+                width: '50%',
+                events: [
+                    {
+                        text: "OK",
+                        action: function (e) {
+                        }
+                    }
+                ]
+            };
+            Dialog1.openDialog(data, options);
+        }
+    </script>
+    <script>
+        $(document).on("click", "#idEditContractMod", function () {
+            var data = {}
+            data.url = "/ContractModification/Edit/" + $(this).attr('data-val');
+            data.submitURL = "/ContractModification/Edit";
+            let senderData = data;
+            var options = {
+                title: 'Edit Mod : ' + $(this).attr('data-val-mod') + ' - ' + $(this).attr('data-val-mod-title'),
+                height: '85%',
+                events: [
+                    {
+                        text: "Save",
+                        primary: true,
+                        action: function (e, values) {
+                            window.uploaderMod.onSubmitFiles(values.resourceId, values.uploadPath);
+                        }
+                    },
+                    {
+                        text: "Cancel",
+                        action: function (e) {
+                        }
+                    }
+                ]
+            };
+            var dialog = $("#dialog").data("kendoDialog");
+            dialog.close();
+
+            Dialog.openDialogSubmit(data, options);
+        });
+    </script>
+
+    <script>
+        var fileUploadTreeObj = {
+            domToRender : "folderTree",
+            treeNodeUrl : "/DocumentManager/GetTemplateFolderTree?resourceType=@ViewBag.Resourcekey",
+            resourceType: '@ViewBag.Resourcekey',
+            pathPrefixName : '@Model.BasicContractInfo.ContractNumber',
+            isTreeTemplate : false,
+            resourceId : '@Model.ContractGuid',
+            moduleType : null,
+            subResourceType: null,
+        }
+    </script>
+}

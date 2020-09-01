@@ -1,0 +1,34 @@
+
+Step 1:
+Download flyway from flyway site: https://flywaydb.org/download/
+Install Java from link https://www.java.com/en/download/windows-64bit.jsp
+
+Then downloda jdbc driver for sql from https://www.microsoft.com/en-us/download/confirmation.aspx?id=11774
+
+Step 2:
+---Unzip the file and copy sqljdbc_auth.dll and past on Program Files/Java/jre-Version/bin
+
+Enable TCP/IP for SQL
+--Go To Sql Configuration Manager
+----Under SQL Server Network Configuration
+####Click Protocols for SQLEXPRESS
+#### Enable TCP/IP protocol
+#### make sure: Listen All is set to Yes
+
+--------To Enable port 1433
+#### Right click TCP/IP and select property
+#### Under IPAll set TCP Port to 1433
+
+
+Note: Restart SQL server to confirm
+
+Step 3:
+Under flyway.conf
+set flyway.url = dbc:jtds:sqlserver://localhost:1433;databaseName=TestMigration;integratedSecurity=true;
+
+
+Then open command promt on installed path and run flyway by typing following command
+flyway-5.2.4>flyway migrate
+
+Then enter db credential as asked
+

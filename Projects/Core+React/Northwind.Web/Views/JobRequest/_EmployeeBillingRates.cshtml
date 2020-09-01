@@ -1,0 +1,56 @@
+﻿@model Northwind.Web.Models.ViewModels.JobRequestViewModel
+
+<div>
+    <input hidden asp-for="EmployeeBillingRates.BillingRateGuid" class="form-control" />
+    <input hidden asp-for="ContractGuid" class="form-control" />
+</div>
+
+<div class="">
+    <div class="col-12">
+        <div class="row pt-3 align-items-center">
+            <div class="col">
+                <p class="mb-0">
+                    Please review the Employee Billing Rates below.  If changes are required, click the Edit Here button.
+                </p>
+            </div>
+
+            @if (Model.EmployeeBillingRates.IsCsv)
+            {
+                <div class="col col-sm-auto">
+                    <input id="idEditEmployeeBillingRates" class="btn btn-sm btn-secondary" type="button"
+                           value="Not Complete? Edit here" />
+                </div>
+            }
+            else
+            {
+                <div class="col col-sm-auto">
+                    <input id="idViewEBRNonCSV" class="btn btn-sm btn-secondary" type="button"
+                           value="Not Complete? Edit here" />
+                </div>
+            }
+
+        </div>
+    </div>
+
+    @if (Model.EmployeeBillingRates.IsCsv)
+    {
+        <div class="p-3">
+            <div id="JobEmployeeBillingGrid"></div>
+        </div>
+    }
+    else
+    {
+        @if (Model.EmployeeBillingRates != null)
+        {
+            var fileName = !string.IsNullOrWhiteSpace(@Model.EmployeeBillingRates.UploadFileName) ? Model.EmployeeBillingRates.UploadFileName.Split("/").Last() : "";
+            <div class="col-md-12 uploaded-file">
+                <a href="/ContractResourceFile/DownloadDocument/@Model.EmployeeBillingRates.ContractResourceFileGuid"
+                   id="@fileName">
+                    <i class="k-icon k-i-file-txt"></i>
+                    <span class="control-label">@fileName</span>
+                </a>
+            </div>
+        }
+    }
+
+</div>

@@ -1,0 +1,218 @@
+﻿<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Bootstrap 3 transparent and fullscreen modals">
+	<title>AutoCare</title>
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <!-- Fontawesome CSS -->
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <!-- Custom external CSS -->
+        <link rel="stylesheet" href="css/custom.css">
+        <!-- Opensans Font CSS -->
+        <link rel="stylesheet" href="css/opensans-font.css">
+       
+        
+        
+        <!-- jQuery library -->
+        <script src="js/jquery-1.12.3.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+	
+
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal-transparent">
+          New Make
+    </button>
+    <br />
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#edit-modal-transparent">
+        Edit Make
+    </button>  
+    
+    <br />
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#remove-modal-transparent">
+        Remove Make
+    </button>   
+    
+    <br />
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#remove-confirmation-modal-transparent">
+        Remove Make Confirmation
+    </button> 
+
+    <br />
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#reference-data-model-new-modal-transparent">
+        Reference Data - Model New
+    </button> 
+
+    <!-- Modal New Make -->
+    <div class="modal modal-transparent fade" id="modal-transparent" tabindex="-Z" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header headermodel">
+                    <button type="button" class="close closebutton" data-dismiss="modal"><span>&times;</span><span class="sr-only">Close</span></button>
+                    <!--<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>-->
+                    <h4 class="New-Make" id="myModalLabel">New Make</h4>
+                </div>
+                <div class="modal-body bodymodel">
+                    <div class="input-group">
+                        <p class="Submit-a-new-Make-name">Submit a new Make name for review:</p>
+                        <input type="text" class="form-control" aria-describedby="basic-addon1">
+                    </div>
+                </div>
+                <div class="modal-footer footermodel">
+                    <button type="button" class="btn modelcancelBTN" data-dismiss="modal" style="border:none;">CANCEL</button>
+                    <button type="button" class="btn modelsubmitBTN " data-dismiss="modal">SUBMIT</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Edit Make -->
+    <div class="modal modal-transparent fade" id="edit-modal-transparent" tabindex="-Z" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header headermodel">
+                    <button type="button" class="close closebutton" data-dismiss="modal"><span>&times;</span><span class="sr-only">Close</span></button>
+                    <!--<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>-->
+                    <h4 class="New-Make" id="myModalLabel">Edit Make</h4>
+                </div>
+                <div class="modal-body bodymodel">
+                    <div class="input-group">
+                        <p class="Submit-a-new-Make-name">Submit a revised Make name for review:</p>
+                        <input type="text" class="form-control" aria-describedby="basic-addon1" placeholder="Skoda">
+                    </div>
+                </div>
+                <div class="modal-body bodymodel">
+                    <div class="input-group">                        
+                        <p class="Submit-a-new-Make-name">
+                            <img src="images/error.png" />
+                            Associated records will be impacted</p>
+                        <p>42 base vehicles</p>
+                        <p>126 vehicles</p>
+                    </div>
+                </div>
+                <div class="modal-footer footermodel">
+                    <button type="button" class="btn modelcancelBTN" data-dismiss="modal" style="border:none;">CANCEL</button>
+                    <button type="button" class="btn modelsubmitBTN " data-dismiss="modal">SUBMIT</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Remove Make -->
+    <div class="modal modal-transparent fade" id="remove-modal-transparent" tabindex="-Z" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header headermodel">
+                    <button type="button" class="close closebutton" data-dismiss="modal"><span>&times;</span><span class="sr-only">Close</span></button>
+                    <!--<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>-->
+                    <h4 class="Remove-Make" id="myModalLabel">Remove Make</h4>
+                </div>
+                <div class="modal-body bodymodel">
+                    <div class="input-group-body">
+                        <p class="Submit-Make-Confirmation">
+                            <img src="images/error.png" />
+                            All associated records must be removed before
+                            the "International" Make can be removed.
+                        </p>
+                    </div>
+                </div>
+                <div class="modal-body bodymodel">
+                    <div class="input-group">
+                        
+                        <p>90 base vehicles</p>
+                        <p>1201 vehicles</p>
+                    </div>
+                </div>
+                <div class="modal-footer footermodel">
+                    <button type="button" class="btn Cancel-Button-Background" data-dismiss="modal" style="border:none;color: white;">CANCEL</button>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Remove Make Confirmation -->
+    <div class="modal modal-transparent fade" id="remove-confirmation-modal-transparent" tabindex="-Z" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header headermodel">
+                    <button type="button" class="close closebutton" data-dismiss="modal"><span>&times;</span><span class="sr-only">Close</span></button>
+                    <!--<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>-->
+                    <h4 class="Remove-Make" id="myModalLabel">Remove Make</h4>
+                </div>
+                <div class="modal-body bodymodel">
+                    <div class="input-group">
+                        <p class="Submit-Make-Confirmation">
+                            <img src="images/warning.png" />
+                            Please confirm that you wish to remove the "International" Make.
+                        </p>
+                    </div>
+                </div>
+                <div class="modal-body bodymodel">
+                    <div class="input-group">
+                        <p class="Submit-a-new-Make-name">
+                            
+                        </p>
+
+                    </div>
+                </div>
+                <div class="modal-footer footermodel">
+                    <button type="button" class="btn modelcancelBTN" data-dismiss="modal" style="border:none;">CANCEL</button>
+                    <button type="button" class="btn modelsubmitBTN " data-dismiss="modal">CONFIRM</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reference Data - Model New -->
+    <div class="modal modal-transparent fade" id="reference-data-model-new-modal-transparent" tabindex="-Z" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header headermodel">
+                    <button type="button" class="close closebutton" data-dismiss="modal"><span>&times;</span><span class="sr-only">Close</span></button>
+                    <!--<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>-->
+                    <h4 class="New-Make" id="myModalLabel">New Model</h4>
+                </div>
+                <div class="modal-body bodymodel">
+                    <div class="input-group">
+                        <p class="Submit-a-new-Make-name">Submit a new Model name for review:</p>
+                        <input type="text" class="form-control" aria-describedby="basic-addon1" placeholder="Stratos">
+                    </div>
+                </div>
+                <div class="modal-body bodymodel">
+                    <div class="input-group">
+                        <p class="Submit-Make-Checkbox-Group">
+                            Select a vehicle type:
+                        </p>
+                    </div>
+                </div>
+                <div class="Checkbox-Group">                    
+                    <input type="checkbox" name="Car" value="Car" checked class="Checkbox-Group"> Car <br />
+                    <input type="checkbox" name="Track" value="Track"> Track    <br />
+                    <input type="checkbox" name="Heavy" value="Heavy"> Heavy duty truck <br />
+                    <input type="checkbox" name="Van" value="Van"> Van  <br />
+                    <input type="checkbox" name="Tractor" value="Tractor"> Tractor  <br />
+                    <input type="checkbox" name="Sports" value="Sports"> Sports vehicle 
+                </div>
+                <div class="modal-footer footermodel">
+                    <button type="button" class="btn modelcancelBTN" data-dismiss="modal" style="border:none;">CANCEL</button>
+                    <button type="button" class="btn modelsubmitBTN " data-dismiss="modal">SUBMIT</button>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+        <br>
+          
+
+
+   
+</body>
+</html>

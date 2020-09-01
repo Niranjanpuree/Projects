@@ -1,0 +1,52 @@
+﻿@model Northwind.Web.Models.ViewModels.Contract.ContractWBSViewModel
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+
+@{
+    var resourceVersion = @Configuration["resourceVersion"];
+    var cdnUrl = @Configuration["CDNUrl"];
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="_ViewWorkBreakdownStructure">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div>
+                <input hidden asp-for="ContractWBSGuid" class="form-control" />
+                <input hidden asp-for="ContractGuid" class="form-control" />
+            </div>
+
+            @if (Model.IsCsv)
+            {
+                <div class="row form-group">
+                    <p class="col-12 alert alert-secondary rounded-0 mt-n3">Following rates were updated by @Model.UpdatedByDisplayname on @Model.UpdatedOn. To export these rates to CSV file, click on Export to CSV. You can export the file to CSV, make edits and then re-upload the file in Edit screen.</p>
+                    <div class="col text-right">
+                        <input type="button" id="DownloadWBSGrid" class="download btn btn-secondary" value="Export to CSV" />
+                    </div>
+                </div>
+
+                <div class="form-group" id="WorkBreakdownStructureGrid"></div>
+            }
+            else
+            {
+                var fileName = @Model.UploadFileName.Split("/").Last();
+                <div class="row">
+                        <p class="col-12 alert alert-secondary rounded-0 mt-n3">Following file was uploaded by @Model.UpdatedByDisplayname on @Model.UpdatedOn for work breakdown structure. Click on the file name to download it. If you want to change the uploaded file, click on Upload New File button. This will allow you to upload either a new CSV file for rates or upload any other file type.</p>
+                </div>
+                <div class="col-12 text-center">
+                        <a href="/ContractResourceFile/DownloadDocument/@Model.ContractResourceFileGuid"
+                        id="@fileName" class="file-upload-name">
+                         <i class="k-icon k-i-file-txt"></i>
+                         <span class="control-label">@fileName</span>
+                     </a>
+                </div>
+            }
+
+        </form>
+    </div>
+</div>
+
+<script src="@cdnUrl/js/proj/contractfileUploadGrid.js?v=@resourceVersion" class="UploadGrid" data-gridname="#WorkBreakdownStructureGrid"
+        data-controller="WorkBreakDownStructure" data-idvalue="#ContractGuid" data-guid="contractWBSGuid" data-jobrequest="#JobWorkBreakdownStructureGrid"
+        data-fields="wbsCode|description|value|contractType|invoiceAtThisLevel" data-titles="WBS Code|Description|Value|Contract Type|Invoice At This Level"
+        data-downloadgrid="#DownloadWBSGrid" data-path=@Model.FilePath></script>

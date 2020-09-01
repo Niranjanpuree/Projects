@@ -1,0 +1,93 @@
+﻿@model IEnumerable<Northwind.Web.Infrastructure.Models.GridviewField>
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, Northwind.Shared.Web
+@addTagHelper *, Northwind.Shared.Web.Helpers
+
+<div class="row">
+    <div class="col-md-12">
+        Please select fields that you want to export from the left list box. Use the provided buttons to move items between left and right list boxes.
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12 mt-3">
+        <form method="post" onsubmit="return false">
+            <select id="options" multiple>
+                @foreach (var item in Model)
+                {
+                    <option value="@item.FieldName">@item.FieldLabel</option>
+                }
+            </select>
+            <select id="selectedOptions" name="selectedOptions" multiple></select>
+            <select id="fieldNames" name="fieldNames" multiple style="display:none">
+                @foreach (var item in Model)
+                {
+                    <option value="@item.FieldName" selected="selected">@item.FieldLabel</option>
+                }
+            </select>
+            <select id="fieldLabels" name="fieldLabels" multiple style="display:none">
+                @foreach (var item in Model)
+                {
+                    <option value="@item.FieldLabel" selected="selected">@item.FieldLabel</option>
+                }
+            </select>
+            <select id="fieldFilters" name="fieldFilters" multiple style="display:none">
+                @foreach (var item in Model)
+                {
+                    <option value="@item.Type" selected="selected">@item.Type</option>
+                }
+            </select>
+            <select id="fieldFormats" name="fieldFormats" multiple style="display:none">
+                @foreach (var item in Model)
+                {
+                    <option value="@item.Format" selected="selected">@item.Format</option>
+                }
+            </select>
+        </form>
+    </div>
+</div>
+<div class="row mt-3">
+    <div class="col-md-12 font-weight-bold border-bottom mb-2 pb-1">
+        Available Shortcuts
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-5">
+        Navigate Items
+    </div>
+    <div class="col-md-7">
+        Arrow keys
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-5">
+        Move Items from left to right
+    </div>
+    <div class="col-md-7">
+        CTRL + right arrow
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-5">
+        Change Order on right
+    </div>
+    <div class="col-md-7">
+        CTRL + Shift + up/down arrow keys or drag item using mouse
+    </div>
+</div>
+<script>
+    function onInit() {
+        $("#options").kendoListBox({
+            disabled: false,
+            selectable: "multiple",
+            draggable: true,
+            connectWith: "selectedOptions",
+            toolbar: {
+                tools: ["transferTo", "transferFrom", "transferAllTo", "transferAllFrom"]
+            }
+        });
+        $("#selectedOptions").kendoListBox({ draggable: true });
+    }
+    onInit();
+</script>

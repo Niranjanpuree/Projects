@@ -1,0 +1,42 @@
+﻿@model Northwind.Web.Models.ViewModels.RevenueRecognition.RevenueRecognitionViewModel
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+@{
+    var resourceVersion = @Configuration["resourceVersion"];
+    var cdnUrl = @Configuration["CDNUrl"];
+}
+<input type="hidden" asp-for="ContractGuid" class="form-control" />
+
+@if (Model.ContractGuid != Guid.Empty || Model.ContractGuid != null)
+{
+    @if (Model.IsCsvWbs)
+    {
+        <div class="row align-items-center p-3">
+            <div class="col">
+                <h6 class="mb-0">Revenue Stream Information (WBS)</h6>
+            </div>
+            <div class="col-md-auto">
+                <input type="button" id="DownloadWBSGrid" class="download btn btn-sm btn-secondary" value="Export to CSV" />
+            </div>
+        </div>
+        <div class="form-group" id="WorkBreakdownStructureGrid">
+        </div>
+        <script src="@cdnUrl/js/proj/workBreakdownUploadGrid.js?v=@resourceVersion" class="WBSUploadGrid" data-gridname="#WorkBreakdownStructureGrid"
+                data-controller="WorkBreakDownStructure" data-idvalue="#ContractGuid" data-guid="contractWBSGuid"
+                data-fields="wbsCode|description|value|contractType|invoiceAtThisLevel"
+                data-titles="WBS Code|Description|Value|Contract Type|Invoice At This Level" data-downloadgrid="#DownloadWBSGrid"
+                data-path="@Model.WbsFilePath"></script>
+    }
+    else if (!string.IsNullOrEmpty(Model.WbsFilePath))
+    {
+        var fileName = @Model.WbsFilePath.Split("/").Last();
+        <div class="col-md-12 uploaded-file">
+            <a href="/Contract/DownloadDocument?filePath=@Model.WbsFilePath&fileName=@fileName"
+               id="@fileName">
+                <i class="k-icon k-i-file-txt"></i>
+                <span class="control-label">@fileName</span>
+            </a>
+        </div>
+    }
+
+}

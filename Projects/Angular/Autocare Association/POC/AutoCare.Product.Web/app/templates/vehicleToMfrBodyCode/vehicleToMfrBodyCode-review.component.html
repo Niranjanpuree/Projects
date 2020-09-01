@@ -1,0 +1,182 @@
+﻿<loading-gif [show]="showLoadingGif"></loading-gif>
+<user-likes-comp #likeComponent></user-likes-comp>
+<!-- Main start -->
+<main class="clearfix">
+    <div class="center" *ngIf="vehicleToMfrBodyCodeChangeRequest">
+
+        <!-- Breadcrumb start -->
+        <div class="breadcrumb">
+            <a class="back" routerLink={{backNavigation}}>{{backNavigationText}}</a>
+        </div>
+        <!-- Breadcrumb end -->
+        <h2 class="foldable clearfix">
+            <span *ngIf="vehicleToMfrBodyCodeChangeRequest.stagingItem.changeType == 'Add'">New</span>
+            <span *ngIf="vehicleToMfrBodyCodeChangeRequest.stagingItem.changeType == 'Delete'">Remove</span>
+            &nbsp;Mfr Body Code Association Request
+            <span class="float-right" *ngIf="vehicleToMfrBodyCodeChangeRequest.canDelete">
+                <input type="submit" value="DELETE" class="btn orange" (click)="onSubmitReview('delete')">
+            </span>
+        </h2>
+        <br />
+
+        <strong>Change Request ID: {{vehicleToMfrBodyCodeChangeRequest.stagingItem.changeRequestId}}</strong>
+        <div class="table-wrap">
+            <div class="ctable">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Base ID</td>
+                            <td>Make</td>
+                            <td>Model</td>
+                            <td>Year</td>
+                            <td>Vehicle ID</td>
+                            <td>Submodel</td>
+                            <td>Region</td>
+                            <td>Mfr Body Code Id</td>
+                            <td>Mfr Body Code</td>
+                            
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="vehicleToMfrBodyCodeChangeRequest.entityStaging.vehicle && vehicleToMfrBodyCodeChangeRequest.entityStaging.mfrBodyCode">
+                        <tr>
+                            <td>{{vehicleToMfrBodyCodeChangeRequest.entityStaging.vehicle.baseVehicleId}}</td>
+                            <td>{{vehicleToMfrBodyCodeChangeRequest.entityStaging.vehicle.makeName}}</td>
+                            <td>{{vehicleToMfrBodyCodeChangeRequest.entityStaging.vehicle.modelName}}</td>
+                            <td>{{vehicleToMfrBodyCodeChangeRequest.entityStaging.vehicle.yearId}}</td>
+                            <td>{{vehicleToMfrBodyCodeChangeRequest.entityStaging.vehicle.id}}</td>
+                            <td>{{vehicleToMfrBodyCodeChangeRequest.entityStaging.vehicle.subModelName}}</td>
+                            <td>{{vehicleToMfrBodyCodeChangeRequest.entityStaging.vehicle.regionName}}</td>
+                            <td>{{vehicleToMfrBodyCodeChangeRequest.entityStaging.mfrBodyCodeId}}</td>
+                            <td>{{vehicleToMfrBodyCodeChangeRequest.entityStaging.mfrBodyCode.name}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="twocol-equal clearfix">
+            <div class="margin-t-20px">
+
+                <p>
+                    <strong>Submitted by</strong><br>
+                    {{vehicleToMfrBodyCodeChangeRequest.stagingItem.submittedBy}}, {{vehicleToMfrBodyCodeChangeRequest.stagingItem.createdDateTime | date: "MMMM dd,yyyy"}}
+                </p>
+
+                <p *ngIf="vehicleToMfrBodyCodeChangeRequest.canLike">
+                    <span *ngIf="!vehicleToMfrBodyCodeChangeRequest.isCompleted">
+                        <input type="button" (click)="onLikeClick('Like')" [disabled]="isLiked" class="btn icon thumb-up" value="Like"> &nbsp;&nbsp;&nbsp; {{likeStagingGet.likeCount}} likes
+                    </span>
+                </p>
+
+                <p *ngIf="!vehicleToMfrBodyCodeChangeRequest.canLike  &&(!vehicleToMfrBodyCodeChangeRequest.canFinal|| likeStagingGet.likeCount == 0)">
+                    <span class="icon-text thumb-up">{{likeStagingGet.likeCount}} likes</span>
+                </p>
+                <p *ngIf="vehicleToMfrBodyCodeChangeRequest.canFinal && likeStagingGet.likeCount > 0">
+                    <span class="icon-text thumb-up"> <a class="pointer" (click)="onClickLikes(vehicleToMfrBodyCodeChangeRequest.stagingItem.changeRequestId)"> {{likeStagingGet.likeCount}} likes </a></span>
+                </p>
+
+
+                <p>
+                    <strong>Attachments</strong><br>
+                    <ac-fileuploader [existing-files]="vehicleToMfrBodyCodeChangeRequest.attachments"
+                                     upload-api-path="file/savechunk" [can-attach]="false" #existingAcFileUploader></ac-fileuploader>
+                </p>
+
+            <div class="add-form">
+                    <div class="input-blocks">
+                        <div>
+                            <strong>Assigned Reviewer</strong>
+                            <div class="select white-select" >
+                                <select [(ngModel)]="assignedReviewer.assignedToUserId" [disabled]="vehicleToMfrBodyCodeChangeRequest.isCompleted||!vehicleToMfrBodyCodeChangeRequest.canAssign" (ngModelChange)="onReviewerChange()">
+                                    <option value="-1" *ngIf="usersForAssignment">Me</option>
+                                    <option *ngFor="let user of usersForAssignment" [value]="user.id">
+                                        {{user.user}}
+                                    </option>
+                                </select>
+                                <div class="select__arrow white-select__arrow"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <strong>Current Status</strong>
+                            {{vehicleToMfrBodyCodeChangeRequest.stagingItem.status}}
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        <div *ngIf="vehicleToMfrBodyCodeChangeRequest.canReview">
+                            <strong>Your Review</strong>
+                            <div *ngIf="!vehicleToMfrBodyCodeChangeRequest.canFinal">
+                                <div class="custom-radio yes-no">
+
+                                    <label class="yes left">
+                                        <input type="radio" name="radio" (change)="onChange('PreliminaryApprove')" [checked]="isPreliminaryApproveChecked">
+                                        <small></small>
+                                        <span class="bg"></span>
+                                        <ins>APPROVE</ins>
+                                    </label>
+
+                                    <label class="no right">
+                                        <input type="radio" name="radio" (change)="onChange('Reject')" [checked]="isRejectChecked">
+                                        <small></small>
+                                        <span class="bg"></span>
+                                        <ins>REJECT</ins>
+                                    </label>
+
+                                </div>
+                            </div>
+
+                            <div *ngIf="vehicleToMfrBodyCodeChangeRequest.canFinal">
+                                <div class="custom-radio">
+                                    <label class="left">
+                                        <input type="radio" name="radio" (change)="onChange('Approve')" [checked]="isApproveChecked">
+                                        <small></small>
+                                        <span class="bg"></span>
+                                        <ins>FINAL</ins>
+                                    </label>
+                                    <label *ngIf="showPrelimRadio">
+                                        <input type="radio" name="radio" (change)="onChange('PreliminaryApprove')" [checked]="isPreliminaryApproveChecked">
+                                        <small></small>
+                                        <span class="bg"></span>
+                                        <ins>PRELIM</ins>
+                                    </label>
+                                    <label class="no right">
+                                        <input type="radio" name="radio" (change)="onChange('Reject')" [checked]="isRejectChecked">
+                                        <small></small>
+                                        <span class="bg"></span>
+                                        <ins>REJECT</ins>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="submit-wrap" *ngIf="vehicleToMfrBodyCodeChangeRequest.canSubmit">
+                        <input type="submit" value="SUBMIT" class="btn" (click)="onSubmitReview()">
+                        <input type="reset" value="CANCEL" class="btn transparent" (click)="onCancel()">
+                    </div>
+                </div>
+
+            </div>
+
+            <div>
+                <div class="comment-box">
+                    <reviewer-comments-comp [comments]="vehicleToMfrBodyCodeChangeRequest.comments"></reviewer-comments-comp>
+
+                </div>
+
+                <div class="attach-wrap" *ngIf="vehicleToMfrBodyCodeChangeRequest.canSubmit">
+                    <strong>OPTIONAL</strong>
+                    <ac-fileuploader upload-api-path="file/savechunk" #newAcFileUploader can-attach="vehicleToMfrBodyCodeChangeRequest.canAttach"></ac-fileuploader>
+                    <small>Include comments</small>
+                    <textarea cols="50" rows="5" [(ngModel)]="reviewComment.comment"></textarea>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+<!-- Main end -->

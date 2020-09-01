@@ -1,0 +1,108 @@
+﻿<loading-gif [show]="showLoadingGif"></loading-gif>
+<!-- Breadcrumb start -->
+<div class="breadcrumb">
+    <div class="center">
+        <a class="back" routerLink="/system/search">Return to Drive Type search</a>
+    </div>
+</div>
+<!-- Breadcrumb end -->
+<!-- Main start -->
+<main class="clearfix">
+
+    <div class="center" *ngIf="existingDriveType && replacementDriveType">
+
+        <!-- Existing Drive Type systems start -->
+        <div class="table-wrap">
+            <h2 class="clearfix">
+                Existing Drive Types
+            </h2>
+            <div class="ctable">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Drive Type ID</td>
+                            <td>Drive Type</td>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="existingDriveType">
+                        <tr>
+                            <td>{{existingDriveType.id}}</td>
+                            <td>{{existingDriveType.name}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Replacement Drive Type systems start -->
+        <div class="table-wrap">
+            <h2 class="clearfix">
+                Replacement Drive Type
+            </h2>
+            <div class="ctable">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Drive Type ID</td>
+                            <td>Drive Type</td>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="replacementDriveType">
+                        <tr>
+                            <td>{{replacementDriveType.id}}</td>
+                            <td>{{replacementDriveType.name}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Associations to replace start -->
+        <div class="table-wrap">
+            <h2 class="clearfix">
+                Associations to Replace
+            </h2>
+            <div class="ctable" *ngIf="existingDriveType && existingDriveType.vehicleToDriveTypes">
+                <ac-grid [dataSource]="existingDriveType.vehicleToDriveTypes" #gd="acGrid"
+                         columns='[
+                 { "header":"Vehicle to Drive Type ID","field":"id","sortable":true,"sortedByDesc":true},
+                 { "header":"Drive Type Id",                "field":"driveType",    "sortable":true},
+                 { "header":"Base Vehicle (Year, Make, Model)","field":"vehicle.yearId","sortable":true},
+                 { "header":"Vehicle (Submodel, Region)","field":"vehicle.subModelName","sortable":true},
+                 { "header":"Drive Type","field":"driveType.name","sortable":true}
+                 ]'
+                         initialSortBy='[{"field": "id", "orderByDesc": true}]'
+                         paging='{"pageSize": 10, "numberOfPagesOnPageList" : 10}'>
+                    <tr *ngFor="let vechicleToDriveType of gd.items">
+                        <td>{{vechicleToDriveType.id}}</td>
+                        <td>{{vechicleToDriveType.driveTypeId}}</td>
+                        <td>{{vechicleToDriveType.vehicle.yearId}}, {{vechicleToDriveType.vehicle.makeName}}, {{vechicleToDriveType.vehicle.modelName}}</td>
+                        <td>{{vechicleToDriveType.vehicle.subModelName}}, {{vechicleToDriveType.vehicle.regionName}}</td>
+                        <td>{{vechicleToDriveType.driveType.name}}</td>
+                    </tr>
+                </ac-grid>
+            </div>
+
+        </div>
+
+        <div class="add-form">
+            <div class="clearfix">
+
+                <div class="submit-wrap">
+                    <input type="submit" value="SUBMIT CHANGE REQUEST" class="btn larger" (click)="onSubmitChangeRequest()">
+                    <input type="reset" value="CANCEL" class="btn transparent larger" routerLink="/system/search">
+                </div>
+
+                <div class="attach-wrap" style="margin-top: 40px;">
+                    <strong>OPTIONAL</strong>
+                    <ac-fileuploader upload-api-path="file/savechunk"></ac-fileuploader>
+                    <small>Include Comments</small>
+                    <textarea cols="50" rows="5" [(ngModel)]="existingDriveType.comment"></textarea>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</main>
+<!-- Main end -->

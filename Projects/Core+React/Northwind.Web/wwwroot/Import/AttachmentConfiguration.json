@@ -1,0 +1,7 @@
+{
+  "Attachment": {
+    "SourcePath": "D:\\Xylontech Projects\\src\\Northwind.Web\\wwwroot\\Import\\Attachment",
+    "DestinationPath": "C:\\DocumentRoot\\",
+    "DeleteFileAfterProcessing": "no"
+  }
+}

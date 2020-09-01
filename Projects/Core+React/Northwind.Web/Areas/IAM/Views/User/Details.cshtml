@@ -1,0 +1,36 @@
+﻿@model Northwind.Web.Areas.IAM.Models.IAM.ViewModels.UserEditViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, Northwind.Web
+@addTagHelper *, Northwind.Web.Helpers
+@*<div class="col-12">
+    <div class="row">
+        <div class="form-group col-sm-4 ">
+            <label asp-for="Username" class="control-label"></label>
+            <div>@Model.Username</div>
+        </div>
+        <div class="form-group col-sm-4">
+            <label asp-for="Firstname" class="control-label"></label>
+            <div> @Model.Firstname</div>
+        </div>
+        <div class="form-group col-sm-4">
+            <label asp-for="UserStatus" class="control-label"></label>
+            <div> @Model.UserStatus</div>
+        </div>
+    </div>
+
+
+
+</div>*@
+<div class="row">
+    <div id="usertabstrip" class="col-md-12">
+
+    </div>
+</div>
+<script>
+   
+
+    function init() {
+        window.iam.usergroup.loadUserDetails('@Model.UserGuid', 'usertabstrip','@Model.DisplayName');
+    }
+    init();
+</script>

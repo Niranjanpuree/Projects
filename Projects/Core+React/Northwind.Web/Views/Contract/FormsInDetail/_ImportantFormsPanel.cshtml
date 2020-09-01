@@ -1,0 +1,192 @@
+﻿@model Northwind.Web.Models.ViewModels.Contract.ContractViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+<div class="p-4">
+    @if (Model.IsPermissionJobRequest)
+    {
+        <div class="form-group row align-items-center">
+            <label class="control-label control-label-read col-sm-6">Job Request Form</label>
+            <div class="col-sm-6">
+                @if (Model.JobRequest != null)
+                {
+                    <button class="btn btn-sm btn-secondary" id="idViewJobRequest">
+                        View
+                    </button>
+                    if (Model.JobRequest.Status != 5)
+                    {
+                        <button class="btn btn-sm btn-secondary" id="idEditJobRequest">
+                            Edit
+                        </button>
+                    }
+                }
+                else
+                {
+                    <button class="btn btn-sm btn-secondary" id="idAddJobRequest">
+                        Add
+                    </button>
+                }
+            </div>
+        </div>
+    }
+    @*<div class="form-group row align-items-center">
+            <label class="control-label control-label-read col-sm-6">Contract Award Document</label>
+            <div class="col-sm-6">
+                <button class="btn btn-sm btn-secondary">View</button>
+                <button class="btn btn-sm btn-secondary">Remove</button>
+            </div>
+        </div>*@
+    <div class="form-group row align-items-center">
+        <div class="col-sm-6">
+            <label class="control-label control-label-read">Applicable FAR Clauses</label>
+            @if (Model.ContractQuestionaire != null)
+            {
+                <div>
+                    <small>
+                        Updated By @(Model.ContractQuestionaire.Displayname) on @(Model.ContractQuestionaire.UpdatedOn.ToString("yyyy-MM-dd"))
+                    </small>
+                </div>}
+        </div>
+        <div class="col-sm-6">
+            @if (Model.ContractQuestionaire != null)
+            {
+                <button class="btn btn-sm btn-secondary" id="idViewContractQuestionaire">
+                    View
+                </button>
+                <button class="btn btn-sm btn-secondary" id="idEditContractQuestionaire">
+                    Edit
+                </button>
+
+            }
+            else
+            {
+                <button class="btn btn-sm btn-secondary" id="idAddContractQuestionaire">Add</button>
+
+            }
+        </div>
+    </div>
+    @if (Model.BasicContractInfo.IsIDIQContract == false)
+    {
+        <div class="form-group row align-items-center">
+            <label class="control-label control-label-read col-sm-6">Work Breakdown Structure</label>
+            <div class="col-sm-6">
+                @if (Model.ContractWBS != null)
+                {
+                    @if (Model.ContractWBS.IsCsv)
+                    {
+                        <button class="btn btn-sm btn-secondary" id="idViewContractWBS">
+                            View
+                        </button>
+                        <button class="btn btn-sm btn-secondary" id="idEditContractWBS">
+                            Edit
+                        </button>
+                    }
+                    else
+                    {
+                        <button class="btn btn-sm btn-secondary" id="idViewWBSNonCSV">
+                            View
+                        </button>
+                    }
+
+                }
+                else
+                {
+                    <button class="btn btn-sm btn-secondary" id="idAddContractWBS">
+                        Add
+                    </button>
+
+                }
+            </div>
+        </div>
+        <div class="form-group row align-items-center">
+            <label class="control-label control-label-read col-sm-6">Employee Billing Rates</label>
+            <div class="col-sm-6">
+                @if (Model.employeeBillingRatesViewModel != null)
+                {
+                    @if (Model.employeeBillingRatesViewModel.IsCsv)
+                    {
+                        <button class="btn btn-sm btn-secondary" id="idViewEmployeeBillingRates">
+                            View
+                        </button>
+                        <button class="btn btn-sm btn-secondary" id="idEditEmployeeBillingRates">
+                            Edit
+                        </button>
+                    }
+                    else
+                    {
+                        <button class="btn btn-sm btn-secondary" id="idViewEBRNonCSV">
+                            View
+                        </button>
+                    }
+                }
+                else
+                {
+                    <button class="btn btn-sm btn-secondary" id="idAddEmployeeBillingRates">
+                        Add
+                    </button>
+                }
+            </div>
+        </div>
+        <div class="form-group row align-items-center">
+            <label class="control-label control-label-read col-sm-6">Subcontractor Labor Billing Rates</label>
+            <div class="col-sm-6">
+                @if (Model.LaborCategoryRates != null)
+                {
+                    @if (Model.LaborCategoryRates.IsCsv)
+                    {
+                        <button class="btn btn-sm btn-secondary" id="idViewLaborCategoryRates">
+                            View
+                        </button>
+                        <button class="btn btn-sm btn-secondary" id="idEditLaborCategoryRates">
+                            Edit
+                        </button>
+                    }
+                    else
+                    {
+                        <button class="btn btn-sm btn-secondary" id="idViewSBRNonCSV">
+                            View
+                        </button>
+                    }
+                }
+                else
+                {
+                    <button class="btn btn-sm btn-secondary" id="idAddLaborCategoryRates">
+                        Add
+                    </button>
+                }
+            </div>
+        </div>
+    }
+    <div class="form-group row align-items-center">
+        <label class="control-label control-label-read col-sm-6">Revenue Recognition Form</label>
+        <div class="col-sm-6">
+            @if (Model.revenueRecognitionModel != null)
+            {
+                <button class="btn btn-sm btn-secondary" id="idViewRevenueRecognition">View</button>
+                <button class="btn btn-sm btn-secondary" id="idEditRevenueRecognition">
+                    Edit
+                </button>
+                <button class="btn btn-sm btn-secondary" id="idDeleteRevenueRecognition">Remove</button>
+            }
+            else
+            {
+                <button class="btn btn-sm btn-secondary" id="idAddRevenueRecognition">Add</button>
+            }
+        </div>
+    </div>
+    @*<div class="form-group row align-items-center">
+            <label class="control-label control-label-read col-sm-6">Self Performance Work Sheet</label>
+            <div class="col-sm-6">
+                <button class="btn btn-sm btn-secondary">View</button>
+                <button class="btn btn-sm btn-secondary">Edit</button>
+            </div>
+        </div>
+        <div class="form-group row align-items-center">
+            <label class="control-label control-label-read col-sm-6">Cost Performance Reports</label>
+            <div class="col-sm-6">
+                <button class="btn btn-sm btn-secondary">View</button>
+                <button class="btn btn-sm btn-secondary">Edit</button>
+                <button class="btn btn-sm btn-secondary">Remove</button>
+            </div>
+        </div>*@
+</div>

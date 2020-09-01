@@ -1,0 +1,27 @@
+Delete from ResourceAttributeValue where ResourceAttributeGuid='8169BAE1-DDAF-4E3E-97A5-C7D9BB0BF5F9' 
+insert into ResourceAttributeValue (ResourceAttributeGuid , Name ,Value)
+Values
+('8169BAE1-DDAF-4E3E-97A5-C7D9BB0BF5F9',		'Cost Incurred Plus Fee On Cost',										'CPFC'     ),
+('8169BAE1-DDAF-4E3E-97A5-C7D9BB0BF5F9',		'Cost Incurred Plus Fee on Hours',									'CPFH'		   ),
+('8169BAE1-DDAF-4E3E-97A5-C7D9BB0BF5F9',		'LLR W/Fee Plus Non-Labor W/Burden W/Fee',							'LLRFNLBF'	   ),
+('8169BAE1-DDAF-4E3E-97A5-C7D9BB0BF5F9',		'Loaded Labor Plus Non-labor Plus Burden On Non-labor',				'LLRCINLB'	   ),
+('8169BAE1-DDAF-4E3E-97A5-C7D9BB0BF5F9',		'Loaded Labor Plus Non-labor W/Burden W/Fee',							'LLRCINBF' ),
+('8169BAE1-DDAF-4E3E-97A5-C7D9BB0BF5F9',		'Loaded Labor Rate',													'LLR'	   ),
+('8169BAE1-DDAF-4E3E-97A5-C7D9BB0BF5F9',		'Loaded Labor Rate Plus Cost Incurred On Non-labor (T&M)',			'LLRCINL'	   ),
+('8169BAE1-DDAF-4E3E-97A5-C7D9BB0BF5F9',		'Loaded Labor Rate w/Burden w/Fee plus Non-labor w/Burden W/Fee',		'RSBFNLBF' ),
+('8169BAE1-DDAF-4E3E-97A5-C7D9BB0BF5F9',		'Manual Bills with Unbilled Detail',							   		'MANUAL'   ),
+('8169BAE1-DDAF-4E3E-97A5-C7D9BB0BF5F9',		'Progress Payment',											   		'1443'		   )
+
+Delete from ResourceAttributeValue where ResourceAttributeGuid='43FF064D-568D-4DD5-8C9C-80FDB917A04C' 
+insert into ResourceAttributeValue (ResourceAttributeGuid , Name ,Value)
+Values
+('43FF064D-568D-4DD5-8C9C-80FDB917A04C'   ,'Cost Incurred Plus Fee On Cost',	'CPFC'							),
+('43FF064D-568D-4DD5-8C9C-80FDB917A04C'   ,'Equal To Billings After Retainage',	'ETBAR'							),
+('43FF064D-568D-4DD5-8C9C-80FDB917A04C'   ,'Equal To Billings Before Retainage',	'ETBBR'						),
+('43FF064D-568D-4DD5-8C9C-80FDB917A04C'   ,'Fee on Hours Plus Cost Incurred',	'CPFH'							),
+('43FF064D-568D-4DD5-8C9C-80FDB917A04C'   ,'Fixed Amount Contract To Date',	'FACTD'								),
+('43FF064D-568D-4DD5-8C9C-80FDB917A04C'   ,'Fixed Amount Month To Date',	'FAMTD'								),
+('43FF064D-568D-4DD5-8C9C-80FDB917A04C'   ,'Loaded Labor Plus Non-labor Plus Burden on Non-Labor',	'LLRCINLB'	),
+('43FF064D-568D-4DD5-8C9C-80FDB917A04C'   ,'LoadedLabor Plus Non-Labor W/Burden W/Fee', 'LLRBFNBF'				),
+('43FF064D-568D-4DD5-8C9C-80FDB917A04C'   ,'Loaded Labor Rate',	'LLR'											),
+('43FF064D-568D-4DD5-8C9C-80FDB917A04C'   ,'Loaded Labor Rate Plus Cost Incurred On Non-labor (T&M)',	'LLRCIN')

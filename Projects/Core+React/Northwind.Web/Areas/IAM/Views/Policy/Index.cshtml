@@ -1,0 +1,128 @@
+﻿@{
+ViewData["Title"] = "Settings: Policy Management";
+Layout = "~/Areas/IAM/Views/Shared/_Layout.cshtml";
+}
+@section breadcrumb
+{
+    <li class="breadcrumb-item"><a href="/admin/settings">Settings</a></li>
+    <li class="breadcrumb-item"><a href="/iam/user">User Management</a></li>
+}
+<!--Search Bar-->
+<div class="container-fluid">
+    <div class="row mt-3">
+        <div class="col">
+            <div id="policyGrid">
+            </div>
+        </div>
+    </div>
+</div>
+
+@section ScriptsIAM{ 
+    <script>
+        window.iam.loadPolicy();
+    </script>
+}
+
+@*@section ScriptsIAM {
+<script type="text/javascript">
+    $(document).ready(function () {
+        var found = $("#iam_tabs").find("a.nav-link.active").first();
+        $(found).removeClass("active");
+        $("#policyTab").addClass('active');
+
+        $("#addNewPolicy").on('click', function (evt) {
+            window.location.href = "/IAM/Policy/Add";
+            evt.preventDefault = true;
+            evt.stopPropagation = true;
+        })
+        var advancedSearchLink = $("#advancedSearchLink");
+        var dialog = $("#advancedSearchDialog");
+        advancedSearchLink.on('click', function (evt) {
+            dialog.data('kendoDialog').open();
+            evt.preventDefault;
+        });
+
+        dialog.kendoDialog({
+            width: "50%",
+            title: "Advanced User Search",
+            visible: false,
+            closable: true,
+            modal: true,
+            content: "<p>Place Holder for Advanced Search<p>",
+            actions: [{
+                    text: 'Cancel'
+                },
+                {
+                    text: 'Apply',
+                    primary: true
+                }
+            ],
+
+        });
+
+
+
+
+        var dataUrl = "/IAM/Policy/Get"
+        $("#userGrid").kendoGrid({
+            dataSource: {
+                transport: {
+                    read: {
+                        contentType: "application/json",
+                        url: dataUrl,
+                        dataType: "json"
+
+                    }
+                },
+                schema: {
+                    model: {
+                        id: "id",
+                        fields: {
+                            id: {
+                                type: "number"
+                            },
+                            name: {
+                                type: "string"
+                            },
+                            description: {
+                                type: "string"
+                            }
+
+
+                        }
+                    }
+                },
+                pageSize: 50
+
+            },
+            height: 500,
+            scrollable: true,
+            sortable: true,
+            filterable: false,
+            pageable: {
+                input: true,
+                numeric: false,
+            },
+            columns: [{
+                    selectable: true,
+                    width: "50px"
+                }, {
+                    field: "id",
+                    title: "Id",
+                    width: "50px"
+                },
+                {
+                    field: "name",
+                    title: "Policy Name"
+                },
+                {
+                    field: "description",
+                    title: "Description"
+                }
+            ]
+
+
+        })
+    });
+</script>
+}*@

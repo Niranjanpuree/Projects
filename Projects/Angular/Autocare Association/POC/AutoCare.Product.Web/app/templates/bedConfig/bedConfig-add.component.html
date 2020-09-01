@@ -1,0 +1,187 @@
+﻿<loading-gif [show]="showLoadingGif"></loading-gif>
+<!-- Breadcrumb start -->
+<div class="breadcrumb">
+    <div class="center">
+        <a routerLink="/system/search" class="back">Return to bed system search</a>
+    </div>
+</div>
+<!-- Breadcrumb end -->
+<!-- Main start -->
+<main class="with-sidemenu clearfix">
+
+    <div class="center">
+
+        <!-- Add bed system form start -->
+        <div class="add-form add-bed-system">
+            <h2>Add a Bed System</h2>
+            <div class="clearfix">
+                <div class="input-blocks clearfix">
+                    <div>
+                        <strong>Bed Length (ID)</strong>
+
+                        <div class="select white-select" style="width: 210px;">
+                            <select class="drop-download DropdownTypeOne" [disabled]="!bedLengths" [(ngModel)]="newBedConfig.bedLengthId">
+                                <option value="-1" *ngIf="!bedLengths">Loading...</option>
+                                <option value="-1" *ngIf="bedLengths">--Select Bed Length--</option>
+                                <option *ngFor="let item of bedLengths" [value]="item.id">{{item.length}} ({{item.id}})</option>
+                            </select>
+                            <div class="select__arrow white-select__arrow"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <strong>Bed Type (ID)</strong>
+
+                        <div class="select white-select" style="width: 180px;">
+                            <select class="drop-download DropdownTypeTwo" [disabled]="!bedTypes" [(ngModel)]="newBedConfig.bedTypeId">
+                                <option value="-1" *ngIf="!bedTypes">Loading...</option>
+                                <option value="-1" *ngIf="bedTypes">--Select Bed Type--</option>
+                                <option *ngFor="let item of bedTypes" [value]="item.id">{{item.name}} ({{item.id}})</option>
+                            </select>
+                            <div class="select__arrow white-select__arrow"></div>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+
+                <div class="submit-wrap">
+                    <input type="submit" value="ADD TO PROPOSED CHANGES" class="btn blue larger" (click)="onAddToProposedChanges()">
+                </div>
+
+                <div class="attach-wrap">
+                    <strong>OPTIONAL</strong>
+                    <ac-fileuploader upload-api-path="file/savechunk"></ac-fileuploader>
+                    <small>Include comments</small>
+                    <textarea cols="50" rows="5" [(ngModel)]="newBedConfig.comment"></textarea>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Proposed Base systems start -->
+        <div class="table-wrap">
+            <h2 class="clearfix">
+                Proposed Bed Systems
+            </h2>
+            <div class="ctable">
+                <table>
+                    <thead>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>Bed Length (ID)</td>
+                        <td>Bed Length Metric (ID)</td>
+                        <td>Bed Type (ID)</td>
+                        <td>Optional Info</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let bedConfig of proposedBedConfigs">
+                            <td><a class="btn-row-remove" (click)="onRemoveBedConfig(bedConfig)"></a></td>
+                            <td>{{ bedConfig.length }} ({{ bedConfig.bedLengthId }})</td>
+                            <td>{{ bedConfig.bedLengthMetric }}</td>
+                            <td>{{ bedConfig.bedTypeName }} ({{ bedConfig.bedTypeId }})</td>
+                           
+                            <td>
+                                <a class="box-icon attachment" title="Attachment" (click)=openAttachmentPopupModal(bedConfig)></a>
+                                <a class="box-icon drive-document" title="Drive Documents" (click)="openCommentPopupModal(bedConfig)"></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Submit and cancel button start -->
+            <div class="btns">
+                <input type="submit" value="SUBMIT CHANGE REQUESTS" class="btn  larger" (click)="onSubmitChangeRequests()" />
+                <input type="reset" value="CANCEL" class="btn larger transparent" routerLink="/system/search" />
+            </div>
+
+        </div>
+
+        <!-- Pending new bed system requests start -->
+        <div class="table-wrap">
+            <h2 class="clearfix">
+                Pending New Bed System Requests
+            </h2>
+            <div class="ctable">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Bed Length (ID)</td>
+                            <td>Bed Length Metric</td>
+                            <td>Bed Type (ID)</td>
+                            <td>Optional Info</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let bedConfig of pendingBedConfigChangeRequests">
+                            <td>{{ bedConfig.length }} ({{ bedConfig.bedLengthId }})</td>
+                            <td>{{ bedConfig.bedLengthMetric }}</td>
+                            <td>{{ bedConfig.bedTypeName }} ({{ bedConfig.bedTypeId }})</td>
+                            <td *ngIf="bedConfig.changeRequestId">
+                                <a class="btn-r-arrow blue" (click)="onViewBedSystemCr(bedConfig)" style="cursor: pointer;"> View</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</main>
+<!-- Main end -->
+<div class="popup">
+    <modal #commentPopupModel>
+        <div class="overlay dark show">
+            <div class="new-make modal-sm">
+                <a (click)="commentPopupModel.dismiss()" class="close"></a>
+                <div class="add-form">
+                    <h2>Edit Comment</h2>
+                    <div class="clearfix">
+                        <div class="attach-wrap">
+                            <small>comments</small>
+                            <textarea cols="50" rows="5" [(ngModel)]="bedConfig.comment"></textarea>
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        <!-- Submit and cancel button start -->
+                        <div class="btns">
+                            <input type="button" value="CANCEL" class="btn transparent" (click)="commentPopupModel.dismiss()">
+                            <input type="submit" value="CONFIRM" class="btn" (click)="onCommentConfirm()">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </modal>
+</div>
+<div class="popup">
+    <modal #attachmentsPopupModel>
+        <div class="overlay dark show">
+            <div class="new-make modal-sm">
+                <a (click)="onAttachmentCancel()" class="close"></a>
+                <div class="add-form">
+                    <h2>Edit attachments</h2>
+                    <div class="clearfix">
+                        <div class="attach-wrap">
+                            <p *ngIf="bedConfig.attachments">
+                                <strong>Attachments</strong><br>
+                                <ac-fileuploader [existing-files]="bedConfig.attachments"
+                                                 upload-api-path="file/savechunk" #attachmentsPopupAcFileUploader="acFileUploader" [can-attach]="true"></ac-fileuploader>
+                            </p>
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        <!-- Submit and cancel button start -->
+                        <div class="btns">
+                            <input type="button" value="CANCEL" class="btn transparent" (click)="onAttachmentCancel()">
+                            <input type="submit" value="CONFIRM" class="btn" (click)="onAttachmentConfirm()">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </modal>
+</div>

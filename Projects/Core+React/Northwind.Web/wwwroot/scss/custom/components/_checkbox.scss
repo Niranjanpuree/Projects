@@ -1,0 +1,43 @@
+.k-checkbox {
+    border-color: $primary;
+
+    &:checked+.k-checkbox-label::after {
+        transform: scale(0.6);
+    }
+
+    &:focus+.k-checkbox-label:before {
+        box-shadow: none;
+    }
+}
+
+.k-checkbox,
+.k-radio {
+   
+
+    &-label {
+        &:before {
+            border: 2px solid $gray-400;
+            background: $gray-100;
+        }
+        &:after{
+            transition: 0.1s ease-in-out;
+            transform: scale(0);
+        }
+    }
+}
+
+.k-radio {
+    display: none;
+
+    &:checked+.k-radio-label {
+        &:after {
+            background: $primary;
+            transform: scale(1);
+        }
+
+        &:before {
+            background: transparent;
+            border: 2px solid $primary
+        }
+    }
+}

@@ -1,0 +1,1 @@
+INSERT INTO [BaseFilePath] (BasePath,code,FileType,Description) VALUES('C:\Users\Santosh Aryal\Source\Repos\ESS-Web\src\DBMigration\flyway-5.2.4\DataSourceCSV\','csv','csv','CSV file for data migration')

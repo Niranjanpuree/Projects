@@ -1,0 +1,65 @@
+@import "node_modules/bootstrap/scss/functions";
+@import "../vendor/bootstrap_variables";
+@import "node_modules/bootstrap/scss/mixins/_breakpoints";
+
+%container {
+    padding: 15px;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+%ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+$color-primary: $primary;
+$color-secondary:$gray-400;
+
+// Kendo Color variable 
+$accent: $color-primary;
+
+$primary-alt:#00415E;
+$primary: $color-primary;
+$secondary: $gray-400;
+$success: $green;
+$info: $cyan;
+$warning: $yellow;
+$danger: $red;
+$light: $gray-100;
+$dark: $gray-800;
+
+
+
+$theme-colors: ("primary": $color-primary,
+    "secondary": $secondary,
+    "success": $success,
+    "info": $info,
+    "warning": $warning,
+    "danger": $danger,
+    "light": $light,
+    "dark": $dark);
+
+
+$navbar-active:$gray-300;
+
+
+
+%k-icon {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-size: 16px;
+    font-family: 'WebComponentsIcons';
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    line-height: 1;
+    speak: none;
+    text-transform: none;
+    text-decoration: none;
+    display: inline-block;
+    vertical-align: middle;
+}

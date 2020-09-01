@@ -1,0 +1,70 @@
+﻿@model Northwind.Web.Models.ViewModels.OfficeContactViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+
+            <label class="control-label control-label-read">
+                Customer Name
+            </label>
+            <h5>
+                @Model.OfficeName
+            </h5>
+        </div>
+    </div>
+    <div class="col-md-6 hide">
+        <div class="form-group">
+            <label class="control-label control-label-read">
+                Full Name
+            </label>
+            <h5>
+                @(Model.FirstName + " " + Model.MiddleName + " " + Model.LastName )
+            </h5>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label control-label-read">
+                Contact Type
+            </label>
+            <h5>
+                @Model.ContactTypeName
+            </h5>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label control-label-read">
+                Contact Number
+            </label>
+            <h5>
+                @(Model.PhoneNumber + ", " + Model.AltPhoneNumber)
+            </h5>
+        </div>
+    </div>
+    <div class="col-md-6 hideDivIfValueNotFound" id="@Model.EmailAddress">
+        <div class="form-group">
+            <label class="control-label control-label-read">
+                Email Address
+            </label>
+            <h5>
+                @(Model.EmailAddress + ", " + Model.AltEmailAddress)
+            </h5>
+        </div>
+    </div>
+    <div class="form-groupDivIfValueNotFound" id="@Model.Address">
+        <label class="control-label control-label-read">
+            Address
+        </label>
+        <h5>
+            @Model.Address
+        </h5>
+    </div>
+    <div class="form-group      <label class="control-label control-label-read hideDivIfValueNotFound" id="@Model.Description">
+            Description
+        </label>
+        <h5>
+            @Model.Description
+        </h5>
+    </div>
+</div>

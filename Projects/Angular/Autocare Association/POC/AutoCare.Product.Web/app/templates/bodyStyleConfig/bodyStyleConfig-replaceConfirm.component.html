@@ -1,0 +1,115 @@
+﻿<loading-gif [show]="showLoadingGif"></loading-gif>
+<!-- Breadcrumb start -->
+<div class="breadcrumb">
+    <div class="center">
+        <a class="back" routerLink="/system/search">Return to body system search</a>
+    </div>
+</div>
+<!-- Breadcrumb end -->
+<!-- Main start -->
+<main class="clearfix">
+
+    <div class="center" *ngIf="existingBodyStyleConfig && replacementBodyStyleConfig">
+
+        <!-- Existing Body systems start -->
+        <div class="table-wrap">
+            <h2 class="clearfix">
+                Existing Body Systems
+            </h2>
+            <div class="ctable">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Body Style Config ID</td>
+                            <td>Body Num Doors (ID)</td>
+                            <td>Body Type (ID)</td>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="existingBodyStyleConfig">
+                        <tr>
+                            <td>{{existingBodyStyleConfig.id}}</td>
+                            <td>{{existingBodyStyleConfig.numDoors}} ({{existingBodyStyleConfig.bodyNumDoorsId}})</td>
+                            <td>{{existingBodyStyleConfig.bodyTypeName}} ({{existingBodyStyleConfig.bodyTypeId}})</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Replacement Body systems start -->
+        <div class="table-wrap">
+            <h2 class="clearfix">
+                Replacement Body Systems
+            </h2>
+            <div class="ctable">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Body Style Config ID</td>
+                            <td>Body Num Doors (ID)</td>
+                            <td>Body Type (ID)</td>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="replacementBodyStyleConfig">
+                        <tr>
+                            <td>{{replacementBodyStyleConfig.id}}</td>
+                            <td>{{replacementBodyStyleConfig.numDoors}} ({{replacementBodyStyleConfig.bodyNumDoorsId}})</td>
+                            <td>{{replacementBodyStyleConfig.bodyTypeName}} ({{replacementBodyStyleConfig.bodyTypeId}})</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Associations to replace start -->
+        <div class="table-wrap">
+            <h2 class="clearfix">
+                Associations to Replace
+            </h2>
+            <div class="ctable" *ngIf="existingBodyStyleConfig && existingBodyStyleConfig.vehicleToBodyStyleConfigs">
+                <ac-grid [dataSource]="existingBodyStyleConfig.vehicleToBodyStyleConfigs" #gd="acGrid"
+                          columns='[
+                 { "header":"Vehicle to Body Style Config ID","field":"id","sortable":false,"sortedByDesc":true},
+                 { "header":"Body Style Config ID","field":"bodyStyleConfigId","sortable":false,"sortedByDesc":true},
+                 { "header":"Base Vehicle (Year, Make, Model)","field":"vehicle.yearId","sortable":true},
+                 { "header":"Vehicle (Submodel, Region)","field":"vehicle.subModelName","sortable":true},
+                 { "header":"Body Number Door(ID)","field":"bodyStyleConfig.numDoors","sortable":true},
+                 { "header":"Body Type (ID)", "field":"bodyStyleConfig.bodyTypeName", "sortable":true}
+                 ]'
+                         initialSortBy='[{"field": "id", "orderByDesc": true}]'
+                         paging='{"pageSize": 10, "numberOfPagesOnPageList" : 10}'>
+                    <tr *ngFor="let vechicleToBodyStyleConfig of gd.items">
+	                    <td>{{vechicleToBodyStyleConfig.id}}</td>
+                        <td>{{vechicleToBodyStyleConfig.bodyStyleConfigId}}</td>
+                        <td>{{vechicleToBodyStyleConfig.vehicle.yearId}}, {{vechicleToBodyStyleConfig.vehicle.makeName}}, {{vechicleToBodyStyleConfig.vehicle.modelName}}</td>
+                        <td>{{vechicleToBodyStyleConfig.vehicle.subModelName}}, {{vechicleToBodyStyleConfig.vehicle.regionName}}</td>
+                        <td>{{vechicleToBodyStyleConfig.bodyStyleConfig.numDoors}} ({{vechicleToBodyStyleConfig.bodyStyleConfig.bodyNumDoorsId}})</td>
+                        <td>{{vechicleToBodyStyleConfig.bodyStyleConfig.bodyTypeName}} ({{vechicleToBodyStyleConfig.bodyStyleConfig.bodyTypeId}})</td>
+
+                    </tr>
+                </ac-grid>
+            </div>
+
+        </div>
+
+        <div class="add-form">
+            <div class="clearfix">
+
+                <div class="submit-wrap">
+                    <input type="submit" value="SUBMIT CHANGE REQUEST" class="btn larger" (click)="onSubmitChangeRequest()">
+                    <input type="reset" value="CANCEL" class="btn transparent larger" routerLink="/system/search">
+                </div>
+
+                <div class="attach-wrap" style="margin-top: 40px;">
+                    <strong>OPTIONAL</strong>
+                    <ac-fileuploader upload-api-path="file/savechunk"></ac-fileuploader>
+                    <small>Include Comments</small>
+                    <textarea cols="50" rows="5" [(ngModel)]="existingBodyStyleConfig.comment"></textarea>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</main>
+<!-- Main end -->

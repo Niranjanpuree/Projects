@@ -1,0 +1,116 @@
+﻿@model Northwind.Web.Models.ViewModels.FarClause.FarContractViewModel
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+@{
+    var resourceVersion = @Configuration["resourceVersion"];
+    var cdnUrl = @Configuration["CDNUrl"];
+}
+
+<form asp-action="_FormModel" class="col-md-12">
+    <input type="hidden" asp-for="ContractGuid" class="form-control" />
+    <div class="row">
+        <div class="col-md-6">
+            <ul class="panelBody">
+                <li class="k-state-active">
+                    <span class="k-link k-state-selected">Required FAR Clauses</span>
+                    <p class="p-3 mb-0">
+                        The FAR Clauses were automatically selected based upon your selection of the FAR Contract Type (@Model.FarContractTypeName (@Model.FarContractTypeCode)).
+                        If you are unable to find FAR Contract Type that you are looking for, please submit a Help Desk ticket.
+                    </p>
+                    <partial name="_RequiredClauses.cshtml" />
+                </li>
+            </ul>
+            <div class="mt-4">
+                    <ul class="panelBody">
+                        <li class="k-state-active">
+                            <span class="k-link k-state-selected">Applicable FAR Clauses</span>
+                            <p class="p-3 mb-0">
+                                Please complete the appropriate FAR Clause selection below.  Multiple FAR Clauses may be selected.  The list below includes all 
+                                FAR clauses that are marked as Applicable or Optional in the required FAR Clause Matrix that is set up by the contracts team. 
+                                If you are unable to find FAR Clause that you are looking for, please submit a Help Desk ticket.
+                            </p>
+                            <partial name="_ApplicableClauses.cshtml" />
+                        </li>
+                    </ul>
+                </div>
+        </div>
+        <div class="col-md-6">
+            <ul class="panelBody mb-3">
+                <li class="k-state-active">
+                    <span class="k-link k-state-selected">Contract Special Provisions</span>
+                    <p class="p-3 mb-0">
+                        Please answer each of the questions below.  The answers will be used when printing the Contract Brief for DCAA.
+                    </p>
+                    <partial name="_ContractQuestionaire.cshtml" />
+
+                </li>
+            </ul>
+        </div>
+    </div>
+    <br />
+   
+</form>
+
+
+<script src="@cdnUrl/js/proj/contractQuestionaries.js?v=@resourceVersion"></script>
+<script>
+    $(document).ready(function () {
+
+    getAjax();
+    loadMultiSelect();
+
+    function getAjax() {
+        var ids = [];
+        var contractGuid = '@Model.ContractGuid';
+        var dataUrl = "/FarContract/GetSelectedFarContract?id=" + contractGuid;
+        $.ajax({
+            dataType: 'json',
+            type: "GET",
+            url: dataUrl,
+            success: function (data) {
+                if (data.length > 0) {
+                    for (var i = 0; i < data.length; i++) {
+                        ids.push(data[i].id);
+                    }
+                }
+                if (ids.length > 0) {
+                    $("#selectList").getKendoMultiSelect().value(ids);
+                }
+            }
+        });
+    }
+
+    function loadMultiSelect() {
+        var contractGuid = '@Model.ContractGuid';
+        var dataUrl = "/FarContract/GetFarContract?id=" + contractGuid;
+        $("#selectList").kendoMultiSelect({
+            placeholder: "Select ...",
+            dataTextField: "title",
+            dataValueField: "id",
+            autoBind: false,
+            autoClose: false,
+            dataSource: {
+                type: "json",
+                transport: {
+                    read: {
+                        url: dataUrl,
+                    }
+                },
+                schema: {
+                    model: {
+                        fields: {
+                            Title: { type: "string" },
+                            Id: { type: "string" }
+                        }
+                    }
+                },
+                //pageSize: 10,
+                serverPaging: false,
+                serverFiltering: false
+            }
+        });
+    }
+
+});
+</script>
+
